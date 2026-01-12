@@ -1,0 +1,1851 @@
+1: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331631; Sample name: rPBAT.C180.3; SRA: SRS20103121
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331631	ID: 39331631
+
+2: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331630; Sample name: rPBAT.C180.2; SRA: SRS20103120
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331630	ID: 39331630
+
+3: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331629; Sample name: rPBAT.C180.1; SRA: SRS20103119
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331629	ID: 39331629
+
+4: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331628; Sample name: rPLA.C180.3; SRA: SRS20103118
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331628	ID: 39331628
+
+5: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331627; Sample name: rPLA.C180.2; SRA: SRS20103117
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331627	ID: 39331627
+
+6: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331626; Sample name: rPLA.C180.1; SRA: SRS20103116
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331626	ID: 39331626
+
+7: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331625; Sample name: rLDPE.C180.3; SRA: SRS20103115
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331625	ID: 39331625
+
+8: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331624; Sample name: rLDPE.C180.2; SRA: SRS20103114
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331624	ID: 39331624
+
+9: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331623; Sample name: rLDPE.C180.1; SRA: SRS20103113
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331623	ID: 39331623
+
+10: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331622; Sample name: rCtrl.C180.3; SRA: SRS20103112
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331622	ID: 39331622
+
+11: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331621; Sample name: rCtrl.C180.2; SRA: SRS20103111
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331621	ID: 39331621
+
+12: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331620; Sample name: rCtrl.C180.1; SRA: SRS20103110
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C180"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331620	ID: 39331620
+
+13: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331619; Sample name: PBAT.C180.3; SRA: SRS20103060
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331619	ID: 39331619
+
+14: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331618; Sample name: PBAT.C180.2; SRA: SRS20103059
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331618	ID: 39331618
+
+15: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331617; Sample name: PBAT.C180.1; SRA: SRS20103058
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331617	ID: 39331617
+
+16: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331616; Sample name: PLA.C180.3; SRA: SRS20103057
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331616	ID: 39331616
+
+17: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331615; Sample name: PLA.C180.2; SRA: SRS20103056
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331615	ID: 39331615
+
+18: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331614; Sample name: PLA.C180.1; SRA: SRS20103055
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331614	ID: 39331614
+
+19: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331613; Sample name: LDPE.C180.3; SRA: SRS20103054
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331613	ID: 39331613
+
+20: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331612; Sample name: LDPE.C180.2; SRA: SRS20103053
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331612	ID: 39331612
+
+21: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331611; Sample name: LDPE.C180.1; SRA: SRS20103052
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331611	ID: 39331611
+
+22: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331610; Sample name: Ctrl.C180.3; SRA: SRS20103051
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331610	ID: 39331610
+
+23: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331609; Sample name: Ctrl.C180.2; SRA: SRS20103049
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331609	ID: 39331609
+
+24: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331608; Sample name: Ctrl.C180.1; SRA: SRS20103048
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2023-04"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C180"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331608	ID: 39331608
+
+25: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331607; Sample name: rPBAT.C60.3; SRA: SRS20103046
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331607	ID: 39331607
+
+26: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331606; Sample name: rPBAT.C60.2; SRA: SRS20103045
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331606	ID: 39331606
+
+27: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331605; Sample name: rPBAT.C60.1; SRA: SRS20103043
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331605	ID: 39331605
+
+28: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331604; Sample name: rPLA.C60.3; SRA: SRS20103044
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331604	ID: 39331604
+
+29: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331603; Sample name: rPLA.C60.2; SRA: SRS20103042
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331603	ID: 39331603
+
+30: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331602; Sample name: rPLA.C60.1; SRA: SRS20103041
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331602	ID: 39331602
+
+31: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331601; Sample name: rLDPE.C60.3; SRA: SRS20103047
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331601	ID: 39331601
+
+32: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331600; Sample name: rLDPE.C60.2; SRA: SRS20103040
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331600	ID: 39331600
+
+33: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331599; Sample name: rLDPE.C60.1; SRA: SRS20103167
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331599	ID: 39331599
+
+34: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331598; Sample name: rCtrl.C60.3; SRA: SRS20103168
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331598	ID: 39331598
+
+35: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331597; Sample name: rCtrl.C60.2; SRA: SRS20103166
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331597	ID: 39331597
+
+36: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331596; Sample name: rCtrl.C60.1; SRA: SRS20103165
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C60"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331596	ID: 39331596
+
+37: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331595; Sample name: PBAT.C60.3; SRA: SRS20103164
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331595	ID: 39331595
+
+38: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331594; Sample name: PBAT.C60.2; SRA: SRS20103162
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331594	ID: 39331594
+
+39: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331593; Sample name: PBAT.C60.1; SRA: SRS20103163
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331593	ID: 39331593
+
+40: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331592; Sample name: PLA.C60.3; SRA: SRS20103161
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331592	ID: 39331592
+
+41: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331591; Sample name: PLA.C60.2; SRA: SRS20103159
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331591	ID: 39331591
+
+42: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331590; Sample name: PLA.C60.1; SRA: SRS20103160
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331590	ID: 39331590
+
+43: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331589; Sample name: LDPE.C60.3; SRA: SRS20103158
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331589	ID: 39331589
+
+44: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331588; Sample name: LDPE.C60.2; SRA: SRS20103107
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331588	ID: 39331588
+
+45: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331587; Sample name: LDPE.C60.1; SRA: SRS20103108
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331587	ID: 39331587
+
+46: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331586; Sample name: Ctrl.C60.3; SRA: SRS20103106
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331586	ID: 39331586
+
+47: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331585; Sample name: Ctrl.C60.2; SRA: SRS20103081
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331585	ID: 39331585
+
+48: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331584; Sample name: Ctrl.C60.1; SRA: SRS20103104
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-11"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C60"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331584	ID: 39331584
+
+49: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331583; Sample name: rPBAT.C15.3; SRA: SRS20103105
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331583	ID: 39331583
+
+50: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331582; Sample name: rPBAT.C15.2; SRA: SRS20103103
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331582	ID: 39331582
+
+51: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331581; Sample name: rPBAT.C15.1; SRA: SRS20103102
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331581	ID: 39331581
+
+52: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331580; Sample name: rPLA.C15.3; SRA: SRS20103101
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331580	ID: 39331580
+
+53: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331579; Sample name: rPLA.C15.2; SRA: SRS20103099
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331579	ID: 39331579
+
+54: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331578; Sample name: rPLA.C15.1; SRA: SRS20103096
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331578	ID: 39331578
+
+55: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331577; Sample name: rLDPE.C15.3; SRA: SRS20103100
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331577	ID: 39331577
+
+56: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331576; Sample name: rLDPE.C15.2; SRA: SRS20103097
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331576	ID: 39331576
+
+57: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331575; Sample name: rLDPE.C15.1; SRA: SRS20103095
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331575	ID: 39331575
+
+58: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331574; Sample name: rCtrl.C15.3; SRA: SRS20103094
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331574	ID: 39331574
+
+59: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331573; Sample name: rCtrl.C15.2; SRA: SRS20103093
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331573	ID: 39331573
+
+60: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331572; Sample name: rCtrl.C15.1; SRA: SRS20103092
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C15"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331572	ID: 39331572
+
+
+61: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331571; Sample name: PBAT.C15.3; SRA: SRS20103091
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331571	ID: 39331571
+
+62: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331570; Sample name: PBAT.C15.2; SRA: SRS20103090
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331570	ID: 39331570
+
+63: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331569; Sample name: PBAT.C15.1; SRA: SRS20103089
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331569	ID: 39331569
+
+64: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331568; Sample name: PLA.C15.3; SRA: SRS20103087
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331568	ID: 39331568
+
+65: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331567; Sample name: PLA.C15.2; SRA: SRS20103086
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331567	ID: 39331567
+
+66: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331566; Sample name: PLA.C15.1; SRA: SRS20103156
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331566	ID: 39331566
+
+67: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331565; Sample name: LDPE.C15.3; SRA: SRS20103155
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331565	ID: 39331565
+
+68: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331564; Sample name: LDPE.C15.2; SRA: SRS20103154
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331564	ID: 39331564
+
+69: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331563; Sample name: LDPE.C15.1; SRA: SRS20103153
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331563	ID: 39331563
+
+70: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331562; Sample name: Ctrl.C15.3; SRA: SRS20103152
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331562	ID: 39331562
+
+71: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331561; Sample name: Ctrl.C15.2; SRA: SRS20103151
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331561	ID: 39331561
+
+72: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331560; Sample name: Ctrl.C15.1; SRA: SRS20103150
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-10"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C15"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331560	ID: 39331560
+
+73: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331559; Sample name: PBAT.C0.3; SRA: SRS20103148
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331559	ID: 39331559
+
+74: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331558; Sample name: PBAT.C0.2; SRA: SRS20103147
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331558	ID: 39331558
+
+75: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331557; Sample name: PBAT.C0.1; SRA: SRS20103146
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331557	ID: 39331557
+
+76: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331556; Sample name: PLA.C0.3; SRA: SRS20103145
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331556	ID: 39331556
+
+77: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331555; Sample name: PLA.C0.2; SRA: SRS20103144
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331555	ID: 39331555
+
+78: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331554; Sample name: PLA.C0.1; SRA: SRS20103142
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331554	ID: 39331554
+
+79: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331553; Sample name: LDPE.C0.3; SRA: SRS20103143
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331553	ID: 39331553
+
+80: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331552; Sample name: LDPE.C0.2; SRA: SRS20103141
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331552	ID: 39331552
+
+81: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331551; Sample name: LDPE.C0.1; SRA: SRS20103140
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331551	ID: 39331551
+
+82: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331550; Sample name: Ctrl.C0.3; SRA: SRS20103139
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331550	ID: 39331550
+
+83: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331549; Sample name: Ctrl.C0.2; SRA: SRS20103137
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331549	ID: 39331549
+
+84: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331548; Sample name: Ctrl.C0.1; SRA: SRS20103136
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm cast"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="C0"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331548	ID: 39331548
+
+85: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331547; Sample name: rPBAT.Gut.3; SRA: SRS20103135
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331547	ID: 39331547
+
+86: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331546; Sample name: rPBAT.Gut.2; SRA: SRS20103134
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331546	ID: 39331546
+
+87: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331545; Sample name: rPBAT.Gut.1; SRA: SRS20103133
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331545	ID: 39331545
+
+88: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331544; Sample name: rPLA.Gut.3; SRA: SRS20103085
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331544	ID: 39331544
+
+89: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331543; Sample name: rPLA.Gut.2; SRA: SRS20103083
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331543	ID: 39331543
+
+90: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331542; Sample name: rPLA.Gut.1; SRA: SRS20103084
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331542	ID: 39331542
+
+91: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331541; Sample name: rLDPE.Gut.4; SRA: SRS20103082
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331541	ID: 39331541
+
+92: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331540; Sample name: rLDPE.Gut.3; SRA: SRS20103080
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331540	ID: 39331540
+
+93: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331539; Sample name: rLDPE.Gut.1; SRA: SRS20103078
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331539	ID: 39331539
+
+94: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331538; Sample name: rCtrl.Gut.3; SRA: SRS20103077
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331538	ID: 39331538
+
+95: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331537; Sample name: rCtrl.Gut.2; SRA: SRS20103076
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331537	ID: 39331537
+
+96: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331536; Sample name: rCtrl.Gut.1; SRA: SRS20103075
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Gut"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331536	ID: 39331536
+
+97: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331535; Sample name: PBAT.Gut.3; SRA: SRS20103074
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331535	ID: 39331535
+
+98: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331534; Sample name: PBAT.Gut.2; SRA: SRS20103072
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331534	ID: 39331534
+
+99: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331533; Sample name: PBAT.Gut.1; SRA: SRS20103073
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331533	ID: 39331533
+
+100: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331532; Sample name: PLA.Gut.3; SRA: SRS20103071
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331532	ID: 39331532
+
+101: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331531; Sample name: PLA.Gut.2; SRA: SRS20103070
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331531	ID: 39331531
+
+102: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331530; Sample name: PLA.Gut.1; SRA: SRS20103069
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331530	ID: 39331530
+
+103: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331529; Sample name: LDPE.Gut.3; SRA: SRS20103064
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331529	ID: 39331529
+
+104: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331528; Sample name: LDPE.Gut.2; SRA: SRS20103066
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331528	ID: 39331528
+
+105: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331527; Sample name: LDPE.Gut.1; SRA: SRS20103065
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331527	ID: 39331527
+
+106: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331526; Sample name: Ctrl.Gut.3; SRA: SRS20103067
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331526	ID: 39331526
+
+107: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331525; Sample name: Ctrl.Gut.2; SRA: SRS20103062
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331525	ID: 39331525
+
+108: Metagenome or environmental sample from invertebrate gut metagenome
+Identifiers: BioSample: SAMN39331524; Sample name: Ctrl.Gut.1; SRA: SRS20103063
+Organism: invertebrate gut metagenome
+Attributes:
+    /isolation source="Earthworm gut content"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Gut"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331524	ID: 39331524
+
+109: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331523; Sample name: rPBAT.Soil.3; SRA: SRS20103061
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331523	ID: 39331523
+
+110: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331522; Sample name: rPBAT.Soil.2; SRA: SRS20103132
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331522	ID: 39331522
+
+111: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331521; Sample name: rPBAT.Soil.1; SRA: SRS20103131
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331521	ID: 39331521
+
+112: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331520; Sample name: rPLA.Soil.3; SRA: SRS20103130
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331520	ID: 39331520
+
+113: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331519; Sample name: rPLA.Soil.2; SRA: SRS20103128
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331519	ID: 39331519
+
+114: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331518; Sample name: rPLA.Soil.1; SRA: SRS20103127
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331518	ID: 39331518
+
+115: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331517; Sample name: rLDPE.Soil.3; SRA: SRS20103126
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331517	ID: 39331517
+
+116: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331516; Sample name: rLDPE.Soil.2; SRA: SRS20103125
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331516	ID: 39331516
+
+117: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331515; Sample name: rLDPE.Soil.1; SRA: SRS20103124
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331515	ID: 39331515
+
+118: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331514; Sample name: rCtrl.Soil.3; SRA: SRS20103123
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="3"
+Accession: SAMN39331514	ID: 39331514
+
+119: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331513; Sample name: rCtrl.Soil.2; SRA: SRS20103122
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="2"
+Accession: SAMN39331513	ID: 39331513
+
+120: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331512; Sample name: rCtrl.Soil.1; SRA: SRS20103109
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Soil"
+    /Type="RNA"
+    /Replicate="1"
+Accession: SAMN39331512	ID: 39331512
+
+
+121: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331511; Sample name: PBAT.Soil.3; SRA: SRS20103050
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331511	ID: 39331511
+
+122: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331510; Sample name: PBAT.Soil.2; SRA: SRS20103039
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331510	ID: 39331510
+
+123: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331509; Sample name: PBAT.Soil.1; SRA: SRS20103157
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PBAT"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331509	ID: 39331509
+
+124: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331508; Sample name: PLA.Soil.3; SRA: SRS20103098
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331508	ID: 39331508
+
+125: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331507; Sample name: PLA.Soil.2; SRA: SRS20103088
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331507	ID: 39331507
+
+126: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331506; Sample name: PLA.Soil.1; SRA: SRS20103149
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="PLA"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331506	ID: 39331506
+
+127: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331505; Sample name: LDPE.Soil.3; SRA: SRS20103138
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331505	ID: 39331505
+
+128: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331504; Sample name: LDPE.Soil.2; SRA: SRS20103079
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331504	ID: 39331504
+
+129: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331503; Sample name: LDPE.Soil.1; SRA: SRS20103068
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="LDPE"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331503	ID: 39331503
+
+130: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331502; Sample name: Ctrl.Soil.3; SRA: SRS20103129
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="3"
+Accession: SAMN39331502	ID: 39331502
+
+131: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331501; Sample name: Ctrl.Soil.2; SRA: SRS20103038
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="2"
+Accession: SAMN39331501	ID: 39331501
+
+132: Metagenome or environmental sample from soil metagenome
+Identifiers: BioSample: SAMN39331500; Sample name: Ctrl.Soil.1; SRA: SRS20103037
+Organism: soil metagenome
+Attributes:
+    /isolation source="soil"
+    /collection date="2022-09"
+    /geographic location="Netherlands"
+    /latitude and longitude="not collected"
+    /treatment="Control"
+    /Niche="Soil"
+    /Type="DNA"
+    /Replicate="1"
+Accession: SAMN39331500	ID: 39331500
+
+

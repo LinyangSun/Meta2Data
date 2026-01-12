@@ -1,0 +1,22 @@
+1: Microbe sample from Bacillus velezensis
+Identifiers: BioSample: SAMN19587836; Sample name: Bacillus velezensis strain GMEKP1; SRA: SRS9152682
+Organism: Bacillus velezensis
+Attributes:
+    /strain="GMEKP1"
+    /host="Trigona sp."
+    /collection date="2020-10-12"
+    /geographic location="Indonesia"
+    /sample type="cell culture"
+    /biomaterial provider="Indonesian Institute of Sciences"
+    /collected by="Ema Damayanti"
+    /culture collection="not provided"
+    /depth="0 meter"
+    /host tissue sampled="Bee nest"
+    /identified by="Arditya Galih Fathurrohmah"
+    /latitude and longitude="7.83229398 S 110.48097477 E"
+    /sample size="20 grams"
+    /temperature="30"
+    /missing="missing"
+Accession: SAMN19587836	ID: 19587836
+
+

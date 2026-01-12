@@ -1,0 +1,2282 @@
+1: EBC18
+Identifiers: BioSample: SAMN43091360; Sample name: EW-EBC18; SRA: SRS22293157
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2023-04-27"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC18"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091360	ID: 43091360
+
+2: EBC17
+Identifiers: BioSample: SAMN43091359; Sample name: EW-EBC17; SRA: SRS22293149
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2023-04-20"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC17"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091359	ID: 43091359
+
+3: EBC16
+Identifiers: BioSample: SAMN43091358; Sample name: EW-EBC16; SRA: SRS22293151
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2023-04-19"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC16"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091358	ID: 43091358
+
+4: EBC15
+Identifiers: BioSample: SAMN43091357; Sample name: EW-EBC15; SRA: SRS22293148
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2023-04-13"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC15"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091357	ID: 43091357
+
+5: EBC14
+Identifiers: BioSample: SAMN43091356; Sample name: EW-EBC14; SRA: SRS22293146
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2023-04-12"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC14"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091356	ID: 43091356
+
+6: EBC13
+Identifiers: BioSample: SAMN43091355; Sample name: EW-EBC13; SRA: SRS22293147
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2023-04-11"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC13"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091355	ID: 43091355
+
+7: EBC12
+Identifiers: BioSample: SAMN43091354; Sample name: EW-EBC12; SRA: SRS22293144
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2023-04-06"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC12"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091354	ID: 43091354
+
+8: EBC11
+Identifiers: BioSample: SAMN43091353; Sample name: EW-EBC11; SRA: SRS22293145
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-06"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC11"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091353	ID: 43091353
+
+9: EBC10
+Identifiers: BioSample: SAMN43091352; Sample name: EW-EBC10; SRA: SRS22293143
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-31"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC10"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091352	ID: 43091352
+
+10: EBC9
+Identifiers: BioSample: SAMN43091351; Sample name: EW-EBC9; SRA: SRS22293140
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-31"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC9"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091351	ID: 43091351
+
+11: EBC8
+Identifiers: BioSample: SAMN43091350; Sample name: EW-EBC8; SRA: SRS22293142
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-24"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC8"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091350	ID: 43091350
+
+12: EBC7
+Identifiers: BioSample: SAMN43091349; Sample name: EW-EBC7; SRA: SRS22293141
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-23"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC7"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091349	ID: 43091349
+
+13: EBC6
+Identifiers: BioSample: SAMN43091348; Sample name: EW-EBC6; SRA: SRS22293139
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-16"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC6"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091348	ID: 43091348
+
+14: EBC5
+Identifiers: BioSample: SAMN43091347; Sample name: EW-EBC5; SRA: SRS22293133
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-13"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC5"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091347	ID: 43091347
+
+15: EBC4
+Identifiers: BioSample: SAMN43091346; Sample name: EW-EBC4; SRA: SRS22293138
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-09"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC4"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091346	ID: 43091346
+
+16: EBC3
+Identifiers: BioSample: SAMN43091345; Sample name: EW-EBC3; SRA: SRS22293135
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-05"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC3"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091345	ID: 43091345
+
+17: EBC2
+Identifiers: BioSample: SAMN43091344; Sample name: EW-EBC2; SRA: SRS22293132
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-05-03"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC2"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091344	ID: 43091344
+
+18: EBC1
+Identifiers: BioSample: SAMN43091343; Sample name: EW-EBC1; SRA: SRS22293134
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-04-25"
+    /broad-scale environmental context="ENVO:01001406"
+    /local-scale environmental context="ENVO:01001406"
+    /environmental medium="ENVO:01001406"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-EBC1"
+Description:
+EBC
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091343	ID: 43091343
+
+19: 180
+Identifiers: BioSample: SAMN43091342; Sample name: EW-180; SRA: SRS22293136
+Organism: metagenome
+Attributes:
+    /sample type="Honey_bee"
+    /nest_id="NA"
+    /collection date="2023-04-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-180"
+Description:
+Honey bee
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091342	ID: 43091342
+
+20: 179
+Identifiers: BioSample: SAMN43091341; Sample name: EW-179; SRA: SRS22293131
+Organism: metagenome
+Attributes:
+    /sample type="Honey_bee"
+    /nest_id="NA"
+    /collection date="2023-04-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-179"
+Description:
+Honey bee
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091341	ID: 43091341
+
+21: 178
+Identifiers: BioSample: SAMN43091340; Sample name: EW-178; SRA: SRS22293183
+Organism: metagenome
+Attributes:
+    /sample type="Honey_bee"
+    /nest_id="NA"
+    /collection date="2023-04-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.91776520 S 138.60480192 E"
+    /source material identifiers="EW-178"
+Description:
+Honey bee
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091340	ID: 43091340
+
+22: 165
+Identifiers: BioSample: SAMN43091339; Sample name: EW-165; SRA: SRS22293182
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="10"
+    /collection date="2023-02-16"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-165"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091339	ID: 43091339
+
+23: 163
+Identifiers: BioSample: SAMN43091338; Sample name: EW-163; SRA: SRS22293180
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-163"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091338	ID: 43091338
+
+24: 162
+Identifiers: BioSample: SAMN43091337; Sample name: EW-162; SRA: SRS22293181
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-162"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091337	ID: 43091337
+
+25: 161
+Identifiers: BioSample: SAMN43091336; Sample name: EW-161; SRA: SRS22293179
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-161"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091336	ID: 43091336
+
+26: 160
+Identifiers: BioSample: SAMN43091335; Sample name: EW-160; SRA: SRS22293178
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-160"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091335	ID: 43091335
+
+27: 159
+Identifiers: BioSample: SAMN43091334; Sample name: EW-159; SRA: SRS22293177
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-159"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091334	ID: 43091334
+
+28: 158
+Identifiers: BioSample: SAMN43091333; Sample name: EW-158; SRA: SRS22293176
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-158"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091333	ID: 43091333
+
+29: 157
+Identifiers: BioSample: SAMN43091332; Sample name: EW-157; SRA: SRS22293174
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-157"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091332	ID: 43091332
+
+30: 156
+Identifiers: BioSample: SAMN43091331; Sample name: EW-156; SRA: SRS22293172
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-156"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091331	ID: 43091331
+
+31: 155
+Identifiers: BioSample: SAMN43091330; Sample name: EW-155; SRA: SRS22293175
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="27"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-155"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091330	ID: 43091330
+
+32: 134
+Identifiers: BioSample: SAMN43091329; Sample name: EW-134; SRA: SRS22293173
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="NA"
+    /collection date="2023-03-17"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-134"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091329	ID: 43091329
+
+33: 133
+Identifiers: BioSample: SAMN43091328; Sample name: EW-133; SRA: SRS22293169
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="NA"
+    /collection date="2023-03-18"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-133"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091328	ID: 43091328
+
+34: 132
+Identifiers: BioSample: SAMN43091327; Sample name: EW-132; SRA: SRS22293171
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="NA"
+    /collection date="2023-03-18"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-132"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091327	ID: 43091327
+
+35: 131
+Identifiers: BioSample: SAMN43091326; Sample name: EW-131; SRA: SRS22293166
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2023-03-20"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-131"
+Description:
+Sample_control
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091326	ID: 43091326
+
+36: 119
+Identifiers: BioSample: SAMN43091325; Sample name: EW-119; SRA: SRS22293168
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="15"
+    /collection date="2023-03-07"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-119"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091325	ID: 43091325
+
+37: 118
+Identifiers: BioSample: SAMN43091324; Sample name: EW-118; SRA: SRS22293167
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="15"
+    /collection date="2023-03-07"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-118"
+Description:
+Food
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091324	ID: 43091324
+
+38: 115
+Identifiers: BioSample: SAMN43091323; Sample name: EW-115; SRA: SRS22293165
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-02-15"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-115"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091323	ID: 43091323
+
+39: 114
+Identifiers: BioSample: SAMN43091322; Sample name: EW-114; SRA: SRS22293164
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-02-12"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-114"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091322	ID: 43091322
+
+40: 113
+Identifiers: BioSample: SAMN43091321; Sample name: EW-113; SRA: SRS22293247
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-02-07"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-113"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091321	ID: 43091321
+
+41: 112
+Identifiers: BioSample: SAMN43091320; Sample name: EW-112; SRA: SRS22293245
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-02-06"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-112"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091320	ID: 43091320
+
+42: 111
+Identifiers: BioSample: SAMN43091319; Sample name: EW-111; SRA: SRS22293243
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-02-04"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-111"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091319	ID: 43091319
+
+43: 110
+Identifiers: BioSample: SAMN43091318; Sample name: EW-110; SRA: SRS22293244
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-02-02"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-110"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091318	ID: 43091318
+
+44: 109
+Identifiers: BioSample: SAMN43091317; Sample name: EW-109; SRA: SRS22293240
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-01-31"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-109"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091317	ID: 43091317
+
+45: 108
+Identifiers: BioSample: SAMN43091316; Sample name: EW-108; SRA: SRS22293241
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-01-31"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-108"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091316	ID: 43091316
+
+46: 107
+Identifiers: BioSample: SAMN43091315; Sample name: EW-107; SRA: SRS22293239
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2023-01-31"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-107"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091315	ID: 43091315
+
+47: 106
+Identifiers: BioSample: SAMN43091314; Sample name: EW-106; SRA: SRS22293242
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="2"
+    /collection date="2023-01-27"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-106"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091314	ID: 43091314
+
+48: 105
+Identifiers: BioSample: SAMN43091313; Sample name: EW-105; SRA: SRS22293233
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="2"
+    /collection date="2023-01-27"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-105"
+Description:
+Adults - nest eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091313	ID: 43091313
+
+49: 103
+Identifiers: BioSample: SAMN43091312; Sample name: EW-103; SRA: SRS22293237
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="12"
+    /collection date="2023-01-24"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-103"
+Description:
+Adults - sterile eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091312	ID: 43091312
+
+50: 100
+Identifiers: BioSample: SAMN43091311; Sample name: EW-100; SRA: SRS22293238
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="8"
+    /collection date="2022-01-23"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-100"
+Description:
+Adults - sterile eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091311	ID: 43091311
+
+51: 99
+Identifiers: BioSample: SAMN43091310; Sample name: EW-99; SRA: SRS22293231
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="12"
+    /collection date="2023-01-23"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-99"
+Description:
+Adults - sterile eclosion
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091310	ID: 43091310
+
+52: 94
+Identifiers: BioSample: SAMN43091309; Sample name: EW-94; SRA: SRS22293229
+Organism: metagenome
+Attributes:
+    /sample type="Nest_contents"
+    /nest_id="NA"
+    /collection date="2021-12-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-94"
+Description:
+CocoonFrass
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091309	ID: 43091309
+
+53: 92
+Identifiers: BioSample: SAMN43091308; Sample name: EW-92; SRA: SRS22293236
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="NA"
+    /collection date="2021-12-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-92"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091308	ID: 43091308
+
+54: 91
+Identifiers: BioSample: SAMN43091307; Sample name: EW-91; SRA: SRS22293230
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="NA"
+    /collection date="2021-12-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-91"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091307	ID: 43091307
+
+55: 90
+Identifiers: BioSample: SAMN43091306; Sample name: EW-90; SRA: SRS22293235
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="5"
+    /collection date="2022-03-03"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-90"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091306	ID: 43091306
+
+56: 89
+Identifiers: BioSample: SAMN43091305; Sample name: EW-89; SRA: SRS22293232
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="4"
+    /collection date="2022-02-26"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-89"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091305	ID: 43091305
+
+57: 88
+Identifiers: BioSample: SAMN43091304; Sample name: EW-88; SRA: SRS22293227
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="3"
+    /collection date="2022-02-24"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-88"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091304	ID: 43091304
+
+58: 87
+Identifiers: BioSample: SAMN43091303; Sample name: EW-87; SRA: SRS22293228
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="2"
+    /collection date="2022-02-23"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-87"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091303	ID: 43091303
+
+59: 86
+Identifiers: BioSample: SAMN43091302; Sample name: EW-86; SRA: SRS22293226
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="1"
+    /collection date="2022-02-12"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-86"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091302	ID: 43091302
+
+60: 84
+Identifiers: BioSample: SAMN43091301; Sample name: EW-84; SRA: SRS22293225
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-84"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091301	ID: 43091301
+
+
+61: 83
+Identifiers: BioSample: SAMN43091300; Sample name: EW-83; SRA: SRS22293222
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-83"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091300	ID: 43091300
+
+62: 82
+Identifiers: BioSample: SAMN43091299; Sample name: EW-82; SRA: SRS22293221
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-82"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091299	ID: 43091299
+
+63: 80
+Identifiers: BioSample: SAMN43091298; Sample name: EW-80; SRA: SRS22293223
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-80"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091298	ID: 43091298
+
+64: 78
+Identifiers: BioSample: SAMN43091297; Sample name: EW-78; SRA: SRS22293220
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-78"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091297	ID: 43091297
+
+65: 77
+Identifiers: BioSample: SAMN43091296; Sample name: EW-77; SRA: SRS22293218
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-77"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091296	ID: 43091296
+
+66: 76
+Identifiers: BioSample: SAMN43091295; Sample name: EW-76; SRA: SRS22293219
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-76"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091295	ID: 43091295
+
+67: 75
+Identifiers: BioSample: SAMN43091294; Sample name: EW-75; SRA: SRS22293217
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-75"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091294	ID: 43091294
+
+68: 74
+Identifiers: BioSample: SAMN43091293; Sample name: EW-74; SRA: SRS22293216
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-74"
+Description:
+Pollen
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091293	ID: 43091293
+
+69: 73
+Identifiers: BioSample: SAMN43091292; Sample name: EW-73; SRA: SRS22293214
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-73"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091292	ID: 43091292
+
+70: 72
+Identifiers: BioSample: SAMN43091291; Sample name: EW-72; SRA: SRS22293215
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-72"
+Description:
+Pollen
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091291	ID: 43091291
+
+71: 71
+Identifiers: BioSample: SAMN43091290; Sample name: EW-71; SRA: SRS22293211
+Organism: metagenome
+Attributes:
+    /sample type="Nest_contents"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-71"
+Description:
+CocoonFrass
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091290	ID: 43091290
+
+72: 70
+Identifiers: BioSample: SAMN43091289; Sample name: EW-70; SRA: SRS22293212
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-70"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091289	ID: 43091289
+
+73: 69
+Identifiers: BioSample: SAMN43091288; Sample name: EW-69; SRA: SRS22293210
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="14"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-69"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091288	ID: 43091288
+
+74: 68
+Identifiers: BioSample: SAMN43091287; Sample name: EW-68; SRA: SRS22293208
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-04-01"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-68"
+Description:
+Sample_control
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091287	ID: 43091287
+
+75: 67
+Identifiers: BioSample: SAMN43091286; Sample name: EW-67; SRA: SRS22293209
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-67"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091286	ID: 43091286
+
+76: 66
+Identifiers: BioSample: SAMN43091285; Sample name: EW-66; SRA: SRS22293207
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-66"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091285	ID: 43091285
+
+77: 65
+Identifiers: BioSample: SAMN43091284; Sample name: EW-65; SRA: SRS22293206
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-65"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091284	ID: 43091284
+
+78: 63
+Identifiers: BioSample: SAMN43091283; Sample name: EW-63; SRA: SRS22293203
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-63"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091283	ID: 43091283
+
+79: 61
+Identifiers: BioSample: SAMN43091282; Sample name: EW-61; SRA: SRS22293204
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-61"
+Description:
+Pollen
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091282	ID: 43091282
+
+80: 60
+Identifiers: BioSample: SAMN43091281; Sample name: EW-60; SRA: SRS22293205
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-60"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091281	ID: 43091281
+
+81: 59
+Identifiers: BioSample: SAMN43091280; Sample name: EW-59; SRA: SRS22293201
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-59"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091280	ID: 43091280
+
+82: 58
+Identifiers: BioSample: SAMN43091279; Sample name: EW-58; SRA: SRS22293199
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-58"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091279	ID: 43091279
+
+83: 57
+Identifiers: BioSample: SAMN43091278; Sample name: EW-57; SRA: SRS22293200
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-57"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091278	ID: 43091278
+
+84: 56
+Identifiers: BioSample: SAMN43091277; Sample name: EW-56; SRA: SRS22293197
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-56"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091277	ID: 43091277
+
+85: 55
+Identifiers: BioSample: SAMN43091276; Sample name: EW-55; SRA: SRS22293196
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-55"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091276	ID: 43091276
+
+86: 53
+Identifiers: BioSample: SAMN43091275; Sample name: EW-53; SRA: SRS22293198
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-53"
+Description:
+Pollen
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091275	ID: 43091275
+
+87: 52
+Identifiers: BioSample: SAMN43091274; Sample name: EW-52; SRA: SRS22293195
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-52"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091274	ID: 43091274
+
+88: 51
+Identifiers: BioSample: SAMN43091273; Sample name: EW-51; SRA: SRS22293193
+Organism: metagenome
+Attributes:
+    /sample type="Adults"
+    /nest_id="13"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-51"
+Description:
+Adults
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091273	ID: 43091273
+
+89: 49
+Identifiers: BioSample: SAMN43091272; Sample name: EW-49; SRA: SRS22293194
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-49"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091272	ID: 43091272
+
+90: 47
+Identifiers: BioSample: SAMN43091271; Sample name: EW-47; SRA: SRS22293190
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-47"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091271	ID: 43091271
+
+91: 45
+Identifiers: BioSample: SAMN43091270; Sample name: EW-45; SRA: SRS22293189
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-45"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091270	ID: 43091270
+
+92: 44
+Identifiers: BioSample: SAMN43091269; Sample name: EW-44; SRA: SRS22293192
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-44"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091269	ID: 43091269
+
+93: 43
+Identifiers: BioSample: SAMN43091268; Sample name: EW-43; SRA: SRS22293191
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-43"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091268	ID: 43091268
+
+94: 42
+Identifiers: BioSample: SAMN43091267; Sample name: EW-42; SRA: SRS22293186
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-42"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091267	ID: 43091267
+
+95: 41
+Identifiers: BioSample: SAMN43091266; Sample name: EW-41; SRA: SRS22293185
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-41"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091266	ID: 43091266
+
+96: 40
+Identifiers: BioSample: SAMN43091265; Sample name: EW-40; SRA: SRS22293184
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-40"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091265	ID: 43091265
+
+97: 39
+Identifiers: BioSample: SAMN43091264; Sample name: EW-39; SRA: SRS22293187
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-39"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091264	ID: 43091264
+
+98: 38
+Identifiers: BioSample: SAMN43091263; Sample name: EW-38; SRA: SRS22293163
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-38"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091263	ID: 43091263
+
+99: 37
+Identifiers: BioSample: SAMN43091262; Sample name: EW-37; SRA: SRS22293162
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-37"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091262	ID: 43091262
+
+100: 35
+Identifiers: BioSample: SAMN43091261; Sample name: EW-35; SRA: SRS22293161
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-35"
+Description:
+Pollen_provision
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091261	ID: 43091261
+
+101: 34
+Identifiers: BioSample: SAMN43091260; Sample name: EW-34; SRA: SRS22293158
+Organism: metagenome
+Attributes:
+    /sample type="Larvae"
+    /nest_id="5"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-34"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091260	ID: 43091260
+
+102: 31
+Identifiers: BioSample: SAMN43091259; Sample name: EW-31; SRA: SRS22293159
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-03-29"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-31"
+Description:
+Sample_control
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091259	ID: 43091259
+
+103: 30
+Identifiers: BioSample: SAMN43091258; Sample name: EW-30; SRA: SRS22293155
+Organism: metagenome
+Attributes:
+    /sample type="Food"
+    /nest_id="7"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-30"
+Description:
+Pollen
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091258	ID: 43091258
+
+104: 28
+Identifiers: BioSample: SAMN43091257; Sample name: EW-28; SRA: SRS22293154
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="6"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-28"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091257	ID: 43091257
+
+105: 27
+Identifiers: BioSample: SAMN43091256; Sample name: EW-27; SRA: SRS22293152
+Organism: metagenome
+Attributes:
+    /sample type="Nest_contents"
+    /nest_id="6"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-27"
+Description:
+PinkCocoonFrass
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091256	ID: 43091256
+
+106: 26
+Identifiers: BioSample: SAMN43091255; Sample name: EW-26; SRA: SRS22293153
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="6"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-26"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091255	ID: 43091255
+
+107: 24
+Identifiers: BioSample: SAMN43091254; Sample name: EW-24; SRA: SRS22293156
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="6"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-24"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091254	ID: 43091254
+
+108: 23
+Identifiers: BioSample: SAMN43091253; Sample name: EW-23; SRA: SRS22293150
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="6"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-23"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091253	ID: 43091253
+
+109: 21
+Identifiers: BioSample: SAMN43091252; Sample name: EW-21; SRA: SRS22293137
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="6"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-21"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091252	ID: 43091252
+
+110: 20
+Identifiers: BioSample: SAMN43091251; Sample name: EW-20; SRA: SRS22293130
+Organism: metagenome
+Attributes:
+    /sample type="Nest_contents"
+    /nest_id="6"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-20"
+Description:
+CocoonFrass
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091251	ID: 43091251
+
+111: 16
+Identifiers: BioSample: SAMN43091250; Sample name: EW-16; SRA: SRS22293170
+Organism: metagenome
+Attributes:
+    /sample type="Nest_contents"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-16"
+Description:
+CocoonFrass
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091250	ID: 43091250
+
+112: 15
+Identifiers: BioSample: SAMN43091249; Sample name: EW-15; SRA: SRS22293246
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-15"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091249	ID: 43091249
+
+113: 14
+Identifiers: BioSample: SAMN43091248; Sample name: EW-14; SRA: SRS22293234
+Organism: metagenome
+Attributes:
+    /sample type="Nest_contents"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-14"
+Description:
+CocoonFrass
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091248	ID: 43091248
+
+114: 13
+Identifiers: BioSample: SAMN43091247; Sample name: EW-13; SRA: SRS22293224
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-13"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091247	ID: 43091247
+
+115: 11
+Identifiers: BioSample: SAMN43091246; Sample name: EW-11; SRA: SRS22293213
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-11"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091246	ID: 43091246
+
+116: 10
+Identifiers: BioSample: SAMN43091245; Sample name: EW-10; SRA: SRS22293202
+Organism: metagenome
+Attributes:
+    /sample type="Nest_contents"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-10"
+Description:
+Frass
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091245	ID: 43091245
+
+117: 9
+Identifiers: BioSample: SAMN43091244; Sample name: EW-9; SRA: SRS22293188
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-9"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091244	ID: 43091244
+
+118: 7
+Identifiers: BioSample: SAMN43091243; Sample name: EW-7; SRA: SRS22293160
+Organism: metagenome
+Attributes:
+    /sample type="Nest_contents"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-7"
+Description:
+PinkCocoonFrass
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091243	ID: 43091243
+
+119: 5
+Identifiers: BioSample: SAMN43091242; Sample name: EW-5; SRA: SRS22293129
+Organism: metagenome
+Attributes:
+    /sample type="Prepupae"
+    /nest_id="4"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-5"
+Description:
+Larvae
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091242	ID: 43091242
+
+120: 1
+Identifiers: BioSample: SAMN43091241; Sample name: EW-1; SRA: SRS22293128
+Organism: metagenome
+Attributes:
+    /sample type="Negative_control"
+    /nest_id="NA"
+    /collection date="2022-03-28"
+    /broad-scale environmental context="ENVO:02000004"
+    /local-scale environmental context="ENVO:02000004"
+    /environmental medium="ENVO:02000004"
+    /geographic location="Australia: Adelaide"
+    /host="Megachile sp."
+    /latitude and longitude="34.96793969 S 138.63557844 E"
+    /source material identifiers="EW-1"
+Description:
+Sample_control
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN43091241	ID: 43091241
+
+

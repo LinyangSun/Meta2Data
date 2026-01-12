@@ -1,0 +1,341 @@
+1: Cuticular metagenome O. bicornis5
+Identifiers: BioSample: SAMN30916543; Sample name: O. bicornis5; SRA: SRS15224825
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-04"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.779980 N 9.972630 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of O. bicornis5"
+Description:
+O. Bicornis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916543	ID: 30916543
+
+2: Cuticular metagenome O. bicornis4
+Identifiers: BioSample: SAMN30916542; Sample name: O. bicornis4; SRA: SRS15224824
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-04"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.779980 N 9.972630 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of O. bicornis4"
+Description:
+O. Bicornis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916542	ID: 30916542
+
+3: Cuticular metagenome O. bicornis3
+Identifiers: BioSample: SAMN30916541; Sample name: O. bicornis3; SRA: SRS15224823
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-04"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.779980 N 9.972630 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of O. bicornis3"
+Description:
+O. Bicornis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916541	ID: 30916541
+
+4: Cuticular metagenome O. bicornis2
+Identifiers: BioSample: SAMN30916540; Sample name: O. bicornis2; SRA: SRS15224822
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-04"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.779980 N 9.972630 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of O. bicornis2"
+Description:
+O. Bicornis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916540	ID: 30916540
+
+5: Cuticular metagenome O. bicornis1
+Identifiers: BioSample: SAMN30916539; Sample name: O. bicornis1; SRA: SRS15224821
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-04"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.779980 N 9.972630 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of O. bicornis1"
+Description:
+O. Bicornis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916539	ID: 30916539
+
+6: Cuticular metagenome A. m. iberiensis5
+Identifiers: BioSample: SAMN30916538; Sample name: A. m. iberiensis5; SRA: SRS15224820
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of A. m. iberiensis5"
+Description:
+A. m. iberiensis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916538	ID: 30916538
+
+7: Cuticular metagenome A. m. iberiensis4
+Identifiers: BioSample: SAMN30916537; Sample name: A. m. iberiensis4; SRA: SRS15224819
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of A. m. iberiensis4"
+Description:
+A. m. iberiensis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916537	ID: 30916537
+
+8: Cuticular metagenome A. m. iberiensis3
+Identifiers: BioSample: SAMN30916536; Sample name: A. m. iberiensis3; SRA: SRS15224818
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of A. m. iberiensis3"
+Description:
+A. m. iberiensis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916536	ID: 30916536
+
+9: Cuticular metagenome A. m. iberiensis2
+Identifiers: BioSample: SAMN30916535; Sample name: A. m. iberiensis2; SRA: SRS15224817
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of A. m. iberiensis2"
+Description:
+A. m. iberiensis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916535	ID: 30916535
+
+10: Cuticular metagenome A. m. iberiensis1
+Identifiers: BioSample: SAMN30916534; Sample name: A. m. iberiensis1; SRA: SRS15224816
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of A. m. iberiensis1"
+Description:
+A. m. iberiensis were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916534	ID: 30916534
+
+11: Cuticular metagenome A. m. carnica5
+Identifiers: BioSample: SAMN30916533; Sample name: A. m. carnica5; SRA: SRS15224833
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of A. m. carnica5"
+Description:
+A. m. carnica were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916533	ID: 30916533
+
+12: Cuticular metagenome A. m. carnica4
+Identifiers: BioSample: SAMN30916532; Sample name: A. m. carnica4; SRA: SRS15224831
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of A. m. carnica4"
+Description:
+A. m. carnica were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916532	ID: 30916532
+
+13: Cuticular metagenome A. m. carnica3
+Identifiers: BioSample: SAMN30916531; Sample name: A. m. carnica3; SRA: SRS15224832
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of A. m. carnica3"
+Description:
+A. m. carnica were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916531	ID: 30916531
+
+14: Cuticular metagenome A. m. carnica2
+Identifiers: BioSample: SAMN30916530; Sample name: A. m. carnica2; SRA: SRS15224830
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of A. m. carnica2"
+Description:
+A. m. carnica were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916530	ID: 30916530
+
+15: Cuticular metagenome A. m. carnica1
+Identifiers: BioSample: SAMN30916529; Sample name: A. m. carnica1; SRA: SRS15224829
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of A. m. carnica1"
+Description:
+A. m. carnica were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916529	ID: 30916529
+
+16: Cuticular metagenome A. m. mellifera5
+Identifiers: BioSample: SAMN30916528; Sample name: A. m. mellifera5; SRA: SRS15224828
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of A. m. mellifera5"
+Description:
+A. m. mellifera were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916528	ID: 30916528
+
+17: Cuticular metagenome A. m. mellifera4
+Identifiers: BioSample: SAMN30916527; Sample name: A. m. mellifera4; SRA: SRS15224827
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of A. m. mellifera4"
+Description:
+A. m. mellifera were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916527	ID: 30916527
+
+18: Cuticular metagenome A. m. mellifera3
+Identifiers: BioSample: SAMN30916526; Sample name: A. m. mellifera3; SRA: SRS15224826
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of A. m. mellifera3"
+Description:
+A. m. mellifera were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916526	ID: 30916526
+
+19: Cuticular metagenome A. m. mellifera2
+Identifiers: BioSample: SAMN30916525; Sample name: A. m. mellifera2; SRA: SRS15224815
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of A. m. mellifera2"
+Description:
+A. m. mellifera were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916525	ID: 30916525
+
+20: Cuticular metagenome A. m. mellifera1
+Identifiers: BioSample: SAMN30916524; Sample name: A. m. mellifera1; SRA: SRS15224814
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-08"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of A. m. mellifera1"
+Description:
+A. m. mellifera were captured with tweezers and snap frozen directly in liquid nitrogen. The bees were stored at -80 degrees celsius until sample preparation.
+Accession: SAMN30916524	ID: 30916524
+
+

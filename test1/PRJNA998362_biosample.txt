@@ -1,0 +1,18 @@
+1: AFBB
+Identifiers: BioSample: SAMN36702045; Sample name: AFBB_UIUC; SRA: SRS18410856
+Organism: Aspergillus flavus
+Attributes:
+    /strain="AFBB"
+    /cultivar="Bee-Hive"
+    /collection date="2015-08"
+    /broad-scale environmental context="Experimental fields Urbana-Champaign UIUC"
+    /local-scale environmental context="Bee food product [FOODON_00001218]"
+    /environmental medium="Bee food product [FOODON_00001218]"
+    /geographic location="USA: Illinois, Champaign"
+    /isolation and growth condition="PMID: 16110804"
+    /latitude and longitude="40.05 N 88.12 W"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN36702045	ID: 36702045
+
+

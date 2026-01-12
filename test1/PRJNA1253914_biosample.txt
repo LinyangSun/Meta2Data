@@ -1,0 +1,1668 @@
+1: QCPG-pos002
+Identifiers: BioSample: SAMN48090652; Sample name: QCPG-pos002; SRA: SRS24807395
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="laboratory"
+    /local-scale environmental context="Univerisity Wuerzburg"
+    /environmental medium="water"
+    /geographic location="Germany: Wuerzburg"
+    /host="NA"
+    /latitude and longitude="49.79391 N 9.95121 E"
+    /source material identifiers="QCPG-pos002"
+Description:
+QCPG-pos002
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090652	ID: 48090652
+
+2: QC003c2
+Identifiers: BioSample: SAMN48090651; Sample name: QC003c2; SRA: SRS24807394
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="laboratory"
+    /local-scale environmental context="Univerisity Wuerzburg"
+    /environmental medium="water"
+    /geographic location="Germany: Wuerzburg"
+    /host="NA"
+    /latitude and longitude="49.79391 N 9.95121 E"
+    /source material identifiers="QC003c2"
+Description:
+QC003c2
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090651	ID: 48090651
+
+3: QC002c2
+Identifiers: BioSample: SAMN48090650; Sample name: QC002c2; SRA: SRS24807393
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="laboratory"
+    /local-scale environmental context="Univerisity Wuerzburg"
+    /environmental medium="water"
+    /geographic location="Germany: Wuerzburg"
+    /host="NA"
+    /latitude and longitude="49.79391 N 9.95121 E"
+    /source material identifiers="QC002c2"
+Description:
+QC002c2
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090650	ID: 48090650
+
+4: QC001c2
+Identifiers: BioSample: SAMN48090649; Sample name: QC001c2; SRA: SRS24807392
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="laboratory"
+    /local-scale environmental context="Univerisity Wuerzburg"
+    /environmental medium="water"
+    /geographic location="Germany: Wuerzburg"
+    /host="NA"
+    /latitude and longitude="49.79391 N 9.95121 E"
+    /source material identifiers="QC001c2"
+Description:
+QC001c2
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090649	ID: 48090649
+
+5: QCPG-neg002
+Identifiers: BioSample: SAMN48090648; Sample name: QCPG-neg002; SRA: SRS24807391
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="laboratory"
+    /local-scale environmental context="Univerisity Wuerzburg"
+    /environmental medium="water"
+    /geographic location="Germany: Wuerzburg"
+    /host="NA"
+    /latitude and longitude="49.79391 N 9.95121 E"
+    /source material identifiers="QCPG-neg002"
+Description:
+QCPG-neg002
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090648	ID: 48090648
+
+6: QC003c1
+Identifiers: BioSample: SAMN48090647; Sample name: QC003c1; SRA: SRS24807390
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="laboratory"
+    /local-scale environmental context="Univerisity Wuerzburg"
+    /environmental medium="water"
+    /geographic location="Germany: Wuerzburg"
+    /host="NA"
+    /latitude and longitude="49.79391 N 9.95121 E"
+    /source material identifiers="QC003c1"
+Description:
+QC003c1
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090647	ID: 48090647
+
+7: QC002c1
+Identifiers: BioSample: SAMN48090646; Sample name: QC002c1; SRA: SRS24807389
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="laboratory"
+    /local-scale environmental context="Univerisity Wuerzburg"
+    /environmental medium="water"
+    /geographic location="Germany: Wuerzburg"
+    /host="NA"
+    /latitude and longitude="49.79391 N 9.95121 E"
+    /source material identifiers="QC002c1"
+Description:
+QC002c1
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090646	ID: 48090646
+
+8: QC001c1
+Identifiers: BioSample: SAMN48090645; Sample name: QC001c1; SRA: SRS24807388
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="laboratory"
+    /local-scale environmental context="Univerisity Wuerzburg"
+    /environmental medium="water"
+    /geographic location="Germany: Wuerzburg"
+    /host="NA"
+    /latitude and longitude="49.79391 N 9.95121 E"
+    /source material identifiers="QC001c1"
+Description:
+QC001c1
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090645	ID: 48090645
+
+9: PILU_05
+Identifiers: BioSample: SAMN48090644; Sample name: PILU_05; SRA: SRS24807386
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILU_05"
+Description:
+PILU_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090644	ID: 48090644
+
+10: PILU_04
+Identifiers: BioSample: SAMN48090643; Sample name: PILU_04; SRA: SRS24807385
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILU_04"
+Description:
+PILU_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090643	ID: 48090643
+
+11: PILU_03
+Identifiers: BioSample: SAMN48090642; Sample name: PILU_03; SRA: SRS24807384
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILU_03"
+Description:
+PILU_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090642	ID: 48090642
+
+12: PILU_02
+Identifiers: BioSample: SAMN48090641; Sample name: PILU_02; SRA: SRS24807383
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILU_02"
+Description:
+PILU_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090641	ID: 48090641
+
+13: PILU_01
+Identifiers: BioSample: SAMN48090640; Sample name: PILU_01; SRA: SRS24807382
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILU_01"
+Description:
+PILU_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090640	ID: 48090640
+
+14: PILT_05
+Identifiers: BioSample: SAMN48090639; Sample name: PILT_05; SRA: SRS24807381
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILT_05"
+Description:
+PILT_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090639	ID: 48090639
+
+15: PILT_04
+Identifiers: BioSample: SAMN48090638; Sample name: PILT_04; SRA: SRS24807380
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILT_04"
+Description:
+PILT_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090638	ID: 48090638
+
+16: PILT_03
+Identifiers: BioSample: SAMN48090637; Sample name: PILT_03; SRA: SRS24807379
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILT_03"
+Description:
+PILT_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090637	ID: 48090637
+
+17: PILT_02
+Identifiers: BioSample: SAMN48090636; Sample name: PILT_02; SRA: SRS24807378
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILT_02"
+Description:
+PILT_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090636	ID: 48090636
+
+18: PILT_01
+Identifiers: BioSample: SAMN48090635; Sample name: PILT_01; SRA: SRS24807377
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILT_01"
+Description:
+PILT_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090635	ID: 48090635
+
+19: PILS_05
+Identifiers: BioSample: SAMN48090634; Sample name: PILS_05; SRA: SRS24807375
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILS_05"
+Description:
+PILS_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090634	ID: 48090634
+
+20: PILS_04
+Identifiers: BioSample: SAMN48090633; Sample name: PILS_04; SRA: SRS24807374
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILS_04"
+Description:
+PILS_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090633	ID: 48090633
+
+21: PILS_03
+Identifiers: BioSample: SAMN48090632; Sample name: PILS_03; SRA: SRS24807373
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILS_03"
+Description:
+PILS_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090632	ID: 48090632
+
+22: PILS_02
+Identifiers: BioSample: SAMN48090631; Sample name: PILS_02; SRA: SRS24807372
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILS_02"
+Description:
+PILS_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090631	ID: 48090631
+
+23: PILS_01
+Identifiers: BioSample: SAMN48090630; Sample name: PILS_01; SRA: SRS24807371
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILS_01"
+Description:
+PILS_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090630	ID: 48090630
+
+24: PILR_05
+Identifiers: BioSample: SAMN48090629; Sample name: PILR_05; SRA: SRS24807370
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILR_05"
+Description:
+PILR_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090629	ID: 48090629
+
+25: PILR_04
+Identifiers: BioSample: SAMN48090628; Sample name: PILR_04; SRA: SRS24807369
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILR_04"
+Description:
+PILR_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090628	ID: 48090628
+
+26: PILR_03
+Identifiers: BioSample: SAMN48090627; Sample name: PILR_03; SRA: SRS24807368
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILR_03"
+Description:
+PILR_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090627	ID: 48090627
+
+27: PILR_02
+Identifiers: BioSample: SAMN48090626; Sample name: PILR_02; SRA: SRS24807367
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILR_02"
+Description:
+PILR_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090626	ID: 48090626
+
+28: PILR_01
+Identifiers: BioSample: SAMN48090625; Sample name: PILR_01; SRA: SRS24807366
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILR_01"
+Description:
+PILR_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090625	ID: 48090625
+
+29: PILQ_05
+Identifiers: BioSample: SAMN48090624; Sample name: PILQ_05; SRA: SRS24807364
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILQ_05"
+Description:
+PILQ_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090624	ID: 48090624
+
+30: PILQ_04
+Identifiers: BioSample: SAMN48090623; Sample name: PILQ_04; SRA: SRS24807363
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILQ_04"
+Description:
+PILQ_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090623	ID: 48090623
+
+31: PILQ_03
+Identifiers: BioSample: SAMN48090622; Sample name: PILQ_03; SRA: SRS24807362
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILQ_03"
+Description:
+PILQ_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090622	ID: 48090622
+
+32: PILQ_02
+Identifiers: BioSample: SAMN48090621; Sample name: PILQ_02; SRA: SRS24807361
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILQ_02"
+Description:
+PILQ_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090621	ID: 48090621
+
+33: PILQ_01
+Identifiers: BioSample: SAMN48090620; Sample name: PILQ_01; SRA: SRS24807360
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILQ_01"
+Description:
+PILQ_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090620	ID: 48090620
+
+34: PILP_05
+Identifiers: BioSample: SAMN48090619; Sample name: PILP_05; SRA: SRS24807359
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILP_05"
+Description:
+PILP_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090619	ID: 48090619
+
+35: PILP_04
+Identifiers: BioSample: SAMN48090618; Sample name: PILP_04; SRA: SRS24807358
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILP_04"
+Description:
+PILP_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090618	ID: 48090618
+
+36: PILP_03
+Identifiers: BioSample: SAMN48090617; Sample name: PILP_03; SRA: SRS24807357
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILP_03"
+Description:
+PILP_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090617	ID: 48090617
+
+37: PILP_02
+Identifiers: BioSample: SAMN48090616; Sample name: PILP_02; SRA: SRS24807356
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILP_02"
+Description:
+PILP_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090616	ID: 48090616
+
+38: PILP_01
+Identifiers: BioSample: SAMN48090615; Sample name: PILP_01; SRA: SRS24807355
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILP_01"
+Description:
+PILP_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090615	ID: 48090615
+
+39: PILN_05
+Identifiers: BioSample: SAMN48090614; Sample name: PILN_05; SRA: SRS24807353
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILN_05"
+Description:
+PILN_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090614	ID: 48090614
+
+40: PILN_04
+Identifiers: BioSample: SAMN48090613; Sample name: PILN_04; SRA: SRS24807352
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILN_04"
+Description:
+PILN_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090613	ID: 48090613
+
+41: PILN_03
+Identifiers: BioSample: SAMN48090612; Sample name: PILN_03; SRA: SRS24807351
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILN_03"
+Description:
+PILN_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090612	ID: 48090612
+
+42: PILN_02
+Identifiers: BioSample: SAMN48090611; Sample name: PILN_02; SRA: SRS24807350
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILN_02"
+Description:
+PILN_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090611	ID: 48090611
+
+43: PILN_01
+Identifiers: BioSample: SAMN48090610; Sample name: PILN_01; SRA: SRS24807349
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILN_01"
+Description:
+PILN_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090610	ID: 48090610
+
+44: PILM_05
+Identifiers: BioSample: SAMN48090609; Sample name: PILM_05; SRA: SRS24807348
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILM_05"
+Description:
+PILM_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090609	ID: 48090609
+
+45: PILM_04
+Identifiers: BioSample: SAMN48090608; Sample name: PILM_04; SRA: SRS24807347
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILM_04"
+Description:
+PILM_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090608	ID: 48090608
+
+46: PILM_03
+Identifiers: BioSample: SAMN48090607; Sample name: PILM_03; SRA: SRS24807346
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILM_03"
+Description:
+PILM_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090607	ID: 48090607
+
+47: PILM_02
+Identifiers: BioSample: SAMN48090606; Sample name: PILM_02; SRA: SRS24807345
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILM_02"
+Description:
+PILM_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090606	ID: 48090606
+
+48: PILM_01
+Identifiers: BioSample: SAMN48090605; Sample name: PILM_01; SRA: SRS24807344
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILM_01"
+Description:
+PILM_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090605	ID: 48090605
+
+49: PILL_05
+Identifiers: BioSample: SAMN48090604; Sample name: PILL_05; SRA: SRS24807342
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILL_05"
+Description:
+PILL_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090604	ID: 48090604
+
+50: PILL_04
+Identifiers: BioSample: SAMN48090603; Sample name: PILL_04; SRA: SRS24807341
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILL_04"
+Description:
+PILL_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090603	ID: 48090603
+
+51: PILL_03
+Identifiers: BioSample: SAMN48090602; Sample name: PILL_03; SRA: SRS24807340
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILL_03"
+Description:
+PILL_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090602	ID: 48090602
+
+52: PILL_02
+Identifiers: BioSample: SAMN48090601; Sample name: PILL_02; SRA: SRS24807339
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILL_02"
+Description:
+PILL_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090601	ID: 48090601
+
+53: PILL_01
+Identifiers: BioSample: SAMN48090600; Sample name: PILL_01; SRA: SRS24807338
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILL_01"
+Description:
+PILL_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090600	ID: 48090600
+
+54: PILI_05
+Identifiers: BioSample: SAMN48090599; Sample name: PILI_05; SRA: SRS24807337
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILI_05"
+Description:
+PILI_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090599	ID: 48090599
+
+55: PILI_04
+Identifiers: BioSample: SAMN48090598; Sample name: PILI_04; SRA: SRS24807336
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILI_04"
+Description:
+PILI_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090598	ID: 48090598
+
+56: PILI_03
+Identifiers: BioSample: SAMN48090597; Sample name: PILI_03; SRA: SRS24807335
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILI_03"
+Description:
+PILI_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090597	ID: 48090597
+
+57: PILI_02
+Identifiers: BioSample: SAMN48090596; Sample name: PILI_02; SRA: SRS24807334
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILI_02"
+Description:
+PILI_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090596	ID: 48090596
+
+58: PILI_01
+Identifiers: BioSample: SAMN48090595; Sample name: PILI_01; SRA: SRS24807333
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILI_01"
+Description:
+PILI_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090595	ID: 48090595
+
+59: PILH_05
+Identifiers: BioSample: SAMN48090594; Sample name: PILH_05; SRA: SRS24807331
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILH_05"
+Description:
+PILH_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090594	ID: 48090594
+
+60: PILH_04
+Identifiers: BioSample: SAMN48090593; Sample name: PILH_04; SRA: SRS24807330
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILH_04"
+Description:
+PILH_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090593	ID: 48090593
+
+
+61: PILH_03
+Identifiers: BioSample: SAMN48090592; Sample name: PILH_03; SRA: SRS24807329
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILH_03"
+Description:
+PILH_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090592	ID: 48090592
+
+62: PILH_02
+Identifiers: BioSample: SAMN48090591; Sample name: PILH_02; SRA: SRS24807328
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILH_02"
+Description:
+PILH_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090591	ID: 48090591
+
+63: PILH_01
+Identifiers: BioSample: SAMN48090590; Sample name: PILH_01; SRA: SRS24807327
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILH_01"
+Description:
+PILH_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090590	ID: 48090590
+
+64: PILG_05
+Identifiers: BioSample: SAMN48090589; Sample name: PILG_05; SRA: SRS24807326
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILG_05"
+Description:
+PILG_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090589	ID: 48090589
+
+65: PILG_04
+Identifiers: BioSample: SAMN48090588; Sample name: PILG_04; SRA: SRS24807325
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILG_04"
+Description:
+PILG_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090588	ID: 48090588
+
+66: PILG_03
+Identifiers: BioSample: SAMN48090587; Sample name: PILG_03; SRA: SRS24807324
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILG_03"
+Description:
+PILG_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090587	ID: 48090587
+
+67: PILG_02
+Identifiers: BioSample: SAMN48090586; Sample name: PILG_02; SRA: SRS24807323
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILG_02"
+Description:
+PILG_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090586	ID: 48090586
+
+68: PILG_01
+Identifiers: BioSample: SAMN48090585; Sample name: PILG_01; SRA: SRS24807322
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILG_01"
+Description:
+PILG_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090585	ID: 48090585
+
+69: PILF_05
+Identifiers: BioSample: SAMN48090584; Sample name: PILF_05; SRA: SRS24807320
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILF_05"
+Description:
+PILF_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090584	ID: 48090584
+
+70: PILF_04
+Identifiers: BioSample: SAMN48090583; Sample name: PILF_04; SRA: SRS24807319
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILF_04"
+Description:
+PILF_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090583	ID: 48090583
+
+71: PILF_03
+Identifiers: BioSample: SAMN48090582; Sample name: PILF_03; SRA: SRS24807318
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILF_03"
+Description:
+PILF_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090582	ID: 48090582
+
+72: PILF_02
+Identifiers: BioSample: SAMN48090581; Sample name: PILF_02; SRA: SRS24807317
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILF_02"
+Description:
+PILF_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090581	ID: 48090581
+
+73: PILF_01
+Identifiers: BioSample: SAMN48090580; Sample name: PILF_01; SRA: SRS24807316
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILF_01"
+Description:
+PILF_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090580	ID: 48090580
+
+74: PILE_05
+Identifiers: BioSample: SAMN48090579; Sample name: PILE_05; SRA: SRS24807315
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILE_05"
+Description:
+PILE_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090579	ID: 48090579
+
+75: PILE_04
+Identifiers: BioSample: SAMN48090578; Sample name: PILE_04; SRA: SRS24807314
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILE_04"
+Description:
+PILE_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090578	ID: 48090578
+
+76: PILE_03
+Identifiers: BioSample: SAMN48090577; Sample name: PILE_03; SRA: SRS24807313
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILE_03"
+Description:
+PILE_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090577	ID: 48090577
+
+77: PILE_02
+Identifiers: BioSample: SAMN48090576; Sample name: PILE_02; SRA: SRS24807312
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILE_02"
+Description:
+PILE_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090576	ID: 48090576
+
+78: PILE_01
+Identifiers: BioSample: SAMN48090575; Sample name: PILE_01; SRA: SRS24807311
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILE_01"
+Description:
+PILE_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090575	ID: 48090575
+
+79: PILD_05
+Identifiers: BioSample: SAMN48090574; Sample name: PILD_05; SRA: SRS24807309
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILD_05"
+Description:
+PILD_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090574	ID: 48090574
+
+80: PILD_04
+Identifiers: BioSample: SAMN48090573; Sample name: PILD_04; SRA: SRS24807308
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILD_04"
+Description:
+PILD_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090573	ID: 48090573
+
+81: PILD_03
+Identifiers: BioSample: SAMN48090572; Sample name: PILD_03; SRA: SRS24807307
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILD_03"
+Description:
+PILD_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090572	ID: 48090572
+
+82: PILD_02
+Identifiers: BioSample: SAMN48090571; Sample name: PILD_02; SRA: SRS24807306
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILD_02"
+Description:
+PILD_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090571	ID: 48090571
+
+83: PILD_01
+Identifiers: BioSample: SAMN48090570; Sample name: PILD_01; SRA: SRS24807305
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILD_01"
+Description:
+PILD_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090570	ID: 48090570
+
+84: PILC_05
+Identifiers: BioSample: SAMN48090569; Sample name: PILC_05; SRA: SRS24807304
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILC_05"
+Description:
+PILC_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090569	ID: 48090569
+
+85: PILC_04
+Identifiers: BioSample: SAMN48090568; Sample name: PILC_04; SRA: SRS24807303
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILC_04"
+Description:
+PILC_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090568	ID: 48090568
+
+86: PILC_03
+Identifiers: BioSample: SAMN48090567; Sample name: PILC_03; SRA: SRS24807302
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILC_03"
+Description:
+PILC_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090567	ID: 48090567
+
+87: PILC_02
+Identifiers: BioSample: SAMN48090566; Sample name: PILC_02; SRA: SRS24807301
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILC_02"
+Description:
+PILC_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090566	ID: 48090566
+
+88: PILC_01
+Identifiers: BioSample: SAMN48090565; Sample name: PILC_01; SRA: SRS24807300
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILC_01"
+Description:
+PILC_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090565	ID: 48090565
+
+89: PILB_05
+Identifiers: BioSample: SAMN48090564; Sample name: PILB_05; SRA: SRS24807387
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILB_05"
+Description:
+PILB_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090564	ID: 48090564
+
+90: PILB_04
+Identifiers: BioSample: SAMN48090563; Sample name: PILB_04; SRA: SRS24807376
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILB_04"
+Description:
+PILB_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090563	ID: 48090563
+
+91: PILB_03
+Identifiers: BioSample: SAMN48090562; Sample name: PILB_03; SRA: SRS24807365
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILB_03"
+Description:
+PILB_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090562	ID: 48090562
+
+92: PILB_02
+Identifiers: BioSample: SAMN48090561; Sample name: PILB_02; SRA: SRS24807354
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILB_02"
+Description:
+PILB_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090561	ID: 48090561
+
+93: PILB_01
+Identifiers: BioSample: SAMN48090560; Sample name: PILB_01; SRA: SRS24807343
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILB_01"
+Description:
+PILB_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090560	ID: 48090560
+
+94: PILA_05
+Identifiers: BioSample: SAMN48090559; Sample name: PILA_05; SRA: SRS24807332
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILA_05"
+Description:
+PILA_05
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090559	ID: 48090559
+
+95: PILA_04
+Identifiers: BioSample: SAMN48090558; Sample name: PILA_04; SRA: SRS24807321
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILA_04"
+Description:
+PILA_04
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090558	ID: 48090558
+
+96: PILA_03
+Identifiers: BioSample: SAMN48090557; Sample name: PILA_03; SRA: SRS24807310
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILA_03"
+Description:
+PILA_03
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090557	ID: 48090557
+
+97: PILA_02
+Identifiers: BioSample: SAMN48090556; Sample name: PILA_02; SRA: SRS24807299
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILA_02"
+Description:
+PILA_02
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090556	ID: 48090556
+
+98: PILA_01
+Identifiers: BioSample: SAMN48090555; Sample name: PILA_01; SRA: SRS24807298
+Organism: metagenome
+Attributes:
+    /collection date="2020-07-01"
+    /broad-scale environmental context="mediterranean biome"
+    /local-scale environmental context="Maremma Regiona Park - mediterranean scrub"
+    /environmental medium="gut"
+    /geographic location="Italy: Tuscany"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.668056 N 11.008389 E"
+    /source material identifiers="PILA_01"
+Description:
+PILA_01
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN48090555	ID: 48090555
+
+

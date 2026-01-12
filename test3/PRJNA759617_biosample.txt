@@ -1,0 +1,3371 @@
+1: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172747; Sample name: F_vos_M9-gut; SRA: SRS9992821
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM8_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172747	ID: 21172747
+
+2: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172746; Sample name: F_vos_M9-crop; SRA: SRS9992820
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM8_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172746	ID: 21172746
+
+3: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172745; Sample name: F_vos_M8-gut; SRA: SRS9992819
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_FC8_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172745	ID: 21172745
+
+4: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172744; Sample name: F_vos_M8-crop; SRA: SRS9992818
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_FC8_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172744	ID: 21172744
+
+5: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172743; Sample name: F_vos_M6-gut; SRA: SRS9992817
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM8_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172743	ID: 21172743
+
+6: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172742; Sample name: F_vos_M6-crop; SRA: SRS9992816
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM8_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172742	ID: 21172742
+
+7: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172741; Sample name: F_vos_M58-gut; SRA: SRS9992815
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_CC8_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172741	ID: 21172741
+
+8: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172740; Sample name: F_vos_M58-crop; SRA: SRS9992814
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_CC8_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172740	ID: 21172740
+
+9: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172739; Sample name: F_vos_M57-gut; SRA: SRS9992813
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM7_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172739	ID: 21172739
+
+10: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172738; Sample name: F_vos_M57-crop; SRA: SRS9992812
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM7_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172738	ID: 21172738
+
+11: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172737; Sample name: F_vos_M55-gut; SRA: SRS9992810
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM7_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172737	ID: 21172737
+
+12: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172736; Sample name: F_vos_M55-crop; SRA: SRS9992809
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM7_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172736	ID: 21172736
+
+13: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172735; Sample name: F_vos_M53-gut; SRA: SRS9992808
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_FC7_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172735	ID: 21172735
+
+14: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172734; Sample name: F_vos_M53-crop; SRA: SRS9992807
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_FC7_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172734	ID: 21172734
+
+15: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172733; Sample name: F_vos_M5-gut; SRA: SRS9992806
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_CC7_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172733	ID: 21172733
+
+16: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172732; Sample name: F_vos_M5-crop; SRA: SRS9992804
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_CC7_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172732	ID: 21172732
+
+17: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172731; Sample name: F_vos_M48-gut; SRA: SRS9992805
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_FC6_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172731	ID: 21172731
+
+18: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172730; Sample name: F_vos_M48-crop; SRA: SRS9992802
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_FC6_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172730	ID: 21172730
+
+19: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172729; Sample name: F_vos_M44-gut; SRA: SRS9992803
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM6_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172729	ID: 21172729
+
+20: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172728; Sample name: F_vos_M44-crop; SRA: SRS9992801
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM6_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172728	ID: 21172728
+
+21: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172727; Sample name: F_vos_M41-gut; SRA: SRS9992799
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_CC6_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172727	ID: 21172727
+
+22: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172726; Sample name: F_vos_M41-crop; SRA: SRS9992798
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_CC6_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172726	ID: 21172726
+
+23: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172725; Sample name: F_vos_M40-gut; SRA: SRS9992797
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM6_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172725	ID: 21172725
+
+24: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172724; Sample name: F_vos_M40-crop; SRA: SRS9992796
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM6_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172724	ID: 21172724
+
+25: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172723; Sample name: F_vos_M39-gut; SRA: SRS9992795
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM5_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172723	ID: 21172723
+
+26: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172722; Sample name: F_vos_M39-crop; SRA: SRS9992793
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM5_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172722	ID: 21172722
+
+27: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172721; Sample name: F_vos_M37-gut; SRA: SRS9992794
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM5_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172721	ID: 21172721
+
+28: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172720; Sample name: F_vos_M37-crop; SRA: SRS9992792
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM5_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172720	ID: 21172720
+
+29: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172719; Sample name: F_vos_M35-gut; SRA: SRS9992791
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_FC5_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172719	ID: 21172719
+
+30: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172718; Sample name: F_vos_M35-crop; SRA: SRS9992790
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_FC5_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172718	ID: 21172718
+
+31: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172717; Sample name: F_vos_M33-gut; SRA: SRS9992788
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_FC4_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172717	ID: 21172717
+
+32: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172716; Sample name: F_vos_M33-crop; SRA: SRS9992786
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_FC4_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172716	ID: 21172716
+
+33: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172715; Sample name: F_vos_M32-gut; SRA: SRS9992787
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_CC5_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172715	ID: 21172715
+
+34: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172714; Sample name: F_vos_M32-crop; SRA: SRS9992785
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_CC5_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172714	ID: 21172714
+
+35: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172713; Sample name: F_vos_M31-gut; SRA: SRS9992784
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_FC3_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172713	ID: 21172713
+
+36: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172712; Sample name: F_vos_M31-crop; SRA: SRS9992783
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_FC3_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172712	ID: 21172712
+
+37: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172711; Sample name: F_vos_M29-gut; SRA: SRS9992782
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM4_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172711	ID: 21172711
+
+38: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172710; Sample name: F_vos_M29-crop; SRA: SRS9992781
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM4_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172710	ID: 21172710
+
+39: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172709; Sample name: F_vos_M28-gut; SRA: SRS9992780
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM3_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172709	ID: 21172709
+
+40: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172708; Sample name: F_vos_M28-crop; SRA: SRS9992779
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM3_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172708	ID: 21172708
+
+41: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172707; Sample name: F_vos_M27-gut; SRA: SRS9992777
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM4_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172707	ID: 21172707
+
+42: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172706; Sample name: F_vos_M27-crop; SRA: SRS9992776
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM4_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172706	ID: 21172706
+
+43: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172705; Sample name: F_vos_M25-gut; SRA: SRS9992775
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_CC4_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172705	ID: 21172705
+
+44: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172704; Sample name: F_vos_M25-crop; SRA: SRS9992774
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_CC4_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172704	ID: 21172704
+
+45: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172703; Sample name: F_vos_M24-gut; SRA: SRS9992773
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172703	ID: 21172703
+
+46: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172702; Sample name: F_vos_M24-crop; SRA: SRS9992772
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172702	ID: 21172702
+
+47: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172701; Sample name: F_vos_M21-gut; SRA: SRS9992771
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_CC3_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172701	ID: 21172701
+
+48: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172700; Sample name: F_vos_M21-crop; SRA: SRS9992770
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_CC3_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172700	ID: 21172700
+
+49: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172699; Sample name: F_vos_M20-gut; SRA: SRS9992769
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM3_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172699	ID: 21172699
+
+50: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172698; Sample name: F_vos_M20-crop; SRA: SRS9992768
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM3_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172698	ID: 21172698
+
+51: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172697; Sample name: F_vos_M19-gut; SRA: SRS9992766
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_FC2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172697	ID: 21172697
+
+52: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172696; Sample name: F_vos_M19-crop; SRA: SRS9992765
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_FC2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172696	ID: 21172696
+
+53: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172695; Sample name: F_vos_M18-gut; SRA: SRS9992764
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_CC2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172695	ID: 21172695
+
+54: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172694; Sample name: F_vos_M18-crop; SRA: SRS9992763
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_CC2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172694	ID: 21172694
+
+55: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172693; Sample name: F_vos_M16-gut; SRA: SRS9992762
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_CC1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172693	ID: 21172693
+
+56: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172692; Sample name: F_vos_M16-crop; SRA: SRS9992761
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_CC1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172692	ID: 21172692
+
+57: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172691; Sample name: F_vos_M15-gut; SRA: SRS9992760
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172691	ID: 21172691
+
+58: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172690; Sample name: F_vos_M15-crop; SRA: SRS9992759
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172690	ID: 21172690
+
+59: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172689; Sample name: F_vos_M13-gut; SRA: SRS9992758
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172689	ID: 21172689
+
+60: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172688; Sample name: F_vos_M13-crop; SRA: SRS9992757
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_FM1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172688	ID: 21172688
+
+
+61: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172687; Sample name: F_vos_M13-Buffer; SRA: SRS9992755
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="dissection buffer"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="not applicable"
+    /host tissue sampled="not applicable"
+    /treatment replicate="vos_buffer2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172687	ID: 21172687
+
+62: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172686; Sample name: F_vos_M12-gut; SRA: SRS9992754
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172686	ID: 21172686
+
+63: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172685; Sample name: F_vos_M12-crop; SRA: SRS9992753
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella bombi, Zygosaccharomyces rouxii,Penicillium cyclopium)"
+    /treatment replicate="vos_CM1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172685	ID: 21172685
+
+64: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172684; Sample name: F_vos_M11-gut; SRA: SRS9992752
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_FC1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172684	ID: 21172684
+
+65: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172683; Sample name: F_vos_M11-crop; SRA: SRS9992751
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_FC1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172683	ID: 21172683
+
+66: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172682; Sample name: F_vos_Failed-Queen-47-Gut; SRA: SRS9992749
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_failedqueen47_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172682	ID: 21172682
+
+67: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172681; Sample name: F_vos_Failed-Queen-47-Crop; SRA: SRS9992750
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_failedqueen47_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172681	ID: 21172681
+
+68: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172680; Sample name: F_vos_Failed-Queen-44-Gut; SRA: SRS9992747
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_failedqueen44_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172680	ID: 21172680
+
+69: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172679; Sample name: F_vos_Failed-Queen-44-Crop; SRA: SRS9992748
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_failedqueen44_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172679	ID: 21172679
+
+70: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172678; Sample name: F_vos_Failed-Queen-2-Gut; SRA: SRS9992746
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_failedqueen2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172678	ID: 21172678
+
+71: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172677; Sample name: F_vos_Failed-Queen-2-Crop; SRA: SRS9992744
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_failedqueen2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172677	ID: 21172677
+
+72: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172676; Sample name: F_vos_Failed-Queen-19-Gut; SRA: SRS9992743
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_failedqueen19_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172676	ID: 21172676
+
+73: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172675; Sample name: F_vos_Failed-Queen-19-Crop; SRA: SRS9992742
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_failedqueen19_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172675	ID: 21172675
+
+74: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172674; Sample name: F_vos_C57-Worker-Gut; SRA: SRS9992741
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source57_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172674	ID: 21172674
+
+75: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172673; Sample name: F_vos_C57-Worker-Crop; SRA: SRS9992740
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source57_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172673	ID: 21172673
+
+76: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172672; Sample name: F_vos_C57-Queen-Gut; SRA: SRS9992739
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source57_queen_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172672	ID: 21172672
+
+77: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172671; Sample name: F_vos_C57-Queen-Crop; SRA: SRS9992738
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source57_queen_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172671	ID: 21172671
+
+78: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172670; Sample name: F_vos_C56-Worker-Gut; SRA: SRS9992737
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source56_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172670	ID: 21172670
+
+79: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172669; Sample name: F_vos_C56-Worker-Crop; SRA: SRS9992736
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source56_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172669	ID: 21172669
+
+80: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172668; Sample name: F_vos_C43-Worker-Gut; SRA: SRS9992699
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source43_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172668	ID: 21172668
+
+81: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172667; Sample name: F_vos_C43-Worker-Crop; SRA: SRS9992735
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source43_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172667	ID: 21172667
+
+82: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172666; Sample name: F_vos_C43-Queen-Gut; SRA: SRS9992734
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source43_queen_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172666	ID: 21172666
+
+83: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172665; Sample name: F_vos_C43-Queen-Crop; SRA: SRS9992732
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source43_queen_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172665	ID: 21172665
+
+84: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172664; Sample name: F_vos_C38-Worker-Gut; SRA: SRS9992733
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source38_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172664	ID: 21172664
+
+85: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172663; Sample name: F_vos_C38-Worker-Crop; SRA: SRS9992731
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source38_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172663	ID: 21172663
+
+86: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172662; Sample name: F_vos_C38-Queen-Gut; SRA: SRS9992730
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source38_queen_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172662	ID: 21172662
+
+87: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172661; Sample name: F_vos_C38-Queen-Crop; SRA: SRS9992729
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source38_queen_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172661	ID: 21172661
+
+88: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172660; Sample name: F_vos_C34-Worker-Gut; SRA: SRS9992728
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source34_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172660	ID: 21172660
+
+89: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172659; Sample name: F_vos_C34-Worker-Crop; SRA: SRS9992727
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source34_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172659	ID: 21172659
+
+90: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172658; Sample name: F_vos_C34-Queen-Gut; SRA: SRS9992726
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source34_queen_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172658	ID: 21172658
+
+91: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172657; Sample name: F_vos_C34-Queen-Crop; SRA: SRS9992724
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source34_queen_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172657	ID: 21172657
+
+92: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172656; Sample name: F_vos_C33-Worker-Gut; SRA: SRS9992723
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source33_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172656	ID: 21172656
+
+93: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172655; Sample name: F_vos_C33-Worker-Crop; SRA: SRS9992722
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source33_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172655	ID: 21172655
+
+94: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172654; Sample name: F_vos_C33-Queen-Gut; SRA: SRS9992721
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source33_queen_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172654	ID: 21172654
+
+95: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172653; Sample name: F_vos_C33-Queen-Crop; SRA: SRS9992720
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source33_queen_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172653	ID: 21172653
+
+96: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172652; Sample name: F_vos_C23-Worker3-Buffer; SRA: SRS9992719
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="dissection buffer"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="not applicable"
+    /host tissue sampled="not applicable"
+    /treatment replicate="vos_buffer1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172652	ID: 21172652
+
+97: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172651; Sample name: F_vos_C23-Worker-Gut; SRA: SRS9992718
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source23_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172651	ID: 21172651
+
+98: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172650; Sample name: F_vos_C23-Worker-Crop; SRA: SRS9992717
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source23_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172650	ID: 21172650
+
+99: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172649; Sample name: F_vos_C23-Queen-Gut; SRA: SRS9992716
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source23_queen_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172649	ID: 21172649
+
+100: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172648; Sample name: F_vos_C23-Queen-Crop; SRA: SRS9992715
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source23_queen_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172648	ID: 21172648
+
+101: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172647; Sample name: F_vos_C20-Worker-Gut; SRA: SRS9992713
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source20_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172647	ID: 21172647
+
+102: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172646; Sample name: F_vos_C20-Worker-Crop; SRA: SRS9992712
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source20_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172646	ID: 21172646
+
+103: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172645; Sample name: F_vos_C20-Queen-Gut; SRA: SRS9992711
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source20_queen_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172645	ID: 21172645
+
+104: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172644; Sample name: F_vos_C20-Queen-Crop; SRA: SRS9992710
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source20_queen_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172644	ID: 21172644
+
+105: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172643; Sample name: F_vos_C13-Worker-Gut; SRA: SRS9992709
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source13_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172643	ID: 21172643
+
+106: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172642; Sample name: F_vos_C13-Worker-Crop; SRA: SRS9992708
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source13_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172642	ID: 21172642
+
+107: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172641; Sample name: F_vos_C13-Queen-Gut; SRA: SRS9992707
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="vos_source13_queen_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172641	ID: 21172641
+
+108: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172640; Sample name: F_vos_C13-Queen-Crop; SRA: SRS9992706
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-06-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus vosnesenskii"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="queen"
+    /host tissue sampled="crop"
+    /treatment replicate="vos_source13_queen_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172640	ID: 21172640
+
+109: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172639; Sample name: F_imp_SC-02-gut; SRA: SRS9992705
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_source2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172639	ID: 21172639
+
+110: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172638; Sample name: F_imp_SC-02-crop; SRA: SRS9992704
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_source2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172638	ID: 21172638
+
+111: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172637; Sample name: F_imp_SC-01-gut; SRA: SRS9992702
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_source1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172637	ID: 21172637
+
+112: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172636; Sample name: F_imp_SC-01-crop; SRA: SRS9992701
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_source1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172636	ID: 21172636
+
+113: MIMS Environmental/Metagenome sample from pollen metagenome
+Identifiers: BioSample: SAMN21172635; Sample name: F_imp_PL-02; SRA: SRS9992700
+Organism: pollen metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="pollen"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="not applicable"
+    /host tissue sampled="not applicable"
+    /treatment replicate="imp_pollen2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172635	ID: 21172635
+
+114: MIMS Environmental/Metagenome sample from pollen metagenome
+Identifiers: BioSample: SAMN21172634; Sample name: F_imp_PL-01; SRA: SRS9992876
+Organism: pollen metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="pollen"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="not applicable"
+    /host tissue sampled="not applicable"
+    /treatment replicate="imp_pollen1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172634	ID: 21172634
+
+115: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172633; Sample name: F_imp_MC-8-gut; SRA: SRS9992874
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_FC8_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172633	ID: 21172633
+
+116: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172632; Sample name: F_imp_MC-8-crop; SRA: SRS9992873
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_FC8_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172632	ID: 21172632
+
+117: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172631; Sample name: F_imp_MC-7-gut; SRA: SRS9992871
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM8_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172631	ID: 21172631
+
+118: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172630; Sample name: F_imp_MC-7-crop; SRA: SRS9992870
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM8_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172630	ID: 21172630
+
+119: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172629; Sample name: F_imp_MC-60-gut; SRA: SRS9992872
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM7_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172629	ID: 21172629
+
+120: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172628; Sample name: F_imp_MC-60-crop; SRA: SRS9992869
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM7_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172628	ID: 21172628
+
+
+121: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172627; Sample name: F_imp_MC-6-gut; SRA: SRS9992867
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM8_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172627	ID: 21172627
+
+122: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172626; Sample name: F_imp_MC-6-crop; SRA: SRS9992865
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM8_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172626	ID: 21172626
+
+123: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172625; Sample name: F_imp_MC-59-gut; SRA: SRS9992866
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_CC8_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172625	ID: 21172625
+
+124: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172624; Sample name: F_imp_MC-59-crop; SRA: SRS9992864
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_CC8_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172624	ID: 21172624
+
+125: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172623; Sample name: F_imp_MC-58-gut; SRA: SRS9992863
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM7_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172623	ID: 21172623
+
+126: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172622; Sample name: F_imp_MC-58-crop; SRA: SRS9992862
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM7_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172622	ID: 21172622
+
+127: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172621; Sample name: F_imp_MC-57-gut; SRA: SRS9992861
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_FC7_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172621	ID: 21172621
+
+128: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172620; Sample name: F_imp_MC-57-crop; SRA: SRS9992860
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_FC7_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172620	ID: 21172620
+
+129: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172619; Sample name: F_imp_MC-54-gut; SRA: SRS9992859
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM6_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172619	ID: 21172619
+
+130: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172618; Sample name: F_imp_MC-54-crop; SRA: SRS9992858
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM6_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172618	ID: 21172618
+
+131: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172617; Sample name: F_imp_MC-52-gut; SRA: SRS9992856
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM6_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172617	ID: 21172617
+
+132: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172616; Sample name: F_imp_MC-52-crop; SRA: SRS9992855
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM6_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172616	ID: 21172616
+
+133: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172615; Sample name: F_imp_MC-50-gut; SRA: SRS9992854
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM5_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172615	ID: 21172615
+
+134: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172614; Sample name: F_imp_MC-50-crop; SRA: SRS9992853
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM5_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172614	ID: 21172614
+
+135: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172613; Sample name: F_imp_MC-49-gut; SRA: SRS9992852
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_CC7_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172613	ID: 21172613
+
+136: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172612; Sample name: F_imp_MC-49-crop; SRA: SRS9992851
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_CC7_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172612	ID: 21172612
+
+137: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172611; Sample name: F_imp_MC-48-gut; SRA: SRS9992850
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM5_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172611	ID: 21172611
+
+138: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172610; Sample name: F_imp_MC-48-crop; SRA: SRS9992849
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM5_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172610	ID: 21172610
+
+139: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172609; Sample name: F_imp_MC-44-gut; SRA: SRS9992848
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM4_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172609	ID: 21172609
+
+140: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172608; Sample name: F_imp_MC-44-crop; SRA: SRS9992847
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM4_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172608	ID: 21172608
+
+141: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172607; Sample name: F_imp_MC-43-gut; SRA: SRS9992845
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_FC6_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172607	ID: 21172607
+
+142: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172606; Sample name: F_imp_MC-43-crop; SRA: SRS9992844
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_FC6_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172606	ID: 21172606
+
+143: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172605; Sample name: F_imp_MC-42-gut; SRA: SRS9992843
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM4_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172605	ID: 21172605
+
+144: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172604; Sample name: F_imp_MC-42-crop; SRA: SRS9992842
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM4_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172604	ID: 21172604
+
+145: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172603; Sample name: F_imp_MC-41-gut; SRA: SRS9992841
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_CC6_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172603	ID: 21172603
+
+146: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172602; Sample name: F_imp_MC-41-crop; SRA: SRS9992840
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_CC6_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172602	ID: 21172602
+
+147: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172601; Sample name: F_imp_MC-4-gut; SRA: SRS9992838
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_CC5_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172601	ID: 21172601
+
+148: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172600; Sample name: F_imp_MC-4-crop; SRA: SRS9992839
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_CC5_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172600	ID: 21172600
+
+149: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172599; Sample name: F_imp_MC-36-gut; SRA: SRS9992837
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_CC4_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172599	ID: 21172599
+
+150: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172598; Sample name: F_imp_MC-36-crop; SRA: SRS9992836
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_CC4_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172598	ID: 21172598
+
+151: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172597; Sample name: F_imp_MC-35-gut; SRA: SRS9992834
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM3_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172597	ID: 21172597
+
+152: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172596; Sample name: F_imp_MC-35-crop; SRA: SRS9992833
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM3_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172596	ID: 21172596
+
+153: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172595; Sample name: F_imp_MC-34-gut; SRA: SRS9992832
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_FC5_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172595	ID: 21172595
+
+154: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172594; Sample name: F_imp_MC-34-crop; SRA: SRS9992831
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_FC5_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172594	ID: 21172594
+
+155: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172593; Sample name: F_imp_MC-32-gut; SRA: SRS9992830
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_CC3_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172593	ID: 21172593
+
+156: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172592; Sample name: F_imp_MC-32-crop; SRA: SRS9992829
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_CC3_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172592	ID: 21172592
+
+157: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172591; Sample name: F_imp_MC-31-gut; SRA: SRS9992828
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_FC4_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172591	ID: 21172591
+
+158: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172590; Sample name: F_imp_MC-31-crop; SRA: SRS9992827
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_FC4_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172590	ID: 21172590
+
+159: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172589; Sample name: F_imp_MC-3-gut; SRA: SRS9992826
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_FC3_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172589	ID: 21172589
+
+160: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172588; Sample name: F_imp_MC-3-crop; SRA: SRS9992825
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_FC3_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172588	ID: 21172588
+
+161: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172587; Sample name: F_imp_MC-28-gut; SRA: SRS9992823
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172587	ID: 21172587
+
+162: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172586; Sample name: F_imp_MC-28-crop; SRA: SRS9992822
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172586	ID: 21172586
+
+163: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172585; Sample name: F_imp_MC-27-gut; SRA: SRS9992811
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_FC2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172585	ID: 21172585
+
+164: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172584; Sample name: F_imp_MC-27-crop; SRA: SRS9992800
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_FC2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172584	ID: 21172584
+
+165: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172583; Sample name: F_imp_MC-26-gut; SRA: SRS9992789
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_CC2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172583	ID: 21172583
+
+166: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172582; Sample name: F_imp_MC-26-crop; SRA: SRS9992778
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_CC2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172582	ID: 21172582
+
+167: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172581; Sample name: F_imp_MC-25-gut; SRA: SRS9992767
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM3_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172581	ID: 21172581
+
+168: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172580; Sample name: F_imp_MC-25-crop; SRA: SRS9992756
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM3_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172580	ID: 21172580
+
+169: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172579; Sample name: F_imp_MC-24-gut; SRA: SRS9992745
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM2_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172579	ID: 21172579
+
+170: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172578; Sample name: F_imp_MC-24-crop; SRA: SRS9992698
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM2_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172578	ID: 21172578
+
+171: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172577; Sample name: F_imp_MC-22-gut; SRA: SRS9992725
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_FC1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172577	ID: 21172577
+
+172: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172576; Sample name: F_imp_MC-22-crop; SRA: SRS9992714
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_FC1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172576	ID: 21172576
+
+173: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172575; Sample name: F_imp_MC-18-gut; SRA: SRS9992703
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172575	ID: 21172575
+
+174: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172574; Sample name: F_imp_MC-18-crop; SRA: SRS9992868
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_CM1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172574	ID: 21172574
+
+175: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172573; Sample name: F_imp_MC-16-gut; SRA: SRS9992857
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172573	ID: 21172573
+
+176: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172572; Sample name: F_imp_MC-16-crop; SRA: SRS9992846
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /chemical administration="propiconazole"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /miscellaneous parameter="fed bee-associated fungi (Starmerella sorbosivorans, Zygosaccharomyces rouxii,Debaryomyces hansenii)"
+    /treatment replicate="imp_FM1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172572	ID: 21172572
+
+177: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172571; Sample name: F_imp_MC-15-gut; SRA: SRS9992835
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="midgut+hingut"
+    /treatment replicate="imp_CC1_gut"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172571	ID: 21172571
+
+178: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172570; Sample name: F_imp_MC-15-crop; SRA: SRS9992824
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="adult gut"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="worker"
+    /host tissue sampled="crop"
+    /treatment replicate="imp_CC1_crop"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172570	ID: 21172570
+
+179: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172569; Sample name: F_imp_BF-02; SRA: SRS9992697
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="dissection buffer"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="not applicable"
+    /host tissue sampled="not applicable"
+    /treatment replicate="imp_buffer2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172569	ID: 21172569
+
+180: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN21172568; Sample name: F_imp_BF-01; SRA: SRS9992696
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-11-25"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="dissection buffer"
+    /geographic location="USA: Davis"
+    /host="Bombus impatiens"
+    /latitude and longitude="38.5449 N 121.7405 W"
+    /host phenotype="not applicable"
+    /host tissue sampled="not applicable"
+    /treatment replicate="imp_buffer1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN21172568	ID: 21172568
+
+

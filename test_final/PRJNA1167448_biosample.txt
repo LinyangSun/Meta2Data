@@ -1,0 +1,277 @@
+1: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. BG7
+Identifiers: BioSample: SAMN43881245; Sample name: BG7
+Organism: Gilliamella sp. BG7
+Attributes:
+    /strain="BG7"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 53℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881245	ID: 43881245
+
+2: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. BG6
+Identifiers: BioSample: SAMN43881244; Sample name: BG6
+Organism: Gilliamella sp. BG6
+Attributes:
+    /strain="BG6"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 52℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881244	ID: 43881244
+
+3: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. BG4
+Identifiers: BioSample: SAMN43881243; Sample name: BG4
+Organism: Gilliamella sp. BG4
+Attributes:
+    /strain="BG4"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 51℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881243	ID: 43881243
+
+4: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. BG3
+Identifiers: BioSample: SAMN43881242; Sample name: BG3
+Organism: Gilliamella sp. BG3
+Attributes:
+    /strain="BG3"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 50℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881242	ID: 43881242
+
+5: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. BG2
+Identifiers: BioSample: SAMN43881241; Sample name: BG2
+Organism: Gilliamella sp. BG2
+Attributes:
+    /strain="BG2"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 49℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881241	ID: 43881241
+
+6: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. BG1
+Identifiers: BioSample: SAMN43881240; Sample name: BG1
+Organism: Gilliamella sp. BG1
+Attributes:
+    /strain="BG1"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 48℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881240	ID: 43881240
+
+7: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. CG35
+Identifiers: BioSample: SAMN43881239; Sample name: CG35
+Organism: Gilliamella sp. CG35
+Attributes:
+    /strain="CG35"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 47℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881239	ID: 43881239
+
+8: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. CG33
+Identifiers: BioSample: SAMN43881238; Sample name: CG33
+Organism: Gilliamella sp. CG33
+Attributes:
+    /strain="CG33"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 46℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881238	ID: 43881238
+
+9: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. CG25
+Identifiers: BioSample: SAMN43881237; Sample name: CG25
+Organism: Gilliamella sp. CG25
+Attributes:
+    /strain="CG25"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 45℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881237	ID: 43881237
+
+10: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. CG22
+Identifiers: BioSample: SAMN43881236; Sample name: CG22
+Organism: Gilliamella sp. CG22
+Attributes:
+    /strain="CG22"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 44℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881236	ID: 43881236
+
+11: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. CG16
+Identifiers: BioSample: SAMN43881235; Sample name: CG16
+Organism: Gilliamella sp. CG16
+Attributes:
+    /strain="CG16"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 43℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881235	ID: 43881235
+
+12: MIGS Cultured Bacterial/Archaeal sample from Gilliamella sp. CG13
+Identifiers: BioSample: SAMN43881234; Sample name: CG13
+Organism: Gilliamella sp. CG13
+Attributes:
+    /strain="CG13"
+    /isolation source="gut"
+    /host="bee"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 42℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881234	ID: 43881234
+
+

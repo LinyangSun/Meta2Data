@@ -1,0 +1,27 @@
+1: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN22855684; Sample name: YSSF1; SRA: SRS10948375
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-04-13"
+    /broad-scale environmental context="Gut biome"
+    /local-scale environmental context="Forest ecosystem (Reared)"
+    /environmental medium="Honey bee gut"
+    /geographic location="India: Karnataka"
+    /host="Apis cerana indica"
+    /latitude and longitude="12.55821 N 75.95338 E"
+Accession: SAMN22855684	ID: 22855684
+
+2: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN22855683; Sample name: YSSG1; SRA: SRS10948374
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-07"
+    /broad-scale environmental context="Gut biome"
+    /local-scale environmental context="Forest ecosystem (Wild)"
+    /environmental medium="Honey bee gut"
+    /geographic location="India: Karnataka"
+    /host="Apis florea"
+    /latitude and longitude="12.14455 N 75.9382 E"
+Accession: SAMN22855683	ID: 22855683
+
+

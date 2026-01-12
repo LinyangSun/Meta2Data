@@ -1,0 +1,337 @@
+1: Royal Jelly from Local Hive (USA, Gainesville, FL)
+Identifiers: BioSample: SAMN32605084; Sample name: RJ12-t; SRA: SRS16393705
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2022-03-22"
+    /geographic location="USA: Gainesville, Florida"
+    /latitude and longitude="29.6343 N 82.3657 W"
+    /sample collection device or method="Queen Honey bee Cell from Hive"
+    /sample size="0.5 mL"
+    /source material identifiers="T12"
+Accession: SAMN32605084	ID: 32605084
+
+2: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605083; Sample name: RJ11-t; SRA: SRS16393704
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2022-01-21"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T11"
+Accession: SAMN32605083	ID: 32605083
+
+3: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605082; Sample name: RJ10-t; SRA: SRS16393703
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2022-01-20"
+    /geographic location="missing"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T10"
+Accession: SAMN32605082	ID: 32605082
+
+4: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605081; Sample name: RJ9-t; SRA: SRS16393702
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2022-01-20"
+    /geographic location="China: undisclosed Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T9"
+Accession: SAMN32605081	ID: 32605081
+
+5: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605080; Sample name: RJ8-t; SRA: SRS16393700
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-12-06"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T8"
+Accession: SAMN32605080	ID: 32605080
+
+6: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605079; Sample name: RJ7-t; SRA: SRS16393699
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-12-06"
+    /geographic location="China: Eastern China"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T7"
+Accession: SAMN32605079	ID: 32605079
+
+7: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605078; Sample name: RJ6-t; SRA: SRS16393698
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-11-09"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T6"
+Accession: SAMN32605078	ID: 32605078
+
+8: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605077; Sample name: RJ5-t; SRA: SRS16393697
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-12-20"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T5"
+Accession: SAMN32605077	ID: 32605077
+
+9: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605076; Sample name: RJ4-t; SRA: SRS16393695
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-12-06"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T4"
+Accession: SAMN32605076	ID: 32605076
+
+10: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605075; Sample name: RJ3-t; SRA: SRS16393696
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-11-09"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T3"
+Accession: SAMN32605075	ID: 32605075
+
+11: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605074; Sample name: RJ2-t; SRA: SRS16393694
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-11-09"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T2"
+Accession: SAMN32605074	ID: 32605074
+
+12: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605073; Sample name: RJ1-t; SRA: SRS16393693
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-07-29"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="T1"
+Accession: SAMN32605073	ID: 32605073
+
+13: Royal Jelly from Local Hive (USA, Gainesville, FL)
+Identifiers: BioSample: SAMN32605072; Sample name: RJ12-g; SRA: SRS16393692
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2022-03-22"
+    /geographic location="USA: Gainesville, Florida"
+    /latitude and longitude="29.6343 N 82.3657 W"
+    /sample collection device or method="Queen Honey bee Cell from Hive"
+    /sample size="0.5 mL"
+    /source material identifiers="G12"
+Accession: SAMN32605072	ID: 32605072
+
+14: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605071; Sample name: RJ11-g; SRA: SRS16393691
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2022-01-21"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G11"
+Accession: SAMN32605071	ID: 32605071
+
+15: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605070; Sample name: RJ10-g; SRA: SRS16393712
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2022-01-20"
+    /geographic location="missing"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G10"
+Accession: SAMN32605070	ID: 32605070
+
+16: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605069; Sample name: RJ9-g; SRA: SRS16393711
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2022-01-20"
+    /geographic location="China: undisclosed Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G9"
+Accession: SAMN32605069	ID: 32605069
+
+17: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605068; Sample name: RJ8-g; SRA: SRS16393710
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-12-06"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G8"
+Accession: SAMN32605068	ID: 32605068
+
+18: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605067; Sample name: RJ7-g; SRA: SRS16393709
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-12-06"
+    /geographic location="China: Eastern China"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G7"
+Accession: SAMN32605067	ID: 32605067
+
+19: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605066; Sample name: RJ6-g; SRA: SRS16393708
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-11-09"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G6"
+Accession: SAMN32605066	ID: 32605066
+
+20: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605065; Sample name: RJ5-g; SRA: SRS16393707
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-12-20"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G5"
+Accession: SAMN32605065	ID: 32605065
+
+21: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605064; Sample name: RJ4-g; SRA: SRS16393706
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-12-06"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G4"
+Accession: SAMN32605064	ID: 32605064
+
+22: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605063; Sample name: RJ3-g; SRA: SRS16393701
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-11-09"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G3"
+Accession: SAMN32605063	ID: 32605063
+
+23: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605062; Sample name: RJ2-g; SRA: SRS16393690
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-11-09"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G2"
+Accession: SAMN32605062	ID: 32605062
+
+24: Royal Jelly from Commercial Jar (imported)
+Identifiers: BioSample: SAMN32605061; Sample name: RJ1-g; SRA: SRS16393689
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hypopharyngeal gland"
+    /collection date="2021-07-29"
+    /geographic location="China: Zhe Jaing Region"
+    /latitude and longitude="Unknown"
+    /sample collection device or method="Commercial jar of Royal Jelly"
+    /sample size="50 mL"
+    /source material identifiers="G1"
+Accession: SAMN32605061	ID: 32605061
+
+

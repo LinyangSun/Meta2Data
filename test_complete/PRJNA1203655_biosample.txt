@@ -1,0 +1,1653 @@
+1: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000519; Sample name: HGSTD5-115; SRA: SRS23663093
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee150"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000519	ID: 46000519
+
+2: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000518; Sample name: HGSTD5-114; SRA: SRS23663092
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee149"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000518	ID: 46000518
+
+3: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000517; Sample name: HGSTD5-113; SRA: SRS23663090
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee148"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000517	ID: 46000517
+
+4: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000516; Sample name: HGSTD5-112; SRA: SRS23663091
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee147"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000516	ID: 46000516
+
+5: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000515; Sample name: HGSTD5-111; SRA: SRS23663089
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee146"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000515	ID: 46000515
+
+6: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000514; Sample name: HGNTD5-115; SRA: SRS23663088
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee145"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000514	ID: 46000514
+
+7: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000513; Sample name: HGNTD5-114; SRA: SRS23663087
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee144"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000513	ID: 46000513
+
+8: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000512; Sample name: HGNTD5-113; SRA: SRS23663085
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee143"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000512	ID: 46000512
+
+9: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000511; Sample name: HGNTD5-112; SRA: SRS23663086
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee142"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000511	ID: 46000511
+
+10: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000510; Sample name: HGNTD5-111; SRA: SRS23663084
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee141"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000510	ID: 46000510
+
+11: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000509; Sample name: HGSTD1-115; SRA: SRS23663082
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee140"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000509	ID: 46000509
+
+12: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000508; Sample name: HGSTD1-114; SRA: SRS23663080
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee139"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000508	ID: 46000508
+
+13: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000507; Sample name: HGSTD1-113; SRA: SRS23663081
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee138"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000507	ID: 46000507
+
+14: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000506; Sample name: HGSTD1-112; SRA: SRS23663079
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee137"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000506	ID: 46000506
+
+15: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000505; Sample name: HGSTD1-111; SRA: SRS23663078
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee136"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000505	ID: 46000505
+
+16: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000504; Sample name: HGNTD1-115; SRA: SRS23663077
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee135"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000504	ID: 46000504
+
+17: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000503; Sample name: HGNTD1-114; SRA: SRS23663036
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee134"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000503	ID: 46000503
+
+18: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000502; Sample name: HGNTD1-113; SRA: SRS23663035
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee133"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000502	ID: 46000502
+
+19: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000501; Sample name: HGNTD1-112; SRA: SRS23663034
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee132"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000501	ID: 46000501
+
+20: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000500; Sample name: HGNTD1-111; SRA: SRS23663033
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee131"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000500	ID: 46000500
+
+21: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000499; Sample name: HGBL115; SRA: SRS23663031
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee130"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000499	ID: 46000499
+
+22: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000498; Sample name: HGBL114; SRA: SRS23663030
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee129"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000498	ID: 46000498
+
+23: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000497; Sample name: HGBL113; SRA: SRS23663029
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee128"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000497	ID: 46000497
+
+24: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000496; Sample name: HGBL112; SRA: SRS23663028
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee127"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000496	ID: 46000496
+
+25: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000495; Sample name: HGBL111; SRA: SRS23663027
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee126"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000495	ID: 46000495
+
+26: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000494; Sample name: MGSTD5-115; SRA: SRS23663026
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee125"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000494	ID: 46000494
+
+27: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000493; Sample name: MGSTD5-114; SRA: SRS23663025
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee124"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000493	ID: 46000493
+
+28: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000492; Sample name: MGSTD5-113; SRA: SRS23663024
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee123"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000492	ID: 46000492
+
+29: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000491; Sample name: MGSTD5-112; SRA: SRS23663023
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee122"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000491	ID: 46000491
+
+30: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000490; Sample name: MGSTD5-111; SRA: SRS23663022
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee121"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000490	ID: 46000490
+
+31: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000489; Sample name: MGNTD5-115; SRA: SRS23663020
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee120"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000489	ID: 46000489
+
+32: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000488; Sample name: MGNTD5-114; SRA: SRS23663019
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee119"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000488	ID: 46000488
+
+33: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000487; Sample name: MGNTD5-113; SRA: SRS23663018
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee118"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000487	ID: 46000487
+
+34: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000486; Sample name: MGNTD5-112; SRA: SRS23663017
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee117"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000486	ID: 46000486
+
+35: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000485; Sample name: MGNTD5-111; SRA: SRS23663016
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee116"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000485	ID: 46000485
+
+36: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000484; Sample name: MGSTD1-115; SRA: SRS23663015
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee115"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000484	ID: 46000484
+
+37: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000483; Sample name: MGSTD1-114; SRA: SRS23663014
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee114"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000483	ID: 46000483
+
+38: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000482; Sample name: MGSTD1-113; SRA: SRS23663013
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee113"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000482	ID: 46000482
+
+39: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000481; Sample name: MGSTD1-112; SRA: SRS23663012
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee112"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000481	ID: 46000481
+
+40: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000480; Sample name: MGSTD1-111; SRA: SRS23663011
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee111"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000480	ID: 46000480
+
+41: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000479; Sample name: MGNTD1-115; SRA: SRS23663009
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee110"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000479	ID: 46000479
+
+42: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000478; Sample name: MGNTD1-114; SRA: SRS23663008
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee109"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000478	ID: 46000478
+
+43: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000477; Sample name: MGNTD1-113; SRA: SRS23663007
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee108"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000477	ID: 46000477
+
+44: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000476; Sample name: MGNTD1-112; SRA: SRS23663006
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee107"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000476	ID: 46000476
+
+45: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000475; Sample name: MGNTD1-111; SRA: SRS23663005
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee106"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000475	ID: 46000475
+
+46: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000474; Sample name: MGBL115; SRA: SRS23663004
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee105"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000474	ID: 46000474
+
+47: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000473; Sample name: MGBL114; SRA: SRS23663003
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee104"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000473	ID: 46000473
+
+48: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000472; Sample name: MGBL113; SRA: SRS23663002
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee103"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000472	ID: 46000472
+
+49: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000471; Sample name: MGBL112; SRA: SRS23663001
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee102"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000471	ID: 46000471
+
+50: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000470; Sample name: MGBL111; SRA: SRS23663000
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee101"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000470	ID: 46000470
+
+51: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000469; Sample name: BSSTD5-115; SRA: SRS23663145
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee100"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000469	ID: 46000469
+
+52: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000468; Sample name: BSSTD5-114; SRA: SRS23663146
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee99"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000468	ID: 46000468
+
+53: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000467; Sample name: BSSTD5-113; SRA: SRS23663144
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee98"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000467	ID: 46000467
+
+54: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000466; Sample name: BSSTD5-112; SRA: SRS23663143
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee97"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000466	ID: 46000466
+
+55: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000465; Sample name: BSSTD5-111; SRA: SRS23663142
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee96"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000465	ID: 46000465
+
+56: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000464; Sample name: BSNTD5-115; SRA: SRS23663141
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee95"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000464	ID: 46000464
+
+57: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000463; Sample name: BSNTD5-114; SRA: SRS23663140
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee94"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000463	ID: 46000463
+
+58: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000462; Sample name: BSNTD5-113; SRA: SRS23663139
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee93"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000462	ID: 46000462
+
+59: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000461; Sample name: BSNTD5-112; SRA: SRS23663138
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee92"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000461	ID: 46000461
+
+60: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000460; Sample name: BSNTD5-111; SRA: SRS23663137
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee91"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000460	ID: 46000460
+
+
+61: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000459; Sample name: BSSTD1-115; SRA: SRS23663135
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee90"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000459	ID: 46000459
+
+62: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000458; Sample name: BSSTD1-114; SRA: SRS23663134
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee89"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000458	ID: 46000458
+
+63: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000457; Sample name: BSSTD1-113; SRA: SRS23663132
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee88"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000457	ID: 46000457
+
+64: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000456; Sample name: BSSTD1-112; SRA: SRS23663133
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee87"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000456	ID: 46000456
+
+65: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000455; Sample name: BSSTD1-111; SRA: SRS23663131
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee86"
+    /collection date="2023-05-02"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000455	ID: 46000455
+
+66: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000454; Sample name: BSNTD1-115; SRA: SRS23663130
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee85"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000454	ID: 46000454
+
+67: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000453; Sample name: BSNTD1-114; SRA: SRS23663129
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee84"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000453	ID: 46000453
+
+68: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000452; Sample name: BSNTD1-113; SRA: SRS23663127
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee83"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000452	ID: 46000452
+
+69: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000451; Sample name: BSNTD1-112; SRA: SRS23663128
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee82"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000451	ID: 46000451
+
+70: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000450; Sample name: BSNTD1-111; SRA: SRS23663126
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee81"
+    /collection date="2023-04-28"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000450	ID: 46000450
+
+71: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000449; Sample name: BSBL115; SRA: SRS23663124
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee80"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000449	ID: 46000449
+
+72: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000448; Sample name: BSBL114; SRA: SRS23663122
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee79"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000448	ID: 46000448
+
+73: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000447; Sample name: BSBL113; SRA: SRS23663123
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee78"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000447	ID: 46000447
+
+74: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000446; Sample name: BSBL112; SRA: SRS23663121
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee77"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000446	ID: 46000446
+
+75: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000445; Sample name: BSBL111; SRA: SRS23663120
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee76"
+    /collection date="2023-04-27"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000445	ID: 46000445
+
+76: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000444; Sample name: HGSTD55; SRA: SRS23663119
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee75"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000444	ID: 46000444
+
+77: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000443; Sample name: HGSTD54; SRA: SRS23663117
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee74"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000443	ID: 46000443
+
+78: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000442; Sample name: HGSTD53; SRA: SRS23663118
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee73"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000442	ID: 46000442
+
+79: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000441; Sample name: HGSTD52; SRA: SRS23663076
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee72"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000441	ID: 46000441
+
+80: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000440; Sample name: HGSTD51; SRA: SRS23663075
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee71"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000440	ID: 46000440
+
+81: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000439; Sample name: HGNTD55; SRA: SRS23663074
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee70"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000439	ID: 46000439
+
+82: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000438; Sample name: HGNTD54; SRA: SRS23663072
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee69"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000438	ID: 46000438
+
+83: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000437; Sample name: HGNTD53; SRA: SRS23663071
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee68"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000437	ID: 46000437
+
+84: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000436; Sample name: HGNTD52; SRA: SRS23663070
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee67"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000436	ID: 46000436
+
+85: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000435; Sample name: HGNTD51; SRA: SRS23663068
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee66"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000435	ID: 46000435
+
+86: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000434; Sample name: HGSTD15; SRA: SRS23663069
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee65"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000434	ID: 46000434
+
+87: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000433; Sample name: HGSTD14; SRA: SRS23663067
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee64"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000433	ID: 46000433
+
+88: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000432; Sample name: HGSTD13; SRA: SRS23663066
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee63"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000432	ID: 46000432
+
+89: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000431; Sample name: HGSTD12; SRA: SRS23663065
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee62"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000431	ID: 46000431
+
+90: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000430; Sample name: HGSTD11; SRA: SRS23663064
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee61"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000430	ID: 46000430
+
+91: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000429; Sample name: HGNTD15; SRA: SRS23663061
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee60"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000429	ID: 46000429
+
+92: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000428; Sample name: HGNTD14; SRA: SRS23663062
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee59"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000428	ID: 46000428
+
+93: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000427; Sample name: HGNTD13; SRA: SRS23663060
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee58"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000427	ID: 46000427
+
+94: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000426; Sample name: HGNTD12; SRA: SRS23663059
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee57"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000426	ID: 46000426
+
+95: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000425; Sample name: HGNTD11; SRA: SRS23663058
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee56"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000425	ID: 46000425
+
+96: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000424; Sample name: HGBL5; SRA: SRS23663056
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee55"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000424	ID: 46000424
+
+97: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000423; Sample name: HGBL4; SRA: SRS23663057
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee54"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000423	ID: 46000423
+
+98: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000422; Sample name: HGBL3; SRA: SRS23663055
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee53"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000422	ID: 46000422
+
+99: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000421; Sample name: HGBL2; SRA: SRS23663053
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee52"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000421	ID: 46000421
+
+100: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000420; Sample name: HGBL1; SRA: SRS23663054
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee51"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000420	ID: 46000420
+
+101: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000419; Sample name: MGSTD55; SRA: SRS23663051
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee50"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000419	ID: 46000419
+
+102: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000418; Sample name: MGSTD54; SRA: SRS23663050
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee49"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000418	ID: 46000418
+
+103: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000417; Sample name: MGSTD53; SRA: SRS23663049
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee48"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000417	ID: 46000417
+
+104: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000416; Sample name: MGSTD52; SRA: SRS23663048
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee47"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000416	ID: 46000416
+
+105: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000415; Sample name: MGSTD51; SRA: SRS23663047
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee46"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000415	ID: 46000415
+
+106: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000414; Sample name: MGNTD55; SRA: SRS23663046
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee45"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000414	ID: 46000414
+
+107: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000413; Sample name: MGNTD54; SRA: SRS23663045
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee44"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000413	ID: 46000413
+
+108: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000412; Sample name: MGNTD53; SRA: SRS23663044
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee43"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000412	ID: 46000412
+
+109: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000411; Sample name: MGNTD52; SRA: SRS23663043
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee42"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000411	ID: 46000411
+
+110: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000410; Sample name: MGNTD51; SRA: SRS23663042
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee41"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000410	ID: 46000410
+
+111: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000409; Sample name: MGSTD15; SRA: SRS23663040
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee40"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000409	ID: 46000409
+
+112: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000408; Sample name: MGSTD14; SRA: SRS23663039
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee39"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000408	ID: 46000408
+
+113: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000407; Sample name: MGSTD13; SRA: SRS23663038
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee38"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000407	ID: 46000407
+
+114: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000406; Sample name: MGSTD12; SRA: SRS23663037
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee37"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000406	ID: 46000406
+
+115: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000405; Sample name: MGSTD11; SRA: SRS23663116
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee36"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000405	ID: 46000405
+
+116: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000404; Sample name: MGNTD15; SRA: SRS23663115
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee35"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000404	ID: 46000404
+
+117: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000403; Sample name: MGNTD14; SRA: SRS23663114
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee34"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000403	ID: 46000403
+
+118: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000402; Sample name: MGNTD13; SRA: SRS23663112
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee33"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000402	ID: 46000402
+
+119: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000401; Sample name: MGNTD12; SRA: SRS23663113
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee32"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000401	ID: 46000401
+
+120: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000400; Sample name: MGNTD11; SRA: SRS23663111
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee31"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000400	ID: 46000400
+
+
+121: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000399; Sample name: MGBL5; SRA: SRS23663109
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee30"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000399	ID: 46000399
+
+122: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000398; Sample name: MGBL4; SRA: SRS23663107
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee29"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000398	ID: 46000398
+
+123: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000397; Sample name: MGBL3; SRA: SRS23663108
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee28"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000397	ID: 46000397
+
+124: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000396; Sample name: MGBL2; SRA: SRS23663106
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee27"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000396	ID: 46000396
+
+125: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000395; Sample name: MGBL1; SRA: SRS23663105
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee26"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000395	ID: 46000395
+
+126: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000394; Sample name: BSSTD55; SRA: SRS23663104
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee25"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000394	ID: 46000394
+
+127: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000393; Sample name: BSSTD54; SRA: SRS23663102
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee24"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000393	ID: 46000393
+
+128: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000392; Sample name: BSSTD53; SRA: SRS23663103
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee23"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000392	ID: 46000392
+
+129: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000391; Sample name: BSSTD52; SRA: SRS23663101
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee22"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000391	ID: 46000391
+
+130: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000390; Sample name: BSSTD51; SRA: SRS23663100
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee21"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000390	ID: 46000390
+
+131: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000389; Sample name: BSNTD55; SRA: SRS23663097
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee20"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000389	ID: 46000389
+
+132: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000388; Sample name: BSNTD54; SRA: SRS23663098
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee19"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000388	ID: 46000388
+
+133: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000387; Sample name: BSNTD53; SRA: SRS23663096
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee18"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000387	ID: 46000387
+
+134: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000386; Sample name: BSNTD52; SRA: SRS23663095
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee17"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000386	ID: 46000386
+
+135: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000385; Sample name: BSNTD51; SRA: SRS23663094
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee16"
+    /collection date="2022-05-10"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000385	ID: 46000385
+
+136: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000384; Sample name: BSSTD15; SRA: SRS23663083
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee15"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000384	ID: 46000384
+
+137: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000383; Sample name: BSSTD14; SRA: SRS23663032
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee14"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000383	ID: 46000383
+
+138: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000382; Sample name: BSSTD13; SRA: SRS23663021
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee13"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000382	ID: 46000382
+
+139: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000381; Sample name: BSSTD12; SRA: SRS23663010
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee12"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000381	ID: 46000381
+
+140: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000380; Sample name: BSSTD11; SRA: SRS23662999
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee11"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000380	ID: 46000380
+
+141: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000379; Sample name: BSNTD15; SRA: SRS23663136
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee10"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000379	ID: 46000379
+
+142: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000378; Sample name: BSNTD14; SRA: SRS23663125
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee9"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000378	ID: 46000378
+
+143: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000377; Sample name: BSNTD13; SRA: SRS23663073
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee8"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000377	ID: 46000377
+
+144: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000376; Sample name: BSNTD12; SRA: SRS23663063
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee7"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000376	ID: 46000376
+
+145: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000375; Sample name: BSNTD11; SRA: SRS23663052
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee6"
+    /collection date="2022-05-06"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000375	ID: 46000375
+
+146: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000374; Sample name: BSBL5; SRA: SRS23663041
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee5"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000374	ID: 46000374
+
+147: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000373; Sample name: BSBL4; SRA: SRS23663110
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee4"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000373	ID: 46000373
+
+148: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000372; Sample name: BSBL3; SRA: SRS23663099
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee3"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000372	ID: 46000372
+
+149: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000371; Sample name: BSBL2; SRA: SRS23662998
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee2"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000371	ID: 46000371
+
+150: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN46000370; Sample name: BSBL1; SRA: SRS23662997
+Organism: bee metagenome
+Attributes:
+    /host="Bee"
+    /isolation source="Bee1"
+    /collection date="2022-05-05"
+    /geographic location="USA: New Haven"
+    /latitude and longitude="41.30 N 72.92 W"
+Accession: SAMN46000370	ID: 46000370
+
+

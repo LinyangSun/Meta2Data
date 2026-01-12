@@ -1,0 +1,897 @@
+1: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994638; Sample name: SAG-25; SRA: SRS14321262
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-25"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994638	ID: 29994638
+
+2: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994637; Sample name: SAG-24; SRA: SRS14321261
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-24"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994637	ID: 29994637
+
+3: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994636; Sample name: SAG-23; SRA: SRS14321260
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-23"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994636	ID: 29994636
+
+4: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994635; Sample name: SAG-22; SRA: SRS14321258
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-22"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994635	ID: 29994635
+
+5: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994634; Sample name: SAG-21; SRA: SRS14321257
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-21"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994634	ID: 29994634
+
+6: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994633; Sample name: SAG-20; SRA: SRS14321256
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-20"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994633	ID: 29994633
+
+7: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994632; Sample name: SAG-19; SRA: SRS14321255
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-19"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994632	ID: 29994632
+
+8: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994631; Sample name: SAG-18; SRA: SRS14321254
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-18"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994631	ID: 29994631
+
+9: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994630; Sample name: SAG-12; SRA: SRS14321253
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Stilbum cyanurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-12"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994630	ID: 29994630
+
+10: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994629; Sample name: SAG-59; SRA: SRS14321276
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. eritrocephala"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-59"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994629	ID: 29994629
+
+11: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994628; Sample name: SAG-58; SRA: SRS14321275
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. eritrocephala"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-58"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994628	ID: 29994628
+
+12: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994627; Sample name: SAG-57; SRA: SRS14321274
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. eritrocephala"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-57"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994627	ID: 29994627
+
+13: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994626; Sample name: PILU-05; SRA: SRS14321251
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILU-05"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994626	ID: 29994626
+
+14: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994625; Sample name: PILU-04; SRA: SRS14321252
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILU-04"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994625	ID: 29994625
+
+15: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994624; Sample name: PILU-03; SRA: SRS14321250
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILU-03"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994624	ID: 29994624
+
+16: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994623; Sample name: PILU-02; SRA: SRS14321249
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILU-02"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994623	ID: 29994623
+
+17: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994622; Sample name: PILU-01; SRA: SRS14321247
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILU-01"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994622	ID: 29994622
+
+18: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994621; Sample name: PILT-05; SRA: SRS14321246
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILT-05"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994621	ID: 29994621
+
+19: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994620; Sample name: PILT-04; SRA: SRS14321245
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILT-04"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994620	ID: 29994620
+
+20: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994619; Sample name: PILT-03; SRA: SRS14321244
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILT-03"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994619	ID: 29994619
+
+21: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994618; Sample name: PILT-02; SRA: SRS14321243
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILT-02"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994618	ID: 29994618
+
+22: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994617; Sample name: PILT-01; SRA: SRS14321242
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Halictus scabiosae"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="PILT-01"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994617	ID: 29994617
+
+23: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994616; Sample name: SAG-50; SRA: SRS14321273
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-50"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994616	ID: 29994616
+
+24: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994615; Sample name: SAG-36; SRA: SRS14321272
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-36"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994615	ID: 29994615
+
+25: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994614; Sample name: SAG-35; SRA: SRS14321271
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-35"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994614	ID: 29994614
+
+26: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994613; Sample name: SAG-34; SRA: SRS14321269
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-34"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994613	ID: 29994613
+
+27: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994612; Sample name: SAG-33; SRA: SRS14321268
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-33"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994612	ID: 29994612
+
+28: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994611; Sample name: SAG-32; SRA: SRS14321267
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-32"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994611	ID: 29994611
+
+29: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994610; Sample name: SAG-31; SRA: SRS14321266
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-31"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994610	ID: 29994610
+
+30: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994609; Sample name: SAG-30; SRA: SRS14321265
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-30"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994609	ID: 29994609
+
+31: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994608; Sample name: SAG-29; SRA: SRS14321264
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-29"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994608	ID: 29994608
+
+32: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994607; Sample name: SAG-28; SRA: SRS14321263
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sceliphron spirifex"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="SAG-28"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994607	ID: 29994607
+
+33: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994606; Sample name: COR-28; SRA: SRS14321233
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sphecodes monilicornis"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-28"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994606	ID: 29994606
+
+34: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994605; Sample name: COR-27; SRA: SRS14321232
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sphecodes monilicornis"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-27"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994605	ID: 29994605
+
+35: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994604; Sample name: COR-26; SRA: SRS14321231
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sphecodes monilicornis"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-26"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994604	ID: 29994604
+
+36: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994603; Sample name: COR-25; SRA: SRS14321230
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Sphecodes monilicornis"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-25"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994603	ID: 29994603
+
+37: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994602; Sample name: COR-66; SRA: SRS14321241
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-66"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994602	ID: 29994602
+
+38: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994601; Sample name: COR-65; SRA: SRS14321240
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-65"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994601	ID: 29994601
+
+39: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994600; Sample name: COR-51; SRA: SRS14321239
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-51"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994600	ID: 29994600
+
+40: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994599; Sample name: COR-37; SRA: SRS14321237
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-37"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994599	ID: 29994599
+
+41: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994598; Sample name: COR-36; SRA: SRS14321236
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-36"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994598	ID: 29994598
+
+42: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994597; Sample name: COR-34; SRA: SRS14321235
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-34"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994597	ID: 29994597
+
+43: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994596; Sample name: COR-33; SRA: SRS14321234
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-33"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994596	ID: 29994596
+
+44: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994595; Sample name: COR-18; SRA: SRS14321229
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-18"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994595	ID: 29994595
+
+45: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994594; Sample name: COR-17; SRA: SRS14321228
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-17"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994594	ID: 29994594
+
+46: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994593; Sample name: COR-15; SRA: SRS14321227
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="wasp gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Myrmilla sp. capitata"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-15"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994593	ID: 29994593
+
+47: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994592; Sample name: COR-10; SRA: SRS14321280
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-10"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994592	ID: 29994592
+
+48: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994591; Sample name: COR-09; SRA: SRS14321279
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-09"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994591	ID: 29994591
+
+49: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994590; Sample name: COR-08; SRA: SRS14321278
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-08"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994590	ID: 29994590
+
+50: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994589; Sample name: COR-07; SRA: SRS14321277
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-07"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994589	ID: 29994589
+
+51: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994588; Sample name: COR-06; SRA: SRS14321270
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-06"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994588	ID: 29994588
+
+52: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994587; Sample name: COR-05; SRA: SRS14321259
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-05"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994587	ID: 29994587
+
+53: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994586; Sample name: COR-04; SRA: SRS14321248
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-04"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994586	ID: 29994586
+
+54: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994585; Sample name: COR-03; SRA: SRS14321238
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-03"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994585	ID: 29994585
+
+55: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994584; Sample name: COR-02; SRA: SRS14321225
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-02"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994584	ID: 29994584
+
+56: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN29994583; Sample name: COR-01; SRA: SRS14321226
+Organism: metagenome
+Attributes:
+    /collection date="2020"
+    /broad-scale environmental context="Mediterranean bush"
+    /local-scale environmental context="not applicable"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Italy: Marina di Alberese"
+    /host="Lasioglossum malachurum"
+    /latitude and longitude="42.6694 N 11.1061 E"
+    /source material identifiers="COR-01"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN29994583	ID: 29994583
+
+

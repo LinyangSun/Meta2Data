@@ -1,0 +1,145 @@
+1: MIMS Environmental/Metagenome sample from Apis mellifera
+Identifiers: BioSample: SAMN02583743; Sample name: ICM3C9K04; SRA: SRS529953
+Organism: Apis mellifera
+Attributes:
+    /environmental package="MIGS/MIMS/MIMARKS.host-associated"
+    /investigation type="metagenome"
+    /broad-scale environmental context="corbicular pollen from spring foragers"
+    /collection date="2013-03-20"
+    /local-scale environmental context="16S rRNA"
+    /geographic location="USA: Tucson, AZ"
+    /latitude and longitude="32.22°N, 110.93°W"
+    /environmental medium="honey bee pollen"
+    /project name="honey bee guts, crops, and corbicular pollen Targeted Locus (Loci)"
+    /host="Apis mellifera"
+    /elevation="806 m"
+    /host common name="honey bee"
+    /host taxonomy ID="7460"
+    /host diet="natural forage"
+    /host life stage="pollen forager"
+Description:
+corbicular pollen isolated from pooled groups of 15 pollen foragers collected in the spring
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN02583743	ID: 2583743
+
+2: MIMS Environmental/Metagenome sample from Apis mellifera
+Identifiers: BioSample: SAMN02583742; Sample name: ICM3C9K03; SRA: SRS529952
+Organism: Apis mellifera
+Attributes:
+    /environmental package="MIGS/MIMS/MIMARKS.host-associated"
+    /investigation type="metagenome"
+    /broad-scale environmental context="crops from spring foragers"
+    /collection date="2013-03-20"
+    /local-scale environmental context="16S rRNA"
+    /geographic location="USA: Tucson, AZ"
+    /latitude and longitude="32.22°N, 110.93°W"
+    /environmental medium="honey bee crops"
+    /project name="honey bee guts, crops, and corbicular pollen Targeted Locus (Loci)"
+    /host="Apis mellifera"
+    /elevation="806 m"
+    /host common name="honey bee"
+    /host taxonomy ID="7460"
+    /host diet="natural forage"
+    /host life stage="pollen forager"
+Description:
+crops isolated from pooled groups of 15 foragers collected in the spring
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN02583742	ID: 2583742
+
+3: MIMS Environmental/Metagenome sample from Apis mellifera
+Identifiers: BioSample: SAMN02583741; Sample name: ICM3C9K02; SRA: SRS529950
+Organism: Apis mellifera
+Attributes:
+    /environmental package="MIGS/MIMS/MIMARKS.host-associated"
+    /investigation type="metagenome"
+    /broad-scale environmental context="corbicular pollen from individual spring foragers"
+    /collection date="2013-03-20"
+    /local-scale environmental context="16S rRNA"
+    /geographic location="USA: Tucson, AZ"
+    /latitude and longitude="32.22°N, 110.93°W"
+    /environmental medium="honey bee pollen"
+    /project name="honey bee guts, crops, and corbicular pollen Targeted Locus (Loci)"
+    /host="Apis mellifera"
+    /elevation="806 m"
+    /host common name="honey bee"
+    /host taxonomy ID="7460"
+    /host diet="natural forage"
+    /host life stage="pollen forager"
+Description:
+corbicular pollen isolated from individual foragers collected in the spring
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN02583741	ID: 2583741
+
+4: MIMS Environmental/Metagenome sample from Apis mellifera
+Identifiers: BioSample: SAMN02583740; Sample name: ICM3C9K01; SRA: SRS529820
+Organism: Apis mellifera
+Attributes:
+    /environmental package="MIGS/MIMS/MIMARKS.host-associated"
+    /investigation type="metagenome"
+    /broad-scale environmental context="guts of individual spring foragers"
+    /collection date="2013-03-20"
+    /local-scale environmental context="16S rRNA"
+    /geographic location="USA: Tucson, AZ"
+    /latitude and longitude="32.22°N, 110.93°W"
+    /environmental medium="honey bee guts"
+    /project name="honey bee guts, crops, and corbicular pollen Targeted Locus (Loci)"
+    /host="Apis mellifera"
+    /elevation="806 m"
+    /host common name="honey bee"
+    /host taxonomy ID="7460"
+    /host diet="natural forage"
+    /host life stage="pollen forager"
+Description:
+hindguts isolated from individual foragers collected in the spring
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN02583740	ID: 2583740
+
+5: MIMS Environmental/Metagenome sample from Apis mellifera
+Identifiers: BioSample: SAMN02583739; Sample name: H3QVG8204; SRA: SRS530041
+Organism: Apis mellifera
+Attributes:
+    /environmental package="MIGS/MIMS/MIMARKS.host-associated"
+    /investigation type="metagenome"
+    /broad-scale environmental context="guts of fall foragers"
+    /collection date="2012-12-03"
+    /local-scale environmental context="16S rRNA"
+    /geographic location="USA: Tucson, AZ"
+    /latitude and longitude="32.22°N, 110.93°W"
+    /environmental medium="honey bee guts"
+    /project name="honey bee guts, crops, and corbicular pollen Targeted Locus (Loci)"
+    /host="Apis mellifera"
+    /elevation="806 m"
+    /host common name="honey bee"
+    /host taxonomy ID="7460"
+    /host diet="natural forage"
+    /host life stage="pollen forager"
+Description:
+hindguts isolated from individual foragers collected in the fall
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN02583739	ID: 2583739
+
+6: MIMS Environmental/Metagenome sample from Apis mellifera
+Identifiers: BioSample: SAMN02583738; Sample name: H3QVG8203; SRA: SRS529954
+Organism: Apis mellifera
+Attributes:
+    /environmental package="MIGS/MIMS/MIMARKS.host-associated"
+    /investigation type="metagenome"
+    /broad-scale environmental context="corbicular pollen from fall foragers"
+    /collection date="2012-12-03"
+    /local-scale environmental context="16S rRNA"
+    /geographic location="USA: Tucson, AZ"
+    /latitude and longitude="32.22°N, 110.93°W"
+    /environmental medium="honey bee pollen"
+    /project name="honey bee guts, crops, and corbicular pollen Targeted Locus (Loci)"
+    /host="Apis mellifera"
+    /elevation="806 m"
+    /host common name="honey bee"
+    /host taxonomy ID="7460"
+    /host diet="natural forage"
+    /host life stage="pollen forager"
+Description:
+corbicular pollen isolated from individual foragers collected in the fall
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN02583738	ID: 2583738
+
+

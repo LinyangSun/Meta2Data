@@ -1,0 +1,1760 @@
+1: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413202; Sample name: PC_2; SRA: SRS14722785
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="mock community control 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="mock control"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="mock control"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413202	ID: 30413202
+
+2: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413201; Sample name: PC_1; SRA: SRS14722783
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="mock community control 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="mock control"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="mock control"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413201	ID: 30413201
+
+3: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413200; Sample name: NB_9; SRA: SRS14722784
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="nurse bee natural control individuum 6"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413200	ID: 30413200
+
+4: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413199; Sample name: NB_8; SRA: SRS14722782
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="nurse bee natural control individuum 5"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413199	ID: 30413199
+
+5: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413198; Sample name: NB_6; SRA: SRS14722780
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="nurse bee natural control individuum 4"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413198	ID: 30413198
+
+6: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413197; Sample name: NB_4; SRA: SRS14722779
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="nurse bee natural control individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413197	ID: 30413197
+
+7: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413196; Sample name: NB_2; SRA: SRS14722778
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="nurse bee natural control individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413196	ID: 30413196
+
+8: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413195; Sample name: NB_1; SRA: SRS14722777
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="nurse bee natural control individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413195	ID: 30413195
+
+9: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413194; Sample name: 28_2_SP; SRA: SRS14722776
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="start microbiome pool to inoculate cycle 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-02-28"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 10 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413194	ID: 30413194
+
+10: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413193; Sample name: 22_T2_1; SRA: SRS14722775
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 3 after stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413193	ID: 30413193
+
+11: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413192; Sample name: 22_C3_T_6; SRA: SRS14722774
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 3 after stress_individuum 4"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="control after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413192	ID: 30413192
+
+12: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413191; Sample name: 22_C3_T_4; SRA: SRS14722773
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 3 after stress_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="control after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413191	ID: 30413191
+
+13: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413190; Sample name: 22_C3_T_2; SRA: SRS14722772
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 3 after stress_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="control after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413190	ID: 30413190
+
+14: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413189; Sample name: 22_C3_T_1; SRA: SRS14722771
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 3 after stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="control after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413189	ID: 30413189
+
+15: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413188; Sample name: 22_C1_T_5; SRA: SRS14722770
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 3 after stress_individuum 4"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="control after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413188	ID: 30413188
+
+16: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413187; Sample name: 22_C1_T_4; SRA: SRS14722768
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 3 after stress_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="control after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413187	ID: 30413187
+
+17: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413186; Sample name: 22_C1_T_2; SRA: SRS14722766
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 3 after stress_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="control after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413186	ID: 30413186
+
+18: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413185; Sample name: 22_C1_T_1; SRA: SRS14722767
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 3 after stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-22"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="control after high dosage tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413185	ID: 30413185
+
+19: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413184; Sample name: 21_T3_4; SRA: SRS14722765
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 3 before stress_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413184	ID: 30413184
+
+20: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413183; Sample name: 21_T3_3; SRA: SRS14722764
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 3 before stress_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413183	ID: 30413183
+
+21: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413182; Sample name: 21_T3_1_; SRA: SRS14722763
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 3 before stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413182	ID: 30413182
+
+22: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413181; Sample name: 21_T2_3_; SRA: SRS14722762
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 2 cycle 3 before stress_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413181	ID: 30413181
+
+23: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413180; Sample name: 21_T2_2; SRA: SRS14722761
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 2 cycle 3 before stress_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413180	ID: 30413180
+
+24: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413179; Sample name: 21_T2_1; SRA: SRS14722760
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 2 cycle 3 before stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413179	ID: 30413179
+
+25: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413178; Sample name: 21_T1_4; SRA: SRS14722759
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 1 cycle 3 before stress_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413178	ID: 30413178
+
+26: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413177; Sample name: 21_T1_2_; SRA: SRS14722757
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 1 cycle 3 before stress_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413177	ID: 30413177
+
+27: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413176; Sample name: 21_T1_1; SRA: SRS14722756
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 1 cycle 3 before stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413176	ID: 30413176
+
+28: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413175; Sample name: 21_C3_T_6; SRA: SRS14722755
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 3 before stress_individuum 4"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413175	ID: 30413175
+
+29: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413174; Sample name: 21_C3_T_5; SRA: SRS14722754
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 3 before stress_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413174	ID: 30413174
+
+30: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413173; Sample name: 21_C3_T_2; SRA: SRS14722753
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 3 before stress_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413173	ID: 30413173
+
+31: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413172; Sample name: 21_C3_T_1; SRA: SRS14722752
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 3 before stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413172	ID: 30413172
+
+32: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413171; Sample name: 21_C2_T_6; SRA: SRS14722751
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 3 before stress_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413171	ID: 30413171
+
+33: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413170; Sample name: 21_C2_T_3; SRA: SRS14722749
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 3 before stress_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413170	ID: 30413170
+
+34: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413169; Sample name: 21_C2_T_1; SRA: SRS14722750
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 3 before stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413169	ID: 30413169
+
+35: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413168; Sample name: 21_C1_T_5; SRA: SRS14722748
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 3 before stress_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413168	ID: 30413168
+
+36: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413167; Sample name: 21_C1_T_4; SRA: SRS14722746
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 3 before stress_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-21"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413167	ID: 30413167
+
+37: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413166; Sample name: 16_T3_7; SRA: SRS14722745
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 2_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413166	ID: 30413166
+
+38: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413165; Sample name: 16_T3_6; SRA: SRS14722743
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 2_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413165	ID: 30413165
+
+39: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413164; Sample name: 16_T3_3; SRA: SRS14722744
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 2_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413164	ID: 30413164
+
+40: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413163; Sample name: 16_T2_5; SRA: SRS14722742
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 2 cycle 2_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413163	ID: 30413163
+
+41: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413162; Sample name: 16_T2_10; SRA: SRS14722741
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 2 cycle 2_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413162	ID: 30413162
+
+42: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413161; Sample name: 16_T2_1; SRA: SRS14722740
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 2 cycle 2_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413161	ID: 30413161
+
+43: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413160; Sample name: 16_T1_3; SRA: SRS14722739
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 1 cycle 2_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413160	ID: 30413160
+
+44: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413159; Sample name: 16_T1_2; SRA: SRS14722738
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 1 cycle 2_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413159	ID: 30413159
+
+45: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413158; Sample name: 16_T1_1; SRA: SRS14722737
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 1 cycle 2_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413158	ID: 30413158
+
+46: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413157; Sample name: 16_C3_7; SRA: SRS14722735
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 2_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413157	ID: 30413157
+
+47: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413156; Sample name: 16_C3_3; SRA: SRS14722734
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 2_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413156	ID: 30413156
+
+48: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413155; Sample name: 16_C3_2; SRA: SRS14722733
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 2_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413155	ID: 30413155
+
+49: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413154; Sample name: 16_C2_8; SRA: SRS14722732
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 2_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413154	ID: 30413154
+
+50: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413153; Sample name: 16_C2_5; SRA: SRS14722731
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 2_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413153	ID: 30413153
+
+51: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413152; Sample name: 16_C2_10; SRA: SRS14722730
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 2_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413152	ID: 30413152
+
+52: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413151; Sample name: 16_C1_8; SRA: SRS14722729
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 2_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413151	ID: 30413151
+
+53: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413150; Sample name: 16_C1_5; SRA: SRS14722728
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 2_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413150	ID: 30413150
+
+54: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413149; Sample name: 16_C1_4; SRA: SRS14722727
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 2_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413149	ID: 30413149
+
+55: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413148; Sample name: 16_3_T3; SRA: SRS14722726
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 2 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413148	ID: 30413148
+
+56: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413147; Sample name: 16_3_T2; SRA: SRS14722724
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 2 cycle 2 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413147	ID: 30413147
+
+57: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413146; Sample name: 16_3_T1; SRA: SRS14722723
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 1 cycle 2 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413146	ID: 30413146
+
+58: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413145; Sample name: 16_3_C3; SRA: SRS14722722
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 2 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413145	ID: 30413145
+
+59: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413144; Sample name: 16_3_C2; SRA: SRS14722721
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 2 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413144	ID: 30413144
+
+60: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413143; Sample name: 16_3_C1; SRA: SRS14722720
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 2 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-16"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413143	ID: 30413143
+
+
+61: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413142; Sample name: 10_C3_4; SRA: SRS14722719
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 1_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413142	ID: 30413142
+
+62: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413141; Sample name: 10_C3_3; SRA: SRS14722718
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 1_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413141	ID: 30413141
+
+63: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413140; Sample name: 10_C3_2; SRA: SRS14722717
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 1_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413140	ID: 30413140
+
+64: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413139; Sample name: 10_C2_5; SRA: SRS14722716
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 1_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413139	ID: 30413139
+
+65: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413138; Sample name: 10_C2_4; SRA: SRS14722714
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 1_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413138	ID: 30413138
+
+66: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413137; Sample name: 10_C2_1; SRA: SRS14722787
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 1_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413137	ID: 30413137
+
+67: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413136; Sample name: 10_C1_6; SRA: SRS14722786
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 1_individuum 3"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413136	ID: 30413136
+
+68: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413135; Sample name: 10_C1_2; SRA: SRS14722781
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 1_individuum 2"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413135	ID: 30413135
+
+69: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413134; Sample name: 10_C1_1; SRA: SRS14722769
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 1_individuum 1"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="abdomen"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413134	ID: 30413134
+
+70: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413133; Sample name: 10_3_T3; SRA: SRS14722758
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 3 cycle 1 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413133	ID: 30413133
+
+71: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413132; Sample name: 10_3_T2; SRA: SRS14722747
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 2 cycle 1 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413132	ID: 30413132
+
+72: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413131; Sample name: 10_3_T1; SRA: SRS14722736
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="tetracycline cage 1 cycle 1 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="tetracycline"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413131	ID: 30413131
+
+73: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413130; Sample name: 10_3_C3; SRA: SRS14722725
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 3 cycle 1 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413130	ID: 30413130
+
+74: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413129; Sample name: 10_3_C2; SRA: SRS14722715
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 2 cycle 1 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413129	ID: 30413129
+
+75: MIMARKS Specimen sample from Apis mellifera ligustica
+Identifiers: BioSample: SAMN30413128; Sample name: 10_3_C1; SRA: SRS14722713
+Organism: Apis mellifera ligustica
+Attributes:
+    /strain="not applicable"
+    /isolate="control cage 1 cycle 1 microbiome pool"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="2019-03-10"
+    /broad-scale environmental context="Apis_mellifera_biome"
+    /local-scale environmental context="gut_biome"
+    /environmental medium="pool of 3 macerated guts"
+    /geographic location="Australia: Canberra"
+    /host="Apis mellifera"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="none"
+    /sub species="ligustica"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN30413128	ID: 30413128
+
+76: Sample_21_Tetracycline-exposed_cage1_of_Tetracycline_experiment
+Identifiers: BioSample: SAMN30052293; Sample name: 21_T1_2; SRA: SRS14360598
+Organism: Apis mellifera ligustica
+Attributes:
+    /isolate="Tetracycline-pre-exposed_cage2"
+    /breed="not applicable"
+    /host="not applicable"
+    /isolation source="abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Australia: Canberra"
+    /tissue="whole_abdomen"
+    /broad-scale environmental context="lab experiment tetracycline treated"
+    /sex="female"
+    /sub species="ligustica"
+Description:
+whole abdomen snap-frozen and extracted
+Accession: SAMN30052293	ID: 30052293
+
+77: Sample_21_Tetracycline-exposed_cage2_of_Tetracycline_experiment
+Identifiers: BioSample: SAMN30052292; Sample name: 21_T2_3; SRA: SRS14360597
+Organism: Apis mellifera ligustica
+Attributes:
+    /isolate="Tetracycline-pre-exposed_cage3"
+    /breed="not applicable"
+    /host="not applicable"
+    /isolation source="abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Australia: Canberra"
+    /tissue="whole_abdomen"
+    /broad-scale environmental context="lab experiment tetracycline treated"
+    /sex="female"
+    /sub species="ligustica"
+Description:
+whole abdomen snap-frozen and extracted
+Accession: SAMN30052292	ID: 30052292
+
+78: Sample_21_Tetracycline-exposed_cage3_of_Tetracycline_experiment
+Identifiers: BioSample: SAMN30052291; Sample name: 21_T3_1; SRA: SRS14360596
+Organism: Apis mellifera ligustica
+Attributes:
+    /isolate="Tetracycline-pre-exposed_cage1"
+    /breed="not applicable"
+    /host="not applicable"
+    /isolation source="abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Australia: Canberra"
+    /tissue="whole_abdomen"
+    /broad-scale environmental context="lab experiment tetracycline treated"
+    /sex="female"
+    /sub species="ligustica"
+Description:
+whole abdomen snap-frozen and extracted
+Accession: SAMN30052291	ID: 30052291
+
+79: Sample_21_Control_cage1_of_Tetracycline_experiment
+Identifiers: BioSample: SAMN30052290; Sample name: 21_C1_Tet4; SRA: SRS14360595
+Organism: Apis mellifera ligustica
+Attributes:
+    /isolate="Control_cage1"
+    /breed="not applicable"
+    /host="not applicable"
+    /isolation source="abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Australia: Canberra"
+    /tissue="whole_abdomen"
+    /broad-scale environmental context="lab experiment control"
+    /sex="female"
+    /sub species="ligustica"
+Description:
+whole abdomen snap-frozen and extracted
+Accession: SAMN30052290	ID: 30052290
+
+80: Sample_21_Control_cage3_of_Tetracycline_experiment
+Identifiers: BioSample: SAMN30052289; Sample name: 21_C3_Tet6; SRA: SRS14360594
+Organism: Apis mellifera ligustica
+Attributes:
+    /isolate="Control_cage3"
+    /breed="not applicable"
+    /host="not applicable"
+    /isolation source="abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Australia: Canberra"
+    /tissue="whole_abdomen"
+    /broad-scale environmental context="lab experiment control"
+    /sex="female"
+    /sub species="ligustica"
+Description:
+whole abdomen snap-frozen and extracted
+Accession: SAMN30052289	ID: 30052289
+
+81: Sample_21_Control_cage2_of_Tetracycline_experiment
+Identifiers: BioSample: SAMN30052288; Sample name: 21_C2_Tet3; SRA: SRS14360593
+Organism: Apis mellifera ligustica
+Attributes:
+    /isolate="Control_cage2"
+    /breed="not applicable"
+    /host="not applicable"
+    /isolation source="abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Australia: Canberra"
+    /tissue="whole_abdomen"
+    /broad-scale environmental context="lab experiment control"
+    /sex="female"
+    /sub species="ligustica"
+Description:
+whole abdomen snap-frozen and extracted
+Accession: SAMN30052288	ID: 30052288
+
+

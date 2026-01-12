@@ -1,0 +1,1050 @@
+1: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583933; Sample name: 6AA_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="maternal bee of sibling set 6 (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+adult
+Accession: SAMN46583933	ID: 46583933
+
+2: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583932; Sample name: 5FA_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="maternal bee of sibling set 5 (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+adult
+Accession: SAMN46583932	ID: 46583932
+
+3: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583931; Sample name: 4CA_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="maternal bee of sibling set 4 (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+adult
+Accession: SAMN46583931	ID: 46583931
+
+4: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583930; Sample name: 3BA_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="maternal bee of sibling set 3 (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+adult
+Accession: SAMN46583930	ID: 46583930
+
+5: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583929; Sample name: 2BA_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="maternal bee of sibling set 2 (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+adult
+Accession: SAMN46583929	ID: 46583929
+
+6: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583928; Sample name: 1FA_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="maternal bee of sibling set 1 (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+adult
+Accession: SAMN46583928	ID: 46583928
+
+7: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583927; Sample name: 9FP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 9, 6th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583927	ID: 46583927
+
+8: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583926; Sample name: 9BP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 9, 2nd provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583926	ID: 46583926
+
+9: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583925; Sample name: 8GP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 7th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583925	ID: 46583925
+
+10: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583924; Sample name: 8EP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 5th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583924	ID: 46583924
+
+11: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583923; Sample name: 8CP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 3rd provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583923	ID: 46583923
+
+12: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583922; Sample name: 6HP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 8th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583922	ID: 46583922
+
+13: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583921; Sample name: 6FP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 6th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583921	ID: 46583921
+
+14: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583920; Sample name: 5DP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 4th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583920	ID: 46583920
+
+15: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583919; Sample name: 5BP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 2nd provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583919	ID: 46583919
+
+16: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583918; Sample name: 4BP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 4, 2nd provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583918	ID: 46583918
+
+17: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583917; Sample name: 3FP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 3, 6th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583917	ID: 46583917
+
+18: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583916; Sample name: 1HP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 8th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583916	ID: 46583916
+
+19: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583915; Sample name: 1DP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 4th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583915	ID: 46583915
+
+20: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583914; Sample name: 9EP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 9, 5th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583914	ID: 46583914
+
+21: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583913; Sample name: 8HP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 8th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583913	ID: 46583913
+
+22: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583912; Sample name: 8FP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 6th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583912	ID: 46583912
+
+23: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583911; Sample name: 8DP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 4th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583911	ID: 46583911
+
+24: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583910; Sample name: 6IP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 9th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583910	ID: 46583910
+
+25: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583909; Sample name: 6GP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 7th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583909	ID: 46583909
+
+26: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583908; Sample name: 6EP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 5th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583908	ID: 46583908
+
+27: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583907; Sample name: 5CP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 3rd provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583907	ID: 46583907
+
+28: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583906; Sample name: 5AP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 1st provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583906	ID: 46583906
+
+29: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583905; Sample name: 4AP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 4, 1st provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583905	ID: 46583905
+
+30: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583904; Sample name: 3DP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 3, 4th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583904	ID: 46583904
+
+31: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583903; Sample name: 1EP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 5th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583903	ID: 46583903
+
+32: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583902; Sample name: 1AP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 1st provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583902	ID: 46583902
+
+33: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583901; Sample name: 5GP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 7th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583901	ID: 46583901
+
+34: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583900; Sample name: 3GP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 3, 7th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583900	ID: 46583900
+
+35: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583899; Sample name: 3CP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 3, 3rd provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583899	ID: 46583899
+
+36: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583898; Sample name: 1GP_qfilt.fastq
+Organism: pollen metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 7th provision (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+pollen
+Accession: SAMN46583898	ID: 46583898
+
+37: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583897; Sample name: 8BL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 2nd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583897	ID: 46583897
+
+38: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583896; Sample name: 8AL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 1st larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583896	ID: 46583896
+
+39: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583895; Sample name: 7BL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 7, 2nd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583895	ID: 46583895
+
+40: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583894; Sample name: 7AL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 7, 1st larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583894	ID: 46583894
+
+41: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583893; Sample name: 6BL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 2nd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583893	ID: 46583893
+
+42: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583892; Sample name: 3EL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 3, 5th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583892	ID: 46583892
+
+43: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583891; Sample name: 2AL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 2, 1st larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583891	ID: 46583891
+
+44: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583890; Sample name: 1CL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 3rd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583890	ID: 46583890
+
+45: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583889; Sample name: 1BL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 2nd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583889	ID: 46583889
+
+46: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583888; Sample name: 9EL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 9, 5th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583888	ID: 46583888
+
+47: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583887; Sample name: 9BL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 9, 2nd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583887	ID: 46583887
+
+48: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583886; Sample name: 8GL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 7th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583886	ID: 46583886
+
+49: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583885; Sample name: 8EL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 5th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583885	ID: 46583885
+
+50: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583884; Sample name: 8CL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 3rd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583884	ID: 46583884
+
+51: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583883; Sample name: 6HL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 8th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583883	ID: 46583883
+
+52: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583882; Sample name: 6FL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 6th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583882	ID: 46583882
+
+53: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583881; Sample name: 5GL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 7th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583881	ID: 46583881
+
+54: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583880; Sample name: 5CL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 3rd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583880	ID: 46583880
+
+55: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583879; Sample name: 5AL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 1st larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583879	ID: 46583879
+
+56: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583878; Sample name: 4AL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 4, 1st larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583878	ID: 46583878
+
+57: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583877; Sample name: 3DL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 3, 4th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583877	ID: 46583877
+
+58: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583876; Sample name: 1HL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 8th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583876	ID: 46583876
+
+59: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583875; Sample name: 1DL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 4th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583875	ID: 46583875
+
+60: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583874; Sample name: 9FL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 9, 6th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583874	ID: 46583874
+
+
+61: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583873; Sample name: 9CL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 9, 3rd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583873	ID: 46583873
+
+62: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583872; Sample name: 9AL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 9, 1st larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583872	ID: 46583872
+
+63: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583871; Sample name: 8FL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 6th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583871	ID: 46583871
+
+64: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583870; Sample name: 8DL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 8, 4th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583870	ID: 46583870
+
+65: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583869; Sample name: 6IL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 9th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583869	ID: 46583869
+
+66: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583868; Sample name: 6GL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 7th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583868	ID: 46583868
+
+67: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583867; Sample name: 6EL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 6, 5th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583867	ID: 46583867
+
+68: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583866; Sample name: 5DL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 4th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583866	ID: 46583866
+
+69: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583865; Sample name: 5BL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 5, 2nd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583865	ID: 46583865
+
+70: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583864; Sample name: 4BL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 4, 2nd larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583864	ID: 46583864
+
+71: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583863; Sample name: 3FL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 3, 6th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583863	ID: 46583863
+
+72: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583862; Sample name: 3AL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 3, 1st larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583862	ID: 46583862
+
+73: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583861; Sample name: 1EL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 5th larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583861	ID: 46583861
+
+74: The changing microbiome of a developing Cactus Bee, Diadasia opuntiae Ckll.
+Identifiers: BioSample: SAMN46583860; Sample name: 1AL_qfilt.fastq
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="sibling set 1, 1st larva (quality filtered)"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Description:
+larva
+Accession: SAMN46583860	ID: 46583860
+
+75: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN46545845; Sample name: 1AL
+Organism: insect gut metagenome
+Attributes:
+    /host="Diadasia opuntiae"
+    /isolation source="larva"
+    /collection date="2021-05-18"
+    /geographic location="USA: Arizona, Tucson"
+    /latitude and longitude="32.18048 N 110.56134 W"
+    /sample collection device or method="Excavation"
+Accession: SAMN46545845	ID: 46545845
+
+

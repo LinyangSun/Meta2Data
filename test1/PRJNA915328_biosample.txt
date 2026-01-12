@@ -1,0 +1,1052 @@
+1: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873572; Sample name: sample_human_9; SRA: SRS16560723
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.76 E"
+Accession: SAMN32873572	ID: 32873572
+
+2: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873571; Sample name: sample_human_8; SRA: SRS16560722
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.75 E"
+Accession: SAMN32873571	ID: 32873571
+
+3: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873570; Sample name: sample_human_7; SRA: SRS16560721
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.74 E"
+Accession: SAMN32873570	ID: 32873570
+
+4: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873569; Sample name: sample_human_6; SRA: SRS16560720
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.73 E"
+Accession: SAMN32873569	ID: 32873569
+
+5: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873568; Sample name: sample_human_5; SRA: SRS16560719
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.72 E"
+Accession: SAMN32873568	ID: 32873568
+
+6: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873567; Sample name: sample_human_4; SRA: SRS16560718
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.71 E"
+Accession: SAMN32873567	ID: 32873567
+
+7: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873566; Sample name: sample_human_3; SRA: SRS16560717
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.70 E"
+Accession: SAMN32873566	ID: 32873566
+
+8: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873565; Sample name: sample_human_2; SRA: SRS16560715
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.69 E"
+Accession: SAMN32873565	ID: 32873565
+
+9: Metagenome or environmental sample from feces metagenome
+Identifiers: BioSample: SAMN32873564; Sample name: sample_human_1; SRA: SRS16560714
+Organism: feces metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.68 E"
+Accession: SAMN32873564	ID: 32873564
+
+10: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873563; Sample name: sample_BEE_gut_48; SRA: SRS16560713
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.67 E"
+Accession: SAMN32873563	ID: 32873563
+
+11: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873562; Sample name: sample_BEE_gut_47; SRA: SRS16560712
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.66 E"
+Accession: SAMN32873562	ID: 32873562
+
+12: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873561; Sample name: sample_BEE_gut_46; SRA: SRS16560711
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.65 E"
+Accession: SAMN32873561	ID: 32873561
+
+13: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873560; Sample name: sample_BEE_gut_45; SRA: SRS16560710
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.64 E"
+Accession: SAMN32873560	ID: 32873560
+
+14: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873559; Sample name: sample_BEE_gut_44; SRA: SRS16560709
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.63 E"
+Accession: SAMN32873559	ID: 32873559
+
+15: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873558; Sample name: sample_BEE_gut_43; SRA: SRS16560708
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.62 E"
+Accession: SAMN32873558	ID: 32873558
+
+16: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873557; Sample name: sample_BEE_gut_42; SRA: SRS16560707
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.61 E"
+Accession: SAMN32873557	ID: 32873557
+
+17: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873556; Sample name: sample_BEE_gut_41; SRA: SRS16560706
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.60 E"
+Accession: SAMN32873556	ID: 32873556
+
+18: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873555; Sample name: sample_BEE_gut_40; SRA: SRS16560704
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.59 E"
+Accession: SAMN32873555	ID: 32873555
+
+19: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873554; Sample name: sample_BEE_gut_39; SRA: SRS16560703
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.58 E"
+Accession: SAMN32873554	ID: 32873554
+
+20: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873553; Sample name: sample_BEE_gut_38; SRA: SRS16560702
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.57 E"
+Accession: SAMN32873553	ID: 32873553
+
+21: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873552; Sample name: sample_BEE_gut_37; SRA: SRS16560701
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.56 E"
+Accession: SAMN32873552	ID: 32873552
+
+22: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873551; Sample name: sample_BEE_gut_36; SRA: SRS16560700
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.55 E"
+Accession: SAMN32873551	ID: 32873551
+
+23: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873550; Sample name: sample_BEE_gut_35; SRA: SRS16560699
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.54 E"
+Accession: SAMN32873550	ID: 32873550
+
+24: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873549; Sample name: sample_BEE_gut_34; SRA: SRS16560698
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.53 E"
+Accession: SAMN32873549	ID: 32873549
+
+25: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873548; Sample name: sample_BEE_gut_33; SRA: SRS16560697
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.52 E"
+Accession: SAMN32873548	ID: 32873548
+
+26: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873547; Sample name: sample_BEE_gut_32; SRA: SRS16560696
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.51 E"
+Accession: SAMN32873547	ID: 32873547
+
+27: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873546; Sample name: sample_BEE_gut_31; SRA: SRS16560695
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.50 E"
+Accession: SAMN32873546	ID: 32873546
+
+28: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873545; Sample name: sample_BEE_gut_30; SRA: SRS16560693
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.49 E"
+Accession: SAMN32873545	ID: 32873545
+
+29: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873544; Sample name: sample_BEE_gut_29; SRA: SRS16560692
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.48 E"
+Accession: SAMN32873544	ID: 32873544
+
+30: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873543; Sample name: sample_BEE_gut_28; SRA: SRS16560691
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.47 E"
+Accession: SAMN32873543	ID: 32873543
+
+31: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873542; Sample name: sample_BEE_gut_27; SRA: SRS16560690
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.46 E"
+Accession: SAMN32873542	ID: 32873542
+
+32: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873541; Sample name: sample_BEE_gut_26; SRA: SRS16560689
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.45 E"
+Accession: SAMN32873541	ID: 32873541
+
+33: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873540; Sample name: sample_BEE_gut_25; SRA: SRS16560688
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.44 E"
+Accession: SAMN32873540	ID: 32873540
+
+34: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873539; Sample name: sample_BEE_gut_24; SRA: SRS16560687
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.43 E"
+Accession: SAMN32873539	ID: 32873539
+
+35: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873538; Sample name: sample_BEE_gut_23; SRA: SRS16560686
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.42 E"
+Accession: SAMN32873538	ID: 32873538
+
+36: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873537; Sample name: sample_BEE_gut_22; SRA: SRS16560685
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.41 E"
+Accession: SAMN32873537	ID: 32873537
+
+37: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873536; Sample name: sample_BEE_gut_21; SRA: SRS16560684
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.40 E"
+Accession: SAMN32873536	ID: 32873536
+
+38: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873535; Sample name: sample_BEE_gut_20; SRA: SRS16560681
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.39 E"
+Accession: SAMN32873535	ID: 32873535
+
+39: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873534; Sample name: sample_BEE_gut_19; SRA: SRS16560682
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.38 E"
+Accession: SAMN32873534	ID: 32873534
+
+40: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873533; Sample name: sample_BEE_gut_18; SRA: SRS16560680
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.37 E"
+Accession: SAMN32873533	ID: 32873533
+
+41: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873532; Sample name: sample_BEE_gut_17; SRA: SRS16560679
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.36 E"
+Accession: SAMN32873532	ID: 32873532
+
+42: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873531; Sample name: sample_BEE_gut_16; SRA: SRS16560678
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.35 E"
+Accession: SAMN32873531	ID: 32873531
+
+43: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873530; Sample name: sample_BEE_gut_15; SRA: SRS16560677
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.34 E"
+Accession: SAMN32873530	ID: 32873530
+
+44: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873529; Sample name: sample_BEE_gut_14; SRA: SRS16560676
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.33 E"
+Accession: SAMN32873529	ID: 32873529
+
+45: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873528; Sample name: sample_BEE_gut_13; SRA: SRS16560675
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.32 E"
+Accession: SAMN32873528	ID: 32873528
+
+46: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873527; Sample name: sample_BEE_gut_12; SRA: SRS16560674
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.31 E"
+Accession: SAMN32873527	ID: 32873527
+
+47: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873526; Sample name: sample_BEE_gut_11; SRA: SRS16560673
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.30 E"
+Accession: SAMN32873526	ID: 32873526
+
+48: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873525; Sample name: sample_BEE_gut_10; SRA: SRS16560727
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.29 E"
+Accession: SAMN32873525	ID: 32873525
+
+49: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873524; Sample name: sample_BEE_gut_9; SRA: SRS16560726
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.28 E"
+Accession: SAMN32873524	ID: 32873524
+
+50: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873523; Sample name: sample_BEE_gut_8; SRA: SRS16560725
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.27 E"
+Accession: SAMN32873523	ID: 32873523
+
+51: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873522; Sample name: sample_BEE_gut_7; SRA: SRS16560724
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.26 E"
+Accession: SAMN32873522	ID: 32873522
+
+52: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873521; Sample name: sample_BEE_gut_6; SRA: SRS16560716
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.25 E"
+Accession: SAMN32873521	ID: 32873521
+
+53: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873520; Sample name: sample_BEE_gut_5; SRA: SRS16560705
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.24 E"
+Accession: SAMN32873520	ID: 32873520
+
+54: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873519; Sample name: sample_BEE_gut_4; SRA: SRS16560694
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.23 E"
+Accession: SAMN32873519	ID: 32873519
+
+55: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873518; Sample name: sample_BEE_gut_3; SRA: SRS16560683
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.22 E"
+Accession: SAMN32873518	ID: 32873518
+
+56: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873517; Sample name: sample_BEE_gut_2; SRA: SRS16560672
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.21 E"
+Accession: SAMN32873517	ID: 32873517
+
+57: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN32873516; Sample name: sample_BEE_gut_1; SRA: SRS16560671
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.20 E"
+Accession: SAMN32873516	ID: 32873516
+
+58: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386469; Sample name: sample_BEE48; SRA: SRS16270251
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.67 E"
+Accession: SAMN32386469	ID: 32386469
+
+59: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386468; Sample name: sample_BEE47; SRA: SRS16270250
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.66 E"
+Accession: SAMN32386468	ID: 32386468
+
+60: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386467; Sample name: sample_BEE46; SRA: SRS16270249
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.65 E"
+Accession: SAMN32386467	ID: 32386467
+
+
+61: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386466; Sample name: sample_BEE45; SRA: SRS16270248
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.64 E"
+Accession: SAMN32386466	ID: 32386466
+
+62: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386465; Sample name: sample_BEE44; SRA: SRS16270247
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.63 E"
+Accession: SAMN32386465	ID: 32386465
+
+63: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386464; Sample name: sample_BEE43; SRA: SRS16270246
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.62 E"
+Accession: SAMN32386464	ID: 32386464
+
+64: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386463; Sample name: sample_BEE42; SRA: SRS16270245
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.61 E"
+Accession: SAMN32386463	ID: 32386463
+
+65: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386462; Sample name: sample_BEE41; SRA: SRS16270244
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.60 E"
+Accession: SAMN32386462	ID: 32386462
+
+66: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386461; Sample name: sample_BEE40; SRA: SRS16270242
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.59 E"
+Accession: SAMN32386461	ID: 32386461
+
+67: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386460; Sample name: sample_BEE39; SRA: SRS16270241
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.58 E"
+Accession: SAMN32386460	ID: 32386460
+
+68: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386459; Sample name: sample_BEE38; SRA: SRS16270240
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.57 E"
+Accession: SAMN32386459	ID: 32386459
+
+69: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386458; Sample name: sample_BEE37; SRA: SRS16270239
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.56 E"
+Accession: SAMN32386458	ID: 32386458
+
+70: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386457; Sample name: sample_BEE36; SRA: SRS16270238
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.55 E"
+Accession: SAMN32386457	ID: 32386457
+
+71: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386456; Sample name: sample_BEE35; SRA: SRS16270237
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.54 E"
+Accession: SAMN32386456	ID: 32386456
+
+72: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386455; Sample name: sample_BEE34; SRA: SRS16270236
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.53 E"
+Accession: SAMN32386455	ID: 32386455
+
+73: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386454; Sample name: sample_BEE33; SRA: SRS16270235
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.52 E"
+Accession: SAMN32386454	ID: 32386454
+
+74: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386453; Sample name: sample_BEE32; SRA: SRS16270234
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.51 E"
+Accession: SAMN32386453	ID: 32386453
+
+75: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386452; Sample name: sample_BEE31; SRA: SRS16270233
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.50 E"
+Accession: SAMN32386452	ID: 32386452
+
+76: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386451; Sample name: sample_BEE30; SRA: SRS16270230
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.49 E"
+Accession: SAMN32386451	ID: 32386451
+
+77: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386450; Sample name: sample_BEE29; SRA: SRS16270231
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.48 E"
+Accession: SAMN32386450	ID: 32386450
+
+78: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386449; Sample name: sample_BEE28; SRA: SRS16270228
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.47 E"
+Accession: SAMN32386449	ID: 32386449
+
+79: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386448; Sample name: sample_BEE27; SRA: SRS16270229
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.46 E"
+Accession: SAMN32386448	ID: 32386448
+
+80: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386447; Sample name: sample_BEE26; SRA: SRS16270227
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.45 E"
+Accession: SAMN32386447	ID: 32386447
+
+81: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386446; Sample name: sample_BEE25; SRA: SRS16270226
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.44 E"
+Accession: SAMN32386446	ID: 32386446
+
+82: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386445; Sample name: sample_BEE24; SRA: SRS16270225
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.43 E"
+Accession: SAMN32386445	ID: 32386445
+
+83: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386444; Sample name: sample_BEE23; SRA: SRS16270224
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.42 E"
+Accession: SAMN32386444	ID: 32386444
+
+84: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386443; Sample name: sample_BEE22; SRA: SRS16270223
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.41 E"
+Accession: SAMN32386443	ID: 32386443
+
+85: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386442; Sample name: sample_BEE21; SRA: SRS16270222
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.40 E"
+Accession: SAMN32386442	ID: 32386442
+
+86: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386441; Sample name: sample_BEE20; SRA: SRS16270219
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.39 E"
+Accession: SAMN32386441	ID: 32386441
+
+87: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386440; Sample name: sample_BEE19; SRA: SRS16270220
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.38 E"
+Accession: SAMN32386440	ID: 32386440
+
+88: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386439; Sample name: sample_BEE18; SRA: SRS16270218
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.37 E"
+Accession: SAMN32386439	ID: 32386439
+
+89: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386438; Sample name: sample_BEE17; SRA: SRS16270217
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.36 E"
+Accession: SAMN32386438	ID: 32386438
+
+90: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386437; Sample name: sample_BEE16; SRA: SRS16270216
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.35 E"
+Accession: SAMN32386437	ID: 32386437
+
+91: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386436; Sample name: sample_BEE15; SRA: SRS16270215
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.34 E"
+Accession: SAMN32386436	ID: 32386436
+
+92: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386435; Sample name: sample_BEE14; SRA: SRS16270214
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.33 E"
+Accession: SAMN32386435	ID: 32386435
+
+93: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386434; Sample name: sample_BEE13; SRA: SRS16270213
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.32 E"
+Accession: SAMN32386434	ID: 32386434
+
+94: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386433; Sample name: sample_BEE12; SRA: SRS16270212
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.31 E"
+Accession: SAMN32386433	ID: 32386433
+
+95: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386432; Sample name: sample_BEE11; SRA: SRS16270211
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.30 E"
+Accession: SAMN32386432	ID: 32386432
+
+96: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386431; Sample name: sample_BEE10; SRA: SRS16270256
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.29 E"
+Accession: SAMN32386431	ID: 32386431
+
+97: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386430; Sample name: sample_BEE9; SRA: SRS16270255
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.28 E"
+Accession: SAMN32386430	ID: 32386430
+
+98: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386429; Sample name: sample_BEE8; SRA: SRS16270254
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.27 E"
+Accession: SAMN32386429	ID: 32386429
+
+99: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386428; Sample name: sample_BEE7; SRA: SRS16270253
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.26 E"
+Accession: SAMN32386428	ID: 32386428
+
+100: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386427; Sample name: sample_BEE6; SRA: SRS16270252
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.25 E"
+Accession: SAMN32386427	ID: 32386427
+
+101: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386426; Sample name: sample_BEE5; SRA: SRS16270243
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.24 E"
+Accession: SAMN32386426	ID: 32386426
+
+102: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386425; Sample name: sample_BEE4; SRA: SRS16270232
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.23 E"
+Accession: SAMN32386425	ID: 32386425
+
+103: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386424; Sample name: sample_BEE3; SRA: SRS16270221
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.22 E"
+Accession: SAMN32386424	ID: 32386424
+
+104: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386423; Sample name: sample_BEE2; SRA: SRS16270210
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.21 E"
+Accession: SAMN32386423	ID: 32386423
+
+105: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN32386422; Sample name: sample_BEE1; SRA: SRS16270209
+Organism: insect metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2021-12"
+    /geographic location="China:Beijing"
+    /latitude and longitude="39.56 N 116.20 E"
+Accession: SAMN32386422	ID: 32386422
+
+

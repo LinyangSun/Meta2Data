@@ -1,0 +1,952 @@
+{
+  "completed_projects": {
+    "PRJCA011502": {
+      "file": "test_final2/PRJCA011502.processed.csv",
+      "rows": 15,
+      "source": "CNCB",
+      "timestamp": "2026-01-10T12:54:05.066832"
+    },
+    "PRJCA040882": {
+      "file": "test_final2/PRJCA040882.processed.csv",
+      "rows": 50,
+      "source": "CNCB",
+      "timestamp": "2026-01-10T12:54:05.554548"
+    },
+    "PRJNA1373330": {
+      "file": "test_final2/PRJNA1373330.processed.csv",
+      "rows": 55,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:13.621566"
+    },
+    "PRJCA022947": {
+      "file": "test_final2/PRJCA022947.processed.csv",
+      "rows": 120,
+      "source": "CNCB",
+      "timestamp": "2026-01-10T12:54:14.076744"
+    },
+    "PRJDB36956": {
+      "file": "test_final2/PRJDB36956.processed.csv",
+      "rows": 50,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:14.725361"
+    },
+    "PRJNA1310163": {
+      "file": "test_final2/PRJNA1310163.processed.csv",
+      "rows": 18,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:21.528185"
+    },
+    "PRJNA1305501": {
+      "file": "test_final2/PRJNA1305501.processed.csv",
+      "rows": 48,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:23.733522"
+    },
+    "PRJNA1307180": {
+      "file": "test_final2/PRJNA1307180.processed.csv",
+      "rows": 90,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:27.524290"
+    },
+    "PRJNA1285920": {
+      "file": "test_final2/PRJNA1285920.processed.csv",
+      "rows": 20,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:29.340046"
+    },
+    "PRJNA1248737": {
+      "file": "test_final2/PRJNA1248737.processed.csv",
+      "rows": 74,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:39.318445"
+    },
+    "PRJNA1253914": {
+      "file": "test_final2/PRJNA1253914.processed.csv",
+      "rows": 98,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:40.014585"
+    },
+    "PRJNA1248556": {
+      "file": "test_final2/PRJNA1248556.processed.csv",
+      "rows": 115,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:54:58.321431"
+    },
+    "PRJNA1246220": {
+      "file": "test_final2/PRJNA1246220.processed.csv",
+      "rows": 288,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:55:01.942859"
+    },
+    "PRJNA1241321": {
+      "file": "test_final2/PRJNA1241321.processed.csv",
+      "rows": 266,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:55:34.518286"
+    },
+    "PRJNA1236352": {
+      "file": "test_final2/PRJNA1236352.processed.csv",
+      "rows": 18,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:55:38.022432"
+    },
+    "PRJNA1294982": {
+      "file": "test_final2/PRJNA1294982.processed.csv",
+      "rows": 820,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:55:53.228621"
+    },
+    "PRJNA1232968": {
+      "file": "test_final2/PRJNA1232968.processed.csv",
+      "rows": 140,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:02.368114"
+    },
+    "PRJNA1232403": {
+      "file": "test_final2/PRJNA1232403.processed.csv",
+      "rows": 107,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:07.685555"
+    },
+    "PRJNA1229817": {
+      "file": "test_final2/PRJNA1229817.processed.csv",
+      "rows": 5,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:09.803161"
+    },
+    "PRJNA1206451": {
+      "file": "test_final2/PRJNA1206451.processed.csv",
+      "rows": 15,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:26.667402"
+    },
+    "PRJNA1242897": {
+      "file": "test_final2/PRJNA1242897.processed.csv",
+      "rows": 868,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:30.932324"
+    },
+    "PRJNA1221307": {
+      "file": "test_final2/PRJNA1221307.processed.csv",
+      "rows": 220,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:36.203476"
+    },
+    "PRJNA1175569": {
+      "file": "test_final2/PRJNA1175569.processed.csv",
+      "rows": 18,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:37.204970"
+    },
+    "PRJNA1170179": {
+      "file": "test_final2/PRJNA1170179.processed.csv",
+      "rows": 2,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:40.138176"
+    },
+    "PRJNA1203655": {
+      "file": "test_final2/PRJNA1203655.processed.csv",
+      "rows": 150,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:44.723355"
+    },
+    "PRJNA1140353": {
+      "file": "test_final2/PRJNA1140353.processed.csv",
+      "rows": 16,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:50.238194"
+    },
+    "PRJNA1138008": {
+      "file": "test_final2/PRJNA1138008.processed.csv",
+      "rows": 1,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:53.480123"
+    },
+    "PRJNA1138773": {
+      "file": "test_final2/PRJNA1138773.processed.csv",
+      "rows": 47,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:56:54.814689"
+    },
+    "PRJNA1114793": {
+      "file": "test_final2/PRJNA1114793.processed.csv",
+      "rows": 21,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:00.567226"
+    },
+    "PRJNA1146331": {
+      "file": "test_final2/PRJNA1146331.processed.csv",
+      "rows": 120,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:01.861139"
+    },
+    "PRJNA1124990": {
+      "file": "test_final2/PRJNA1124990.processed.csv",
+      "rows": 80,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:05.016425"
+    },
+    "PRJNA1101670": {
+      "file": "test_final2/PRJNA1101670.processed.csv",
+      "rows": 17,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:07.455350"
+    },
+    "PRJNA1089148": {
+      "file": "test_final2/PRJNA1089148.processed.csv",
+      "rows": 69,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:16.672156"
+    },
+    "PRJNA1089149": {
+      "file": "test_final2/PRJNA1089149.processed.csv",
+      "rows": 96,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:18.994035"
+    },
+    "PRJNA1084868": {
+      "file": "test_final2/PRJNA1084868.processed.csv",
+      "rows": 99,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:22.183624"
+    },
+    "PRJNA1084867": {
+      "file": "test_final2/PRJNA1084867.processed.csv",
+      "rows": 59,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:26.100260"
+    },
+    "PRJNA1065181": {
+      "file": "test_final2/PRJNA1065181.processed.csv",
+      "rows": 2,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:30.009205"
+    },
+    "PRJNA1074123": {
+      "file": "test_final2/PRJNA1074123.processed.csv",
+      "rows": 21,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:30.488910"
+    },
+    "PRJNA1080497": {
+      "file": "test_final2/PRJNA1080497.processed.csv",
+      "rows": 176,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:38.693525"
+    },
+    "PRJNA1042938": {
+      "file": "test_final2/PRJNA1042938.processed.csv",
+      "rows": 29,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:39.779888"
+    },
+    "PRJNA1017617": {
+      "file": "test_final2/PRJNA1017617.processed.csv",
+      "rows": 20,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:52.291380"
+    },
+    "PRJEB66205": {
+      "file": "test_final2/PRJEB66205.processed.csv",
+      "rows": 269,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:57:59.972281"
+    },
+    "PRJNA1007366": {
+      "file": "test_final2/PRJNA1007366.processed.csv",
+      "rows": 18,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:03.829352"
+    },
+    "PRJNA1010874": {
+      "file": "test_final2/PRJNA1010874.processed.csv",
+      "rows": 168,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:12.056120"
+    },
+    "PRJNA1006316": {
+      "file": "test_final2/PRJNA1006316.processed.csv",
+      "rows": 45,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:13.225138"
+    },
+    "PRJNA998362": {
+      "file": "test_final2/PRJNA998362.processed.csv",
+      "rows": 1,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:18.625649"
+    },
+    "PRJNA999720": {
+      "file": "test_final2/PRJNA999720.processed.csv",
+      "rows": 120,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:26.395468"
+    },
+    "PRJNA996996": {
+      "file": "test_final2/PRJNA996996.processed.csv",
+      "rows": 71,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:29.488939"
+    },
+    "PRJNA953189": {
+      "file": "test_final2/PRJNA953189.processed.csv",
+      "rows": 40,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:40.200225"
+    },
+    "PRJNA975210": {
+      "file": "test_final2/PRJNA975210.processed.csv",
+      "rows": 88,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:41.482846"
+    },
+    "PRJNA1036403": {
+      "file": "test_final2/PRJNA1036403.processed.csv",
+      "rows": 573,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:43.850280"
+    },
+    "PRJNA925568": {
+      "file": "test_final2/PRJNA925568.processed.csv",
+      "rows": 58,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:52.190667"
+    },
+    "PRJNA918702": {
+      "file": "test_final2/PRJNA918702.processed.csv",
+      "rows": 24,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:54.017514"
+    },
+    "PRJNA940115": {
+      "file": "test_final2/PRJNA940115.processed.csv",
+      "rows": 72,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:58:54.447381"
+    },
+    "PRJNA898100": {
+      "file": "test_final2/PRJNA898100.processed.csv",
+      "rows": 20,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:05.914583"
+    },
+    "PRJNA915328": {
+      "file": "test_final2/PRJNA915328.processed.csv",
+      "rows": 105,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:11.271793"
+    },
+    "PRJNA911754": {
+      "file": "test_final2/PRJNA911754.processed.csv",
+      "rows": 168,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:14.453948"
+    },
+    "PRJNA888378": {
+      "file": "test_final2/PRJNA888378.processed.csv",
+      "rows": 24,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:16.363602"
+    },
+    "PRJNA893014": {
+      "file": "test_final2/PRJNA893014.processed.csv",
+      "rows": 102,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:19.845664"
+    },
+    "PRJNA879967": {
+      "file": "test_final2/PRJNA879967.processed.csv",
+      "rows": 40,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:26.741475"
+    },
+    "PRJNA880009": {
+      "file": "test_final2/PRJNA880009.processed.csv",
+      "rows": 79,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:27.170971"
+    },
+    "PRJNA874076": {
+      "file": "test_final2/PRJNA874076.processed.csv",
+      "rows": 115,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:41.241336"
+    },
+    "PRJNA862864": {
+      "file": "test_final2/PRJNA862864.processed.csv",
+      "rows": 56,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:49.916792"
+    },
+    "PRJNA863631": {
+      "file": "test_final2/PRJNA863631.processed.csv",
+      "rows": 81,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:51.329840"
+    },
+    "PRJNA849948": {
+      "file": "test_final2/PRJNA849948.processed.csv",
+      "rows": 24,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T12:59:59.067154"
+    },
+    "PRJNA839609": {
+      "file": "test_final2/PRJNA839609.processed.csv",
+      "rows": 117,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:00:14.325841"
+    },
+    "PRJNA875936": {
+      "file": "test_final2/PRJNA875936.processed.csv",
+      "rows": 704,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:00:40.688144"
+    },
+    "PRJNA809353": {
+      "file": "test_final2/PRJNA809353.processed.csv",
+      "rows": 95,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:00:50.682609"
+    },
+    "PRJNA801280": {
+      "file": "test_final2/PRJNA801280.processed.csv",
+      "rows": 192,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:19.228366"
+    },
+    "PRJNA805022": {
+      "file": "test_final2/PRJNA805022.processed.csv",
+      "rows": 390,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:25.972352"
+    },
+    "PRJEB47333": {
+      "file": "test_final2/PRJEB47333.processed.csv",
+      "rows": 945,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:28.638184"
+    },
+    "PRJNA798723": {
+      "file": "test_final2/PRJNA798723.processed.csv",
+      "rows": 71,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:30.630979"
+    },
+    "PRJEB47378": {
+      "file": "test_final2/PRJEB47378.processed.csv",
+      "rows": 9,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:33.890557"
+    },
+    "PRJNA788431": {
+      "file": "test_final2/PRJNA788431.processed.csv",
+      "rows": 30,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:36.082494"
+    },
+    "PRJDB12699": {
+      "file": "test_final2/PRJDB12699.processed.csv",
+      "rows": 185,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:52.864522"
+    },
+    "PRJEB48765": {
+      "file": "test_final2/PRJEB48765.processed.csv",
+      "rows": 76,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:54.816675"
+    },
+    "PRJEB48937": {
+      "file": "test_final2/PRJEB48937.processed.csv",
+      "rows": 158,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:01:55.637286"
+    },
+    "PRJNA777397": {
+      "file": "test_final2/PRJNA777397.processed.csv",
+      "rows": 2,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:00.751982"
+    },
+    "PRJEB45401": {
+      "file": "test_final2/PRJEB45401.processed.csv",
+      "rows": 39,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:09.236190"
+    },
+    "PRJNA751106": {
+      "file": "test_final2/PRJNA751106.processed.csv",
+      "rows": 2,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:13.388391"
+    },
+    "PRJNA759617": {
+      "file": "test_final2/PRJNA759617.processed.csv",
+      "rows": 360,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:17.361580"
+    },
+    "PRJNA774758": {
+      "file": "test_final2/PRJNA774758.processed.csv",
+      "rows": 190,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:17.676167"
+    },
+    "PRJNA735927": {
+      "file": "test_final2/PRJNA735927.processed.csv",
+      "rows": 6,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:23.277610"
+    },
+    "PRJNA735522": {
+      "file": "test_final2/PRJNA735522.processed.csv",
+      "rows": 84,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:26.967401"
+    },
+    "PRJNA749807": {
+      "file": "test_final2/PRJNA749807.processed.csv",
+      "rows": 208,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:39.027571"
+    },
+    "PRJNA742765": {
+      "file": "test_final2/PRJNA742765.processed.csv",
+      "rows": 146,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:39.675552"
+    },
+    "PRJNA715737": {
+      "file": "test_final2/PRJNA715737.processed.csv",
+      "rows": 1,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:44.829449"
+    },
+    "PRJNA719282": {
+      "file": "test_final2/PRJNA719282.processed.csv",
+      "rows": 189,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:50.280867"
+    },
+    "PRJNA685398": {
+      "file": "test_final2/PRJNA685398.processed.csv",
+      "rows": 40,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:52.993052"
+    },
+    "PRJNA705676": {
+      "file": "test_final2/PRJNA705676.processed.csv",
+      "rows": 123,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:58.242324"
+    },
+    "PRJNA705672": {
+      "file": "test_final2/PRJNA705672.processed.csv",
+      "rows": 91,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:02:59.058321"
+    },
+    "PRJNA640829": {
+      "file": "test_final2/PRJNA640829.processed.csv",
+      "rows": 25,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:08.123825"
+    },
+    "PRJNA675403": {
+      "file": "test_final2/PRJNA675403.processed.csv",
+      "rows": 96,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:12.905053"
+    },
+    "PRJNA678404": {
+      "file": "test_final2/PRJNA678404.processed.csv",
+      "rows": 154,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:15.425904"
+    },
+    "PRJNA630294": {
+      "file": "test_final2/PRJNA630294.processed.csv",
+      "rows": 44,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:22.639333"
+    },
+    "PRJNA630292": {
+      "file": "test_final2/PRJNA630292.processed.csv",
+      "rows": 74,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:26.147607"
+    },
+    "PRJNA630108": {
+      "file": "test_final2/PRJNA630108.processed.csv",
+      "rows": 39,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:33.450029"
+    },
+    "PRJEB38245": {
+      "file": "test_final2/PRJEB38245.processed.csv",
+      "rows": 160,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:35.218697"
+    },
+    "PRJNA629630": {
+      "file": "test_final2/PRJNA629630.processed.csv",
+      "rows": 122,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:42.904396"
+    },
+    "PRJNA594720": {
+      "file": "test_final2/PRJNA594720.processed.csv",
+      "rows": 93,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:03:57.181479"
+    },
+    "PRJNA613243": {
+      "file": "test_final2/PRJNA613243.processed.csv",
+      "rows": 366,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:04:14.231327"
+    },
+    "PRJEB31610": {
+      "file": "test_final2/PRJEB31610.processed.csv",
+      "rows": 205,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:04:36.003670"
+    },
+    "PRJEB31847": {
+      "file": "test_final2/PRJEB31847.processed.csv",
+      "rows": 198,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:04:37.069593"
+    },
+    "PRJNA525362": {
+      "file": "test_final2/PRJNA525362.processed.csv",
+      "rows": 6,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:04:40.702868"
+    },
+    "PRJNA494922": {
+      "file": "test_final2/PRJNA494922.processed.csv",
+      "rows": 45,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:04:50.789146"
+    },
+    "PRJEB23224": {
+      "file": "test_final2/PRJEB23224.processed.csv",
+      "rows": 74,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:01.161207"
+    },
+    "PRJEB27223": {
+      "file": "test_final2/PRJEB27223.processed.csv",
+      "rows": 198,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:06.376046"
+    },
+    "PRJNA578403": {
+      "file": "test_final2/PRJNA578403.processed.csv",
+      "rows": 647,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:06.398985"
+    },
+    "PRJNA395063": {
+      "file": "test_final2/PRJNA395063.processed.csv",
+      "rows": 18,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:09.782521"
+    },
+    "PRJNA386324": {
+      "file": "test_final2/PRJNA386324.processed.csv",
+      "rows": 289,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:12.637430"
+    },
+    "PRJDB4237": {
+      "file": "test_final2/PRJDB4237.processed.csv",
+      "rows": 36,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:21.625485"
+    },
+    "PRJNA253368": {
+      "file": "test_final2/PRJNA253368.processed.csv",
+      "rows": 6,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:21.810685"
+    },
+    "PRJNA234448": {
+      "file": "test_final2/PRJNA234448.processed.csv",
+      "rows": 6,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:26.073574"
+    },
+    "PRJNA321197": {
+      "file": "test_final2/PRJNA321197.processed.csv",
+      "rows": 158,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:28.425081"
+    },
+    "PRJNA252811": {
+      "file": "test_final2/PRJNA252811.processed.csv",
+      "rows": 21,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:28.496438"
+    },
+    "PRJEB1933": {
+      "file": "test_final2/PRJEB1933.processed.csv",
+      "rows": 2,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:31.425606"
+    },
+    "PRJNA222391": {
+      "file": "test_final2/PRJNA222391.processed.csv",
+      "rows": 60,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:38.639705"
+    },
+    "PRJNA636089": {
+      "file": "test_final2/PRJNA636089.processed.csv",
+      "rows": 16,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T13:05:41.149085"
+    }
+  },
+  "failed_downloads": [
+    {
+      "bioproject_id": "PRJNA1219164",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T12:56:20.934137"
+    },
+    {
+      "bioproject_id": "PRJNA1167448",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T12:56:42.180267"
+    },
+    {
+      "bioproject_id": "PRJNA1167444",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T12:56:43.810009"
+    },
+    {
+      "bioproject_id": "PRJEB79856",
+      "stage": "no_data",
+      "error": "No data",
+      "timestamp": "2026-01-10T12:56:44.972472"
+    },
+    {
+      "bioproject_id": "PRJNA1107702",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T12:57:04.290350"
+    },
+    {
+      "bioproject_id": "PRJNA1033630",
+      "stage": "no_data",
+      "error": "No data",
+      "timestamp": "2026-01-10T12:57:41.041314"
+    },
+    {
+      "bioproject_id": "PRJEB55080",
+      "stage": "no_data",
+      "error": "No data",
+      "timestamp": "2026-01-10T12:59:30.779725"
+    },
+    {
+      "bioproject_id": "PRJNA816912",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T13:00:34.973076"
+    },
+    {
+      "bioproject_id": "PRJDB11589",
+      "stage": "no_data",
+      "error": "No data",
+      "timestamp": "2026-01-10T13:02:29.248793"
+    },
+    {
+      "bioproject_id": "PRJEB38286",
+      "stage": "no_data",
+      "error": "No data",
+      "timestamp": "2026-01-10T13:02:43.167995"
+    },
+    {
+      "bioproject_id": "PRJNA640152",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T13:03:10.923204"
+    },
+    {
+      "bioproject_id": "PRJNA612903",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T13:04:10.358616"
+    },
+    {
+      "bioproject_id": "PRJNA561622",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T13:04:13.067746"
+    },
+    {
+      "bioproject_id": "PRJDB3520",
+      "stage": "no_run",
+      "error": "No Run info",
+      "timestamp": "2026-01-10T13:05:18.731104"
+    },
+    {
+      "bioproject_id": "PRJNA139605",
+      "stage": "no_data",
+      "error": "No data",
+      "timestamp": "2026-01-10T13:05:34.684761"
+    },
+    {
+      "bioproject_id": "PRJNA167400",
+      "stage": "no_data",
+      "error": "No data",
+      "timestamp": "2026-01-10T13:05:35.089168"
+    }
+  ],
+  "status_records": {
+    "Total queries: 1": "invalid_format",
+    "Time: 2026-01-10 12:53:57": "invalid_format",
+    "[1] (\"microbiome\") AND (\"bee\")": "invalid_format",
+    "NCBI: ncbi_1768042418.xml": "invalid_format",
+    "CNCB: cncb_1768042437.tsv": "invalid_format",
+    "PRJCA011502": "has_data",
+    "PRJCA040882": "has_data",
+    "PRJNA1373330": "has_data",
+    "PRJCA022947": "has_data",
+    "PRJDB36956": "has_data",
+    "PRJNA1310163": "has_data",
+    "PRJNA1305501": "has_data",
+    "PRJNA1307180": "has_data",
+    "PRJNA1285920": "has_data",
+    "PRJNA1248737": "has_data",
+    "PRJNA1253914": "has_data",
+    "PRJNA1248556": "has_data",
+    "PRJNA1246220": "has_data",
+    "PRJNA1241321": "has_data",
+    "PRJNA1236352": "has_data",
+    "PRJNA1294982": "has_data",
+    "PRJNA1232968": "has_data",
+    "PRJNA1232403": "has_data",
+    "PRJNA1229817": "has_data",
+    "PRJNA1219164": "no_run_info",
+    "PRJNA1206451": "has_data",
+    "PRJNA1242897": "has_data",
+    "PRJNA1221307": "has_data",
+    "PRJNA1175569": "has_data",
+    "PRJNA1170179": "has_data",
+    "PRJNA1167448": "no_run_info",
+    "PRJNA1167444": "no_run_info",
+    "PRJNA1203655": "has_data",
+    "PRJEB79856": "no_data",
+    "PRJNA1140353": "has_data",
+    "PRJNA1138008": "has_data",
+    "PRJNA1138773": "has_data",
+    "PRJNA1114793": "has_data",
+    "PRJNA1146331": "has_data",
+    "PRJNA1107702": "no_run_info",
+    "PRJNA1124990": "has_data",
+    "PRJNA1101670": "has_data",
+    "PRJNA1089148": "has_data",
+    "PRJNA1089149": "has_data",
+    "PRJNA1084868": "has_data",
+    "PRJNA1084867": "has_data",
+    "PRJNA1065181": "has_data",
+    "PRJNA1074123": "has_data",
+    "PRJNA1080497": "has_data",
+    "PRJNA1042938": "has_data",
+    "PRJNA1033630": "no_data",
+    "PRJNA1017617": "has_data",
+    "PRJEB66205": "has_data",
+    "PRJNA1007366": "has_data",
+    "PRJNA1010874": "has_data",
+    "PRJNA1006316": "has_data",
+    "PRJNA998362": "has_data",
+    "PRJNA999720": "has_data",
+    "PRJNA996996": "has_data",
+    "PRJNA953189": "has_data",
+    "PRJNA975210": "has_data",
+    "PRJNA1036403": "has_data",
+    "PRJNA925568": "has_data",
+    "PRJNA918702": "has_data",
+    "PRJNA940115": "has_data",
+    "PRJNA898100": "has_data",
+    "PRJNA915328": "has_data",
+    "PRJNA911754": "has_data",
+    "PRJNA888378": "has_data",
+    "PRJNA893014": "has_data",
+    "PRJNA879967": "has_data",
+    "PRJNA880009": "has_data",
+    "PRJEB55080": "no_data",
+    "PRJNA874076": "has_data",
+    "PRJNA862864": "has_data",
+    "PRJNA863631": "has_data",
+    "PRJNA849948": "has_data",
+    "PRJNA839609": "has_data",
+    "PRJNA816912": "no_run_info",
+    "PRJNA875936": "has_data",
+    "PRJNA809353": "has_data",
+    "PRJNA801280": "has_data",
+    "PRJNA805022": "has_data",
+    "PRJEB47333": "has_data",
+    "PRJNA798723": "has_data",
+    "PRJEB47378": "has_data",
+    "PRJNA788431": "has_data",
+    "PRJDB12699": "has_data",
+    "PRJEB48765": "has_data",
+    "PRJEB48937": "has_data",
+    "PRJNA777397": "has_data",
+    "PRJEB45401": "has_data",
+    "PRJNA751106": "has_data",
+    "PRJNA759617": "has_data",
+    "PRJNA774758": "has_data",
+    "PRJNA735927": "has_data",
+    "PRJNA735522": "has_data",
+    "PRJDB11589": "no_data",
+    "PRJNA749807": "has_data",
+    "PRJNA742765": "has_data",
+    "PRJEB38286": "no_data",
+    "PRJNA715737": "has_data",
+    "PRJNA719282": "has_data",
+    "PRJNA685398": "has_data",
+    "PRJNA705676": "has_data",
+    "PRJNA705672": "has_data",
+    "PRJNA640829": "has_data",
+    "PRJNA640152": "no_run_info",
+    "PRJNA675403": "has_data",
+    "PRJNA678404": "has_data",
+    "PRJNA630294": "has_data",
+    "PRJNA630292": "has_data",
+    "PRJNA630108": "has_data",
+    "PRJEB38245": "has_data",
+    "PRJNA629630": "has_data",
+    "PRJNA594720": "has_data",
+    "PRJNA612903": "no_run_info",
+    "PRJNA561622": "no_run_info",
+    "PRJNA613243": "has_data",
+    "PRJEB31610": "has_data",
+    "PRJEB31847": "has_data",
+    "PRJNA525362": "has_data",
+    "PRJNA494922": "has_data",
+    "PRJEB23224": "has_data",
+    "PRJEB27223": "has_data",
+    "PRJNA578403": "has_data",
+    "PRJNA395063": "has_data",
+    "PRJNA386324": "has_data",
+    "PRJDB3520": "no_run_info",
+    "PRJDB4237": "has_data",
+    "PRJNA253368": "has_data",
+    "PRJNA234448": "has_data",
+    "PRJNA321197": "has_data",
+    "PRJNA252811": "has_data",
+    "PRJEB1933": "has_data",
+    "PRJNA139605": "no_data",
+    "PRJNA167400": "no_data",
+    "PRJNA222391": "has_data",
+    "PRJNA636089": "has_data"
+  },
+  "last_update": "2026-01-10T13:05:41.149100"
+}

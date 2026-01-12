@@ -1,0 +1,613 @@
+1: Polaris productive 2
+Identifiers: BioSample: SAMD00041293; SRA: DRS029834
+Organism: gut metagenome
+Attributes:
+    /sample name="PP-2_S10_L001_R1_001.fastq.gz"
+    /collection date="2012-09-09"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.196650 N 121.087527 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041293	ID: 4112774
+
+2: Polaris productive 1
+Identifiers: BioSample: SAMD00041292; SRA: DRS029833
+Organism: gut metagenome
+Attributes:
+    /sample name="PP-1_S16_L001_R1_001.fastq.gz"
+    /collection date="2012-09-08"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.196650 N 121.087527 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041292	ID: 4112773
+
+3: Polaris nonproductive 2
+Identifiers: BioSample: SAMD00041291; SRA: DRS029832
+Organism: gut metagenome
+Attributes:
+    /sample name="PN-2_S25_L001_R1_001.fastq.gz"
+    /collection date="2012-09-07"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.196650 N 121.087527 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041291	ID: 4112772
+
+4: Polaris nonproductive 1
+Identifiers: BioSample: SAMD00041290; SRA: DRS029831
+Organism: gut metagenome
+Attributes:
+    /sample name="PN-1_S37_L001_R1_001.fastq.gz"
+    /collection date="2012-09-06"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.196650 N 121.087527 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041290	ID: 4112771
+
+5: Loma productive 2
+Identifiers: BioSample: SAMD00041289; SRA: DRS029830
+Organism: gut metagenome
+Attributes:
+    /sample name="LP-2_S8_L001_R1_001.fastq.gz"
+    /collection date="2012-09-01"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.222056 N 121.025104 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041289	ID: 4112770
+
+6: Loma productive 1
+Identifiers: BioSample: SAMD00041288; SRA: DRS029829
+Organism: gut metagenome
+Attributes:
+    /sample name="LP-1_S3_L001_R1_001.fastq.gz"
+    /collection date="2012-08-31"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.222056 N 121.025104 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041288	ID: 4112769
+
+7: Loma nonproductive 2
+Identifiers: BioSample: SAMD00041287; SRA: DRS029828
+Organism: gut metagenome
+Attributes:
+    /sample name="LN-2_S5_L001_R1_001.fastq.gz"
+    /collection date="2012-08-30"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.222056 N 121.025104 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041287	ID: 4112768
+
+8: Loma nonproductive 1
+Identifiers: BioSample: SAMD00041286; SRA: DRS029827
+Organism: gut metagenome
+Attributes:
+    /sample name="LN-1_S23_L001_R1_001.fastq.gz"
+    /collection date="2012-08-29"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.222056 N 121.025104 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041286	ID: 4112767
+
+9: Kerry's productive 2
+Identifiers: BioSample: SAMD00041285; SRA: DRS029826
+Organism: gut metagenome
+Attributes:
+    /sample name="KP-2_S40_L001_R1_001.fastq.gz"
+    /collection date="2012-08-28"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.160589 N 120.987040 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041285	ID: 4112766
+
+10: Kerry's productive 1
+Identifiers: BioSample: SAMD00041284; SRA: DRS029825
+Organism: gut metagenome
+Attributes:
+    /sample name="KP-1_S33_L001_R1_001.fastq.gz"
+    /collection date="2012-08-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.160589 N 120.987040 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041284	ID: 4112765
+
+11: Kerry's nonproductive 2
+Identifiers: BioSample: SAMD00041283; SRA: DRS029824
+Organism: gut metagenome
+Attributes:
+    /sample name="KN-2_S36_L001_R1_001.fastq.gz"
+    /collection date="2012-08-26"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.160589 N 120.987040 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041283	ID: 4112764
+
+12: Kerry's nonproductive 1
+Identifiers: BioSample: SAMD00041282; SRA: DRS029823
+Organism: gut metagenome
+Attributes:
+    /sample name="KN-1_S28_L001_R1_001.fastq.gz"
+    /collection date="2012-08-25"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.160589 N 120.987040 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041282	ID: 4112763
+
+13: Jacobson productive 2
+Identifiers: BioSample: SAMD00041281; SRA: DRS029822
+Organism: gut metagenome
+Attributes:
+    /sample name="JP-2_S19_L001_R1_001.fastq.gz"
+    /collection date="2012-08-24"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.272221 N 121.007002 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041281	ID: 4112762
+
+14: Jacobson productive 1
+Identifiers: BioSample: SAMD00041280; SRA: DRS029821
+Organism: gut metagenome
+Attributes:
+    /sample name="JP-1_S39_L001_R1_001.fastq.gz"
+    /collection date="2012-08-23"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.272221 N 121.007002 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041280	ID: 4112761
+
+15: Jacobson nonproductive 2
+Identifiers: BioSample: SAMD00041279; SRA: DRS029820
+Organism: gut metagenome
+Attributes:
+    /sample name="JN-2_S22_L001_R1_001.fastq.gz"
+    /collection date="2012-08-22"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.272221 N 121.007002 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041279	ID: 4112760
+
+16: Jacobson nonproductive 1
+Identifiers: BioSample: SAMD00041278; SRA: DRS029819
+Organism: gut metagenome
+Attributes:
+    /sample name="JN-1_S14_L001_R1_001.fastq.gz"
+    /collection date="2012-08-21"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.272221 N 121.007002 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041278	ID: 4112759
+
+17: Heidi's productive 2
+Identifiers: BioSample: SAMD00041277; SRA: DRS029818
+Organism: gut metagenome
+Attributes:
+    /sample name="HP-2_S20_L001_R1_001.fastq.gz"
+    /collection date="2012-08-20"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.272221 N 121.007002 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041277	ID: 4112758
+
+18: Heidi's productive 1
+Identifiers: BioSample: SAMD00041276; SRA: DRS029817
+Organism: gut metagenome
+Attributes:
+    /sample name="HP-1_S29_L001_R1_001.fastq.gz"
+    /collection date="2012-08-19"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.272221 N 121.007002 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041276	ID: 4112757
+
+19: Heidi's nonproductive 2
+Identifiers: BioSample: SAMD00041275; SRA: DRS029816
+Organism: gut metagenome
+Attributes:
+    /sample name="HN-2_S38_L001_R1_001.fastq.gz"
+    /collection date="2012-08-18"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.272221 N 121.007002 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041275	ID: 4112756
+
+20: Heidi's nonproductive 1
+Identifiers: BioSample: SAMD00041274; SRA: DRS029815
+Organism: gut metagenome
+Attributes:
+    /sample name="HN-1_S31_L001_R1_001.fastq.gz"
+    /collection date="2012-08-17"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.272221 N 121.007002 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041274	ID: 4112755
+
+21: Hnoey Hollow productive 2
+Identifiers: BioSample: SAMD00041273; SRA: DRS029814
+Organism: gut metagenome
+Attributes:
+    /sample name="HHP-2_S4_L001_R1_001.fastq.gz"
+    /collection date="2012-08-16"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.162358 N 121.002861 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041273	ID: 4112754
+
+22: Hnoey Hollow productive 1
+Identifiers: BioSample: SAMD00041272; SRA: DRS029813
+Organism: gut metagenome
+Attributes:
+    /sample name="HHP-1_S9_L001_R1_001.fastq.gz"
+    /collection date="2012-08-15"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.162358 N 121.002861 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041272	ID: 4112753
+
+23: Honey Hollow nonproductive 2
+Identifiers: BioSample: SAMD00041271; SRA: DRS029812
+Organism: gut metagenome
+Attributes:
+    /sample name="HHN-2_S26_L001_R1_001.fastq.gz"
+    /collection date="2012-08-14"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.162358 N 121.002861 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041271	ID: 4112752
+
+24: Honey Hollow nonproductive 1
+Identifiers: BioSample: SAMD00041270; SRA: DRS029811
+Organism: gut metagenome
+Attributes:
+    /sample name="HHN-1_S7_L001_R1_001.fastq.gz"
+    /collection date="2012-08-13"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.162358 N 121.002861 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041270	ID: 4112751
+
+25: Fawn Hill productive 2
+Identifiers: BioSample: SAMD00041269; SRA: DRS029810
+Organism: gut metagenome
+Attributes:
+    /sample name="FP-2_S21_L001_R1_001.fastq.gz"
+    /collection date="2012-08-12"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.194516 N 120.966552 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041269	ID: 4112750
+
+26: Fawn Hill productive 1
+Identifiers: BioSample: SAMD00041268; SRA: DRS029809
+Organism: gut metagenome
+Attributes:
+    /sample name="FP-1_S27_L001_R1_001.fastq.gz"
+    /collection date="2012-08-11"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.194516 N 120.966552 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041268	ID: 4112749
+
+27: Fawn Hill nonproductive 2
+Identifiers: BioSample: SAMD00041267; SRA: DRS029808
+Organism: gut metagenome
+Attributes:
+    /sample name="FN-2_S35_L001_R1_001.fastq.gz"
+    /collection date="2012-08-10"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.194516 N 120.966552 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041267	ID: 4112748
+
+28: Fawn Hill nonproductive 1
+Identifiers: BioSample: SAMD00041266; SRA: DRS029807
+Organism: gut metagenome
+Attributes:
+    /sample name="FN-1_S15_L001_R1_001.fastq.gz"
+    /collection date="2012-08-09"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.194516 N 120.966552 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041266	ID: 4112747
+
+29: Drew productive 2
+Identifiers: BioSample: SAMD00041265; SRA: DRS029806
+Organism: gut metagenome
+Attributes:
+    /sample name="DP-2_S17_L001_R1_001.fastq.gz"
+    /collection date="2012-08-08"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.153102 N 120.978859 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041265	ID: 4112746
+
+30: Drew productive 1
+Identifiers: BioSample: SAMD00041264; SRA: DRS029805
+Organism: gut metagenome
+Attributes:
+    /sample name="DP-1_S11_L001_R1_001.fastq.gz"
+    /collection date="2012-08-07"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.153102 N 120.978859 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041264	ID: 4112745
+
+31: Drew nonproductive 2
+Identifiers: BioSample: SAMD00041263; SRA: DRS029804
+Organism: gut metagenome
+Attributes:
+    /sample name="DN-2_S6_L001_R1_001.fastq.gz"
+    /collection date="2012-08-06"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.153102 N 120.978859 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041263	ID: 4112744
+
+32: Drew nonproductive 1
+Identifiers: BioSample: SAMD00041262; SRA: DRS029803
+Organism: gut metagenome
+Attributes:
+    /sample name="DN-1_S1_L001_R1_001.fastq.gz"
+    /collection date="2012-08-05"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.153102 N 120.978859 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041262	ID: 4112743
+
+33: Country circle prodouctive 2
+Identifiers: BioSample: SAMD00041261; SRA: DRS029802
+Organism: gut metagenome
+Attributes:
+    /sample name="CP-2_S12_L001_R1_001.fastq.gz"
+    /collection date="2012-08-04"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.271508 N 121.049820 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041261	ID: 4112742
+
+34: Country circle productive 1
+Identifiers: BioSample: SAMD00041260; SRA: DRS029801
+Organism: gut metagenome
+Attributes:
+    /sample name="CP-1_S24_L001_R1_001.fastq.gz"
+    /collection date="2012-08-03"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.271508 N 121.049820 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041260	ID: 4112741
+
+35: Country circle nonproductive 2
+Identifiers: BioSample: SAMD00041259; SRA: DRS029800
+Organism: gut metagenome
+Attributes:
+    /sample name="CN-2_S13_L001_R1_001.fastq.gz"
+    /collection date="2012-08-02"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.271508 N 121.049820 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041259	ID: 4112740
+
+36: Country circle nonproductive 1
+Identifiers: BioSample: SAMD00041258; SRA: DRS029799
+Organism: gut metagenome
+Attributes:
+    /sample name="CN-1_S30_L001_R1_001.fastq.gz"
+    /collection date="2012-08-01"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="missing"
+    /geographic location="USA:CA, Grass Valley"
+    /latitude and longitude="39.271508 N 121.049820 W"
+    /project name="Apis mellifera forager microbiome study"
+    /host="Apis mellifera"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00041258	ID: 4112739
+
+

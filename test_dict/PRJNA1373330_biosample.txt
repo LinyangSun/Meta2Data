@@ -1,0 +1,936 @@
+1: APCR_NegPCRControl
+Identifiers: BioSample: SAMN53651450; Sample name: PCR_NC2; SRA: SRS27304460
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="PCR_NC2"
+Description:
+PCR_NC2
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651450	ID: 53651450
+
+2: ANC2_NegDNAControl
+Identifiers: BioSample: SAMN53651449; Sample name: NC2; SRA: SRS27304459
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="NC2"
+Description:
+NC2
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651449	ID: 53651449
+
+3: AA9G_Amitraz-2023
+Identifiers: BioSample: SAMN53651448; Sample name: A9G; SRA: SRS27304429
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A9G"
+Description:
+A9G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651448	ID: 53651448
+
+4: AA10G_Amitraz-2023
+Identifiers: BioSample: SAMN53651447; Sample name: A10G; SRA: SRS27304410
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A10G"
+Description:
+A10G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651447	ID: 53651447
+
+5: AA2G_Amitraz-2023
+Identifiers: BioSample: SAMN53651446; Sample name: A2G; SRA: SRS27304421
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A2G"
+Description:
+A2G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651446	ID: 53651446
+
+6: AA5G_Amitraz-2023
+Identifiers: BioSample: SAMN53651445; Sample name: A5G; SRA: SRS27304425
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A5G"
+Description:
+A5G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651445	ID: 53651445
+
+7: AA12G_Amitraz-2023
+Identifiers: BioSample: SAMN53651444; Sample name: A12G; SRA: SRS27304422
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A12G"
+Description:
+A12G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651444	ID: 53651444
+
+8: AA11G_Amitraz-2023
+Identifiers: BioSample: SAMN53651443; Sample name: A11G; SRA: SRS27304411
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A11G"
+Description:
+A11G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651443	ID: 53651443
+
+9: AC7G_Control-2023
+Identifiers: BioSample: SAMN53651442; Sample name: C7G; SRA: SRS27304456
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C7G"
+Description:
+C7G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651442	ID: 53651442
+
+10: AC6G_Control-2023
+Identifiers: BioSample: SAMN53651441; Sample name: C6G; SRA: SRS27304454
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C6G"
+Description:
+C6G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651441	ID: 53651441
+
+11: AC2G_Control-2023
+Identifiers: BioSample: SAMN53651440; Sample name: C2G; SRA: SRS27304440
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C2G"
+Description:
+C2G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651440	ID: 53651440
+
+12: AC1G_Control-2023
+Identifiers: BioSample: SAMN53651439; Sample name: C1G; SRA: SRS27304434
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C1G"
+Description:
+C1G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651439	ID: 53651439
+
+13: AC10G_Control-2023
+Identifiers: BioSample: SAMN53651438; Sample name: C10G; SRA: SRS27304432
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C10G"
+Description:
+C10G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651438	ID: 53651438
+
+14: AC8G_Control-2023
+Identifiers: BioSample: SAMN53651437; Sample name: C8G; SRA: SRS27304457
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C8G"
+Description:
+C8G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651437	ID: 53651437
+
+15: AC3G_Control-2023
+Identifiers: BioSample: SAMN53651436; Sample name: C3G; SRA: SRS27304452
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C3G"
+Description:
+C3G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651436	ID: 53651436
+
+16: AC9G_Control-2023
+Identifiers: BioSample: SAMN53651435; Sample name: C9G; SRA: SRS27304458
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C9G"
+Description:
+C9G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651435	ID: 53651435
+
+17: AA3G_Amitraz-2023
+Identifiers: BioSample: SAMN53651434; Sample name: A3G; SRA: SRS27304423
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A3G"
+Description:
+A3G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651434	ID: 53651434
+
+18: AA4G_Amitraz-2023
+Identifiers: BioSample: SAMN53651433; Sample name: A4G; SRA: SRS27304424
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A4G"
+Description:
+A4G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651433	ID: 53651433
+
+19: AA8G_Amitraz-2023
+Identifiers: BioSample: SAMN53651432; Sample name: A8G; SRA: SRS27304428
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A8G"
+Description:
+A8G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651432	ID: 53651432
+
+20: AA7G_Amitraz-2023
+Identifiers: BioSample: SAMN53651431; Sample name: A7G; SRA: SRS27304427
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A7G"
+Description:
+A7G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651431	ID: 53651431
+
+21: AA6G_Amitraz-2023
+Identifiers: BioSample: SAMN53651430; Sample name: A6G; SRA: SRS27304426
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A6G"
+Description:
+A6G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651430	ID: 53651430
+
+22: AA1G_Amitraz-2023
+Identifiers: BioSample: SAMN53651429; Sample name: A1G; SRA: SRS27304464
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A1G"
+Description:
+A1G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651429	ID: 53651429
+
+23: AC4G_Control-2023
+Identifiers: BioSample: SAMN53651428; Sample name: AC4G; SRA: SRS27304430
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="AC4G"
+Description:
+AC4G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651428	ID: 53651428
+
+24: AC5G_Control-2023
+Identifiers: BioSample: SAMN53651427; Sample name: AC5G; SRA: SRS27304431
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="AC5G"
+Description:
+AC5G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651427	ID: 53651427
+
+25: A27G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651426; Sample name: A27G; SRA: SRS27304419
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A27G"
+Description:
+A27G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651426	ID: 53651426
+
+26: A28G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651425; Sample name: A28G; SRA: SRS27304420
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A28G"
+Description:
+A28G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651425	ID: 53651425
+
+27: A26G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651424; Sample name: A26G; SRA: SRS27304418
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A26G"
+Description:
+A26G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651424	ID: 53651424
+
+28: A17G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651423; Sample name: A17G; SRA: SRS27304461
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A17G"
+Description:
+A17G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651423	ID: 53651423
+
+29: A20G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651422; Sample name: A20G; SRA: SRS27304412
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A20G"
+Description:
+A20G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651422	ID: 53651422
+
+30: A18G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651421; Sample name: A18G; SRA: SRS27304462
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A18G"
+Description:
+A18G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651421	ID: 53651421
+
+31: A25G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651420; Sample name: A25G; SRA: SRS27304417
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A25G"
+Description:
+A25G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651420	ID: 53651420
+
+32: A23G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651419; Sample name: A23G; SRA: SRS27304415
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A23G"
+Description:
+A23G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651419	ID: 53651419
+
+33: A21G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651418; Sample name: A21G; SRA: SRS27304413
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A21G"
+Description:
+A21G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651418	ID: 53651418
+
+34: A24G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651417; Sample name: A24G; SRA: SRS27304416
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A24G"
+Description:
+A24G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651417	ID: 53651417
+
+35: A22G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651416; Sample name: A22G; SRA: SRS27304414
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A22G"
+Description:
+A22G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651416	ID: 53651416
+
+36: A19G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651415; Sample name: A19G; SRA: SRS27304463
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A19G"
+Description:
+A19G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651415	ID: 53651415
+
+37: A16G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651414; Sample name: A16G; SRA: SRS27304455
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A16G"
+Description:
+A16G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651414	ID: 53651414
+
+38: A15G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651413; Sample name: A15G; SRA: SRS27304444
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A15G"
+Description:
+A15G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651413	ID: 53651413
+
+39: A14G_Terra-pro-2022
+Identifiers: BioSample: SAMN53651412; Sample name: A14G; SRA: SRS27304433
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="A14G"
+Description:
+A14G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651412	ID: 53651412
+
+40: C39G_Control-2022
+Identifiers: BioSample: SAMN53651411; Sample name: C39G; SRA: SRS27304451
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C39G"
+Description:
+C39G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651411	ID: 53651411
+
+41: C34G_Control-2022
+Identifiers: BioSample: SAMN53651410; Sample name: C34G; SRA: SRS27304446
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C34G"
+Description:
+C34G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651410	ID: 53651410
+
+42: C29G_Control-2022
+Identifiers: BioSample: SAMN53651409; Sample name: C29G; SRA: SRS27304439
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C29G"
+Description:
+C29G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651409	ID: 53651409
+
+43: C25G_Control-2022
+Identifiers: BioSample: SAMN53651408; Sample name: C25G; SRA: SRS27304435
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C25G"
+Description:
+C25G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651408	ID: 53651408
+
+44: C40G_Control-2022
+Identifiers: BioSample: SAMN53651407; Sample name: C40G; SRA: SRS27304453
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C40G"
+Description:
+C40G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651407	ID: 53651407
+
+45: C26G_Control-2022
+Identifiers: BioSample: SAMN53651406; Sample name: C26G; SRA: SRS27304436
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C26G"
+Description:
+C26G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651406	ID: 53651406
+
+46: C27G_Control-2022
+Identifiers: BioSample: SAMN53651405; Sample name: C27G; SRA: SRS27304437
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C27G"
+Description:
+C27G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651405	ID: 53651405
+
+47: C28G_Control-2022
+Identifiers: BioSample: SAMN53651404; Sample name: C28G; SRA: SRS27304438
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C28G"
+Description:
+C28G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651404	ID: 53651404
+
+48: C33G_Control-2022
+Identifiers: BioSample: SAMN53651403; Sample name: C33G; SRA: SRS27304445
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C33G"
+Description:
+C33G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651403	ID: 53651403
+
+49: C32G_Control-2022
+Identifiers: BioSample: SAMN53651402; Sample name: C32G; SRA: SRS27304443
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C32G"
+Description:
+C32G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651402	ID: 53651402
+
+50: C31G_Control-2022
+Identifiers: BioSample: SAMN53651401; Sample name: C31G; SRA: SRS27304442
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C31G"
+Description:
+C31G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651401	ID: 53651401
+
+51: C38G_Control-2022
+Identifiers: BioSample: SAMN53651400; Sample name: C38G; SRA: SRS27304450
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C38G"
+Description:
+C38G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651400	ID: 53651400
+
+52: C35G_Control-2022
+Identifiers: BioSample: SAMN53651399; Sample name: C35G; SRA: SRS27304447
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C35G"
+Description:
+C35G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651399	ID: 53651399
+
+53: C37G_Control-2022
+Identifiers: BioSample: SAMN53651398; Sample name: C37G; SRA: SRS27304449
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C37G"
+Description:
+C37G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651398	ID: 53651398
+
+54: C36G_Control-2022
+Identifiers: BioSample: SAMN53651397; Sample name: C36G; SRA: SRS27304448
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C36G"
+Description:
+C36G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651397	ID: 53651397
+
+55: C30G_Control-2022
+Identifiers: BioSample: SAMN53651396; Sample name: C30G; SRA: SRS27304441
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-07"
+    /broad-scale environmental context="honey bee microbiome"
+    /local-scale environmental context="gut"
+    /environmental medium="gut"
+    /geographic location="USA"
+    /host="Apis mellifera"
+    /latitude and longitude="35.769956 N 78.653178 W"
+    /source material identifiers="C30G"
+Description:
+C30G
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN53651396	ID: 53651396
+
+

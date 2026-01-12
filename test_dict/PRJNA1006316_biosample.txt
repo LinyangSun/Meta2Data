@@ -1,0 +1,766 @@
+1: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017678; Sample name: THI06_d2; SRA: SRS18628880
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="acute"
+    /Replicate="6"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017678	ID: 37017678
+
+2: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017677; Sample name: THI06_d1; SRA: SRS18628878
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="sublethal"
+    /Replicate="6"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017677	ID: 37017677
+
+3: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017676; Sample name: THI06_d0; SRA: SRS18628877
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="not exposed"
+    /Replicate="6"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017676	ID: 37017676
+
+4: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017675; Sample name: THI05_d2; SRA: SRS18628876
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="acute"
+    /Replicate="5"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017675	ID: 37017675
+
+5: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017674; Sample name: THI05_d1; SRA: SRS18628872
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="sublethal"
+    /Replicate="5"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017674	ID: 37017674
+
+6: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017673; Sample name: THI05_d0; SRA: SRS18628874
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="not exposed"
+    /Replicate="5"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017673	ID: 37017673
+
+7: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017672; Sample name: THI04_d2; SRA: SRS18628662
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="acute"
+    /Replicate="4"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017672	ID: 37017672
+
+8: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017671; Sample name: THI04_d1; SRA: SRS18628661
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="sublethal"
+    /Replicate="4"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017671	ID: 37017671
+
+9: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017670; Sample name: THI04_d0; SRA: SRS18628660
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="not exposed"
+    /Replicate="4"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017670	ID: 37017670
+
+10: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017669; Sample name: THI03_d2; SRA: SRS18628659
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="acute"
+    /Replicate="3"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017669	ID: 37017669
+
+11: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017668; Sample name: THI03_d1; SRA: SRS18628658
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="sublethal"
+    /Replicate="3"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017668	ID: 37017668
+
+12: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017667; Sample name: THI03_d0; SRA: SRS18628657
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="not exposed"
+    /Replicate="3"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017667	ID: 37017667
+
+13: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017666; Sample name: THI02_d2; SRA: SRS18628656
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="acute"
+    /Replicate="2"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017666	ID: 37017666
+
+14: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017665; Sample name: THI02_d1; SRA: SRS18628655
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="sublethal"
+    /Replicate="2"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017665	ID: 37017665
+
+15: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017664; Sample name: THI02_d0; SRA: SRS18628654
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Thiamethoxam"
+    /treatment="not exposed"
+    /Replicate="2"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017664	ID: 37017664
+
+16: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017413; Sample name: CLO06_d2; SRA: SRS18628961
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="acute"
+    /Replicate="6"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017413	ID: 37017413
+
+17: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017412; Sample name: CLO06_d1; SRA: SRS18628960
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="sublethal"
+    /Replicate="6"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017412	ID: 37017412
+
+18: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017411; Sample name: CLO06_d0; SRA: SRS18628956
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="not exposed"
+    /Replicate="6"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017411	ID: 37017411
+
+19: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017410; Sample name: CLO05_d2; SRA: SRS18628959
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="acute"
+    /Replicate="5"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017410	ID: 37017410
+
+20: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017409; Sample name: CLO05_d1; SRA: SRS18628958
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="sublethal"
+    /Replicate="5"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017409	ID: 37017409
+
+21: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017408; Sample name: CLO05_d0; SRA: SRS18628788
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="not exposed"
+    /Replicate="5"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017408	ID: 37017408
+
+22: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017407; Sample name: CLO03_d2; SRA: SRS18628787
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="acute"
+    /Replicate="3"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017407	ID: 37017407
+
+23: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017406; Sample name: CLO03_d1; SRA: SRS18628786
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="sublethal"
+    /Replicate="3"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017406	ID: 37017406
+
+24: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017405; Sample name: CLO03_d0; SRA: SRS18628785
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="not exposed"
+    /Replicate="3"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017405	ID: 37017405
+
+25: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017404; Sample name: CLO02_d2; SRA: SRS18628784
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="acute"
+    /Replicate="2"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017404	ID: 37017404
+
+26: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017403; Sample name: CLO02_d1; SRA: SRS18628782
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="sublethal"
+    /Replicate="2"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017403	ID: 37017403
+
+27: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017402; Sample name: CLO02_d0; SRA: SRS18628781
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="not exposed"
+    /Replicate="2"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017402	ID: 37017402
+
+28: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017401; Sample name: CLO01_d2; SRA: SRS18628780
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="acute"
+    /Replicate="1"
+    /dose="d2"
+    /Year="2020"
+Accession: SAMN37017401	ID: 37017401
+
+29: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017400; Sample name: CLO01_d1; SRA: SRS18628779
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="sublethal"
+    /Replicate="1"
+    /dose="d1"
+    /Year="2020"
+Accession: SAMN37017400	ID: 37017400
+
+30: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017399; Sample name: CLO01_d0; SRA: SRS18628778
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-07"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Cage"
+    /Stressor="Clothianidin"
+    /treatment="not exposed"
+    /Replicate="1"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017399	ID: 37017399
+
+31: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017398; Sample name: CTX06_dT; SRA: SRS18628777
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic thiameth"
+    /Replicate="6"
+    /dose="dT"
+    /Year="2020"
+Accession: SAMN37017398	ID: 37017398
+
+32: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017397; Sample name: CTX06_dC; SRA: SRS18628776
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic clothian"
+    /Replicate="6"
+    /dose="dC"
+    /Year="2020"
+Accession: SAMN37017397	ID: 37017397
+
+33: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017396; Sample name: CTX06_d0; SRA: SRS18628775
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="not exposed"
+    /Replicate="6"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017396	ID: 37017396
+
+34: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017395; Sample name: CTX05_dT; SRA: SRS18628774
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic thiameth"
+    /Replicate="5"
+    /dose="dT"
+    /Year="2020"
+Accession: SAMN37017395	ID: 37017395
+
+35: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017394; Sample name: CTX05_dC; SRA: SRS18628773
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic clothian"
+    /Replicate="5"
+    /dose="dC"
+    /Year="2020"
+Accession: SAMN37017394	ID: 37017394
+
+36: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017393; Sample name: CTX05_d0; SRA: SRS18628771
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="not exposed"
+    /Replicate="5"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017393	ID: 37017393
+
+37: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017392; Sample name: CTX04_dT; SRA: SRS18628770
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic thiameth"
+    /Replicate="4"
+    /dose="dT"
+    /Year="2020"
+Accession: SAMN37017392	ID: 37017392
+
+38: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017391; Sample name: CTX04_dC; SRA: SRS18628769
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic clothian"
+    /Replicate="4"
+    /dose="dC"
+    /Year="2020"
+Accession: SAMN37017391	ID: 37017391
+
+39: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017390; Sample name: CTX04_d0; SRA: SRS18628768
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of Guelph, Ontario"
+    /latitude and longitude="43.5 N 80.2 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="not exposed"
+    /Replicate="4"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017390	ID: 37017390
+
+40: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017389; Sample name: CTX03_dT; SRA: SRS18628767
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic thiameth"
+    /Replicate="3"
+    /dose="dT"
+    /Year="2020"
+Accession: SAMN37017389	ID: 37017389
+
+41: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017388; Sample name: CTX03_dC; SRA: SRS18628766
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic clothian"
+    /Replicate="3"
+    /dose="dC"
+    /Year="2020"
+Accession: SAMN37017388	ID: 37017388
+
+42: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017387; Sample name: CTX03_d0; SRA: SRS18628765
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="not exposed"
+    /Replicate="3"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017387	ID: 37017387
+
+43: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017386; Sample name: CTX02_dT; SRA: SRS18628764
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic thiameth"
+    /Replicate="2"
+    /dose="dT"
+    /Year="2020"
+Accession: SAMN37017386	ID: 37017386
+
+44: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017385; Sample name: CTX02_dC; SRA: SRS18628763
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="chronic clothian"
+    /Replicate="2"
+    /dose="dC"
+    /Year="2020"
+Accession: SAMN37017385	ID: 37017385
+
+45: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37017384; Sample name: CTX02_d0; SRA: SRS18628762
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut microbiome"
+    /collection date="2020-08"
+    /geographic location="Canada: University of York, Ontario"
+    /latitude and longitude="43.8 N 79.5 W"
+    /Type="Colony"
+    /Stressor="Clothian&amp;Thiameth"
+    /treatment="not exposed"
+    /Replicate="2"
+    /dose="d0"
+    /Year="2020"
+Accession: SAMN37017384	ID: 37017384
+
+

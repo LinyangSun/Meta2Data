@@ -1,0 +1,866 @@
+1: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553705; Sample name: R1_Sum_IPM4002_B.fastq.gz; SRA: SRS16924191
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 72"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 72United States: West Virgina: Summers County
+Accession: SAMN33553705	ID: 33553705
+
+2: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553704; Sample name: R1_Sum_IPM4002_A.fastq.gz; SRA: SRS16924190
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 71"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 71United States: West Virgina: Summers County
+Accession: SAMN33553704	ID: 33553704
+
+3: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553703; Sample name: R1_Sum_IPM4001_B.fastq.gz; SRA: SRS16924256
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 70"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 70United States: West Virgina: Summers County
+Accession: SAMN33553703	ID: 33553703
+
+4: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553702; Sample name: R1_Sum_IPM4001_A.fastq.gz; SRA: SRS16924255
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 69"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 69United States: West Virgina: Summers County
+Accession: SAMN33553702	ID: 33553702
+
+5: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553701; Sample name: R1_Sum_CON4011_B.fastq.gz; SRA: SRS16924254
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 68"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 68United States: West Virgina: Summers County
+Accession: SAMN33553701	ID: 33553701
+
+6: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553700; Sample name: R1_Sum_CON4011_A.fastq.gz; SRA: SRS16924253
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 67"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 67United States: West Virgina: Summers County
+Accession: SAMN33553700	ID: 33553700
+
+7: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553699; Sample name: R1_Sum_CON4010_B.fastq.gz; SRA: SRS16924252
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 66"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 66United States: West Virgina: Summers County
+Accession: SAMN33553699	ID: 33553699
+
+8: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553698; Sample name: R1_Sum_CON4010_A.fastq.gz; SRA: SRS16924251
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 65"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 65United States: West Virgina: Summers County
+Accession: SAMN33553698	ID: 33553698
+
+9: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553697; Sample name: R1_Sum_CF4006_B.fastq.gz; SRA: SRS16924250
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 64"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 64United States: West Virgina: Summers County
+Accession: SAMN33553697	ID: 33553697
+
+10: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553696; Sample name: R1_Sum_CF4006_A.fastq.gz; SRA: SRS16924249
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 63"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 63United States: West Virgina: Summers County
+Accession: SAMN33553696	ID: 33553696
+
+11: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553695; Sample name: R1_Sum_CF4005_B.fastq.gz; SRA: SRS16924248
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 62"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 62United States: West Virgina: Summers County
+Accession: SAMN33553695	ID: 33553695
+
+12: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553694; Sample name: R1_Sum_CF4005_A.fastq.gz; SRA: SRS16924246
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 61"
+    /collection date="2018-09-01"
+    /geographic location="USA: West Virgina, Summers County"
+    /latitude and longitude="37.6054 N 80.7987 W"
+Description:
+bee bread metagenomeApis mellifera 61United States: West Virgina: Summers County
+Accession: SAMN33553694	ID: 33553694
+
+13: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553693; Sample name: R1_Spr_IPM3024_B.fastq.gz; SRA: SRS16924244
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 60"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 60United States: Pennsylvania: Spring Mills
+Accession: SAMN33553693	ID: 33553693
+
+14: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553692; Sample name: R1_Spr_IPM3024_A.fastq.gz; SRA: SRS16924243
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 59"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 59United States: Pennsylvania: Spring Mills
+Accession: SAMN33553692	ID: 33553692
+
+15: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553691; Sample name: R1_Spr_IPM3023_B.fastq.gz; SRA: SRS16924247
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 58"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 58United States: Pennsylvania: Spring Mills
+Accession: SAMN33553691	ID: 33553691
+
+16: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553690; Sample name: R1_Spr_IPM3023_A.fastq.gz; SRA: SRS16924242
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 57"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 57United States: Pennsylvania: Spring Mills
+Accession: SAMN33553690	ID: 33553690
+
+17: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553689; Sample name: R1_Spr_CON3019_Be2.fastq.gz; SRA: SRS16924241
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 56"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 56United States: Pennsylvania: Spring Mills
+Accession: SAMN33553689	ID: 33553689
+
+18: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553688; Sample name: R1_Spr_CON3019_A.fastq.gz; SRA: SRS16924240
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 55"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 55United States: Pennsylvania: Spring Mills
+Accession: SAMN33553688	ID: 33553688
+
+19: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553687; Sample name: R1_Spr_CON3017_B.fastq.gz; SRA: SRS16924239
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 54"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 54United States: Pennsylvania: Spring Mills
+Accession: SAMN33553687	ID: 33553687
+
+20: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553686; Sample name: R1_Spr_CON3017_A.fastq.gz; SRA: SRS16924238
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 53"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 53United States: Pennsylvania: Spring Mills
+Accession: SAMN33553686	ID: 33553686
+
+21: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553685; Sample name: R1_Spr_CF3016_B.fastq.gz; SRA: SRS16924237
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 52"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 52United States: Pennsylvania: Spring Mills
+Accession: SAMN33553685	ID: 33553685
+
+22: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553684; Sample name: R1_Spr_CF3016_A.fastq.gz; SRA: SRS16924236
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 51"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 51United States: Pennsylvania: Spring Mills
+Accession: SAMN33553684	ID: 33553684
+
+23: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553683; Sample name: R1_Spr_CF3013_B.fastq.gz; SRA: SRS16924234
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 50"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 50United States: Pennsylvania: Spring Mills
+Accession: SAMN33553683	ID: 33553683
+
+24: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553682; Sample name: R1_Spr_CF3013_A.fastq.gz; SRA: SRS16924233
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 49"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Spring Mills"
+    /latitude and longitude="40.8571 N 77.6197 W"
+Description:
+bee bread metagenomeApis mellifera 49United States: Pennsylvania: Spring Mills
+Accession: SAMN33553682	ID: 33553682
+
+25: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553681; Sample name: R1_Sla_IPM2071_B.fastq.gz; SRA: SRS16924232
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 48"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 48United States: Pennsylvania: Slatington
+Accession: SAMN33553681	ID: 33553681
+
+26: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553680; Sample name: R1_Sla_IPM2071_A.fastq.gz; SRA: SRS16924231
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 47"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 47United States: Pennsylvania: Slatington
+Accession: SAMN33553680	ID: 33553680
+
+27: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553679; Sample name: R1_Sla_IPM2070_B.fastq.gz; SRA: SRS16924230
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 46"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 46United States: Pennsylvania: Slatington
+Accession: SAMN33553679	ID: 33553679
+
+28: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553678; Sample name: R1_Sla_IPM2070_A.fastq.gz; SRA: SRS16924229
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 45"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 45United States: Pennsylvania: Slatington
+Accession: SAMN33553678	ID: 33553678
+
+29: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553677; Sample name: R1_Sla_CON2063_B.fastq.gz; SRA: SRS16924228
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 44"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 44United States: Pennsylvania: Slatington
+Accession: SAMN33553677	ID: 33553677
+
+30: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553676; Sample name: R1_Sla_CON2063_A.fastq.gz; SRA: SRS16924227
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 43"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 43United States: Pennsylvania: Slatington
+Accession: SAMN33553676	ID: 33553676
+
+31: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553675; Sample name: R1_Sla_CON2061_B.fastq.gz; SRA: SRS16924226
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 42"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 42United States: Pennsylvania: Slatington
+Accession: SAMN33553675	ID: 33553675
+
+32: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553674; Sample name: R1_Sla_CON2061_A.fastq.gz; SRA: SRS16924225
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 41"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 41United States: Pennsylvania: Slatington
+Accession: SAMN33553674	ID: 33553674
+
+33: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553673; Sample name: R1_Sla_CF2066_B.fastq.gz; SRA: SRS16924223
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 40"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 40United States: Pennsylvania: Slatington
+Accession: SAMN33553673	ID: 33553673
+
+34: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553672; Sample name: R1_Sla_CF2066_A.fastq.gz; SRA: SRS16924222
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 39"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 39United States: Pennsylvania: Slatington
+Accession: SAMN33553672	ID: 33553672
+
+35: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553671; Sample name: R1_Sla_CF2065_B.fastq.gz; SRA: SRS16924221
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 38"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 38United States: Pennsylvania: Slatington
+Accession: SAMN33553671	ID: 33553671
+
+36: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553670; Sample name: R1_Sla_CF2065_A.fastq.gz; SRA: SRS16924220
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 37"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Slatington"
+    /latitude and longitude="40.7303 N 75.6341 W"
+Description:
+bee bread metagenomeApis mellifera 37United States: Pennsylvania: Slatington
+Accession: SAMN33553670	ID: 33553670
+
+37: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553669; Sample name: R1_Dal_IPM1055_B.fastq.gz; SRA: SRS16924219
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 36"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 36United States: Pennsylvania: Dallas
+Accession: SAMN33553669	ID: 33553669
+
+38: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553668; Sample name: R1_Dal_IPM1055_A.fastq.gz; SRA: SRS16924218
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 35"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 35United States: Pennsylvania: Dallas
+Accession: SAMN33553668	ID: 33553668
+
+39: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553667; Sample name: R1_Dal_IPM1054_B.fastq.gz; SRA: SRS16924217
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 34"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 34United States: Pennsylvania: Dallas
+Accession: SAMN33553667	ID: 33553667
+
+40: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553666; Sample name: R1_Dal_IPM1054_A.fastq.gz; SRA: SRS16924216
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 33"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 33United States: Pennsylvania: Dallas
+Accession: SAMN33553666	ID: 33553666
+
+41: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553665; Sample name: R1_Dal_CON1058_B.fastq.gz; SRA: SRS16924215
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 32"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 32United States: Pennsylvania: Dallas
+Accession: SAMN33553665	ID: 33553665
+
+42: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553664; Sample name: R1_Dal_CON1058_A.fastq.gz; SRA: SRS16924214
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 31"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 31United States: Pennsylvania: Dallas
+Accession: SAMN33553664	ID: 33553664
+
+43: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553663; Sample name: R1_Dal_CON1057_B.fastq.gz; SRA: SRS16924213
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 30"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 30United States: Pennsylvania: Dallas
+Accession: SAMN33553663	ID: 33553663
+
+44: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553662; Sample name: R1_Dal_CON1057_A.fastq.gz; SRA: SRS16924211
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 29"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 29United States: Pennsylvania: Dallas
+Accession: SAMN33553662	ID: 33553662
+
+45: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553661; Sample name: R1_Dal_CF1052_B.fastq.gz; SRA: SRS16924210
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 28"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 28United States: Pennsylvania: Dallas
+Accession: SAMN33553661	ID: 33553661
+
+46: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553660; Sample name: R1_Dal_CF1052_A.fastq.gz; SRA: SRS16924209
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 27"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 27United States: Pennsylvania: Dallas
+Accession: SAMN33553660	ID: 33553660
+
+47: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553659; Sample name: R1_Dal_CF1051_B.fastq.gz; SRA: SRS16924208
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 26"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 26United States: Pennsylvania: Dallas
+Accession: SAMN33553659	ID: 33553659
+
+48: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553658; Sample name: R1_Dal_CF1051_A.fastq.gz; SRA: SRS16924207
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 25"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Dallas"
+    /latitude and longitude="41.2669 N 75.9857 W"
+Description:
+bee bread metagenomeApis mellifera 25United States: Pennsylvania: Dallas
+Accession: SAMN33553658	ID: 33553658
+
+49: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553657; Sample name: R1_Ber_IPM2002_B.fastq.gz; SRA: SRS16924206
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 24"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 24United States: Pennsylvania: Bernville
+Accession: SAMN33553657	ID: 33553657
+
+50: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553656; Sample name: R1_Ber_IPM2002_A.fastq.gz; SRA: SRS16924205
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 23"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 23United States: Pennsylvania: Bernville
+Accession: SAMN33553656	ID: 33553656
+
+51: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553655; Sample name: R1_Ber_IPM2001_B.fastq.gz; SRA: SRS16924204
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 22"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 22United States: Pennsylvania: Bernville
+Accession: SAMN33553655	ID: 33553655
+
+52: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553654; Sample name: R1_Ber_IPM2001_A.fastq.gz; SRA: SRS16924203
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 21"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 21United States: Pennsylvania: Bernville
+Accession: SAMN33553654	ID: 33553654
+
+53: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553653; Sample name: R1_Ber_CON2011_Be2.fastq.gz; SRA: SRS16924201
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 20"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 20United States: Pennsylvania: Bernville
+Accession: SAMN33553653	ID: 33553653
+
+54: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553652; Sample name: R1_Ber_CON2011_A.fastq.gz; SRA: SRS16924200
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 19"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 19United States: Pennsylvania: Bernville
+Accession: SAMN33553652	ID: 33553652
+
+55: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553651; Sample name: R1_Ber_CON2010_B.fastq.gz; SRA: SRS16924199
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 18"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 18United States: Pennsylvania: Bernville
+Accession: SAMN33553651	ID: 33553651
+
+56: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553650; Sample name: R1_Ber_CON2010_A.fastq.gz; SRA: SRS16924198
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 17"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 17United States: Pennsylvania: Bernville
+Accession: SAMN33553650	ID: 33553650
+
+57: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553649; Sample name: R1_Ber_CF2007_B.fastq.gz; SRA: SRS16924197
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 16"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 16United States: Pennsylvania: Bernville
+Accession: SAMN33553649	ID: 33553649
+
+58: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553648; Sample name: R1_Ber_CF2007_A.fastq.gz; SRA: SRS16924196
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 15"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 15United States: Pennsylvania: Bernville
+Accession: SAMN33553648	ID: 33553648
+
+59: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553647; Sample name: R1_Ber_CF2006_B.fastq.gz; SRA: SRS16924195
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 14"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 14United States: Pennsylvania: Bernville
+Accession: SAMN33553647	ID: 33553647
+
+60: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553646; Sample name: R1_Ber_CF2006_A.fastq.gz; SRA: SRS16924194
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 13"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Bernville"
+    /latitude and longitude="40.4621 N 76.1713 W"
+Description:
+bee bread metagenomeApis mellifera 13United States: Pennsylvania: Bernville
+Accession: SAMN33553646	ID: 33553646
+
+
+61: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553645; Sample name: R1_Bel_IPM3044_B.fastq.gz; SRA: SRS16924189
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 12"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 12United States: Pennsylvania: Belleville
+Accession: SAMN33553645	ID: 33553645
+
+62: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553644; Sample name: R1_Bel_IPM3044_A.fastq.gz; SRA: SRS16924188
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 11"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 11United States: Pennsylvania: Belleville
+Accession: SAMN33553644	ID: 33553644
+
+63: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553643; Sample name: R1_Bel_IPM3042_B.fastq.gz; SRA: SRS16924193
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 10"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 10United States: Pennsylvania: Belleville
+Accession: SAMN33553643	ID: 33553643
+
+64: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553642; Sample name: R1_Bel_IPM3042_A.fastq.gz; SRA: SRS16924192
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 9"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 9United States: Pennsylvania: Belleville
+Accession: SAMN33553642	ID: 33553642
+
+65: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553641; Sample name: R1_Bel_CON3039_B.fastq.gz; SRA: SRS16924257
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 8"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 8United States: Pennsylvania: Belleville
+Accession: SAMN33553641	ID: 33553641
+
+66: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553640; Sample name: R1_Bel_CON3039_A.fastq.gz; SRA: SRS16924245
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 7"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 7United States: Pennsylvania: Belleville
+Accession: SAMN33553640	ID: 33553640
+
+67: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553639; Sample name: R1_Bel_CON3037_B.fastq.gz; SRA: SRS16924235
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 6"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 6United States: Pennsylvania: Belleville
+Accession: SAMN33553639	ID: 33553639
+
+68: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553638; Sample name: R1_Bel_CON3037_A.fastq.gz; SRA: SRS16924224
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 5"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 5United States: Pennsylvania: Belleville
+Accession: SAMN33553638	ID: 33553638
+
+69: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553637; Sample name: R1_Bel_CF3047_B.fastq.gz; SRA: SRS16924212
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 4"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 4United States: Pennsylvania: Belleville
+Accession: SAMN33553637	ID: 33553637
+
+70: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553636; Sample name: R1_Bel_CF3047_A.fastq.gz; SRA: SRS16924202
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 3"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 3United States: Pennsylvania: Belleville
+Accession: SAMN33553636	ID: 33553636
+
+71: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553635; Sample name: R1_Bel_CF3045_B.fastq.gz; SRA: SRS16924187
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 2"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 2United States: Pennsylvania: Belleville
+Accession: SAMN33553635	ID: 33553635
+
+72: Metagenome or environmental sample from bee bread metagenome
+Identifiers: BioSample: SAMN33553634; Sample name: R1_Bel_CF3045_A.fastq.gz; SRA: SRS16924186
+Organism: bee bread metagenome
+Attributes:
+    /host="Apis mellifera 1"
+    /collection date="2018-09-01"
+    /geographic location="USA: Pennsylvania, Belleville"
+    /latitude and longitude="40.615 N 77.7663 W"
+Description:
+bee bread metagenomeApis mellifera 1United States: Pennsylvania: Belleville
+Accession: SAMN33553634	ID: 33553634
+
+

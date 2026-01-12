@@ -1,0 +1,118 @@
+{
+  "completed_projects": {
+    "PRJCA011502": {
+      "file": "test_final1/PRJCA011502.processed.csv",
+      "rows": 15,
+      "source": "CNCB",
+      "timestamp": "2026-01-10T09:42:30.719232"
+    },
+    "PRJCA040882": {
+      "file": "test_final1/PRJCA040882.processed.csv",
+      "rows": 50,
+      "source": "CNCB",
+      "timestamp": "2026-01-10T09:42:31.445456"
+    },
+    "PRJCA022947": {
+      "file": "test_final1/PRJCA022947.processed.csv",
+      "rows": 120,
+      "source": "CNCB",
+      "timestamp": "2026-01-10T09:42:35.883078"
+    },
+    "PRJDB36956": {
+      "file": "test_final1/PRJDB36956.processed.csv",
+      "rows": 50,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:42:41.069981"
+    },
+    "PRJNA1373330": {
+      "file": "test_final1/PRJNA1373330.processed.csv",
+      "rows": 55,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:42:41.205919"
+    },
+    "PRJNA1310163": {
+      "file": "test_final1/PRJNA1310163.processed.csv",
+      "rows": 18,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:42:43.142704"
+    },
+    "PRJNA1305501": {
+      "file": "test_final1/PRJNA1305501.processed.csv",
+      "rows": 48,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:42:51.480737"
+    },
+    "PRJNA1307180": {
+      "file": "test_final1/PRJNA1307180.processed.csv",
+      "rows": 90,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:42:54.062974"
+    },
+    "PRJNA1285920": {
+      "file": "test_final1/PRJNA1285920.processed.csv",
+      "rows": 20,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:42:57.050175"
+    },
+    "PRJNA1253914": {
+      "file": "test_final1/PRJNA1253914.processed.csv",
+      "rows": 98,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:43:07.200021"
+    },
+    "PRJNA1248737": {
+      "file": "test_final1/PRJNA1248737.processed.csv",
+      "rows": 74,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:43:07.979332"
+    },
+    "PRJNA1248556": {
+      "file": "test_final1/PRJNA1248556.processed.csv",
+      "rows": 115,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:43:21.790603"
+    },
+    "PRJNA1246220": {
+      "file": "test_final1/PRJNA1246220.processed.csv",
+      "rows": 288,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:43:30.531980"
+    },
+    "PRJNA1241321": {
+      "file": "test_final1/PRJNA1241321.processed.csv",
+      "rows": 266,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:44:00.101843"
+    },
+    "PRJNA1236352": {
+      "file": "test_final1/PRJNA1236352.processed.csv",
+      "rows": 18,
+      "source": "NCBI",
+      "timestamp": "2026-01-10T09:44:03.821731"
+    }
+  },
+  "failed_downloads": [],
+  "status_records": {
+    "Total queries: 1": "invalid_format",
+    "Time: 2026-01-10 09:42:27": "invalid_format",
+    "[1] (\"microbiome\") AND (\"bee\")": "invalid_format",
+    "NCBI: ncbi_1768030928.xml": "invalid_format",
+    "CNCB: cncb_1768030947.tsv": "invalid_format",
+    "PRJCA011502": "has_data",
+    "PRJCA040882": "has_data",
+    "PRJCA022947": "has_data",
+    "PRJDB36956": "has_data",
+    "PRJNA1373330": "has_data",
+    "PRJNA1310163": "has_data",
+    "PRJNA1305501": "has_data",
+    "PRJNA1307180": "has_data",
+    "PRJNA1285920": "has_data",
+    "PRJNA1253914": "has_data",
+    "PRJNA1248737": "has_data",
+    "PRJNA1248556": "has_data",
+    "PRJNA1246220": "has_data",
+    "PRJNA1241321": "has_data",
+    "PRJNA1236352": "has_data"
+  },
+  "last_update": "2026-01-10T09:44:03.821746"
+}

@@ -1,0 +1,1442 @@
+1: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025826
+Organism: bee metagenome
+Attributes:
+    /sample name="MN8_S74"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN8_S74
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025826	ID: 4091900
+
+2: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025825
+Organism: bee metagenome
+Attributes:
+    /sample name="MN7_S55"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN7_S55
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025825	ID: 4091899
+
+3: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025824
+Organism: bee metagenome
+Attributes:
+    /sample name="MN30x_S63"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN30x_S63
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025824	ID: 4091898
+
+4: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025823
+Organism: bee metagenome
+Attributes:
+    /sample name="MN30_S68"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN30_S68
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025823	ID: 4091897
+
+5: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025822
+Organism: bee metagenome
+Attributes:
+    /sample name="MN30Q_S3"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN30Q_S3
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025822	ID: 4091896
+
+6: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025821
+Organism: bee metagenome
+Attributes:
+    /sample name="MN2_S70"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN2_S70
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025821	ID: 4091895
+
+7: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025820
+Organism: bee metagenome
+Attributes:
+    /sample name="MN2Q_S4"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN2Q_S4
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025820	ID: 4091894
+
+8: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025819
+Organism: bee metagenome
+Attributes:
+    /sample name="MN22_S76"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN22_S76
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025819	ID: 4091893
+
+9: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025818
+Organism: bee metagenome
+Attributes:
+    /sample name="MN22Q_S10"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN22Q_S10
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025818	ID: 4091892
+
+10: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025817
+Organism: bee metagenome
+Attributes:
+    /sample name="MN15x_S64"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN15x_S64
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025817	ID: 4091891
+
+11: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025816
+Organism: bee metagenome
+Attributes:
+    /sample name="MN15_S67"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN15_S67
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025816	ID: 4091890
+
+12: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025815
+Organism: bee metagenome
+Attributes:
+    /sample name="MN15Q_S11"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN15Q_S11
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025815	ID: 4091889
+
+13: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025814
+Organism: bee metagenome
+Attributes:
+    /sample name="MN13_S36"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN13_S36
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025814	ID: 4091888
+
+14: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025813
+Organism: bee metagenome
+Attributes:
+    /sample name="MN12_S45"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN12_S45
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025813	ID: 4091887
+
+15: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025812
+Organism: bee metagenome
+Attributes:
+    /sample name="MN11_S73"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN11_S73
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025812	ID: 4091886
+
+16: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025811
+Organism: bee metagenome
+Attributes:
+    /sample name="MN11Q_S12"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN11Q_S12
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025811	ID: 4091885
+
+17: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025810
+Organism: bee metagenome
+Attributes:
+    /sample name="MN10_S46"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome MN10_S46
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025810	ID: 4091884
+
+18: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025809
+Organism: bee metagenome
+Attributes:
+    /sample name="GS_S71"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS_S71
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025809	ID: 4091883
+
+19: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025808
+Organism: bee metagenome
+Attributes:
+    /sample name="GS24_S39"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS24_S39
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025808	ID: 4091882
+
+20: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025807
+Organism: bee metagenome
+Attributes:
+    /sample name="GS23_S54"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS23_S54
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025807	ID: 4091881
+
+21: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025806
+Organism: bee metagenome
+Attributes:
+    /sample name="GS22_S57"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS22_S57
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025806	ID: 4091880
+
+22: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025805
+Organism: bee metagenome
+Attributes:
+    /sample name="GS21_S40"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS21_S40
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025805	ID: 4091879
+
+23: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025804
+Organism: bee metagenome
+Attributes:
+    /sample name="GS20_S38"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS20_S38
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025804	ID: 4091878
+
+24: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025803
+Organism: bee metagenome
+Attributes:
+    /sample name="GS19_S53"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS19_S53
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025803	ID: 4091877
+
+25: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025802
+Organism: bee metagenome
+Attributes:
+    /sample name="GS18_S42"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS18_S42
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025802	ID: 4091876
+
+26: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025801
+Organism: bee metagenome
+Attributes:
+    /sample name="GS17_S41"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS17_S41
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025801	ID: 4091875
+
+27: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025800
+Organism: bee metagenome
+Attributes:
+    /sample name="GS16_S49"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS16_S49
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025800	ID: 4091874
+
+28: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025799
+Organism: bee metagenome
+Attributes:
+    /sample name="GS15_S50"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS15_S50
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025799	ID: 4091873
+
+29: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025798
+Organism: bee metagenome
+Attributes:
+    /sample name="GS14_S37"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS14_S37
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025798	ID: 4091872
+
+30: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025797
+Organism: bee metagenome
+Attributes:
+    /sample name="GS13_S52"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS13_S52
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025797	ID: 4091871
+
+31: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025796
+Organism: bee metagenome
+Attributes:
+    /sample name="GS12_S59"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS12_S59
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025796	ID: 4091870
+
+32: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025795
+Organism: bee metagenome
+Attributes:
+    /sample name="GS11_S58"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS11_S58
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025795	ID: 4091869
+
+33: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025794
+Organism: bee metagenome
+Attributes:
+    /sample name="GS10_S51"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS10_S51
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025794	ID: 4091868
+
+34: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025793
+Organism: bee metagenome
+Attributes:
+    /sample name="GS09_S61"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS09_S61
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025793	ID: 4091867
+
+35: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025792
+Organism: bee metagenome
+Attributes:
+    /sample name="GS08_S44"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS08_S44
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025792	ID: 4091866
+
+36: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025791
+Organism: bee metagenome
+Attributes:
+    /sample name="GS07_S48"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS07_S48
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025791	ID: 4091865
+
+37: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025790
+Organism: bee metagenome
+Attributes:
+    /sample name="GS06_S60"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS06_S60
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025790	ID: 4091864
+
+38: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025789
+Organism: bee metagenome
+Attributes:
+    /sample name="GS05_S28"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS05_S28
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025789	ID: 4091863
+
+39: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025788
+Organism: bee metagenome
+Attributes:
+    /sample name="GS04_S47"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS04_S47
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025788	ID: 4091862
+
+40: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025787
+Organism: bee metagenome
+Attributes:
+    /sample name="GS03_S27"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS03_S27
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025787	ID: 4091861
+
+41: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025786
+Organism: bee metagenome
+Attributes:
+    /sample name="GS02_S26"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS02_S26
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025786	ID: 4091860
+
+42: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025785
+Organism: bee metagenome
+Attributes:
+    /sample name="GS01_S43"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome GS01_S43
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025785	ID: 4091859
+
+43: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025784
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB8_S56"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB8_S56
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025784	ID: 4091858
+
+44: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025783
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB7_S62"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB7_S62
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025783	ID: 4091857
+
+45: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025782
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB23_S77"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB23_S77
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025782	ID: 4091856
+
+46: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025781
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB20_S75"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB20_S75
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025781	ID: 4091855
+
+47: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025780
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB20BQ_S2"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB20BQ_S2
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025780	ID: 4091854
+
+48: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025779
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB19_S69"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB19_S69
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025779	ID: 4091853
+
+49: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025778
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB17_S65"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB17_S65
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025778	ID: 4091852
+
+50: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025777
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB13_S80"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB13_S80
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025777	ID: 4091851
+
+51: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025776
+Organism: bee metagenome
+Attributes:
+    /sample name="FCB12_S66"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCB12_S66
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025776	ID: 4091850
+
+52: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025775
+Organism: bee metagenome
+Attributes:
+    /sample name="FCA23_S79"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCA23_S79
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025775	ID: 4091849
+
+53: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025774
+Organism: bee metagenome
+Attributes:
+    /sample name="FCA13_S78"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FCA13_S78
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025774	ID: 4091848
+
+54: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025773
+Organism: bee metagenome
+Attributes:
+    /sample name="FC8AQ_S13"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FC8AQ_S13
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025773	ID: 4091847
+
+55: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025772
+Organism: bee metagenome
+Attributes:
+    /sample name="FC7BQ_S1"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FC7BQ_S1
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025772	ID: 4091846
+
+56: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025771
+Organism: bee metagenome
+Attributes:
+    /sample name="FC23AQ_S9"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FC23AQ_S9
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025771	ID: 4091845
+
+57: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025770
+Organism: bee metagenome
+Attributes:
+    /sample name="FC19B_S5"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FC19B_S5
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025770	ID: 4091844
+
+58: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025769
+Organism: bee metagenome
+Attributes:
+    /sample name="FC17A_S6"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FC17A_S6
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025769	ID: 4091843
+
+59: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025768
+Organism: bee metagenome
+Attributes:
+    /sample name="FC13A_S8"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FC13A_S8
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025768	ID: 4091842
+
+60: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025767
+Organism: bee metagenome
+Attributes:
+    /sample name="FC12BQ_S7"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome FC12BQ_S7
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025767	ID: 4091841
+
+
+61: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025766
+Organism: bee metagenome
+Attributes:
+    /sample name="CB_S72"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB_S72
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025766	ID: 4091840
+
+62: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025765
+Organism: bee metagenome
+Attributes:
+    /sample name="CB9Q_S21"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB9Q_S21
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025765	ID: 4091839
+
+63: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025764
+Organism: bee metagenome
+Attributes:
+    /sample name="CB91G_S32"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB91G_S32
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025764	ID: 4091838
+
+64: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025763
+Organism: bee metagenome
+Attributes:
+    /sample name="CB8Q_S20"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB8Q_S20
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025763	ID: 4091837
+
+65: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025762
+Organism: bee metagenome
+Attributes:
+    /sample name="CB7Q_S16"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB7Q_S16
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025762	ID: 4091836
+
+66: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025761
+Organism: bee metagenome
+Attributes:
+    /sample name="CB77G_S35"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB77G_S35
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025761	ID: 4091835
+
+67: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025760
+Organism: bee metagenome
+Attributes:
+    /sample name="CB73G_S34"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB73G_S34
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025760	ID: 4091834
+
+68: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025759
+Organism: bee metagenome
+Attributes:
+    /sample name="CB6Q_S15"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB6Q_S15
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025759	ID: 4091833
+
+69: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025758
+Organism: bee metagenome
+Attributes:
+    /sample name="CB5Q_S25"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB5Q_S25
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025758	ID: 4091832
+
+70: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025757
+Organism: bee metagenome
+Attributes:
+    /sample name="CB4Q_S14"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB4Q_S14
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025757	ID: 4091831
+
+71: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025756
+Organism: bee metagenome
+Attributes:
+    /sample name="CB41G_S30"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB41G_S30
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025756	ID: 4091830
+
+72: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025755
+Organism: bee metagenome
+Attributes:
+    /sample name="CB3Q_S17"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB3Q_S17
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025755	ID: 4091829
+
+73: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025754
+Organism: bee metagenome
+Attributes:
+    /sample name="CB2Q_S19"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB2Q_S19
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025754	ID: 4091828
+
+74: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025753
+Organism: bee metagenome
+Attributes:
+    /sample name="CB1Q_S18"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB1Q_S18
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025753	ID: 4091827
+
+75: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025752
+Organism: bee metagenome
+Attributes:
+    /sample name="CB13Q_S23"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB13Q_S23
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025752	ID: 4091826
+
+76: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025751
+Organism: bee metagenome
+Attributes:
+    /sample name="CB12Q_S24"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB12Q_S24
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025751	ID: 4091825
+
+77: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025750
+Organism: bee metagenome
+Attributes:
+    /sample name="CB11Q_S22"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB11Q_S22
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025750	ID: 4091824
+
+78: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025749
+Organism: bee metagenome
+Attributes:
+    /sample name="CB10Q_S29"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB10Q_S29
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025749	ID: 4091823
+
+79: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025748
+Organism: bee metagenome
+Attributes:
+    /sample name="CB05G_S33"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB05G_S33
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025748	ID: 4091822
+
+80: Apis mellifera microbiome
+Identifiers: BioSample: SAMD00025747
+Organism: bee metagenome
+Attributes:
+    /sample name="CB01G_S31"
+    /collection date="2013-05-27"
+    /broad-scale environmental context="host-associated"
+    /local-scale environmental context="digestive tract"
+    /environmental medium="NA"
+    /geographic location="USA:NC, Raleigh"
+    /latitude and longitude="35.78492 N 78.68211 W"
+    /project name="Apis mellifera queen microbiome study"
+    /host="Apis mellifera"
+Description:
+Apis mellifera microbiome CB01G_S31
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMD00025747	ID: 4091821
+
+

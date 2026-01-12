@@ -1,0 +1,199 @@
+1: Apis mellifera chronic dose 6
+Identifiers: BioSample: SAMN50880697; Sample name: LD50-6; SRA: SRS26352859
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 18"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880697	ID: 50880697
+
+2: Apis mellifera chronic dose 5
+Identifiers: BioSample: SAMN50880696; Sample name: LD50-5; SRA: SRS26352864
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 17"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880696	ID: 50880696
+
+3: Apis mellifera chronic dose 4
+Identifiers: BioSample: SAMN50880695; Sample name: LD50-4; SRA: SRS26352861
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 16"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880695	ID: 50880695
+
+4: Apis mellifera chronic dose 3
+Identifiers: BioSample: SAMN50880694; Sample name: LD50-3; SRA: SRS26352858
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 15"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880694	ID: 50880694
+
+5: Apis mellifera chronic dose 2
+Identifiers: BioSample: SAMN50880693; Sample name: LD50-2; SRA: SRS26352865
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 14"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880693	ID: 50880693
+
+6: Apis mellifera chronic dose 1
+Identifiers: BioSample: SAMN50880692; Sample name: LD50-1; SRA: SRS26352856
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 13"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880692	ID: 50880692
+
+7: Apis mellifera sublethal dose 6
+Identifiers: BioSample: SAMN50880691; Sample name: LD25-6; SRA: SRS26352860
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 12"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880691	ID: 50880691
+
+8: Apis mellifera sublethal dose 5
+Identifiers: BioSample: SAMN50880690; Sample name: LD25-5; SRA: SRS26352857
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 11"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880690	ID: 50880690
+
+9: Apis mellifera sublethal dose 4
+Identifiers: BioSample: SAMN50880689; Sample name: LD25-4; SRA: SRS26352871
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 10"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880689	ID: 50880689
+
+10: Apis mellifera sublethal dose 3
+Identifiers: BioSample: SAMN50880688; Sample name: LD25-3; SRA: SRS26352870
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 9"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880688	ID: 50880688
+
+11: Apis mellifera sublethal dose 2
+Identifiers: BioSample: SAMN50880687; Sample name: LD25-2; SRA: SRS26352869
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 8"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880687	ID: 50880687
+
+12: Apis mellifera sublethal dose 1
+Identifiers: BioSample: SAMN50880686; Sample name: LD25-1; SRA: SRS26352868
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 7"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880686	ID: 50880686
+
+13: Apis mellifera control 6
+Identifiers: BioSample: SAMN50880685; Sample name: CT-6; SRA: SRS26352867
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 6"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880685	ID: 50880685
+
+14: Apis mellifera control 5
+Identifiers: BioSample: SAMN50880684; Sample name: CT-5; SRA: SRS26352866
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 5"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880684	ID: 50880684
+
+15: Apis mellifera control 4
+Identifiers: BioSample: SAMN50880683; Sample name: CT-4; SRA: SRS26352863
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 4"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880683	ID: 50880683
+
+16: Apis mellifera control 3
+Identifiers: BioSample: SAMN50880682; Sample name: CT-3; SRA: SRS26352862
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 3"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880682	ID: 50880682
+
+17: Apis mellifera control 2
+Identifiers: BioSample: SAMN50880681; Sample name: CT-2; SRA: SRS26352855
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 2"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880681	ID: 50880681
+
+18: Apis mellifera control 1
+Identifiers: BioSample: SAMN50880680; Sample name: CT-1; SRA: SRS26352854
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Saraphi Chiangmai 1"
+    /collection date="2024-04"
+    /geographic location="Thailand: Chiang Mai"
+    /latitude and longitude="18.67967351 N 99.04437026 E"
+Accession: SAMN50880680	ID: 50880680
+
+

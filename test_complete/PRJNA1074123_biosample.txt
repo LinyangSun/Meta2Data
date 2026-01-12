@@ -1,0 +1,232 @@
+1: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852594; Sample name: Soytide3; SRA: SRS20409007
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-21"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852594	ID: 39852594
+
+2: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852593; Sample name: Soytide2; SRA: SRS20408996
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-20"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852593	ID: 39852593
+
+3: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852592; Sample name: Soytide1; SRA: SRS20409008
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-19"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852592	ID: 39852592
+
+4: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852591; Sample name: SAC3; SRA: SRS20408995
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-18"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852591	ID: 39852591
+
+5: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852590; Sample name: SAC2; SRA: SRS20409006
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-17"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852590	ID: 39852590
+
+6: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852589; Sample name: SAC1; SRA: SRS20408993
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-16"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852589	ID: 39852589
+
+7: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852588; Sample name: Megabee3; SRA: SRS20409004
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-15"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852588	ID: 39852588
+
+8: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852587; Sample name: Megabee2; SRA: SRS20409005
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-14"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852587	ID: 39852587
+
+9: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852586; Sample name: Megabee1; SRA: SRS20409003
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-13"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852586	ID: 39852586
+
+10: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852585; Sample name: MAC3; SRA: SRS20408992
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-12"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852585	ID: 39852585
+
+11: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852584; Sample name: MAC2; SRA: SRS20408999
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-11"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852584	ID: 39852584
+
+12: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852583; Sample name: MAC1; SRA: SRS20409002
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-10"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852583	ID: 39852583
+
+13: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852582; Sample name: Beebreadhoney3; SRA: SRS20408997
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-09"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852582	ID: 39852582
+
+14: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852581; Sample name: Beebreadhoney2; SRA: SRS20408998
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-08"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852581	ID: 39852581
+
+15: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852580; Sample name: Beebreadhoney1; SRA: SRS20409001
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-07"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852580	ID: 39852580
+
+16: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852579; Sample name: Applejuice3; SRA: SRS20408994
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-06"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852579	ID: 39852579
+
+17: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852578; Sample name: Applejuice2; SRA: SRS20409000
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-05"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852578	ID: 39852578
+
+18: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852577; Sample name: Applejuice1; SRA: SRS20408991
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-04"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852577	ID: 39852577
+
+19: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852576; Sample name: 60Syrup3; SRA: SRS20409009
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-03"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852576	ID: 39852576
+
+20: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852575; Sample name: 60Syrup2; SRA: SRS20408990
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-02"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852575	ID: 39852575
+
+21: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN39852574; Sample name: 60Syrup1; SRA: SRS20408989
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Gut"
+    /collection date="2023-05-01"
+    /geographic location="South Korea: Incheon National University"
+    /latitude and longitude="37.3750 N 126.6322 E"
+Accession: SAMN39852574	ID: 39852574
+
+

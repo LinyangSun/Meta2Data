@@ -1,0 +1,2302 @@
+1: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525978; Sample name: honey99; SRA: SRS16341159
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1232"
+    /Phylogenetic Diversity="1.01628074"
+    /Species Richness="13"
+    /Rarified_PD="1.01628074"
+    /Rarified_SR="13"
+Accession: SAMN30525978	ID: 30525978
+
+2: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525977; Sample name: honey98; SRA: SRS16341158
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lscantii"
+    /sample_sums="1131"
+    /Phylogenetic Diversity="1.03983766"
+    /Species Richness="9"
+    /Rarified_PD="1.1874994"
+    /Rarified_SR="11"
+Accession: SAMN30525977	ID: 30525977
+
+3: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525976; Sample name: honey97; SRA: SRS16341157
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="525"
+    /Phylogenetic Diversity="1.297577507"
+    /Species Richness="8"
+    /Rarified_PD="1.315956572"
+    /Rarified_SR="9"
+Accession: SAMN30525976	ID: 30525976
+
+4: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525975; Sample name: honey96; SRA: SRS16341156
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1267"
+    /Phylogenetic Diversity="1.194157843"
+    /Species Richness="15"
+    /Rarified_PD="1.1993333"
+    /Rarified_SR="16"
+Accession: SAMN30525975	ID: 30525975
+
+5: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525974; Sample name: honey95; SRA: SRS16341155
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1032"
+    /Phylogenetic Diversity="1.15127221"
+    /Species Richness="12"
+    /Rarified_PD="1.15127221"
+    /Rarified_SR="12"
+Accession: SAMN30525974	ID: 30525974
+
+6: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525973; Sample name: honey94; SRA: SRS16341153
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1392"
+    /Phylogenetic Diversity="1.127611213"
+    /Species Richness="16"
+    /Rarified_PD="1.127611213"
+    /Rarified_SR="16"
+Accession: SAMN30525973	ID: 30525973
+
+7: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525972; Sample name: honey93; SRA: SRS16341152
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="2282"
+    /Phylogenetic Diversity="1.463400599"
+    /Species Richness="19"
+    /Rarified_PD="1.465164793"
+    /Rarified_SR="19"
+Accession: SAMN30525972	ID: 30525972
+
+8: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525971; Sample name: honey92; SRA: SRS16341151
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1866"
+    /Phylogenetic Diversity="1.335793363"
+    /Species Richness="20"
+    /Rarified_PD="1.519537691"
+    /Rarified_SR="20"
+Accession: SAMN30525971	ID: 30525971
+
+9: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525970; Sample name: honey91; SRA: SRS16341150
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1663"
+    /Phylogenetic Diversity="1.338464635"
+    /Species Richness="16"
+    /Rarified_PD="1.338464635"
+    /Rarified_SR="16"
+Accession: SAMN30525970	ID: 30525970
+
+10: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525969; Sample name: honey90; SRA: SRS16341149
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1188"
+    /Phylogenetic Diversity="1.114734893"
+    /Species Richness="10"
+    /Rarified_PD="1.114734893"
+    /Rarified_SR="10"
+Accession: SAMN30525969	ID: 30525969
+
+11: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525968; Sample name: honey89; SRA: SRS16341148
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="708"
+    /Phylogenetic Diversity="1.01784767"
+    /Species Richness="12"
+    /Rarified_PD="1.063040049"
+    /Rarified_SR="15"
+Accession: SAMN30525968	ID: 30525968
+
+12: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525967; Sample name: honey88; SRA: SRS16341147
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="1992"
+    /Phylogenetic Diversity="0.652024764"
+    /Species Richness="7"
+    /Rarified_PD="0.652024764"
+    /Rarified_SR="7"
+Accession: SAMN30525967	ID: 30525967
+
+13: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525966; Sample name: honey87; SRA: SRS16341146
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="849"
+    /Phylogenetic Diversity="1.126399686"
+    /Species Richness="12"
+    /Rarified_PD="1.126399686"
+    /Rarified_SR="12"
+Accession: SAMN30525966	ID: 30525966
+
+14: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525965; Sample name: honey86; SRA: SRS16341145
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="1564"
+    /Phylogenetic Diversity="1.510596962"
+    /Species Richness="12"
+    /Rarified_PD="1.483417798"
+    /Rarified_SR="14"
+Accession: SAMN30525965	ID: 30525965
+
+15: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525964; Sample name: honey85; SRA: SRS16341144
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1264"
+    /Phylogenetic Diversity="1.508083621"
+    /Species Richness="15"
+    /Rarified_PD="1.508083621"
+    /Rarified_SR="15"
+Accession: SAMN30525964	ID: 30525964
+
+16: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525963; Sample name: honey84; SRA: SRS16341183
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="609"
+    /Phylogenetic Diversity="1.119834217"
+    /Species Richness="11"
+    /Rarified_PD="1.1437952"
+    /Rarified_SR="12"
+Accession: SAMN30525963	ID: 30525963
+
+17: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525962; Sample name: honey83; SRA: SRS16341182
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1041"
+    /Phylogenetic Diversity="1.164386335"
+    /Species Richness="12"
+    /Rarified_PD="1.208284417"
+    /Rarified_SR="13"
+Accession: SAMN30525962	ID: 30525962
+
+18: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525961; Sample name: honey82; SRA: SRS16341181
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="1068"
+    /Phylogenetic Diversity="1.495777335"
+    /Species Richness="11"
+    /Rarified_PD="1.294332062"
+    /Rarified_SR="10"
+Accession: SAMN30525961	ID: 30525961
+
+19: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525960; Sample name: honey81; SRA: SRS16341180
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="1704"
+    /Phylogenetic Diversity="1.235331342"
+    /Species Richness="13"
+    /Rarified_PD="1.237915647"
+    /Rarified_SR="14"
+Accession: SAMN30525960	ID: 30525960
+
+20: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525959; Sample name: honey80; SRA: SRS16341179
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="767"
+    /Phylogenetic Diversity="1.148109942"
+    /Species Richness="10"
+    /Rarified_PD="1.187513898"
+    /Rarified_SR="11"
+Accession: SAMN30525959	ID: 30525959
+
+21: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525958; Sample name: honey79; SRA: SRS16341178
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Nosema"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="none"
+    /sample_sums="1084"
+    /Phylogenetic Diversity="1.015295089"
+    /Species Richness="7"
+    /Rarified_PD="1.015295089"
+    /Rarified_SR="7"
+Accession: SAMN30525958	ID: 30525958
+
+22: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525957; Sample name: honey78; SRA: SRS16341177
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="807"
+    /Phylogenetic Diversity="1.027501036"
+    /Species Richness="11"
+    /Rarified_PD="1.066289386"
+    /Rarified_SR="12"
+Accession: SAMN30525957	ID: 30525957
+
+23: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525956; Sample name: honey77; SRA: SRS16341176
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="785"
+    /Phylogenetic Diversity="1.008965845"
+    /Species Richness="13"
+    /Rarified_PD="1.011548672"
+    /Rarified_SR="14"
+Accession: SAMN30525956	ID: 30525956
+
+24: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525955; Sample name: honey76; SRA: SRS16341175
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="1011"
+    /Phylogenetic Diversity="1.013530116"
+    /Species Richness="12"
+    /Rarified_PD="1.005684536"
+    /Rarified_SR="11"
+Accession: SAMN30525955	ID: 30525955
+
+25: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525954; Sample name: honey75; SRA: SRS16341174
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1552"
+    /Phylogenetic Diversity="1.160574795"
+    /Species Richness="17"
+    /Rarified_PD="1.160574795"
+    /Rarified_SR="17"
+Accession: SAMN30525954	ID: 30525954
+
+26: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525953; Sample name: honey74; SRA: SRS16341172
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1045"
+    /Phylogenetic Diversity="1.025400574"
+    /Species Richness="12"
+    /Rarified_PD="1.071381082"
+    /Rarified_SR="13"
+Accession: SAMN30525953	ID: 30525953
+
+27: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525952; Sample name: honey73; SRA: SRS16341171
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Nosema"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="none"
+    /sample_sums="1141"
+    /Phylogenetic Diversity="1.306681856"
+    /Species Richness="12"
+    /Rarified_PD="1.404659898"
+    /Rarified_SR="17"
+Accession: SAMN30525952	ID: 30525952
+
+28: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525951; Sample name: honey72; SRA: SRS16341170
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Nosema"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="none"
+    /sample_sums="1329"
+    /Phylogenetic Diversity="0.761631524"
+    /Species Richness="8"
+    /Rarified_PD="0.840110764"
+    /Rarified_SR="9"
+Accession: SAMN30525951	ID: 30525951
+
+29: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525950; Sample name: honey71; SRA: SRS16341169
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="1794"
+    /Phylogenetic Diversity="1.294217586"
+    /Species Richness="11"
+    /Rarified_PD="1.014348144"
+    /Rarified_SR="10"
+Accession: SAMN30525950	ID: 30525950
+
+30: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525949; Sample name: honey70; SRA: SRS16341168
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1393"
+    /Phylogenetic Diversity="0.98604662"
+    /Species Richness="10"
+    /Rarified_PD="1.024836988"
+    /Rarified_SR="11"
+Accession: SAMN30525949	ID: 30525949
+
+31: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525948; Sample name: honey68; SRA: SRS16341167
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Nosema"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="none"
+    /sample_sums="1536"
+    /Phylogenetic Diversity="1.231151141"
+    /Species Richness="16"
+    /Rarified_PD="1.197515074"
+    /Rarified_SR="16"
+Accession: SAMN30525948	ID: 30525948
+
+32: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525947; Sample name: honey67; SRA: SRS16341166
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1345"
+    /Phylogenetic Diversity="0.933141538"
+    /Species Richness="10"
+    /Rarified_PD="0.941652134"
+    /Rarified_SR="11"
+Accession: SAMN30525947	ID: 30525947
+
+33: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525946; Sample name: honey66; SRA: SRS16341165
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="2183"
+    /Phylogenetic Diversity="1.523152869"
+    /Species Richness="16"
+    /Rarified_PD="1.335477829"
+    /Rarified_SR="14"
+Accession: SAMN30525946	ID: 30525946
+
+34: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525945; Sample name: honey65; SRA: SRS16341231
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1559"
+    /Phylogenetic Diversity="1.468423407"
+    /Species Richness="15"
+    /Rarified_PD="1.159958815"
+    /Rarified_SR="15"
+Accession: SAMN30525945	ID: 30525945
+
+35: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525944; Sample name: honey64; SRA: SRS16341230
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1862"
+    /Phylogenetic Diversity="1.543281601"
+    /Species Richness="17"
+    /Rarified_PD="1.475598965"
+    /Rarified_SR="16"
+Accession: SAMN30525944	ID: 30525944
+
+36: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525943; Sample name: honey63; SRA: SRS16341228
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="942"
+    /Phylogenetic Diversity="1.585168644"
+    /Species Richness="15"
+    /Rarified_PD="1.592899737"
+    /Rarified_SR="16"
+Accession: SAMN30525943	ID: 30525943
+
+37: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525942; Sample name: honey62; SRA: SRS16341227
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cmellificae"
+    /sample_sums="1447"
+    /Phylogenetic Diversity="1.720854266"
+    /Species Richness="17"
+    /Rarified_PD="1.720854266"
+    /Rarified_SR="17"
+Accession: SAMN30525942	ID: 30525942
+
+38: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525941; Sample name: honey61; SRA: SRS16341226
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="755"
+    /Phylogenetic Diversity="1.241673098"
+    /Species Richness="9"
+    /Rarified_PD="1.628232824"
+    /Rarified_SR="14"
+Accession: SAMN30525941	ID: 30525941
+
+39: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525940; Sample name: honey60; SRA: SRS16341225
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1124"
+    /Phylogenetic Diversity="1.843234546"
+    /Species Richness="21"
+    /Rarified_PD="1.634756972"
+    /Rarified_SR="22"
+Accession: SAMN30525940	ID: 30525940
+
+40: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525939; Sample name: honey59; SRA: SRS16341224
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1591"
+    /Phylogenetic Diversity="1.107599323"
+    /Species Richness="11"
+    /Rarified_PD="1.183724252"
+    /Rarified_SR="12"
+Accession: SAMN30525939	ID: 30525939
+
+41: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525938; Sample name: honey58; SRA: SRS16341223
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="738"
+    /Phylogenetic Diversity="1.097851248"
+    /Species Richness="8"
+    /Rarified_PD="1.138675482"
+    /Rarified_SR="9"
+Accession: SAMN30525938	ID: 30525938
+
+42: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525937; Sample name: honey57; SRA: SRS16341222
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lpassim"
+    /sample_sums="927"
+    /Phylogenetic Diversity="1.620755436"
+    /Species Richness="15"
+    /Rarified_PD="1.620755436"
+    /Rarified_SR="15"
+Accession: SAMN30525937	ID: 30525937
+
+43: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525936; Sample name: honey56; SRA: SRS16341221
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2018-08-06"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="2185"
+    /Phylogenetic Diversity="1.140931855"
+    /Species Richness="13"
+    /Rarified_PD="1.140931855"
+    /Rarified_SR="13"
+Accession: SAMN30525936	ID: 30525936
+
+44: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525935; Sample name: honey135; SRA: SRS16341220
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-17"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1641"
+    /Phylogenetic Diversity="1.017010762"
+    /Species Richness="11"
+    /Rarified_PD="1.017010762"
+    /Rarified_SR="11"
+Accession: SAMN30525935	ID: 30525935
+
+45: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525934; Sample name: honey109; SRA: SRS16341219
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1269"
+    /Phylogenetic Diversity="1.465785833"
+    /Species Richness="13"
+    /Rarified_PD="0.775449545"
+    /Rarified_SR="10"
+Accession: SAMN30525934	ID: 30525934
+
+46: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525933; Sample name: honey108; SRA: SRS16341217
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Nosema"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="none"
+    /sample_sums="167"
+    /Phylogenetic Diversity="1.072876225"
+    /Species Richness="6"
+    /Rarified_PD="0.953352403"
+    /Rarified_SR="11"
+Accession: SAMN30525933	ID: 30525933
+
+47: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525932; Sample name: honey102; SRA: SRS16341216
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1035"
+    /Phylogenetic Diversity="1.117256451"
+    /Species Richness="5"
+    /Rarified_PD="1.117256451"
+    /Rarified_SR="5"
+Accession: SAMN30525932	ID: 30525932
+
+48: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525931; Sample name: honey101; SRA: SRS16341215
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1290"
+    /Phylogenetic Diversity="1.374671092"
+    /Species Richness="15"
+    /Rarified_PD="1.235631838"
+    /Rarified_SR="15"
+Accession: SAMN30525931	ID: 30525931
+
+49: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525930; Sample name: honey100; SRA: SRS16341214
+Organism: gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="38.71 N 77.79 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="763"
+    /Phylogenetic Diversity="1.300330115"
+    /Species Richness="17"
+    /Rarified_PD="1.30033011"
+    /Rarified_SR="17"
+Accession: SAMN30525930	ID: 30525930
+
+50: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525929; Sample name: bumble9; SRA: SRS16341213
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1536"
+    /Phylogenetic Diversity="1.009646413"
+    /Species Richness="9"
+    /Rarified_PD="1.103725619"
+    /Rarified_SR="10"
+Accession: SAMN30525929	ID: 30525929
+
+51: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525928; Sample name: bumble7; SRA: SRS16341212
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="Nosema"
+    /NosemaSeq="Nbombi"
+    /TrypansomeSeq="none"
+    /sample_sums="1567"
+    /Phylogenetic Diversity="1.00953896"
+    /Species Richness="6"
+    /Rarified_PD="1.352351657"
+    /Rarified_SR="7"
+Accession: SAMN30525928	ID: 30525928
+
+52: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525927; Sample name: bumble6; SRA: SRS16341211
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1386"
+    /Phylogenetic Diversity="0.868993267"
+    /Species Richness="4"
+    /Rarified_PD="0.868993267"
+    /Rarified_SR="4"
+Accession: SAMN30525927	ID: 30525927
+
+53: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525926; Sample name: bumble55; SRA: SRS16341210
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="2595"
+    /Phylogenetic Diversity="1.708703863"
+    /Species Richness="12"
+    /Rarified_PD="1.516731076"
+    /Rarified_SR="12"
+Accession: SAMN30525926	ID: 30525926
+
+54: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525925; Sample name: bumble54; SRA: SRS16341209
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="NA"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1800"
+    /Phylogenetic Diversity="0.597953526"
+    /Species Richness="4"
+    /Rarified_PD="1.161104818"
+    /Rarified_SR="7"
+Accession: SAMN30525925	ID: 30525925
+
+55: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525924; Sample name: bumble53; SRA: SRS16341208
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="NA"
+    /InfSeqType="Multi"
+    /NosemaSeq="Nbombi"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="3118"
+    /Phylogenetic Diversity="0.640561706"
+    /Species Richness="3"
+    /Rarified_PD="0.53031433"
+    /Rarified_SR="3"
+Accession: SAMN30525924	ID: 30525924
+
+56: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525923; Sample name: bumble52; SRA: SRS16341254
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-08-07"
+    /geographic location="USA"
+    /latitude and longitude="39.22 N 78.23 W"
+    /Caste="NA"
+    /InfSeqType="Multi"
+    /NosemaSeq="Nbombi"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2709"
+    /Phylogenetic Diversity="1.537548377"
+    /Species Richness="9"
+    /Rarified_PD="0.847670482"
+    /Rarified_SR="7"
+Accession: SAMN30525923	ID: 30525923
+
+57: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525922; Sample name: bumble51; SRA: SRS16341253
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Male"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="3254"
+    /Phylogenetic Diversity="3.134634235"
+    /Species Richness="7"
+    /Rarified_PD="0.702399932"
+    /Rarified_SR="9"
+Accession: SAMN30525922	ID: 30525922
+
+58: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525921; Sample name: bumble50; SRA: SRS16341252
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1864"
+    /Phylogenetic Diversity="1.726402409"
+    /Species Richness="12"
+    /Rarified_PD="1.516190292"
+    /Rarified_SR="11"
+Accession: SAMN30525921	ID: 30525921
+
+59: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525920; Sample name: bumble49; SRA: SRS16341251
+Organism: gut metagenome
+Attributes:
+    /host="Bombus fervidus"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2198"
+    /Phylogenetic Diversity="4.144334809"
+    /Species Richness="9"
+    /Rarified_PD="0.727372634"
+    /Rarified_SR="6"
+Accession: SAMN30525920	ID: 30525920
+
+60: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525919; Sample name: bumble48; SRA: SRS16341250
+Organism: gut metagenome
+Attributes:
+    /host="Bombus pensylvanicus"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="maybequeen"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2210"
+    /Phylogenetic Diversity="1.068750295"
+    /Species Richness="6"
+    /Rarified_PD="0.750158153"
+    /Rarified_SR="6"
+Accession: SAMN30525919	ID: 30525919
+
+
+61: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525918; Sample name: bumble47; SRA: SRS16341249
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="2687"
+    /Phylogenetic Diversity="1.702463364"
+    /Species Richness="17"
+    /Rarified_PD="1.705002932"
+    /Rarified_SR="17"
+Accession: SAMN30525918	ID: 30525918
+
+62: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525917; Sample name: bumble46; SRA: SRS16341248
+Organism: gut metagenome
+Attributes:
+    /host="Bombus fervidus"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1684"
+    /Phylogenetic Diversity="3.771815811"
+    /Species Richness="8"
+    /Rarified_PD="0.727372634"
+    /Rarified_SR="6"
+Accession: SAMN30525917	ID: 30525917
+
+63: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525916; Sample name: bumble45; SRA: SRS16341247
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1738"
+    /Phylogenetic Diversity="4.016457089"
+    /Species Richness="9"
+    /Rarified_PD="1.054659044"
+    /Rarified_SR="5"
+Accession: SAMN30525916	ID: 30525916
+
+64: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525915; Sample name: bumble44; SRA: SRS16341246
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1245"
+    /Phylogenetic Diversity="3.765857264"
+    /Species Richness="15"
+    /Rarified_PD="1.272305425"
+    /Rarified_SR="14"
+Accession: SAMN30525915	ID: 30525915
+
+65: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525914; Sample name: bumble43; SRA: SRS16341245
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="3156"
+    /Phylogenetic Diversity="3.723041418"
+    /Species Richness="11"
+    /Rarified_PD="1.130769074"
+    /Rarified_SR="8"
+Accession: SAMN30525914	ID: 30525914
+
+66: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525913; Sample name: bumble42; SRA: SRS16341243
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1194"
+    /Phylogenetic Diversity="2.125222695"
+    /Species Richness="20"
+    /Rarified_PD="1.542491575"
+    /Rarified_SR="17"
+Accession: SAMN30525913	ID: 30525913
+
+67: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525912; Sample name: bumble41; SRA: SRS16341242
+Organism: gut metagenome
+Attributes:
+    /host="Bombus fervidus"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="3183"
+    /Phylogenetic Diversity="4.344550021"
+    /Species Richness="11"
+    /Rarified_PD="0.729954377"
+    /Rarified_SR="7"
+Accession: SAMN30525912	ID: 30525912
+
+68: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525911; Sample name: bumble40; SRA: SRS16341241
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-16"
+    /geographic location="USA"
+    /latitude and longitude="38.83 N 77.31 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2314"
+    /Phylogenetic Diversity="4.298449444"
+    /Species Richness="15"
+    /Rarified_PD="1.34726242"
+    /Rarified_SR="11"
+Accession: SAMN30525911	ID: 30525911
+
+69: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525910; Sample name: bumble39; SRA: SRS16341240
+Organism: gut metagenome
+Attributes:
+    /host="Bombus bimaculatus"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1420"
+    /Phylogenetic Diversity="1.139798602"
+    /Species Richness="12"
+    /Rarified_PD="1.139798602"
+    /Rarified_SR="12"
+Accession: SAMN30525910	ID: 30525910
+
+70: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525909; Sample name: bumble38; SRA: SRS16341239
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Male"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1940"
+    /Phylogenetic Diversity="1.323014957"
+    /Species Richness="13"
+    /Rarified_PD="1.17900726"
+    /Rarified_SR="12"
+Accession: SAMN30525909	ID: 30525909
+
+71: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525908; Sample name: bumble37; SRA: SRS16341238
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2812"
+    /Phylogenetic Diversity="3.708144754"
+    /Species Richness="19"
+    /Rarified_PD="1.514281836"
+    /Rarified_SR="21"
+Accession: SAMN30525908	ID: 30525908
+
+72: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525907; Sample name: bumble36; SRA: SRS16341237
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Male"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2486"
+    /Phylogenetic Diversity="3.859951032"
+    /Species Richness="13"
+    /Rarified_PD="1.22030796"
+    /Rarified_SR="12"
+Accession: SAMN30525907	ID: 30525907
+
+73: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525906; Sample name: bumble35; SRA: SRS16341236
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2201"
+    /Phylogenetic Diversity="1.35465478"
+    /Species Richness="13"
+    /Rarified_PD="1.058698265"
+    /Rarified_SR="14"
+Accession: SAMN30525906	ID: 30525906
+
+74: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525905; Sample name: bumble34; SRA: SRS16341235
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2119"
+    /Phylogenetic Diversity="1.104278627"
+    /Species Richness="16"
+    /Rarified_PD="1.138680514"
+    /Rarified_SR="17"
+Accession: SAMN30525905	ID: 30525905
+
+75: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525904; Sample name: bumble33; SRA: SRS16341234
+Organism: gut metagenome
+Attributes:
+    /host="Bombus auricomus"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Nbombi"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1776"
+    /Phylogenetic Diversity="0.77965146"
+    /Species Richness="3"
+    /Rarified_PD="0.3612092"
+    /Rarified_SR="2"
+Accession: SAMN30525904	ID: 30525904
+
+76: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525903; Sample name: bumble32; SRA: SRS16341232
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2500"
+    /Phylogenetic Diversity="3.721170105"
+    /Species Richness="7"
+    /Rarified_PD="1.020774526"
+    /Rarified_SR="6"
+Accession: SAMN30525903	ID: 30525903
+
+77: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525902; Sample name: bumble31; SRA: SRS16341207
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="3783"
+    /Phylogenetic Diversity="3.67619615"
+    /Species Richness="11"
+    /Rarified_PD="0.920193239"
+    /Rarified_SR="9"
+Accession: SAMN30525902	ID: 30525902
+
+78: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525901; Sample name: bumble30; SRA: SRS16341206
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cexpoeki"
+    /sample_sums="1861"
+    /Phylogenetic Diversity="1.368777119"
+    /Species Richness="10"
+    /Rarified_PD="1.368777119"
+    /Rarified_SR="10"
+Accession: SAMN30525901	ID: 30525901
+
+79: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525900; Sample name: bumble28; SRA: SRS16341205
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Male"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2571"
+    /Phylogenetic Diversity="3.944993966"
+    /Species Richness="13"
+    /Rarified_PD="0.776218133"
+    /Rarified_SR="8"
+Accession: SAMN30525900	ID: 30525900
+
+80: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525899; Sample name: bumble27; SRA: SRS16341204
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1076"
+    /Phylogenetic Diversity="0.799572631"
+    /Species Richness="8"
+    /Rarified_PD="1.013968065"
+    /Rarified_SR="10"
+Accession: SAMN30525899	ID: 30525899
+
+81: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525898; Sample name: bumble26; SRA: SRS16341203
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Male"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cexpoeki"
+    /sample_sums="2391"
+    /Phylogenetic Diversity="1.791310682"
+    /Species Richness="9"
+    /Rarified_PD="1.211368204"
+    /Rarified_SR="6"
+Accession: SAMN30525898	ID: 30525898
+
+82: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525897; Sample name: bumble25; SRA: SRS16341202
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1421"
+    /Phylogenetic Diversity="1.214571686"
+    /Species Richness="10"
+    /Rarified_PD="1.28899583"
+    /Rarified_SR="12"
+Accession: SAMN30525897	ID: 30525897
+
+83: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525896; Sample name: bumble23; SRA: SRS16341201
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2118"
+    /Phylogenetic Diversity="3.505020281"
+    /Species Richness="11"
+    /Rarified_PD="1.025535107"
+    /Rarified_SR="11"
+Accession: SAMN30525896	ID: 30525896
+
+84: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525895; Sample name: bumble22; SRA: SRS16341200
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-19"
+    /geographic location="USA"
+    /latitude and longitude="38.75 N 77.56 W"
+    /Caste="Male"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2222"
+    /Phylogenetic Diversity="1.120021769"
+    /Species Richness="10"
+    /Rarified_PD="1.114464171"
+    /Rarified_SR="8"
+Accession: SAMN30525895	ID: 30525895
+
+85: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525894; Sample name: bumble21; SRA: SRS16341199
+Organism: gut metagenome
+Attributes:
+    /host="Bombus auricomus"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2308"
+    /Phylogenetic Diversity="0.802920223"
+    /Species Richness="4"
+    /Rarified_PD="1.002542377"
+    /Rarified_SR="6"
+Accession: SAMN30525894	ID: 30525894
+
+86: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525893; Sample name: bumble20; SRA: SRS16341197
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1399"
+    /Phylogenetic Diversity="3.560580034"
+    /Species Richness="8"
+    /Rarified_PD="1.1513736"
+    /Rarified_SR="6"
+Accession: SAMN30525893	ID: 30525893
+
+87: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525892; Sample name: bumble18; SRA: SRS16341196
+Organism: gut metagenome
+Attributes:
+    /host="Bombus perplexus"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="Multi"
+    /NosemaSeq="Nbombi"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="2994"
+    /Phylogenetic Diversity="3.522336386"
+    /Species Richness="11"
+    /Rarified_PD="0.79036556"
+    /Rarified_SR="8"
+Accession: SAMN30525892	ID: 30525892
+
+88: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525891; Sample name: bumble17; SRA: SRS16341195
+Organism: gut metagenome
+Attributes:
+    /host="Bombus perplexus"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Nbombi"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1274"
+    /Phylogenetic Diversity="3.145666245"
+    /Species Richness="6"
+    /Rarified_PD="0.859385915"
+    /Rarified_SR="7"
+Accession: SAMN30525891	ID: 30525891
+
+89: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525890; Sample name: bumble16; SRA: SRS16341194
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1366"
+    /Phylogenetic Diversity="0.839794331"
+    /Species Richness="4"
+    /Rarified_PD="0.842375285"
+    /Rarified_SR="5"
+Accession: SAMN30525890	ID: 30525890
+
+90: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525889; Sample name: bumble15; SRA: SRS16341193
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1372"
+    /Phylogenetic Diversity="1.2904876"
+    /Species Richness="10"
+    /Rarified_PD="1.284930007"
+    /Rarified_SR="9"
+Accession: SAMN30525889	ID: 30525889
+
+91: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525888; Sample name: bumble14; SRA: SRS16341192
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="2484"
+    /Phylogenetic Diversity="0.872649357"
+    /Species Richness="8"
+    /Rarified_PD="0.913470517"
+    /Rarified_SR="9"
+Accession: SAMN30525888	ID: 30525888
+
+92: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525887; Sample name: bumble139; SRA: SRS16341191
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2019-06-17"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1132"
+    /Phylogenetic Diversity="4.598860552"
+    /Species Richness="18"
+    /Rarified_PD="1.943815827"
+    /Rarified_SR="15"
+Accession: SAMN30525887	ID: 30525887
+
+93: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525886; Sample name: bumble138; SRA: SRS16341190
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2019-06-17"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Lscantii"
+    /sample_sums="1774"
+    /Phylogenetic Diversity="1.478575513"
+    /Species Richness="6"
+    /Rarified_PD="0.868225573"
+    /Rarified_SR="9"
+Accession: SAMN30525886	ID: 30525886
+
+94: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525885; Sample name: bumble133; SRA: SRS16341189
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-17"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1558"
+    /Phylogenetic Diversity="1.544409896"
+    /Species Richness="8"
+    /Rarified_PD="0.854352227"
+    /Rarified_SR="5"
+Accession: SAMN30525885	ID: 30525885
+
+95: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525884; Sample name: bumble131; SRA: SRS16341188
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-17"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="962"
+    /Phylogenetic Diversity="3.249024677"
+    /Species Richness="10"
+    /Rarified_PD="0.408638846"
+    /Rarified_SR="10"
+Accession: SAMN30525884	ID: 30525884
+
+96: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525883; Sample name: bumble130; SRA: SRS16341186
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-17"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1533"
+    /Phylogenetic Diversity="3.363648875"
+    /Species Richness="5"
+    /Rarified_PD="0.734489024"
+    /Rarified_SR="5"
+Accession: SAMN30525883	ID: 30525883
+
+97: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525882; Sample name: bumble13; SRA: SRS16341185
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1101"
+    /Phylogenetic Diversity="1.151575304"
+    /Species Richness="9"
+    /Rarified_PD="1.151575304"
+    /Rarified_SR="9"
+Accession: SAMN30525882	ID: 30525882
+
+98: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525881; Sample name: bumble129; SRA: SRS16341184
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-17"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1375"
+    /Phylogenetic Diversity="4.285602399"
+    /Species Richness="16"
+    /Rarified_PD="1.139658241"
+    /Rarified_SR="14"
+Accession: SAMN30525881	ID: 30525881
+
+99: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525880; Sample name: bumble126; SRA: SRS16341164
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1700"
+    /Phylogenetic Diversity="3.811272727"
+    /Species Richness="11"
+    /Rarified_PD="0.875365905"
+    /Rarified_SR="6"
+Accession: SAMN30525880	ID: 30525880
+
+100: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525879; Sample name: bumble124; SRA: SRS16341163
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1181"
+    /Phylogenetic Diversity="1.498665059"
+    /Species Richness="12"
+    /Rarified_PD="1.066400382"
+    /Rarified_SR="10"
+Accession: SAMN30525879	ID: 30525879
+
+101: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525878; Sample name: bumble123; SRA: SRS16341162
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="950"
+    /Phylogenetic Diversity="1.791059089"
+    /Species Richness="10"
+    /Rarified_PD="1.200631521"
+    /Rarified_SR="8"
+Accession: SAMN30525878	ID: 30525878
+
+102: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525877; Sample name: bumble121; SRA: SRS16341161
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="2352"
+    /Phylogenetic Diversity="1.124616262"
+    /Species Richness="5"
+    /Rarified_PD="0.459399661"
+    /Rarified_SR="2"
+Accession: SAMN30525877	ID: 30525877
+
+103: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525876; Sample name: bumble120; SRA: SRS16341160
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1037"
+    /Phylogenetic Diversity="1.802233346"
+    /Species Richness="16"
+    /Rarified_PD="1.16298515"
+    /Rarified_SR="14"
+Accession: SAMN30525876	ID: 30525876
+
+104: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525875; Sample name: bumble12; SRA: SRS16341154
+Organism: gut metagenome
+Attributes:
+    /host="Bombus griseocollis"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="10929"
+    /Phylogenetic Diversity="3.615726026"
+    /Species Richness="13"
+    /Rarified_PD="1.181716517"
+    /Rarified_SR="10"
+Accession: SAMN30525875	ID: 30525875
+
+105: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525874; Sample name: bumble119; SRA: SRS16341143
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="894"
+    /Phylogenetic Diversity="1.711186979"
+    /Species Richness="12"
+    /Rarified_PD="1.033001664"
+    /Rarified_SR="8"
+Accession: SAMN30525874	ID: 30525874
+
+106: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525873; Sample name: bumble118; SRA: SRS16341173
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1139"
+    /Phylogenetic Diversity="1.637618016"
+    /Species Richness="15"
+    /Rarified_PD="0.969836737"
+    /Rarified_SR="13"
+Accession: SAMN30525873	ID: 30525873
+
+107: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525872; Sample name: bumble117; SRA: SRS16341229
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1705"
+    /Phylogenetic Diversity="1.697607831"
+    /Species Richness="13"
+    /Rarified_PD="1.006487987"
+    /Rarified_SR="8"
+Accession: SAMN30525872	ID: 30525872
+
+108: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525871; Sample name: bumble116; SRA: SRS16341218
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1541"
+    /Phylogenetic Diversity="1.536993987"
+    /Species Richness="13"
+    /Rarified_PD="0.858808672"
+    /Rarified_SR="9"
+Accession: SAMN30525871	ID: 30525871
+
+109: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525870; Sample name: bumble114; SRA: SRS16341255
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1070"
+    /Phylogenetic Diversity="1.618280001"
+    /Species Richness="11"
+    /Rarified_PD="0.955649735"
+    /Rarified_SR="9"
+Accession: SAMN30525870	ID: 30525870
+
+110: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525869; Sample name: bumble113; SRA: SRS16341244
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1250"
+    /Phylogenetic Diversity="1.500157093"
+    /Species Richness="7"
+    /Rarified_PD="0.834940492"
+    /Rarified_SR="4"
+Accession: SAMN30525869	ID: 30525869
+
+111: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525868; Sample name: bumble112; SRA: SRS16341233
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Multi"
+    /NosemaSeq="Ncerenae"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="694"
+    /Phylogenetic Diversity="1.377382598"
+    /Species Richness="13"
+    /Rarified_PD="0.738486331"
+    /Rarified_SR="10"
+Accession: SAMN30525868	ID: 30525868
+
+112: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525867; Sample name: bumble111; SRA: SRS16341198
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2019-06-16"
+    /geographic location="USA"
+    /latitude and longitude="39.06 N 78.06 W"
+    /Caste="Worker"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1349"
+    /Phylogenetic Diversity="1.533946948"
+    /Species Richness="15"
+    /Rarified_PD="0.866165664"
+    /Rarified_SR="12"
+Accession: SAMN30525867	ID: 30525867
+
+113: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525866; Sample name: bumble11; SRA: SRS16341187
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="3279"
+    /Phylogenetic Diversity="1.984864494"
+    /Species Richness="18"
+    /Rarified_PD="1.280735968"
+    /Rarified_SR="11"
+Accession: SAMN30525866	ID: 30525866
+
+114: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525865; Sample name: bumble10; SRA: SRS16341142
+Organism: gut metagenome
+Attributes:
+    /host="Bombus impatiens"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="None"
+    /NosemaSeq="none"
+    /TrypansomeSeq="none"
+    /sample_sums="1617"
+    /Phylogenetic Diversity="1.357504189"
+    /Species Richness="9"
+    /Rarified_PD="1.353248371"
+    /Rarified_SR="10"
+Accession: SAMN30525865	ID: 30525865
+
+115: Metagenome or environmental sample from gut metagenome
+Identifiers: BioSample: SAMN30525864; Sample name: bumble1; SRA: SRS16341141
+Organism: gut metagenome
+Attributes:
+    /host="Bombus bimaculatus"
+    /isolation source="not applicable"
+    /collection date="2018-07-18"
+    /geographic location="USA"
+    /latitude and longitude="38.77 N 77.80 W"
+    /Caste="Male"
+    /InfSeqType="Trypansome"
+    /NosemaSeq="none"
+    /TrypansomeSeq="Cbombi"
+    /sample_sums="1940"
+    /Phylogenetic Diversity="1.412054077"
+    /Species Richness="18"
+    /Rarified_PD="1.302182902"
+    /Rarified_SR="18"
+Accession: SAMN30525864	ID: 30525864
+
+

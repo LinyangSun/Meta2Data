@@ -1,0 +1,274 @@
+1: Newly born
+Identifiers: BioSample: SAMN41499597; Sample name: New3; SRA: SRS21393324
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Newly born3"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 3
+Accession: SAMN41499597	ID: 41499597
+
+2: Newly born
+Identifiers: BioSample: SAMN41499596; Sample name: New2; SRA: SRS21393322
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Newly born2"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 2
+Accession: SAMN41499596	ID: 41499596
+
+3: Newly born
+Identifiers: BioSample: SAMN41499595; Sample name: New1; SRA: SRS21393321
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Newly born1"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 1
+Accession: SAMN41499595	ID: 41499595
+
+4: White sugar
+Identifiers: BioSample: SAMN41499594; Sample name: WS3; SRA: SRS21393320
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="White sugar3"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 3
+Accession: SAMN41499594	ID: 41499594
+
+5: White sugar
+Identifiers: BioSample: SAMN41499593; Sample name: WS2; SRA: SRS21393319
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="White sugar2"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 2
+Accession: SAMN41499593	ID: 41499593
+
+6: White sugar
+Identifiers: BioSample: SAMN41499592; Sample name: WS1; SRA: SRS21393318
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="White sugar1"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 1
+Accession: SAMN41499592	ID: 41499592
+
+7: Maltose
+Identifiers: BioSample: SAMN41499591; Sample name: MA3; SRA: SRS21393317
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Maltose3"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 3
+Accession: SAMN41499591	ID: 41499591
+
+8: Maltose
+Identifiers: BioSample: SAMN41499590; Sample name: MA2; SRA: SRS21393316
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Maltose2"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 2
+Accession: SAMN41499590	ID: 41499590
+
+9: Maltose
+Identifiers: BioSample: SAMN41499589; Sample name: MA1; SRA: SRS21393315
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Maltose1"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 1
+Accession: SAMN41499589	ID: 41499589
+
+10: Corn syrup
+Identifiers: BioSample: SAMN41499588; Sample name: CS3; SRA: SRS21393314
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Corn syrup3"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 3
+Accession: SAMN41499588	ID: 41499588
+
+11: Corn syrup
+Identifiers: BioSample: SAMN41499587; Sample name: CS2; SRA: SRS21393313
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Corn syrup2"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 2
+Accession: SAMN41499587	ID: 41499587
+
+12: Corn syrup
+Identifiers: BioSample: SAMN41499586; Sample name: CS1; SRA: SRS21393331
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Corn syrup1"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 1
+Accession: SAMN41499586	ID: 41499586
+
+13: Chestnut honey
+Identifiers: BioSample: SAMN41499585; Sample name: CH3; SRA: SRS21393330
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Chestnut honey3"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 3
+Accession: SAMN41499585	ID: 41499585
+
+14: Chestnut honey
+Identifiers: BioSample: SAMN41499584; Sample name: CH2; SRA: SRS21393329
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Chestnut honey2"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 2
+Accession: SAMN41499584	ID: 41499584
+
+15: Chestnut honey
+Identifiers: BioSample: SAMN41499583; Sample name: CH1; SRA: SRS21393328
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Chestnut honey1"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 1
+Accession: SAMN41499583	ID: 41499583
+
+16: Brown sugar
+Identifiers: BioSample: SAMN41499582; Sample name: BS3; SRA: SRS21393327
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Brown sugar3"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 3
+Accession: SAMN41499582	ID: 41499582
+
+17: Brown sugar
+Identifiers: BioSample: SAMN41499581; Sample name: BS2; SRA: SRS21393326
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Brown sugar2"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 2
+Accession: SAMN41499581	ID: 41499581
+
+18: Brown sugar
+Identifiers: BioSample: SAMN41499580; Sample name: BS1; SRA: SRS21393325
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Brown sugar1"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 1
+Accession: SAMN41499580	ID: 41499580
+
+19: Acacia honey
+Identifiers: BioSample: SAMN41499579; Sample name: AH3; SRA: SRS21393323
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Acacia honey3"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 3
+Accession: SAMN41499579	ID: 41499579
+
+20: Acacia honey
+Identifiers: BioSample: SAMN41499578; Sample name: AH2; SRA: SRS21393312
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Acacia honey2"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 2
+Accession: SAMN41499578	ID: 41499578
+
+21: Acacia honey
+Identifiers: BioSample: SAMN41499577; Sample name: AH1; SRA: SRS21393311
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="Acacia honey1"
+    /collection date="2023-07-15"
+    /geographic location="South Korea"
+    /latitude and longitude="36.54 N 128.799 E"
+Description:
+Rep 1
+Accession: SAMN41499577	ID: 41499577
+
+

@@ -1,0 +1,664 @@
+1: 13H
+Identifiers: BioSample: SAMEA8897491; SRA: ERS6580397
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-20"
+    /ENA last update="2021-08-20"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897491"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-20T12:12:13Z"
+    /INSDC last update="2021-08-20T12:12:13Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_33"
+    /sample name="beehive_33"
+Accession: SAMEA8897491	ID: 21224053
+
+2: beehive_1
+Identifiers: BioSample: SAMEA8897497; SRA: ERS6580403
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897497"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_39"
+    /sample name="beehive_39"
+Accession: SAMEA8897497	ID: 20610026
+
+3: 15H
+Identifiers: BioSample: SAMEA8897496; SRA: ERS6580402
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897496"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_38"
+    /sample name="beehive_38"
+Accession: SAMEA8897496	ID: 20610025
+
+4: 15P
+Identifiers: BioSample: SAMEA8897495; SRA: ERS6580401
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897495"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_37"
+    /sample name="beehive_37"
+Accession: SAMEA8897495	ID: 20610024
+
+5: 14HB
+Identifiers: BioSample: SAMEA8897494; SRA: ERS6580400
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897494"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_36"
+    /sample name="beehive_36"
+Accession: SAMEA8897494	ID: 20610023
+
+6: 14HA
+Identifiers: BioSample: SAMEA8897493; SRA: ERS6580399
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897493"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_35"
+    /sample name="beehive_35"
+Accession: SAMEA8897493	ID: 20610022
+
+7: 13P
+Identifiers: BioSample: SAMEA8897492; SRA: ERS6580398
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897492"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_34"
+    /sample name="beehive_34"
+Accession: SAMEA8897492	ID: 20610021
+
+8: 12HB
+Identifiers: BioSample: SAMEA8897490; SRA: ERS6580396
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897490"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_32"
+    /sample name="beehive_32"
+Accession: SAMEA8897490	ID: 20610020
+
+9: 12HA
+Identifiers: BioSample: SAMEA8897489; SRA: ERS6580395
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897489"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_31"
+    /sample name="beehive_31"
+Accession: SAMEA8897489	ID: 20610019
+
+10: 11PB
+Identifiers: BioSample: SAMEA8897488; SRA: ERS6580394
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897488"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_30"
+    /sample name="beehive_30"
+Accession: SAMEA8897488	ID: 20610018
+
+11: 11HB
+Identifiers: BioSample: SAMEA8897487; SRA: ERS6580393
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897487"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_29"
+    /sample name="beehive_29"
+Accession: SAMEA8897487	ID: 20610017
+
+12: 11PA
+Identifiers: BioSample: SAMEA8897486; SRA: ERS6580392
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897486"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_28"
+    /sample name="beehive_28"
+Accession: SAMEA8897486	ID: 20610016
+
+13: 11HA
+Identifiers: BioSample: SAMEA8897485; SRA: ERS6580391
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897485"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_27"
+    /sample name="beehive_27"
+Accession: SAMEA8897485	ID: 20610015
+
+14: 10PC
+Identifiers: BioSample: SAMEA8897484; SRA: ERS6580390
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897484"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_26"
+    /sample name="beehive_26"
+Accession: SAMEA8897484	ID: 20610014
+
+15: 10PB
+Identifiers: BioSample: SAMEA8897483; SRA: ERS6580389
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897483"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_25"
+    /sample name="beehive_25"
+Accession: SAMEA8897483	ID: 20610013
+
+16: 10HC
+Identifiers: BioSample: SAMEA8897482; SRA: ERS6580388
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897482"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_24"
+    /sample name="beehive_24"
+Accession: SAMEA8897482	ID: 20610012
+
+17: 10PA
+Identifiers: BioSample: SAMEA8897481; SRA: ERS6580387
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897481"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_23"
+    /sample name="beehive_23"
+Accession: SAMEA8897481	ID: 20610011
+
+18: 10HB
+Identifiers: BioSample: SAMEA8897480; SRA: ERS6580386
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897480"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_22"
+    /sample name="beehive_22"
+Accession: SAMEA8897480	ID: 20610010
+
+19: 10HA
+Identifiers: BioSample: SAMEA8897479; SRA: ERS6580385
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897479"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_21"
+    /sample name="beehive_21"
+Accession: SAMEA8897479	ID: 20610009
+
+20: 9PD
+Identifiers: BioSample: SAMEA8897478; SRA: ERS6580384
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897478"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_20"
+    /sample name="beehive_20"
+Accession: SAMEA8897478	ID: 20610008
+
+21: 9HD
+Identifiers: BioSample: SAMEA8897477; SRA: ERS6580383
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897477"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_19"
+    /sample name="beehive_19"
+Accession: SAMEA8897477	ID: 20610007
+
+22: 9PB
+Identifiers: BioSample: SAMEA8897476; SRA: ERS6580382
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897476"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_18"
+    /sample name="beehive_18"
+Accession: SAMEA8897476	ID: 20610006
+
+23: 9HP
+Identifiers: BioSample: SAMEA8897475; SRA: ERS6580381
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897475"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_17"
+    /sample name="beehive_17"
+Accession: SAMEA8897475	ID: 20610005
+
+24: 9PA
+Identifiers: BioSample: SAMEA8897474; SRA: ERS6580380
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897474"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_16"
+    /sample name="beehive_16"
+Accession: SAMEA8897474	ID: 20610004
+
+25: 9HA
+Identifiers: BioSample: SAMEA8897473; SRA: ERS6580379
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897473"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_15"
+    /sample name="beehive_15"
+Accession: SAMEA8897473	ID: 20610003
+
+26: 8HB
+Identifiers: BioSample: SAMEA8897472; SRA: ERS6580378
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897472"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_14"
+    /sample name="beehive_14"
+Accession: SAMEA8897472	ID: 20610002
+
+27: 8HA
+Identifiers: BioSample: SAMEA8897471; SRA: ERS6580377
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897471"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_13"
+    /sample name="beehive_13"
+Accession: SAMEA8897471	ID: 20610001
+
+28: 7P
+Identifiers: BioSample: SAMEA8897470; SRA: ERS6580376
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897470"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_12"
+    /sample name="beehive_12"
+Accession: SAMEA8897470	ID: 20610000
+
+29: 7HB
+Identifiers: BioSample: SAMEA8897469; SRA: ERS6580375
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897469"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_11"
+    /sample name="beehive_11"
+Accession: SAMEA8897469	ID: 20609999
+
+30: 7HA
+Identifiers: BioSample: SAMEA8897468; SRA: ERS6580374
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897468"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_10"
+    /sample name="beehive_10"
+Accession: SAMEA8897468	ID: 20609998
+
+31: 6H
+Identifiers: BioSample: SAMEA8897467; SRA: ERS6580373
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897467"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_9"
+    /sample name="beehive_9"
+Accession: SAMEA8897467	ID: 20609997
+
+32: 6P
+Identifiers: BioSample: SAMEA8897466; SRA: ERS6580372
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897466"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_8"
+    /sample name="beehive_8"
+Accession: SAMEA8897466	ID: 20609996
+
+33: 5H
+Identifiers: BioSample: SAMEA8897465; SRA: ERS6580371
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897465"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_7"
+    /sample name="beehive_7"
+Accession: SAMEA8897465	ID: 20609995
+
+34: 5P
+Identifiers: BioSample: SAMEA8897464; SRA: ERS6580370
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897464"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_6"
+    /sample name="beehive_6"
+Accession: SAMEA8897464	ID: 20609994
+
+35: 4H
+Identifiers: BioSample: SAMEA8897463; SRA: ERS6580369
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897463"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_5"
+    /sample name="beehive_5"
+Accession: SAMEA8897463	ID: 20609993
+
+36: 3H
+Identifiers: BioSample: SAMEA8897462; SRA: ERS6580368
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897462"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_4"
+    /sample name="beehive_4"
+Accession: SAMEA8897462	ID: 20609992
+
+37: 2P
+Identifiers: BioSample: SAMEA8897461; SRA: ERS6580367
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897461"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_3"
+    /sample name="beehive_3"
+Accession: SAMEA8897461	ID: 20609991
+
+38: 2H
+Identifiers: BioSample: SAMEA8897460; SRA: ERS6580366
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897460"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_2"
+    /sample name="beehive_2"
+Accession: SAMEA8897460	ID: 20609990
+
+39: 1P
+Identifiers: BioSample: SAMEA8897459; SRA: ERS6580365
+Organism: bee metagenome
+Attributes:
+    /ENA first public="2021-08-02"
+    /ENA last update="2021-08-02"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA8897459"
+    /INSDC center alias="ROSLIN"
+    /INSDC center name="The Roslin Institute and Royal (Dick) School of Veterinary Studies, University of Edinburgh"
+    /INSDC first public="2021-08-02T00:19:32Z"
+    /INSDC last update="2021-08-02T00:19:32Z"
+    /INSDC status="public"
+    /Submitter Id="beehive_1"
+    /sample name="beehive_1"
+Accession: SAMEA8897459	ID: 20609989
+
+

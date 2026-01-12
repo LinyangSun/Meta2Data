@@ -1,0 +1,1047 @@
+1: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175346; Sample name: Sy3D9RD; SRA: SRS12082133
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 95"
+Accession: SAMN26175346	ID: 26175346
+
+2: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175345; Sample name: Sy3D9RC; SRA: SRS12082132
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 94"
+Accession: SAMN26175345	ID: 26175345
+
+3: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175344; Sample name: Sy3D9RB; SRA: SRS12082131
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 93"
+Accession: SAMN26175344	ID: 26175344
+
+4: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175343; Sample name: Sy3D9RA; SRA: SRS12082130
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 92"
+Accession: SAMN26175343	ID: 26175343
+
+5: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175342; Sample name: Sy2D9RD; SRA: SRS12082129
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 91"
+Accession: SAMN26175342	ID: 26175342
+
+6: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175341; Sample name: Sy2D9RC; SRA: SRS12082127
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 90"
+Accession: SAMN26175341	ID: 26175341
+
+7: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175340; Sample name: Sy2D9RB; SRA: SRS12082126
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 89"
+Accession: SAMN26175340	ID: 26175340
+
+8: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175339; Sample name: Sy2D9RA; SRA: SRS12082125
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 88"
+Accession: SAMN26175339	ID: 26175339
+
+9: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175338; Sample name: Sy1D9RD; SRA: SRS12082124
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 87"
+Accession: SAMN26175338	ID: 26175338
+
+10: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175337; Sample name: Sy1D9RC; SRA: SRS12082123
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 86"
+Accession: SAMN26175337	ID: 26175337
+
+11: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175336; Sample name: Sy1D9RB; SRA: SRS12082122
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 85"
+Accession: SAMN26175336	ID: 26175336
+
+12: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175335; Sample name: Sy1D9RA; SRA: SRS12082121
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 84"
+Accession: SAMN26175335	ID: 26175335
+
+13: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175334; Sample name: PS3D9RD; SRA: SRS12082120
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 83"
+Accession: SAMN26175334	ID: 26175334
+
+14: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175333; Sample name: PS3D9RC; SRA: SRS12082119
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 82"
+Accession: SAMN26175333	ID: 26175333
+
+15: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175332; Sample name: PS3D9RB; SRA: SRS12082118
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 81"
+Accession: SAMN26175332	ID: 26175332
+
+16: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175331; Sample name: PS3D9RA; SRA: SRS12082116
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 80"
+Accession: SAMN26175331	ID: 26175331
+
+17: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175330; Sample name: PS2D9RD; SRA: SRS12082115
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 79"
+Accession: SAMN26175330	ID: 26175330
+
+18: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175329; Sample name: PS2D9RC; SRA: SRS12082114
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 78"
+Accession: SAMN26175329	ID: 26175329
+
+19: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175328; Sample name: PS2D9RB; SRA: SRS12082065
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 77"
+Accession: SAMN26175328	ID: 26175328
+
+20: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175327; Sample name: PS2D9RA; SRA: SRS12082064
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 76"
+Accession: SAMN26175327	ID: 26175327
+
+21: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175326; Sample name: PS1D9RD; SRA: SRS12082063
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 75"
+Accession: SAMN26175326	ID: 26175326
+
+22: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175325; Sample name: PS1D9RC; SRA: SRS12082062
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 74"
+Accession: SAMN26175325	ID: 26175325
+
+23: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175324; Sample name: PS1D9RB; SRA: SRS12082061
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 73"
+Accession: SAMN26175324	ID: 26175324
+
+24: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175323; Sample name: PS1D9RA; SRA: SRS12082060
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 72"
+Accession: SAMN26175323	ID: 26175323
+
+25: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175322; Sample name: P3D9RD; SRA: SRS12082059
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 71"
+Accession: SAMN26175322	ID: 26175322
+
+26: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175321; Sample name: P3D9RC; SRA: SRS12082057
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 70"
+Accession: SAMN26175321	ID: 26175321
+
+27: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175320; Sample name: P3D9RB; SRA: SRS12082056
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 69"
+Accession: SAMN26175320	ID: 26175320
+
+28: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175319; Sample name: P3D9RA; SRA: SRS12082055
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 68"
+Accession: SAMN26175319	ID: 26175319
+
+29: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175318; Sample name: P2D9RD; SRA: SRS12082054
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 67"
+Accession: SAMN26175318	ID: 26175318
+
+30: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175317; Sample name: P2D9RC; SRA: SRS12082053
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 66"
+Accession: SAMN26175317	ID: 26175317
+
+31: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175316; Sample name: P2D9RB; SRA: SRS12082052
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 65"
+Accession: SAMN26175316	ID: 26175316
+
+32: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175315; Sample name: P2D9RA; SRA: SRS12082051
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 64"
+Accession: SAMN26175315	ID: 26175315
+
+33: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175314; Sample name: P1D9RD; SRA: SRS12082050
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 63"
+Accession: SAMN26175314	ID: 26175314
+
+34: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175313; Sample name: P1D9RC; SRA: SRS12082049
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 62"
+Accession: SAMN26175313	ID: 26175313
+
+35: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175312; Sample name: P1D9RB; SRA: SRS12082048
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 61"
+Accession: SAMN26175312	ID: 26175312
+
+36: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175311; Sample name: P1D9RA; SRA: SRS12082046
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 60"
+Accession: SAMN26175311	ID: 26175311
+
+37: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175310; Sample name: C3D9RD; SRA: SRS12082045
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 59"
+Accession: SAMN26175310	ID: 26175310
+
+38: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175309; Sample name: C3D9RC; SRA: SRS12082044
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 58"
+Accession: SAMN26175309	ID: 26175309
+
+39: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175308; Sample name: C3D9RB; SRA: SRS12082043
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 57"
+Accession: SAMN26175308	ID: 26175308
+
+40: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175307; Sample name: C3D9RA; SRA: SRS12082042
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 56"
+Accession: SAMN26175307	ID: 26175307
+
+41: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175306; Sample name: C2D9RD; SRA: SRS12082113
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 55"
+Accession: SAMN26175306	ID: 26175306
+
+42: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175305; Sample name: C2D9RC; SRA: SRS12082112
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 54"
+Accession: SAMN26175305	ID: 26175305
+
+43: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175304; Sample name: C2D9RB; SRA: SRS12082111
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 53"
+Accession: SAMN26175304	ID: 26175304
+
+44: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175303; Sample name: C2D9RA; SRA: SRS12082110
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 52"
+Accession: SAMN26175303	ID: 26175303
+
+45: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175302; Sample name: C1D9RD; SRA: SRS12082109
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 51"
+Accession: SAMN26175302	ID: 26175302
+
+46: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175301; Sample name: C1D9RC; SRA: SRS12082107
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 50"
+Accession: SAMN26175301	ID: 26175301
+
+47: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175300; Sample name: C1D9RB; SRA: SRS12082106
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 49"
+Accession: SAMN26175300	ID: 26175300
+
+48: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175299; Sample name: C1D9RA; SRA: SRS12082105
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 48"
+Accession: SAMN26175299	ID: 26175299
+
+49: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175298; Sample name: Sy3D9ID; SRA: SRS12082104
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 47"
+Accession: SAMN26175298	ID: 26175298
+
+50: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175297; Sample name: Sy3D9IC; SRA: SRS12082103
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 46"
+Accession: SAMN26175297	ID: 26175297
+
+51: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175296; Sample name: Sy3D9IB; SRA: SRS12082102
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 45"
+Accession: SAMN26175296	ID: 26175296
+
+52: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175295; Sample name: Sy3D9IA; SRA: SRS12082101
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 44"
+Accession: SAMN26175295	ID: 26175295
+
+53: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175294; Sample name: Sy2D9ID; SRA: SRS12082100
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 43"
+Accession: SAMN26175294	ID: 26175294
+
+54: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175293; Sample name: Sy2D9IC; SRA: SRS12082099
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 42"
+Accession: SAMN26175293	ID: 26175293
+
+55: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175292; Sample name: Sy2D9IB; SRA: SRS12082098
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 41"
+Accession: SAMN26175292	ID: 26175292
+
+56: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175291; Sample name: Sy2D9IA; SRA: SRS12082096
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 40"
+Accession: SAMN26175291	ID: 26175291
+
+57: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175290; Sample name: Sy1D9ID; SRA: SRS12082095
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 39"
+Accession: SAMN26175290	ID: 26175290
+
+58: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175289; Sample name: Sy1D9IC; SRA: SRS12082094
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 38"
+Accession: SAMN26175289	ID: 26175289
+
+59: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175288; Sample name: Sy1D9IB; SRA: SRS12082093
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 37"
+Accession: SAMN26175288	ID: 26175288
+
+60: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175287; Sample name: Sy1D9IA; SRA: SRS12082092
+Organism: bee metagenome
+Attributes:
+    /isolation source="No Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 36"
+Accession: SAMN26175287	ID: 26175287
+
+
+61: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175286; Sample name: PS3D9ID; SRA: SRS12082091
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 35"
+Accession: SAMN26175286	ID: 26175286
+
+62: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175285; Sample name: PS3D9IC; SRA: SRS12082090
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 34"
+Accession: SAMN26175285	ID: 26175285
+
+63: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175284; Sample name: PS3D9IB; SRA: SRS12082089
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 33"
+Accession: SAMN26175284	ID: 26175284
+
+64: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175283; Sample name: PS3D9IA; SRA: SRS12082088
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 32"
+Accession: SAMN26175283	ID: 26175283
+
+65: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175282; Sample name: PS2D9ID; SRA: SRS12082087
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 31"
+Accession: SAMN26175282	ID: 26175282
+
+66: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175281; Sample name: PS2D9IC; SRA: SRS12082085
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 30"
+Accession: SAMN26175281	ID: 26175281
+
+67: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175280; Sample name: PS2D9IB; SRA: SRS12082084
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 29"
+Accession: SAMN26175280	ID: 26175280
+
+68: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175279; Sample name: PS2D9IA; SRA: SRS12082083
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 28"
+Accession: SAMN26175279	ID: 26175279
+
+69: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175278; Sample name: PS1D9ID; SRA: SRS12082082
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 27"
+Accession: SAMN26175278	ID: 26175278
+
+70: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175277; Sample name: PS1D9IC; SRA: SRS12082081
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 26"
+Accession: SAMN26175277	ID: 26175277
+
+71: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175276; Sample name: PS1D9IB; SRA: SRS12082080
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 25"
+Accession: SAMN26175276	ID: 26175276
+
+72: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175275; Sample name: PS1D9IA; SRA: SRS12082079
+Organism: bee metagenome
+Attributes:
+    /isolation source="Autoclaved Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 24"
+Accession: SAMN26175275	ID: 26175275
+
+73: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175274; Sample name: P3D9ID; SRA: SRS12082078
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 23"
+Accession: SAMN26175274	ID: 26175274
+
+74: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175273; Sample name: P3D9IC; SRA: SRS12082077
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 22"
+Accession: SAMN26175273	ID: 26175273
+
+75: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175272; Sample name: P3D9IB; SRA: SRS12082076
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 21"
+Accession: SAMN26175272	ID: 26175272
+
+76: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175271; Sample name: P3D9IA; SRA: SRS12082074
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 20"
+Accession: SAMN26175271	ID: 26175271
+
+77: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175270; Sample name: P2D9ID; SRA: SRS12082073
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 19"
+Accession: SAMN26175270	ID: 26175270
+
+78: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175269; Sample name: P2D9IC; SRA: SRS12082072
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 18"
+Accession: SAMN26175269	ID: 26175269
+
+79: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175268; Sample name: P2D9IB; SRA: SRS12082071
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 17"
+Accession: SAMN26175268	ID: 26175268
+
+80: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175267; Sample name: P2D9IA; SRA: SRS12082070
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 16"
+Accession: SAMN26175267	ID: 26175267
+
+81: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175266; Sample name: P1D9ID; SRA: SRS12082069
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 15"
+Accession: SAMN26175266	ID: 26175266
+
+82: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175265; Sample name: P1D9IC; SRA: SRS12082068
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 14"
+Accession: SAMN26175265	ID: 26175265
+
+83: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175264; Sample name: P1D9IB; SRA: SRS12082067
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 13"
+Accession: SAMN26175264	ID: 26175264
+
+84: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175263; Sample name: P1D9IA; SRA: SRS12082066
+Organism: bee metagenome
+Attributes:
+    /isolation source="Fresh Pollen"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 12"
+Accession: SAMN26175263	ID: 26175263
+
+85: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175262; Sample name: C3D9ID; SRA: SRS12082041
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 11"
+Accession: SAMN26175262	ID: 26175262
+
+86: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175261; Sample name: C3D9IC; SRA: SRS12082128
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 10"
+Accession: SAMN26175261	ID: 26175261
+
+87: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175260; Sample name: C3D9IB; SRA: SRS12082117
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 9"
+Accession: SAMN26175260	ID: 26175260
+
+88: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175259; Sample name: C3D9IA; SRA: SRS12082058
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 8"
+Accession: SAMN26175259	ID: 26175259
+
+89: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175258; Sample name: C2D9ID; SRA: SRS12082047
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 7"
+Accession: SAMN26175258	ID: 26175258
+
+90: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175257; Sample name: C2D9IB; SRA: SRS12082108
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 6"
+Accession: SAMN26175257	ID: 26175257
+
+91: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175256; Sample name: C2D9IA; SRA: SRS12082097
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 5"
+Accession: SAMN26175256	ID: 26175256
+
+92: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175255; Sample name: C1D9ID; SRA: SRS12082086
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 4"
+Accession: SAMN26175255	ID: 26175255
+
+93: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175254; Sample name: C1D9IC; SRA: SRS12082075
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 3"
+Accession: SAMN26175254	ID: 26175254
+
+94: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175253; Sample name: C1D9IB; SRA: SRS12082040
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 2"
+Accession: SAMN26175253	ID: 26175253
+
+95: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN26175252; Sample name: C1D9IA; SRA: SRS12082039
+Organism: bee metagenome
+Attributes:
+    /isolation source="Control Colony"
+    /collection date="2016-07"
+    /geographic location="USA: Arizona"
+    /latitude and longitude="32.27 N 110.94 W"
+    /replicate="biological replicate 1"
+Accession: SAMN26175252	ID: 26175252
+
+

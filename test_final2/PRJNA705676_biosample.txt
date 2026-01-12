@@ -1,0 +1,2094 @@
+1: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095439; Sample name: FY14R; SRA: SRS8362680
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 16'"
+    /Replicates="biological replicate 214"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095439	ID: 18095439
+
+2: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095438; Sample name: FY13R; SRA: SRS8362679
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 15'"
+    /Replicates="biological replicate 213"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095438	ID: 18095438
+
+3: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095437; Sample name: FY134R; SRA: SRS8362678
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 14'"
+    /Replicates="biological replicate 212"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095437	ID: 18095437
+
+4: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095436; Sample name: FY133R; SRA: SRS8362676
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 13'"
+    /Replicates="biological replicate 211"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095436	ID: 18095436
+
+5: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095435; Sample name: FY132R; SRA: SRS8362675
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 12'"
+    /Replicates="biological replicate 210"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095435	ID: 18095435
+
+6: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095434; Sample name: FY131R; SRA: SRS8362674
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 11'"
+    /Replicates="biological replicate 209"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095434	ID: 18095434
+
+7: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095433; Sample name: FY12R; SRA: SRS8362673
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 10'"
+    /Replicates="biological replicate 208"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095433	ID: 18095433
+
+8: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095432; Sample name: FY11R; SRA: SRS8362670
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 9'"
+    /Replicates="biological replicate 207"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095432	ID: 18095432
+
+9: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095431; Sample name: FR34R; SRA: SRS8362671
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 8'"
+    /Replicates="biological replicate 206"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095431	ID: 18095431
+
+10: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095430; Sample name: FR33R; SRA: SRS8362669
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 7'"
+    /Replicates="biological replicate 205"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095430	ID: 18095430
+
+11: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095429; Sample name: FR32R; SRA: SRS8362668
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 6'"
+    /Replicates="biological replicate 204"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095429	ID: 18095429
+
+12: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095428; Sample name: FR31R; SRA: SRS8362667
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 5'"
+    /Replicates="biological replicate 203"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095428	ID: 18095428
+
+13: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095427; Sample name: FR184R; SRA: SRS8362665
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 4'"
+    /Replicates="biological replicate 202"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095427	ID: 18095427
+
+14: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095426; Sample name: FR183R; SRA: SRS8362664
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 3'"
+    /Replicates="biological replicate 201"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095426	ID: 18095426
+
+15: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095425; Sample name: FR182R; SRA: SRS8362663
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 2'"
+    /Replicates="biological replicate 200"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095425	ID: 18095425
+
+16: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095424; Sample name: FR181R; SRA: SRS8362661
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 1'"
+    /Replicates="biological replicate 199"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095424	ID: 18095424
+
+17: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095423; Sample name: F944R; SRA: SRS8362662
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 16'"
+    /Replicates="biological replicate 198"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095423	ID: 18095423
+
+18: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095422; Sample name: F943R; SRA: SRS8362672
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 15'"
+    /Replicates="biological replicate 197"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095422	ID: 18095422
+
+19: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095421; Sample name: F942R; SRA: SRS8362659
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 14'"
+    /Replicates="biological replicate 196"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095421	ID: 18095421
+
+20: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095420; Sample name: F941R; SRA: SRS8362658
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 13'"
+    /Replicates="biological replicate 195"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095420	ID: 18095420
+
+21: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095419; Sample name: F914R; SRA: SRS8362657
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 12'"
+    /Replicates="biological replicate 194"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095419	ID: 18095419
+
+22: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095418; Sample name: F913R; SRA: SRS8362654
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 11'"
+    /Replicates="biological replicate 193"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095418	ID: 18095418
+
+23: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095417; Sample name: F912R; SRA: SRS8362653
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 10'"
+    /Replicates="biological replicate 192"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095417	ID: 18095417
+
+24: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095416; Sample name: F911R; SRA: SRS8362660
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 9'"
+    /Replicates="biological replicate 191"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095416	ID: 18095416
+
+25: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095415; Sample name: F844R; SRA: SRS8362656
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 8'"
+    /Replicates="biological replicate 190"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095415	ID: 18095415
+
+26: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095414; Sample name: F843R; SRA: SRS8362655
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 7'"
+    /Replicates="biological replicate 189"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095414	ID: 18095414
+
+27: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095413; Sample name: F842R; SRA: SRS8362652
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 6'"
+    /Replicates="biological replicate 188"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095413	ID: 18095413
+
+28: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095412; Sample name: F841R; SRA: SRS8362651
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 5'"
+    /Replicates="biological replicate 187"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095412	ID: 18095412
+
+29: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095411; Sample name: F804R; SRA: SRS8362650
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 4'"
+    /Replicates="biological replicate 186"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095411	ID: 18095411
+
+30: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095410; Sample name: F803R; SRA: SRS8362649
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 3'"
+    /Replicates="biological replicate 185"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095410	ID: 18095410
+
+31: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095409; Sample name: F802R; SRA: SRS8363241
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 2'"
+    /Replicates="biological replicate 184"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095409	ID: 18095409
+
+32: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095408; Sample name: F801R; SRA: SRS8362648
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 1'"
+    /Replicates="biological replicate 183"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095408	ID: 18095408
+
+33: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095407; Sample name: OY134R; SRA: SRS8362647
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 15'"
+    /Replicates="biological replicate 160"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095407	ID: 18095407
+
+34: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095406; Sample name: OY133R; SRA: SRS8362644
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 14'"
+    /Replicates="biological replicate 159"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095406	ID: 18095406
+
+35: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095405; Sample name: OY132R; SRA: SRS8362645
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 13'"
+    /Replicates="biological replicate 158"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095405	ID: 18095405
+
+36: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095404; Sample name: OY131R; SRA: SRS8362643
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 12'"
+    /Replicates="biological replicate 157"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095404	ID: 18095404
+
+37: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095403; Sample name: OY14R; SRA: SRS8362642
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 11'"
+    /Replicates="biological replicate 156"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095403	ID: 18095403
+
+38: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095402; Sample name: OY13R; SRA: SRS8362640
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 10'"
+    /Replicates="biological replicate 155"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095402	ID: 18095402
+
+39: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095401; Sample name: OY12R; SRA: SRS8362641
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 9'"
+    /Replicates="biological replicate 154"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095401	ID: 18095401
+
+40: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095400; Sample name: OY11R; SRA: SRS8362639
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 8'"
+    /Replicates="biological replicate 153"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095400	ID: 18095400
+
+41: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095399; Sample name: OR34R; SRA: SRS8363240
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 7'"
+    /Replicates="biological replicate 152"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095399	ID: 18095399
+
+42: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095398; Sample name: OR33R; SRA: SRS8362638
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 6'"
+    /Replicates="biological replicate 151"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095398	ID: 18095398
+
+43: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095397; Sample name: OR32R; SRA: SRS8363239
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 5'"
+    /Replicates="biological replicate 150"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095397	ID: 18095397
+
+44: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095396; Sample name: OR31R; SRA: SRS8362636
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 4'"
+    /Replicates="biological replicate 149"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095396	ID: 18095396
+
+45: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095395; Sample name: OR184R; SRA: SRS8362634
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 3'"
+    /Replicates="biological replicate 148"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095395	ID: 18095395
+
+46: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095394; Sample name: OR183R; SRA: SRS8362633
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 2'"
+    /Replicates="biological replicate 147"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095394	ID: 18095394
+
+47: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095393; Sample name: OR182R; SRA: SRS8362635
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 1'"
+    /Replicates="biological replicate 146"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095393	ID: 18095393
+
+48: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095392; Sample name: D944R; SRA: SRS8362631
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 15'"
+    /Replicates="biological replicate 145"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095392	ID: 18095392
+
+49: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095391; Sample name: D943R; SRA: SRS8362630
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 14'"
+    /Replicates="biological replicate 144"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095391	ID: 18095391
+
+50: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095390; Sample name: D942R; SRA: SRS8362632
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 13'"
+    /Replicates="biological replicate 143"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095390	ID: 18095390
+
+51: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095389; Sample name: D941R; SRA: SRS8362629
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 12'"
+    /Replicates="biological replicate 142"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095389	ID: 18095389
+
+52: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095388; Sample name: D914R; SRA: SRS8363238
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 11'"
+    /Replicates="biological replicate 141"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095388	ID: 18095388
+
+53: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095387; Sample name: D913R; SRA: SRS8362628
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 10'"
+    /Replicates="biological replicate 140"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095387	ID: 18095387
+
+54: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095386; Sample name: D911R; SRA: SRS8376422
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 9'"
+    /Replicates="biological replicate 139"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095386	ID: 18095386
+
+55: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095385; Sample name: D844R; SRA: SRS8362627
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 8'"
+    /Replicates="biological replicate 138"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095385	ID: 18095385
+
+56: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095384; Sample name: D843R; SRA: SRS8362624
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 7'"
+    /Replicates="biological replicate 137"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095384	ID: 18095384
+
+57: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095383; Sample name: D842R; SRA: SRS8362625
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 6'"
+    /Replicates="biological replicate 136"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095383	ID: 18095383
+
+58: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095382; Sample name: D841R; SRA: SRS8362620
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 5'"
+    /Replicates="biological replicate 135"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095382	ID: 18095382
+
+59: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095381; Sample name: D804R; SRA: SRS8362621
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 4'"
+    /Replicates="biological replicate 134"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095381	ID: 18095381
+
+60: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095380; Sample name: D803R; SRA: SRS8363237
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 3'"
+    /Replicates="biological replicate 133"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095380	ID: 18095380
+
+
+61: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095379; Sample name: D802R; SRA: SRS8362619
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 2'"
+    /Replicates="biological replicate 132"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095379	ID: 18095379
+
+62: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095378; Sample name: D801R; SRA: SRS8362618
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 1'"
+    /Replicates="biological replicate 131"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095378	ID: 18095378
+
+63: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095377; Sample name: FY134I; SRA: SRS8362617
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 15'"
+    /Replicates="biological replicate 106"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095377	ID: 18095377
+
+64: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095376; Sample name: FY133I; SRA: SRS8376417
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 14'"
+    /Replicates="biological replicate 105"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095376	ID: 18095376
+
+65: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095375; Sample name: FY132I; SRA: SRS8362615
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 13'"
+    /Replicates="biological replicate 104"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095375	ID: 18095375
+
+66: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095374; Sample name: FY131I; SRA: SRS8363236
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 12'"
+    /Replicates="biological replicate 103"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095374	ID: 18095374
+
+67: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095373; Sample name: FY14I; SRA: SRS8362613
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 11'"
+    /Replicates="biological replicate 102"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095373	ID: 18095373
+
+68: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095372; Sample name: FY13I; SRA: SRS8363234
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 10'"
+    /Replicates="biological replicate 101"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095372	ID: 18095372
+
+69: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095371; Sample name: FY12I; SRA: SRS8363235
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 9'"
+    /Replicates="biological replicate 100"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095371	ID: 18095371
+
+70: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095370; Sample name: FY11I; SRA: SRS8362614
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 8'"
+    /Replicates="biological replicate 99"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095370	ID: 18095370
+
+71: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095369; Sample name: FR34I; SRA: SRS8362611
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 7'"
+    /Replicates="biological replicate 98"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095369	ID: 18095369
+
+72: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095368; Sample name: FR32I; SRA: SRS8362610
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 6'"
+    /Replicates="biological replicate 97"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095368	ID: 18095368
+
+73: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095367; Sample name: FR31I; SRA: SRS8362612
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 5'"
+    /Replicates="biological replicate 96"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095367	ID: 18095367
+
+74: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095366; Sample name: FR184I; SRA: SRS8362607
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 4'"
+    /Replicates="biological replicate 95"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095366	ID: 18095366
+
+75: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095365; Sample name: FR183I; SRA: SRS8362608
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 3'"
+    /Replicates="biological replicate 94"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095365	ID: 18095365
+
+76: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095364; Sample name: FR182I; SRA: SRS8362711
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 2'"
+    /Replicates="biological replicate 93"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095364	ID: 18095364
+
+77: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095363; Sample name: FR181I; SRA: SRS8362710
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 1'"
+    /Replicates="biological replicate 92"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095363	ID: 18095363
+
+78: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095362; Sample name: F944I; SRA: SRS8362709
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 16'"
+    /Replicates="biological replicate 91"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095362	ID: 18095362
+
+79: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095361; Sample name: F943I; SRA: SRS8362706
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 15'"
+    /Replicates="biological replicate 90"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095361	ID: 18095361
+
+80: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095360; Sample name: F942I; SRA: SRS8362705
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 14'"
+    /Replicates="biological replicate 89"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095360	ID: 18095360
+
+81: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095359; Sample name: F941I; SRA: SRS8362707
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 13'"
+    /Replicates="biological replicate 88"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095359	ID: 18095359
+
+82: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095358; Sample name: F914I; SRA: SRS8362708
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 12'"
+    /Replicates="biological replicate 87"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095358	ID: 18095358
+
+83: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095357; Sample name: F913I; SRA: SRS8363248
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 11'"
+    /Replicates="biological replicate 86"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095357	ID: 18095357
+
+84: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095356; Sample name: F912I; SRA: SRS8362703
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 10'"
+    /Replicates="biological replicate 85"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095356	ID: 18095356
+
+85: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095355; Sample name: F911I; SRA: SRS8362702
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 9'"
+    /Replicates="biological replicate 84"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095355	ID: 18095355
+
+86: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095354; Sample name: F844I; SRA: SRS8362701
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 8'"
+    /Replicates="biological replicate 83"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095354	ID: 18095354
+
+87: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095353; Sample name: F843I; SRA: SRS8362700
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 7'"
+    /Replicates="biological replicate 82"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095353	ID: 18095353
+
+88: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095352; Sample name: F842I; SRA: SRS8362699
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 6'"
+    /Replicates="biological replicate 81"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095352	ID: 18095352
+
+89: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095351; Sample name: F841I; SRA: SRS8362698
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 5'"
+    /Replicates="biological replicate 80"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095351	ID: 18095351
+
+90: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095350; Sample name: F804I; SRA: SRS8362696
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 4'"
+    /Replicates="biological replicate 79"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095350	ID: 18095350
+
+91: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095349; Sample name: F803I; SRA: SRS8362697
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 3'"
+    /Replicates="biological replicate 78"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095349	ID: 18095349
+
+92: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095348; Sample name: F802I; SRA: SRS8362694
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 2'"
+    /Replicates="biological replicate 77"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095348	ID: 18095348
+
+93: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095347; Sample name: F801I; SRA: SRS8362695
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 1'"
+    /Replicates="biological replicate 76"
+    /collection date="2016-02-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095347	ID: 18095347
+
+94: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095346; Sample name: D944I; SRA: SRS8363244
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 15'"
+    /Replicates="biological replicate 53"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095346	ID: 18095346
+
+95: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095345; Sample name: D943I; SRA: SRS8363245
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 14'"
+    /Replicates="biological replicate 52"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095345	ID: 18095345
+
+96: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095344; Sample name: D942I; SRA: SRS8363246
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 13'"
+    /Replicates="biological replicate 51"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095344	ID: 18095344
+
+97: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095343; Sample name: D941I; SRA: SRS8362691
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 12'"
+    /Replicates="biological replicate 50"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095343	ID: 18095343
+
+98: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095342; Sample name: D914I; SRA: SRS8362693
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 11'"
+    /Replicates="biological replicate 49"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095342	ID: 18095342
+
+99: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095341; Sample name: D913I; SRA: SRS8362690
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 10'"
+    /Replicates="biological replicate 48"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095341	ID: 18095341
+
+100: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095340; Sample name: D911I; SRA: SRS8362692
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 9'"
+    /Replicates="biological replicate 47"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095340	ID: 18095340
+
+101: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095339; Sample name: D844I; SRA: SRS8362688
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 8'"
+    /Replicates="biological replicate 46"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095339	ID: 18095339
+
+102: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095338; Sample name: D843I; SRA: SRS8362689
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 7'"
+    /Replicates="biological replicate 45"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095338	ID: 18095338
+
+103: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095337; Sample name: D842I; SRA: SRS8363243
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 6'"
+    /Replicates="biological replicate 44"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095337	ID: 18095337
+
+104: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095336; Sample name: D841I; SRA: SRS8362687
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 5'"
+    /Replicates="biological replicate 43"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095336	ID: 18095336
+
+105: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095335; Sample name: D804I; SRA: SRS8362686
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 4'"
+    /Replicates="biological replicate 42"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095335	ID: 18095335
+
+106: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095334; Sample name: D803I; SRA: SRS8362685
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 3'"
+    /Replicates="biological replicate 41"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095334	ID: 18095334
+
+107: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095333; Sample name: D802I; SRA: SRS8362684
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 2'"
+    /Replicates="biological replicate 40"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095333	ID: 18095333
+
+108: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095332; Sample name: D801I; SRA: SRS8362682
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 1'"
+    /Replicates="biological replicate 39"
+    /collection date="2015-12-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Green Valley, AZ"
+    /host="Apis mellifera"
+    /latitude and longitude="31.83 N 110.85 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095332	ID: 18095332
+
+109: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095331; Sample name: OY134I; SRA: SRS8362683
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 15'"
+    /Replicates="biological replicate 38"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095331	ID: 18095331
+
+110: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095330; Sample name: OY133I; SRA: SRS8362681
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 14'"
+    /Replicates="biological replicate 37"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095330	ID: 18095330
+
+111: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095329; Sample name: OY132I; SRA: SRS8362677
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 13'"
+    /Replicates="biological replicate 36"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095329	ID: 18095329
+
+112: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095328; Sample name: OY14I; SRA: SRS8362666
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 12'"
+    /Replicates="biological replicate 35"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095328	ID: 18095328
+
+113: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095327; Sample name: OY13I; SRA: SRS8362626
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 11'"
+    /Replicates="biological replicate 34"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095327	ID: 18095327
+
+114: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095326; Sample name: OY12I; SRA: SRS8362646
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 10'"
+    /Replicates="biological replicate 33"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095326	ID: 18095326
+
+115: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095325; Sample name: OY11I; SRA: SRS8362637
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 9'"
+    /Replicates="biological replicate 32"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095325	ID: 18095325
+
+116: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095324; Sample name: OR34I; SRA: SRS8376420
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 8'"
+    /Replicates="biological replicate 31"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095324	ID: 18095324
+
+117: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095323; Sample name: OR33I; SRA: SRS8362616
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 7'"
+    /Replicates="biological replicate 30"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095323	ID: 18095323
+
+118: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095322; Sample name: OR32I; SRA: SRS8362609
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 6'"
+    /Replicates="biological replicate 29"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095322	ID: 18095322
+
+119: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095321; Sample name: OR31I; SRA: SRS8362704
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 5'"
+    /Replicates="biological replicate 28"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095321	ID: 18095321
+
+120: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095320; Sample name: OR184I; SRA: SRS8363247
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 4'"
+    /Replicates="biological replicate 27"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095320	ID: 18095320
+
+
+121: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095319; Sample name: OR183I; SRA: SRS8363242
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 3'"
+    /Replicates="biological replicate 26"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095319	ID: 18095319
+
+122: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095318; Sample name: OR182I; SRA: SRS8362622
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 2'"
+    /Replicates="biological replicate 25"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095318	ID: 18095318
+
+123: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN18095317; Sample name: OR181I; SRA: SRS8362623
+Organism: insect gut metagenome
+Attributes:
+    /Replicate="replicate = biological replicate 1'"
+    /Replicates="biological replicate 24"
+    /collection date="2015-10-01"
+    /broad-scale environmental context="Alimentary tract"
+    /local-scale environmental context="Ileum/pylorus"
+    /environmental medium="Microbiome"
+    /geographic location="USA: Jamestown, ND"
+    /host="Apis mellifera"
+    /latitude and longitude="46.93 N 98.67 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN18095317	ID: 18095317
+
+

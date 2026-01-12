@@ -1,0 +1,201 @@
+1: LMG 30236
+Identifiers: BioSample: SAMEA9570078; SRA: ERS7292810
+Organism: Snodgrassella gandavensis
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570078"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="LMG 30236"
+    /collected by="Jessy Praet"
+    /collection date="2015"
+    /isolation source="Bombus pascuorum"
+    /sample name="LMG 30236"
+    /strain="LMG 30236"
+    /tissue="Bumblebee gut"
+    /type-material="type strain of Snodgrassella gandavensis"
+Accession: SAMEA9570078	ID: 23674365
+
+2: R-53680
+Identifiers: BioSample: SAMEA9570077; SRA: ERS7292809
+Organism: Snodgrassella gandavensis
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570077"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="R-53680"
+    /collected by="Jessy Praet"
+    /collection date="2014"
+    /isolation source="Bombus lapidarius"
+    /sample name="R-53680"
+    /strain="R-53680"
+    /tissue="Bumblebee gut"
+Accession: SAMEA9570077	ID: 23674364
+
+3: LMG 28360
+Identifiers: BioSample: SAMEA9570076; SRA: ERS7292808
+Organism: Snodgrassella communis
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570076"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="LMG 28360"
+    /collected by="Jessy Praet"
+    /collection date="2013"
+    /isolation source="Bombus terrestris"
+    /sample name="LMG 28360"
+    /strain="LMG 28360"
+    /tissue="Bumblebee gut"
+    /type-material="type strain of Snodgrassella communis"
+Accession: SAMEA9570076	ID: 23674363
+
+4: R-54841
+Identifiers: BioSample: SAMEA9570075; SRA: ERS7292807
+Organism: Snodgrassella communis
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570075"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="R-54841"
+    /collected by="Jessy Praet"
+    /collection date="2014"
+    /isolation source="Bombus terrestris"
+    /sample name="R-54841"
+    /strain="R-54841"
+    /tissue="Bumblebee gut"
+Accession: SAMEA9570075	ID: 23674362
+
+5: R-53633
+Identifiers: BioSample: SAMEA9570074; SRA: ERS7292806
+Organism: Snodgrassella alvi
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570074"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="R-53633"
+    /collected by="Jessy Praet"
+    /collection date="2013"
+    /isolation source="Bombus pascuorum"
+    /sample name="R-53633"
+    /strain="R-53633"
+    /tissue="Bumblebee gut"
+Accession: SAMEA9570074	ID: 23674361
+
+6: R-54678
+Identifiers: BioSample: SAMEA9570073; SRA: ERS7292805
+Organism: Snodgrassella communis
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570073"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="R-54678"
+    /collected by="Jessy Praet"
+    /collection date="2014"
+    /isolation source="Bombus lucorum"
+    /sample name="R-54678"
+    /strain="R-54678"
+    /tissue="Bumblebee gut"
+Accession: SAMEA9570073	ID: 23674360
+
+7: R-54236
+Identifiers: BioSample: SAMEA9570072; SRA: ERS7292804
+Organism: Snodgrassella communis
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570072"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="R-54236"
+    /collected by="Jessy Praet"
+    /collection date="2014"
+    /isolation source="Bombus lucorum"
+    /sample name="R-54236"
+    /strain="R-54236"
+    /tissue="Bumblebee gut"
+Accession: SAMEA9570072	ID: 23674359
+
+8: R-54863
+Identifiers: BioSample: SAMEA9570071; SRA: ERS7292803
+Organism: Snodgrassella communis
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570071"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="R-54863"
+    /collected by="Jessy Praet"
+    /collection date="2014"
+    /isolation source="Bombus lapidarius"
+    /sample name="R-54863"
+    /strain="R-54863"
+    /tissue="Bumblebee gut"
+Accession: SAMEA9570071	ID: 23674358
+
+9: R-53528
+Identifiers: BioSample: SAMEA9570070; SRA: ERS7292802
+Organism: Snodgrassella communis
+Attributes:
+    /ENA first public="2021-12-05"
+    /ENA last update="2021-12-05"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA9570070"
+    /INSDC center alias="Sciensano"
+    /INSDC center name="Sciensano"
+    /INSDC first public="2021-12-05T12:17:21Z"
+    /INSDC last update="2021-12-05T12:17:21Z"
+    /INSDC status="public"
+    /Submitter Id="R-53528"
+    /collected by="Jessy Praet"
+    /collection date="2013"
+    /isolation source="Bombus hypnorum"
+    /sample name="R-53528"
+    /strain="R-53528"
+    /tissue="Bumblebee gut"
+Accession: SAMEA9570070	ID: 23674357
+
+

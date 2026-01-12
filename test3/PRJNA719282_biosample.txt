@@ -1,0 +1,3406 @@
+1: ITS2_Z.9bKili.To_S316
+Identifiers: BioSample: SAMN18594227; Sample name: Z.9bKili.To_S316; SRA: SRS8628138
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.9bKili.To_S316"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594227	ID: 18594227
+
+2: ITS2_Z.99bKili.To_S286
+Identifiers: BioSample: SAMN18594226; Sample name: Z.99bKili.To_S286; SRA: SRS8628136
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.99bKili.To_S286"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594226	ID: 18594226
+
+3: ITS2_Z.98bKili.To_S285
+Identifiers: BioSample: SAMN18594225; Sample name: Z.98bKili.To_S285; SRA: SRS8628135
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.98bKili.To_S285"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594225	ID: 18594225
+
+4: ITS2_Z.96bKili.To_S403
+Identifiers: BioSample: SAMN18594224; Sample name: Z.96bKili.To_S403; SRA: SRS8628133
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.96bKili.To_S403"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594224	ID: 18594224
+
+5: ITS2_Z.93bKili.To_S400
+Identifiers: BioSample: SAMN18594223; Sample name: Z.93bKili.To_S400; SRA: SRS8628134
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1137"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.93bKili.To_S400"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594223	ID: 18594223
+
+6: ITS2_Z.8bKili.To_S315
+Identifiers: BioSample: SAMN18594222; Sample name: Z.8bKili.To_S315; SRA: SRS8628132
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.8bKili.To_S315"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594222	ID: 18594222
+
+7: ITS2_Z.82bKili.To_S389
+Identifiers: BioSample: SAMN18594221; Sample name: Z.82bKili.To_S389; SRA: SRS8628131
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.82bKili.To_S389"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594221	ID: 18594221
+
+8: ITS2_Z.81bKili.To_S388
+Identifiers: BioSample: SAMN18594220; Sample name: Z.81bKili.To_S388; SRA: SRS8628130
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2416"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.81bKili.To_S388"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594220	ID: 18594220
+
+9: ITS2_Z.80bKili.To_S387
+Identifiers: BioSample: SAMN18594219; Sample name: Z.80bKili.To_S387; SRA: SRS8628129
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.80bKili.To_S387"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594219	ID: 18594219
+
+10: ITS2_Z.7bKili.To_S314
+Identifiers: BioSample: SAMN18594218; Sample name: Z.7bKili.To_S314; SRA: SRS8628127
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.7bKili.To_S314"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594218	ID: 18594218
+
+11: ITS2_Z.79bKili.To_S386
+Identifiers: BioSample: SAMN18594217; Sample name: Z.79bKili.To_S386; SRA: SRS8628126
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.79bKili.To_S386"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594217	ID: 18594217
+
+12: ITS2_Z.78bKili.To_S385
+Identifiers: BioSample: SAMN18594216; Sample name: Z.78bKili.To_S385; SRA: SRS8628125
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.78bKili.To_S385"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594216	ID: 18594216
+
+13: ITS2_Z.77bKili.To_S384
+Identifiers: BioSample: SAMN18594215; Sample name: Z.77bKili.To_S384; SRA: SRS8628124
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.77bKili.To_S384"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594215	ID: 18594215
+
+14: ITS2_Z.76bKili.To_S383
+Identifiers: BioSample: SAMN18594214; Sample name: Z.76bKili.To_S383; SRA: SRS8628123
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.76bKili.To_S383"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594214	ID: 18594214
+
+15: ITS2_Z.75bKili.To_S382
+Identifiers: BioSample: SAMN18594213; Sample name: Z.75bKili.To_S382; SRA: SRS8628122
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.75bKili.To_S382"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594213	ID: 18594213
+
+16: ITS2_Z.74bKili.To_S381
+Identifiers: BioSample: SAMN18594212; Sample name: Z.74bKili.To_S381; SRA: SRS8628121
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.74bKili.To_S381"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594212	ID: 18594212
+
+17: ITS2_Z.73bKili.To_S380
+Identifiers: BioSample: SAMN18594211; Sample name: Z.73bKili.To_S380; SRA: SRS8628120
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.73bKili.To_S380"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594211	ID: 18594211
+
+18: ITS2_Z.72bKili.To_S379
+Identifiers: BioSample: SAMN18594210; Sample name: Z.72bKili.To_S379; SRA: SRS8628119
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.72bKili.To_S379"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594210	ID: 18594210
+
+19: ITS2_Z.70bKili.To_S377
+Identifiers: BioSample: SAMN18594209; Sample name: Z.70bKili.To_S377; SRA: SRS8628118
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.70bKili.To_S377"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594209	ID: 18594209
+
+20: ITS2_Z.6bKili.To_S313
+Identifiers: BioSample: SAMN18594208; Sample name: Z.6bKili.To_S313; SRA: SRS8628116
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.6bKili.To_S313"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594208	ID: 18594208
+
+21: ITS2_Z.69bKili.To_S376
+Identifiers: BioSample: SAMN18594207; Sample name: Z.69bKili.To_S376; SRA: SRS8628115
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.69bKili.To_S376"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594207	ID: 18594207
+
+22: ITS2_Z.68bKili.To_S375
+Identifiers: BioSample: SAMN18594206; Sample name: Z.68bKili.To_S375; SRA: SRS8628114
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.68bKili.To_S375"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594206	ID: 18594206
+
+23: ITS2_Z.67bKili.To_S374
+Identifiers: BioSample: SAMN18594205; Sample name: Z.67bKili.To_S374; SRA: SRS8628113
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.67bKili.To_S374"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594205	ID: 18594205
+
+24: ITS2_Z.66bKili.To_S373
+Identifiers: BioSample: SAMN18594204; Sample name: Z.66bKili.To_S373; SRA: SRS8628112
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3418"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.66bKili.To_S373"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594204	ID: 18594204
+
+25: ITS2_Z.65bKili.To_S372
+Identifiers: BioSample: SAMN18594203; Sample name: Z.65bKili.To_S372; SRA: SRS8628111
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3418"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.65bKili.To_S372"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594203	ID: 18594203
+
+26: ITS2_Z.64bKili.To_S371
+Identifiers: BioSample: SAMN18594202; Sample name: Z.64bKili.To_S371; SRA: SRS8628110
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3418"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.64bKili.To_S371"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594202	ID: 18594202
+
+27: ITS2_Z.61bKili.To_S368
+Identifiers: BioSample: SAMN18594201; Sample name: Z.61bKili.To_S368; SRA: SRS8628109
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3005"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.61bKili.To_S368"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594201	ID: 18594201
+
+28: ITS2_Z.5bKili.To_S312
+Identifiers: BioSample: SAMN18594200; Sample name: Z.5bKili.To_S312; SRA: SRS8628108
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.5bKili.To_S312"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594200	ID: 18594200
+
+29: ITS2_Z.58bKili.To_S365
+Identifiers: BioSample: SAMN18594199; Sample name: Z.58bKili.To_S365; SRA: SRS8628107
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3005"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.58bKili.To_S365"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594199	ID: 18594199
+
+30: ITS2_Z.55bKili.To_S362
+Identifiers: BioSample: SAMN18594198; Sample name: Z.55bKili.To_S362; SRA: SRS8628106
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.55bKili.To_S362"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594198	ID: 18594198
+
+31: ITS2_Z.51bKili.To_S358
+Identifiers: BioSample: SAMN18594197; Sample name: Z.51bKili.To_S358; SRA: SRS8628104
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1782"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.51bKili.To_S358"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594197	ID: 18594197
+
+32: ITS2_Z.50bKili.To_S357
+Identifiers: BioSample: SAMN18594196; Sample name: Z.50bKili.To_S357; SRA: SRS8628103
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.50bKili.To_S357"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594196	ID: 18594196
+
+33: ITS2_Z.4bKili.To_S311
+Identifiers: BioSample: SAMN18594195; Sample name: Z.4bKili.To_S311; SRA: SRS8628102
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.4bKili.To_S311"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594195	ID: 18594195
+
+34: ITS2_Z.49bKili.To_S356
+Identifiers: BioSample: SAMN18594194; Sample name: Z.49bKili.To_S356; SRA: SRS8628101
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1386"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.49bKili.To_S356"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594194	ID: 18594194
+
+35: ITS2_Z.48bKili.To_S355
+Identifiers: BioSample: SAMN18594193; Sample name: Z.48bKili.To_S355; SRA: SRS8628100
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.48bKili.To_S355"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594193	ID: 18594193
+
+36: ITS2_Z.47bKili.To_S354
+Identifiers: BioSample: SAMN18594192; Sample name: Z.47bKili.To_S354; SRA: SRS8628099
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.47bKili.To_S354"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594192	ID: 18594192
+
+37: ITS2_Z.46bKili.To_S353
+Identifiers: BioSample: SAMN18594191; Sample name: Z.46bKili.To_S353; SRA: SRS8628098
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.46bKili.To_S353"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594191	ID: 18594191
+
+38: ITS2_Z.45bKili.To_S352
+Identifiers: BioSample: SAMN18594190; Sample name: Z.45bKili.To_S352; SRA: SRS8628097
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.45bKili.To_S352"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594190	ID: 18594190
+
+39: ITS2_Z.44bKili.To_S351
+Identifiers: BioSample: SAMN18594189; Sample name: Z.44bKili.To_S351; SRA: SRS8628096
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1137"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.44bKili.To_S351"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594189	ID: 18594189
+
+40: ITS2_Z.43bKili.To_S350
+Identifiers: BioSample: SAMN18594188; Sample name: Z.43bKili.To_S350; SRA: SRS8628094
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.43bKili.To_S350"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594188	ID: 18594188
+
+41: ITS2_Z.42bKili.To_S349
+Identifiers: BioSample: SAMN18594187; Sample name: Z.42bKili.To_S349; SRA: SRS8628093
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.42bKili.To_S349"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594187	ID: 18594187
+
+42: ITS2_Z.3bKili.To_S310
+Identifiers: BioSample: SAMN18594186; Sample name: Z.3bKili.To_S310; SRA: SRS8628092
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.3bKili.To_S310"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594186	ID: 18594186
+
+43: ITS2_Z.38bKili.To_S345
+Identifiers: BioSample: SAMN18594185; Sample name: Z.38bKili.To_S345; SRA: SRS8628091
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.38bKili.To_S345"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594185	ID: 18594185
+
+44: ITS2_Z.2bKili.To_S309
+Identifiers: BioSample: SAMN18594184; Sample name: Z.2bKili.To_S309; SRA: SRS8628090
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.2bKili.To_S309"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594184	ID: 18594184
+
+45: ITS2_Z.21bKili.To_S328
+Identifiers: BioSample: SAMN18594183; Sample name: Z.21bKili.To_S328; SRA: SRS8628089
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.21bKili.To_S328"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594183	ID: 18594183
+
+46: ITS2_Z.1Kili.To_S308
+Identifiers: BioSample: SAMN18594182; Sample name: Z.1Kili.To_S308; SRA: SRS8628088
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.1Kili.To_S308"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594182	ID: 18594182
+
+47: ITS2_Z.18bKili.To_S325
+Identifiers: BioSample: SAMN18594181; Sample name: Z.18bKili.To_S325; SRA: SRS8628087
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.18bKili.To_S325"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594181	ID: 18594181
+
+48: ITS2_Z.17bKili.To_S324
+Identifiers: BioSample: SAMN18594180; Sample name: Z.17bKili.To_S324; SRA: SRS8628086
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.17bKili.To_S324"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594180	ID: 18594180
+
+49: ITS2_Z.16bKili.To_S323
+Identifiers: BioSample: SAMN18594179; Sample name: Z.16bKili.To_S323; SRA: SRS8628085
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.16bKili.To_S323"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594179	ID: 18594179
+
+50: ITS2_Z.166Kili.To_S378
+Identifiers: BioSample: SAMN18594178; Sample name: Z.166Kili.To_S378; SRA: SRS8628083
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.166Kili.To_S378"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594178	ID: 18594178
+
+51: ITS2_Z.15bKili.To_S322
+Identifiers: BioSample: SAMN18594177; Sample name: Z.15bKili.To_S322; SRA: SRS8628082
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.15bKili.To_S322"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594177	ID: 18594177
+
+52: ITS2_Z.14bKili.To_S321
+Identifiers: BioSample: SAMN18594176; Sample name: Z.14bKili.To_S321; SRA: SRS8628081
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.14bKili.To_S321"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594176	ID: 18594176
+
+53: ITS2_Z.13bKili.To_S320
+Identifiers: BioSample: SAMN18594175; Sample name: Z.13bKili.To_S320; SRA: SRS8628080
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.13bKili.To_S320"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594175	ID: 18594175
+
+54: ITS2_Z.131bKili.To_S414
+Identifiers: BioSample: SAMN18594174; Sample name: Z.131bKili.To_S414; SRA: SRS8628079
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.131bKili.To_S414"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594174	ID: 18594174
+
+55: ITS2_Z.130bKili.To_S413
+Identifiers: BioSample: SAMN18594173; Sample name: Z.130bKili.To_S413; SRA: SRS8628078
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.130bKili.To_S413"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594173	ID: 18594173
+
+56: ITS2_Z.12bKili.To_S319
+Identifiers: BioSample: SAMN18594172; Sample name: Z.12bKili.To_S319; SRA: SRS8628077
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.12bKili.To_S319"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594172	ID: 18594172
+
+57: ITS2_Z.129bKili.To_S412
+Identifiers: BioSample: SAMN18594171; Sample name: Z.129bKili.To_S412; SRA: SRS8628076
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.129bKili.To_S412"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594171	ID: 18594171
+
+58: ITS2_Z.128bKili.To_S411
+Identifiers: BioSample: SAMN18594170; Sample name: Z.128bKili.To_S411; SRA: SRS8628075
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.128bKili.To_S411"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594170	ID: 18594170
+
+59: ITS2_Z.127bKili.To_S410
+Identifiers: BioSample: SAMN18594169; Sample name: Z.127bKili.To_S410; SRA: SRS8628074
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.127bKili.To_S410"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594169	ID: 18594169
+
+60: ITS2_Z.11bKili.To_S318
+Identifiers: BioSample: SAMN18594168; Sample name: Z.11bKili.To_S318; SRA: SRS8628072
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.11bKili.To_S318"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594168	ID: 18594168
+
+
+61: ITS2_Z.118bKili.To_S305
+Identifiers: BioSample: SAMN18594167; Sample name: Z.118bKili.To_S305; SRA: SRS8628071
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.118bKili.To_S305"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594167	ID: 18594167
+
+62: ITS2_Z.117bKili.To_S304
+Identifiers: BioSample: SAMN18594166; Sample name: Z.117bKili.To_S304; SRA: SRS8628070
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.117bKili.To_S304"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594166	ID: 18594166
+
+63: ITS2_Z.116bKili.To_S303
+Identifiers: BioSample: SAMN18594165; Sample name: Z.116bKili.To_S303; SRA: SRS8628069
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.116bKili.To_S303"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594165	ID: 18594165
+
+64: ITS2_Z.115bKili.To_S302
+Identifiers: BioSample: SAMN18594164; Sample name: Z.115bKili.To_S302; SRA: SRS8628068
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.115bKili.To_S302"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594164	ID: 18594164
+
+65: ITS2_Z.114bKili.To_S301
+Identifiers: BioSample: SAMN18594163; Sample name: Z.114bKili.To_S301; SRA: SRS8628067
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.114bKili.To_S301"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594163	ID: 18594163
+
+66: ITS2_Z.113bKili.To_S300
+Identifiers: BioSample: SAMN18594162; Sample name: Z.113bKili.To_S300; SRA: SRS8628066
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.113bKili.To_S300"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594162	ID: 18594162
+
+67: ITS2_Z.112bKili.To_S299
+Identifiers: BioSample: SAMN18594161; Sample name: Z.112bKili.To_S299; SRA: SRS8628065
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.112bKili.To_S299"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594161	ID: 18594161
+
+68: ITS2_Z.111bKili.To_S298
+Identifiers: BioSample: SAMN18594160; Sample name: Z.111bKili.To_S298; SRA: SRS8628064
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.111bKili.To_S298"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594160	ID: 18594160
+
+69: ITS2_Z.110bKili.To_S297
+Identifiers: BioSample: SAMN18594159; Sample name: Z.110bKili.To_S297; SRA: SRS8628063
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.110bKili.To_S297"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594159	ID: 18594159
+
+70: ITS2_Z.10bKili.To_S317
+Identifiers: BioSample: SAMN18594158; Sample name: Z.10bKili.To_S317; SRA: SRS8628061
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.10bKili.To_S317"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594158	ID: 18594158
+
+71: ITS2_Z.109bKili.To_S296
+Identifiers: BioSample: SAMN18594157; Sample name: Z.109bKili.To_S296; SRA: SRS8628060
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.109bKili.To_S296"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594157	ID: 18594157
+
+72: ITS2_Z.108bKili.To_S295
+Identifiers: BioSample: SAMN18594156; Sample name: Z.108bKili.To_S295; SRA: SRS8628059
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.108bKili.To_S295"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594156	ID: 18594156
+
+73: ITS2_Z.107bKili.To_S294
+Identifiers: BioSample: SAMN18594155; Sample name: Z.107bKili.To_S294; SRA: SRS8628058
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.107bKili.To_S294"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594155	ID: 18594155
+
+74: ITS2_Z.106bKili.To_S293
+Identifiers: BioSample: SAMN18594154; Sample name: Z.106bKili.To_S293; SRA: SRS8628057
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2180"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.106bKili.To_S293"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594154	ID: 18594154
+
+75: ITS2_Z.105bKili.To_S292
+Identifiers: BioSample: SAMN18594153; Sample name: Z.105bKili.To_S292; SRA: SRS8628056
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2180"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.105bKili.To_S292"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594153	ID: 18594153
+
+76: ITS2_Z.104bKili.To_S291
+Identifiers: BioSample: SAMN18594152; Sample name: Z.104bKili.To_S291; SRA: SRS8628055
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1386"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.104bKili.To_S291"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594152	ID: 18594152
+
+77: ITS2_Z.103bKili.To_S290
+Identifiers: BioSample: SAMN18594151; Sample name: Z.103bKili.To_S290; SRA: SRS8628054
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.103bKili.To_S290"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594151	ID: 18594151
+
+78: ITS2_Z.102bKili.To_S289
+Identifiers: BioSample: SAMN18594150; Sample name: Z.102bKili.To_S289; SRA: SRS8628053
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.102bKili.To_S289"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594150	ID: 18594150
+
+79: ITS2_Z.101bKili.To_S288
+Identifiers: BioSample: SAMN18594149; Sample name: Z.101bKili.To_S288; SRA: SRS8628052
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.101bKili.To_S288"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594149	ID: 18594149
+
+80: ITS2_Z.100bKili.To_S287
+Identifiers: BioSample: SAMN18594148; Sample name: Z.100bKili.To_S287; SRA: SRS8628050
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="Z.100bKili.To_S287"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594148	ID: 18594148
+
+81: ITS2_168Kili.To_S48
+Identifiers: BioSample: SAMN18594147; Sample name: 168Kili.To_S48; SRA: SRS8628049
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="168Kili.To_S48"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594147	ID: 18594147
+
+82: ITS2_167Kili.To_S46
+Identifiers: BioSample: SAMN18594146; Sample name: 167Kili.To_S46; SRA: SRS8628048
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="167Kili.To_S46"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594146	ID: 18594146
+
+83: ITS2_165Kili.To_S44
+Identifiers: BioSample: SAMN18594145; Sample name: 165Kili.To_S44; SRA: SRS8628047
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="165Kili.To_S44"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594145	ID: 18594145
+
+84: ITS2_164Kili.To_S36
+Identifiers: BioSample: SAMN18594144; Sample name: 164Kili.To_S36; SRA: SRS8628046
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="164Kili.To_S36"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594144	ID: 18594144
+
+85: ITS2_163Kili.To_S35
+Identifiers: BioSample: SAMN18594143; Sample name: 163Kili.To_S35; SRA: SRS8628045
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="163Kili.To_S35"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594143	ID: 18594143
+
+86: ITS2_162Kili.To_S29
+Identifiers: BioSample: SAMN18594142; Sample name: 162Kili.To_S29; SRA: SRS8628044
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="162Kili.To_S29"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594142	ID: 18594142
+
+87: ITS2_161Kili.To_S27
+Identifiers: BioSample: SAMN18594141; Sample name: 161Kili.To_S27; SRA: SRS8628043
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="161Kili.To_S27"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594141	ID: 18594141
+
+88: ITS2_159Kili.To_S25
+Identifiers: BioSample: SAMN18594140; Sample name: 159Kili.To_S25; SRA: SRS8628042
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="159Kili.To_S25"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594140	ID: 18594140
+
+89: ITS2_154Kili.To_S23
+Identifiers: BioSample: SAMN18594139; Sample name: 154Kili.To_S23; SRA: SRS8628041
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1386"
+    /host body habitat="bee gut"
+    /source material identifiers="154Kili.To_S23"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594139	ID: 18594139
+
+90: ITS2_144Kili.To_S88
+Identifiers: BioSample: SAMN18594138; Sample name: 144Kili.To_S88; SRA: SRS8628226
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="144Kili.To_S88"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594138	ID: 18594138
+
+91: ITS2_137Kili.To_S77
+Identifiers: BioSample: SAMN18594137; Sample name: 137Kili.To_S77; SRA: SRS8628225
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="137Kili.To_S77"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594137	ID: 18594137
+
+92: ITS2_136Kili.To_S76
+Identifiers: BioSample: SAMN18594136; Sample name: 136Kili.To_S76; SRA: SRS8628223
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut pollen"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="136Kili.To_S76"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594136	ID: 18594136
+
+93: 16S_9bKili-To_S222
+Identifiers: BioSample: SAMN18594135; Sample name: 9bKili-To_S222; SRA: SRS8628224
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="9bKili-To_S222"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594135	ID: 18594135
+
+94: 16S_99bKili-To_S306
+Identifiers: BioSample: SAMN18594134; Sample name: 99bKili-To_S306; SRA: SRS8628222
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="99bKili-To_S306"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594134	ID: 18594134
+
+95: 16S_98bKili-To_S304
+Identifiers: BioSample: SAMN18594133; Sample name: 98bKili-To_S304; SRA: SRS8628221
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="98bKili-To_S304"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594133	ID: 18594133
+
+96: 16S_96bKili-To_S300
+Identifiers: BioSample: SAMN18594132; Sample name: 96bKili-To_S300; SRA: SRS8628220
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="96bKili-To_S300"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594132	ID: 18594132
+
+97: 16S_93bKili-To_S294
+Identifiers: BioSample: SAMN18594131; Sample name: 93bKili-To_S294; SRA: SRS8628218
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1137"
+    /host body habitat="bee gut"
+    /source material identifiers="93bKili-To_S294"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594131	ID: 18594131
+
+98: 16S_8bKili-To_S220
+Identifiers: BioSample: SAMN18594130; Sample name: 8bKili-To_S220; SRA: SRS8628219
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="8bKili-To_S220"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594130	ID: 18594130
+
+99: 16S_82bKili-To_S176
+Identifiers: BioSample: SAMN18594129; Sample name: 82bKili-To_S176; SRA: SRS8628217
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="82bKili-To_S176"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594129	ID: 18594129
+
+100: 16S_81bKili-To_S174
+Identifiers: BioSample: SAMN18594128; Sample name: 81bKili-To_S174; SRA: SRS8628215
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2416"
+    /host body habitat="bee gut"
+    /source material identifiers="81bKili-To_S174"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594128	ID: 18594128
+
+101: 16S_80bKili-To_S172
+Identifiers: BioSample: SAMN18594127; Sample name: 80bKili-To_S172; SRA: SRS8628214
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="80bKili-To_S172"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594127	ID: 18594127
+
+102: 16S_7bKili-To_S218
+Identifiers: BioSample: SAMN18594126; Sample name: 7bKili-To_S218; SRA: SRS8628213
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="7bKili-To_S218"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594126	ID: 18594126
+
+103: 16S_79bKili-To_S170
+Identifiers: BioSample: SAMN18594125; Sample name: 79bKili-To_S170; SRA: SRS8628212
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="79bKili-To_S170"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594125	ID: 18594125
+
+104: 16S_78bKili-To_S168
+Identifiers: BioSample: SAMN18594124; Sample name: 78bKili-To_S168; SRA: SRS8628211
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="78bKili-To_S168"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594124	ID: 18594124
+
+105: 16S_77bKili-To_S166
+Identifiers: BioSample: SAMN18594123; Sample name: 77bKili-To_S166; SRA: SRS8628210
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="77bKili-To_S166"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594123	ID: 18594123
+
+106: 16S_76bKili-To_S164
+Identifiers: BioSample: SAMN18594122; Sample name: 76bKili-To_S164; SRA: SRS8628209
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="76bKili-To_S164"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594122	ID: 18594122
+
+107: 16S_75bKili-To_S162
+Identifiers: BioSample: SAMN18594121; Sample name: 75bKili-To_S162; SRA: SRS8628208
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="75bKili-To_S162"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594121	ID: 18594121
+
+108: 16S_74bKili-To_S160
+Identifiers: BioSample: SAMN18594120; Sample name: 74bKili-To_S160; SRA: SRS8628207
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="74bKili-To_S160"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594120	ID: 18594120
+
+109: 16S_73bKili-To_S158
+Identifiers: BioSample: SAMN18594119; Sample name: 73bKili-To_S158; SRA: SRS8628205
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="73bKili-To_S158"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594119	ID: 18594119
+
+110: 16S_72bKili-To_S156
+Identifiers: BioSample: SAMN18594118; Sample name: 72bKili-To_S156; SRA: SRS8628204
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="72bKili-To_S156"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594118	ID: 18594118
+
+111: 16S_71bKili-To_S154
+Identifiers: BioSample: SAMN18594117; Sample name: 71bKili-To_S154; SRA: SRS8628203
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="71bKili-To_S154"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594117	ID: 18594117
+
+112: 16S_70bKili-To_S152
+Identifiers: BioSample: SAMN18594116; Sample name: 70bKili-To_S152; SRA: SRS8628202
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="70bKili-To_S152"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594116	ID: 18594116
+
+113: 16S_6bKili-To_S216
+Identifiers: BioSample: SAMN18594115; Sample name: 6bKili-To_S216; SRA: SRS8628201
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="6bKili-To_S216"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594115	ID: 18594115
+
+114: 16S_69bKili-To_S150
+Identifiers: BioSample: SAMN18594114; Sample name: 69bKili-To_S150; SRA: SRS8628200
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="69bKili-To_S150"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594114	ID: 18594114
+
+115: 16S_68bKili-To_S148
+Identifiers: BioSample: SAMN18594113; Sample name: 68bKili-To_S148; SRA: SRS8628199
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="68bKili-To_S148"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594113	ID: 18594113
+
+116: 16S_67bKili-To_S146
+Identifiers: BioSample: SAMN18594112; Sample name: 67bKili-To_S146; SRA: SRS8628197
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="67bKili-To_S146"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594112	ID: 18594112
+
+117: 16S_66bKili-To_S144
+Identifiers: BioSample: SAMN18594111; Sample name: 66bKili-To_S144; SRA: SRS8628198
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3418"
+    /host body habitat="bee gut"
+    /source material identifiers="66bKili-To_S144"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594111	ID: 18594111
+
+118: 16S_65bKili-To_S142
+Identifiers: BioSample: SAMN18594110; Sample name: 65bKili-To_S142; SRA: SRS8628196
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3418"
+    /host body habitat="bee gut"
+    /source material identifiers="65bKili-To_S142"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594110	ID: 18594110
+
+119: 16S_64bKili-To_S140
+Identifiers: BioSample: SAMN18594109; Sample name: 64bKili-To_S140; SRA: SRS8628195
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3418"
+    /host body habitat="bee gut"
+    /source material identifiers="64bKili-To_S140"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594109	ID: 18594109
+
+120: 16S_63bKili-To_S138
+Identifiers: BioSample: SAMN18594108; Sample name: 63bKili-To_S138; SRA: SRS8628193
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3418"
+    /host body habitat="bee gut"
+    /source material identifiers="63bKili-To_S138"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594108	ID: 18594108
+
+
+121: 16S_62bKili-To_S136
+Identifiers: BioSample: SAMN18594107; Sample name: 62bKili-To_S136; SRA: SRS8628192
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3005"
+    /host body habitat="bee gut"
+    /source material identifiers="62bKili-To_S136"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594107	ID: 18594107
+
+122: 16S_61bKili-To_S134
+Identifiers: BioSample: SAMN18594106; Sample name: 61bKili-To_S134; SRA: SRS8628191
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3005"
+    /host body habitat="bee gut"
+    /source material identifiers="61bKili-To_S134"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594106	ID: 18594106
+
+123: 16S_5bKili-To_S214
+Identifiers: BioSample: SAMN18594105; Sample name: 5bKili-To_S214; SRA: SRS8628190
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="5bKili-To_S214"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594105	ID: 18594105
+
+124: 16S_59bKili-To_S130
+Identifiers: BioSample: SAMN18594104; Sample name: 59bKili-To_S130; SRA: SRS8628189
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3005"
+    /host body habitat="bee gut"
+    /source material identifiers="59bKili-To_S130"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594104	ID: 18594104
+
+125: 16S_58bKili-To_S128
+Identifiers: BioSample: SAMN18594103; Sample name: 58bKili-To_S128; SRA: SRS8628188
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3005"
+    /host body habitat="bee gut"
+    /source material identifiers="58bKili-To_S128"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594103	ID: 18594103
+
+126: 16S_55bKili-To_S122
+Identifiers: BioSample: SAMN18594102; Sample name: 55bKili-To_S122; SRA: SRS8628187
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="55bKili-To_S122"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594102	ID: 18594102
+
+127: 16S_51bKili-To_S114
+Identifiers: BioSample: SAMN18594101; Sample name: 51bKili-To_S114; SRA: SRS8628186
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1782"
+    /host body habitat="bee gut"
+    /source material identifiers="51bKili-To_S114"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594101	ID: 18594101
+
+128: 16S_50bKili-To_S112
+Identifiers: BioSample: SAMN18594100; Sample name: 50bKili-To_S112; SRA: SRS8628184
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="50bKili-To_S112"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594100	ID: 18594100
+
+129: 16S_4bKili-To_S212
+Identifiers: BioSample: SAMN18594099; Sample name: 4bKili-To_S212; SRA: SRS8628185
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="4bKili-To_S212"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594099	ID: 18594099
+
+130: 16S_49bKili-To_S110
+Identifiers: BioSample: SAMN18594098; Sample name: 49bKili-To_S110; SRA: SRS8628182
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1386"
+    /host body habitat="bee gut"
+    /source material identifiers="49bKili-To_S110"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594098	ID: 18594098
+
+131: 16S_48bKili-To_S108
+Identifiers: BioSample: SAMN18594097; Sample name: 48bKili-To_S108; SRA: SRS8628181
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="48bKili-To_S108"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594097	ID: 18594097
+
+132: 16S_47bKili-To_S106
+Identifiers: BioSample: SAMN18594096; Sample name: 47bKili-To_S106; SRA: SRS8628180
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="47bKili-To_S106"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594096	ID: 18594096
+
+133: 16S_46bKili-To_S104
+Identifiers: BioSample: SAMN18594095; Sample name: 46bKili-To_S104; SRA: SRS8628179
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2232"
+    /host body habitat="bee gut"
+    /source material identifiers="46bKili-To_S104"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594095	ID: 18594095
+
+134: 16S_45bKili-To_S102
+Identifiers: BioSample: SAMN18594094; Sample name: 45bKili-To_S102; SRA: SRS8628178
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="45bKili-To_S102"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594094	ID: 18594094
+
+135: 16S_44bKili-To_S100
+Identifiers: BioSample: SAMN18594093; Sample name: 44bKili-To_S100; SRA: SRS8628177
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1137"
+    /host body habitat="bee gut"
+    /source material identifiers="44bKili-To_S100"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594093	ID: 18594093
+
+136: 16S_43bKili-To_S98
+Identifiers: BioSample: SAMN18594092; Sample name: 43bKili-To_S98; SRA: SRS8628176
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="43bKili-To_S98"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594092	ID: 18594092
+
+137: 16S_42bKili-To_S288
+Identifiers: BioSample: SAMN18594091; Sample name: 42bKili-To_S288; SRA: SRS8628175
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="42bKili-To_S288"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594091	ID: 18594091
+
+138: 16S_3bKili-To_S210
+Identifiers: BioSample: SAMN18594090; Sample name: 3bKili-To_S210; SRA: SRS8628174
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="3bKili-To_S210"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594090	ID: 18594090
+
+139: 16S_38bKili-To_S280
+Identifiers: BioSample: SAMN18594089; Sample name: 38bKili-To_S280; SRA: SRS8628173
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1896"
+    /host body habitat="bee gut"
+    /source material identifiers="38bKili-To_S280"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594089	ID: 18594089
+
+140: 16S_2bKili-To_S208
+Identifiers: BioSample: SAMN18594088; Sample name: 2bKili-To_S208; SRA: SRS8628171
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="2bKili-To_S208"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594088	ID: 18594088
+
+141: 16S_21bKili-To_S246
+Identifiers: BioSample: SAMN18594087; Sample name: 21bKili-To_S246; SRA: SRS8628170
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="21bKili-To_S246"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594087	ID: 18594087
+
+142: 16S_1bKili-To_S206
+Identifiers: BioSample: SAMN18594086; Sample name: 1bKili-To_S206; SRA: SRS8628169
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="1bKili-To_S206"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594086	ID: 18594086
+
+143: 16S_18bKili-To_S240
+Identifiers: BioSample: SAMN18594085; Sample name: 18bKili-To_S240; SRA: SRS8628167
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="18bKili-To_S240"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594085	ID: 18594085
+
+144: 16S_17bKili-To_S238
+Identifiers: BioSample: SAMN18594084; Sample name: 17bKili-To_S238; SRA: SRS8628168
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="17bKili-To_S238"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594084	ID: 18594084
+
+145: 16S_16bKili-To_S236
+Identifiers: BioSample: SAMN18594083; Sample name: 16bKili-To_S236; SRA: SRS8628166
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="16bKili-To_S236"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594083	ID: 18594083
+
+146: 16S_168bKili-To_S60
+Identifiers: BioSample: SAMN18594082; Sample name: 168bKili-To_S60; SRA: SRS8628165
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="168bKili-To_S60"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594082	ID: 18594082
+
+147: 16S_167bKili-To_S58
+Identifiers: BioSample: SAMN18594081; Sample name: 167bKili-To_S58; SRA: SRS8628164
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="167bKili-To_S58"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594081	ID: 18594081
+
+148: 16S_166bKili-To_S56
+Identifiers: BioSample: SAMN18594080; Sample name: 166bKili-To_S56; SRA: SRS8628163
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="166bKili-To_S56"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594080	ID: 18594080
+
+149: 16S_165bKili-To_S54
+Identifiers: BioSample: SAMN18594079; Sample name: 165bKili-To_S54; SRA: SRS8628162
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="165bKili-To_S54"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594079	ID: 18594079
+
+150: 16S_164bKili-To_S52
+Identifiers: BioSample: SAMN18594078; Sample name: 164bKili-To_S52; SRA: SRS8628161
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="164bKili-To_S52"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594078	ID: 18594078
+
+151: 16S_163bKili-To_S50
+Identifiers: BioSample: SAMN18594077; Sample name: 163bKili-To_S50; SRA: SRS8628159
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="163bKili-To_S50"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594077	ID: 18594077
+
+152: 16S_162bKili-To_S48
+Identifiers: BioSample: SAMN18594076; Sample name: 162bKili-To_S48; SRA: SRS8628158
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="162bKili-To_S48"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594076	ID: 18594076
+
+153: 16S_161bKili-To_S46
+Identifiers: BioSample: SAMN18594075; Sample name: 161bKili-To_S46; SRA: SRS8628157
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="161bKili-To_S46"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594075	ID: 18594075
+
+154: 16S_15bKili-To_S234
+Identifiers: BioSample: SAMN18594074; Sample name: 15bKili-To_S234; SRA: SRS8628156
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="15bKili-To_S234"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594074	ID: 18594074
+
+155: 16S_159bKili-To_S42
+Identifiers: BioSample: SAMN18594073; Sample name: 159bKili-To_S42; SRA: SRS8628155
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="159bKili-To_S42"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594073	ID: 18594073
+
+156: 16S_154bKili-To_S32
+Identifiers: BioSample: SAMN18594072; Sample name: 154bKili-To_S32; SRA: SRS8628154
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1386"
+    /host body habitat="bee gut"
+    /source material identifiers="154bKili-To_S32"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594072	ID: 18594072
+
+157: 16S_14bKili-To_S232
+Identifiers: BioSample: SAMN18594071; Sample name: 14bKili-To_S232; SRA: SRS8628153
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="14bKili-To_S232"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594071	ID: 18594071
+
+158: 16S_144bKili-To_S12
+Identifiers: BioSample: SAMN18594070; Sample name: 144bKili-To_S12; SRA: SRS8628152
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="144bKili-To_S12"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594070	ID: 18594070
+
+159: 16S_13bKili-To_S230
+Identifiers: BioSample: SAMN18594069; Sample name: 13bKili-To_S230; SRA: SRS8628151
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="13bKili-To_S230"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594069	ID: 18594069
+
+160: 16S_137bKili-To_S382
+Identifiers: BioSample: SAMN18594068; Sample name: 137bKili-To_S382; SRA: SRS8628149
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="137bKili-To_S382"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594068	ID: 18594068
+
+161: 16S_136bKili-To_S380
+Identifiers: BioSample: SAMN18594067; Sample name: 136bKili-To_S380; SRA: SRS8628148
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="867"
+    /host body habitat="bee gut"
+    /source material identifiers="136bKili-To_S380"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594067	ID: 18594067
+
+162: 16S_133bKili-To_S374
+Identifiers: BioSample: SAMN18594066; Sample name: 133bKili-To_S374; SRA: SRS8628147
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="133bKili-To_S374"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594066	ID: 18594066
+
+163: 16S_131bKili-To_S370
+Identifiers: BioSample: SAMN18594065; Sample name: 131bKili-To_S370; SRA: SRS8628146
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="131bKili-To_S370"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594065	ID: 18594065
+
+164: 16S_130bKili-To_S368
+Identifiers: BioSample: SAMN18594064; Sample name: 130bKili-To_S368; SRA: SRS8628145
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3779"
+    /host body habitat="bee gut"
+    /source material identifiers="130bKili-To_S368"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594064	ID: 18594064
+
+165: 16S_12bKili-To_S228
+Identifiers: BioSample: SAMN18594063; Sample name: 12bKili-To_S228; SRA: SRS8628143
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="12bKili-To_S228"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594063	ID: 18594063
+
+166: 16S_129bKili-To_S366
+Identifiers: BioSample: SAMN18594062; Sample name: 129bKili-To_S366; SRA: SRS8628144
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="129bKili-To_S366"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594062	ID: 18594062
+
+167: 16S_128bKili-To_S364
+Identifiers: BioSample: SAMN18594061; Sample name: 128bKili-To_S364; SRA: SRS8628142
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="128bKili-To_S364"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594061	ID: 18594061
+
+168: 16S_127bKili-To_S362
+Identifiers: BioSample: SAMN18594060; Sample name: 127bKili-To_S362; SRA: SRS8628141
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="127bKili-To_S362"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594060	ID: 18594060
+
+169: 16S_11bKili-To_S226
+Identifiers: BioSample: SAMN18594059; Sample name: 11bKili-To_S226; SRA: SRS8628139
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2880"
+    /host body habitat="bee gut"
+    /source material identifiers="11bKili-To_S226"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594059	ID: 18594059
+
+170: 16S_118bKili-To_S344
+Identifiers: BioSample: SAMN18594058; Sample name: 118bKili-To_S344; SRA: SRS8628137
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="118bKili-To_S344"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594058	ID: 18594058
+
+171: 16S_117bKili-To_S342
+Identifiers: BioSample: SAMN18594057; Sample name: 117bKili-To_S342; SRA: SRS8628128
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="117bKili-To_S342"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594057	ID: 18594057
+
+172: 16S_116bKili-To_S340
+Identifiers: BioSample: SAMN18594056; Sample name: 116bKili-To_S340; SRA: SRS8628117
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="116bKili-To_S340"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594056	ID: 18594056
+
+173: 16S_115bKili-To_S338
+Identifiers: BioSample: SAMN18594055; Sample name: 115bKili-To_S338; SRA: SRS8628105
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="115bKili-To_S338"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594055	ID: 18594055
+
+174: 16S_114bKili-To_S336
+Identifiers: BioSample: SAMN18594054; Sample name: 114bKili-To_S336; SRA: SRS8628095
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="114bKili-To_S336"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594054	ID: 18594054
+
+175: 16S_113bKili-To_S334
+Identifiers: BioSample: SAMN18594053; Sample name: 113bKili-To_S334; SRA: SRS8628084
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="113bKili-To_S334"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594053	ID: 18594053
+
+176: 16S_112bKili-To_S332
+Identifiers: BioSample: SAMN18594052; Sample name: 112bKili-To_S332; SRA: SRS8628073
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="112bKili-To_S332"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594052	ID: 18594052
+
+177: 16S_111bKili-To_S330
+Identifiers: BioSample: SAMN18594051; Sample name: 111bKili-To_S330; SRA: SRS8628062
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="111bKili-To_S330"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594051	ID: 18594051
+
+178: 16S_110bKili-To_S328
+Identifiers: BioSample: SAMN18594050; Sample name: 110bKili-To_S328; SRA: SRS8628051
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="110bKili-To_S328"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594050	ID: 18594050
+
+179: 16S_10bKili-To_S224
+Identifiers: BioSample: SAMN18594049; Sample name: 10bKili-To_S224; SRA: SRS8628040
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3644"
+    /host body habitat="bee gut"
+    /source material identifiers="10bKili-To_S224"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594049	ID: 18594049
+
+180: 16S_109bKili-To_S326
+Identifiers: BioSample: SAMN18594048; Sample name: 109bKili-To_S326; SRA: SRS8628216
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="109bKili-To_S326"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594048	ID: 18594048
+
+
+181: 16S_108bKili-To_S324
+Identifiers: BioSample: SAMN18594047; Sample name: 108bKili-To_S324; SRA: SRS8628206
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="108bKili-To_S324"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594047	ID: 18594047
+
+182: 16S_107bKili-To_S322
+Identifiers: BioSample: SAMN18594046; Sample name: 107bKili-To_S322; SRA: SRS8628194
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2787"
+    /host body habitat="bee gut"
+    /source material identifiers="107bKili-To_S322"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594046	ID: 18594046
+
+183: 16S_106bKili-To_S320
+Identifiers: BioSample: SAMN18594045; Sample name: 106bKili-To_S320; SRA: SRS8628183
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2180"
+    /host body habitat="bee gut"
+    /source material identifiers="106bKili-To_S320"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594045	ID: 18594045
+
+184: 16S_105bKili-To_S318
+Identifiers: BioSample: SAMN18594044; Sample name: 105bKili-To_S318; SRA: SRS8628172
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="2180"
+    /host body habitat="bee gut"
+    /source material identifiers="105bKili-To_S318"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594044	ID: 18594044
+
+185: 16S_104bKili-To_S316
+Identifiers: BioSample: SAMN18594043; Sample name: 104bKili-To_S316; SRA: SRS8628160
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="1386"
+    /host body habitat="bee gut"
+    /source material identifiers="104bKili-To_S316"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594043	ID: 18594043
+
+186: 16S_103bKili-To_S314
+Identifiers: BioSample: SAMN18594042; Sample name: 103bKili-To_S314; SRA: SRS8628150
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="103bKili-To_S314"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594042	ID: 18594042
+
+187: 16S_102bKili-To_S312
+Identifiers: BioSample: SAMN18594041; Sample name: 102bKili-To_S312; SRA: SRS8628140
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="831"
+    /host body habitat="bee gut"
+    /source material identifiers="102bKili-To_S312"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594041	ID: 18594041
+
+188: 16S_101bKili-To_S310
+Identifiers: BioSample: SAMN18594040; Sample name: 101bKili-To_S310; SRA: SRS8628039
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="101bKili-To_S310"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594040	ID: 18594040
+
+189: 16S_100bKili-To_S308
+Identifiers: BioSample: SAMN18594039; Sample name: 100bKili-To_S308; SRA: SRS8628038
+Organism: metagenome
+Attributes:
+    /collection date="2015"
+    /broad-scale environmental context="Kilimanjaro"
+    /local-scale environmental context="Kilimanjaro Elevational gradient"
+    /environmental medium="bee gut microbiome"
+    /geographic location="Tanzania: Kilimanjaro"
+    /host="Lasioglossum"
+    /latitude and longitude="3.0674 S 37.3556 E"
+    /elevation="3196"
+    /host body habitat="bee gut"
+    /source material identifiers="100bKili-To_S308"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN18594039	ID: 18594039
+
+

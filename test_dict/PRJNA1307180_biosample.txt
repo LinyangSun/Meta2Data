@@ -1,0 +1,1442 @@
+1: B4_B6_MBD5
+Identifiers: BioSample: SAMN50655363; Sample name: 1090; SRA: SRS26195934
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony B4, Control Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655363	ID: 50655363
+
+2: B4_B6_MBD4
+Identifiers: BioSample: SAMN50655362; Sample name: 1089; SRA: SRS26195932
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony B4, Control Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655362	ID: 50655362
+
+3: B4_B6_MBD3
+Identifiers: BioSample: SAMN50655361; Sample name: 1088; SRA: SRS26195931
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony B4, Control Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655361	ID: 50655361
+
+4: B4_B6_MBD2
+Identifiers: BioSample: SAMN50655360; Sample name: 1087; SRA: SRS26195930
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony B4, Control Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655360	ID: 50655360
+
+5: B4_B6_MBD1
+Identifiers: BioSample: SAMN50655359; Sample name: 1086; SRA: SRS26195929
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony B4, Control Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655359	ID: 50655359
+
+6: B4_B5_MBD5
+Identifiers: BioSample: SAMN50655358; Sample name: 1085; SRA: SRS26195928
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony B4, Control Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655358	ID: 50655358
+
+7: B4_B5_MBD4
+Identifiers: BioSample: SAMN50655357; Sample name: 1084; SRA: SRS26195927
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony B4, Control Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655357	ID: 50655357
+
+8: B4_B5_MBD3
+Identifiers: BioSample: SAMN50655356; Sample name: 1083; SRA: SRS26195926
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony B4, Control Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655356	ID: 50655356
+
+9: B4_B5_MBD2
+Identifiers: BioSample: SAMN50655355; Sample name: 1082; SRA: SRS26195925
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony B4, Control Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655355	ID: 50655355
+
+10: B4_B5_MBD1
+Identifiers: BioSample: SAMN50655354; Sample name: 1081; SRA: SRS26195924
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony B4, Control Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655354	ID: 50655354
+
+11: B4_B4_FMB5
+Identifiers: BioSample: SAMN50655353; Sample name: 1080; SRA: SRS26195923
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony B4, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655353	ID: 50655353
+
+12: B4_B4_FMB4
+Identifiers: BioSample: SAMN50655352; Sample name: 1079; SRA: SRS26195921
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony B4, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655352	ID: 50655352
+
+13: B4_B4_FMB3
+Identifiers: BioSample: SAMN50655351; Sample name: 1078; SRA: SRS26195920
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony B4, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655351	ID: 50655351
+
+14: B4_B4_FMB2
+Identifiers: BioSample: SAMN50655350; Sample name: 1077; SRA: SRS26195919
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony B4, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655350	ID: 50655350
+
+15: B4_B4_FMB1
+Identifiers: BioSample: SAMN50655349; Sample name: 1076; SRA: SRS26195918
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony B4, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655349	ID: 50655349
+
+16: B4_B3_FMB5
+Identifiers: BioSample: SAMN50655348; Sample name: 1075; SRA: SRS26195917
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony B4, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655348	ID: 50655348
+
+17: B4_B3_FMB4
+Identifiers: BioSample: SAMN50655347; Sample name: 1074; SRA: SRS26195916
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony B4, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655347	ID: 50655347
+
+18: B4_B3_FMB3
+Identifiers: BioSample: SAMN50655346; Sample name: 1073; SRA: SRS26195915
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony B4, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655346	ID: 50655346
+
+19: B4_B3_FMB2
+Identifiers: BioSample: SAMN50655345; Sample name: 1072; SRA: SRS26195914
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony B4, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655345	ID: 50655345
+
+20: B4_B3_FMB1
+Identifiers: BioSample: SAMN50655344; Sample name: 1071; SRA: SRS26195912
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony B4, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655344	ID: 50655344
+
+21: B4_B2_FMB5
+Identifiers: BioSample: SAMN50655343; Sample name: 1070; SRA: SRS26195911
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony B4, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655343	ID: 50655343
+
+22: B4_B2_FMB4
+Identifiers: BioSample: SAMN50655342; Sample name: 1069; SRA: SRS26195910
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony B4, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655342	ID: 50655342
+
+23: B4_B2_FMB3
+Identifiers: BioSample: SAMN50655341; Sample name: 1068; SRA: SRS26195909
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony B4, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655341	ID: 50655341
+
+24: B4_B2_FMB2
+Identifiers: BioSample: SAMN50655340; Sample name: 1067; SRA: SRS26195908
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony B4, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655340	ID: 50655340
+
+25: B4_B2_FMB1
+Identifiers: BioSample: SAMN50655339; Sample name: 1066; SRA: SRS26195907
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony B4, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655339	ID: 50655339
+
+26: B4_B1_FMB5
+Identifiers: BioSample: SAMN50655338; Sample name: 1065; SRA: SRS26195906
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony B4, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655338	ID: 50655338
+
+27: B4_B1_FMB4
+Identifiers: BioSample: SAMN50655337; Sample name: 1064; SRA: SRS26195905
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony B4, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655337	ID: 50655337
+
+28: B4_B1_FMB3
+Identifiers: BioSample: SAMN50655336; Sample name: 1063; SRA: SRS26195904
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony B4, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655336	ID: 50655336
+
+29: B4_B1_FMB2
+Identifiers: BioSample: SAMN50655335; Sample name: 1062; SRA: SRS26195903
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony B4, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655335	ID: 50655335
+
+30: B4_B1_FMB1
+Identifiers: BioSample: SAMN50655334; Sample name: 1061; SRA: SRS26195902
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony B4, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655334	ID: 50655334
+
+31: W4_B6_MBD5
+Identifiers: BioSample: SAMN50655333; Sample name: 1060; SRA: SRS26195900
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony W4, Control Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655333	ID: 50655333
+
+32: W4_B6_MBD4
+Identifiers: BioSample: SAMN50655332; Sample name: 1059; SRA: SRS26195899
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony W4, Control Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655332	ID: 50655332
+
+33: W4_B6_MBD3
+Identifiers: BioSample: SAMN50655331; Sample name: 1058; SRA: SRS26195898
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony W4, Control Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655331	ID: 50655331
+
+34: W4_B6_MBD2
+Identifiers: BioSample: SAMN50655330; Sample name: 1057; SRA: SRS26195897
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony W4, Control Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655330	ID: 50655330
+
+35: W4_B6_MBD1
+Identifiers: BioSample: SAMN50655329; Sample name: 1056; SRA: SRS26195896
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony W4, Control Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655329	ID: 50655329
+
+36: W4_B5_MBD5
+Identifiers: BioSample: SAMN50655328; Sample name: 1055; SRA: SRS26195895
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony W4, Control Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655328	ID: 50655328
+
+37: W4_B5_MBD4
+Identifiers: BioSample: SAMN50655327; Sample name: 1054; SRA: SRS26195894
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony W4, Control Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655327	ID: 50655327
+
+38: W4_B5_MBD3
+Identifiers: BioSample: SAMN50655326; Sample name: 1053; SRA: SRS26195893
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony W4, Control Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655326	ID: 50655326
+
+39: W4_B5_MBD2
+Identifiers: BioSample: SAMN50655325; Sample name: 1052; SRA: SRS26195892
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony W4, Control Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655325	ID: 50655325
+
+40: W4_B5_MBD1
+Identifiers: BioSample: SAMN50655324; Sample name: 1051; SRA: SRS26195891
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony W4, Control Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655324	ID: 50655324
+
+41: W4_B4_FMB5
+Identifiers: BioSample: SAMN50655323; Sample name: 1050; SRA: SRS26195889
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony W4, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655323	ID: 50655323
+
+42: W4_B4_FMB4
+Identifiers: BioSample: SAMN50655322; Sample name: 1049; SRA: SRS26195888
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony W4, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655322	ID: 50655322
+
+43: W4_B4_FMB3
+Identifiers: BioSample: SAMN50655321; Sample name: 1048; SRA: SRS26195887
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony W4, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655321	ID: 50655321
+
+44: W4_B4_FMB2
+Identifiers: BioSample: SAMN50655320; Sample name: 1047; SRA: SRS26195886
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony W4, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655320	ID: 50655320
+
+45: W4_B4_FMB1
+Identifiers: BioSample: SAMN50655319; Sample name: 1046; SRA: SRS26195885
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony W4, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655319	ID: 50655319
+
+46: W4_B3_FMB5
+Identifiers: BioSample: SAMN50655318; Sample name: 1045; SRA: SRS26195884
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony W4, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655318	ID: 50655318
+
+47: W4_B3_FMB4
+Identifiers: BioSample: SAMN50655317; Sample name: 1044; SRA: SRS26195883
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony W4, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655317	ID: 50655317
+
+48: W4_B3_FMB3
+Identifiers: BioSample: SAMN50655316; Sample name: 1043; SRA: SRS26195882
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony W4, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655316	ID: 50655316
+
+49: W4_B3_FMB2
+Identifiers: BioSample: SAMN50655315; Sample name: 1042; SRA: SRS26195881
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony W4, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655315	ID: 50655315
+
+50: W4_B3_FMB1
+Identifiers: BioSample: SAMN50655314; Sample name: 1041; SRA: SRS26195880
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony W4, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655314	ID: 50655314
+
+51: W4_B2_FMB5
+Identifiers: BioSample: SAMN50655313; Sample name: 1040; SRA: SRS26195878
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony W4, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655313	ID: 50655313
+
+52: W4_B2_FMB4
+Identifiers: BioSample: SAMN50655312; Sample name: 1039; SRA: SRS26195877
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony W4, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655312	ID: 50655312
+
+53: W4_B2_FMB3
+Identifiers: BioSample: SAMN50655311; Sample name: 1038; SRA: SRS26195876
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony W4, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655311	ID: 50655311
+
+54: W4_B2_FMB2
+Identifiers: BioSample: SAMN50655310; Sample name: 1037; SRA: SRS26195875
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony W4, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655310	ID: 50655310
+
+55: W4_B2_FMB1
+Identifiers: BioSample: SAMN50655309; Sample name: 1036; SRA: SRS26195874
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony W4, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655309	ID: 50655309
+
+56: W4_B1_FMB5
+Identifiers: BioSample: SAMN50655308; Sample name: 1035; SRA: SRS26195873
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony W4, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655308	ID: 50655308
+
+57: W4_B1_FMB4
+Identifiers: BioSample: SAMN50655307; Sample name: 1034; SRA: SRS26195872
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony W4, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655307	ID: 50655307
+
+58: W4_B1_FMB3
+Identifiers: BioSample: SAMN50655306; Sample name: 1033; SRA: SRS26195871
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony W4, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655306	ID: 50655306
+
+59: W4_B1_FMB2
+Identifiers: BioSample: SAMN50655305; Sample name: 1032; SRA: SRS26195870
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony W4, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655305	ID: 50655305
+
+60: W4_B1_FMB1
+Identifiers: BioSample: SAMN50655304; Sample name: 1031; SRA: SRS26195869
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony W4, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655304	ID: 50655304
+
+
+61: G1_B6_MBD5
+Identifiers: BioSample: SAMN50655303; Sample name: 1030; SRA: SRS26195867
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony G1, Control Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655303	ID: 50655303
+
+62: G1_B6_MBD4
+Identifiers: BioSample: SAMN50655302; Sample name: 1029; SRA: SRS26195866
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony G1, Control Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655302	ID: 50655302
+
+63: G1_B6_MBD3
+Identifiers: BioSample: SAMN50655301; Sample name: 1028; SRA: SRS26195865
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony G1, Control Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655301	ID: 50655301
+
+64: G1_B6_MBD2
+Identifiers: BioSample: SAMN50655300; Sample name: 1027; SRA: SRS26195864
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony G1, Control Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655300	ID: 50655300
+
+65: G1_B6_MBD1
+Identifiers: BioSample: SAMN50655299; Sample name: 1026; SRA: SRS26195863
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 6, Colony G1, Control Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655299	ID: 50655299
+
+66: G1_B5_MBD5
+Identifiers: BioSample: SAMN50655298; Sample name: 1025; SRA: SRS26195862
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony G1, Control Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655298	ID: 50655298
+
+67: G1_B5_MBD4
+Identifiers: BioSample: SAMN50655297; Sample name: 1024; SRA: SRS26195861
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony G1, Control Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655297	ID: 50655297
+
+68: G1_B5_MBD3
+Identifiers: BioSample: SAMN50655296; Sample name: 1023; SRA: SRS26195860
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony G1, Control Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655296	ID: 50655296
+
+69: G1_B5_MBD2
+Identifiers: BioSample: SAMN50655295; Sample name: 1022; SRA: SRS26195859
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony G1, Control Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655295	ID: 50655295
+
+70: G1_B5_MBD1
+Identifiers: BioSample: SAMN50655294; Sample name: 1021; SRA: SRS26195858
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 5, Colony G1, Control Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655294	ID: 50655294
+
+71: G1_B4_FMB5
+Identifiers: BioSample: SAMN50655293; Sample name: 1020; SRA: SRS26195856
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony G1, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655293	ID: 50655293
+
+72: G1_B4_FMB4
+Identifiers: BioSample: SAMN50655292; Sample name: 1019; SRA: SRS26195855
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony G1, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655292	ID: 50655292
+
+73: G1_B4_FMB3
+Identifiers: BioSample: SAMN50655291; Sample name: 1018; SRA: SRS26195854
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony G1, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655291	ID: 50655291
+
+74: G1_B4_FMB2
+Identifiers: BioSample: SAMN50655290; Sample name: 1017; SRA: SRS26195853
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony G1, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655290	ID: 50655290
+
+75: G1_B4_FMB1
+Identifiers: BioSample: SAMN50655289; Sample name: 1016; SRA: SRS26195852
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 4, Colony G1, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655289	ID: 50655289
+
+76: G1_B3_FMB5
+Identifiers: BioSample: SAMN50655288; Sample name: 1015; SRA: SRS26195851
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony G1, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655288	ID: 50655288
+
+77: G1_B3_FMB4
+Identifiers: BioSample: SAMN50655287; Sample name: 1014; SRA: SRS26195850
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony G1, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655287	ID: 50655287
+
+78: G1_B3_FMB3
+Identifiers: BioSample: SAMN50655286; Sample name: 1013; SRA: SRS26195849
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony G1, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655286	ID: 50655286
+
+79: G1_B3_FMB2
+Identifiers: BioSample: SAMN50655285; Sample name: 1012; SRA: SRS26195848
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony G1, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655285	ID: 50655285
+
+80: G1_B3_FMB1
+Identifiers: BioSample: SAMN50655284; Sample name: 1011; SRA: SRS26195847
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 3, Colony G1, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655284	ID: 50655284
+
+81: G1_B2_FMB5
+Identifiers: BioSample: SAMN50655283; Sample name: 1010; SRA: SRS26195933
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony G1, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655283	ID: 50655283
+
+82: G1_B2_FMB4
+Identifiers: BioSample: SAMN50655282; Sample name: 1009; SRA: SRS26195922
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony G1, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655282	ID: 50655282
+
+83: G1_B2_FMB3
+Identifiers: BioSample: SAMN50655281; Sample name: 1008; SRA: SRS26195913
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony G1, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655281	ID: 50655281
+
+84: G1_B2_FMB2
+Identifiers: BioSample: SAMN50655280; Sample name: 1007; SRA: SRS26195901
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony G1, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655280	ID: 50655280
+
+85: G1_B2_FMB1
+Identifiers: BioSample: SAMN50655279; Sample name: 1006; SRA: SRS26195890
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 2, Colony G1, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655279	ID: 50655279
+
+86: G1_B1_FMB5
+Identifiers: BioSample: SAMN50655278; Sample name: 1005; SRA: SRS26195879
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony G1, Treatment Bee 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655278	ID: 50655278
+
+87: G1_B1_FMB4
+Identifiers: BioSample: SAMN50655277; Sample name: 1004; SRA: SRS26195868
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony G1, Treatment Bee 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655277	ID: 50655277
+
+88: G1_B1_FMB3
+Identifiers: BioSample: SAMN50655276; Sample name: 1003; SRA: SRS26195857
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony G1, Treatment Bee 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655276	ID: 50655276
+
+89: G1_B1_FMB2
+Identifiers: BioSample: SAMN50655275; Sample name: 1002; SRA: SRS26195846
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony G1, Treatment Bee 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655275	ID: 50655275
+
+90: G1_B1_FMB1
+Identifiers: BioSample: SAMN50655274; Sample name: 1001; SRA: SRS26195845
+Organism: gut metagenome
+Attributes:
+    /collection date="2023"
+    /broad-scale environmental context="gut microbiome"
+    /local-scale environmental context="midgut, hindgut"
+    /environmental medium="gut"
+    /geographic location="USA: Illinois"
+    /host="Apis mellifera"
+    /latitude and longitude="40.11 N 88.21 W"
+    /perturbation="Cage 1, Colony G1, Treatment Bee 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN50655274	ID: 50655274
+
+

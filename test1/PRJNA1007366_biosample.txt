@@ -1,0 +1,23 @@
+1: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37057649; Sample name: BC_queen; SRA: SRS18664032
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2019"
+    /geographic location="Canada"
+    /latitude and longitude="49.2827 N 123.1207 W"
+Accession: SAMN37057649	ID: 37057649
+
+2: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN37057648; Sample name: PA_queen; SRA: SRS18664031
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018"
+    /geographic location="USA: Pennsylvania"
+    /latitude and longitude="41.2033 N 77.1945 W"
+Accession: SAMN37057648	ID: 37057648
+
+

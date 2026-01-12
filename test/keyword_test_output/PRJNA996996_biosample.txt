@@ -1,0 +1,925 @@
+1: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661401; Sample name: deep_AG-Hind-11; SRA: SRS18388242
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="11"
+Accession: SAMN36661401	ID: 36661401
+
+2: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661400; Sample name: deep_AG-Hind-10; SRA: SRS18388241
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="10"
+Accession: SAMN36661400	ID: 36661400
+
+3: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661399; Sample name: deep_AG-Hind-7; SRA: SRS18388247
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="7"
+Accession: SAMN36661399	ID: 36661399
+
+4: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661398; Sample name: deep_AG-Hind-3; SRA: SRS18388245
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="3"
+Accession: SAMN36661398	ID: 36661398
+
+5: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661397; Sample name: deep_AG-Hind-2; SRA: SRS18388244
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="2"
+Accession: SAMN36661397	ID: 36661397
+
+6: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661396; Sample name: deep_AG-Hind-1; SRA: SRS18388243
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="1"
+Accession: SAMN36661396	ID: 36661396
+
+7: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661395; Sample name: deep_AG-Gut-11; SRA: SRS18388231
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="11"
+Accession: SAMN36661395	ID: 36661395
+
+8: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661394; Sample name: deep_AG-Gut-10; SRA: SRS18388230
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="10"
+Accession: SAMN36661394	ID: 36661394
+
+9: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661393; Sample name: deep_AG-Gut-9; SRA: SRS18388240
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="9"
+Accession: SAMN36661393	ID: 36661393
+
+10: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661392; Sample name: deep_AG-Gut-8; SRA: SRS18388239
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="8"
+Accession: SAMN36661392	ID: 36661392
+
+11: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661391; Sample name: deep_AG-Gut-7; SRA: SRS18388238
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="7"
+Accession: SAMN36661391	ID: 36661391
+
+12: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661390; Sample name: deep_AG-Gut-6; SRA: SRS18388237
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="6"
+Accession: SAMN36661390	ID: 36661390
+
+13: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661389; Sample name: deep_AG-Gut-5; SRA: SRS18388236
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="5"
+Accession: SAMN36661389	ID: 36661389
+
+14: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661388; Sample name: deep_AG-Gut-4; SRA: SRS18388234
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="4"
+Accession: SAMN36661388	ID: 36661388
+
+15: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661387; Sample name: deep_AG-Gut-3; SRA: SRS18388233
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="3"
+Accession: SAMN36661387	ID: 36661387
+
+16: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661386; Sample name: deep_AG-Gut-1; SRA: SRS18388232
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="1"
+Accession: SAMN36661386	ID: 36661386
+
+17: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661385; Sample name: deep_AG-Bee-11; SRA: SRS18388219
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="11"
+Accession: SAMN36661385	ID: 36661385
+
+18: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661384; Sample name: deep_AG-Bee-10; SRA: SRS18388218
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="10"
+Accession: SAMN36661384	ID: 36661384
+
+19: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661383; Sample name: deep_AG-Bee-9; SRA: SRS18388229
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="9"
+Accession: SAMN36661383	ID: 36661383
+
+20: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661382; Sample name: deep_AG-Bee-8; SRA: SRS18388228
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="8"
+Accession: SAMN36661382	ID: 36661382
+
+21: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661381; Sample name: deep_AG-Bee-7; SRA: SRS18388227
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="7"
+Accession: SAMN36661381	ID: 36661381
+
+22: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661380; Sample name: deep_AG-Bee-6; SRA: SRS18388226
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="6"
+Accession: SAMN36661380	ID: 36661380
+
+23: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661379; Sample name: deep_AG-Bee-5; SRA: SRS18388225
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="5"
+Accession: SAMN36661379	ID: 36661379
+
+24: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661378; Sample name: deep_AG-Bee-4; SRA: SRS18388223
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="4"
+Accession: SAMN36661378	ID: 36661378
+
+25: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661377; Sample name: deep_AG-Bee-3; SRA: SRS18388222
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="3"
+Accession: SAMN36661377	ID: 36661377
+
+26: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661376; Sample name: deep_AG-Bee-2; SRA: SRS18388221
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="2"
+Accession: SAMN36661376	ID: 36661376
+
+27: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661375; Sample name: deep_AG-Bee-1; SRA: SRS18388220
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="1"
+Accession: SAMN36661375	ID: 36661375
+
+28: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661374; Sample name: deep_AG-Ab-11; SRA: SRS18388207
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="11"
+Accession: SAMN36661374	ID: 36661374
+
+29: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661373; Sample name: deep_AG-Ab-10; SRA: SRS18388206
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="10"
+Accession: SAMN36661373	ID: 36661373
+
+30: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661372; Sample name: deep_AG-Ab-9; SRA: SRS18388217
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="9"
+Accession: SAMN36661372	ID: 36661372
+
+31: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661371; Sample name: deep_AG-Ab-8; SRA: SRS18388216
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="8"
+Accession: SAMN36661371	ID: 36661371
+
+32: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661370; Sample name: deep_AG-Ab-7; SRA: SRS18388215
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="7"
+Accession: SAMN36661370	ID: 36661370
+
+33: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661369; Sample name: deep_AG-Ab-6; SRA: SRS18388214
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="6"
+Accession: SAMN36661369	ID: 36661369
+
+34: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661368; Sample name: deep_AG-Ab-5; SRA: SRS18388212
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="5"
+Accession: SAMN36661368	ID: 36661368
+
+35: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661367; Sample name: deep_AG-Ab-4; SRA: SRS18388211
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="4"
+Accession: SAMN36661367	ID: 36661367
+
+36: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661366; Sample name: deep_AG-Ab-3; SRA: SRS18388210
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="3"
+Accession: SAMN36661366	ID: 36661366
+
+37: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661365; Sample name: deep_AG-Ab-2; SRA: SRS18388209
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="2"
+Accession: SAMN36661365	ID: 36661365
+
+38: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661364; Sample name: deep_AG-Ab-1; SRA: SRS18388208
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="deep"
+    /replicate="1"
+Accession: SAMN36661364	ID: 36661364
+
+39: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661363; Sample name: shallow_AG-Hind-11; SRA: SRS18388201
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="11"
+Accession: SAMN36661363	ID: 36661363
+
+40: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661362; Sample name: shallow_AG-Hind-10; SRA: SRS18388200
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="10"
+Accession: SAMN36661362	ID: 36661362
+
+41: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661361; Sample name: shallow_AG-Hind-7; SRA: SRS18388205
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="7"
+Accession: SAMN36661361	ID: 36661361
+
+42: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661360; Sample name: shallow_AG-Hind-2; SRA: SRS18388204
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="2"
+Accession: SAMN36661360	ID: 36661360
+
+43: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661359; Sample name: shallow_AG-Hind-1; SRA: SRS18388203
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee hindgut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="1"
+Accession: SAMN36661359	ID: 36661359
+
+44: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661358; Sample name: shallow_AG-Gut-11; SRA: SRS18388193
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="11"
+Accession: SAMN36661358	ID: 36661358
+
+45: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661357; Sample name: shallow_AG-Gut-10; SRA: SRS18388192
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="10"
+Accession: SAMN36661357	ID: 36661357
+
+46: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661356; Sample name: shallow_AG-Gut-9; SRA: SRS18388199
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="9"
+Accession: SAMN36661356	ID: 36661356
+
+47: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661355; Sample name: shallow_AG-Gut-8; SRA: SRS18388198
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="8"
+Accession: SAMN36661355	ID: 36661355
+
+48: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661354; Sample name: shallow_AG-Gut-7; SRA: SRS18388197
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="7"
+Accession: SAMN36661354	ID: 36661354
+
+49: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661353; Sample name: shallow_AG-Gut-6; SRA: SRS18388195
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="6"
+Accession: SAMN36661353	ID: 36661353
+
+50: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661352; Sample name: shallow_AG-Gut-4; SRA: SRS18388196
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="4"
+Accession: SAMN36661352	ID: 36661352
+
+51: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661351; Sample name: shallow_AG-Gut-3; SRA: SRS18388194
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee gut"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="3"
+Accession: SAMN36661351	ID: 36661351
+
+52: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661350; Sample name: shallow_AG-Bee-11; SRA: SRS18388183
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="11"
+Accession: SAMN36661350	ID: 36661350
+
+53: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661349; Sample name: shallow_AG-Bee-10; SRA: SRS18388182
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="10"
+Accession: SAMN36661349	ID: 36661349
+
+54: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661348; Sample name: shallow_AG-Bee-9; SRA: SRS18388190
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="9"
+Accession: SAMN36661348	ID: 36661348
+
+55: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661347; Sample name: shallow_AG-Bee-8; SRA: SRS18388189
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="8"
+Accession: SAMN36661347	ID: 36661347
+
+56: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661346; Sample name: shallow_AG-Bee-7; SRA: SRS18388188
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="7"
+Accession: SAMN36661346	ID: 36661346
+
+57: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661345; Sample name: shallow_AG-Bee-6; SRA: SRS18388187
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="6"
+Accession: SAMN36661345	ID: 36661345
+
+58: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661344; Sample name: shallow_AG-Bee-5; SRA: SRS18388186
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="5"
+Accession: SAMN36661344	ID: 36661344
+
+59: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661343; Sample name: shallow_AG-Bee-4; SRA: SRS18388185
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="4"
+Accession: SAMN36661343	ID: 36661343
+
+60: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661342; Sample name: shallow_AG-Bee-2; SRA: SRS18388184
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole bee"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="2"
+Accession: SAMN36661342	ID: 36661342
+
+
+61: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661341; Sample name: shallow_AG-Ab-11; SRA: SRS18388180
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="11"
+Accession: SAMN36661341	ID: 36661341
+
+62: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661340; Sample name: shallow_AG-Ab-10; SRA: SRS18388179
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="10"
+Accession: SAMN36661340	ID: 36661340
+
+63: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661339; Sample name: shallow_AG-Ab-9; SRA: SRS18388181
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="9"
+Accession: SAMN36661339	ID: 36661339
+
+64: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661338; Sample name: shallow_AG-Ab-8; SRA: SRS18388249
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="8"
+Accession: SAMN36661338	ID: 36661338
+
+65: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661337; Sample name: shallow_AG-Ab-7; SRA: SRS18388248
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="7"
+Accession: SAMN36661337	ID: 36661337
+
+66: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661336; Sample name: shallow_AG-Ab-6; SRA: SRS18388246
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="6"
+Accession: SAMN36661336	ID: 36661336
+
+67: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661335; Sample name: shallow_AG-Ab-5; SRA: SRS18388235
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="5"
+Accession: SAMN36661335	ID: 36661335
+
+68: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661334; Sample name: shallow_AG-Ab-4; SRA: SRS18388224
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="4"
+Accession: SAMN36661334	ID: 36661334
+
+69: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661333; Sample name: shallow_AG-Ab-3; SRA: SRS18388213
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="3"
+Accession: SAMN36661333	ID: 36661333
+
+70: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661332; Sample name: shallow_AG-Ab-2; SRA: SRS18388202
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="2"
+Accession: SAMN36661332	ID: 36661332
+
+71: Metagenome or environmental sample from bee metagenome
+Identifiers: BioSample: SAMN36661331; Sample name: shallow_AG-Ab-1; SRA: SRS18388191
+Organism: bee metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="bee abdomen"
+    /collection date="2018-05-25"
+    /geographic location="Canada:Fraser Valley, British Columbia"
+    /latitude and longitude="49.0452 N 123.0518 W"
+    /sequencing_depth="shallow"
+    /replicate="1"
+Accession: SAMN36661331	ID: 36661331
+
+

@@ -1,0 +1,2576 @@
+1: Sulf_Azoxy_10_09
+Identifiers: BioSample: SAMN36781142; Sample name: Y135; SRA: SRS18464711
+Organism: gut metagenome
+Attributes:
+    /strain="Y135"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781142	ID: 36781142
+
+2: Sulf_Azoxy_10_08
+Identifiers: BioSample: SAMN36781141; Sample name: Y134; SRA: SRS18464709
+Organism: gut metagenome
+Attributes:
+    /strain="Y134"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781141	ID: 36781141
+
+3: Sulf_Azoxy_10_07
+Identifiers: BioSample: SAMN36781140; Sample name: Y133; SRA: SRS18464708
+Organism: gut metagenome
+Attributes:
+    /strain="Y133"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781140	ID: 36781140
+
+4: Sulf_Azoxy_10_06
+Identifiers: BioSample: SAMN36781139; Sample name: Y132; SRA: SRS18464707
+Organism: gut metagenome
+Attributes:
+    /strain="Y132"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781139	ID: 36781139
+
+5: Sulf_Azoxy_10_05
+Identifiers: BioSample: SAMN36781138; Sample name: Y131; SRA: SRS18464706
+Organism: gut metagenome
+Attributes:
+    /strain="Y131"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781138	ID: 36781138
+
+6: Sulf_Azoxy_10_04
+Identifiers: BioSample: SAMN36781137; Sample name: Y130; SRA: SRS18464705
+Organism: gut metagenome
+Attributes:
+    /strain="Y130"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781137	ID: 36781137
+
+7: Sulf_Azoxy_10_03
+Identifiers: BioSample: SAMN36781136; Sample name: Y129; SRA: SRS18464704
+Organism: gut metagenome
+Attributes:
+    /strain="Y129"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781136	ID: 36781136
+
+8: Sulf_Azoxy_10_02
+Identifiers: BioSample: SAMN36781135; Sample name: Y128; SRA: SRS18464702
+Organism: gut metagenome
+Attributes:
+    /strain="Y128"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781135	ID: 36781135
+
+9: Sulf_Azoxy_10_01
+Identifiers: BioSample: SAMN36781134; Sample name: Y127; SRA: SRS18464700
+Organism: gut metagenome
+Attributes:
+    /strain="Y127"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781134	ID: 36781134
+
+10: Sulf_Azoxy_05_09
+Identifiers: BioSample: SAMN36781133; Sample name: Y126; SRA: SRS18464701
+Organism: gut metagenome
+Attributes:
+    /strain="Y126"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781133	ID: 36781133
+
+11: Sulf_Azoxy_05_08
+Identifiers: BioSample: SAMN36781132; Sample name: Y125; SRA: SRS18464699
+Organism: gut metagenome
+Attributes:
+    /strain="Y125"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781132	ID: 36781132
+
+12: Sulf_Azoxy_05_07
+Identifiers: BioSample: SAMN36781131; Sample name: Y124; SRA: SRS18464698
+Organism: gut metagenome
+Attributes:
+    /strain="Y124"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781131	ID: 36781131
+
+13: Sulf_Azoxy_05_06
+Identifiers: BioSample: SAMN36781130; Sample name: Y123; SRA: SRS18464697
+Organism: gut metagenome
+Attributes:
+    /strain="Y123"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781130	ID: 36781130
+
+14: Sulf_Azoxy_05_05
+Identifiers: BioSample: SAMN36781129; Sample name: Y122; SRA: SRS18464696
+Organism: gut metagenome
+Attributes:
+    /strain="Y122"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781129	ID: 36781129
+
+15: Sulf_Azoxy_05_04
+Identifiers: BioSample: SAMN36781128; Sample name: Y121; SRA: SRS18464695
+Organism: gut metagenome
+Attributes:
+    /strain="Y121"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781128	ID: 36781128
+
+16: Sulf_Azoxy_05_03
+Identifiers: BioSample: SAMN36781127; Sample name: Y120; SRA: SRS18464694
+Organism: gut metagenome
+Attributes:
+    /strain="Y120"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781127	ID: 36781127
+
+17: Sulf_Azoxy_05_02
+Identifiers: BioSample: SAMN36781126; Sample name: Y119; SRA: SRS18464693
+Organism: gut metagenome
+Attributes:
+    /strain="Y119"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781126	ID: 36781126
+
+18: Sulf_Azoxy_05_01
+Identifiers: BioSample: SAMN36781125; Sample name: Y118; SRA: SRS18464734
+Organism: gut metagenome
+Attributes:
+    /strain="Y118"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781125	ID: 36781125
+
+19: FPF_Azoxy_10_09
+Identifiers: BioSample: SAMN36781124; Sample name: Y117; SRA: SRS18464733
+Organism: gut metagenome
+Attributes:
+    /strain="Y117"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781124	ID: 36781124
+
+20: FPF_Azoxy_10_08
+Identifiers: BioSample: SAMN36781123; Sample name: Y116; SRA: SRS18464731
+Organism: gut metagenome
+Attributes:
+    /strain="Y116"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781123	ID: 36781123
+
+21: FPF_Azoxy_10_07
+Identifiers: BioSample: SAMN36781122; Sample name: Y115; SRA: SRS18464732
+Organism: gut metagenome
+Attributes:
+    /strain="Y115"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781122	ID: 36781122
+
+22: FPF_Azoxy_10_06
+Identifiers: BioSample: SAMN36781121; Sample name: Y114; SRA: SRS18464730
+Organism: gut metagenome
+Attributes:
+    /strain="Y114"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781121	ID: 36781121
+
+23: FPF_Azoxy_10_05
+Identifiers: BioSample: SAMN36781120; Sample name: Y113; SRA: SRS18464729
+Organism: gut metagenome
+Attributes:
+    /strain="Y113"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781120	ID: 36781120
+
+24: FPF_Azoxy_10_04
+Identifiers: BioSample: SAMN36781119; Sample name: Y112; SRA: SRS18464728
+Organism: gut metagenome
+Attributes:
+    /strain="Y112"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781119	ID: 36781119
+
+25: FPF_Azoxy_10_03
+Identifiers: BioSample: SAMN36781118; Sample name: Y111; SRA: SRS18464727
+Organism: gut metagenome
+Attributes:
+    /strain="Y111"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781118	ID: 36781118
+
+26: FPF_Azoxy_10_02
+Identifiers: BioSample: SAMN36781117; Sample name: Y110; SRA: SRS18464726
+Organism: gut metagenome
+Attributes:
+    /strain="Y110"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781117	ID: 36781117
+
+27: FPF_Azoxy_10_01
+Identifiers: BioSample: SAMN36781116; Sample name: Y109; SRA: SRS18464725
+Organism: gut metagenome
+Attributes:
+    /strain="Y109"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781116	ID: 36781116
+
+28: FPF_Azoxy_05_09
+Identifiers: BioSample: SAMN36781115; Sample name: Y108; SRA: SRS18464723
+Organism: gut metagenome
+Attributes:
+    /strain="Y108"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781115	ID: 36781115
+
+29: FPF_Azoxy_05_08
+Identifiers: BioSample: SAMN36781114; Sample name: Y107; SRA: SRS18464721
+Organism: gut metagenome
+Attributes:
+    /strain="Y107"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781114	ID: 36781114
+
+30: FPF_Azoxy_05_07
+Identifiers: BioSample: SAMN36781113; Sample name: Y106; SRA: SRS18464722
+Organism: gut metagenome
+Attributes:
+    /strain="Y106"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781113	ID: 36781113
+
+31: FPF_Azoxy_05_06
+Identifiers: BioSample: SAMN36781112; Sample name: Y105; SRA: SRS18464720
+Organism: gut metagenome
+Attributes:
+    /strain="Y105"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781112	ID: 36781112
+
+32: FPF_Azoxy_05_05
+Identifiers: BioSample: SAMN36781111; Sample name: Y104; SRA: SRS18464718
+Organism: gut metagenome
+Attributes:
+    /strain="Y104"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781111	ID: 36781111
+
+33: FPF_Azoxy_05_04
+Identifiers: BioSample: SAMN36781110; Sample name: Y103; SRA: SRS18464719
+Organism: gut metagenome
+Attributes:
+    /strain="Y103"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781110	ID: 36781110
+
+34: FPF_Azoxy_05_03
+Identifiers: BioSample: SAMN36781109; Sample name: Y102; SRA: SRS18464716
+Organism: gut metagenome
+Attributes:
+    /strain="Y102"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781109	ID: 36781109
+
+35: FPF_Azoxy_05_02
+Identifiers: BioSample: SAMN36781108; Sample name: Y101; SRA: SRS18464806
+Organism: gut metagenome
+Attributes:
+    /strain="Y101"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781108	ID: 36781108
+
+36: FPF_Azoxy_05_01
+Identifiers: BioSample: SAMN36781107; Sample name: Y100; SRA: SRS18464805
+Organism: gut metagenome
+Attributes:
+    /strain="Y100"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF+Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781107	ID: 36781107
+
+37: Azoxy_10_09
+Identifiers: BioSample: SAMN36781106; Sample name: Y099; SRA: SRS18464804
+Organism: gut metagenome
+Attributes:
+    /strain="Y099"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781106	ID: 36781106
+
+38: Azoxy_10_08
+Identifiers: BioSample: SAMN36781105; Sample name: Y098; SRA: SRS18464801
+Organism: gut metagenome
+Attributes:
+    /strain="Y098"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781105	ID: 36781105
+
+39: Azoxy_10_07
+Identifiers: BioSample: SAMN36781104; Sample name: Y097; SRA: SRS18464802
+Organism: gut metagenome
+Attributes:
+    /strain="Y097"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781104	ID: 36781104
+
+40: Azoxy_10_06
+Identifiers: BioSample: SAMN36781103; Sample name: Y096; SRA: SRS18464800
+Organism: gut metagenome
+Attributes:
+    /strain="Y096"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781103	ID: 36781103
+
+41: Azoxy_10_05
+Identifiers: BioSample: SAMN36781102; Sample name: Y095; SRA: SRS18464799
+Organism: gut metagenome
+Attributes:
+    /strain="Y095"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781102	ID: 36781102
+
+42: Azoxy_10_04
+Identifiers: BioSample: SAMN36781101; Sample name: Y094; SRA: SRS18464798
+Organism: gut metagenome
+Attributes:
+    /strain="Y094"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781101	ID: 36781101
+
+43: Azoxy_10_03
+Identifiers: BioSample: SAMN36781100; Sample name: Y093; SRA: SRS18464797
+Organism: gut metagenome
+Attributes:
+    /strain="Y093"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781100	ID: 36781100
+
+44: Azoxy_10_02
+Identifiers: BioSample: SAMN36781099; Sample name: Y092; SRA: SRS18464796
+Organism: gut metagenome
+Attributes:
+    /strain="Y092"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781099	ID: 36781099
+
+45: Azoxy_10_01
+Identifiers: BioSample: SAMN36781098; Sample name: Y091; SRA: SRS18464795
+Organism: gut metagenome
+Attributes:
+    /strain="Y091"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781098	ID: 36781098
+
+46: Azoxy_05_09
+Identifiers: BioSample: SAMN36781097; Sample name: Y090; SRA: SRS18464794
+Organism: gut metagenome
+Attributes:
+    /strain="Y090"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781097	ID: 36781097
+
+47: Azoxy_05_08
+Identifiers: BioSample: SAMN36781096; Sample name: Y089; SRA: SRS18464793
+Organism: gut metagenome
+Attributes:
+    /strain="Y089"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781096	ID: 36781096
+
+48: Azoxy_05_07
+Identifiers: BioSample: SAMN36781095; Sample name: Y088; SRA: SRS18464791
+Organism: gut metagenome
+Attributes:
+    /strain="Y088"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781095	ID: 36781095
+
+49: Azoxy_05_06
+Identifiers: BioSample: SAMN36781094; Sample name: Y087; SRA: SRS18464790
+Organism: gut metagenome
+Attributes:
+    /strain="Y087"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781094	ID: 36781094
+
+50: Azoxy_05_05
+Identifiers: BioSample: SAMN36781093; Sample name: Y086; SRA: SRS18464788
+Organism: gut metagenome
+Attributes:
+    /strain="Y086"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781093	ID: 36781093
+
+51: Azoxy_05_04
+Identifiers: BioSample: SAMN36781092; Sample name: Y085; SRA: SRS18464789
+Organism: gut metagenome
+Attributes:
+    /strain="Y085"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781092	ID: 36781092
+
+52: Azoxy_05_03
+Identifiers: BioSample: SAMN36781091; Sample name: Y084; SRA: SRS18464787
+Organism: gut metagenome
+Attributes:
+    /strain="Y084"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781091	ID: 36781091
+
+53: Azoxy_05_02
+Identifiers: BioSample: SAMN36781090; Sample name: Y083; SRA: SRS18464786
+Organism: gut metagenome
+Attributes:
+    /strain="Y083"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781090	ID: 36781090
+
+54: Azoxy_05_01
+Identifiers: BioSample: SAMN36781089; Sample name: Y082; SRA: SRS18464785
+Organism: gut metagenome
+Attributes:
+    /strain="Y082"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Azoxy"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781089	ID: 36781089
+
+55: Sulf_10_09
+Identifiers: BioSample: SAMN36781088; Sample name: Y081; SRA: SRS18464784
+Organism: gut metagenome
+Attributes:
+    /strain="Y081"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781088	ID: 36781088
+
+56: Sulf_10_08
+Identifiers: BioSample: SAMN36781087; Sample name: Y080; SRA: SRS18464783
+Organism: gut metagenome
+Attributes:
+    /strain="Y080"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781087	ID: 36781087
+
+57: Sulf_10_07
+Identifiers: BioSample: SAMN36781086; Sample name: Y079; SRA: SRS18464782
+Organism: gut metagenome
+Attributes:
+    /strain="Y079"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781086	ID: 36781086
+
+58: Sulf_10_06
+Identifiers: BioSample: SAMN36781085; Sample name: Y078; SRA: SRS18464780
+Organism: gut metagenome
+Attributes:
+    /strain="Y078"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781085	ID: 36781085
+
+59: Sulf_10_05
+Identifiers: BioSample: SAMN36781084; Sample name: Y077; SRA: SRS18464778
+Organism: gut metagenome
+Attributes:
+    /strain="Y077"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781084	ID: 36781084
+
+60: Sulf_10_04
+Identifiers: BioSample: SAMN36781083; Sample name: Y076; SRA: SRS18464779
+Organism: gut metagenome
+Attributes:
+    /strain="Y076"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781083	ID: 36781083
+
+
+61: Sulf_10_03
+Identifiers: BioSample: SAMN36781082; Sample name: Y075; SRA: SRS18464777
+Organism: gut metagenome
+Attributes:
+    /strain="Y075"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781082	ID: 36781082
+
+62: Sulf_10_02
+Identifiers: BioSample: SAMN36781081; Sample name: Y074; SRA: SRS18464776
+Organism: gut metagenome
+Attributes:
+    /strain="Y074"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781081	ID: 36781081
+
+63: Sulf_10_01
+Identifiers: BioSample: SAMN36781080; Sample name: Y073; SRA: SRS18464775
+Organism: gut metagenome
+Attributes:
+    /strain="Y073"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781080	ID: 36781080
+
+64: Sulf_05_09
+Identifiers: BioSample: SAMN36781079; Sample name: Y072; SRA: SRS18464774
+Organism: gut metagenome
+Attributes:
+    /strain="Y072"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781079	ID: 36781079
+
+65: Sulf_05_08
+Identifiers: BioSample: SAMN36781078; Sample name: Y071; SRA: SRS18464773
+Organism: gut metagenome
+Attributes:
+    /strain="Y071"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781078	ID: 36781078
+
+66: Sulf_05_07
+Identifiers: BioSample: SAMN36781077; Sample name: Y070; SRA: SRS18464772
+Organism: gut metagenome
+Attributes:
+    /strain="Y070"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781077	ID: 36781077
+
+67: Sulf_05_06
+Identifiers: BioSample: SAMN36781076; Sample name: Y069; SRA: SRS18464771
+Organism: gut metagenome
+Attributes:
+    /strain="Y069"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781076	ID: 36781076
+
+68: Sulf_05_05
+Identifiers: BioSample: SAMN36781075; Sample name: Y068; SRA: SRS18464769
+Organism: gut metagenome
+Attributes:
+    /strain="Y068"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781075	ID: 36781075
+
+69: Sulf_05_04
+Identifiers: BioSample: SAMN36781074; Sample name: Y067; SRA: SRS18464768
+Organism: gut metagenome
+Attributes:
+    /strain="Y067"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781074	ID: 36781074
+
+70: Sulf_05_03
+Identifiers: BioSample: SAMN36781073; Sample name: Y066; SRA: SRS18464767
+Organism: gut metagenome
+Attributes:
+    /strain="Y066"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781073	ID: 36781073
+
+71: Sulf_05_02
+Identifiers: BioSample: SAMN36781072; Sample name: Y065; SRA: SRS18464766
+Organism: gut metagenome
+Attributes:
+    /strain="Y065"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781072	ID: 36781072
+
+72: Sulf_05_01
+Identifiers: BioSample: SAMN36781071; Sample name: Y064; SRA: SRS18464764
+Organism: gut metagenome
+Attributes:
+    /strain="Y064"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Sulf"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781071	ID: 36781071
+
+73: FPF_10_09
+Identifiers: BioSample: SAMN36781070; Sample name: Y063; SRA: SRS18464765
+Organism: gut metagenome
+Attributes:
+    /strain="Y063"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781070	ID: 36781070
+
+74: FPF_10_08
+Identifiers: BioSample: SAMN36781069; Sample name: Y062; SRA: SRS18464762
+Organism: gut metagenome
+Attributes:
+    /strain="Y062"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781069	ID: 36781069
+
+75: FPF_10_07
+Identifiers: BioSample: SAMN36781068; Sample name: Y061; SRA: SRS18464761
+Organism: gut metagenome
+Attributes:
+    /strain="Y061"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781068	ID: 36781068
+
+76: FPF_10_06
+Identifiers: BioSample: SAMN36781067; Sample name: Y060; SRA: SRS18464760
+Organism: gut metagenome
+Attributes:
+    /strain="Y060"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781067	ID: 36781067
+
+77: FPF_10_05
+Identifiers: BioSample: SAMN36781066; Sample name: Y059; SRA: SRS18464763
+Organism: gut metagenome
+Attributes:
+    /strain="Y059"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781066	ID: 36781066
+
+78: FPF_10_04
+Identifiers: BioSample: SAMN36781065; Sample name: Y058; SRA: SRS18464757
+Organism: gut metagenome
+Attributes:
+    /strain="Y058"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781065	ID: 36781065
+
+79: FPF_10_03
+Identifiers: BioSample: SAMN36781064; Sample name: Y057; SRA: SRS18464758
+Organism: gut metagenome
+Attributes:
+    /strain="Y057"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781064	ID: 36781064
+
+80: FPF_10_02
+Identifiers: BioSample: SAMN36781063; Sample name: Y056; SRA: SRS18464756
+Organism: gut metagenome
+Attributes:
+    /strain="Y056"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781063	ID: 36781063
+
+81: FPF_10_01
+Identifiers: BioSample: SAMN36781062; Sample name: Y055; SRA: SRS18464755
+Organism: gut metagenome
+Attributes:
+    /strain="Y055"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781062	ID: 36781062
+
+82: FPF_05_09
+Identifiers: BioSample: SAMN36781061; Sample name: Y054; SRA: SRS18464754
+Organism: gut metagenome
+Attributes:
+    /strain="Y054"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781061	ID: 36781061
+
+83: FPF_05_08
+Identifiers: BioSample: SAMN36781060; Sample name: Y053; SRA: SRS18464753
+Organism: gut metagenome
+Attributes:
+    /strain="Y053"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781060	ID: 36781060
+
+84: FPF_05_07
+Identifiers: BioSample: SAMN36781059; Sample name: Y052; SRA: SRS18464752
+Organism: gut metagenome
+Attributes:
+    /strain="Y052"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781059	ID: 36781059
+
+85: FPF_05_06
+Identifiers: BioSample: SAMN36781058; Sample name: Y051; SRA: SRS18464751
+Organism: gut metagenome
+Attributes:
+    /strain="Y051"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781058	ID: 36781058
+
+86: FPF_05_05
+Identifiers: BioSample: SAMN36781057; Sample name: Y050; SRA: SRS18464749
+Organism: gut metagenome
+Attributes:
+    /strain="Y050"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781057	ID: 36781057
+
+87: FPF_05_04
+Identifiers: BioSample: SAMN36781056; Sample name: Y049; SRA: SRS18464750
+Organism: gut metagenome
+Attributes:
+    /strain="Y049"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781056	ID: 36781056
+
+88: FPF_05_03
+Identifiers: BioSample: SAMN36781055; Sample name: Y048; SRA: SRS18464747
+Organism: gut metagenome
+Attributes:
+    /strain="Y048"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781055	ID: 36781055
+
+89: FPF_05_02
+Identifiers: BioSample: SAMN36781054; Sample name: Y047; SRA: SRS18464746
+Organism: gut metagenome
+Attributes:
+    /strain="Y047"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781054	ID: 36781054
+
+90: FPF_05_01
+Identifiers: BioSample: SAMN36781053; Sample name: Y046; SRA: SRS18464745
+Organism: gut metagenome
+Attributes:
+    /strain="Y046"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="FPF"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781053	ID: 36781053
+
+91: Cont_10_09
+Identifiers: BioSample: SAMN36781052; Sample name: Y045; SRA: SRS18464744
+Organism: gut metagenome
+Attributes:
+    /strain="Y045"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781052	ID: 36781052
+
+92: Cont_10_08
+Identifiers: BioSample: SAMN36781051; Sample name: Y044; SRA: SRS18464743
+Organism: gut metagenome
+Attributes:
+    /strain="Y044"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781051	ID: 36781051
+
+93: Cont_10_07
+Identifiers: BioSample: SAMN36781050; Sample name: Y043; SRA: SRS18464742
+Organism: gut metagenome
+Attributes:
+    /strain="Y043"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781050	ID: 36781050
+
+94: Cont_10_06
+Identifiers: BioSample: SAMN36781049; Sample name: Y042; SRA: SRS18464741
+Organism: gut metagenome
+Attributes:
+    /strain="Y042"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781049	ID: 36781049
+
+95: Cont_10_05
+Identifiers: BioSample: SAMN36781048; Sample name: Y041; SRA: SRS18464740
+Organism: gut metagenome
+Attributes:
+    /strain="Y041"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781048	ID: 36781048
+
+96: Cont_10_04
+Identifiers: BioSample: SAMN36781047; Sample name: Y040; SRA: SRS18464738
+Organism: gut metagenome
+Attributes:
+    /strain="Y040"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781047	ID: 36781047
+
+97: Cont_10_03
+Identifiers: BioSample: SAMN36781046; Sample name: Y039; SRA: SRS18464739
+Organism: gut metagenome
+Attributes:
+    /strain="Y039"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781046	ID: 36781046
+
+98: Cont_10_02
+Identifiers: BioSample: SAMN36781045; Sample name: Y038; SRA: SRS18464736
+Organism: gut metagenome
+Attributes:
+    /strain="Y038"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781045	ID: 36781045
+
+99: Cont_10_01
+Identifiers: BioSample: SAMN36781044; Sample name: Y037; SRA: SRS18464735
+Organism: gut metagenome
+Attributes:
+    /strain="Y037"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="10_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781044	ID: 36781044
+
+100: Cont_05_09
+Identifiers: BioSample: SAMN36781043; Sample name: Y036; SRA: SRS18464717
+Organism: gut metagenome
+Attributes:
+    /strain="Y036"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781043	ID: 36781043
+
+101: Cont_05_08
+Identifiers: BioSample: SAMN36781042; Sample name: Y035; SRA: SRS18464715
+Organism: gut metagenome
+Attributes:
+    /strain="Y035"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781042	ID: 36781042
+
+102: Cont_05_07
+Identifiers: BioSample: SAMN36781041; Sample name: Y034; SRA: SRS18464714
+Organism: gut metagenome
+Attributes:
+    /strain="Y034"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781041	ID: 36781041
+
+103: Cont_05_06
+Identifiers: BioSample: SAMN36781040; Sample name: Y033; SRA: SRS18464713
+Organism: gut metagenome
+Attributes:
+    /strain="Y033"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781040	ID: 36781040
+
+104: Cont_05_05
+Identifiers: BioSample: SAMN36781039; Sample name: Y032; SRA: SRS18464712
+Organism: gut metagenome
+Attributes:
+    /strain="Y032"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781039	ID: 36781039
+
+105: Cont_05_04
+Identifiers: BioSample: SAMN36781038; Sample name: Y031; SRA: SRS18464710
+Organism: gut metagenome
+Attributes:
+    /strain="Y031"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781038	ID: 36781038
+
+106: Cont_05_03
+Identifiers: BioSample: SAMN36781037; Sample name: Y030; SRA: SRS18464703
+Organism: gut metagenome
+Attributes:
+    /strain="Y030"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781037	ID: 36781037
+
+107: Cont_05_02
+Identifiers: BioSample: SAMN36781036; Sample name: Y029; SRA: SRS18464692
+Organism: gut metagenome
+Attributes:
+    /strain="Y029"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781036	ID: 36781036
+
+108: Cont_05_01
+Identifiers: BioSample: SAMN36781035; Sample name: Y028; SRA: SRS18464724
+Organism: gut metagenome
+Attributes:
+    /strain="Y028"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="05_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781035	ID: 36781035
+
+109: Cont_00_15
+Identifiers: BioSample: SAMN36781034; Sample name: Y015; SRA: SRS18464803
+Organism: gut metagenome
+Attributes:
+    /strain="Y015"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781034	ID: 36781034
+
+110: Cont_00_12
+Identifiers: BioSample: SAMN36781033; Sample name: Y012; SRA: SRS18464792
+Organism: gut metagenome
+Attributes:
+    /strain="Y012"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781033	ID: 36781033
+
+111: Cont_00_11
+Identifiers: BioSample: SAMN36781032; Sample name: Y011; SRA: SRS18464781
+Organism: gut metagenome
+Attributes:
+    /strain="Y011"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781032	ID: 36781032
+
+112: Cont_00_10
+Identifiers: BioSample: SAMN36781031; Sample name: Y010; SRA: SRS18464770
+Organism: gut metagenome
+Attributes:
+    /strain="Y010"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781031	ID: 36781031
+
+113: Cont_00_09
+Identifiers: BioSample: SAMN36781030; Sample name: Y009; SRA: SRS18464759
+Organism: gut metagenome
+Attributes:
+    /strain="Y009"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781030	ID: 36781030
+
+114: Cont_00_07
+Identifiers: BioSample: SAMN36781029; Sample name: Y007; SRA: SRS18464748
+Organism: gut metagenome
+Attributes:
+    /strain="Y007"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781029	ID: 36781029
+
+115: Cont_00_06
+Identifiers: BioSample: SAMN36781028; Sample name: Y006; SRA: SRS18464737
+Organism: gut metagenome
+Attributes:
+    /strain="Y006"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781028	ID: 36781028
+
+116: Cont_00_05
+Identifiers: BioSample: SAMN36781027; Sample name: Y005; SRA: SRS18464691
+Organism: gut metagenome
+Attributes:
+    /strain="Y005"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781027	ID: 36781027
+
+117: Cont_00_01
+Identifiers: BioSample: SAMN36781026; Sample name: Y001; SRA: SRS18464690
+Organism: gut metagenome
+Attributes:
+    /strain="Y001"
+    /isolate="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /collection date="not applicable"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="not applicable"
+    /host="honey bee"
+    /isolation and growth condition="not applicable"
+    /latitude and longitude="not applicable"
+    /chemical administration="Cont"
+    /host age="00_days"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN36781026	ID: 36781026
+
+

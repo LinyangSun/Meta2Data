@@ -1,0 +1,12 @@
+1: Metagenome or environmental sample from stingless bee nest
+Identifiers: BioSample: SAMN18373279; Sample name: Microbiome from stingless bee nest; SRA: SRS8534863
+Organism: insect work metagenome
+Attributes:
+    /isolation source="indoor surface of stingless bee nest"
+    /collection date="2020-11"
+    /geographic location="Brazil: Campinas"
+    /latitude and longitude="22.8889 S 47.0778 W"
+    /sample collection device or method="swab"
+Accession: SAMN18373279	ID: 18373279
+
+

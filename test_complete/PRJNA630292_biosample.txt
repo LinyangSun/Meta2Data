@@ -1,0 +1,1038 @@
+1: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832012; Sample name: 18HH10; SRA: SRS6588673
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ATAGGCTGTAGT"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832012	ID: 14832012
+
+2: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832011; Sample name: 18HH9; SRA: SRS6588672
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CGATCTTCGAGC"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832011	ID: 14832011
+
+3: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832010; Sample name: 18HH8; SRA: SRS6588671
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TTGACCGCGGTT"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832010	ID: 14832010
+
+4: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832009; Sample name: 18HH7; SRA: SRS6588670
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CGCTACAACTCG"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832009	ID: 14832009
+
+5: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832008; Sample name: 18HH6; SRA: SRS6588668
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TCAGTTCTCGTT"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832008	ID: 14832008
+
+6: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832007; Sample name: 18HH5; SRA: SRS6588667
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTGTTAGATGTG"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832007	ID: 14832007
+
+7: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832006; Sample name: 18HH4; SRA: SRS6588666
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ATCAGTACTAGG"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832006	ID: 14832006
+
+8: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832005; Sample name: 18HH3; SRA: SRS6588665
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TTGCCAAGAGTC"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832005	ID: 14832005
+
+9: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832004; Sample name: 18HH2; SRA: SRS6588664
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TCACCTCCTTGT"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832004	ID: 14832004
+
+10: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832003; Sample name: 18HH1; SRA: SRS6588663
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CGGATCTAGTGT"
+Description:
+Colony 2 bee raised in colony 2
+Accession: SAMN14832003	ID: 14832003
+
+11: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832002; Sample name: 18EE7; SRA: SRS6588662
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CGGGTGTTTGCT"
+Description:
+Colony 1 bee raised in colony 1
+Accession: SAMN14832002	ID: 14832002
+
+12: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832001; Sample name: 18EE6; SRA: SRS6588661
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CGTGACAATAGT"
+Description:
+Colony 1 bee raised in colony 1
+Accession: SAMN14832001	ID: 14832001
+
+13: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14832000; Sample name: 18EE5; SRA: SRS6588660
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CGTACTCTCGAG"
+Description:
+Colony 1 bee raised in colony 1
+Accession: SAMN14832000	ID: 14832000
+
+14: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831999; Sample name: 18EE4; SRA: SRS6588659
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GCATAGCATCAA"
+Description:
+Colony 1 bee raised in colony 1
+Accession: SAMN14831999	ID: 14831999
+
+15: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831998; Sample name: 18EE3; SRA: SRS6588657
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GCCAACAACCAT"
+Description:
+Colony 1 bee raised in colony 1
+Accession: SAMN14831998	ID: 14831998
+
+16: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831997; Sample name: 18EE2; SRA: SRS6588656
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TATCTATCCTGC"
+Description:
+Colony 1 bee raised in colony 1
+Accession: SAMN14831997	ID: 14831997
+
+17: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831996; Sample name: 18EE1; SRA: SRS6588655
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TCTTGGAGGTCA"
+Description:
+Colony 1 bee raised in colony 1
+Accession: SAMN14831996	ID: 14831996
+
+18: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831995; Sample name: 18EH9; SRA: SRS6588654
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TGTAAGACTTGG"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831995	ID: 14831995
+
+19: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831994; Sample name: 18EH8; SRA: SRS6588653
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TTGATCCGGTAG"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831994	ID: 14831994
+
+20: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831993; Sample name: 18EH7; SRA: SRS6588652
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TGCCGTATGCCA"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831993	ID: 14831993
+
+21: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831992; Sample name: 18EH6; SRA: SRS6588651
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GAAACATCCCAC"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831992	ID: 14831992
+
+22: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831991; Sample name: 18EH5; SRA: SRS6588650
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GGATCGTAATAC"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831991	ID: 14831991
+
+23: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831990; Sample name: 18EH4; SRA: SRS6588649
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GACATTGTCACG"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831990	ID: 14831990
+
+24: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831989; Sample name: 18EH3; SRA: SRS6588648
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTATTTCGGACG"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831989	ID: 14831989
+
+25: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831988; Sample name: 18EH2; SRA: SRS6588646
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ACTTGGTGTAAG"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831988	ID: 14831988
+
+26: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831987; Sample name: 18EH1; SRA: SRS6588645
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TGGTCGCATCGT"
+Description:
+Colony 2 bee raised in colony 1
+Accession: SAMN14831987	ID: 14831987
+
+27: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831986; Sample name: 18HE8; SRA: SRS6588644
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TAATCGGTGCCA"
+Description:
+Colony 1 bee raised in colony 2
+Accession: SAMN14831986	ID: 14831986
+
+28: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831985; Sample name: 18HE7; SRA: SRS6588643
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TTAACCTTCCTG"
+Description:
+Colony 1 bee raised in colony 2
+Accession: SAMN14831985	ID: 14831985
+
+29: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831984; Sample name: 18HE6; SRA: SRS6588642
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ACGGGTCATCAT"
+Description:
+Colony 1 bee raised in colony 2
+Accession: SAMN14831984	ID: 14831984
+
+30: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831983; Sample name: 18HE5; SRA: SRS6588641
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GGTTATTTGGCG"
+Description:
+Colony 1 bee raised in colony 2
+Accession: SAMN14831983	ID: 14831983
+
+31: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831982; Sample name: 18HE4; SRA: SRS6588640
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ATGCCATGCCGT"
+Description:
+Colony 1 bee raised in colony 2
+Accession: SAMN14831982	ID: 14831982
+
+32: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831981; Sample name: 18HE3; SRA: SRS6588639
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CACTCATCATTC"
+Description:
+Colony 1 bee raised in colony 2
+Accession: SAMN14831981	ID: 14831981
+
+33: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831980; Sample name: 18HE2; SRA: SRS6588638
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ATCTACCGAAGC"
+Description:
+Colony 1 bee raised in colony 2
+Accession: SAMN14831980	ID: 14831980
+
+34: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831979; Sample name: 18HE1; SRA: SRS6588637
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TATGTGCCGGCT"
+Description:
+Colony 1 bee raised in colony 2
+Accession: SAMN14831979	ID: 14831979
+
+35: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831978; Sample name: L20; SRA: SRS6588635
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CATCCCTCTACT"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831978	ID: 14831978
+
+36: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831977; Sample name: L19; SRA: SRS6588634
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TAATACGGATCG"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831977	ID: 14831977
+
+37: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831976; Sample name: L18; SRA: SRS6588633
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GCATATGCACTG"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831976	ID: 14831976
+
+38: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831975; Sample name: L17; SRA: SRS6588632
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GATCTGCGATCC"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831975	ID: 14831975
+
+39: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831974; Sample name: L16; SRA: SRS6588631
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ATCCTTTGGTTC"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831974	ID: 14831974
+
+40: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831973; Sample name: L15; SRA: SRS6588630
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TGTAACGCCGAT"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831973	ID: 14831973
+
+41: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831972; Sample name: L14; SRA: SRS6588629
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTGGTGGTTTCC"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831972	ID: 14831972
+
+42: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831971; Sample name: L13; SRA: SRS6588628
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTGTTGTCGTGC"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831971	ID: 14831971
+
+43: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831970; Sample name: L12; SRA: SRS6588627
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TGTCGCAAATAG"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831970	ID: 14831970
+
+44: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831969; Sample name: L11; SRA: SRS6588626
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="AAGGCGCTCCTT"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831969	ID: 14831969
+
+45: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831968; Sample name: L10; SRA: SRS6588624
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTCGTGTAGCCT"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831968	ID: 14831968
+
+46: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831967; Sample name: L9; SRA: SRS6588623
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTTCACGCCCAA"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831967	ID: 14831967
+
+47: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831966; Sample name: L8; SRA: SRS6588622
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="AGCATGTCCCGT"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831966	ID: 14831966
+
+48: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831965; Sample name: L7; SRA: SRS6588621
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ACTTCCAACTTC"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831965	ID: 14831965
+
+49: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831964; Sample name: L6; SRA: SRS6588620
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ATGATGAGCCTC"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831964	ID: 14831964
+
+50: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831963; Sample name: L5; SRA: SRS6588619
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GAGCCATCTGTA"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831963	ID: 14831963
+
+51: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831962; Sample name: L4; SRA: SRS6588618
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CAAATTCGGGAT"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831962	ID: 14831962
+
+52: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831961; Sample name: L3; SRA: SRS6588617
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TAACGTGTGTGC"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831961	ID: 14831961
+
+53: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831960; Sample name: L2; SRA: SRS6588616
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ATCGCACAGTAA"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831960	ID: 14831960
+
+54: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831959; Sample name: L1; SRA: SRS6588615
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CTCACAACCGTG"
+Description:
+newly emerged bee inoculated with live whole microbiome
+Accession: SAMN14831959	ID: 14831959
+
+55: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831958; Sample name: HK20; SRA: SRS6588613
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="AGTTACGAGCTA"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831958	ID: 14831958
+
+56: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831957; Sample name: HK19; SRA: SRS6588612
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CCAATACGCCTG"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831957	ID: 14831957
+
+57: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831956; Sample name: HK18; SRA: SRS6588611
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="AGCGGAGGTTAG"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831956	ID: 14831956
+
+58: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831955; Sample name: HK17; SRA: SRS6588610
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CGTTCCTTGTTA"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831955	ID: 14831955
+
+59: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831954; Sample name: HK16; SRA: SRS6588609
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTACGATATGAC"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831954	ID: 14831954
+
+60: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831953; Sample name: HK15; SRA: SRS6588608
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CTCACCTAGGAA"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831953	ID: 14831953
+
+
+61: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831952; Sample name: HK14; SRA: SRS6588607
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTCGACAGAGGA"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831952	ID: 14831952
+
+62: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831951; Sample name: HK13; SRA: SRS6588606
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TTGGGTACACGT"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831951	ID: 14831951
+
+63: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831950; Sample name: HK12; SRA: SRS6588605
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="AGATTGACCAAC"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831950	ID: 14831950
+
+64: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831949; Sample name: HK11; SRA: SRS6588604
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CATTATGGCGTG"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831949	ID: 14831949
+
+65: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831948; Sample name: HK10; SRA: SRS6588675
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ATTCTGCCGAAG"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831948	ID: 14831948
+
+66: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831947; Sample name: HK9; SRA: SRS6588674
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TCTCTACCACTC"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831947	ID: 14831947
+
+67: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831946; Sample name: HK8; SRA: SRS6588669
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="ACTCACAGGAAT"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831946	ID: 14831946
+
+68: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831945; Sample name: HK7; SRA: SRS6588658
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GAACACTTTGGA"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831945	ID: 14831945
+
+69: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831944; Sample name: HK6; SRA: SRS6588647
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="CGAGGGAAAGTC"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831944	ID: 14831944
+
+70: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831943; Sample name: HK5; SRA: SRS6588636
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GTAGATCGTGTA"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831943	ID: 14831943
+
+71: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831942; Sample name: HK4; SRA: SRS6588625
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="TGGTCAACGATA"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831942	ID: 14831942
+
+72: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831941; Sample name: HK3; SRA: SRS6588614
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="GGACTTCCAGCT"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831941	ID: 14831941
+
+73: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831940; Sample name: HK2; SRA: SRS6588603
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="AACTAGTTCAGG"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831940	ID: 14831940
+
+74: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN14831939; Sample name: HK1; SRA: SRS6588602
+Organism: metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="gut"
+    /collection date="2018"
+    /geographic location="USA: Missouri"
+    /latitude and longitude="38.52 N 90.55 W"
+    /Barcode_sequence="AGGCTTACGTGT"
+Description:
+newly emerged bee inoculated with heat killed whole microbiome
+Accession: SAMN14831939	ID: 14831939
+
+

@@ -1,0 +1,14 @@
+# GSA元数据下载工具依赖
+# 安装: pip install -r requirements_gsa.txt
+
+# Selenium - Web浏览器自动化
+selenium>=4.17.0
+
+# 可选: 如果需要处理下载的XLSX文件
+# pandas>=2.0.0
+# openpyxl>=3.1.0
+
+# 注意: 还需要安装ChromeDriver
+# macOS: brew install --cask chromedriver
+# Linux: apt-get install chromium-chromedriver
+# 或从 https://chromedriver.chromium.org/downloads 下载

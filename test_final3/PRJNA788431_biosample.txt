@@ -1,0 +1,451 @@
+1: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970954; Sample name: Honeybee_gut microbiome_30; SRA: SRS11321116
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970954	ID: 23970954
+
+2: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970953; Sample name: Honeybee_gut microbiome_29; SRA: SRS11321114
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970953	ID: 23970953
+
+3: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970952; Sample name: Honeybee_gut microbiome_28; SRA: SRS11321115
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970952	ID: 23970952
+
+4: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970951; Sample name: Honeybee_gut microbiome_27; SRA: SRS11321113
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970951	ID: 23970951
+
+5: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970950; Sample name: Honeybee_gut microbiome_26; SRA: SRS11321111
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970950	ID: 23970950
+
+6: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970949; Sample name: Honeybee_gut microbiome_25; SRA: SRS11321112
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970949	ID: 23970949
+
+7: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970948; Sample name: Honeybee_gut microbiome_24; SRA: SRS11321110
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970948	ID: 23970948
+
+8: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970947; Sample name: Honeybee_gut microbiome_23; SRA: SRS11321109
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970947	ID: 23970947
+
+9: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970946; Sample name: Honeybee_gut microbiome_22; SRA: SRS11321107
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970946	ID: 23970946
+
+10: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970945; Sample name: Honeybee_gut microbiome_21; SRA: SRS11321108
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970945	ID: 23970945
+
+11: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970944; Sample name: Honeybee_gut microbiome_20; SRA: SRS11321104
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970944	ID: 23970944
+
+12: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970943; Sample name: Honeybee_gut microbiome_19; SRA: SRS11321105
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970943	ID: 23970943
+
+13: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970942; Sample name: Honeybee_gut microbiome_18; SRA: SRS11321103
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970942	ID: 23970942
+
+14: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970941; Sample name: Honeybee_gut microbiome_17; SRA: SRS11321101
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970941	ID: 23970941
+
+15: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970940; Sample name: Honeybee_gut microbiome_16; SRA: SRS11321102
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970940	ID: 23970940
+
+16: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970939; Sample name: Honeybee_gut microbiome_15; SRA: SRS11321100
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970939	ID: 23970939
+
+17: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970938; Sample name: Honeybee_gut microbiome_14; SRA: SRS11321099
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970938	ID: 23970938
+
+18: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970937; Sample name: Honeybee_gut microbiome_13; SRA: SRS11321097
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970937	ID: 23970937
+
+19: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970936; Sample name: Honeybee_gut microbiome_12; SRA: SRS11321098
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970936	ID: 23970936
+
+20: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970935; Sample name: Honeybee_gut microbiome_11; SRA: SRS11321096
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970935	ID: 23970935
+
+21: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970934; Sample name: Honeybee_gut microbiome_10; SRA: SRS11321123
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970934	ID: 23970934
+
+22: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970933; Sample name: Honeybee_gut microbiome_9; SRA: SRS11321121
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970933	ID: 23970933
+
+23: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970932; Sample name: Honeybee_gut microbiome_8; SRA: SRS11321122
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970932	ID: 23970932
+
+24: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970931; Sample name: Honeybee_gut microbiome_7; SRA: SRS11321120
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970931	ID: 23970931
+
+25: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970930; Sample name: Honeybee_gut microbiome_6; SRA: SRS11321119
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970930	ID: 23970930
+
+26: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970929; Sample name: Honeybee_gut microbiome_5; SRA: SRS11321117
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970929	ID: 23970929
+
+27: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970928; Sample name: Honeybee_gut microbiome_4; SRA: SRS11321118
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970928	ID: 23970928
+
+28: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970927; Sample name: Honeybee_gut microbiome_3; SRA: SRS11321106
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970927	ID: 23970927
+
+29: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970926; Sample name: Honeybee_gut microbiome_2; SRA: SRS11321094
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970926	ID: 23970926
+
+30: Model organism or animal sample from Apis mellifera
+Identifiers: BioSample: SAMN23970925; Sample name: Honeybee_gut microbiome_1; SRA: SRS11321095
+Organism: Apis mellifera
+Attributes:
+    /strain="not applicable"
+    /isolate="not applicable"
+    /breed="not applicable"
+    /cultivar="not applicable"
+    /ecotype="not applicable"
+    /age="not collected"
+    /development stage="not collected"
+    /sex="male"
+    /tissue="gut"
+Accession: SAMN23970925	ID: 23970925
+
+

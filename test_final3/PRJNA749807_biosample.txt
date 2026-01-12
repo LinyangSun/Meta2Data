@@ -1,0 +1,3163 @@
+1: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN38711116; Sample name: Stingless  Bee Metagenome Positive Control; SRA: SRS19831117
+Organism: metagenome
+Attributes:
+    /host="NA"
+    /isolation source="Zymo"
+    /collection date="2021-07"
+    /geographic location="NA"
+    /latitude and longitude="NA"
+Accession: SAMN38711116	ID: 38711116
+
+2: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN38711115; Sample name: Stingless Bee Metagenome Negative Control; SRA: SRS19831116
+Organism: metagenome
+Attributes:
+    /host="Blank"
+    /isolation source="None"
+    /collection date="2021-07"
+    /geographic location="NA"
+    /latitude and longitude="NA"
+Accession: SAMN38711115	ID: 38711115
+
+3: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711114; Sample name: Stingless Bee Metagenome 206; SRA: SRS19831118
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona orizabaensis"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-30"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="8.47596 N 82.57325 W"
+Accession: SAMN38711114	ID: 38711114
+
+4: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711113; Sample name: Stingless Bee Metagenome 205; SRA: SRS19831115
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona orizabaensis"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-30"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="8.47509 N 82.57194 W"
+Accession: SAMN38711113	ID: 38711113
+
+5: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711112; Sample name: Stingless Bee Metagenome 198; SRA: SRS19831114
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona fulviventris"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-30"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="8.47190 N 82.58457 W"
+Accession: SAMN38711112	ID: 38711112
+
+6: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711111; Sample name: Stingless Bee Metagenome 197; SRA: SRS19831112
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona orizabaensis"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-30"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="8.47190 N 82.58457 W"
+Accession: SAMN38711111	ID: 38711111
+
+7: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711110; Sample name: Stingless Bee Metagenome 188; SRA: SRS19831110
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona fulviventris"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-29"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="8.48105 N 82.58355 W"
+Accession: SAMN38711110	ID: 38711110
+
+8: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711109; Sample name: Stingless Bee Metagenome 187; SRA: SRS19831113
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona orizabaensis"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-29"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="8.47509 N 82.57194 W"
+Accession: SAMN38711109	ID: 38711109
+
+9: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711108; Sample name: Stingless Bee Metagenome 186; SRA: SRS19831109
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona orizabaensis"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-29"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="8.46980 N 82.58308 W"
+Accession: SAMN38711108	ID: 38711108
+
+10: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711107; Sample name: Stingless Bee Metagenome 176; SRA: SRS19831108
+Organism: insect gut metagenome
+Attributes:
+    /host="Plebia frontalis"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-27"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="8.47214 N 82.57885 W"
+Accession: SAMN38711107	ID: 38711107
+
+11: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711106; Sample name: Stingless Bee Metagenome 144; SRA: SRS19831107
+Organism: insect gut metagenome
+Attributes:
+    /host="Tetragonisca angustula"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-26"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="10.431183 N 84.003702 W"
+Accession: SAMN38711106	ID: 38711106
+
+12: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711105; Sample name: Stingless Bee Metagenome 139; SRA: SRS19831106
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona fulviventris"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-26"
+    /geographic location="Costa Rica: Las Cruces Research Station"
+    /latitude and longitude="10.431183 N 84.003702 W"
+Accession: SAMN38711105	ID: 38711105
+
+13: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711104; Sample name: Stingless Bee Metagenome 129; SRA: SRS19831105
+Organism: insect gut metagenome
+Attributes:
+    /host="Tetragonisca angustula"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-23"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25890 N 84.02056 W"
+Accession: SAMN38711104	ID: 38711104
+
+14: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711103; Sample name: Stingless Bee Metagenome 99; SRA: SRS19831104
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona necrophaga"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-23"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25890 N 84.02056 W"
+Accession: SAMN38711103	ID: 38711103
+
+15: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711102; Sample name: Stingless Bee Metagenome 90; SRA: SRS19831102
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona fulviventris"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-23"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.26118 N 84.01881 W"
+Accession: SAMN38711102	ID: 38711102
+
+16: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711101; Sample name: Stingless Bee Metagenome 83; SRA: SRS19831100
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona silvestriana"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-22"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.26282 N 84.00775 W"
+Accession: SAMN38711101	ID: 38711101
+
+17: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711100; Sample name: Stingless Bee Metagenome 81; SRA: SRS19831101
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona musarum"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-22"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.26282 N 84.00775 W"
+Accession: SAMN38711100	ID: 38711100
+
+18: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711099; Sample name: Stingless Bee Metagenome 78; SRA: SRS19831099
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona fulviventris"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-22"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.26282 N 84.00775 W"
+Accession: SAMN38711099	ID: 38711099
+
+19: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711098; Sample name: Stingless Bee Metagenome 66; SRA: SRS19831098
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona silvestriana"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-22"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25890 N 84.02056 W"
+Accession: SAMN38711098	ID: 38711098
+
+20: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711097; Sample name: Stingless Bee Metagenome 62; SRA: SRS19831097
+Organism: insect gut metagenome
+Attributes:
+    /host="Tetragonisca angustula"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-22"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25890 N 84.02056 W"
+Accession: SAMN38711097	ID: 38711097
+
+21: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711096; Sample name: Stingless Bee Metagenome 46; SRA: SRS19831095
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona musarum"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.24763 N 84.02167 W"
+Accession: SAMN38711096	ID: 38711096
+
+22: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711095; Sample name: Stingless Bee Metagenome 41; SRA: SRS19831094
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona musarum"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25537 N 84.02489 W"
+Accession: SAMN38711095	ID: 38711095
+
+23: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711094; Sample name: Stingless Bee Metagenome 37; SRA: SRS19831096
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona necrophaga"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25537 N 84.02489 W"
+Accession: SAMN38711094	ID: 38711094
+
+24: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711093; Sample name: Stingless Bee Metagenome 36; SRA: SRS19831093
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona fulviventris"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25890 N 84.02056 W"
+Accession: SAMN38711093	ID: 38711093
+
+25: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711092; Sample name: Stingless Bee Metagenome 34; SRA: SRS19831091
+Organism: insect gut metagenome
+Attributes:
+    /host="Scaptotrigona"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.26118 N 84.01881 W"
+Accession: SAMN38711092	ID: 38711092
+
+26: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711091; Sample name: Stingless Bee Metagenome 33; SRA: SRS19831124
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona ferricauda"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.26118 N 84.01881 W"
+Accession: SAMN38711091	ID: 38711091
+
+27: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711090; Sample name: Stingless Bee Metagenome 30; SRA: SRS19831123
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona musarum"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.26118 N 84.01881 W"
+Accession: SAMN38711090	ID: 38711090
+
+28: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711089; Sample name: Stingless Bee Metagenome 29; SRA: SRS19831122
+Organism: insect gut metagenome
+Attributes:
+    /host="Tetragonisca angustula"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25796 N 84.00404 W"
+Accession: SAMN38711089	ID: 38711089
+
+29: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711088; Sample name: Stingless Bee Metagenome 28; SRA: SRS19831121
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona silvestriana"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25796 N 84.00404 W"
+Accession: SAMN38711088	ID: 38711088
+
+30: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711087; Sample name: Stingless Bee Metagenome 27; SRA: SRS19831119
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona necrophaga"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-21"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25796 N 84.00404 W"
+Accession: SAMN38711087	ID: 38711087
+
+31: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711086; Sample name: Stingless Bee Metagenome 21; SRA: SRS19831120
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona musarum"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-20"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25754 N 84.01035 W"
+Accession: SAMN38711086	ID: 38711086
+
+32: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711085; Sample name: Stingless Bee Metagenome 17; SRA: SRS19831111
+Organism: insect gut metagenome
+Attributes:
+    /host="Partamona musarum"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-20"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25811 N 84.0572 W"
+Accession: SAMN38711085	ID: 38711085
+
+33: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711084; Sample name: Stingless Bee Metagenome 16; SRA: SRS19831103
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona ferricauda"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-20"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25811 N 84.0572 W"
+Accession: SAMN38711084	ID: 38711084
+
+34: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711083; Sample name: Stingless Bee Metagenome 7; SRA: SRS19831092
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona necrophaga"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-20"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25796 N 84.00404 W"
+Accession: SAMN38711083	ID: 38711083
+
+35: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN38711082; Sample name: Stingless Bee Metagenome 2; SRA: SRS19831089
+Organism: insect gut metagenome
+Attributes:
+    /host="Trigona necrophaga"
+    /isolation source="Whole abdomen"
+    /collection date="2019-03-20"
+    /geographic location="Costa Rica: La Selva Research Station"
+    /latitude and longitude="10.25811 N 84.0572 W"
+Accession: SAMN38711082	ID: 38711082
+
+36: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418836; Sample name: W2; SRA: SRS9637819
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Wasp sp."
+    /latitude and longitude="8.47110 N 82.57782 W"
+    /Misc.="W2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418836	ID: 20418836
+
+37: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418835; Sample name: W1; SRA: SRS9637820
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-19"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Wasp sp."
+    /latitude and longitude="8.47110 N 82.57782 W"
+    /Misc.="W1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418835	ID: 20418835
+
+38: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN20418834; Sample name: Chicken6; SRA: SRS9637821
+Organism: metagenome
+Attributes:
+    /collection date="2019-03-27"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Bait"
+    /geographic location="Costa Rica"
+    /host="Chicken Day_4"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Chicken6"
+    /isolation source="chicken breast metagenome"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418834	ID: 20418834
+
+39: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN20418833; Sample name: Chicken5; SRA: SRS9637822
+Organism: metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Bait"
+    /geographic location="Costa Rica"
+    /host="Chicken Day_3"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Chicken5"
+    /isolation source="chicken breast metagenome"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418833	ID: 20418833
+
+40: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN20418832; Sample name: Chicken4; SRA: SRS9637823
+Organism: metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Bait"
+    /geographic location="Costa Rica"
+    /host="Chicken Day_3"
+    /latitude and longitude="10.25546 N 84.00086 W"
+    /Misc.="Chicken4"
+    /isolation source="chicken breast metagenome"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418832	ID: 20418832
+
+41: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN20418831; Sample name: Chicken3; SRA: SRS9637825
+Organism: metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Bait"
+    /geographic location="Costa Rica"
+    /host="Chicken Day_2"
+    /latitude and longitude="10.26179 N 84.01160 W"
+    /Misc.="Chicken3"
+    /isolation source="chicken breast metagenome"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418831	ID: 20418831
+
+42: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN20418830; Sample name: Chicken2; SRA: SRS9637824
+Organism: metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Bait"
+    /geographic location="Costa Rica"
+    /host="Chicken Day_2"
+    /latitude and longitude="10.26179 N 84.01160 W"
+    /Misc.="Chicken2"
+    /isolation source="chicken breast metagenome"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418830	ID: 20418830
+
+43: MIMARKS Survey related sample from metagenome
+Identifiers: BioSample: SAMN20418829; Sample name: Chicken1; SRA: SRS9637827
+Organism: metagenome
+Attributes:
+    /collection date="2019-03-19"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Bait"
+    /geographic location="Costa Rica"
+    /host="Chicken Day_1"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="Chicken1"
+    /isolation source="chicken breast metagenome"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418829	ID: 20418829
+
+44: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418828; Sample name: 155; SRA: SRS9637896
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca buchwaldi"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="155"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418828	ID: 20418828
+
+45: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418827; Sample name: 154; SRA: SRS9637898
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca buchwaldi"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="154"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418827	ID: 20418827
+
+46: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418826; Sample name: 153; SRA: SRS9637899
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca buchwaldi"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="153"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418826	ID: 20418826
+
+47: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418825; Sample name: 152; SRA: SRS9637900
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca buchwaldi"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="152"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418825	ID: 20418825
+
+48: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418824; Sample name: 151; SRA: SRS9637901
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona corvina"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="151"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418824	ID: 20418824
+
+49: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418823; Sample name: 50; SRA: SRS9637787
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="50"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418823	ID: 20418823
+
+50: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418822; Sample name: 28; SRA: SRS9637806
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Trigona silvestriana"
+    /latitude and longitude="10.26282 N 84.00775 W"
+    /Misc.="28"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418822	ID: 20418822
+
+51: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418821; Sample name: 161; SRA: SRS9637866
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="161"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418821	ID: 20418821
+
+52: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418820; Sample name: 160; SRA: SRS9637867
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="160"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418820	ID: 20418820
+
+53: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418819; Sample name: 159; SRA: SRS9637869
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="159"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418819	ID: 20418819
+
+54: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418818; Sample name: 158; SRA: SRS9637868
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca buchwaldi"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="158"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418818	ID: 20418818
+
+55: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418817; Sample name: 85; SRA: SRS9637765
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25537 N 84.02489 W"
+    /Misc.="85"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418817	ID: 20418817
+
+56: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418816; Sample name: 84; SRA: SRS9637767
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25537 N 84.02489 W"
+    /Misc.="84"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418816	ID: 20418816
+
+57: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418815; Sample name: 80; SRA: SRS9637770
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25537 N 84.02489 W"
+    /Misc.="80"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418815	ID: 20418815
+
+58: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418814; Sample name: 79; SRA: SRS9637772
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="10.25537 N 84.02489 W"
+    /Misc.="79"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418814	ID: 20418814
+
+59: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418813; Sample name: 77; SRA: SRS9637771
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Scaura argyrea"
+    /latitude and longitude="10.25537 N 84.02489 W"
+    /Misc.="77"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418813	ID: 20418813
+
+60: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418812; Sample name: 66; SRA: SRS9637777
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona silvestriana"
+    /latitude and longitude="10.25890 N 84.02056 W"
+    /Misc.="66"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418812	ID: 20418812
+
+
+61: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418811; Sample name: 54; SRA: SRS9637890
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="54"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418811	ID: 20418811
+
+62: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418810; Sample name: 49; SRA: SRS9637892
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="49"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418810	ID: 20418810
+
+63: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418809; Sample name: 48; SRA: SRS9637789
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="48"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418809	ID: 20418809
+
+64: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418808; Sample name: 47; SRA: SRS9637790
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="47"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418808	ID: 20418808
+
+65: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418807; Sample name: 45; SRA: SRS9637791
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="45"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418807	ID: 20418807
+
+66: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418806; Sample name: 44; SRA: SRS9637794
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="44"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418806	ID: 20418806
+
+67: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418805; Sample name: 43; SRA: SRS9637795
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="43"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418805	ID: 20418805
+
+68: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418804; Sample name: 42; SRA: SRS9637797
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="42"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418804	ID: 20418804
+
+69: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418803; Sample name: 41; SRA: SRS9637796
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="41"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418803	ID: 20418803
+
+70: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418802; Sample name: 39; SRA: SRS9637799
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25554 N 84.00607 W"
+    /Misc.="39"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418802	ID: 20418802
+
+71: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418801; Sample name: 1; SRA: SRS9637759
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-19"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418801	ID: 20418801
+
+72: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418800; Sample name: 199; SRA: SRS9637833
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="8.47190 N 82.58457 W"
+    /Misc.="199"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418800	ID: 20418800
+
+73: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418799; Sample name: 196; SRA: SRS9637832
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="8.47190 N 82.58457 W"
+    /Misc.="196"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418799	ID: 20418799
+
+74: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418798; Sample name: 150; SRA: SRS9637902
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona corvina"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="150"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418798	ID: 20418798
+
+75: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418797; Sample name: 147; SRA: SRS9637905
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="147"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418797	ID: 20418797
+
+76: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418796; Sample name: 100; SRA: SRS9637883
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="100"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418796	ID: 20418796
+
+77: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418795; Sample name: 98; SRA: SRS9637925
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="98"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418795	ID: 20418795
+
+78: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418794; Sample name: 97; SRA: SRS9637923
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="97"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418794	ID: 20418794
+
+79: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418793; Sample name: 96; SRA: SRS9637924
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="96"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418793	ID: 20418793
+
+80: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418792; Sample name: 93; SRA: SRS9637927
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.25811 N 84.0576 W"
+    /Misc.="93"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418792	ID: 20418792
+
+81: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418791; Sample name: 92; SRA: SRS9637760
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Scaptotrigona sp."
+    /latitude and longitude="10.25811 N 84.0575 W"
+    /Misc.="92"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418791	ID: 20418791
+
+82: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418790; Sample name: 91; SRA: SRS9637761
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Scaptotrigona sp."
+    /latitude and longitude="10.25811 N 84.0574 W"
+    /Misc.="91"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418790	ID: 20418790
+
+83: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418789; Sample name: 24; SRA: SRS9637809
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.26282 N 84.00775 W"
+    /Misc.="24"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418789	ID: 20418789
+
+84: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418788; Sample name: 168; SRA: SRS9637858
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="168"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418788	ID: 20418788
+
+85: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418787; Sample name: 167; SRA: SRS9637859
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="167"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418787	ID: 20418787
+
+86: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418786; Sample name: 89; SRA: SRS9637763
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.25811 N 84.0573 W"
+    /Misc.="89"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418786	ID: 20418786
+
+87: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418785; Sample name: 88; SRA: SRS9637764
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="88"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418785	ID: 20418785
+
+88: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418784; Sample name: 76; SRA: SRS9637773
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Scaura argyrea"
+    /latitude and longitude="10.25890 N 84.02056 W"
+    /Misc.="76"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418784	ID: 20418784
+
+89: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418783; Sample name: 70; SRA: SRS9637774
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona silvestriana"
+    /latitude and longitude="10.25890 N 84.02056 W"
+    /Misc.="70"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418783	ID: 20418783
+
+90: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418782; Sample name: 69; SRA: SRS9637775
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona silvestriana"
+    /latitude and longitude="10.25890 N 84.02056 W"
+    /Misc.="69"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418782	ID: 20418782
+
+91: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418781; Sample name: 68; SRA: SRS9637776
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona silvestriana"
+    /latitude and longitude="10.25890 N 84.02056 W"
+    /Misc.="68"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418781	ID: 20418781
+
+92: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418780; Sample name: 67; SRA: SRS9637778
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona silvestriana"
+    /latitude and longitude="10.25890 N 84.02056 W"
+    /Misc.="67"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418780	ID: 20418780
+
+93: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418779; Sample name: 65; SRA: SRS9637779
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.26118 N 84.01881 W"
+    /Misc.="65"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418779	ID: 20418779
+
+94: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418778; Sample name: 64; SRA: SRS9637886
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.26118 N 84.01881 W"
+    /Misc.="64"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418778	ID: 20418778
+
+95: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418777; Sample name: 22; SRA: SRS9637811
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25710 N 84.01773 W"
+    /Misc.="22"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418777	ID: 20418777
+
+96: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418776; Sample name: 21; SRA: SRS9637893
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25710 N 84.01773 W"
+    /Misc.="21"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418776	ID: 20418776
+
+97: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418775; Sample name: 20; SRA: SRS9637815
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25710 N 84.01773 W"
+    /Misc.="20"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418775	ID: 20418775
+
+98: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418774; Sample name: 19; SRA: SRS9637826
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25710 N 84.01773 W"
+    /Misc.="19"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418774	ID: 20418774
+
+99: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418773; Sample name: 18; SRA: SRS9637837
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.25710 N 84.01773 W"
+    /Misc.="18"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418773	ID: 20418773
+
+100: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418772; Sample name: 9; SRA: SRS9637921
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="9"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418772	ID: 20418772
+
+101: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418771; Sample name: 7; SRA: SRS9637885
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="7"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418771	ID: 20418771
+
+102: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418770; Sample name: 6; SRA: SRS9637782
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="6"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418770	ID: 20418770
+
+103: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418769; Sample name: 5; SRA: SRS9637788
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="5"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418769	ID: 20418769
+
+104: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418768; Sample name: 2; SRA: SRS9637758
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-19"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418768	ID: 20418768
+
+105: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418767; Sample name: 165; SRA: SRS9637862
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Paratrigona opaca"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="165"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418767	ID: 20418767
+
+106: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418766; Sample name: 164; SRA: SRS9637865
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="164"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418766	ID: 20418766
+
+107: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418765; Sample name: 163; SRA: SRS9637863
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona corvina"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="163"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418765	ID: 20418765
+
+108: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418764; Sample name: 162; SRA: SRS9637864
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="162"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418764	ID: 20418764
+
+109: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418763; Sample name: 140; SRA: SRS9637911
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="140"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418763	ID: 20418763
+
+110: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418762; Sample name: 133; SRA: SRS9637873
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="133"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418762	ID: 20418762
+
+111: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418761; Sample name: 117; SRA: SRS9637881
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="117"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418761	ID: 20418761
+
+112: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418760; Sample name: 116; SRA: SRS9637918
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="116"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418760	ID: 20418760
+
+113: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418759; Sample name: 136; SRA: SRS9637929
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="136"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418759	ID: 20418759
+
+114: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418758; Sample name: 127; SRA: SRS9637914
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="127"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418758	ID: 20418758
+
+115: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418757; Sample name: 121; SRA: SRS9637878
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="121"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418757	ID: 20418757
+
+116: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418756; Sample name: 120; SRA: SRS9637916
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="120"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418756	ID: 20418756
+
+117: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418755; Sample name: 119; SRA: SRS9637879
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="119"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418755	ID: 20418755
+
+118: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418754; Sample name: 118; SRA: SRS9637917
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="118"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418754	ID: 20418754
+
+119: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418753; Sample name: 180; SRA: SRS9637849
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="180"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418753	ID: 20418753
+
+120: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418752; Sample name: 179; SRA: SRS9637851
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-27"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="179"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418752	ID: 20418752
+
+
+121: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418751; Sample name: 178; SRA: SRS9637850
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-27"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="178"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418751	ID: 20418751
+
+122: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418750; Sample name: 175; SRA: SRS9637853
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="175"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418750	ID: 20418750
+
+123: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418749; Sample name: 174; SRA: SRS9637852
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="174"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418749	ID: 20418749
+
+124: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418748; Sample name: 173; SRA: SRS9637855
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="173"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418748	ID: 20418748
+
+125: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418747; Sample name: 171; SRA: SRS9637854
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="171"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418747	ID: 20418747
+
+126: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418746; Sample name: 170; SRA: SRS9637856
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="170"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418746	ID: 20418746
+
+127: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418745; Sample name: 169; SRA: SRS9637857
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona corvina"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="169"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418745	ID: 20418745
+
+128: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418744; Sample name: 146; SRA: SRS9637906
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="146"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418744	ID: 20418744
+
+129: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418743; Sample name: 145; SRA: SRS9637907
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="145"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418743	ID: 20418743
+
+130: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418742; Sample name: 134; SRA: SRS9637792
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="134"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418742	ID: 20418742
+
+131: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418741; Sample name: 131; SRA: SRS9637875
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="131"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418741	ID: 20418741
+
+132: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418740; Sample name: 130; SRA: SRS9637913
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="130"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418740	ID: 20418740
+
+133: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418739; Sample name: 112; SRA: SRS9637882
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Melipona panamica"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="112"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418739	ID: 20418739
+
+134: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418738; Sample name: 157; SRA: SRS9637895
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="157"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418738	ID: 20418738
+
+135: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418737; Sample name: 156; SRA: SRS9637897
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="156"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418737	ID: 20418737
+
+136: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418736; Sample name: 166; SRA: SRS9637861
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca buchwaldi"
+    /latitude and longitude="10.43059 N 84.00656 W"
+    /Misc.="166"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418736	ID: 20418736
+
+137: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418735; Sample name: 94; SRA: SRS9637926
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.25662 N 84.00353 W"
+    /Misc.="94"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418735	ID: 20418735
+
+138: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418734; Sample name: 61; SRA: SRS9637781
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.26118 N 84.01881 W"
+    /Misc.="61"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418734	ID: 20418734
+
+139: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418733; Sample name: 60; SRA: SRS9637887
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Scaptotrigona wheeleri"
+    /latitude and longitude="10.26118 N 84.01881 W"
+    /Misc.="60"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418733	ID: 20418733
+
+140: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418732; Sample name: 200; SRA: SRS9637834
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="8.47190 N 82.58457 W"
+    /Misc.="Plebeia flavoscutellata 17"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418732	ID: 20418732
+
+141: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418731; Sample name: 195; SRA: SRS9637835
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="8.48105 N 82.58355 W"
+    /Misc.="Plebeia flavoscutellata 16"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418731	ID: 20418731
+
+142: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418730; Sample name: 194; SRA: SRS9637836
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="8.47643 N 82.58277 W"
+    /Misc.="Plebeia flavoscutellata 15"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418730	ID: 20418730
+
+143: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418729; Sample name: 193; SRA: SRS9637838
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="8.47643 N 82.58277 W"
+    /Misc.="Plebeia flavoscutellata 14"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418729	ID: 20418729
+
+144: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418728; Sample name: 192; SRA: SRS9637839
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona corvina"
+    /latitude and longitude="8.47596 N 82.57325 W"
+    /Misc.="Plebeia flavoscutellata 13"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418728	ID: 20418728
+
+145: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418727; Sample name: 191; SRA: SRS9637840
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona corvina"
+    /latitude and longitude="8.47596 N 82.57325 W"
+    /Misc.="Plebeia flavoscutellata 12"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418727	ID: 20418727
+
+146: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418726; Sample name: 190; SRA: SRS9637841
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona corvina"
+    /latitude and longitude="8.47596 N 82.57325 W"
+    /Misc.="Plebeia flavoscutellata 11"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418726	ID: 20418726
+
+147: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418725; Sample name: 184; SRA: SRS9637843
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="8.47138 N 82.57653 W"
+    /Misc.="Plebeia flavoscutellata 10"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418725	ID: 20418725
+
+148: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418724; Sample name: 148; SRA: SRS9637904
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Plebeia flavoscutellata 9"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418724	ID: 20418724
+
+149: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418723; Sample name: 137; SRA: SRS9637928
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Plebeia flavoscutellata 8"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418723	ID: 20418723
+
+150: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418722; Sample name: 132; SRA: SRS9637793
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Plebeia flavoscutellata 7"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418722	ID: 20418722
+
+151: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418721; Sample name: 128; SRA: SRS9637874
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Plebeia flavoscutellata 6"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418721	ID: 20418721
+
+152: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418720; Sample name: 125; SRA: SRS9637915
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Plebeia flavoscutellata 5"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418720	ID: 20418720
+
+153: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418719; Sample name: 114; SRA: SRS9637919
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Melipona panamica"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Plebeia flavoscutellata 4"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418719	ID: 20418719
+
+154: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418718; Sample name: 113; SRA: SRS9637920
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Melipona panamica"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="Plebeia flavoscutellata 3"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418718	ID: 20418718
+
+155: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418717; Sample name: 56; SRA: SRS9637889
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="Plebeia flavoscutellata 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418717	ID: 20418717
+
+156: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418716; Sample name: 55; SRA: SRS9637785
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="Plebeia flavoscutellata 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418716	ID: 20418716
+
+157: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418715; Sample name: 204; SRA: SRS9637829
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="8.47509 N 82.57194 W"
+    /Misc.="204"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418715	ID: 20418715
+
+158: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418714; Sample name: 189; SRA: SRS9637842
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona corvina"
+    /latitude and longitude="8.47509 N 82.57194 W"
+    /Misc.="189"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418714	ID: 20418714
+
+159: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418713; Sample name: 185; SRA: SRS9637844
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="8.47509 N 82.57194 W"
+    /Misc.="185"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418713	ID: 20418713
+
+160: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418712; Sample name: 183; SRA: SRS9637845
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="8.47138 N 82.57652 W"
+    /Misc.="183"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418712	ID: 20418712
+
+161: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418711; Sample name: 182; SRA: SRS9637846
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="8.47138 N 82.57651 W"
+    /Misc.="182"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418711	ID: 20418711
+
+162: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418710; Sample name: 181; SRA: SRS9637847
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-28"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="8.47138 N 82.57651 W"
+    /Misc.="181"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418710	ID: 20418710
+
+163: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418709; Sample name: 143; SRA: SRS9637908
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="143"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418709	ID: 20418709
+
+164: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418708; Sample name: 142; SRA: SRS9637909
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="142"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418708	ID: 20418708
+
+165: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418707; Sample name: 141; SRA: SRS9637910
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="141"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418707	ID: 20418707
+
+166: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418706; Sample name: 138; SRA: SRS9637912
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="138"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418706	ID: 20418706
+
+167: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418705; Sample name: 126; SRA: SRS9637877
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="126"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418705	ID: 20418705
+
+168: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418704; Sample name: 115; SRA: SRS9637880
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Melipona costaricensis"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="115"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418704	ID: 20418704
+
+169: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418703; Sample name: 101; SRA: SRS9637922
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="101"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418703	ID: 20418703
+
+170: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418702; Sample name: 63; SRA: SRS9637780
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Scaptotrigona wheeleri"
+    /latitude and longitude="10.26118 N 84.01881 W"
+    /Misc.="63"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418702	ID: 20418702
+
+171: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418701; Sample name: 95; SRA: SRS9637884
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.25662 N 84.00353 W"
+    /Misc.="95"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418701	ID: 20418701
+
+172: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418700; Sample name: 86; SRA: SRS9637766
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25537 N 84.02489 W"
+    /Misc.="86"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418700	ID: 20418700
+
+173: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418699; Sample name: 83; SRA: SRS9637768
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Trigona silvestriana"
+    /latitude and longitude="10.25537 N 84.02489 W"
+    /Misc.="83"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418699	ID: 20418699
+
+174: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418698; Sample name: 82; SRA: SRS9637769
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25537 N 84.02489 W"
+    /Misc.="82"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418698	ID: 20418698
+
+175: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418697; Sample name: 59; SRA: SRS9637783
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.26118 N 84.01881 W"
+    /Misc.="59"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418697	ID: 20418697
+
+176: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418696; Sample name: 58; SRA: SRS9637888
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.26118 N 84.01881 W"
+    /Misc.="58"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418696	ID: 20418696
+
+177: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418695; Sample name: 57; SRA: SRS9637784
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.26118 N 84.01881 W"
+    /Misc.="57"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418695	ID: 20418695
+
+178: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418694; Sample name: 53; SRA: SRS9637786
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="53"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418694	ID: 20418694
+
+179: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418693; Sample name: 51; SRA: SRS9637891
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="51"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418693	ID: 20418693
+
+180: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418692; Sample name: 40; SRA: SRS9637798
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25554 N 84.00607 W"
+    /Misc.="40"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418692	ID: 20418692
+
+
+181: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418691; Sample name: 38; SRA: SRS9637802
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25394 N 84.01264 W"
+    /Misc.="38"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418691	ID: 20418691
+
+182: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418690; Sample name: 35; SRA: SRS9637801
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25754 N 84.01035 W"
+    /Misc.="35"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418690	ID: 20418690
+
+183: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418689; Sample name: 32; SRA: SRS9637804
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25754 N 84.01035 W"
+    /Misc.="32"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418689	ID: 20418689
+
+184: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418688; Sample name: 31; SRA: SRS9637803
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25754 N 84.01035 W"
+    /Misc.="31"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418688	ID: 20418688
+
+185: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418687; Sample name: 30; SRA: SRS9637805
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25754 N 84.01035 W"
+    /Misc.="30"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418687	ID: 20418687
+
+186: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418686; Sample name: 26; SRA: SRS9637807
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-21"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.26282 N 84.00775 W"
+    /Misc.="26"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418686	ID: 20418686
+
+187: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418685; Sample name: 25; SRA: SRS9637894
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.26282 N 84.00775 W"
+    /Misc.="25"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418685	ID: 20418685
+
+188: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418684; Sample name: 23; SRA: SRS9637808
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona musarum"
+    /latitude and longitude="10.25951 N 84.00401 W"
+    /Misc.="23"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418684	ID: 20418684
+
+189: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418683; Sample name: 14; SRA: SRS9637860
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Oxytrigona mellicolor"
+    /latitude and longitude="10.25710 N 84.01773 W"
+    /Misc.="14"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418683	ID: 20418683
+
+190: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418682; Sample name: 13; SRA: SRS9637871
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.24763 N 84.02167 W"
+    /Misc.="13"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418682	ID: 20418682
+
+191: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418681; Sample name: 12; SRA: SRS9637870
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.24763 N 84.02167 W"
+    /Misc.="12"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418681	ID: 20418681
+
+192: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418680; Sample name: 11; SRA: SRS9637757
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.24763 N 84.02167 W"
+    /Misc.="11"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418680	ID: 20418680
+
+193: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418679; Sample name: 10; SRA: SRS9637876
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.24763 N 84.02167 W"
+    /Misc.="10"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418679	ID: 20418679
+
+194: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418678; Sample name: 8; SRA: SRS9637762
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Trigona necrophaga"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="8"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418678	ID: 20418678
+
+195: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418677; Sample name: 4; SRA: SRS9637800
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="4"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418677	ID: 20418677
+
+196: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418676; Sample name: 3; SRA: SRS9637810
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Trigona ferricauda"
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="3"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418676	ID: 20418676
+
+197: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418675; Sample name: 135; SRA: SRS9637872
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-23"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Tetragonisca angustula"
+    /latitude and longitude="8.47145 N 82.57587 W"
+    /Misc.="135"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418675	ID: 20418675
+
+198: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418674; Sample name: 149; SRA: SRS9637903
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.431183 N 84.003702 W"
+    /Misc.="149"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418674	ID: 20418674
+
+199: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418673; Sample name: 203; SRA: SRS9637828
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.25590 N 84.01886 W"
+    /Misc.="203"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418673	ID: 20418673
+
+200: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418672; Sample name: 202; SRA: SRS9637830
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Partamona orizabaensis"
+    /latitude and longitude="10.25590 N 84.01886 W"
+    /Misc.="202"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418672	ID: 20418672
+
+201: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418671; Sample name: 201; SRA: SRS9637831
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-30"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Plebeia flavoscutellata (nom. nud.)"
+    /latitude and longitude="10.25590 N 84.01886 W"
+    /Misc.="201"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418671	ID: 20418671
+
+202: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418670; Sample name: 15; SRA: SRS9637848
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-20"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Patrolling"
+    /geographic location="Costa Rica"
+    /host="Trigona fulviventris"
+    /latitude and longitude="10.25710 N 84.01773 W"
+    /Misc.="Melipona costaricensis"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418670	ID: 20418670
+
+203: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418669; Sample name: W6; SRA: SRS9637814
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Wasp sp."
+    /latitude and longitude="10.25394 N 84.01264 W"
+    /Misc.="W6"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418669	ID: 20418669
+
+204: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418668; Sample name: W8; SRA: SRS9637812
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-27"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Wasp sp."
+    /latitude and longitude="10.25796 N 84.00404 W"
+    /Misc.="W8"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418668	ID: 20418668
+
+205: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418667; Sample name: W5; SRA: SRS9637816
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-26"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Flower"
+    /geographic location="Costa Rica"
+    /host="Wasp sp."
+    /latitude and longitude="10.25754 N 84.01035 W"
+    /Misc.="W5"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418667	ID: 20418667
+
+206: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418666; Sample name: W7; SRA: SRS9637813
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-27"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="Las_Cruces"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Wasp sp."
+    /latitude and longitude="10.25554 N 84.00607 W"
+    /Misc.="W7"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418666	ID: 20418666
+
+207: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418665; Sample name: W4; SRA: SRS9637818
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Wasp sp."
+    /latitude and longitude="10.25927 N 84.00785 W"
+    /Misc.="W4"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418665	ID: 20418665
+
+208: MIMARKS Survey related sample from insect gut metagenome
+Identifiers: BioSample: SAMN20418664; Sample name: W3; SRA: SRS9637817
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2019-03-22"
+    /broad-scale environmental context="low-land tropical rainforest"
+    /local-scale environmental context="La_Selva"
+    /environmental medium="Chicken"
+    /geographic location="Costa Rica"
+    /host="Wasp sp."
+    /latitude and longitude="10.25811 N 84.0572 W"
+    /Misc.="W3"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN20418664	ID: 20418664
+
+

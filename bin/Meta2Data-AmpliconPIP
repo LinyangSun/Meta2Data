@@ -1,0 +1,504 @@
+#!/bin/bash
+set -e
+
+# Find scripts directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SCRIPTS="${SCRIPT_DIR}/scripts"
+
+show_help() {
+    cat << EOF
+Usage: Meta2Data AmpliconPIP [options]
+
+Download and process amplicon sequencing data based on user provided metadata.
+
+Required options:
+    -m, --metadata FILE       Input metadata CSV file
+
+Optional options:
+    -o, --output DIR          Output base directory (default: same directory as metadata file)
+    -t, --threads INT         Number of CPU threads (default: 4)
+    --skip-download           Skip SRA download (use existing FASTQ files)
+    --keep-tmp                Keep temporary files after processing
+    -h, --help                Show this help message
+
+Column name customization (specify your CSV column names):
+    --col-bioproject NAME     Column for BioProject/Dataset ID (default: 'Data-Bioproject')
+    --col-platform NAME       Column for platform (default: 'Data-SequencingPlatform')
+    --col-sra NAME            Column for SRA accession (default: 'Data-SRA')
+    --col-biosample NAME      Column for BioSample (default: 'Data-Biosample')
+    --col-forward NAME        Column for forward primer (default: 'Data-Forward')
+    --col-reverse NAME        Column for reverse primer (default: 'Data-Reverse')
+    --col-region NAME         Column for target region (default: 'Data-Region')
+
+Metadata CSV file format:
+    Required columns (default names, customizable with --col-* options):
+    - Data-Bioproject          : BioProject accession (used as dataset ID, e.g., PRJNA123456)
+    - Data-SequencingPlatform  : Platform (illumina/454/pacbio)
+    - Data-SRA                 : SRA run accession (e.g., SRR123456)
+    - Data-Biosample           : BioSample accession
+
+    Optional columns (default names, customizable with --col-* options):
+    - Data-Forward             : Forward primer sequence
+    - Data-Reverse             : Reverse primer sequence
+    - Data-Region              : Target region (e.g., V4)
+
+Example CSV structure:
+    Data-Bioproject,Data-SequencingPlatform,Data-SRA,Data-Biosample,Data-Forward,Data-Reverse,Data-Region
+    PRJNA12345,illumina,SRR123456,SAMN123456,GTGCCAGCMGCCGCGGTAA,GGACTACHVGGGTWTCTAAT,V4
+    PRJNA12345,illumina,SRR123457,SAMN123457,GTGCCAGCMGCCGCGGTAA,GGACTACHVGGGTWTCTAAT,V4
+
+Example usage:
+    # Basic usage (output to metadata file directory)
+    Meta2Data AmpliconPIP -m /path/to/metadata.csv -t 8
+
+    # Specify custom output directory
+    Meta2Data AmpliconPIP -m metadata.csv -o /custom/output/dir/ -t 8
+
+    # Using custom column names
+    Meta2Data AmpliconPIP -m metadata.csv -t 8 \
+        --col-bioproject "ProjectID" \
+        --col-platform "Platform" \
+        --col-sra "SRA_Accession"
+
+Pipeline workflow:
+    1. Parse metadata and generate dataset ID lists
+    2. Generate SRA accession files for each dataset
+    3. For each dataset:
+       a. Download SRA data using iSeq
+       b. Detect sequencing type (paired-end/single-end)
+       c. Extract primer information
+       d. Run platform-specific processing pipeline
+       e. Generate final QZA files
+
+Supported platforms:
+    - illumina : Uses Deblur for denoising
+    - 454      : Uses de novo clustering with chimera removal
+    - pacbio   : Uses DADA2 for denoising
+
+Output structure:
+    <output_dir>/
+    ├── datasets_ID.txt              # Generated dataset list
+    ├── <dataset_ID>/                # One directory per dataset
+    │   ├── <dataset_ID>_sra.txt     # SRA accession list
+    │   ├── ori_fastq/               # Downloaded FASTQ files
+    │   ├── <dataset_ID>-final-rep-seqs.qza       # Final sequences
+    │   └── <dataset_ID>-final-feature-table.qza  # Final feature table
+    ├── failed_datasets.log
+    ├── success_datasets.log
+    └── skipped_datasets.log
+
+EOF
+}
+
+# Default parameters
+METADATA=""
+OUTPUT=""
+THREADS=4
+SKIP_DOWNLOAD=false
+KEEP_TMP=false
+
+# Default column names (customizable by user)
+COL_BIOPROJECT="Data-Bioproject"
+COL_PLATFORM="Data-SequencingPlatform"
+COL_SRA="Data-SRA"
+COL_BIOSAMPLE="Data-Biosample"
+COL_FORWARD="Data-Forward"
+COL_REVERSE="Data-Reverse"
+COL_REGION="Data-Region"
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -m|--metadata)
+            METADATA="$2"
+            shift 2
+            ;;
+        -o|--output)
+            OUTPUT="$2"
+            shift 2
+            ;;
+        -t|--threads)
+            THREADS="$2"
+            shift 2
+            ;;
+        --skip-download)
+            SKIP_DOWNLOAD=true
+            shift
+            ;;
+        --keep-tmp)
+            KEEP_TMP=true
+            shift
+            ;;
+        --col-bioproject)
+            COL_BIOPROJECT="$2"
+            shift 2
+            ;;
+        --col-platform)
+            COL_PLATFORM="$2"
+            shift 2
+            ;;
+        --col-sra)
+            COL_SRA="$2"
+            shift 2
+            ;;
+        --col-biosample)
+            COL_BIOSAMPLE="$2"
+            shift 2
+            ;;
+        --col-forward)
+            COL_FORWARD="$2"
+            shift 2
+            ;;
+        --col-reverse)
+            COL_REVERSE="$2"
+            shift 2
+            ;;
+        --col-region)
+            COL_REGION="$2"
+            shift 2
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "Error: Unknown option '$1'"
+            show_help
+            exit 1
+            ;;
+    esac
+done
+
+# Validate required parameters
+if [[ -z "$METADATA" ]]; then
+    echo "Error: --metadata is required"
+    show_help
+    exit 1
+fi
+
+# Check if metadata file exists
+if [[ ! -f "$METADATA" ]]; then
+    echo "Error: Metadata file '$METADATA' not found"
+    exit 1
+fi
+
+# Convert metadata to absolute path
+METADATA=$(cd "$(dirname "$METADATA")" && pwd)/$(basename "$METADATA")
+
+# Set output directory (default: same directory as metadata file)
+if [[ -z "$OUTPUT" ]]; then
+    OUTPUT=$(dirname "$METADATA")
+    echo "Output directory not specified, using metadata file directory: $OUTPUT"
+else
+    # Create output directory if specified
+    mkdir -p "$OUTPUT"
+    OUTPUT=$(cd "$OUTPUT" && pwd)
+fi
+
+# Source function library
+if [[ -f "${SCRIPTS}/Function_Import.sh" ]]; then
+    source "${SCRIPTS}/Function_Import.sh"
+else
+    echo "Error: Function_Import.sh not found at ${SCRIPTS}/Function_Import.sh"
+    exit 1
+fi
+
+# Check required tools
+command -v iseq >/dev/null 2>&1 || { echo "Error: 'iseq' not found. Please install via: conda install bioconda::iseq"; exit 1; }
+command -v py_16s.py >/dev/null 2>&1 || { echo "Error: 'py_16s.py' not found. Make sure scripts directory is in PATH."; exit 1; }
+
+# Display configuration
+echo "========================================="
+echo "Meta2Data AmpliconPIP"
+echo "========================================="
+echo "Metadata:       $METADATA"
+echo "Output:         $OUTPUT"
+echo "Threads:        $THREADS"
+echo "Skip download:  $SKIP_DOWNLOAD"
+echo "Keep tmp:       $KEEP_TMP"
+echo "========================================="
+echo ""
+
+# Export environment variables
+export cpu=$THREADS
+export SKIP_DOWNLOAD
+export KEEP_TMP
+
+
+################################################################################
+#                       PHASE 1: Dataset Preparation                           #
+################################################################################
+
+echo "========================================="
+echo "PHASE 1: Dataset Preparation"
+echo "Started: $(date)"
+echo "========================================="
+echo ""
+
+# Navigate to output directory
+cd "$OUTPUT" || { echo "Error: Cannot access $OUTPUT"; exit 1; }
+
+# Step 1: Generate dataset ID list (using Bioproject as dataset ID)
+echo ">>> Step 1: Generating dataset IDs..."
+echo "Using column names:"
+echo "  BioProject (Dataset ID): $COL_BIOPROJECT"
+echo "  Platform:                $COL_PLATFORM"
+if ! py_16s.py GenerateDatasetsIDsFile \
+    --FilePath "$METADATA" \
+    --Bioproject "$COL_BIOPROJECT" \
+    --SequencingPlatform "$COL_PLATFORM"; then
+    echo "Error: Failed to generate dataset IDs"
+    exit 1
+fi
+
+# Validate datasets_ID.txt exists
+if [ ! -f "${OUTPUT}/datasets_ID.txt" ]; then
+    echo "Error: datasets_ID.txt was not created"
+    exit 1
+fi
+
+# Load dataset arrays
+mapfile -t Dataset_ID_sets < <(awk '{print $1}' "${OUTPUT}/datasets_ID.txt")
+mapfile -t SequencingPlatform_sets < <(awk '{print $2}' "${OUTPUT}/datasets_ID.txt")
+
+# Validate array sizes match
+if [ ${#Dataset_ID_sets[@]} -ne ${#SequencingPlatform_sets[@]} ]; then
+    echo "Error: Mismatch between dataset IDs (${#Dataset_ID_sets[@]}) and platforms (${#SequencingPlatform_sets[@]})"
+    exit 1
+fi
+
+if [ ${#Dataset_ID_sets[@]} -eq 0 ]; then
+    echo "Error: No datasets found in datasets_ID.txt"
+    exit 1
+fi
+
+echo "✓ Found ${#Dataset_ID_sets[@]} datasets to process"
+echo ""
+
+# Step 2: Generate SRA file list
+echo ">>> Step 2: Generating SRA file list..."
+echo "Using column names:"
+echo "  BioProject: $COL_BIOPROJECT"
+echo "  SRA:        $COL_SRA"
+echo "  BioSample:  $COL_BIOSAMPLE"
+echo "  Forward:    $COL_FORWARD"
+echo "  Reverse:    $COL_REVERSE"
+echo "  Region:     $COL_REGION"
+if ! py_16s.py GenerateSRAsFile \
+    --FilePath "$METADATA" \
+    --Bioproject "$COL_BIOPROJECT" \
+    --SRA_Number "$COL_SRA" \
+    --Biosample "$COL_BIOSAMPLE" \
+    --Forward "$COL_FORWARD" \
+    --Reverse "$COL_REVERSE" \
+    --region "$COL_REGION"; then
+    echo "Error: Failed to generate SRA file list"
+    exit 1
+fi
+
+echo "✓ SRA file list generated successfully"
+echo ""
+
+
+################################################################################
+#                   PHASE 2: Individual Dataset Processing                     #
+################################################################################
+
+echo "========================================="
+echo "PHASE 2: Processing Individual Datasets"
+echo "Started: $(date)"
+echo "========================================="
+echo ""
+
+# Initialize log files
+failed_log="${OUTPUT}/failed_datasets.log"
+success_log="${OUTPUT}/success_datasets.log"
+skipped_log="${OUTPUT}/skipped_datasets.log"
+
+: > "$failed_log"
+: > "$success_log"
+: > "$skipped_log"
+
+# Process each dataset
+for i in "${!Dataset_ID_sets[@]}"; do
+
+    # -----------------------------------------------------------------------
+    # Dataset initialization
+    # -----------------------------------------------------------------------
+    dataset_ID="${Dataset_ID_sets[$i]}"
+    platform="${SequencingPlatform_sets[$i]}"
+    platform="${platform,,}"  # Convert to lowercase
+    dataset_path="${OUTPUT}/${dataset_ID}/"
+    sra_file_name="${dataset_ID}_sra.txt"
+
+    echo "========================================"
+    echo "Dataset $((i+1))/${#Dataset_ID_sets[@]}: $dataset_ID"
+    echo "Platform: $platform"
+    echo "Path: $dataset_path"
+    echo "========================================"
+
+    # -----------------------------------------------------------------------
+    # Check if already processed
+    # -----------------------------------------------------------------------
+    if [ -f "${dataset_path}${dataset_ID}-final-rep-seqs.qza" ]; then
+        echo "✓ Dataset already processed. Skipping."
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - ALREADY_DONE - Platform: $platform" >> "$skipped_log"
+        echo ""
+        continue
+    fi
+
+    # -----------------------------------------------------------------------
+    # Clean previous incomplete outputs
+    # -----------------------------------------------------------------------
+    echo "Cleaning previous incomplete outputs..."
+    find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} + 2>/dev/null || true
+
+    # -----------------------------------------------------------------------
+    # Process dataset (with error handling)
+    # -----------------------------------------------------------------------
+    {
+        cd "$dataset_path" || { echo "Error: Cannot access $dataset_path"; exit 1; }
+
+        # Step 1: Download data
+        if [[ "$SKIP_DOWNLOAD" == false ]]; then
+            echo ""
+            echo ">>> Downloading SRA data..."
+            if ! Common_SRADownloadToFastq_Common_SraToolkits -d "$dataset_path" -a "${sra_file_name}"; then
+                echo "❌ ERROR: SRA download failed"
+                exit 1
+            fi
+            echo "✓ Download completed"
+        fi
+
+        # Step 2: Analyze sequence type and primers
+        echo ""
+        echo ">>> Analyzing sequence characteristics..."
+        sra_file_path="${dataset_path}${sra_file_name}"
+        fastq_path="${dataset_path}ori_fastq/"
+
+        # Validate SRA file exists
+        if [ ! -f "$sra_file_path" ]; then
+            echo "❌ ERROR: SRA file not found: $sra_file_path"
+            exit 1
+        fi
+
+        # Extract primer information
+        F_primer=$(cut -d$'\t' -f4 "$sra_file_path" | uniq)
+        R_primer=$(cut -d$'\t' -f5 "$sra_file_path" | uniq)
+        REVRC=$(echo "$R_primer" | tr ACGTacgt TGCAtgca | rev)
+
+        # Count lines and files
+        line_count=$(wc -l < "$sra_file_path")
+        file_count=$(find "$fastq_path" -type f 2>/dev/null | wc -l)
+
+        # Determine if paired-end or single-end
+        if [ $((line_count * 2)) -eq $file_count ]; then
+            echo "Sequence type: PAIRED-END"
+            sequence_type="paired"
+        elif [ $line_count -eq $file_count ]; then
+            echo "Sequence type: SINGLE-END"
+            sequence_type="single"
+        else
+            echo "⚠️  WARNING: Mismatch between SRA lines ($line_count) and FASTQ files ($file_count)"
+            echo "This may be a mixed dataset - will be standardized during processing"
+            sequence_type="mixed"
+        fi
+
+        echo "Forward primer: $F_primer"
+        echo "Reverse primer: $R_primer"
+        echo "Files found: $file_count"
+
+        # Export variables for downstream processing
+        export dataset_path F_primer R_primer REVRC sequence_type
+        export dataset_name="$dataset_ID"
+
+        # Step 3: Platform-specific processing pipeline
+        echo ""
+        echo ">>> Running $platform pipeline..."
+
+        if [[ "$platform" == "454" ]]; then
+            # ---- 454 SEQUENCING PIPELINE ----
+            echo "Pipeline: 454 Pyrosequencing"
+            Amplicon_454_ImportToQiime2 || { echo "❌ Failed at ImportToQiime2"; exit 1; }
+            Amplicon_454_QualityControl || { echo "❌ Failed at QualityControl"; exit 1; }
+            Amplicon_454_Deduplication || { echo "❌ Failed at Deduplication"; exit 1; }
+            Amplicon_454_ChimerasRemoval || { echo "❌ Failed at ChimerasRemoval"; exit 1; }
+            Amplicon_454_ClusterDenovo || { echo "❌ Failed at ClusterDenovo"; exit 1; }
+            Amplicon_Common_FinalFilesCleaning || { echo "❌ Failed at FinalFilesCleaning"; exit 1; }
+
+        elif [[ "$platform" == "pacbio" ]]; then
+            # ---- PACBIO SEQUENCING PIPELINE ----
+            echo "Pipeline: PacBio Long-Read"
+            Amplicon_Pacbio_PrimerDetectionAndQualityControl || { echo "❌ Failed at PrimerDetection"; exit 1; }
+            Amplicon_Common_MakeManifestFileForQiime2 || { echo "❌ Failed at MakeManifest"; exit 1; }
+            Amplicon_Common_ImportFastqToQiime2 || { echo "❌ Failed at ImportFastq"; exit 1; }
+            Amplicon_Pacbio_QualityControlForQZA || { echo "❌ Failed at QualityControl"; exit 1; }
+            Amplicon_Pacbio_DenosingDada2 || { echo "❌ Failed at Denoising"; exit 1; }
+            Amplicon_Common_FinalFilesCleaning || { echo "❌ Failed at FinalFilesCleaning"; exit 1; }
+
+        else
+            # ---- ILLUMINA SEQUENCING PIPELINE (DEFAULT) ----
+            echo "Pipeline: Illumina Short-Read"
+            Amplicon_Illumina_PrimerDetectionAndQualityControl || { echo "❌ Failed at PrimerDetection"; exit 1; }
+            Amplicon_Common_MakeManifestFileForQiime2 || { echo "❌ Failed at MakeManifest"; exit 1; }
+            Amplicon_Common_ImportFastqToQiime2 || { echo "❌ Failed at ImportFastq"; exit 1; }
+            Amplicon_Illumina_QualityControlForQZA || { echo "❌ Failed at QualityControl"; exit 1; }
+            Amplicon_Illumina_DenosingDeblur || { echo "❌ Failed at Denoising"; exit 1; }
+            Amplicon_Common_FinalFilesCleaning || { echo "❌ Failed at FinalFilesCleaning"; exit 1; }
+        fi
+
+        # Cleanup temporary files if requested
+        if [[ "$KEEP_TMP" == false ]]; then
+            echo ""
+            echo ">>> Cleaning up temporary files..."
+            rm -rf "${dataset_path}ori_fastq/" 2>/dev/null || true
+            rm -rf "${dataset_path}temp"* 2>/dev/null || true
+        fi
+
+        echo ""
+        echo "✓ Pipeline completed successfully for $dataset_ID"
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SUCCESS - Platform: $platform" >> "$success_log"
+
+    } || {
+        # Error handling
+        echo ""
+        echo "❌ ERROR: Pipeline failed for $dataset_ID"
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED - Platform: $platform" >> "$failed_log"
+        echo ""
+    }
+
+    echo ""
+
+done
+
+
+################################################################################
+#                             Final Summary                                    #
+################################################################################
+
+echo "========================================="
+echo "PROCESSING COMPLETE"
+echo "Finished: $(date)"
+echo "========================================="
+echo ""
+
+# Count results
+total_datasets=${#Dataset_ID_sets[@]}
+success_count=$(wc -l < "$success_log" 2>/dev/null | tr -d ' ')
+failed_count=$(wc -l < "$failed_log" 2>/dev/null | tr -d ' ')
+skipped_count=$(wc -l < "$skipped_log" 2>/dev/null | tr -d ' ')
+
+echo "Summary:"
+echo "  Total datasets:     $total_datasets"
+echo "  Successful:         $success_count"
+echo "  Failed:             $failed_count"
+echo "  Skipped (already):  $skipped_count"
+echo ""
+
+if [ -s "$failed_log" ]; then
+    echo "⚠️  Some datasets failed. Check: $failed_log"
+    echo ""
+fi
+
+echo "Results saved in: $OUTPUT"
+echo "========================================="

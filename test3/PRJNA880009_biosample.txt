@@ -1,0 +1,681 @@
+1: Bees cuticular metagenome Cantus Gold + Mospilan 5
+Identifiers: BioSample: SAMN30824283; Sample name: Cantus Gold + Mospilan 5; SRA: SRS15123252
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold + Mospilan 5"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold and 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824283	ID: 30824283
+
+2: Bees cuticular metagenome Cantus Gold + Mospilan 4
+Identifiers: BioSample: SAMN30824282; Sample name: Cantus Gold + Mospilan 4; SRA: SRS15123253
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold + Mospilan 4"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold and 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824282	ID: 30824282
+
+3: Bees cuticular metagenome Cantus Gold + Mospilan 3
+Identifiers: BioSample: SAMN30824281; Sample name: Cantus Gold + Mospilan 3; SRA: SRS15123264
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold + Mospilan 3"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold and 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824281	ID: 30824281
+
+4: Bees cuticular metagenome Cantus Gold + Mospilan 2
+Identifiers: BioSample: SAMN30824280; Sample name: Cantus Gold + Mospilan 2; SRA: SRS15123274
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold + Mospilan 2"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold and 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824280	ID: 30824280
+
+5: Bees cuticular metagenome Cantus Gold + Mospilan 1
+Identifiers: BioSample: SAMN30824279; Sample name: Cantus Gold + Mospilan 1; SRA: SRS15123288
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold + Mospilan 1"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold and 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824279	ID: 30824279
+
+6: Bees cuticular metagenome Mospilan 5
+Identifiers: BioSample: SAMN30824278; Sample name: Mospilan 5; SRA: SRS15123290
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of Mospilan 5"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824278	ID: 30824278
+
+7: Bees cuticular metagenome Mospilan 4
+Identifiers: BioSample: SAMN30824277; Sample name: Mospilan 4; SRA: SRS15123289
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of Mospilan 4"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824277	ID: 30824277
+
+8: Bees cuticular metagenome Mospilan 3
+Identifiers: BioSample: SAMN30824276; Sample name: Mospilan 3; SRA: SRS15123291
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of Mospilan 3"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824276	ID: 30824276
+
+9: Bees cuticular metagenome Mospilan 2
+Identifiers: BioSample: SAMN30824275; Sample name: Mospilan 2; SRA: SRS15123284
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of Mospilan 2"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824275	ID: 30824275
+
+10: Bees cuticular metagenome Mospilan 1
+Identifiers: BioSample: SAMN30824274; Sample name: Mospilan 1; SRA: SRS15123283
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of Mospilan 1"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 200 µg*l-1  Mospilan®  solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824274	ID: 30824274
+
+11: Bees cuticular metagenome Cantus Gold 5
+Identifiers: BioSample: SAMN30824273; Sample name: Cantus Gold 5; SRA: SRS15123254
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold 5"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824273	ID: 30824273
+
+12: Bees cuticular metagenome Cantus Gold 4
+Identifiers: BioSample: SAMN30824272; Sample name: Cantus Gold 4; SRA: SRS15123256
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold 4"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824272	ID: 30824272
+
+13: Bees cuticular metagenome Cantus Gold 3
+Identifiers: BioSample: SAMN30824271; Sample name: Cantus Gold 3; SRA: SRS15123255
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold 3"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824271	ID: 30824271
+
+14: Bees cuticular metagenome Cantus Gold 2
+Identifiers: BioSample: SAMN30824270; Sample name: Cantus Gold 2; SRA: SRS15123257
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold 2"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824270	ID: 30824270
+
+15: Bees cuticular metagenome Cantus Gold 1
+Identifiers: BioSample: SAMN30824269; Sample name: Cantus Gold 1; SRA: SRS15123259
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of Cantus Gold 1"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 10 µg*l-1  Cantus® Gold solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824269	ID: 30824269
+
+16: Bees cuticular metagenome Control Cantus Gold + Mospilan 5
+Identifiers: BioSample: SAMN30824268; Sample name: Control Cantus Gold + Mospilan 5; SRA: SRS15123258
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of Control Cantus Gold + Mospilan 5"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824268	ID: 30824268
+
+17: Bees cuticular metagenome Control Cantus Gold + Mospilan 4
+Identifiers: BioSample: SAMN30824267; Sample name: Control Cantus Gold + Mospilan 4; SRA: SRS15123260
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of Control Cantus Gold + Mospilan 4"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824267	ID: 30824267
+
+18: Bees cuticular metagenome Control Cantus Gold + Mospilan 3
+Identifiers: BioSample: SAMN30824266; Sample name: Control Cantus Gold + Mospilan 3; SRA: SRS15123262
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of Control Cantus Gold + Mospilan 3"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824266	ID: 30824266
+
+19: Bees cuticular metagenome Control Cantus Gold + Mospilan 2
+Identifiers: BioSample: SAMN30824265; Sample name: Control Cantus Gold + Mospilan 2; SRA: SRS15123261
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of Control Cantus Gold + Mospilan 2"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824265	ID: 30824265
+
+20: Bees cuticular metagenome Control Cantus Gold + Mospilan 1
+Identifiers: BioSample: SAMN30824264; Sample name: Control Cantus Gold + Mospilan 1; SRA: SRS15123263
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of Control Cantus Gold + Mospilan 1"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824264	ID: 30824264
+
+21: Bees cuticular metagenome Difcor + Steward 5
+Identifiers: BioSample: SAMN30824263; Sample name: Difcor + Steward 5; SRA: SRS15123266
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of Difcor + Steward 5"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of  9 µg*l-1  Difcor® and 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824263	ID: 30824263
+
+22: Bees cuticular metagenome Difcor + Steward 4
+Identifiers: BioSample: SAMN30824262; Sample name: Difcor + Steward 4; SRA: SRS15123265
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of Difcor + Steward 4"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of  9 µg*l-1  Difcor® and 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824262	ID: 30824262
+
+23: Bees cuticular metagenome Difcor + Steward 3
+Identifiers: BioSample: SAMN30824261; Sample name: Difcor + Steward 3; SRA: SRS15123267
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of Difcor + Steward 3"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of  9 µg*l-1  Difcor® and 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824261	ID: 30824261
+
+24: Bees cuticular metagenome Difcor + Steward 2
+Identifiers: BioSample: SAMN30824260; Sample name: Difcor + Steward 2; SRA: SRS15123269
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of Difcor + Steward 2"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of  9 µg*l-1  Difcor® and 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824260	ID: 30824260
+
+25: Bees cuticular metagenome Difcor + Steward 1
+Identifiers: BioSample: SAMN30824259; Sample name: Difcor + Steward 1; SRA: SRS15123268
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of Difcor + Steward 1"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of  9 µg*l-1  Difcor® and 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824259	ID: 30824259
+
+26: Bees cuticular metagenome Steward 5
+Identifiers: BioSample: SAMN30824258; Sample name: Steward 5; SRA: SRS15123270
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of Steward 5"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824258	ID: 30824258
+
+27: Bees cuticular metagenome Steward 4
+Identifiers: BioSample: SAMN30824257; Sample name: Steward 4; SRA: SRS15123272
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of Steward 4"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824257	ID: 30824257
+
+28: Bees cuticular metagenome Steward 3
+Identifiers: BioSample: SAMN30824256; Sample name: Steward 3; SRA: SRS15123271
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of Steward 3"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824256	ID: 30824256
+
+29: Bees cuticular metagenome Steward 2
+Identifiers: BioSample: SAMN30824255; Sample name: Steward 2; SRA: SRS15123275
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of Steward 2"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824255	ID: 30824255
+
+30: Bees cuticular metagenome Steward 1
+Identifiers: BioSample: SAMN30824254; Sample name: Steward 1; SRA: SRS15123273
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of Steward 1"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 100 µg*l-1  Steward® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824254	ID: 30824254
+
+31: Bees cuticular metagenome Difcor 5
+Identifiers: BioSample: SAMN30824253; Sample name: Difcor 5; SRA: SRS15123278
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of Difcor 5"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 9 µg*l-1  Difcor® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824253	ID: 30824253
+
+32: Bees cuticular metagenome Difcor 4
+Identifiers: BioSample: SAMN30824252; Sample name: Difcor 4; SRA: SRS15123276
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of Difcor 4"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 9 µg*l-1  Difcor® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824252	ID: 30824252
+
+33: Bees cuticular metagenome Difcor 3
+Identifiers: BioSample: SAMN30824251; Sample name: Difcor 3; SRA: SRS15123285
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of Difcor 3"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 9 µg*l-1  Difcor® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824251	ID: 30824251
+
+34: Bees cuticular metagenome Difcor 2
+Identifiers: BioSample: SAMN30824250; Sample name: Difcor 2; SRA: SRS15123287
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of Difcor 2"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 9 µg*l-1  Difcor® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824250	ID: 30824250
+
+35: Bees cuticular metagenome Difcor 1
+Identifiers: BioSample: SAMN30824249; Sample name: Difcor 1; SRA: SRS15123286
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of Difcor 1"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The feeding solutions were calculated on the basis of residue levels found in the field, which resulted in a concetentration of 9 µg*l-1  Difcor® solved in 30% sugar water solution (based on sucrose).
+Accession: SAMN30824249	ID: 30824249
+
+36: Bees cuticular metagenome Control Difcor + Steward 5
+Identifiers: BioSample: SAMN30824248; Sample name: Control Difcor + Steward 5; SRA: SRS15123277
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 5"
+    /reference for biomaterial="bees cuticular surface of Control Difcor + Steward 5"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824248	ID: 30824248
+
+37: Bees cuticular metagenome Control Difcor + Steward 4
+Identifiers: BioSample: SAMN30824247; Sample name: Control Difcor + Steward 4; SRA: SRS15123281
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 4"
+    /reference for biomaterial="bees cuticular surface of Control Difcor + Steward 4"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824247	ID: 30824247
+
+38: Bees cuticular metagenome Control Difcor + Steward 3
+Identifiers: BioSample: SAMN30824246; Sample name: Control Difcor + Steward 3; SRA: SRS15123279
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 3"
+    /reference for biomaterial="bees cuticular surface of Control Difcor + Steward 3"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824246	ID: 30824246
+
+39: Bees cuticular metagenome Control Difcor + Steward 2
+Identifiers: BioSample: SAMN30824245; Sample name: Control Difcor + Steward 2; SRA: SRS15123280
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 2"
+    /reference for biomaterial="bees cuticular surface of Control Difcor + Steward 2"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824245	ID: 30824245
+
+40: Bees cuticular metagenome Control Difcor + Steward 1
+Identifiers: BioSample: SAMN30824244; Sample name: Control Difcor + Steward 1; SRA: SRS15123282
+Organism: insect metagenome
+Attributes:
+    /collection date="2021-03"
+    /geographic location="Germany: University of Wuerzburg apiary"
+    /latitude and longitude="49.77963710 N 9.97511451 E"
+    /isolation source="bees cuticular surface"
+    /sample material processing="Cuticle preparation occurred under frozen conditions. Antennae, legs, and wings were removed (but not discarded). Afterward, the inner organs (i.e., brain, muscles, gut, sting apparatus) were carefully removed from the head capsule, the thorax, and the abdomen. The prepared cuticles and outer body parts went into DNA isolation. Prepared cuticles from four bee individuals of each treatment were pooled for one sample. DNA extraction was performed using the Quick-DNA™ Fecal/Soil Microbe Microprep Kit according to the manufacturer's protocol."
+    /sample size="Cuticule of 4 bees"
+    /relationship to oxygen="aerobe"
+    /biological replicate="replicate 1"
+    /reference for biomaterial="bees cuticular surface of Control Difcor + Steward 1"
+Description:
+The honeybees were collected from a hive of the University of Wuerzburg. They were transferred into cages, which were maintained in an incubator (30°C, 50% humidity) for one week. The food was provided via Eppendorf cups that were prepared with little holes at the bottom. As a bee was expected to consume 60µl liquid per day, the amount of food per cage was adapted to the number of individuals, so that the bees could feed ad libitum. Each day, the Eppendorf cups were removed and replaced by new ones, so that a controlled and fresh food supply could be guaranteed. The control bees received a 30% sugar water solution (based on sucrose).
+Accession: SAMN30824244	ID: 30824244
+
+

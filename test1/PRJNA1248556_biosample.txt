@@ -1,0 +1,1957 @@
+1: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861518; Sample name: 115C65; SRA: SRS24661766
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="115"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G6
+Accession: SAMN47861518	ID: 47861518
+
+2: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861517; Sample name: 114C64; SRA: SRS24661763
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="114"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G6
+Accession: SAMN47861517	ID: 47861517
+
+3: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861516; Sample name: 113C63; SRA: SRS24661762
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="113"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G6
+Accession: SAMN47861516	ID: 47861516
+
+4: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861515; Sample name: 112C62; SRA: SRS24661764
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="112"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G6
+Accession: SAMN47861515	ID: 47861515
+
+5: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861514; Sample name: 111C61; SRA: SRS24661760
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="111"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G6
+Accession: SAMN47861514	ID: 47861514
+
+6: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861513; Sample name: 110R65; SRA: SRS24661759
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="110"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G6
+Accession: SAMN47861513	ID: 47861513
+
+7: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861512; Sample name: 109R64; SRA: SRS24661758
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="109"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G6
+Accession: SAMN47861512	ID: 47861512
+
+8: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861511; Sample name: 108R63; SRA: SRS24661757
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="108"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G6
+Accession: SAMN47861511	ID: 47861511
+
+9: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861510; Sample name: 107R62; SRA: SRS24661755
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="107"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G6
+Accession: SAMN47861510	ID: 47861510
+
+10: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861509; Sample name: 106R61; SRA: SRS24661756
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="106"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G6
+Accession: SAMN47861509	ID: 47861509
+
+11: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861508; Sample name: 105S65; SRA: SRS24661754
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="105"
+    /Treatment code="Short"
+Description:
+Short_lived_G6
+Accession: SAMN47861508	ID: 47861508
+
+12: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861507; Sample name: 104S64; SRA: SRS24661753
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="104"
+    /Treatment code="Short"
+Description:
+Short_lived_G6
+Accession: SAMN47861507	ID: 47861507
+
+13: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861506; Sample name: 103S63; SRA: SRS24661752
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="103"
+    /Treatment code="Short"
+Description:
+Short_lived_G6
+Accession: SAMN47861506	ID: 47861506
+
+14: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861505; Sample name: 102S62; SRA: SRS24661750
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="102"
+    /Treatment code="Short"
+Description:
+Short_lived_G6
+Accession: SAMN47861505	ID: 47861505
+
+15: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861504; Sample name: 101S61; SRA: SRS24661749
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="101"
+    /Treatment code="Short"
+Description:
+Short_lived_G6
+Accession: SAMN47861504	ID: 47861504
+
+16: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861503; Sample name: 100L65; SRA: SRS24661861
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="100"
+    /Treatment code="Long"
+Description:
+Long_lived_G6
+Accession: SAMN47861503	ID: 47861503
+
+17: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861502; Sample name: 99L64; SRA: SRS24661860
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="99"
+    /Treatment code="Long"
+Description:
+Long_lived_G6
+Accession: SAMN47861502	ID: 47861502
+
+18: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861501; Sample name: 98L63; SRA: SRS24661859
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="98"
+    /Treatment code="Long"
+Description:
+Long_lived_G6
+Accession: SAMN47861501	ID: 47861501
+
+19: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861500; Sample name: 97L62; SRA: SRS24661858
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="97"
+    /Treatment code="Long"
+Description:
+Long_lived_G6
+Accession: SAMN47861500	ID: 47861500
+
+20: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861499; Sample name: 96L61; SRA: SRS24661857
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-10"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Sixth generation"
+    /Sample ID="96"
+    /Treatment code="Long"
+Description:
+Long_lived_G6
+Accession: SAMN47861499	ID: 47861499
+
+21: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861498; Sample name: 95C55; SRA: SRS24661854
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="95"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G5
+Accession: SAMN47861498	ID: 47861498
+
+22: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861497; Sample name: 94C54; SRA: SRS24661856
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="94"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G5
+Accession: SAMN47861497	ID: 47861497
+
+23: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861496; Sample name: 93C53; SRA: SRS24661853
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="93"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G5
+Accession: SAMN47861496	ID: 47861496
+
+24: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861495; Sample name: 92C52; SRA: SRS24661855
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="92"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G5
+Accession: SAMN47861495	ID: 47861495
+
+25: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861494; Sample name: 91C51; SRA: SRS24661852
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="91"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G5
+Accession: SAMN47861494	ID: 47861494
+
+26: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861493; Sample name: 90R55; SRA: SRS24661851
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="90"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G5
+Accession: SAMN47861493	ID: 47861493
+
+27: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861492; Sample name: 89R54; SRA: SRS24661849
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="89"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G5
+Accession: SAMN47861492	ID: 47861492
+
+28: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861491; Sample name: 88R53; SRA: SRS24661847
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="88"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G5
+Accession: SAMN47861491	ID: 47861491
+
+29: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861490; Sample name: 87R52; SRA: SRS24661848
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="87"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G5
+Accession: SAMN47861490	ID: 47861490
+
+30: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861489; Sample name: 86R51; SRA: SRS24661844
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="86"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G5
+Accession: SAMN47861489	ID: 47861489
+
+31: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861488; Sample name: 85S55; SRA: SRS24661846
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="85"
+    /Treatment code="Short"
+Description:
+Short_lived_G5
+Accession: SAMN47861488	ID: 47861488
+
+32: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861487; Sample name: 84S54; SRA: SRS24661845
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="84"
+    /Treatment code="Short"
+Description:
+Short_lived_G5
+Accession: SAMN47861487	ID: 47861487
+
+33: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861486; Sample name: 83S53; SRA: SRS24661843
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="83"
+    /Treatment code="Short"
+Description:
+Short_lived_G5
+Accession: SAMN47861486	ID: 47861486
+
+34: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861485; Sample name: 82S52; SRA: SRS24661812
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="82"
+    /Treatment code="Short"
+Description:
+Short_lived_G5
+Accession: SAMN47861485	ID: 47861485
+
+35: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861484; Sample name: 81S51; SRA: SRS24661808
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="81"
+    /Treatment code="Short"
+Description:
+Short_lived_G5
+Accession: SAMN47861484	ID: 47861484
+
+36: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861483; Sample name: 80L55; SRA: SRS24661809
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="80"
+    /Treatment code="Long"
+Description:
+Long_lived_G5
+Accession: SAMN47861483	ID: 47861483
+
+37: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861482; Sample name: 79L54; SRA: SRS24661807
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="79"
+    /Treatment code="Long"
+Description:
+Long_lived_G5
+Accession: SAMN47861482	ID: 47861482
+
+38: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861481; Sample name: 78L53; SRA: SRS24661805
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="78"
+    /Treatment code="Long"
+Description:
+Long_lived_G5
+Accession: SAMN47861481	ID: 47861481
+
+39: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861480; Sample name: 77L52; SRA: SRS24661804
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="77"
+    /Treatment code="Long"
+Description:
+Long_lived_G5
+Accession: SAMN47861480	ID: 47861480
+
+40: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861479; Sample name: 76L51; SRA: SRS24661803
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-09"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fifth generation"
+    /Sample ID="76"
+    /Treatment code="Long"
+Description:
+Long_lived_G5
+Accession: SAMN47861479	ID: 47861479
+
+41: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861478; Sample name: 75C45; SRA: SRS24661799
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="75"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G4
+Accession: SAMN47861478	ID: 47861478
+
+42: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861477; Sample name: 74C44; SRA: SRS24661801
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="74"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G4
+Accession: SAMN47861477	ID: 47861477
+
+43: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861476; Sample name: 73C43; SRA: SRS24661800
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="73"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G4
+Accession: SAMN47861476	ID: 47861476
+
+44: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861475; Sample name: 72C42; SRA: SRS24661802
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="72"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G4
+Accession: SAMN47861475	ID: 47861475
+
+45: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861474; Sample name: 71C41; SRA: SRS24661798
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="71"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G4
+Accession: SAMN47861474	ID: 47861474
+
+46: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861473; Sample name: 70R45; SRA: SRS24661797
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="70"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G4
+Accession: SAMN47861473	ID: 47861473
+
+47: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861472; Sample name: 69R44; SRA: SRS24661793
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="69"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G4
+Accession: SAMN47861472	ID: 47861472
+
+48: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861471; Sample name: 68R43; SRA: SRS24661795
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="68"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G4
+Accession: SAMN47861471	ID: 47861471
+
+49: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861470; Sample name: 67R42; SRA: SRS24661794
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="67"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G4
+Accession: SAMN47861470	ID: 47861470
+
+50: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861469; Sample name: 66R41; SRA: SRS24661792
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="66"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G4
+Accession: SAMN47861469	ID: 47861469
+
+51: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861468; Sample name: 65S45; SRA: SRS24661791
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="65"
+    /Treatment code="Short"
+Description:
+Short_lived_G4
+Accession: SAMN47861468	ID: 47861468
+
+52: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861467; Sample name: 64S44; SRA: SRS24661788
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="64"
+    /Treatment code="Short"
+Description:
+Short_lived_G4
+Accession: SAMN47861467	ID: 47861467
+
+53: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861466; Sample name: 63S43; SRA: SRS24661790
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="63"
+    /Treatment code="Short"
+Description:
+Short_lived_G4
+Accession: SAMN47861466	ID: 47861466
+
+54: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861465; Sample name: 62S42; SRA: SRS24661787
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="62"
+    /Treatment code="Short"
+Description:
+Short_lived_G4
+Accession: SAMN47861465	ID: 47861465
+
+55: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861464; Sample name: 61S41; SRA: SRS24661789
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="61"
+    /Treatment code="Short"
+Description:
+Short_lived_G4
+Accession: SAMN47861464	ID: 47861464
+
+56: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861463; Sample name: 60L45; SRA: SRS24661785
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="60"
+    /Treatment code="Long"
+Description:
+Long_lived_G4
+Accession: SAMN47861463	ID: 47861463
+
+57: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861462; Sample name: 59L44; SRA: SRS24661783
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="59"
+    /Treatment code="Long"
+Description:
+Long_lived_G4
+Accession: SAMN47861462	ID: 47861462
+
+58: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861461; Sample name: 58L43; SRA: SRS24661784
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="58"
+    /Treatment code="Long"
+Description:
+Long_lived_G4
+Accession: SAMN47861461	ID: 47861461
+
+59: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861460; Sample name: 57L42; SRA: SRS24661782
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="57"
+    /Treatment code="Long"
+Description:
+Long_lived_G4
+Accession: SAMN47861460	ID: 47861460
+
+60: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861459; Sample name: 56L41; SRA: SRS24661781
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-08"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Fourth generation"
+    /Sample ID="56"
+    /Treatment code="Long"
+Description:
+Long_lived_G4
+Accession: SAMN47861459	ID: 47861459
+
+
+61: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861458; Sample name: 55C35; SRA: SRS24661779
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="55"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G3
+Accession: SAMN47861458	ID: 47861458
+
+62: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861457; Sample name: 54C34; SRA: SRS24661780
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="54"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G3
+Accession: SAMN47861457	ID: 47861457
+
+63: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861456; Sample name: 53C33; SRA: SRS24661842
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="53"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G3
+Accession: SAMN47861456	ID: 47861456
+
+64: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861455; Sample name: 52C32; SRA: SRS24661839
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="52"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G3
+Accession: SAMN47861455	ID: 47861455
+
+65: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861454; Sample name: 51C31; SRA: SRS24661841
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="51"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G3
+Accession: SAMN47861454	ID: 47861454
+
+66: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861453; Sample name: 50R35; SRA: SRS24661837
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="50"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G3
+Accession: SAMN47861453	ID: 47861453
+
+67: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861452; Sample name: 49R34; SRA: SRS24661838
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="49"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G3
+Accession: SAMN47861452	ID: 47861452
+
+68: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861451; Sample name: 48R33; SRA: SRS24661836
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="48"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G3
+Accession: SAMN47861451	ID: 47861451
+
+69: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861450; Sample name: 47R32; SRA: SRS24661835
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="47"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G3
+Accession: SAMN47861450	ID: 47861450
+
+70: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861449; Sample name: 46R31; SRA: SRS24661833
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="46"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G3
+Accession: SAMN47861449	ID: 47861449
+
+71: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861448; Sample name: 45S35; SRA: SRS24661834
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="45"
+    /Treatment code="Short"
+Description:
+Short_lived_G3
+Accession: SAMN47861448	ID: 47861448
+
+72: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861447; Sample name: 44S34; SRA: SRS24661832
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="44"
+    /Treatment code="Short"
+Description:
+Short_lived_G3
+Accession: SAMN47861447	ID: 47861447
+
+73: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861446; Sample name: 43S33; SRA: SRS24661831
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="43"
+    /Treatment code="Short"
+Description:
+Short_lived_G3
+Accession: SAMN47861446	ID: 47861446
+
+74: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861445; Sample name: 42S32; SRA: SRS24661830
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="42"
+    /Treatment code="Short"
+Description:
+Short_lived_G3
+Accession: SAMN47861445	ID: 47861445
+
+75: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861444; Sample name: 41S31; SRA: SRS24661829
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="41"
+    /Treatment code="Short"
+Description:
+Short_lived_G3
+Accession: SAMN47861444	ID: 47861444
+
+76: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861443; Sample name: 40L35; SRA: SRS24661828
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="40"
+    /Treatment code="Long"
+Description:
+Long_lived_G3
+Accession: SAMN47861443	ID: 47861443
+
+77: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861442; Sample name: 39L34; SRA: SRS24661825
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="39"
+    /Treatment code="Long"
+Description:
+Long_lived_G3
+Accession: SAMN47861442	ID: 47861442
+
+78: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861441; Sample name: 38L33; SRA: SRS24661824
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="38"
+    /Treatment code="Long"
+Description:
+Long_lived_G3
+Accession: SAMN47861441	ID: 47861441
+
+79: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861440; Sample name: 37L32; SRA: SRS24661826
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="37"
+    /Treatment code="Long"
+Description:
+Long_lived_G3
+Accession: SAMN47861440	ID: 47861440
+
+80: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861439; Sample name: 36L31; SRA: SRS24661823
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-07"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Third generation"
+    /Sample ID="36"
+    /Treatment code="Long"
+Description:
+Long_lived_G3
+Accession: SAMN47861439	ID: 47861439
+
+81: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861438; Sample name: 35C25; SRA: SRS24661822
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="35"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G2
+Accession: SAMN47861438	ID: 47861438
+
+82: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861437; Sample name: 34C24; SRA: SRS24661820
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="34"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G2
+Accession: SAMN47861437	ID: 47861437
+
+83: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861436; Sample name: 33C23; SRA: SRS24661821
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="33"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G2
+Accession: SAMN47861436	ID: 47861436
+
+84: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861435; Sample name: 32C22; SRA: SRS24661819
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="32"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G2
+Accession: SAMN47861435	ID: 47861435
+
+85: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861434; Sample name: 31C21; SRA: SRS24661818
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="31"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G2
+Accession: SAMN47861434	ID: 47861434
+
+86: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861433; Sample name: 30R25; SRA: SRS24661816
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="30"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G2
+Accession: SAMN47861433	ID: 47861433
+
+87: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861432; Sample name: 29R24; SRA: SRS24661815
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="29"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G2
+Accession: SAMN47861432	ID: 47861432
+
+88: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861431; Sample name: 28R23; SRA: SRS24661814
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="28"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G2
+Accession: SAMN47861431	ID: 47861431
+
+89: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861430; Sample name: 27R22; SRA: SRS24661811
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="27"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G2
+Accession: SAMN47861430	ID: 47861430
+
+90: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861429; Sample name: 26R21; SRA: SRS24661813
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="26"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G2
+Accession: SAMN47861429	ID: 47861429
+
+91: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861428; Sample name: 25S25; SRA: SRS24661810
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="25"
+    /Treatment code="Short"
+Description:
+Short_lived_G2
+Accession: SAMN47861428	ID: 47861428
+
+92: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861427; Sample name: 24S24; SRA: SRS24661778
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="24"
+    /Treatment code="Short"
+Description:
+Short_lived_G2
+Accession: SAMN47861427	ID: 47861427
+
+93: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861426; Sample name: 23S23; SRA: SRS24661777
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="23"
+    /Treatment code="Short"
+Description:
+Short_lived_G2
+Accession: SAMN47861426	ID: 47861426
+
+94: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861425; Sample name: 22S22; SRA: SRS24661776
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="22"
+    /Treatment code="Short"
+Description:
+Short_lived_G2
+Accession: SAMN47861425	ID: 47861425
+
+95: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861424; Sample name: 21S21; SRA: SRS24661773
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="21"
+    /Treatment code="Short"
+Description:
+Short_lived_G2
+Accession: SAMN47861424	ID: 47861424
+
+96: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861423; Sample name: 20L25; SRA: SRS24661775
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="20"
+    /Treatment code="Long"
+Description:
+Long_lived_G2
+Accession: SAMN47861423	ID: 47861423
+
+97: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861422; Sample name: 19L24; SRA: SRS24661772
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="19"
+    /Treatment code="Long"
+Description:
+Long_lived_G2
+Accession: SAMN47861422	ID: 47861422
+
+98: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861421; Sample name: 18L23; SRA: SRS24661771
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="18"
+    /Treatment code="Long"
+Description:
+Long_lived_G2
+Accession: SAMN47861421	ID: 47861421
+
+99: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861420; Sample name: 17L22; SRA: SRS24661770
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="17"
+    /Treatment code="Long"
+Description:
+Long_lived_G2
+Accession: SAMN47861420	ID: 47861420
+
+100: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861419; Sample name: 16L21; SRA: SRS24661769
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-06"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="Second generation"
+    /Sample ID="16"
+    /Treatment code="Long"
+Description:
+Long_lived_G2
+Accession: SAMN47861419	ID: 47861419
+
+101: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861418; Sample name: 15C15; SRA: SRS24661767
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="15"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G1
+Accession: SAMN47861418	ID: 47861418
+
+102: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861417; Sample name: 14C14; SRA: SRS24661765
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="14"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G1
+Accession: SAMN47861417	ID: 47861417
+
+103: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861416; Sample name: 13C13; SRA: SRS24661768
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="13"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G1
+Accession: SAMN47861416	ID: 47861416
+
+104: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861415; Sample name: 12C12; SRA: SRS24661761
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="12"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G1
+Accession: SAMN47861415	ID: 47861415
+
+105: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861414; Sample name: 11C11; SRA: SRS24661747
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="11"
+    /Treatment code="Ctrl"
+Description:
+Standard_control_G1
+Accession: SAMN47861414	ID: 47861414
+
+106: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861413; Sample name: 10R15; SRA: SRS24661850
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="10"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G1
+Accession: SAMN47861413	ID: 47861413
+
+107: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861412; Sample name: 9R14; SRA: SRS24661806
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="9"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G1
+Accession: SAMN47861412	ID: 47861412
+
+108: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861411; Sample name: 8R13; SRA: SRS24661796
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="8"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G1
+Accession: SAMN47861411	ID: 47861411
+
+109: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861410; Sample name: 7R12; SRA: SRS24661786
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="7"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G1
+Accession: SAMN47861410	ID: 47861410
+
+110: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861409; Sample name: 6R11; SRA: SRS24661840
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="6"
+    /Treatment code="Gly"
+Description:
+Long_lived_RoundUp_G1
+Accession: SAMN47861409	ID: 47861409
+
+111: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861408; Sample name: 5H15; SRA: SRS24661827
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="5"
+    /Treatment code="S&amp;L"
+Description:
+S_L_mother_G1
+Accession: SAMN47861408	ID: 47861408
+
+112: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861407; Sample name: 4H14; SRA: SRS24661817
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="4"
+    /Treatment code="S&amp;L"
+Description:
+S_L_mother_G1
+Accession: SAMN47861407	ID: 47861407
+
+113: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861406; Sample name: 3H13; SRA: SRS24661774
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="3"
+    /Treatment code="S&amp;L"
+Description:
+S_L_mother_G1
+Accession: SAMN47861406	ID: 47861406
+
+114: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861405; Sample name: 2H12; SRA: SRS24661751
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="2"
+    /Treatment code="S&amp;L"
+Description:
+S_L_mother_G1
+Accession: SAMN47861405	ID: 47861405
+
+115: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47861404; Sample name: 1H11; SRA: SRS24661748
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="whole gut"
+    /collection date="2023-05"
+    /geographic location="USA: North Carolina, Raleigh"
+    /latitude and longitude="35.79 N 78.67 W"
+    /sample size="pool of five guts"
+    /source material identifiers="First generation"
+    /Sample ID="1"
+    /Treatment code="S&amp;L"
+Description:
+S_L_mother_G1
+Accession: SAMN47861404	ID: 47861404
+
+

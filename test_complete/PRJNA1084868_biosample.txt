@@ -1,0 +1,2378 @@
+1: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287572; Sample name: OD185F; SRA: SRS20694093
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="PBS tween"
+    /collection date="2023-07-05"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD185"
+    /library_id="Osmia_lignaria_ITS_OD185"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD185_S108_L001_R1_001.fastq.gz"
+    /filename2="OD185_S108_L001_R2_001.fastq.gz"
+Accession: SAMN40287572	ID: 40287572
+
+2: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287571; Sample name: OD184F; SRA: SRS20694095
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD184"
+    /library_id="Osmia_lignaria_ITS_OD184"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD184_S191_L001_R1_001.fastq.gz"
+    /filename2="OD184_S191_L001_R2_001.fastq.gz"
+Accession: SAMN40287571	ID: 40287571
+
+3: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287570; Sample name: OD181F; SRA: SRS20694094
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank"
+    /collection date="2022-07-05"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD181"
+    /library_id="Osmia_lignaria_ITS_OD181"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD181_S179_L001_R1_001.fastq.gz"
+    /filename2="OD181_S179_L001_R2_001.fastq.gz"
+Accession: SAMN40287570	ID: 40287570
+
+4: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287569; Sample name: OD180F; SRA: SRS20694092
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="fresh pollen egg"
+    /collection date="2022-06-13"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD180"
+    /library_id="Osmia_lignaria_ITS_OD180"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD180_S167_L001_R1_001.fastq.gz"
+    /filename2="OD180_S167_L001_R2_001.fastq.gz"
+Accession: SAMN40287569	ID: 40287569
+
+5: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287568; Sample name: OD174F; SRA: SRS20694091
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD174"
+    /library_id="Osmia_lignaria_ITS_OD174"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD174_S155_L001_R1_001.fastq.gz"
+    /filename2="OD174_S155_L001_R2_001.fastq.gz"
+Accession: SAMN40287568	ID: 40287568
+
+6: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287567; Sample name: OD173F; SRA: SRS20694090
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD173"
+    /library_id="Osmia_lignaria_ITS_OD173"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD173_S143_L001_R1_001.fastq.gz"
+    /filename2="OD173_S143_L001_R2_001.fastq.gz"
+Accession: SAMN40287567	ID: 40287567
+
+7: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287566; Sample name: OD172F; SRA: SRS20694089
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD172"
+    /library_id="Osmia_lignaria_ITS_OD172"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD172_S131_L001_R1_001.fastq.gz"
+    /filename2="OD172_S131_L001_R2_001.fastq.gz"
+Accession: SAMN40287566	ID: 40287566
+
+8: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287565; Sample name: OD171F; SRA: SRS20694087
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="aged pollen"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD171"
+    /library_id="Osmia_lignaria_ITS_OD171"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD171_S119_L001_R1_001.fastq.gz"
+    /filename2="OD171_S119_L001_R2_001.fastq.gz"
+Accession: SAMN40287565	ID: 40287565
+
+9: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287564; Sample name: OD166F; SRA: SRS20694088
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD166"
+    /library_id="Osmia_lignaria_ITS_OD166"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD166_S107_L001_R1_001.fastq.gz"
+    /filename2="OD166_S107_L001_R2_001.fastq.gz"
+Accession: SAMN40287564	ID: 40287564
+
+10: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287563; Sample name: OD165F; SRA: SRS20694085
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD165"
+    /library_id="Osmia_lignaria_ITS_OD165"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD165_S190_L001_R1_001.fastq.gz"
+    /filename2="OD165_S190_L001_R2_001.fastq.gz"
+Accession: SAMN40287563	ID: 40287563
+
+11: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287562; Sample name: OD164F; SRA: SRS20694084
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD164"
+    /library_id="Osmia_lignaria_ITS_OD164"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD164_S178_L001_R1_001.fastq.gz"
+    /filename2="OD164_S178_L001_R2_001.fastq.gz"
+Accession: SAMN40287562	ID: 40287562
+
+12: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287561; Sample name: OD163F; SRA: SRS20694083
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD163"
+    /library_id="Osmia_lignaria_ITS_OD163"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD163_S166_L001_R1_001.fastq.gz"
+    /filename2="OD163_S166_L001_R2_001.fastq.gz"
+Accession: SAMN40287561	ID: 40287561
+
+13: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287560; Sample name: OD162F; SRA: SRS20694082
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="fresh pollen egg"
+    /collection date="2022-06-13"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD162"
+    /library_id="Osmia_lignaria_ITS_OD162"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD162_S154_L001_R1_001.fastq.gz"
+    /filename2="OD162_S154_L001_R2_001.fastq.gz"
+Accession: SAMN40287560	ID: 40287560
+
+14: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287559; Sample name: OD157F; SRA: SRS20694081
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD157"
+    /library_id="Osmia_lignaria_ITS_OD157"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD157_S142_L001_R1_001.fastq.gz"
+    /filename2="OD157_S142_L001_R2_001.fastq.gz"
+Accession: SAMN40287559	ID: 40287559
+
+15: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287558; Sample name: OD156F; SRA: SRS20694080
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank"
+    /collection date="2023-07-06"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD156"
+    /library_id="Osmia_lignaria_ITS_OD156"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD156_S130_L001_R1_001.fastq.gz"
+    /filename2="OD156_S130_L001_R2_001.fastq.gz"
+Accession: SAMN40287558	ID: 40287558
+
+16: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287557; Sample name: OD155F; SRA: SRS20694079
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD155"
+    /library_id="Osmia_lignaria_ITS_OD155"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD155_S118_L001_R1_001.fastq.gz"
+    /filename2="OD155_S118_L001_R2_001.fastq.gz"
+Accession: SAMN40287557	ID: 40287557
+
+17: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287556; Sample name: OD154F; SRA: SRS20694078
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD154"
+    /library_id="Osmia_lignaria_ITS_OD154"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD154_S106_L001_R1_001.fastq.gz"
+    /filename2="OD154_S106_L001_R2_001.fastq.gz"
+Accession: SAMN40287556	ID: 40287556
+
+18: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287555; Sample name: OD148F; SRA: SRS20694077
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD148"
+    /library_id="Osmia_lignaria_ITS_OD148"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD148_S189_L001_R1_001.fastq.gz"
+    /filename2="OD148_S189_L001_R2_001.fastq.gz"
+Accession: SAMN40287555	ID: 40287555
+
+19: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287554; Sample name: OD147F; SRA: SRS20694076
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD147"
+    /library_id="Osmia_lignaria_ITS_OD147"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD147_S177_L001_R1_001.fastq.gz"
+    /filename2="OD147_S177_L001_R2_001.fastq.gz"
+Accession: SAMN40287554	ID: 40287554
+
+20: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287553; Sample name: OD146F; SRA: SRS20694074
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD146"
+    /library_id="Osmia_lignaria_ITS_OD146"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD146_S165_L001_R1_001.fastq.gz"
+    /filename2="OD146_S165_L001_R2_001.fastq.gz"
+Accession: SAMN40287553	ID: 40287553
+
+21: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287552; Sample name: OD145F; SRA: SRS20694073
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD145"
+    /library_id="Osmia_lignaria_ITS_OD145"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD145_S153_L001_R1_001.fastq.gz"
+    /filename2="OD145_S153_L001_R2_001.fastq.gz"
+Accession: SAMN40287552	ID: 40287552
+
+22: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287551; Sample name: OD139F; SRA: SRS20694072
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD139"
+    /library_id="Osmia_lignaria_ITS_OD139"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD139_S141_L001_R1_001.fastq.gz"
+    /filename2="OD139_S141_L001_R2_001.fastq.gz"
+Accession: SAMN40287551	ID: 40287551
+
+23: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287550; Sample name: OD138F; SRA: SRS20694071
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD138"
+    /library_id="Osmia_lignaria_ITS_OD138"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD138_S129_L001_R1_001.fastq.gz"
+    /filename2="OD138_S129_L001_R2_001.fastq.gz"
+Accession: SAMN40287550	ID: 40287550
+
+24: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287549; Sample name: OD137F; SRA: SRS20694070
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="fresh pollen egg"
+    /collection date="2022-06-13"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD137"
+    /library_id="Osmia_lignaria_ITS_OD137"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD137_S117_L001_R1_001.fastq.gz"
+    /filename2="OD137_S117_L001_R2_001.fastq.gz"
+Accession: SAMN40287549	ID: 40287549
+
+25: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287548; Sample name: OD134F; SRA: SRS20694069
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="aged pollen"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD134"
+    /library_id="Osmia_lignaria_ITS_OD134"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD134_S105_L001_R1_001.fastq.gz"
+    /filename2="OD134_S105_L001_R2_001.fastq.gz"
+Accession: SAMN40287548	ID: 40287548
+
+26: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287547; Sample name: OD127F; SRA: SRS20694068
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="fresh pollen egg"
+    /collection date="2022-06-13"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD127"
+    /library_id="Osmia_lignaria_ITS_OD127"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD127_S188_L001_R1_001.fastq.gz"
+    /filename2="OD127_S188_L001_R2_001.fastq.gz"
+Accession: SAMN40287547	ID: 40287547
+
+27: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287546; Sample name: OD121F; SRA: SRS20694067
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank"
+    /collection date="2023-07-05"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD121"
+    /library_id="Osmia_lignaria_ITS_OD121"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD121_S176_L001_R1_001.fastq.gz"
+    /filename2="OD121_S176_L001_R2_001.fastq.gz"
+Accession: SAMN40287546	ID: 40287546
+
+28: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287545; Sample name: OD120F; SRA: SRS20694066
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD120"
+    /library_id="Osmia_lignaria_ITS_OD120"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD120_S164_L001_R1_001.fastq.gz"
+    /filename2="OD120_S164_L001_R2_001.fastq.gz"
+Accession: SAMN40287545	ID: 40287545
+
+29: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287544; Sample name: OD119F; SRA: SRS20694065
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD119"
+    /library_id="Osmia_lignaria_ITS_OD119"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD119_S152_L001_R1_001.fastq.gz"
+    /filename2="OD119_S152_L001_R2_001.fastq.gz"
+Accession: SAMN40287544	ID: 40287544
+
+30: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287543; Sample name: OD118F; SRA: SRS20694063
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD118"
+    /library_id="Osmia_lignaria_ITS_OD118"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD118_S140_L001_R1_001.fastq.gz"
+    /filename2="OD118_S140_L001_R2_001.fastq.gz"
+Accession: SAMN40287543	ID: 40287543
+
+31: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287542; Sample name: OD115F; SRA: SRS20694062
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="aged pollen"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD115"
+    /library_id="Osmia_lignaria_ITS_OD115"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD115_S128_L001_R1_001.fastq.gz"
+    /filename2="OD115_S128_L001_R2_001.fastq.gz"
+Accession: SAMN40287542	ID: 40287542
+
+32: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287541; Sample name: OD112F; SRA: SRS20694061
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD112"
+    /library_id="Osmia_lignaria_ITS_OD112"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD112_S384_L001_R1_001.fastq.gz"
+    /filename2="OD112_S384_L001_R2_001.fastq.gz"
+Accession: SAMN40287541	ID: 40287541
+
+33: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287540; Sample name: OD111F; SRA: SRS20694060
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD111"
+    /library_id="Osmia_lignaria_ITS_OD111"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD111_S116_L001_R1_001.fastq.gz"
+    /filename2="OD111_S116_L001_R2_001.fastq.gz"
+Accession: SAMN40287540	ID: 40287540
+
+34: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287539; Sample name: OD110F; SRA: SRS20694059
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD110"
+    /library_id="Osmia_lignaria_ITS_OD110"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD110_S104_L001_R1_001.fastq.gz"
+    /filename2="OD110_S104_L001_R2_001.fastq.gz"
+Accession: SAMN40287539	ID: 40287539
+
+35: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287538; Sample name: OD109F; SRA: SRS20694058
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD109"
+    /library_id="Osmia_lignaria_ITS_OD109"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD109_S187_L001_R1_001.fastq.gz"
+    /filename2="OD109_S187_L001_R2_001.fastq.gz"
+Accession: SAMN40287538	ID: 40287538
+
+36: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287537; Sample name: OD108F; SRA: SRS20694057
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="physiological saline"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD108"
+    /library_id="Osmia_lignaria_ITS_OD108"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD108_S175_L001_R1_001.fastq.gz"
+    /filename2="OD108_S175_L001_R2_001.fastq.gz"
+Accession: SAMN40287537	ID: 40287537
+
+37: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287536; Sample name: OD107F; SRA: SRS20694056
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD107"
+    /library_id="Osmia_lignaria_ITS_OD107"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD107_S163_L001_R1_001.fastq.gz"
+    /filename2="OD107_S163_L001_R2_001.fastq.gz"
+Accession: SAMN40287536	ID: 40287536
+
+38: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287535; Sample name: OD106F; SRA: SRS20694055
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD106"
+    /library_id="Osmia_lignaria_ITS_OD106"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD106_S151_L001_R1_001.fastq.gz"
+    /filename2="OD106_S151_L001_R2_001.fastq.gz"
+Accession: SAMN40287535	ID: 40287535
+
+39: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287534; Sample name: OD104F; SRA: SRS20694054
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD104"
+    /library_id="Osmia_lignaria_ITS_OD104"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD104_S372_L001_R1_001.fastq.gz"
+    /filename2="OD104_S372_L001_R2_001.fastq.gz"
+Accession: SAMN40287534	ID: 40287534
+
+40: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287533; Sample name: OD103F; SRA: SRS20694052
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank"
+    /collection date="2023-07-04"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD103"
+    /library_id="Osmia_lignaria_ITS_OD103"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD103_S139_L001_R1_001.fastq.gz"
+    /filename2="OD103_S139_L001_R2_001.fastq.gz"
+Accession: SAMN40287533	ID: 40287533
+
+41: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287532; Sample name: OD100F; SRA: SRS20694051
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD100"
+    /library_id="Osmia_lignaria_ITS_OD100"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD100_S127_L001_R1_001.fastq.gz"
+    /filename2="OD100_S127_L001_R2_001.fastq.gz"
+Accession: SAMN40287532	ID: 40287532
+
+42: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287531; Sample name: OD99F; SRA: SRS20694050
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD99"
+    /library_id="Osmia_lignaria_ITS_OD99"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD99_S115_L001_R1_001.fastq.gz"
+    /filename2="OD99_S115_L001_R2_001.fastq.gz"
+Accession: SAMN40287531	ID: 40287531
+
+43: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287530; Sample name: OD98F; SRA: SRS20694049
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD98"
+    /library_id="Osmia_lignaria_ITS_OD98"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD98_S103_L001_R1_001.fastq.gz"
+    /filename2="OD98_S103_L001_R2_001.fastq.gz"
+Accession: SAMN40287530	ID: 40287530
+
+44: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287529; Sample name: OD95F; SRA: SRS20694048
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD95"
+    /library_id="Osmia_lignaria_ITS_OD95"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD95_S186_L001_R1_001.fastq.gz"
+    /filename2="OD95_S186_L001_R2_001.fastq.gz"
+Accession: SAMN40287529	ID: 40287529
+
+45: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287528; Sample name: OD93F; SRA: SRS20694047
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="emerged adult"
+    /collection date="2023-05-30"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD93"
+    /library_id="Osmia_lignaria_ITS_OD93"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD93_S174_L001_R1_001.fastq.gz"
+    /filename2="OD93_S174_L001_R2_001.fastq.gz"
+Accession: SAMN40287528	ID: 40287528
+
+46: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287527; Sample name: OD91F; SRA: SRS20694046
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD91"
+    /library_id="Osmia_lignaria_ITS_OD91"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD91_S162_L001_R1_001.fastq.gz"
+    /filename2="OD91_S162_L001_R2_001.fastq.gz"
+Accession: SAMN40287527	ID: 40287527
+
+47: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287526; Sample name: OD87F; SRA: SRS20694045
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="physiological saline"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD87"
+    /library_id="Osmia_lignaria_ITS_OD87"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD87_S150_L001_R1_001.fastq.gz"
+    /filename2="OD87_S150_L001_R2_001.fastq.gz"
+Accession: SAMN40287526	ID: 40287526
+
+48: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287525; Sample name: OD86F; SRA: SRS20694044
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD86"
+    /library_id="Osmia_lignaria_ITS_OD86"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD86_S138_L001_R1_001.fastq.gz"
+    /filename2="OD86_S138_L001_R2_001.fastq.gz"
+Accession: SAMN40287525	ID: 40287525
+
+49: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287524; Sample name: OD83F; SRA: SRS20694043
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="fresh pollen egg"
+    /collection date="2022-06-13"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD83"
+    /library_id="Osmia_lignaria_ITS_OD83"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD83_S126_L001_R1_001.fastq.gz"
+    /filename2="OD83_S126_L001_R2_001.fastq.gz"
+Accession: SAMN40287524	ID: 40287524
+
+50: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287523; Sample name: OD82F; SRA: SRS20694041
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD82"
+    /library_id="Osmia_lignaria_ITS_OD82"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD82_S114_L001_R1_001.fastq.gz"
+    /filename2="OD82_S114_L001_R2_001.fastq.gz"
+Accession: SAMN40287523	ID: 40287523
+
+51: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287522; Sample name: OD81F; SRA: SRS20694040
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD81"
+    /library_id="Osmia_lignaria_ITS_OD81"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD81_S284_L001_R1_001.fastq.gz"
+    /filename2="OD81_S284_L001_R2_001.fastq.gz"
+Accession: SAMN40287522	ID: 40287522
+
+52: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287521; Sample name: OD80F; SRA: SRS20694039
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="aged pollen"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD80"
+    /library_id="Osmia_lignaria_ITS_OD80"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD80_S102_L001_R1_001.fastq.gz"
+    /filename2="OD80_S102_L001_R2_001.fastq.gz"
+Accession: SAMN40287521	ID: 40287521
+
+53: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287520; Sample name: OD78F; SRA: SRS20694038
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD78"
+    /library_id="Osmia_lignaria_ITS_OD78"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD78_S185_L001_R1_001.fastq.gz"
+    /filename2="OD78_S185_L001_R2_001.fastq.gz"
+Accession: SAMN40287520	ID: 40287520
+
+54: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287519; Sample name: OD76F; SRA: SRS20694037
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD76"
+    /library_id="Osmia_lignaria_ITS_OD76"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD76_S272_L001_R1_001.fastq.gz"
+    /filename2="OD76_S272_L001_R2_001.fastq.gz"
+Accession: SAMN40287519	ID: 40287519
+
+55: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287518; Sample name: OD74F; SRA: SRS20694036
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="aged pollen"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD74"
+    /library_id="Osmia_lignaria_ITS_OD74"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD74_S173_L001_R1_001.fastq.gz"
+    /filename2="OD74_S173_L001_R2_001.fastq.gz"
+Accession: SAMN40287518	ID: 40287518
+
+56: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287517; Sample name: OD73F; SRA: SRS20694035
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD73"
+    /library_id="Osmia_lignaria_ITS_OD73"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD73_S161_L001_R1_001.fastq.gz"
+    /filename2="OD73_S161_L001_R2_001.fastq.gz"
+Accession: SAMN40287517	ID: 40287517
+
+57: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287516; Sample name: OD72F; SRA: SRS20694034
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="physiological saline"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD72"
+    /library_id="Osmia_lignaria_ITS_OD72"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD72_S149_L001_R1_001.fastq.gz"
+    /filename2="OD72_S149_L001_R2_001.fastq.gz"
+Accession: SAMN40287516	ID: 40287516
+
+58: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287515; Sample name: OD70F; SRA: SRS20694033
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD70"
+    /library_id="Osmia_lignaria_ITS_OD70"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD70_S137_L001_R1_001.fastq.gz"
+    /filename2="OD70_S137_L001_R2_001.fastq.gz"
+Accession: SAMN40287515	ID: 40287515
+
+59: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287514; Sample name: OD69F; SRA: SRS20694032
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD69"
+    /library_id="Osmia_lignaria_ITS_OD69"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD69_S125_L001_R1_001.fastq.gz"
+    /filename2="OD69_S125_L001_R2_001.fastq.gz"
+Accession: SAMN40287514	ID: 40287514
+
+60: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287513; Sample name: OD64F; SRA: SRS20694030
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD64"
+    /library_id="Osmia_lignaria_ITS_OD64"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD64_S113_L001_R1_001.fastq.gz"
+    /filename2="OD64_S113_L001_R2_001.fastq.gz"
+Accession: SAMN40287513	ID: 40287513
+
+
+61: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287512; Sample name: OD63F; SRA: SRS20694029
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD63"
+    /library_id="Osmia_lignaria_ITS_OD63"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD63_S101_L001_R1_001.fastq.gz"
+    /filename2="OD63_S101_L001_R2_001.fastq.gz"
+Accession: SAMN40287512	ID: 40287512
+
+62: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287511; Sample name: OD62F; SRA: SRS20694028
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD62"
+    /library_id="Osmia_lignaria_ITS_OD62"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD62_S184_L001_R1_001.fastq.gz"
+    /filename2="OD62_S184_L001_R2_001.fastq.gz"
+Accession: SAMN40287511	ID: 40287511
+
+63: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287510; Sample name: OD61F; SRA: SRS20694027
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD61"
+    /library_id="Osmia_lignaria_ITS_OD61"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD61_S172_L001_R1_001.fastq.gz"
+    /filename2="OD61_S172_L001_R2_001.fastq.gz"
+Accession: SAMN40287510	ID: 40287510
+
+64: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287509; Sample name: OD60F; SRA: SRS20694026
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD60"
+    /library_id="Osmia_lignaria_ITS_OD60"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD60_S160_L001_R1_001.fastq.gz"
+    /filename2="OD60_S160_L001_R2_001.fastq.gz"
+Accession: SAMN40287509	ID: 40287509
+
+65: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287508; Sample name: OD57F; SRA: SRS20694025
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD57"
+    /library_id="Osmia_lignaria_ITS_OD57"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD57_S148_L001_R1_001.fastq.gz"
+    /filename2="OD57_S148_L001_R2_001.fastq.gz"
+Accession: SAMN40287508	ID: 40287508
+
+66: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287507; Sample name: OD56F; SRA: SRS20694024
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD56"
+    /library_id="Osmia_lignaria_ITS_OD56"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD56_S136_L001_R1_001.fastq.gz"
+    /filename2="OD56_S136_L001_R2_001.fastq.gz"
+Accession: SAMN40287507	ID: 40287507
+
+67: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287506; Sample name: OD55F; SRA: SRS20694023
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD55"
+    /library_id="Osmia_lignaria_ITS_OD55"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD55_S124_L001_R1_001.fastq.gz"
+    /filename2="OD55_S124_L001_R2_001.fastq.gz"
+Accession: SAMN40287506	ID: 40287506
+
+68: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287505; Sample name: OD54F; SRA: SRS20694022
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank"
+    /collection date="2023-07-03"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD54"
+    /library_id="Osmia_lignaria_ITS_OD54"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD54_S112_L001_R1_001.fastq.gz"
+    /filename2="OD54_S112_L001_R2_001.fastq.gz"
+Accession: SAMN40287505	ID: 40287505
+
+69: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287504; Sample name: OD52F; SRA: SRS20694021
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD52"
+    /library_id="Osmia_lignaria_ITS_OD52"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD52_S100_L001_R1_001.fastq.gz"
+    /filename2="OD52_S100_L001_R2_001.fastq.gz"
+Accession: SAMN40287504	ID: 40287504
+
+70: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287503; Sample name: OD51F; SRA: SRS20694019
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="physiological saline"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD51"
+    /library_id="Osmia_lignaria_ITS_OD51"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD51_S183_L001_R1_001.fastq.gz"
+    /filename2="OD51_S183_L001_R2_001.fastq.gz"
+Accession: SAMN40287503	ID: 40287503
+
+71: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287502; Sample name: OD49F; SRA: SRS20694018
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD49"
+    /library_id="Osmia_lignaria_ITS_OD49"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD49_S171_L001_R1_001.fastq.gz"
+    /filename2="OD49_S171_L001_R2_001.fastq.gz"
+Accession: SAMN40287502	ID: 40287502
+
+72: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287501; Sample name: OD48F; SRA: SRS20694017
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="physiological saline"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD48"
+    /library_id="Osmia_lignaria_ITS_OD48"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD48_S159_L001_R1_001.fastq.gz"
+    /filename2="OD48_S159_L001_R2_001.fastq.gz"
+Accession: SAMN40287501	ID: 40287501
+
+73: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287500; Sample name: OD47F; SRA: SRS20694016
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD47"
+    /library_id="Osmia_lignaria_ITS_OD47"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD47_S147_L001_R1_001.fastq.gz"
+    /filename2="OD47_S147_L001_R2_001.fastq.gz"
+Accession: SAMN40287500	ID: 40287500
+
+74: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287499; Sample name: OD45F; SRA: SRS20694015
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD45"
+    /library_id="Osmia_lignaria_ITS_OD45"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD45_S135_L001_R1_001.fastq.gz"
+    /filename2="OD45_S135_L001_R2_001.fastq.gz"
+Accession: SAMN40287499	ID: 40287499
+
+75: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287498; Sample name: OD43F; SRA: SRS20694014
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD43"
+    /library_id="Osmia_lignaria_ITS_OD43"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD43_S123_L001_R1_001.fastq.gz"
+    /filename2="OD43_S123_L001_R2_001.fastq.gz"
+Accession: SAMN40287498	ID: 40287498
+
+76: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287497; Sample name: OD42F; SRA: SRS20694013
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD42"
+    /library_id="Osmia_lignaria_ITS_OD42"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD42_S111_L001_R1_001.fastq.gz"
+    /filename2="OD42_S111_L001_R2_001.fastq.gz"
+Accession: SAMN40287497	ID: 40287497
+
+77: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287496; Sample name: OD41F; SRA: SRS20694012
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="fresh pollen egg"
+    /collection date="2022-06-13"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD41"
+    /library_id="Osmia_lignaria_ITS_OD41"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD41_S99_L001_R1_001.fastq.gz"
+    /filename2="OD41_S99_L001_R2_001.fastq.gz"
+Accession: SAMN40287496	ID: 40287496
+
+78: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287495; Sample name: OD40F; SRA: SRS20694011
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD40"
+    /library_id="Osmia_lignaria_ITS_OD40"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD40_S182_L001_R1_001.fastq.gz"
+    /filename2="OD40_S182_L001_R2_001.fastq.gz"
+Accession: SAMN40287495	ID: 40287495
+
+79: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287494; Sample name: OD39F; SRA: SRS20694010
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD39"
+    /library_id="Osmia_lignaria_ITS_OD39"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD39_S192_L001_R1_001.fastq.gz"
+    /filename2="OD39_S192_L001_R2_001.fastq.gz"
+Accession: SAMN40287494	ID: 40287494
+
+80: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287493; Sample name: OD38F; SRA: SRS20694008
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD38"
+    /library_id="Osmia_lignaria_ITS_OD38"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD38_S170_L001_R1_001.fastq.gz"
+    /filename2="OD38_S170_L001_R2_001.fastq.gz"
+Accession: SAMN40287493	ID: 40287493
+
+81: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287492; Sample name: OD36F; SRA: SRS20694007
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD36"
+    /library_id="Osmia_lignaria_ITS_OD36"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD36_S158_L001_R1_001.fastq.gz"
+    /filename2="OD36_S158_L001_R2_001.fastq.gz"
+Accession: SAMN40287492	ID: 40287492
+
+82: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287491; Sample name: OD33F; SRA: SRS20694006
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD33"
+    /library_id="Osmia_lignaria_ITS_OD33"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD33_S180_L001_R1_001.fastq.gz"
+    /filename2="OD33_S180_L001_R2_001.fastq.gz"
+Accession: SAMN40287491	ID: 40287491
+
+83: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287490; Sample name: OD31F; SRA: SRS20694005
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD31"
+    /library_id="Osmia_lignaria_ITS_OD31"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD31_S146_L001_R1_001.fastq.gz"
+    /filename2="OD31_S146_L001_R2_001.fastq.gz"
+Accession: SAMN40287490	ID: 40287490
+
+84: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287489; Sample name: OD30F; SRA: SRS20694004
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD30"
+    /library_id="Osmia_lignaria_ITS_OD30"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD30_S134_L001_R1_001.fastq.gz"
+    /filename2="OD30_S134_L001_R2_001.fastq.gz"
+Accession: SAMN40287489	ID: 40287489
+
+85: Metagenome or environmental sample from metagenome
+Identifiers: BioSample: SAMN40287488; Sample name: OD28F; SRA: SRS20694003
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.74243 N 111.81067 W"
+    /biosample_accession="OD28"
+    /library_id="Osmia_lignaria_ITS_OD28"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD28_S168_L001_R1_001.fastq.gz"
+    /filename2="OD28_S168_L001_R2_001.fastq.gz"
+Accession: SAMN40287488	ID: 40287488
+
+86: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287487; Sample name: OD27F; SRA: SRS20694002
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD27"
+    /library_id="Osmia_lignaria_ITS_OD27"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD27_S122_L001_R1_001.fastq.gz"
+    /filename2="OD27_S122_L001_R2_001.fastq.gz"
+Accession: SAMN40287487	ID: 40287487
+
+87: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287486; Sample name: OD24F; SRA: SRS20694001
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD24"
+    /library_id="Osmia_lignaria_ITS_OD24"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD24_S110_L001_R1_001.fastq.gz"
+    /filename2="OD24_S110_L001_R2_001.fastq.gz"
+Accession: SAMN40287486	ID: 40287486
+
+88: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287485; Sample name: OD22F; SRA: SRS20694000
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD22"
+    /library_id="Osmia_lignaria_ITS_OD22"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD22_S156_L001_R1_001.fastq.gz"
+    /filename2="OD22_S156_L001_R2_001.fastq.gz"
+Accession: SAMN40287485	ID: 40287485
+
+89: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287484; Sample name: OD21F; SRA: SRS20693999
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD21"
+    /library_id="Osmia_lignaria_ITS_OD21"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD21_S98_L001_R1_001.fastq.gz"
+    /filename2="OD21_S98_L001_R2_001.fastq.gz"
+Accession: SAMN40287484	ID: 40287484
+
+90: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287483; Sample name: OD19F; SRA: SRS20694086
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="emerged adult"
+    /collection date="2023-05-30"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD19"
+    /library_id="Osmia_lignaria_ITS_OD19"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD19_S181_L001_R1_001.fastq.gz"
+    /filename2="OD19_S181_L001_R2_001.fastq.gz"
+Accession: SAMN40287483	ID: 40287483
+
+91: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287482; Sample name: OD17F; SRA: SRS20694075
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD17"
+    /library_id="Osmia_lignaria_ITS_OD17"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD17_S169_L001_R1_001.fastq.gz"
+    /filename2="OD17_S169_L001_R2_001.fastq.gz"
+Accession: SAMN40287482	ID: 40287482
+
+92: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287481; Sample name: OD16F; SRA: SRS20694064
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD16"
+    /library_id="Osmia_lignaria_ITS_OD16"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD16_S157_L001_R1_001.fastq.gz"
+    /filename2="OD16_S157_L001_R2_001.fastq.gz"
+Accession: SAMN40287481	ID: 40287481
+
+93: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287480; Sample name: OD12F; SRA: SRS20694053
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD12"
+    /library_id="Osmia_lignaria_ITS_OD12"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD12_S144_L001_R1_001.fastq.gz"
+    /filename2="OD12_S144_L001_R2_001.fastq.gz"
+Accession: SAMN40287480	ID: 40287480
+
+94: Metagenome or environmental sample from pollen metagenome
+Identifiers: BioSample: SAMN40287479; Sample name: OD11F; SRA: SRS20694042
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="aged pollen"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD11"
+    /library_id="Osmia_lignaria_ITS_OD11"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD11_S145_L001_R1_001.fastq.gz"
+    /filename2="OD11_S145_L001_R2_001.fastq.gz"
+Accession: SAMN40287479	ID: 40287479
+
+95: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287478; Sample name: OD10F; SRA: SRS20694031
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD10"
+    /library_id="Osmia_lignaria_ITS_OD10"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD10_S133_L001_R1_001.fastq.gz"
+    /filename2="OD10_S133_L001_R2_001.fastq.gz"
+Accession: SAMN40287478	ID: 40287478
+
+96: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287477; Sample name: OD8F; SRA: SRS20694020
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="pre-wintering adult"
+    /collection date="2022-09-18"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD8"
+    /library_id="Osmia_lignaria_ITS_OD8"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD8_S121_L001_R1_001.fastq.gz"
+    /filename2="OD8_S121_L001_R2_001.fastq.gz"
+Accession: SAMN40287477	ID: 40287477
+
+97: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287476; Sample name: OD6F; SRA: SRS20694009
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD6"
+    /library_id="Osmia_lignaria_ITS_OD6"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD6_S109_L001_R1_001.fastq.gz"
+    /filename2="OD6_S109_L001_R2_001.fastq.gz"
+Accession: SAMN40287476	ID: 40287476
+
+98: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287475; Sample name: OD4F; SRA: SRS20693998
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="dead adult"
+    /collection date="2023-06-12"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD4"
+    /library_id="Osmia_lignaria_ITS_OD4"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD4_S132_L001_R1_001.fastq.gz"
+    /filename2="OD4_S132_L001_R2_001.fastq.gz"
+Accession: SAMN40287475	ID: 40287475
+
+99: Metagenome or environmental sample from insect metagenome
+Identifiers: BioSample: SAMN40287474; Sample name: OD1F; SRA: SRS20693997
+Organism: insect metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="larva"
+    /collection date="2022-07-02"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+    /biosample_accession="OD1"
+    /library_id="Osmia_lignaria_ITS_OD1"
+    /title="Fungi in association with Osmia lignaria"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="PCR"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="characterize fungi via ITS sequencing"
+    /filetype="fastq"
+    /filename="OD1_S97_L001_R1_001.fastq.gz"
+    /filename2="OD1_S97_L001_R2_001.fastq.gz"
+Accession: SAMN40287474	ID: 40287474
+
+

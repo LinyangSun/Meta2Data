@@ -1,0 +1,2529 @@
+1: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978197; Sample name: UBvsBB GI Tract + Gland; SRA: SRS1432739
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10"
+    /broad-scale environmental context="Honey bee"
+    /local-scale environmental context="Alimentary Tract &amp; Glands"
+    /environmental medium="Mouth, Ileum, Rectum &amp; Hypopharyngeal gland"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978197	ID: 4978197
+
+2: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978196; Sample name: UBvsBB GI Tract; SRA: SRS1432738
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10"
+    /broad-scale environmental context="Honey bee"
+    /local-scale environmental context="Alimentary Tract"
+    /environmental medium="Mouth, Ileum &amp; Rectum"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978196	ID: 4978196
+
+3: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978162; Sample name: UBC12R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="44"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978162	ID: 4978162
+
+4: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978161; Sample name: UBC11R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="43"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978161	ID: 4978161
+
+5: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978160; Sample name: UBC10R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="42"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978160	ID: 4978160
+
+6: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978159; Sample name: UBC9R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="41"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978159	ID: 4978159
+
+7: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978158; Sample name: UBC8R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="40"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978158	ID: 4978158
+
+8: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978157; Sample name: UBC7R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="39"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978157	ID: 4978157
+
+9: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978156; Sample name: UBC6R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="38"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978156	ID: 4978156
+
+10: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978155; Sample name: UBC5R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="37"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978155	ID: 4978155
+
+11: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978154; Sample name: UBC4R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="36"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978154	ID: 4978154
+
+12: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978153; Sample name: UBC2R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="35"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978153	ID: 4978153
+
+13: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978152; Sample name: UBC1R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="34"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978152	ID: 4978152
+
+14: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978151; Sample name: BBC12R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="33"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978151	ID: 4978151
+
+15: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978150; Sample name: BBC11R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="32"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978150	ID: 4978150
+
+16: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978149; Sample name: BBC10R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="31"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978149	ID: 4978149
+
+17: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978148; Sample name: BBC9R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="30"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978148	ID: 4978148
+
+18: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978147; Sample name: BBC8R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="29"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978147	ID: 4978147
+
+19: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978146; Sample name: BBC7R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="28"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978146	ID: 4978146
+
+20: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978145; Sample name: BBC6R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="27"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978145	ID: 4978145
+
+21: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978144; Sample name: BBC4R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="26"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978144	ID: 4978144
+
+22: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978143; Sample name: BBC3R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="25"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978143	ID: 4978143
+
+23: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978142; Sample name: BBC2R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="24"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978142	ID: 4978142
+
+24: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978141; Sample name: BBC1R2.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="23"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978141	ID: 4978141
+
+25: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978140; Sample name: UBC12R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="22"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978140	ID: 4978140
+
+26: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978139; Sample name: UBC11R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="21"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978139	ID: 4978139
+
+27: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978138; Sample name: UBC10R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="20"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978138	ID: 4978138
+
+28: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978137; Sample name: UBC9R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="19"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978137	ID: 4978137
+
+29: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978136; Sample name: UBC8R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="18"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978136	ID: 4978136
+
+30: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978135; Sample name: UBC7R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="17"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978135	ID: 4978135
+
+31: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978134; Sample name: UBC6R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="16"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978134	ID: 4978134
+
+32: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978133; Sample name: UBC4R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="15"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978133	ID: 4978133
+
+33: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978132; Sample name: UBC3R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="14"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978132	ID: 4978132
+
+34: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978131; Sample name: UBC2R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="13"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978131	ID: 4978131
+
+35: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978130; Sample name: UBC1R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="12"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978130	ID: 4978130
+
+36: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978129; Sample name: BBC12R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="11"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978129	ID: 4978129
+
+37: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978128; Sample name: BBC11R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="10"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978128	ID: 4978128
+
+38: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978127; Sample name: BBC10R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="9"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978127	ID: 4978127
+
+39: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978126; Sample name: BBC9R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="8"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978126	ID: 4978126
+
+40: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978125; Sample name: BBC8R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="7"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978125	ID: 4978125
+
+41: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978124; Sample name: BBC7R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="6"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978124	ID: 4978124
+
+42: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978123; Sample name: BBC6R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978123	ID: 4978123
+
+43: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978122; Sample name: BBC4R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978122	ID: 4978122
+
+44: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978121; Sample name: BBC3R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978121	ID: 4978121
+
+45: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978120; Sample name: BBC2R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978120	ID: 4978120
+
+46: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978119; Sample name: BBC1R1.R
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Rectum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978119	ID: 4978119
+
+47: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978118; Sample name: UBC12R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="44"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978118	ID: 4978118
+
+48: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978117; Sample name: UBC11R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="43"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978117	ID: 4978117
+
+49: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978116; Sample name: UBC10R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="42"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978116	ID: 4978116
+
+50: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978115; Sample name: UBC9R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="41"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978115	ID: 4978115
+
+51: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978114; Sample name: UBC8R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="40"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978114	ID: 4978114
+
+52: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978113; Sample name: UBC7R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="39"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978113	ID: 4978113
+
+53: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978112; Sample name: UBC6R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="38"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978112	ID: 4978112
+
+54: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978111; Sample name: UBC5R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="37"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978111	ID: 4978111
+
+55: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978110; Sample name: UBC4R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="36"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978110	ID: 4978110
+
+56: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978109; Sample name: UBC2R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="35"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978109	ID: 4978109
+
+57: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978108; Sample name: UBC1R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="34"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978108	ID: 4978108
+
+58: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978107; Sample name: BBC12R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="33"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978107	ID: 4978107
+
+59: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978106; Sample name: BBC11R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="32"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978106	ID: 4978106
+
+60: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978105; Sample name: BBC10R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="31"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978105	ID: 4978105
+
+
+61: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978104; Sample name: BBC9R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="30"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978104	ID: 4978104
+
+62: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978103; Sample name: BBC8R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="29"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978103	ID: 4978103
+
+63: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978102; Sample name: BBC7R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="28"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978102	ID: 4978102
+
+64: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978101; Sample name: BBC6R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="27"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978101	ID: 4978101
+
+65: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978100; Sample name: BBC4R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="26"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978100	ID: 4978100
+
+66: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978099; Sample name: BBC3R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="25"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978099	ID: 4978099
+
+67: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978098; Sample name: BBC2R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="24"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978098	ID: 4978098
+
+68: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978097; Sample name: BBC1R2.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="23"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978097	ID: 4978097
+
+69: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978096; Sample name: UBC12R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="22"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978096	ID: 4978096
+
+70: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978095; Sample name: UBC11R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="21"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978095	ID: 4978095
+
+71: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978094; Sample name: UBC10R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="20"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978094	ID: 4978094
+
+72: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978093; Sample name: UBC9R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="19"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978093	ID: 4978093
+
+73: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978092; Sample name: UBC8R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="18"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978092	ID: 4978092
+
+74: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978091; Sample name: UBC7R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="17"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978091	ID: 4978091
+
+75: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978090; Sample name: UBC6R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="16"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978090	ID: 4978090
+
+76: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978089; Sample name: UBC4R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="15"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978089	ID: 4978089
+
+77: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978088; Sample name: UBC3R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="14"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978088	ID: 4978088
+
+78: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978087; Sample name: UBC2R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="13"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978087	ID: 4978087
+
+79: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978086; Sample name: UBC1R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="12"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978086	ID: 4978086
+
+80: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978085; Sample name: BBC12R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="11"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978085	ID: 4978085
+
+81: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978084; Sample name: BBC11R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="10"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978084	ID: 4978084
+
+82: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978083; Sample name: BBC10R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="9"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978083	ID: 4978083
+
+83: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978082; Sample name: BBC9R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="8"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978082	ID: 4978082
+
+84: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978081; Sample name: BBC8R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="7"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978081	ID: 4978081
+
+85: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978080; Sample name: BBC7R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="6"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978080	ID: 4978080
+
+86: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978079; Sample name: BBC6R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978079	ID: 4978079
+
+87: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978078; Sample name: BBC4R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978078	ID: 4978078
+
+88: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978077; Sample name: BBC3R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978077	ID: 4978077
+
+89: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978076; Sample name: BBC2R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978076	ID: 4978076
+
+90: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978075; Sample name: BBC1R1.I
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Alimentary Tract"
+    /local-scale environmental context="Ileum"
+    /environmental medium="Abdomen"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978075	ID: 4978075
+
+91: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978074; Sample name: UBC12R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="44"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978074	ID: 4978074
+
+92: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978073; Sample name: UBC11R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="43"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978073	ID: 4978073
+
+93: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978072; Sample name: UBC10R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="42"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978072	ID: 4978072
+
+94: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978071; Sample name: UBC9R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="41"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978071	ID: 4978071
+
+95: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978070; Sample name: UBC8R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="40"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978070	ID: 4978070
+
+96: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978069; Sample name: UBC7R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="39"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978069	ID: 4978069
+
+97: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978068; Sample name: UBC6R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="38"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978068	ID: 4978068
+
+98: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978067; Sample name: UBC5R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="37"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978067	ID: 4978067
+
+99: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978066; Sample name: UBC4R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="36"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978066	ID: 4978066
+
+100: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978065; Sample name: UBC2R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="35"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978065	ID: 4978065
+
+101: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978064; Sample name: UBC1R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="34"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978064	ID: 4978064
+
+102: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978063; Sample name: BBC12R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="33"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978063	ID: 4978063
+
+103: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978062; Sample name: BBC11R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="32"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978062	ID: 4978062
+
+104: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978061; Sample name: BBC10R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="31"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978061	ID: 4978061
+
+105: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978060; Sample name: BBC9R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="30"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978060	ID: 4978060
+
+106: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978059; Sample name: BBC8R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="29"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978059	ID: 4978059
+
+107: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978058; Sample name: BBC7R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="28"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978058	ID: 4978058
+
+108: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978057; Sample name: BBC6R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="27"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978057	ID: 4978057
+
+109: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978056; Sample name: BBC4R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="26"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978056	ID: 4978056
+
+110: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978055; Sample name: BBC3R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="25"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978055	ID: 4978055
+
+111: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978054; Sample name: BBC2R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="24"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978054	ID: 4978054
+
+112: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978053; Sample name: BBC1R2.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="23"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978053	ID: 4978053
+
+113: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978052; Sample name: UBC12R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="22"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978052	ID: 4978052
+
+114: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978051; Sample name: UBC11R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="21"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978051	ID: 4978051
+
+115: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978050; Sample name: UBC10R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="20"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978050	ID: 4978050
+
+116: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978049; Sample name: UBC9R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="19"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978049	ID: 4978049
+
+117: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978048; Sample name: UBC8R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="18"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978048	ID: 4978048
+
+118: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978047; Sample name: UBC7R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="17"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978047	ID: 4978047
+
+119: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978046; Sample name: UBC6R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="16"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978046	ID: 4978046
+
+120: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978045; Sample name: UBC4R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="15"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978045	ID: 4978045
+
+
+121: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978044; Sample name: UBC3R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="14"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978044	ID: 4978044
+
+122: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978043; Sample name: UBC2R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="13"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978043	ID: 4978043
+
+123: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978042; Sample name: UBC1R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="12"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978042	ID: 4978042
+
+124: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978041; Sample name: BBC12R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="11"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978041	ID: 4978041
+
+125: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978040; Sample name: BBC11R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="10"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978040	ID: 4978040
+
+126: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978039; Sample name: BBC10R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="9"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978039	ID: 4978039
+
+127: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978038; Sample name: BBC9R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="8"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978038	ID: 4978038
+
+128: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978037; Sample name: BBC8R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="7"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978037	ID: 4978037
+
+129: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978036; Sample name: BBC7R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="6"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978036	ID: 4978036
+
+130: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978035; Sample name: BBC6R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978035	ID: 4978035
+
+131: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978034; Sample name: BBC4R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978034	ID: 4978034
+
+132: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978033; Sample name: BBC3R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978033	ID: 4978033
+
+133: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978032; Sample name: BBC2R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978032	ID: 4978032
+
+134: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978031; Sample name: BBC1R1.M
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Not Applicable"
+    /local-scale environmental context="Mouthparts"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978031	ID: 4978031
+
+135: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978030; Sample name: UBC8R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="24"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978030	ID: 4978030
+
+136: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978029; Sample name: UBC7R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="23"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978029	ID: 4978029
+
+137: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978028; Sample name: UBC6R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="22"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978028	ID: 4978028
+
+138: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978027; Sample name: UBC4R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="21"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978027	ID: 4978027
+
+139: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978026; Sample name: UBC2R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="20"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978026	ID: 4978026
+
+140: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978025; Sample name: UBC1R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="19"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978025	ID: 4978025
+
+141: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978024; Sample name: BBC8R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="18"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978024	ID: 4978024
+
+142: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978023; Sample name: BBC7R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="17"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978023	ID: 4978023
+
+143: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978022; Sample name: BBC6R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="16"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978022	ID: 4978022
+
+144: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978021; Sample name: BBC4R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="15"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978021	ID: 4978021
+
+145: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978020; Sample name: BBC2R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="14"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978020	ID: 4978020
+
+146: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978019; Sample name: BBC1R2.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-10"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="13"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978019	ID: 4978019
+
+147: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978018; Sample name: UBC8R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="12"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978018	ID: 4978018
+
+148: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978017; Sample name: UBC7R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="11"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978017	ID: 4978017
+
+149: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978016; Sample name: UBC6R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="10"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978016	ID: 4978016
+
+150: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978015; Sample name: UBC4R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="9"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978015	ID: 4978015
+
+151: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978014; Sample name: UBC2R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="8"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978014	ID: 4978014
+
+152: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978013; Sample name: UBC1R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="7"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978013	ID: 4978013
+
+153: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978012; Sample name: BBC8R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="6"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978012	ID: 4978012
+
+154: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978011; Sample name: BBC7R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978011	ID: 4978011
+
+155: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978010; Sample name: BBC6R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978010	ID: 4978010
+
+156: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978009; Sample name: BBC4R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978009	ID: 4978009
+
+157: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978008; Sample name: BBC2R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978008	ID: 4978008
+
+158: MIMS Environmental/Metagenome sample from insect gut metagenome
+Identifiers: BioSample: SAMN04978007; Sample name: BBC1R1.H
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2014-10-03"
+    /broad-scale environmental context="Exocrine Gland"
+    /local-scale environmental context="hypopharyngeal gland"
+    /environmental medium="Cranium"
+    /geographic location="USA: Arizona, Tucson, Carl Hayden Honey Bee Research Center"
+    /host="Apis mellifera"
+    /latitude and longitude="32.28 N 110.94 W"
+    /Replicate="1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN04978007	ID: 4978007
+
+

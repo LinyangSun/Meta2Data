@@ -1,0 +1,60 @@
+[2025-12-30 16:06:15] INFO - 
+======================================================================
+[2025-12-30 16:06:15] INFO - UNIFIED METADATA DOWNLOAD PIPELINE V4.1
+[2025-12-30 16:06:15] INFO - (Single-Project Processing with Status Tracking)
+[2025-12-30 16:06:15] INFO - ======================================================================
+[2025-12-30 16:06:15] INFO - Input:       /Users/a1-6/Project-helsinki/Meta2Data/scripts/MetaDL/TestData/DownloadedBioprojectID
+[2025-12-30 16:06:15] INFO - Output:      /Users/a1-6/Project-helsinki/Meta2Data/scripts/MetaDL/TestData/DownloadedBioprojectID/metadl_test_output
+[2025-12-30 16:06:15] INFO - Email:       test@example.com
+[2025-12-30 16:06:15] INFO - API Key:     No
+[2025-12-30 16:06:15] INFO - Max Workers: 3
+[2025-12-30 16:06:15] INFO - ======================================================================
+[2025-12-30 16:06:15] INFO - 
+[Step 1] Reading BioProject IDs...
+[2025-12-30 16:06:15] INFO - 
+Total BioProjects: 4
+[2025-12-30 16:06:15] INFO -   CNCB (PRJC*): 0
+[2025-12-30 16:06:15] INFO -   NCBI (PRJ[EDN]*): 4
+[2025-12-30 16:06:15] INFO - 
+Checkpoint status:
+[2025-12-30 16:06:15] INFO -   Completed: 0
+[2025-12-30 16:06:15] INFO -   Failed: 0
+[2025-12-30 16:06:15] INFO - 
+[Step 2] Processing BioProjects...
+[2025-12-30 16:06:15] INFO - 
+======================================================================
+[2025-12-30 16:06:15] INFO - Processing 4 BioProjects
+[2025-12-30 16:06:15] INFO - Workers: 3
+[2025-12-30 16:06:15] INFO - ======================================================================
+[2025-12-30 16:06:15] INFO - 
+──────────────────────────────────────────────────
+[2025-12-30 16:06:15] INFO - Processing: PRJNA1294982
+[2025-12-30 16:06:15] INFO - ──────────────────────────────────────────────────
+[2025-12-30 16:06:15] INFO -   [NCBI] Fetching metadata...
+[2025-12-30 16:06:15] INFO - 
+──────────────────────────────────────────────────
+[2025-12-30 16:06:15] INFO - 
+──────────────────────────────────────────────────
+[2025-12-30 16:06:15] INFO - Processing: PRJNA1310163
+[2025-12-30 16:06:15] INFO - Processing: PRJNA1285920
+[2025-12-30 16:06:15] INFO - ──────────────────────────────────────────────────
+[2025-12-30 16:06:15] INFO - ──────────────────────────────────────────────────
+[2025-12-30 16:06:15] INFO -   [NCBI] Fetching metadata...
+[2025-12-30 16:06:15] INFO -   [NCBI] Fetching metadata...
+[2025-12-30 16:06:20] INFO -   ✓ BioSample: 20 samples
+[2025-12-30 16:06:22] INFO -   ✓ SRA: 20 runs
+[2025-12-30 16:06:22] INFO -   ✓ NCBI merged: 20 rows, 49 columns
+[2025-12-30 16:06:22] INFO -   ✓ Saved: PRJNA1285920.processed.csv
+[2025-12-30 16:06:22] INFO - 
+──────────────────────────────────────────────────
+[2025-12-30 16:06:22] INFO - Processing: PRJNA1253914
+[2025-12-30 16:06:22] INFO - ──────────────────────────────────────────────────
+[2025-12-30 16:06:22] INFO -   [NCBI] Fetching metadata...
+[2025-12-30 16:06:23] INFO -   ✓ BioSample: 18 samples
+[2025-12-30 16:06:24] INFO -   ✓ SRA: 18 runs
+[2025-12-30 16:06:24] INFO -   ✓ NCBI merged: 18 rows, 36 columns
+[2025-12-30 16:06:24] INFO -   ✓ Saved: PRJNA1310163.processed.csv
+[2025-12-30 16:06:34] INFO -   ✓ BioSample: 98 samples
+[2025-12-30 16:06:36] INFO -   ✓ SRA: 98 runs
+[2025-12-30 16:06:36] INFO -   ✓ NCBI merged: 98 rows, 38 columns
+[2025-12-30 16:06:36] INFO -   ✓ Saved: PRJNA1253914.processed.csv

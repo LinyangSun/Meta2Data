@@ -1,0 +1,1772 @@
+1: ITS_h  8-2702
+Identifiers: BioSample: SAMN14784690; Sample name: ITS_h  8-2702; SRA: SRS6577299
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 8"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784690	ID: 14784690
+
+2: ITS_h  8-2111
+Identifiers: BioSample: SAMN14784689; Sample name: ITS_h  8-2111; SRA: SRS6577298
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 8"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784689	ID: 14784689
+
+3: ITS_h  8-1911
+Identifiers: BioSample: SAMN14784688; Sample name: ITS_h  8-1911; SRA: SRS6577296
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 8"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784688	ID: 14784688
+
+4: ITS_h  8-1601
+Identifiers: BioSample: SAMN14784687; Sample name: ITS_h  8-1601; SRA: SRS6577295
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 8"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784687	ID: 14784687
+
+5: ITS_h  8-0512
+Identifiers: BioSample: SAMN14784686; Sample name: ITS_h  8-0512; SRA: SRS6577294
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 8"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784686	ID: 14784686
+
+6: ITS_h  7-2702
+Identifiers: BioSample: SAMN14784685; Sample name: ITS_h  7-2702; SRA: SRS6577293
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784685	ID: 14784685
+
+7: ITS_h  7-2111
+Identifiers: BioSample: SAMN14784684; Sample name: ITS_h  7-2111; SRA: SRS6577292
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 7"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784684	ID: 14784684
+
+8: ITS_h  7-1911
+Identifiers: BioSample: SAMN14784683; Sample name: ITS_h  7-1911; SRA: SRS6577291
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 7"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784683	ID: 14784683
+
+9: ITS_h  7-1601
+Identifiers: BioSample: SAMN14784682; Sample name: ITS_h  7-1601; SRA: SRS6577290
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784682	ID: 14784682
+
+10: ITS_h  7-1304
+Identifiers: BioSample: SAMN14784681; Sample name: ITS_h  7-1304; SRA: SRS6577289
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784681	ID: 14784681
+
+11: ITS_h  7-0512
+Identifiers: BioSample: SAMN14784680; Sample name: ITS_h  7-0512; SRA: SRS6577288
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784680	ID: 14784680
+
+12: ITS_h  7-0309
+Identifiers: BioSample: SAMN14784679; Sample name: ITS_h  7-0309; SRA: SRS6577287
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784679	ID: 14784679
+
+13: ITS_h  5-2702
+Identifiers: BioSample: SAMN14784678; Sample name: ITS_h  5-2702; SRA: SRS6577285
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784678	ID: 14784678
+
+14: ITS_h  5-2111
+Identifiers: BioSample: SAMN14784677; Sample name: ITS_h  5-2111; SRA: SRS6577284
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 5"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784677	ID: 14784677
+
+15: ITS_h  5-1911
+Identifiers: BioSample: SAMN14784676; Sample name: ITS_h  5-1911; SRA: SRS6577283
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 5"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784676	ID: 14784676
+
+16: ITS_h  5-1601
+Identifiers: BioSample: SAMN14784675; Sample name: ITS_h  5-1601; SRA: SRS6577282
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784675	ID: 14784675
+
+17: ITS_h  5-1304
+Identifiers: BioSample: SAMN14784674; Sample name: ITS_h  5-1304; SRA: SRS6577281
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784674	ID: 14784674
+
+18: ITS_h  5-0512
+Identifiers: BioSample: SAMN14784673; Sample name: ITS_h  5-0512; SRA: SRS6577280
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784673	ID: 14784673
+
+19: ITS_h  5-0309
+Identifiers: BioSample: SAMN14784672; Sample name: ITS_h  5-0309; SRA: SRS6577279
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784672	ID: 14784672
+
+20: ITS_h  4-2702
+Identifiers: BioSample: SAMN14784671; Sample name: ITS_h  4-2702; SRA: SRS6577278
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784671	ID: 14784671
+
+21: ITS_h  4-2111
+Identifiers: BioSample: SAMN14784670; Sample name: ITS_h  4-2111; SRA: SRS6577277
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 4"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784670	ID: 14784670
+
+22: ITS_h  4-1911
+Identifiers: BioSample: SAMN14784669; Sample name: ITS_h  4-1911; SRA: SRS6577276
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 4"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784669	ID: 14784669
+
+23: ITS_h  4-1601
+Identifiers: BioSample: SAMN14784668; Sample name: ITS_h  4-1601; SRA: SRS6577370
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784668	ID: 14784668
+
+24: ITS_h  4-1304
+Identifiers: BioSample: SAMN14784667; Sample name: ITS_h  4-1304; SRA: SRS6577369
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784667	ID: 14784667
+
+25: ITS_h  4-0512
+Identifiers: BioSample: SAMN14784666; Sample name: ITS_h  4-0512; SRA: SRS6577368
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784666	ID: 14784666
+
+26: ITS_h  4-0309
+Identifiers: BioSample: SAMN14784665; Sample name: ITS_h  4-0309; SRA: SRS6577367
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784665	ID: 14784665
+
+27: ITS_h  27-2111
+Identifiers: BioSample: SAMN14784664; Sample name: ITS_h  27-2111; SRA: SRS6577366
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 27"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784664	ID: 14784664
+
+28: ITS_h  27-1911
+Identifiers: BioSample: SAMN14784663; Sample name: ITS_h  27-1911; SRA: SRS6577364
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 27"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784663	ID: 14784663
+
+29: ITS_h  27-1601
+Identifiers: BioSample: SAMN14784662; Sample name: ITS_h  27-1601; SRA: SRS6577365
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784662	ID: 14784662
+
+30: ITS_h  27-1304
+Identifiers: BioSample: SAMN14784661; Sample name: ITS_h  27-1304; SRA: SRS6577363
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784661	ID: 14784661
+
+31: ITS_h  27-0603
+Identifiers: BioSample: SAMN14784660; Sample name: ITS_h  27-0603; SRA: SRS6577362
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-03-06"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784660	ID: 14784660
+
+32: ITS_h  27-0512
+Identifiers: BioSample: SAMN14784659; Sample name: ITS_h  27-0512; SRA: SRS6577361
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784659	ID: 14784659
+
+33: ITS_h  27-0309
+Identifiers: BioSample: SAMN14784658; Sample name: ITS_h  27-0309; SRA: SRS6577359
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784658	ID: 14784658
+
+34: ITS_h  25-2702
+Identifiers: BioSample: SAMN14784657; Sample name: ITS_h  25-2702; SRA: SRS6577358
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784657	ID: 14784657
+
+35: ITS_h  25-2111
+Identifiers: BioSample: SAMN14784656; Sample name: ITS_h  25-2111; SRA: SRS6577357
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 25"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784656	ID: 14784656
+
+36: ITS_h  25-1911
+Identifiers: BioSample: SAMN14784655; Sample name: ITS_h  25-1911; SRA: SRS6577356
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 25"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784655	ID: 14784655
+
+37: ITS_h  25-1601
+Identifiers: BioSample: SAMN14784654; Sample name: ITS_h  25-1601; SRA: SRS6577355
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784654	ID: 14784654
+
+38: ITS_h  25-1304
+Identifiers: BioSample: SAMN14784653; Sample name: ITS_h  25-1304; SRA: SRS6577354
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784653	ID: 14784653
+
+39: ITS_h  25-0512
+Identifiers: BioSample: SAMN14784652; Sample name: ITS_h  25-0512; SRA: SRS6577353
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784652	ID: 14784652
+
+40: ITS_h  25-0309
+Identifiers: BioSample: SAMN14784651; Sample name: ITS_h  25-0309; SRA: SRS6577352
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784651	ID: 14784651
+
+41: ITS_h  23-2702
+Identifiers: BioSample: SAMN14784650; Sample name: ITS_h  23-2702; SRA: SRS6577351
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784650	ID: 14784650
+
+42: ITS_h  23-2111
+Identifiers: BioSample: SAMN14784649; Sample name: ITS_h  23-2111; SRA: SRS6577350
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 23"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784649	ID: 14784649
+
+43: ITS_h  23-1911
+Identifiers: BioSample: SAMN14784648; Sample name: ITS_h  23-1911; SRA: SRS6577348
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 23"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784648	ID: 14784648
+
+44: ITS_h  23-1601
+Identifiers: BioSample: SAMN14784647; Sample name: ITS_h  23-1601; SRA: SRS6577347
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784647	ID: 14784647
+
+45: ITS_h  23-1304
+Identifiers: BioSample: SAMN14784646; Sample name: ITS_h  23-1304; SRA: SRS6577346
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784646	ID: 14784646
+
+46: ITS_h  23-0512
+Identifiers: BioSample: SAMN14784645; Sample name: ITS_h  23-0512; SRA: SRS6577345
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784645	ID: 14784645
+
+47: ITS_h  23-0309
+Identifiers: BioSample: SAMN14784644; Sample name: ITS_h  23-0309; SRA: SRS6577344
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784644	ID: 14784644
+
+48: ITS_h  17-2702
+Identifiers: BioSample: SAMN14784643; Sample name: ITS_h  17-2702; SRA: SRS6577343
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784643	ID: 14784643
+
+49: ITS_h  17-2111
+Identifiers: BioSample: SAMN14784642; Sample name: ITS_h  17-2111; SRA: SRS6577342
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 17"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784642	ID: 14784642
+
+50: ITS_h  17-1911
+Identifiers: BioSample: SAMN14784641; Sample name: ITS_h  17-1911; SRA: SRS6577341
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 17"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784641	ID: 14784641
+
+51: ITS_h  17-1601
+Identifiers: BioSample: SAMN14784640; Sample name: ITS_h  17-1601; SRA: SRS6577340
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784640	ID: 14784640
+
+52: ITS_h17-1304
+Identifiers: BioSample: SAMN14784639; Sample name: ITS_h17-1304; SRA: SRS6577339
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784639	ID: 14784639
+
+53: ITS_h17-0512
+Identifiers: BioSample: SAMN14784638; Sample name: ITS_h17-0512; SRA: SRS6577337
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784638	ID: 14784638
+
+54: ITS_h17-0309
+Identifiers: BioSample: SAMN14784637; Sample name: ITS_h17-0309; SRA: SRS6577336
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784637	ID: 14784637
+
+55: ITS_h16-2702
+Identifiers: BioSample: SAMN14784636; Sample name: ITS_h16-2702; SRA: SRS6577335
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784636	ID: 14784636
+
+56: ITS_h16-2111
+Identifiers: BioSample: SAMN14784635; Sample name: ITS_h16-2111; SRA: SRS6577334
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 16"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784635	ID: 14784635
+
+57: ITS_h16-1911
+Identifiers: BioSample: SAMN14784634; Sample name: ITS_h16-1911; SRA: SRS6577333
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 16"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784634	ID: 14784634
+
+58: ITS_h16-1601
+Identifiers: BioSample: SAMN14784633; Sample name: ITS_h16-1601; SRA: SRS6577332
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784633	ID: 14784633
+
+59: ITS_h16-1304
+Identifiers: BioSample: SAMN14784632; Sample name: ITS_h16-1304; SRA: SRS6577331
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784632	ID: 14784632
+
+60: ITS_h16-0512
+Identifiers: BioSample: SAMN14784631; Sample name: ITS_h16-0512; SRA: SRS6577330
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+Accession: SAMN14784631	ID: 14784631
+
+
+61: ITS_h16-0309
+Identifiers: BioSample: SAMN14784630; Sample name: ITS_h16-0309; SRA: SRS6577329
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 2"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+Accession: SAMN14784630	ID: 14784630
+
+62: 16S_h 8-2702
+Identifiers: BioSample: SAMN14784629; Sample name: 16S_h 8-2702; SRA: SRS6577328
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 8"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784629	ID: 14784629
+
+63: 16S_h 8-2111
+Identifiers: BioSample: SAMN14784628; Sample name: 16S_h 8-2111; SRA: SRS6577326
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 8"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784628	ID: 14784628
+
+64: 16S_h 8-1911
+Identifiers: BioSample: SAMN14784627; Sample name: 16S_h 8-1911; SRA: SRS6577325
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 8"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784627	ID: 14784627
+
+65: 16S_h 8-1601
+Identifiers: BioSample: SAMN14784626; Sample name: 16S_h 8-1601; SRA: SRS6577324
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 8"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784626	ID: 14784626
+
+66: 16S_h 8-0512
+Identifiers: BioSample: SAMN14784625; Sample name: 16S_h 8-0512; SRA: SRS6577394
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 8"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784625	ID: 14784625
+
+67: 16S_h 7-2702
+Identifiers: BioSample: SAMN14784624; Sample name: 16S_h 7-2702; SRA: SRS6577393
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784624	ID: 14784624
+
+68: 16S_h 7-2111
+Identifiers: BioSample: SAMN14784623; Sample name: 16S_h 7-2111; SRA: SRS6577392
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 7"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784623	ID: 14784623
+
+69: 16S_h 7-1911
+Identifiers: BioSample: SAMN14784622; Sample name: 16S_h 7-1911; SRA: SRS6577391
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 7"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784622	ID: 14784622
+
+70: 16S_h 7-1601
+Identifiers: BioSample: SAMN14784621; Sample name: 16S_h 7-1601; SRA: SRS6577390
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784621	ID: 14784621
+
+71: 16S_h 7-1304
+Identifiers: BioSample: SAMN14784620; Sample name: 16S_h 7-1304; SRA: SRS6577388
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784620	ID: 14784620
+
+72: 16S_h 7-0512
+Identifiers: BioSample: SAMN14784619; Sample name: 16S_h 7-0512; SRA: SRS6577389
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784619	ID: 14784619
+
+73: 16S_h 7-0309
+Identifiers: BioSample: SAMN14784618; Sample name: 16S_h 7-0309; SRA: SRS6577386
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 7"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784618	ID: 14784618
+
+74: 16S_h 5-2702
+Identifiers: BioSample: SAMN14784617; Sample name: 16S_h 5-2702; SRA: SRS6577385
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784617	ID: 14784617
+
+75: 16S_h 5-2111
+Identifiers: BioSample: SAMN14784616; Sample name: 16S_h 5-2111; SRA: SRS6577384
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 5"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784616	ID: 14784616
+
+76: 16S_h 5-1911
+Identifiers: BioSample: SAMN14784615; Sample name: 16S_h 5-1911; SRA: SRS6577383
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 5"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784615	ID: 14784615
+
+77: 16S_h 5-1601
+Identifiers: BioSample: SAMN14784614; Sample name: 16S_h 5-1601; SRA: SRS6577382
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784614	ID: 14784614
+
+78: 16S_h 5-1304
+Identifiers: BioSample: SAMN14784613; Sample name: 16S_h 5-1304; SRA: SRS6577381
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784613	ID: 14784613
+
+79: 16S_h 5-0512
+Identifiers: BioSample: SAMN14784612; Sample name: 16S_h 5-0512; SRA: SRS6577380
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784612	ID: 14784612
+
+80: 16S_h 5-0309
+Identifiers: BioSample: SAMN14784611; Sample name: 16S_h 5-0309; SRA: SRS6577379
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 5"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784611	ID: 14784611
+
+81: 16S_h 4-2702
+Identifiers: BioSample: SAMN14784610; Sample name: 16S_h 4-2702; SRA: SRS6577378
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784610	ID: 14784610
+
+82: 16S_h 4-2111
+Identifiers: BioSample: SAMN14784609; Sample name: 16S_h 4-2111; SRA: SRS6577377
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 4"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784609	ID: 14784609
+
+83: 16S_h 4-1911
+Identifiers: BioSample: SAMN14784608; Sample name: 16S_h 4-1911; SRA: SRS6577375
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 4"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784608	ID: 14784608
+
+84: 16S_h 4-1601
+Identifiers: BioSample: SAMN14784607; Sample name: 16S_h 4-1601; SRA: SRS6577374
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784607	ID: 14784607
+
+85: 16S_h 4-1304
+Identifiers: BioSample: SAMN14784606; Sample name: 16S_h 4-1304; SRA: SRS6577373
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784606	ID: 14784606
+
+86: 16S_h 4-0512
+Identifiers: BioSample: SAMN14784605; Sample name: 16S_h 4-0512; SRA: SRS6577372
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784605	ID: 14784605
+
+87: 16S_h 4-0309
+Identifiers: BioSample: SAMN14784604; Sample name: 16S_h 4-0309; SRA: SRS6577371
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 4"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784604	ID: 14784604
+
+88: 16S_h 27-2111
+Identifiers: BioSample: SAMN14784603; Sample name: 16S_h 27-2111; SRA: SRS6577323
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 27"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784603	ID: 14784603
+
+89: 16S_h 27-1911
+Identifiers: BioSample: SAMN14784602; Sample name: 16S_h 27-1911; SRA: SRS6577322
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 27"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784602	ID: 14784602
+
+90: 16S_h 27-1601
+Identifiers: BioSample: SAMN14784601; Sample name: 16S_h 27-1601; SRA: SRS6577321
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784601	ID: 14784601
+
+91: 16S_h 27-1304
+Identifiers: BioSample: SAMN14784600; Sample name: 16S_h 27-1304; SRA: SRS6577320
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784600	ID: 14784600
+
+92: 16S_h 27-0603
+Identifiers: BioSample: SAMN14784599; Sample name: 16S_h 27-0603; SRA: SRS6577319
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-03-06"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784599	ID: 14784599
+
+93: 16S_h 27-0512
+Identifiers: BioSample: SAMN14784598; Sample name: 16S_h 27-0512; SRA: SRS6577317
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784598	ID: 14784598
+
+94: 16S_h 27-0309
+Identifiers: BioSample: SAMN14784597; Sample name: 16S_h 27-0309; SRA: SRS6577316
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 27"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784597	ID: 14784597
+
+95: 16S_h 25-2702
+Identifiers: BioSample: SAMN14784596; Sample name: 16S_h 25-2702; SRA: SRS6577315
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784596	ID: 14784596
+
+96: 16S_h 25-2111
+Identifiers: BioSample: SAMN14784595; Sample name: 16S_h 25-2111; SRA: SRS6577314
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 25"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784595	ID: 14784595
+
+97: 16S_h 25-1911
+Identifiers: BioSample: SAMN14784594; Sample name: 16S_h 25-1911; SRA: SRS6577313
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 25"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784594	ID: 14784594
+
+98: 16S_h 25-1601
+Identifiers: BioSample: SAMN14784593; Sample name: 16S_h 25-1601; SRA: SRS6577312
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784593	ID: 14784593
+
+99: 16S_h 25-1304
+Identifiers: BioSample: SAMN14784592; Sample name: 16S_h 25-1304; SRA: SRS6577311
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784592	ID: 14784592
+
+100: 16S_h 25-0512
+Identifiers: BioSample: SAMN14784591; Sample name: 16S_h 25-0512; SRA: SRS6577310
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784591	ID: 14784591
+
+101: 16S_h 25-0309
+Identifiers: BioSample: SAMN14784590; Sample name: 16S_h 25-0309; SRA: SRS6577309
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 25"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784590	ID: 14784590
+
+102: 16S_h 23-2702
+Identifiers: BioSample: SAMN14784589; Sample name: 16S_h 23-2702; SRA: SRS6577308
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784589	ID: 14784589
+
+103: 16S_h 23-2111
+Identifiers: BioSample: SAMN14784588; Sample name: 16S_h 23-2111; SRA: SRS6577306
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 23"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784588	ID: 14784588
+
+104: 16S_h 23-1911
+Identifiers: BioSample: SAMN14784587; Sample name: 16S_h 23-1911; SRA: SRS6577305
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 23"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784587	ID: 14784587
+
+105: 16S_h 23-1601
+Identifiers: BioSample: SAMN14784586; Sample name: 16S_h 23-1601; SRA: SRS6577304
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784586	ID: 14784586
+
+106: 16S_h 23-1304
+Identifiers: BioSample: SAMN14784585; Sample name: 16S_h 23-1304; SRA: SRS6577303
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784585	ID: 14784585
+
+107: 16S_h 23-0512
+Identifiers: BioSample: SAMN14784584; Sample name: 16S_h 23-0512; SRA: SRS6577302
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784584	ID: 14784584
+
+108: 16S_h 23-0309
+Identifiers: BioSample: SAMN14784583; Sample name: 16S_h 23-0309; SRA: SRS6577301
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 23"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784583	ID: 14784583
+
+109: 16S_h 17-2702
+Identifiers: BioSample: SAMN14784582; Sample name: 16S_h 17-2702; SRA: SRS6577300
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784582	ID: 14784582
+
+110: 16S_h 17-2111
+Identifiers: BioSample: SAMN14784581; Sample name: 16S_h 17-2111; SRA: SRS6577297
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 17"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784581	ID: 14784581
+
+111: 16S_h 17-1911
+Identifiers: BioSample: SAMN14784580; Sample name: 16S_h 17-1911; SRA: SRS6577286
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 17"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784580	ID: 14784580
+
+112: 16S_h 17-1601
+Identifiers: BioSample: SAMN14784579; Sample name: 16S_h 17-1601; SRA: SRS6577275
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784579	ID: 14784579
+
+113: 16S_h17-1304
+Identifiers: BioSample: SAMN14784578; Sample name: 16S_h17-1304; SRA: SRS6577360
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784578	ID: 14784578
+
+114: 16S_h17-0512
+Identifiers: BioSample: SAMN14784577; Sample name: 16S_h17-0512; SRA: SRS6577349
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784577	ID: 14784577
+
+115: 16S_h17-0309
+Identifiers: BioSample: SAMN14784576; Sample name: 16S_h17-0309; SRA: SRS6577338
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 17"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784576	ID: 14784576
+
+116: 16S_h16-2702
+Identifiers: BioSample: SAMN14784575; Sample name: 16S_h16-2702; SRA: SRS6577327
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-02-27"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784575	ID: 14784575
+
+117: 16S_h16-2111
+Identifiers: BioSample: SAMN14784574; Sample name: 16S_h16-2111; SRA: SRS6577387
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 16"
+    /collection date="2018-11-21"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784574	ID: 14784574
+
+118: 16S_h16-1911
+Identifiers: BioSample: SAMN14784573; Sample name: 16S_h16-1911; SRA: SRS6577376
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 16"
+    /collection date="2018-11-19"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784573	ID: 14784573
+
+119: 16S_h16-1601
+Identifiers: BioSample: SAMN14784572; Sample name: 16S_h16-1601; SRA: SRS6577318
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-01-16"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784572	ID: 14784572
+
+120: 16S_h16-1304
+Identifiers: BioSample: SAMN14784571; Sample name: 16S_h16-1304; SRA: SRS6577307
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-04-13"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784571	ID: 14784571
+
+
+121: 16S_h16-0512
+Identifiers: BioSample: SAMN14784570; Sample name: 16S_h16-0512; SRA: SRS6577274
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-12-05"
+    /geographic location="Australia: Cowra"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.46 S 148.62 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784570	ID: 14784570
+
+122: 16S_h16-0309
+Identifiers: BioSample: SAMN14784569; Sample name: 16S_h16-0309; SRA: SRS6577273
+Organism: Tetragonula carbonaria
+Attributes:
+    /isolate="pool of 10 individuals-aliquot 1"
+    /isolation source="foragers from hive 16"
+    /collection date="2019-09-03"
+    /geographic location="Australia: Richmond"
+    /tissue="whole bodies"
+    /development stage="adults"
+    /latitude and longitude="33.36 S 150.44 E"
+    /sex="female"
+    /sample size="pool of 10 whole foragers"
+Accession: SAMN14784569	ID: 14784569
+
+

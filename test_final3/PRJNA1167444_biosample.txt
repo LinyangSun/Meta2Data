@@ -1,0 +1,106 @@
+1: MIGS Cultured Bacterial/Archaeal sample from Gilliamella apicola
+Identifiers: BioSample: SAMN43881233; Sample name: MG40
+Organism: Gilliamella apicola
+Attributes:
+    /strain="MG40"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 41℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881233	ID: 43881233
+
+2: MIGS Cultured Bacterial/Archaeal sample from Gilliamella apicola
+Identifiers: BioSample: SAMN43881232; Sample name: MG32
+Organism: Gilliamella apicola
+Attributes:
+    /strain="MG32"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 40℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881232	ID: 43881232
+
+3: MIGS Cultured Bacterial/Archaeal sample from Gilliamella apicola
+Identifiers: BioSample: SAMN43881231; Sample name: MG25
+Organism: Gilliamella apicola
+Attributes:
+    /strain="MG25"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 39℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881231	ID: 43881231
+
+4: MIGS Cultured Bacterial/Archaeal sample from Gilliamella apicola
+Identifiers: BioSample: SAMN43881230; Sample name: MG7
+Organism: Gilliamella apicola
+Attributes:
+    /strain="MG7"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 38℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881230	ID: 43881230
+
+5: MIGS Cultured Bacterial/Archaeal sample from Gilliamella apicola
+Identifiers: BioSample: SAMN43881229; Sample name: MG1
+Organism: Gilliamella apicola
+Attributes:
+    /strain="MG1"
+    /collection date="2022-05-10"
+    /broad-scale environmental context="not applicable"
+    /local-scale environmental context="not applicable"
+    /environmental medium="not applicable"
+    /geographic location="China: Zhejiang"
+    /host dependence="Facultative"
+    /host life stage="Adult worker"
+    /isolation and growth condition="5%CO2, 37℃"
+    /latitude and longitude="30.3029 N 120.0817 E"
+    /number of replicons="not collected"
+    /reference for biomaterial="not applicable"
+    /symbiotic host organism life cycle type="simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN43881229	ID: 43881229
+
+

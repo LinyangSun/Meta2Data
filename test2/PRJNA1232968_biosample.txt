@@ -1,0 +1,2523 @@
+1: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255585; Sample name: VoUCb9_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255585	ID: 47255585
+
+2: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255584; Sample name: VoUCb9_1; SRA: SRS24499131
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255584	ID: 47255584
+
+3: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255583; Sample name: VoUCb8_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255583	ID: 47255583
+
+4: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255582; Sample name: VoUCb8_1; SRA: SRS24499124
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255582	ID: 47255582
+
+5: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255581; Sample name: VoUCb7_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255581	ID: 47255581
+
+6: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255580; Sample name: VoUCb7_1; SRA: SRS24499123
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255580	ID: 47255580
+
+7: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255579; Sample name: VoUCb6_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255579	ID: 47255579
+
+8: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255578; Sample name: VoUCb6_1; SRA: SRS24499122
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255578	ID: 47255578
+
+9: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255577; Sample name: VoUCb5_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255577	ID: 47255577
+
+10: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255576; Sample name: VoUCb5_1; SRA: SRS24499127
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255576	ID: 47255576
+
+11: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255575; Sample name: VoUCb4_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255575	ID: 47255575
+
+12: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255574; Sample name: VoUCb4_1; SRA: SRS24499121
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255574	ID: 47255574
+
+13: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255573; Sample name: VoUCb3_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255573	ID: 47255573
+
+14: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255572; Sample name: VoUCb3_1; SRA: SRS24499119
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255572	ID: 47255572
+
+15: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255571; Sample name: VoUCb2_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255571	ID: 47255571
+
+16: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255570; Sample name: VoUCb2_1; SRA: SRS24499120
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255570	ID: 47255570
+
+17: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255569; Sample name: VoUCb1_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255569	ID: 47255569
+
+18: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255568; Sample name: VoUCb1_1; SRA: SRS24499118
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-05"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255568	ID: 47255568
+
+19: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255567; Sample name: VoUCa4_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-16"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255567	ID: 47255567
+
+20: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255566; Sample name: VoUCa4_1; SRA: SRS24499117
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-16"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255566	ID: 47255566
+
+21: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255565; Sample name: VoUCa3_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-16"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255565	ID: 47255565
+
+22: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255564; Sample name: VoUCa3_1; SRA: SRS24499112
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-16"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255564	ID: 47255564
+
+23: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255563; Sample name: VoUCa2_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-16"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255563	ID: 47255563
+
+24: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255562; Sample name: VoUCa2_1; SRA: SRS24499106
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-16"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255562	ID: 47255562
+
+25: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255561; Sample name: VoUCa1_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-16"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255561	ID: 47255561
+
+26: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255560; Sample name: VoUCa1_1; SRA: SRS24499115
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-16"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Imsida"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.90 N 14.48 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255560	ID: 47255560
+
+27: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255559; Sample name: VoGBa4_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-12"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255559	ID: 47255559
+
+28: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255558; Sample name: VoGBa4_1; SRA: SRS24499108
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-12"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255558	ID: 47255558
+
+29: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255557; Sample name: VoGBa3_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-12"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255557	ID: 47255557
+
+30: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255556; Sample name: VoGBa3_1; SRA: SRS24499105
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-12"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255556	ID: 47255556
+
+31: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255555; Sample name: VoGBa2_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-12"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255555	ID: 47255555
+
+32: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255554; Sample name: VoGBa2_1; SRA: SRS24499111
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-12"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255554	ID: 47255554
+
+33: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255553; Sample name: VoGBa1_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-12"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255553	ID: 47255553
+
+34: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255552; Sample name: VoGBa1_1; SRA: SRS24499113
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-12"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255552	ID: 47255552
+
+35: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255551; Sample name: VoGB24_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255551	ID: 47255551
+
+36: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255550; Sample name: VoGB24_1; SRA: SRS24499110
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255550	ID: 47255550
+
+37: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255549; Sample name: VoGB23_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255549	ID: 47255549
+
+38: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255548; Sample name: VoGB23_1; SRA: SRS24499107
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255548	ID: 47255548
+
+39: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255547; Sample name: VoGB22_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255547	ID: 47255547
+
+40: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255546; Sample name: VoGB22_1; SRA: SRS24499109
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255546	ID: 47255546
+
+41: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255545; Sample name: VoGB21_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255545	ID: 47255545
+
+42: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255544; Sample name: VoGB21_1; SRA: SRS24499144
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255544	ID: 47255544
+
+43: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255543; Sample name: VoGB20_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255543	ID: 47255543
+
+44: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255542; Sample name: VoGB20_1; SRA: SRS24499143
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255542	ID: 47255542
+
+45: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255541; Sample name: VoGB19_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255541	ID: 47255541
+
+46: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255540; Sample name: VoGB19_1; SRA: SRS24499149
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255540	ID: 47255540
+
+47: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255539; Sample name: VoGB18_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255539	ID: 47255539
+
+48: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255538; Sample name: VoGB18_1; SRA: SRS24499141
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255538	ID: 47255538
+
+49: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255537; Sample name: VoGB17_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255537	ID: 47255537
+
+50: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255536; Sample name: VoGB17_1; SRA: SRS24499147
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255536	ID: 47255536
+
+51: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255535; Sample name: VoGB16_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255535	ID: 47255535
+
+52: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255534; Sample name: VoGB16_1; SRA: SRS24499140
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255534	ID: 47255534
+
+53: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255533; Sample name: VoGB15_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255533	ID: 47255533
+
+54: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255532; Sample name: VoGB15_1; SRA: SRS24499139
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255532	ID: 47255532
+
+55: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255531; Sample name: VoGB14_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255531	ID: 47255531
+
+56: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255530; Sample name: VoGB14_1; SRA: SRS24499138
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255530	ID: 47255530
+
+57: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255529; Sample name: VoGB13_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255529	ID: 47255529
+
+58: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255528; Sample name: VoGB13_1; SRA: SRS24499136
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255528	ID: 47255528
+
+59: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255527; Sample name: VoGB12_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255527	ID: 47255527
+
+60: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255526; Sample name: VoGB12_1; SRA: SRS24499134
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255526	ID: 47255526
+
+
+61: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255525; Sample name: VoGB11_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255525	ID: 47255525
+
+62: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255524; Sample name: VoGB11_1; SRA: SRS24499130
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255524	ID: 47255524
+
+63: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255523; Sample name: VoGB10_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255523	ID: 47255523
+
+64: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255522; Sample name: VoGB10_1; SRA: SRS24499133
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255522	ID: 47255522
+
+65: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255521; Sample name: VoGB9_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255521	ID: 47255521
+
+66: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255520; Sample name: VoGB9_1; SRA: SRS24499129
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255520	ID: 47255520
+
+67: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255519; Sample name: VoGB8_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255519	ID: 47255519
+
+68: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255518; Sample name: VoGB8_1; SRA: SRS24499173
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255518	ID: 47255518
+
+69: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255517; Sample name: VoGB7_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255517	ID: 47255517
+
+70: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255516; Sample name: VoGB7_1; SRA: SRS24499171
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255516	ID: 47255516
+
+71: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255515; Sample name: VoGB6_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255515	ID: 47255515
+
+72: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255514; Sample name: VoGB6_1; SRA: SRS24499170
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255514	ID: 47255514
+
+73: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255513; Sample name: VoGB5_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255513	ID: 47255513
+
+74: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255512; Sample name: VoGB5_1; SRA: SRS24499172
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255512	ID: 47255512
+
+75: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255511; Sample name: VoGB4_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255511	ID: 47255511
+
+76: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255510; Sample name: VoGB4_1; SRA: SRS24499169
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255510	ID: 47255510
+
+77: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255509; Sample name: VoGB3_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255509	ID: 47255509
+
+78: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255508; Sample name: VoGB3_1; SRA: SRS24499167
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255508	ID: 47255508
+
+79: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255507; Sample name: VoGB2_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255507	ID: 47255507
+
+80: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255506; Sample name: VoGB2_1; SRA: SRS24499166
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255506	ID: 47255506
+
+81: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255505; Sample name: VoGB1_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255505	ID: 47255505
+
+82: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255504; Sample name: VoGB1_1; SRA: SRS24499162
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-14"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Gudja"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.51 N 14.29 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255504	ID: 47255504
+
+83: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255503; Sample name: VoQC3_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-09"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Qwara"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.56 N 14.24 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255503	ID: 47255503
+
+84: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255502; Sample name: VoQC3_1; SRA: SRS24499161
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-09"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Qwara"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.56 N 14.24 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255502	ID: 47255502
+
+85: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255501; Sample name: VoQC2_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-09"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Qwara"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.56 N 14.24 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255501	ID: 47255501
+
+86: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255500; Sample name: VoQC2_1; SRA: SRS24499168
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-09"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Qwara"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.56 N 14.24 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255500	ID: 47255500
+
+87: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255499; Sample name: VoQC1_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-09"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: Qwara"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.56 N 14.24 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255499	ID: 47255499
+
+88: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255498; Sample name: VoQC1_1; SRA: SRS24499159
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-10-09"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: Qwara"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.56 N 14.24 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255498	ID: 47255498
+
+89: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255497; Sample name: VoUC11_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255497	ID: 47255497
+
+90: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255496; Sample name: VoUC11_1; SRA: SRS24499164
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255496	ID: 47255496
+
+91: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255495; Sample name: VoUC10_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255495	ID: 47255495
+
+92: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255494; Sample name: VoUC10_1; SRA: SRS24499158
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255494	ID: 47255494
+
+93: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255493; Sample name: VoUC9_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255493	ID: 47255493
+
+94: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255492; Sample name: VoUC9_1; SRA: SRS24499157
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255492	ID: 47255492
+
+95: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255491; Sample name: VoUC8_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255491	ID: 47255491
+
+96: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255490; Sample name: VoUC8_1; SRA: SRS24499160
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255490	ID: 47255490
+
+97: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255489; Sample name: VoUC7_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255489	ID: 47255489
+
+98: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255488; Sample name: VoUC7_1; SRA: SRS24499163
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255488	ID: 47255488
+
+99: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255487; Sample name: VoUC6_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255487	ID: 47255487
+
+100: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255486; Sample name: VoUC6_1; SRA: SRS24499155
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255486	ID: 47255486
+
+101: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255485; Sample name: VoUC5_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255485	ID: 47255485
+
+102: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255484; Sample name: VoUC5_1; SRA: SRS24499156
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255484	ID: 47255484
+
+103: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255483; Sample name: VoUC4_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255483	ID: 47255483
+
+104: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255482; Sample name: VoUC4_1; SRA: SRS24499152
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255482	ID: 47255482
+
+105: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255481; Sample name: VoUC3_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255481	ID: 47255481
+
+106: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255480; Sample name: VoUC3_1; SRA: SRS24499151
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255480	ID: 47255480
+
+107: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255479; Sample name: VoUC2_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255479	ID: 47255479
+
+108: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255478; Sample name: VoUC2_1; SRA: SRS24499150
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255478	ID: 47255478
+
+109: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255477; Sample name: VoUC1_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255477	ID: 47255477
+
+110: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255476; Sample name: VoUC1_1; SRA: SRS24499146
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-29"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255476	ID: 47255476
+
+111: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255475; Sample name: VoSB_15_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255475	ID: 47255475
+
+112: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255474; Sample name: VoSB_15_1; SRA: SRS24499153
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255474	ID: 47255474
+
+113: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255473; Sample name: VoSB_14_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255473	ID: 47255473
+
+114: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255472; Sample name: VoSB_14_1; SRA: SRS24499148
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255472	ID: 47255472
+
+115: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255471; Sample name: VoSB_13_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255471	ID: 47255471
+
+116: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255470; Sample name: VoSB_13_1; SRA: SRS24499145
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255470	ID: 47255470
+
+117: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255469; Sample name: VoSB_12_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255469	ID: 47255469
+
+118: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255468; Sample name: VoSB_12_1; SRA: SRS24499142
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255468	ID: 47255468
+
+119: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255467; Sample name: VoSB_11_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255467	ID: 47255467
+
+120: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255466; Sample name: VoSB_11_1; SRA: SRS24499128
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255466	ID: 47255466
+
+
+121: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255465; Sample name: VoSB_10_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255465	ID: 47255465
+
+122: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255464; Sample name: VoSB_10_1; SRA: SRS24499126
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255464	ID: 47255464
+
+123: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255463; Sample name: VoSB_9_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255463	ID: 47255463
+
+124: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255462; Sample name: VoSB_9_1; SRA: SRS24499125
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255462	ID: 47255462
+
+125: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255461; Sample name: VoSB_8_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255461	ID: 47255461
+
+126: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255460; Sample name: VoSB_8_1; SRA: SRS24499132
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255460	ID: 47255460
+
+127: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255459; Sample name: VoSB_7_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255459	ID: 47255459
+
+128: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255458; Sample name: VoSB_7_1; SRA: SRS24499116
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255458	ID: 47255458
+
+129: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255457; Sample name: VoSB_6_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255457	ID: 47255457
+
+130: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255456; Sample name: VoSB_6_1; SRA: SRS24499104
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255456	ID: 47255456
+
+131: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255455; Sample name: VoSB_5_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255455	ID: 47255455
+
+132: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255454; Sample name: VoSB_5_1; SRA: SRS24499135
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255454	ID: 47255454
+
+133: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255453; Sample name: VoSB_4_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255453	ID: 47255453
+
+134: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255452; Sample name: VoSB_4_1; SRA: SRS24499165
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255452	ID: 47255452
+
+135: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255451; Sample name: VoSB_3_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255451	ID: 47255451
+
+136: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255450; Sample name: VoSB_3_1; SRA: SRS24499154
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255450	ID: 47255450
+
+137: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255449; Sample name: VoSB_2_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255449	ID: 47255449
+
+138: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255448; Sample name: VoSB_2_1; SRA: SRS24499137
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255448	ID: 47255448
+
+139: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255447; Sample name: VoSB_1_2
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001034"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255447	ID: 47255447
+
+140: MIMARKS Survey related sample from insect metagenome
+Identifiers: BioSample: SAMN47255446; Sample name: VoSB_1_1; SRA: SRS24499114
+Organism: insect metagenome
+Attributes:
+    /host="Vespa orientalis"
+    /collection date="2023-09-22"
+    /broad-scale environmental context="ENVO:01000207"
+    /local-scale environmental context="NCBITaxon:50557"
+    /environmental medium="ENVO:01001033"
+    /geographic location="Malta: San Gwann"
+    /host dependence="facultative"
+    /host life stage="adult"
+    /latitude and longitude="35.54 N 14.28 E"
+    /symbiotic host organism life cycle type="Simple life cycle"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN47255446	ID: 47255446
+
+

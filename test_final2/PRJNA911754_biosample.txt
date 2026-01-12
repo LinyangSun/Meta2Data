@@ -1,0 +1,3699 @@
+1: gut microbiota sample 2EXP2-g
+Identifiers: BioSample: SAMN32193017; Sample name: 2EXP2g; SRA: SRS16154563
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="X"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193017	ID: 32193017
+
+2: gut microbiota sample 2EXP2-f
+Identifiers: BioSample: SAMN32193016; Sample name: 2EXP2f; SRA: SRS16154562
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="X"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193016	ID: 32193016
+
+3: gut microbiota sample 2EXP2-e
+Identifiers: BioSample: SAMN32193015; Sample name: 2EXP2e; SRA: SRS16154561
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="X"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193015	ID: 32193015
+
+4: gut microbiota sample 2EXP2-d
+Identifiers: BioSample: SAMN32193014; Sample name: 2EXP2d; SRA: SRS16154560
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="X"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193014	ID: 32193014
+
+5: gut microbiota sample 2EXP2-c
+Identifiers: BioSample: SAMN32193013; Sample name: 2EXP2c; SRA: SRS16154559
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="X"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193013	ID: 32193013
+
+6: gut microbiota sample 2EXP2-b
+Identifiers: BioSample: SAMN32193012; Sample name: 2EXP2b; SRA: SRS16154558
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="X"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193012	ID: 32193012
+
+7: gut microbiota sample 2EXP2-a
+Identifiers: BioSample: SAMN32193011; Sample name: 2EXP2a; SRA: SRS16154557
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="X"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193011	ID: 32193011
+
+8: gut microbiota sample 2EXP1-g
+Identifiers: BioSample: SAMN32193010; Sample name: 2EXP1g; SRA: SRS16154555
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="W"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193010	ID: 32193010
+
+9: gut microbiota sample 2EXP1-f
+Identifiers: BioSample: SAMN32193009; Sample name: 2EXP1f; SRA: SRS16154556
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="W"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193009	ID: 32193009
+
+10: gut microbiota sample 2EXP1-e
+Identifiers: BioSample: SAMN32193008; Sample name: 2EXP1e; SRA: SRS16154554
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="W"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193008	ID: 32193008
+
+11: gut microbiota sample 2EXP1-d
+Identifiers: BioSample: SAMN32193007; Sample name: 2EXP1d; SRA: SRS16154552
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="W"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193007	ID: 32193007
+
+12: gut microbiota sample 2EXP1-c
+Identifiers: BioSample: SAMN32193006; Sample name: 2EXP1c; SRA: SRS16154550
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="W"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193006	ID: 32193006
+
+13: gut microbiota sample 2EXP1-b
+Identifiers: BioSample: SAMN32193005; Sample name: 2EXP1b; SRA: SRS16154551
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="W"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193005	ID: 32193005
+
+14: gut microbiota sample 2EXP1-a
+Identifiers: BioSample: SAMN32193004; Sample name: 2EXP1a; SRA: SRS16154549
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="W"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193004	ID: 32193004
+
+15: gut microbiota sample 23020-2-g
+Identifiers: BioSample: SAMN32193003; Sample name: 230202g; SRA: SRS16154497
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="V"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193003	ID: 32193003
+
+16: gut microbiota sample 23020-2-f
+Identifiers: BioSample: SAMN32193002; Sample name: 230202f; SRA: SRS16154487
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="V"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193002	ID: 32193002
+
+17: gut microbiota sample 23020-2-e
+Identifiers: BioSample: SAMN32193001; Sample name: 230202e; SRA: SRS16154476
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="V"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193001	ID: 32193001
+
+18: gut microbiota sample 23020-2-d
+Identifiers: BioSample: SAMN32193000; Sample name: 230202d; SRA: SRS16154465
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="V"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32193000	ID: 32193000
+
+19: gut microbiota sample 23020-2-c
+Identifiers: BioSample: SAMN32192999; Sample name: 230202c; SRA: SRS16154620
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="V"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192999	ID: 32192999
+
+20: gut microbiota sample 23020-2-b
+Identifiers: BioSample: SAMN32192998; Sample name: 230202b; SRA: SRS16154609
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="V"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192998	ID: 32192998
+
+21: gut microbiota sample 23020-2-a
+Identifiers: BioSample: SAMN32192997; Sample name: 230202a; SRA: SRS16154564
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="V"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192997	ID: 32192997
+
+22: gut microbiota sample 23020-1-g
+Identifiers: BioSample: SAMN32192996; Sample name: 230201g; SRA: SRS16154553
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="U"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192996	ID: 32192996
+
+23: gut microbiota sample 23020-1-f
+Identifiers: BioSample: SAMN32192995; Sample name: 230201f; SRA: SRS16154542
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="U"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192995	ID: 32192995
+
+24: gut microbiota sample 23020-1-e
+Identifiers: BioSample: SAMN32192994; Sample name: 230201e; SRA: SRS16154597
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="U"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192994	ID: 32192994
+
+25: gut microbiota sample 23020-1-d
+Identifiers: BioSample: SAMN32192993; Sample name: 230201d; SRA: SRS16154587
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="U"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192993	ID: 32192993
+
+26: gut microbiota sample 23020-1-c
+Identifiers: BioSample: SAMN32192992; Sample name: 230201c; SRA: SRS16154575
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="U"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192992	ID: 32192992
+
+27: gut microbiota sample 23020-1-b
+Identifiers: BioSample: SAMN32192991; Sample name: 230201b; SRA: SRS16154464
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="U"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192991	ID: 32192991
+
+28: gut microbiota sample 23020-1-a
+Identifiers: BioSample: SAMN32192990; Sample name: 230201a; SRA: SRS16154463
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="U"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192990	ID: 32192990
+
+29: gut microbiota sample 2DnA2-g
+Identifiers: BioSample: SAMN32192989; Sample name: 2DnA2g; SRA: SRS16154547
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="T"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192989	ID: 32192989
+
+30: gut microbiota sample 2DnA2-f
+Identifiers: BioSample: SAMN32192988; Sample name: 2DnA2f; SRA: SRS16154548
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="T"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192988	ID: 32192988
+
+31: gut microbiota sample 2DnA2-e
+Identifiers: BioSample: SAMN32192987; Sample name: 2DnA2e; SRA: SRS16154546
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="T"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192987	ID: 32192987
+
+32: gut microbiota sample 2DnA2-d
+Identifiers: BioSample: SAMN32192986; Sample name: 2DnA2d; SRA: SRS16154544
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="T"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192986	ID: 32192986
+
+33: gut microbiota sample 2DnA2-c
+Identifiers: BioSample: SAMN32192985; Sample name: 2DnA2c; SRA: SRS16154545
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="T"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192985	ID: 32192985
+
+34: gut microbiota sample 2DnA2-b
+Identifiers: BioSample: SAMN32192984; Sample name: 2DnA2b; SRA: SRS16154543
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="T"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192984	ID: 32192984
+
+35: gut microbiota sample 2DnA2-a
+Identifiers: BioSample: SAMN32192983; Sample name: 2DnA2a; SRA: SRS16154541
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="T"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192983	ID: 32192983
+
+36: gut microbiota sample 2DnA1-g
+Identifiers: BioSample: SAMN32192982; Sample name: 2DnA1g; SRA: SRS16154540
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="S"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192982	ID: 32192982
+
+37: gut microbiota sample 2DnA1-f
+Identifiers: BioSample: SAMN32192981; Sample name: 2DnA1f; SRA: SRS16154539
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="S"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192981	ID: 32192981
+
+38: gut microbiota sample 2DnA1-e
+Identifiers: BioSample: SAMN32192980; Sample name: 2DnA1e; SRA: SRS16154538
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="S"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192980	ID: 32192980
+
+39: gut microbiota sample 2DnA1-d
+Identifiers: BioSample: SAMN32192979; Sample name: 2DnA1d; SRA: SRS16154536
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="S"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192979	ID: 32192979
+
+40: gut microbiota sample 2DnA1-c
+Identifiers: BioSample: SAMN32192978; Sample name: 2DnA1c; SRA: SRS16154537
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="S"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192978	ID: 32192978
+
+41: gut microbiota sample 2DnA1-b
+Identifiers: BioSample: SAMN32192977; Sample name: 2DnA1b; SRA: SRS16154535
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="S"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192977	ID: 32192977
+
+42: gut microbiota sample 2DnA1-a
+Identifiers: BioSample: SAMN32192976; Sample name: 2DnA1a; SRA: SRS16154534
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="S"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192976	ID: 32192976
+
+43: gut microbiota sample 2PH2-g
+Identifiers: BioSample: SAMN32192975; Sample name: 2PH2g; SRA: SRS16154613
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="R"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192975	ID: 32192975
+
+44: gut microbiota sample 2PH2-f
+Identifiers: BioSample: SAMN32192974; Sample name: 2PH2f; SRA: SRS16154612
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="R"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192974	ID: 32192974
+
+45: gut microbiota sample 2PH2-e
+Identifiers: BioSample: SAMN32192973; Sample name: 2PH2e; SRA: SRS16154611
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="R"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192973	ID: 32192973
+
+46: gut microbiota sample 2PH2-d
+Identifiers: BioSample: SAMN32192972; Sample name: 2PH2d; SRA: SRS16154610
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="R"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192972	ID: 32192972
+
+47: gut microbiota sample 2PH2-c
+Identifiers: BioSample: SAMN32192971; Sample name: 2PH2c; SRA: SRS16154608
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="R"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192971	ID: 32192971
+
+48: gut microbiota sample 2PH2-b
+Identifiers: BioSample: SAMN32192970; Sample name: 2PH2b; SRA: SRS16154607
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="R"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192970	ID: 32192970
+
+49: gut microbiota sample 2PH2-a
+Identifiers: BioSample: SAMN32192969; Sample name: 2PH2a; SRA: SRS16154606
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="R"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192969	ID: 32192969
+
+50: gut microbiota sample 2PH1-g
+Identifiers: BioSample: SAMN32192968; Sample name: 2PH1g; SRA: SRS16154605
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="Q"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192968	ID: 32192968
+
+51: gut microbiota sample 2PH1-f
+Identifiers: BioSample: SAMN32192967; Sample name: 2PH1f; SRA: SRS16154604
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="Q"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192967	ID: 32192967
+
+52: gut microbiota sample 2PH1-e
+Identifiers: BioSample: SAMN32192966; Sample name: 2PH1e; SRA: SRS16154603
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="Q"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192966	ID: 32192966
+
+53: gut microbiota sample 2PH1-d
+Identifiers: BioSample: SAMN32192965; Sample name: 2PH1d; SRA: SRS16154602
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="Q"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192965	ID: 32192965
+
+54: gut microbiota sample 2PH1-c
+Identifiers: BioSample: SAMN32192964; Sample name: 2PH1c; SRA: SRS16154601
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="Q"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192964	ID: 32192964
+
+55: gut microbiota sample 2PH1-b
+Identifiers: BioSample: SAMN32192963; Sample name: 2PH1b; SRA: SRS16154600
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="Q"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192963	ID: 32192963
+
+56: gut microbiota sample 2PH1-a
+Identifiers: BioSample: SAMN32192962; Sample name: 2PH1a; SRA: SRS16154599
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="Q"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192962	ID: 32192962
+
+57: gut microbiota sample 2CTL2-g
+Identifiers: BioSample: SAMN32192961; Sample name: 2CTL2g; SRA: SRS16154533
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="P"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192961	ID: 32192961
+
+58: gut microbiota sample 2CTL2-f
+Identifiers: BioSample: SAMN32192960; Sample name: 2CTL2f; SRA: SRS16154598
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="P"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192960	ID: 32192960
+
+59: gut microbiota sample 2CTL2-e
+Identifiers: BioSample: SAMN32192959; Sample name: 2CTL2e; SRA: SRS16154596
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="P"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192959	ID: 32192959
+
+60: gut microbiota sample 2CTL2-d
+Identifiers: BioSample: SAMN32192958; Sample name: 2CTL2d; SRA: SRS16154595
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="P"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192958	ID: 32192958
+
+
+61: gut microbiota sample 2CTL2-c
+Identifiers: BioSample: SAMN32192957; Sample name: 2CTL2c; SRA: SRS16154594
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="P"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192957	ID: 32192957
+
+62: gut microbiota sample 2CTL2-b
+Identifiers: BioSample: SAMN32192956; Sample name: 2CTL2b; SRA: SRS16154593
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="P"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192956	ID: 32192956
+
+63: gut microbiota sample 2CTL2-a
+Identifiers: BioSample: SAMN32192955; Sample name: 2CTL2a; SRA: SRS16154592
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="P"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192955	ID: 32192955
+
+64: gut microbiota sample 2CTL1-g
+Identifiers: BioSample: SAMN32192954; Sample name: 2CTL1g; SRA: SRS16154591
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="O"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192954	ID: 32192954
+
+65: gut microbiota sample 2CTL1-f
+Identifiers: BioSample: SAMN32192953; Sample name: 2CTL1f; SRA: SRS16154590
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="O"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192953	ID: 32192953
+
+66: gut microbiota sample 2CTL1-e
+Identifiers: BioSample: SAMN32192952; Sample name: 2CTL1e; SRA: SRS16154589
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="O"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192952	ID: 32192952
+
+67: gut microbiota sample 2CTL1-d
+Identifiers: BioSample: SAMN32192951; Sample name: 2CTL1d; SRA: SRS16154588
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="O"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192951	ID: 32192951
+
+68: gut microbiota sample 2CTL1-c
+Identifiers: BioSample: SAMN32192950; Sample name: 2CTL1c; SRA: SRS16154586
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="O"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192950	ID: 32192950
+
+69: gut microbiota sample 2CTL1-b
+Identifiers: BioSample: SAMN32192949; Sample name: 2CTL1b; SRA: SRS16154585
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="O"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192949	ID: 32192949
+
+70: gut microbiota sample 2CTL1-a
+Identifiers: BioSample: SAMN32192948; Sample name: 2CTL1a; SRA: SRS16154584
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="O"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192948	ID: 32192948
+
+71: gut microbiota sample 2B2-g
+Identifiers: BioSample: SAMN32192947; Sample name: 2B2g; SRA: SRS16154583
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="N"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192947	ID: 32192947
+
+72: gut microbiota sample 2B2-f
+Identifiers: BioSample: SAMN32192946; Sample name: 2B2f; SRA: SRS16154582
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="N"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192946	ID: 32192946
+
+73: gut microbiota sample 2B2-e
+Identifiers: BioSample: SAMN32192945; Sample name: 2B2e; SRA: SRS16154581
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="N"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192945	ID: 32192945
+
+74: gut microbiota sample 2B2-d
+Identifiers: BioSample: SAMN32192944; Sample name: 2B2d; SRA: SRS16154580
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="N"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192944	ID: 32192944
+
+75: gut microbiota sample 2B2-c
+Identifiers: BioSample: SAMN32192943; Sample name: 2B2c; SRA: SRS16154579
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="N"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192943	ID: 32192943
+
+76: gut microbiota sample 2B2-b
+Identifiers: BioSample: SAMN32192942; Sample name: 2B2b; SRA: SRS16154578
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="N"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192942	ID: 32192942
+
+77: gut microbiota sample 2B2-a
+Identifiers: BioSample: SAMN32192941; Sample name: 2B2a; SRA: SRS16154577
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="N"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192941	ID: 32192941
+
+78: gut microbiota sample 2B1-g
+Identifiers: BioSample: SAMN32192940; Sample name: 2B1g; SRA: SRS16154576
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="M"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192940	ID: 32192940
+
+79: gut microbiota sample 2B1-f
+Identifiers: BioSample: SAMN32192939; Sample name: 2B1f; SRA: SRS16154574
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="M"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192939	ID: 32192939
+
+80: gut microbiota sample 2B1-e
+Identifiers: BioSample: SAMN32192938; Sample name: 2B1e; SRA: SRS16154573
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="M"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192938	ID: 32192938
+
+81: gut microbiota sample 2B1-d
+Identifiers: BioSample: SAMN32192937; Sample name: 2B1d; SRA: SRS16154572
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="M"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192937	ID: 32192937
+
+82: gut microbiota sample 2B1-c
+Identifiers: BioSample: SAMN32192936; Sample name: 2B1c; SRA: SRS16154531
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="M"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192936	ID: 32192936
+
+83: gut microbiota sample 2B1-b
+Identifiers: BioSample: SAMN32192935; Sample name: 2B1b; SRA: SRS16154520
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="M"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192935	ID: 32192935
+
+84: gut microbiota sample 2B1-a
+Identifiers: BioSample: SAMN32192934; Sample name: 2B1a; SRA: SRS16154509
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="M"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192934	ID: 32192934
+
+85: gut microbiota sample EXP2-g
+Identifiers: BioSample: SAMN32192933; Sample name: EXP2g; SRA: SRS16154524
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="L"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192933	ID: 32192933
+
+86: gut microbiota sample EXP2-f
+Identifiers: BioSample: SAMN32192932; Sample name: EXP2f; SRA: SRS16154523
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="L"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192932	ID: 32192932
+
+87: gut microbiota sample EXP2-e
+Identifiers: BioSample: SAMN32192931; Sample name: EXP2e; SRA: SRS16154522
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="L"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192931	ID: 32192931
+
+88: gut microbiota sample EXP2-d
+Identifiers: BioSample: SAMN32192930; Sample name: EXP2d; SRA: SRS16154521
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="L"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192930	ID: 32192930
+
+89: gut microbiota sample EXP2-c
+Identifiers: BioSample: SAMN32192929; Sample name: EXP2c; SRA: SRS16154519
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="L"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192929	ID: 32192929
+
+90: gut microbiota sample EXP2-b
+Identifiers: BioSample: SAMN32192928; Sample name: EXP2b; SRA: SRS16154518
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="L"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192928	ID: 32192928
+
+91: gut microbiota sample EXP2-a
+Identifiers: BioSample: SAMN32192927; Sample name: EXP2a; SRA: SRS16154517
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="L"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192927	ID: 32192927
+
+92: gut microbiota sample EXP1-g
+Identifiers: BioSample: SAMN32192926; Sample name: EXP1g; SRA: SRS16154516
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="K"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192926	ID: 32192926
+
+93: gut microbiota sample EXP1-f
+Identifiers: BioSample: SAMN32192925; Sample name: EXP1f; SRA: SRS16154515
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="K"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192925	ID: 32192925
+
+94: gut microbiota sample EXP1-e
+Identifiers: BioSample: SAMN32192924; Sample name: EXP1e; SRA: SRS16154514
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="K"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192924	ID: 32192924
+
+95: gut microbiota sample EXP1-d
+Identifiers: BioSample: SAMN32192923; Sample name: EXP1d; SRA: SRS16154513
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="K"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192923	ID: 32192923
+
+96: gut microbiota sample EXP1-c
+Identifiers: BioSample: SAMN32192922; Sample name: EXP1c; SRA: SRS16154512
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="K"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192922	ID: 32192922
+
+97: gut microbiota sample EXP1-b
+Identifiers: BioSample: SAMN32192921; Sample name: EXP1b; SRA: SRS16154511
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="K"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192921	ID: 32192921
+
+98: gut microbiota sample EXP1-a
+Identifiers: BioSample: SAMN32192920; Sample name: EXP1a; SRA: SRS16154510
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="K"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192920	ID: 32192920
+
+99: gut microbiota sample 3020-2-g
+Identifiers: BioSample: SAMN32192919; Sample name: 30202g; SRA: SRS16154628
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="J"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192919	ID: 32192919
+
+100: gut microbiota sample 3020-2-f
+Identifiers: BioSample: SAMN32192918; Sample name: 30202f; SRA: SRS16154627
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="J"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192918	ID: 32192918
+
+101: gut microbiota sample 3020-2-e
+Identifiers: BioSample: SAMN32192917; Sample name: 30202e; SRA: SRS16154626
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="J"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192917	ID: 32192917
+
+102: gut microbiota sample 3020-2-d
+Identifiers: BioSample: SAMN32192916; Sample name: 30202d; SRA: SRS16154625
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="J"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192916	ID: 32192916
+
+103: gut microbiota sample 3020-2-c
+Identifiers: BioSample: SAMN32192915; Sample name: 30202c; SRA: SRS16154624
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="J"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192915	ID: 32192915
+
+104: gut microbiota sample 3020-2-b
+Identifiers: BioSample: SAMN32192914; Sample name: 30202b; SRA: SRS16154623
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="J"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192914	ID: 32192914
+
+105: gut microbiota sample 3020-2-a
+Identifiers: BioSample: SAMN32192913; Sample name: 30202a; SRA: SRS16154622
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="J"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192913	ID: 32192913
+
+106: gut microbiota sample 3020-1-g
+Identifiers: BioSample: SAMN32192912; Sample name: 30201g; SRA: SRS16154621
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="I"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192912	ID: 32192912
+
+107: gut microbiota sample 3020-1-f
+Identifiers: BioSample: SAMN32192911; Sample name: 30201f; SRA: SRS16154619
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="I"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192911	ID: 32192911
+
+108: gut microbiota sample 3020-1-e
+Identifiers: BioSample: SAMN32192910; Sample name: 30201e; SRA: SRS16154618
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="I"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192910	ID: 32192910
+
+109: gut microbiota sample 3020-1-d
+Identifiers: BioSample: SAMN32192909; Sample name: 30201d; SRA: SRS16154617
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="I"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192909	ID: 32192909
+
+110: gut microbiota sample 3020-1-c
+Identifiers: BioSample: SAMN32192908; Sample name: 30201c; SRA: SRS16154616
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="I"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192908	ID: 32192908
+
+111: gut microbiota sample 3020-1-b
+Identifiers: BioSample: SAMN32192907; Sample name: 30201b; SRA: SRS16154615
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="I"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192907	ID: 32192907
+
+112: gut microbiota sample 3020-1-a
+Identifiers: BioSample: SAMN32192906; Sample name: 30201a; SRA: SRS16154614
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="I"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Artificial Diet"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192906	ID: 32192906
+
+113: gut microbiota sample DnA2-g
+Identifiers: BioSample: SAMN32192905; Sample name: DnA2g; SRA: SRS16154508
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="H"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192905	ID: 32192905
+
+114: gut microbiota sample DnA2-f
+Identifiers: BioSample: SAMN32192904; Sample name: DnA2f; SRA: SRS16154507
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="H"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192904	ID: 32192904
+
+115: gut microbiota sample DnA2-e
+Identifiers: BioSample: SAMN32192903; Sample name: DnA2e; SRA: SRS16154505
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="H"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192903	ID: 32192903
+
+116: gut microbiota sample DnA2-d
+Identifiers: BioSample: SAMN32192902; Sample name: DnA2d; SRA: SRS16154506
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="H"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192902	ID: 32192902
+
+117: gut microbiota sample DnA2-c
+Identifiers: BioSample: SAMN32192901; Sample name: DnA2c; SRA: SRS16154504
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="H"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192901	ID: 32192901
+
+118: gut microbiota sample DnA2-b
+Identifiers: BioSample: SAMN32192900; Sample name: DnA2b; SRA: SRS16154503
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="H"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192900	ID: 32192900
+
+119: gut microbiota sample DnA2-a
+Identifiers: BioSample: SAMN32192899; Sample name: DnA2a; SRA: SRS16154502
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="H"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192899	ID: 32192899
+
+120: gut microbiota sample DnA1-g
+Identifiers: BioSample: SAMN32192898; Sample name: DnA1g; SRA: SRS16154501
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="G"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192898	ID: 32192898
+
+
+121: gut microbiota sample DnA1-f
+Identifiers: BioSample: SAMN32192897; Sample name: DnA1f; SRA: SRS16154500
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="G"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192897	ID: 32192897
+
+122: gut microbiota sample DnA1-e
+Identifiers: BioSample: SAMN32192896; Sample name: DnA1e; SRA: SRS16154499
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="G"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192896	ID: 32192896
+
+123: gut microbiota sample DnA1-d
+Identifiers: BioSample: SAMN32192895; Sample name: DnA1d; SRA: SRS16154498
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="G"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192895	ID: 32192895
+
+124: gut microbiota sample DnA1-c
+Identifiers: BioSample: SAMN32192894; Sample name: DnA1c; SRA: SRS16154496
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="G"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192894	ID: 32192894
+
+125: gut microbiota sample DnA1-b
+Identifiers: BioSample: SAMN32192893; Sample name: DnA1b; SRA: SRS16154495
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="G"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192893	ID: 32192893
+
+126: gut microbiota sample DnA1-a
+Identifiers: BioSample: SAMN32192892; Sample name: DnA1a; SRA: SRS16154494
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="G"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192892	ID: 32192892
+
+127: gut microbiota sample PH2-g
+Identifiers: BioSample: SAMN32192891; Sample name: PH2g; SRA: SRS16154571
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="F"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192891	ID: 32192891
+
+128: gut microbiota sample PH2-f
+Identifiers: BioSample: SAMN32192890; Sample name: PH2f; SRA: SRS16154570
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="F"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192890	ID: 32192890
+
+129: gut microbiota sample PH2-e
+Identifiers: BioSample: SAMN32192889; Sample name: PH2e; SRA: SRS16154569
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="F"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192889	ID: 32192889
+
+130: gut microbiota sample PH2-d
+Identifiers: BioSample: SAMN32192888; Sample name: PH2d; SRA: SRS16154568
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="F"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192888	ID: 32192888
+
+131: gut microbiota sample PH2-c
+Identifiers: BioSample: SAMN32192887; Sample name: PH2c; SRA: SRS16154567
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="F"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192887	ID: 32192887
+
+132: gut microbiota sample PH2-b
+Identifiers: BioSample: SAMN32192886; Sample name: PH2b; SRA: SRS16154566
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="F"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192886	ID: 32192886
+
+133: gut microbiota sample PH2-a
+Identifiers: BioSample: SAMN32192885; Sample name: PH2a; SRA: SRS16154565
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="F"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192885	ID: 32192885
+
+134: gut microbiota sample PH1-g
+Identifiers: BioSample: SAMN32192884; Sample name: PH1g; SRA: SRS16154532
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="E"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192884	ID: 32192884
+
+135: gut microbiota sample PH1-f
+Identifiers: BioSample: SAMN32192883; Sample name: PH1f; SRA: SRS16154530
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="E"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192883	ID: 32192883
+
+136: gut microbiota sample PH1-e
+Identifiers: BioSample: SAMN32192882; Sample name: PH1e; SRA: SRS16154529
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="E"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192882	ID: 32192882
+
+137: gut microbiota sample PH1-d
+Identifiers: BioSample: SAMN32192881; Sample name: PH1d; SRA: SRS16154528
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="E"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192881	ID: 32192881
+
+138: gut microbiota sample PH1-c
+Identifiers: BioSample: SAMN32192880; Sample name: PH1c; SRA: SRS16154527
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="E"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192880	ID: 32192880
+
+139: gut microbiota sample PH1-b
+Identifiers: BioSample: SAMN32192879; Sample name: PH1b; SRA: SRS16154526
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="E"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192879	ID: 32192879
+
+140: gut microbiota sample PH1-a
+Identifiers: BioSample: SAMN32192878; Sample name: PH1a; SRA: SRS16154525
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="E"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Additives"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192878	ID: 32192878
+
+141: gut microbiota sample CTL2-g
+Identifiers: BioSample: SAMN32192877; Sample name: CTL2g; SRA: SRS16154493
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="D"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192877	ID: 32192877
+
+142: gut microbiota sample CTL2-f
+Identifiers: BioSample: SAMN32192876; Sample name: CTL2f; SRA: SRS16154492
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="D"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192876	ID: 32192876
+
+143: gut microbiota sample CTL2-e
+Identifiers: BioSample: SAMN32192875; Sample name: CTL2e; SRA: SRS16154491
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="D"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192875	ID: 32192875
+
+144: gut microbiota sample CTL2-d
+Identifiers: BioSample: SAMN32192874; Sample name: CTL2d; SRA: SRS16154490
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="D"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192874	ID: 32192874
+
+145: gut microbiota sample CTL2-c
+Identifiers: BioSample: SAMN32192873; Sample name: CTL2c; SRA: SRS16154489
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="D"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192873	ID: 32192873
+
+146: gut microbiota sample CTL2-b
+Identifiers: BioSample: SAMN32192872; Sample name: CTL2b; SRA: SRS16154488
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="D"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192872	ID: 32192872
+
+147: gut microbiota sample CTL2-a
+Identifiers: BioSample: SAMN32192871; Sample name: CTL2a; SRA: SRS16154486
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="D"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192871	ID: 32192871
+
+148: gut microbiota sample CTL1-g
+Identifiers: BioSample: SAMN32192870; Sample name: CTL1g; SRA: SRS16154485
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="C"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192870	ID: 32192870
+
+149: gut microbiota sample CTL1-f
+Identifiers: BioSample: SAMN32192869; Sample name: CTL1f; SRA: SRS16154484
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="C"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192869	ID: 32192869
+
+150: gut microbiota sample CTL1-e
+Identifiers: BioSample: SAMN32192868; Sample name: CTL1e; SRA: SRS16154483
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="C"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192868	ID: 32192868
+
+151: gut microbiota sample CTL1-d
+Identifiers: BioSample: SAMN32192867; Sample name: CTL1d; SRA: SRS16154482
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="C"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192867	ID: 32192867
+
+152: gut microbiota sample CTL1-c
+Identifiers: BioSample: SAMN32192866; Sample name: CTL1c; SRA: SRS16154481
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="C"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192866	ID: 32192866
+
+153: gut microbiota sample CTL1-b
+Identifiers: BioSample: SAMN32192865; Sample name: CTL1b; SRA: SRS16154480
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="C"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192865	ID: 32192865
+
+154: gut microbiota sample CTL1-a
+Identifiers: BioSample: SAMN32192864; Sample name: CTL1a; SRA: SRS16154479
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-07-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Austin"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.1114998 N 98.0212251 W"
+    /Cage="C"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192864	ID: 32192864
+
+155: gut microbiota sample B2-g
+Identifiers: BioSample: SAMN32192863; Sample name: B2g; SRA: SRS16154478
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="B"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192863	ID: 32192863
+
+156: gut microbiota sample B2-f
+Identifiers: BioSample: SAMN32192862; Sample name: B2f; SRA: SRS16154477
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="B"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192862	ID: 32192862
+
+157: gut microbiota sample B2-e
+Identifiers: BioSample: SAMN32192861; Sample name: B2e; SRA: SRS16154475
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="B"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192861	ID: 32192861
+
+158: gut microbiota sample B2-d
+Identifiers: BioSample: SAMN32192860; Sample name: B2d; SRA: SRS16154474
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="B"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192860	ID: 32192860
+
+159: gut microbiota sample B2-c
+Identifiers: BioSample: SAMN32192859; Sample name: B2c; SRA: SRS16154473
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="B"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192859	ID: 32192859
+
+160: gut microbiota sample B2-b
+Identifiers: BioSample: SAMN32192858; Sample name: B2b; SRA: SRS16154472
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="B"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192858	ID: 32192858
+
+161: gut microbiota sample B2-a
+Identifiers: BioSample: SAMN32192857; Sample name: B2a; SRA: SRS16154471
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="B"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192857	ID: 32192857
+
+162: gut microbiota sample B1-g
+Identifiers: BioSample: SAMN32192856; Sample name: B1g; SRA: SRS16154470
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="A"
+    /Individual="7"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192856	ID: 32192856
+
+163: gut microbiota sample B1-f
+Identifiers: BioSample: SAMN32192855; Sample name: B1f; SRA: SRS16154469
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="A"
+    /Individual="6"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192855	ID: 32192855
+
+164: gut microbiota sample B1-e
+Identifiers: BioSample: SAMN32192854; Sample name: B1e; SRA: SRS16154468
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="A"
+    /Individual="5"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192854	ID: 32192854
+
+165: gut microbiota sample B1-d
+Identifiers: BioSample: SAMN32192853; Sample name: B1d; SRA: SRS16154467
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="A"
+    /Individual="4"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192853	ID: 32192853
+
+166: gut microbiota sample B1-c
+Identifiers: BioSample: SAMN32192852; Sample name: B1c; SRA: SRS16154466
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="A"
+    /Individual="3"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192852	ID: 32192852
+
+167: gut microbiota sample B1-b
+Identifiers: BioSample: SAMN32192851; Sample name: B1b; SRA: SRS16154630
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="A"
+    /Individual="2"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192851	ID: 32192851
+
+168: gut microbiota sample B1-a
+Identifiers: BioSample: SAMN32192850; Sample name: B1a; SRA: SRS16154629
+Organism: insect gut metagenome
+Attributes:
+    /collection date="2020-10-29"
+    /broad-scale environmental context="University Campus[ENVO_00000467]"
+    /local-scale environmental context="closed animal house[ENVO_0100092"
+    /environmental medium="Digestive tract[UBERON:0001555]"
+    /geographic location="USA:Texas,Bryan"
+    /host="Apis_mellifera"
+    /latitude and longitude="30.641955 N 96.460971 W"
+    /Cage="A"
+    /Individual="1"
+    /host age="14 days"
+    /host body product="whole gut"
+    /host diet="Pollen"
+    /host life stage="worker"
+    /host sex="female"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN32192850	ID: 32192850
+
+

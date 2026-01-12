@@ -1,0 +1,1545 @@
+1: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0819
+Identifiers: BioSample: SAMN49894004; Sample name: ESL0819
+Organism: Bifidobacterium sp. ESL0819
+Attributes:
+    /strain="ESL0819"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49894004	ID: 49894004
+
+2: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0200
+Identifiers: BioSample: SAMN49894003; Sample name: ESL0200
+Organism: Bifidobacterium sp. ESL0200
+Attributes:
+    /strain="ESL0200"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49894003	ID: 49894003
+
+3: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0825
+Identifiers: BioSample: SAMN49894002; Sample name: ESL0825
+Organism: Bifidobacterium sp. ESL0825
+Attributes:
+    /strain="ESL0825"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49894002	ID: 49894002
+
+4: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0820
+Identifiers: BioSample: SAMN49894001; Sample name: ESL0820
+Organism: Bifidobacterium sp. ESL0820
+Attributes:
+    /strain="ESL0820"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49894001	ID: 49894001
+
+5: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0822
+Identifiers: BioSample: SAMN49894000; Sample name: ESL0822
+Organism: Bifidobacterium sp. ESL0822
+Attributes:
+    /strain="ESL0822"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49894000	ID: 49894000
+
+6: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0170
+Identifiers: BioSample: SAMN49893999; Sample name: ESL0170
+Organism: Bifidobacterium sp. ESL0170
+Attributes:
+    /strain="ESL0170"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49893999	ID: 49893999
+
+7: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0827
+Identifiers: BioSample: SAMN49893998; Sample name: ESL0827
+Organism: Bifidobacterium sp. ESL0827
+Attributes:
+    /strain="ESL0827"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49893998	ID: 49893998
+
+8: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0824
+Identifiers: BioSample: SAMN49893997; Sample name: ESL0824
+Organism: Bifidobacterium sp. ESL0824
+Attributes:
+    /strain="ESL0824"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49893997	ID: 49893997
+
+9: MIGS Cultured Bacterial/Archaeal sample from Bifidobacterium sp. ESL0198
+Identifiers: BioSample: SAMN49893996; Sample name: ESL0198
+Organism: Bifidobacterium sp. ESL0198
+Attributes:
+    /strain="ESL0198"
+    /collection date="2022"
+    /broad-scale environmental context="Gut microbiome"
+    /local-scale environmental context="Gut"
+    /environmental medium="Gut Homogenate"
+    /geographic location="Switzerland:Lausanne,UNIL"
+    /host="Apis mellifera"
+    /isolation and growth condition="MRS agar supplemented with 2% (w/v) fructose and 0.2% (w/v) L-cysteine-HCl at 37°C in anaerobic conditions"
+    /latitude and longitude="46.521525 N 6.577143 E"
+    /number of replicons="1"
+    /reference for biomaterial="This Study"
+Description:
+Keywords: GSC:MIxS;MIGS:6.0
+Accession: SAMN49893996	ID: 49893996
+
+10: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234850; Sample name: 55B; SRA: SRS24289013
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="98"
+Description:
+Total bacterial DNA 8.55
+Accession: SAMN47234850	ID: 47234850
+
+11: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234849; Sample name: 53B; SRA: SRS24289012
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="97"
+Description:
+Total bacterial DNA 8.53
+Accession: SAMN47234849	ID: 47234849
+
+12: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234848; Sample name: 51B; SRA: SRS24289011
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="96"
+Description:
+Total bacterial DNA 8.51
+Accession: SAMN47234848	ID: 47234848
+
+13: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234847; Sample name: 50B; SRA: SRS24289010
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="95"
+Description:
+Total bacterial DNA 8.50
+Accession: SAMN47234847	ID: 47234847
+
+14: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234846; Sample name: 49B; SRA: SRS24289009
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="94"
+Description:
+Total bacterial DNA 8.49
+Accession: SAMN47234846	ID: 47234846
+
+15: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234845; Sample name: 48B; SRA: SRS24289008
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="93"
+Description:
+Total bacterial DNA 8.48
+Accession: SAMN47234845	ID: 47234845
+
+16: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234844; Sample name: 46B; SRA: SRS24289007
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="92"
+Description:
+Total bacterial DNA 8.46
+Accession: SAMN47234844	ID: 47234844
+
+17: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234843; Sample name: 45B; SRA: SRS24289006
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="91"
+Description:
+Total bacterial DNA 8.45
+Accession: SAMN47234843	ID: 47234843
+
+18: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234842; Sample name: 44B; SRA: SRS24289004
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="90"
+Description:
+Total bacterial DNA 8.44
+Accession: SAMN47234842	ID: 47234842
+
+19: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234841; Sample name: 43B; SRA: SRS24289003
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="89"
+Description:
+Total bacterial DNA 8.43
+Accession: SAMN47234841	ID: 47234841
+
+20: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234840; Sample name: 42B; SRA: SRS24289002
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="88"
+Description:
+Total bacterial DNA 8.42
+Accession: SAMN47234840	ID: 47234840
+
+21: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234839; Sample name: 41B; SRA: SRS24289001
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="87"
+Description:
+Total bacterial DNA 8.41
+Accession: SAMN47234839	ID: 47234839
+
+22: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234838; Sample name: 40B; SRA: SRS24289000
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="86"
+Description:
+Total bacterial DNA 8.40
+Accession: SAMN47234838	ID: 47234838
+
+23: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234837; Sample name: 38B; SRA: SRS24288999
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="85"
+Description:
+Total bacterial DNA 8.38
+Accession: SAMN47234837	ID: 47234837
+
+24: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234836; Sample name: 37B; SRA: SRS24288998
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="84"
+Description:
+Total bacterial DNA 8.37
+Accession: SAMN47234836	ID: 47234836
+
+25: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234835; Sample name: 36B; SRA: SRS24288997
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="83"
+Description:
+Total bacterial DNA 8.36
+Accession: SAMN47234835	ID: 47234835
+
+26: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234834; Sample name: 35B; SRA: SRS24288995
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-20"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="82"
+Description:
+Total bacterial DNA 8.35
+Accession: SAMN47234834	ID: 47234834
+
+27: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234833; Sample name: 34B; SRA: SRS24288996
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="81"
+Description:
+Total bacterial DNA 8.34
+Accession: SAMN47234833	ID: 47234833
+
+28: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234832; Sample name: 33B; SRA: SRS24288993
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="80"
+Description:
+Total bacterial DNA 8.33
+Accession: SAMN47234832	ID: 47234832
+
+29: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234831; Sample name: 32B; SRA: SRS24288992
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="79"
+Description:
+Total bacterial DNA 8.32
+Accession: SAMN47234831	ID: 47234831
+
+30: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234830; Sample name: 31B; SRA: SRS24288991
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="78"
+Description:
+Total bacterial DNA 8.31
+Accession: SAMN47234830	ID: 47234830
+
+31: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234829; Sample name: 30B; SRA: SRS24288990
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="77"
+Description:
+Total bacterial DNA 8.30
+Accession: SAMN47234829	ID: 47234829
+
+32: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234828; Sample name: 29B; SRA: SRS24288989
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="76"
+Description:
+Total bacterial DNA 8.29
+Accession: SAMN47234828	ID: 47234828
+
+33: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234827; Sample name: 28B; SRA: SRS24288988
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="75"
+Description:
+Total bacterial DNA 8.28
+Accession: SAMN47234827	ID: 47234827
+
+34: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234826; Sample name: 26B; SRA: SRS24288987
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="74"
+Description:
+Total bacterial DNA 8.26
+Accession: SAMN47234826	ID: 47234826
+
+35: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234825; Sample name: 25B; SRA: SRS24288986
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="73"
+Description:
+Total bacterial DNA 8.25
+Accession: SAMN47234825	ID: 47234825
+
+36: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234824; Sample name: 23B; SRA: SRS24288984
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-01"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="72"
+Description:
+Total bacterial DNA 8.23
+Accession: SAMN47234824	ID: 47234824
+
+37: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234823; Sample name: 22B; SRA: SRS24288985
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="71"
+Description:
+Total bacterial DNA 5.22
+Accession: SAMN47234823	ID: 47234823
+
+38: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234822; Sample name: 21B; SRA: SRS24288982
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="70"
+Description:
+Total bacterial DNA 5.21
+Accession: SAMN47234822	ID: 47234822
+
+39: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234821; Sample name: 20B; SRA: SRS24288981
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="69"
+Description:
+Total bacterial DNA 5.20
+Accession: SAMN47234821	ID: 47234821
+
+40: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234820; Sample name: 19B; SRA: SRS24288980
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="68"
+Description:
+Total bacterial DNA 5.19
+Accession: SAMN47234820	ID: 47234820
+
+41: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234819; Sample name: 18B; SRA: SRS24288979
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="67"
+Description:
+Total bacterial DNA 5.18
+Accession: SAMN47234819	ID: 47234819
+
+42: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234818; Sample name: 17B; SRA: SRS24288978
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="66"
+Description:
+Total bacterial DNA 5.17
+Accession: SAMN47234818	ID: 47234818
+
+43: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234817; Sample name: 16B; SRA: SRS24288977
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="65"
+Description:
+Total bacterial DNA 5.16
+Accession: SAMN47234817	ID: 47234817
+
+44: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234816; Sample name: 15B; SRA: SRS24288976
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="64"
+Description:
+Total bacterial DNA 5.15
+Accession: SAMN47234816	ID: 47234816
+
+45: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234815; Sample name: 14B; SRA: SRS24288974
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="63"
+Description:
+Total bacterial DNA 5.14
+Accession: SAMN47234815	ID: 47234815
+
+46: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234814; Sample name: 13B; SRA: SRS24288975
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="62"
+Description:
+Total bacterial DNA 5.13
+Accession: SAMN47234814	ID: 47234814
+
+47: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234813; Sample name: 12B; SRA: SRS24288973
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="61"
+Description:
+Total bacterial DNA 5.12
+Accession: SAMN47234813	ID: 47234813
+
+48: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234812; Sample name: 11B; SRA: SRS24288971
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="60"
+Description:
+Total bacterial DNA 5.11
+Accession: SAMN47234812	ID: 47234812
+
+49: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234811; Sample name: 10B; SRA: SRS24288969
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="59"
+Description:
+Total bacterial DNA 5.10
+Accession: SAMN47234811	ID: 47234811
+
+50: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234810; Sample name: 9B; SRA: SRS24288970
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="58"
+Description:
+Total bacterial DNA 5.9
+Accession: SAMN47234810	ID: 47234810
+
+51: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234809; Sample name: 8B; SRA: SRS24288968
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="57"
+Description:
+Total bacterial DNA 5.8
+Accession: SAMN47234809	ID: 47234809
+
+52: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234808; Sample name: 7B; SRA: SRS24288967
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="56"
+Description:
+Total bacterial DNA 5.7
+Accession: SAMN47234808	ID: 47234808
+
+53: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234807; Sample name: 6B; SRA: SRS24288966
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="55"
+Description:
+Total bacterial DNA 5.6
+Accession: SAMN47234807	ID: 47234807
+
+54: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234806; Sample name: 5B; SRA: SRS24288964
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="54"
+Description:
+Total bacterial DNA 5.5
+Accession: SAMN47234806	ID: 47234806
+
+55: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234805; Sample name: 4B; SRA: SRS24288965
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="53"
+Description:
+Total bacterial DNA 5.4
+Accession: SAMN47234805	ID: 47234805
+
+56: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234804; Sample name: 3B; SRA: SRS24288963
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="52"
+Description:
+Total bacterial DNA 5.3
+Accession: SAMN47234804	ID: 47234804
+
+57: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234803; Sample name: 2B; SRA: SRS24288962
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="51"
+Description:
+Total bacterial DNA 5.2
+Accession: SAMN47234803	ID: 47234803
+
+58: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234802; Sample name: 1B; SRA: SRS24288959
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-11"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="50"
+Description:
+Total bacterial DNA 5.1
+Accession: SAMN47234802	ID: 47234802
+
+59: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234801; Sample name: 55P; SRA: SRS24288960
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="49"
+Description:
+Total virall DNA 8.55
+Accession: SAMN47234801	ID: 47234801
+
+60: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234800; Sample name: 53P; SRA: SRS24288958
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="48"
+Description:
+Total virall DNA 8.53
+Accession: SAMN47234800	ID: 47234800
+
+
+61: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234799; Sample name: 51P; SRA: SRS24288957
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="47"
+Description:
+Total virall DNA 8.51
+Accession: SAMN47234799	ID: 47234799
+
+62: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234798; Sample name: 50P; SRA: SRS24288956
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="46"
+Description:
+Total virall DNA 8.50
+Accession: SAMN47234798	ID: 47234798
+
+63: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234797; Sample name: 49P; SRA: SRS24288955
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="45"
+Description:
+Total virall DNA 8.49
+Accession: SAMN47234797	ID: 47234797
+
+64: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234796; Sample name: 48P; SRA: SRS24288954
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="44"
+Description:
+Total virall DNA 8.48
+Accession: SAMN47234796	ID: 47234796
+
+65: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234795; Sample name: 46P; SRA: SRS24288953
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="43"
+Description:
+Total virall DNA 8.46
+Accession: SAMN47234795	ID: 47234795
+
+66: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234794; Sample name: 45P; SRA: SRS24288952
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="42"
+Description:
+Total virall DNA 8.45
+Accession: SAMN47234794	ID: 47234794
+
+67: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234793; Sample name: 44P; SRA: SRS24288951
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-18"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="41"
+Description:
+Total viral DNA 8.44
+Accession: SAMN47234793	ID: 47234793
+
+68: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234792; Sample name: 43P; SRA: SRS24288949
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-15"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="40"
+Description:
+Total viral DNA 8.43
+Accession: SAMN47234792	ID: 47234792
+
+69: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234791; Sample name: 42P; SRA: SRS24288948
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-15"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="39"
+Description:
+Total viral DNA 8.42
+Accession: SAMN47234791	ID: 47234791
+
+70: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234790; Sample name: 41P; SRA: SRS24288947
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-15"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="38"
+Description:
+Total viral DNA 8.41
+Accession: SAMN47234790	ID: 47234790
+
+71: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234789; Sample name: 40P; SRA: SRS24288946
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-15"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="37"
+Description:
+Total viral DNA 8.40
+Accession: SAMN47234789	ID: 47234789
+
+72: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234788; Sample name: 38P; SRA: SRS24288944
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-15"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="36"
+Description:
+Total viral DNA 8.38
+Accession: SAMN47234788	ID: 47234788
+
+73: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234787; Sample name: 37P; SRA: SRS24288945
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-15"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="35"
+Description:
+Total viral DNA 8.37
+Accession: SAMN47234787	ID: 47234787
+
+74: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234786; Sample name: 36P; SRA: SRS24288943
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-15"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="34"
+Description:
+Total viral DNA 8.36
+Accession: SAMN47234786	ID: 47234786
+
+75: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234785; Sample name: 35P; SRA: SRS24288942
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-07-15"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="33"
+Description:
+Total viral DNA 8.35
+Accession: SAMN47234785	ID: 47234785
+
+76: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234784; Sample name: 34P; SRA: SRS24288941
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="32"
+Description:
+Total viral DNA 8.34
+Accession: SAMN47234784	ID: 47234784
+
+77: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234783; Sample name: 33P; SRA: SRS24288940
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="31"
+Description:
+Total virall DNA 8.33
+Accession: SAMN47234783	ID: 47234783
+
+78: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234782; Sample name: 32P; SRA: SRS24288938
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="30"
+Description:
+Total virall DNA 8.32
+Accession: SAMN47234782	ID: 47234782
+
+79: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234781; Sample name: 31P; SRA: SRS24288937
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="29"
+Description:
+Total virall DNA 8.31
+Accession: SAMN47234781	ID: 47234781
+
+80: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234780; Sample name: 30P; SRA: SRS24288936
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="28"
+Description:
+Total virall DNA 8.30
+Accession: SAMN47234780	ID: 47234780
+
+81: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234779; Sample name: 29P; SRA: SRS24288935
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="27"
+Description:
+Total virall DNA 8.29
+Accession: SAMN47234779	ID: 47234779
+
+82: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234778; Sample name: 28P; SRA: SRS24288934
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="26"
+Description:
+Total virall DNA 8.28
+Accession: SAMN47234778	ID: 47234778
+
+83: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234777; Sample name: 26P; SRA: SRS24288932
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="25"
+Description:
+Total virall DNA 8.26
+Accession: SAMN47234777	ID: 47234777
+
+84: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234776; Sample name: 25P; SRA: SRS24288933
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="24"
+Description:
+Total virall DNA 8.25
+Accession: SAMN47234776	ID: 47234776
+
+85: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234775; Sample name: 23P; SRA: SRS24288931
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-06-29"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="23"
+Description:
+Total virall DNA 8.23
+Accession: SAMN47234775	ID: 47234775
+
+86: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234774; Sample name: 22P; SRA: SRS24288930
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="22"
+Description:
+total viral DNA 5.22
+Accession: SAMN47234774	ID: 47234774
+
+87: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234773; Sample name: 21P; SRA: SRS24288929
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="21"
+Description:
+total viral DNA 5.21
+Accession: SAMN47234773	ID: 47234773
+
+88: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234772; Sample name: 20P; SRA: SRS24288927
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="20"
+Description:
+total viral DNA 5.20
+Accession: SAMN47234772	ID: 47234772
+
+89: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234771; Sample name: 19P; SRA: SRS24288926
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="19"
+Description:
+total viral DNA 5.19
+Accession: SAMN47234771	ID: 47234771
+
+90: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234770; Sample name: 18P; SRA: SRS24288925
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="18"
+Description:
+total viral DNA 5.18
+Accession: SAMN47234770	ID: 47234770
+
+91: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234769; Sample name: 17P; SRA: SRS24288924
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="17"
+Description:
+total viral DNA 5.17
+Accession: SAMN47234769	ID: 47234769
+
+92: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234768; Sample name: 16P; SRA: SRS24288923
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="16"
+Description:
+total viral DNA 5.16
+Accession: SAMN47234768	ID: 47234768
+
+93: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234767; Sample name: 15P; SRA: SRS24288922
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="15"
+Description:
+total viral DNA 5.15
+Accession: SAMN47234767	ID: 47234767
+
+94: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234766; Sample name: 14P; SRA: SRS24288921
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="14"
+Description:
+total viral DNA 5.14
+Accession: SAMN47234766	ID: 47234766
+
+95: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234765; Sample name: 13P; SRA: SRS24288920
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="13"
+Description:
+total viral DNA 5.13
+Accession: SAMN47234765	ID: 47234765
+
+96: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234764; Sample name: 12P; SRA: SRS24288919
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="12"
+Description:
+total viral DNA 5.12
+Accession: SAMN47234764	ID: 47234764
+
+97: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234763; Sample name: 11P; SRA: SRS24288918
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="11"
+Description:
+total viral DNA 5.11
+Accession: SAMN47234763	ID: 47234763
+
+98: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234762; Sample name: 10P; SRA: SRS24289005
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="10"
+Description:
+total viral DNA 5.10
+Accession: SAMN47234762	ID: 47234762
+
+99: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234761; Sample name: 9P; SRA: SRS24288994
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="9"
+Description:
+total viral DNA 5.9
+Accession: SAMN47234761	ID: 47234761
+
+100: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234760; Sample name: 8P; SRA: SRS24288983
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="8"
+Description:
+total viral DNA 5.8
+Accession: SAMN47234760	ID: 47234760
+
+101: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234759; Sample name: 7P; SRA: SRS24288972
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="7"
+Description:
+total viral DNA 5.7
+Accession: SAMN47234759	ID: 47234759
+
+102: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234758; Sample name: 6P; SRA: SRS24288961
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.52192 N 6.57736 E"
+    /unique_ID="6"
+Description:
+total viral DNA 5.6
+Accession: SAMN47234758	ID: 47234758
+
+103: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234757; Sample name: 5P; SRA: SRS24288950
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.31 N 6.34 E"
+    /unique_ID="5"
+Description:
+total viral DNA 5.5
+Accession: SAMN47234757	ID: 47234757
+
+104: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234756; Sample name: 4P; SRA: SRS24288939
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.31 N 6.34 E"
+    /unique_ID="4"
+Description:
+total viral DNA 5.4
+Accession: SAMN47234756	ID: 47234756
+
+105: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234755; Sample name: 3P; SRA: SRS24288928
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.31 N 6.34 E"
+    /unique_ID="3"
+Description:
+total viral DNA 5.3
+Accession: SAMN47234755	ID: 47234755
+
+106: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234754; Sample name: 2P; SRA: SRS24288917
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.31 N 6.34 E"
+    /unique_ID="2"
+Description:
+total viral DNA 5.2
+Accession: SAMN47234754	ID: 47234754
+
+107: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN47234753; Sample name: 1P; SRA: SRS24288916
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /isolation source="hindgut"
+    /collection date="2022-05-25"
+    /geographic location="Switzerland:Lausanne"
+    /latitude and longitude="46.31 N 6.34 E"
+    /unique_ID="1"
+Description:
+total viral DNA 5.1
+Accession: SAMN47234753	ID: 47234753
+
+

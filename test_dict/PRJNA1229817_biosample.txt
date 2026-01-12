@@ -1,0 +1,66 @@
+1: willow pollen
+Identifiers: BioSample: SAMN47004247; Sample name: AV_poll; SRA: SRS24215102
+Organism: pollen metagenome
+Attributes:
+    /collection date="2022-05"
+    /geographic location="Germany: Braunschweig"
+    /latitude and longitude="52.224014 N 10.519856 E"
+    /host="Salix alba"
+    /broad-scale environmental context="Temperate broadleaf and mixed forest biome [ENVO:00000876]"
+    /local-scale environmental context="shelter belt [ENVO:00000046]"
+    /environmental medium="pollen [BTO:0001097]"
+Accession: SAMN47004247	ID: 47004247
+
+2: bee provision
+Identifiers: BioSample: SAMN47004246; Sample name: AV_prov; SRA: SRS24215101
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-05"
+    /geographic location="Germany: Braunschweig"
+    /latitude and longitude="52.226532 N 10.522763 E"
+    /host="Andrena vaga"
+    /broad-scale environmental context="Temperate broadleaf and mixed forest biome [ENVO:00000876]"
+    /local-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /environmental medium="plant inflorescence food product [FOODON:00001166]"
+Accession: SAMN47004246	ID: 47004246
+
+3: bee eggs
+Identifiers: BioSample: SAMN47004245; Sample name: AV_eggs; SRA: SRS24215100
+Organism: insect metagenome
+Attributes:
+    /collection date="2022-05"
+    /geographic location="Germany: Braunschweig"
+    /latitude and longitude="52.226532 N 10.522763 E"
+    /host="Andrena vaga"
+    /broad-scale environmental context="Temperate broadleaf and mixed forest biome [ENVO:00000876]"
+    /local-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /environmental medium="egg of class Insecta [SNOMED:284716000]"
+Accession: SAMN47004245	ID: 47004245
+
+4: bee guts
+Identifiers: BioSample: SAMN47004244; Sample name: AV_guts; SRA: SRS24215099
+Organism: gut metagenome
+Attributes:
+    /collection date="2022-05"
+    /geographic location="Germany: Braunschweig"
+    /latitude and longitude="52.226532 N 10.522763 E"
+    /host="Andrena vaga"
+    /broad-scale environmental context="Temperate broadleaf and mixed forest biome [ENVO:00000876]"
+    /local-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /environmental medium="digestive tract environment (ENVO:01001033]"
+Accession: SAMN47004244	ID: 47004244
+
+5: brood cells
+Identifiers: BioSample: SAMN47004243; Sample name: AV_soil; SRA: SRS24215096
+Organism: soil metagenome
+Attributes:
+    /collection date="2022-05"
+    /geographic location="Germany: Braunschweig"
+    /latitude and longitude="52.226532 N 10.522763 E"
+    /host="not applicable"
+    /broad-scale environmental context="Temperate broadleaf and mixed forest biome [ENVO:00000876]"
+    /local-scale environmental context="shelter belt [ENVO:00000046]"
+    /environmental medium="bulk soil [ENVO:00005802]"
+Accession: SAMN47004243	ID: 47004243
+
+

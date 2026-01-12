@@ -1,0 +1,19 @@
+# MetaDL - Unified Metadata Download Tool Dependencies
+# Supports both NCBI and CNCB/GSA databases
+# Installation: pip install -r requirements_metadl.txt
+
+# BioPython - For NCBI Entrez API access
+biopython>=1.80
+
+# Pandas - For data manipulation and CSV processing
+pandas>=2.0.0
+
+# Selenium - For CNCB/GSA browser automation
+selenium>=4.17.0
+
+# OpenPyXL - For reading Excel files from CNCB
+openpyxl>=3.0.0
+
+# Note: Python 3.7+ required
+# Note: ChromeDriver required for Selenium (install via: brew install --cask chromedriver)
+# Standard library modules used: time, os, re, pathlib, glob, argparse, sys

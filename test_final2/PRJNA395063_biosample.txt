@@ -1,0 +1,199 @@
+1: GF_BDE99_2
+Identifiers: BioSample: SAMN07370666; SRA: SRS2369727; GEO: GSM2711483
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370666	ID: 7370666
+
+2: GF_BDE99_3
+Identifiers: BioSample: SAMN07370665; SRA: SRS2369728; GEO: GSM2711484
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370665	ID: 7370665
+
+3: GF_BDE47_3
+Identifiers: BioSample: SAMN07370664; SRA: SRS2369725; GEO: GSM2711481
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370664	ID: 7370664
+
+4: CV_CO1
+Identifiers: BioSample: SAMN07370663; SRA: SRS2369711; GEO: GSM2711467
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370663	ID: 7370663
+
+5: CV_CO2
+Identifiers: BioSample: SAMN07370662; SRA: SRS2369712; GEO: GSM2711468
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370662	ID: 7370662
+
+6: CV_CO3
+Identifiers: BioSample: SAMN07370661; SRA: SRS2369713; GEO: GSM2711469
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370661	ID: 7370661
+
+7: CV_BDE47_1
+Identifiers: BioSample: SAMN07370660; SRA: SRS2369714; GEO: GSM2711470
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370660	ID: 7370660
+
+8: CV_BDE47_2
+Identifiers: BioSample: SAMN07370659; SRA: SRS2369715; GEO: GSM2711471
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370659	ID: 7370659
+
+9: CV_BDE47_3
+Identifiers: BioSample: SAMN07370658; SRA: SRS2369716; GEO: GSM2711472
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370658	ID: 7370658
+
+10: CV_BDE47_4
+Identifiers: BioSample: SAMN07370657; SRA: SRS2369717; GEO: GSM2711473
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370657	ID: 7370657
+
+11: CV_BDE99_1
+Identifiers: BioSample: SAMN07370656; SRA: SRS2369718; GEO: GSM2711474
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370656	ID: 7370656
+
+12: CV_BDE99_2
+Identifiers: BioSample: SAMN07370655; SRA: SRS2369719; GEO: GSM2711475
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370655	ID: 7370655
+
+13: GF_CO1
+Identifiers: BioSample: SAMN07370654; SRA: SRS2369721; GEO: GSM2711476
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370654	ID: 7370654
+
+14: GF_CO2
+Identifiers: BioSample: SAMN07370653; SRA: SRS2369720; GEO: GSM2711477
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370653	ID: 7370653
+
+15: GF_CO3
+Identifiers: BioSample: SAMN07370652; SRA: SRS2369722; GEO: GSM2711478
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370652	ID: 7370652
+
+16: GF_BDE47_1
+Identifiers: BioSample: SAMN07370651; SRA: SRS2369723; GEO: GSM2711479
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370651	ID: 7370651
+
+17: GF_BDE47_2
+Identifiers: BioSample: SAMN07370650; SRA: SRS2369724; GEO: GSM2711480
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370650	ID: 7370650
+
+18: GF_BDE99_1
+Identifiers: BioSample: SAMN07370647; SRA: SRS2369726; GEO: GSM2711482
+Organism: Mus musculus
+Attributes:
+    /source name="liver"
+    /strain="C57BL/6"
+    /enterotype="liver"
+    /age="9-weeks old at the beginning of treatment"
+    /sex="male"
+Accession: SAMN07370647	ID: 7370647
+
+

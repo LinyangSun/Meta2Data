@@ -1,0 +1,4602 @@
+{
+  "API gravity": [
+    "api",
+    "api gravity",
+    "API gravity"
+  ],
+  "EDTA inhibitor tested": [
+    "edta inhibitor tested",
+    "EDTA inhibitor tested",
+    "edta_inhibitor_tested"
+  ],
+  "FAO classification": [
+    "FAO classification",
+    "fao class",
+    "soil taxonomic/fao classification",
+    "fao classification",
+    "fao_class"
+  ],
+  "FDA food industry class name": [
+    "fda food industry class name",
+    "food industry class",
+    "food_industry_class",
+    "FDA food industry class name"
+  ],
+  "FDA food industry code name": [
+    "food industry code",
+    "fda food industry code name",
+    "FDA food industry code name",
+    "food_industry_code"
+  ],
+  "Food harvesting process": [
+    "food_harvest_proc",
+    "food harvest proc",
+    "food harvesting process",
+    "Food harvesting process"
+  ],
+  "GISAID accession": [
+    "gisaid accession",
+    "gisaid_accession",
+    "GISAID accession"
+  ],
+  "GISAID virus name": [
+    "gisaid_virus_name",
+    "GISAID virus name",
+    "gisaid virus name"
+  ],
+  "HIV status": [
+    "HIV status",
+    "hiv_stat",
+    "hiv stat",
+    "hiv status"
+  ],
+  "Hazard Analysis Critical Control Points (HACCP) guide food safety term": [
+    "Hazard Analysis Critical Control Points (HACCP) guide food safety term",
+    "hazard analysis critical control points (haccp) guide food safety term",
+    "haccp term",
+    "haccp_term"
+  ],
+  "Interagency Food Safety Analytics Collaboration (IFSAC) category": [
+    "Interagency Food Safety Analytics Collaboration (IFSAC) category",
+    "ifsac_category",
+    "interagency food safety analytics collaboration (ifsac) category",
+    "ifsac+ category",
+    "ifsac category"
+  ],
+  "NARMS isolate number": [
+    "NARMS isolate number",
+    "narms_isolate_number",
+    "narms id",
+    "narms isolate number"
+  ],
+  "Omics Observatory ID": [
+    "omics observatory id",
+    "omics observ id",
+    "omics_observ_id",
+    "Omics Observatory ID"
+  ],
+  "Population Description": [
+    "population_description",
+    "Population Description",
+    "population description"
+  ],
+  "SARS-CoV-2 diagnostic gene name 1": [
+    "sars_cov_2_diag_gene_name_1",
+    "SARS-CoV-2 diagnostic gene name 1",
+    "sars cov 2 diag gene name 1",
+    "sars cov 2 diagnostic gene name 1"
+  ],
+  "SARS-CoV-2 diagnostic gene name 2": [
+    "sars_cov_2_diag_gene_name_2",
+    "sars cov 2 diagnostic gene name 2",
+    "sars cov 2 diag gene name 2",
+    "SARS-CoV-2 diagnostic gene name 2"
+  ],
+  "SARS-CoV-2 diagnostic pcr Ct value 1": [
+    "sars_cov_2_diag_pcr_ct_value_1",
+    "SARS-CoV-2 diagnostic pcr Ct value 1",
+    "sars cov 2 diag pcr ct value 1",
+    "sars cov 2 diagnostic pcr ct value 1"
+  ],
+  "SARS-CoV-2 diagnostic pcr Ct value 2": [
+    "sars cov 2 diag pcr ct value 2",
+    "sars cov 2 diagnostic pcr ct value 2",
+    "sars_cov_2_diag_pcr_ct_value_2",
+    "SARS-CoV-2 diagnostic pcr Ct value 2"
+  ],
+  "Super Population Code": [
+    "super population code",
+    "super_population_code",
+    "Super Population Code"
+  ],
+  "Super Population Description": [
+    "super population description",
+    "super_population_description",
+    "Super Population Description"
+  ],
+  "WGA amplification approach": [
+    "WGA amplification approach",
+    "wga amp appr",
+    "wga_amp_appr",
+    "wga amplification approach"
+  ],
+  "absolute air humidity": [
+    "absolute air humidity",
+    "abs air humidity",
+    "abs_air_humidity"
+  ],
+  "additional info": [
+    "additional info",
+    "additional_info"
+  ],
+  "address": [
+    "address"
+  ],
+  "adjacent rooms": [
+    "adjacent rooms",
+    "adj room",
+    "adj_room"
+  ],
+  "aerospace structure": [
+    "aero_struc",
+    "aero struc",
+    "aerospace structure"
+  ],
+  "affection status": [
+    "affection_status",
+    "affection status"
+  ],
+  "age": [
+    "age"
+  ],
+  "agrochemical additions": [
+    "agrochem addition",
+    "history/agrochemical additions",
+    "agrochemical additions",
+    "agrochem_addition"
+  ],
+  "air particulate matter concentration": [
+    "air_pm_concen",
+    "air pm concen",
+    "respirable particulate matter",
+    "resp part matter",
+    "air particulate matter concentration"
+  ],
+  "air temperature": [
+    "air temperature",
+    "air temp",
+    "air_temp"
+  ],
+  "air temperature regimen": [
+    "air temperature regimen",
+    "air_temp_regm",
+    "air temp regm"
+  ],
+  "alkalinity": [
+    "alkalinity"
+  ],
+  "alkalinity method": [
+    "alkalinity method",
+    "alkalinity_method"
+  ],
+  "alkyl diethers": [
+    "alkyl diethers",
+    "alkyl_diethers"
+  ],
+  "altitude": [
+    "altitude",
+    "alt"
+  ],
+  "aluminium saturation": [
+    "al saturation",
+    "aluminium saturation",
+    "al_sat",
+    "extreme unusual properties/al saturation",
+    "al sat"
+  ],
+  "aluminium saturation method": [
+    "extreme unusual properties/al saturation method",
+    "aluminium saturation method",
+    "al sat meth",
+    "al_sat_meth",
+    "al saturation method"
+  ],
+  "aminopeptidase activity": [
+    "aminopeptidase activity",
+    "aminopept act",
+    "aminopept_act"
+  ],
+  "ammonium": [
+    "ammonium"
+  ],
+  "amniotic fluid color": [
+    "amniotic fluid color",
+    "amniotic fluid/color",
+    "amniotic_fluid_color"
+  ],
+  "amount of light": [
+    "amount of light",
+    "amount_light",
+    "amount light"
+  ],
+  "analyte type": [
+    "analyte_type",
+    "analyte type"
+  ],
+  "anamorph": [
+    "anamorph"
+  ],
+  "ancestral data": [
+    "ances data",
+    "ances_data",
+    "ancestral data"
+  ],
+  "animal environment": [
+    "animal environment",
+    "animal env",
+    "animal_env"
+  ],
+  "animal feeding equipment": [
+    "animal_feed_equip",
+    "animal feed equip",
+    "animal feeding equipment"
+  ],
+  "animal housing system ": [
+    "animal housing",
+    "host housing",
+    "host_housing",
+    "animal housing system "
+  ],
+  "animal intrusion near sample source": [
+    "animal intrusion near sample source",
+    "animal intrusion",
+    "animal_intrusion"
+  ],
+  "animal water delivery method": [
+    "anim water method",
+    "animal water delivery method",
+    "anim_water_method"
+  ],
+  "annual and seasonal precipitation": [
+    "annual_season_precpt",
+    "annual and seasonal precipitation",
+    "annual season precpt",
+    "mean annual and seasonal precipitation"
+  ],
+  "annual and seasonal temperature": [
+    "mean annual and seasonal temperature",
+    "annual and seasonal temperature",
+    "annual_season_temp",
+    "annual season temp"
+  ],
+  "antibiotic regimen": [
+    "antibiotic_regm",
+    "antibiotic regimen",
+    "antibiotic regm"
+  ],
+  "antimicrobial name": [
+    "host am",
+    "antimicrobial name",
+    "food animal antimicrobial",
+    "animal am",
+    "host_am"
+  ],
+  "antimicrobial phenotype of spike-in bacteria": [
+    "spikein_amr",
+    "antimicrobial phenotype of spike in bacteria",
+    "antimicrobial phenotype of spike-in bacteria",
+    "spikein amr"
+  ],
+  "antiviral treatment agent": [
+    "antiviral_treatment_agent",
+    "antiviral treatment agent"
+  ],
+  "architectural structure": [
+    "arch_struc",
+    "arch struc",
+    "architectural structure"
+  ],
+  "area sampled size": [
+    "area sampled size",
+    "area_samp_size",
+    "area samp size"
+  ],
+  "aromatics wt%": [
+    "aromatics pc",
+    "aromatics wt%",
+    "aromatics_pc"
+  ],
+  "asphaltenes wt%": [
+    "asphaltenes_pc",
+    "asphaltenes pc",
+    "asphaltenes wt%"
+  ],
+  "atmospheric data": [
+    "atmospheric_data",
+    "atmospheric data"
+  ],
+  "authority": [
+    "authority"
+  ],
+  "average daily occupancy": [
+    "avg_occup",
+    "average daily occupancy",
+    "avg occup"
+  ],
+  "average dew point": [
+    "average dew point",
+    "avg_dew_point",
+    "avg dew point"
+  ],
+  "average temperature": [
+    "avg temp",
+    "average temperature",
+    "avg_temp"
+  ],
+  "bacterial carbon production": [
+    "bacteria_carb_prod",
+    "bacterial carbon production",
+    "bacteria carb prod"
+  ],
+  "bacterial density": [
+    "bacterial_density",
+    "bacterial density"
+  ],
+  "bacterial production": [
+    "bac prod",
+    "bac_prod",
+    "bacterial production"
+  ],
+  "bacterial respiration": [
+    "bac_resp",
+    "bac resp",
+    "bacterial respiration"
+  ],
+  "barometric pressure": [
+    "barometric_press",
+    "barometric pressure",
+    "barometric press"
+  ],
+  "basin name": [
+    "basin name",
+    "basin_name"
+  ],
+  "bathroom count": [
+    "bathroom count",
+    "bathroom_count"
+  ],
+  "bedroom count": [
+    "bedroom count",
+    "bedroom_count"
+  ],
+  "benzene": [
+    "benzene"
+  ],
+  "beta-lactamase family": [
+    "beta lactamase family",
+    "beta_lactamase_family",
+    "beta-lactamase family"
+  ],
+  "biochemical oxygen demand": [
+    "biochemical oxygen demand",
+    "biochem_oxygen_dem",
+    "biochem oxygen dem"
+  ],
+  "biocide administration": [
+    "biocide administration",
+    "biocide_admin",
+    "biocide admin"
+  ],
+  "biocide administration method": [
+    "biocide administration method",
+    "biocide admin method",
+    "biocide_admin_method"
+  ],
+  "biocide used": [
+    "biocide used",
+    "biocide_used",
+    "biocide"
+  ],
+  "biological material": [
+    "biological material",
+    "biomaterial",
+    "bio_material",
+    "bio material"
+  ],
+  "biological sample replicate": [
+    "biological sample replicate",
+    "samp rep biol",
+    "samp_rep_biol","biological_replicate"
+  ],
+  "biological status": [
+    "biol_stat",
+    "biological status",
+    "biol stat"
+  ],
+  "biomass": [
+    "biomass"
+  ],
+  "biomaterial provider": [
+    "biomaterial_provider",
+    "biomaterial provider"
+  ],
+  "biospecimen repository": [
+    "biospecimen_repository",
+    "biospecimen repository"
+  ],
+  "biospecimen repository sample id": [
+    "biospecimen repository sample id",
+    "biospecimen_repository_sample_id"
+  ],
+  "biotic regimen": [
+    "biotic_regm",
+    "biotic regm",
+    "biotic regimen"
+  ],
+  "biovar": [
+    "biovar"
+  ],
+  "birth control": [
+    "birth control",
+    "birth_control"
+  ],
+  "birth date": [
+    "birth_date",
+    "birth date"
+  ],
+  "birth location": [
+    "birth location",
+    "birth_location"
+  ],
+  "bishomohopanol": [
+    "bishomohopanol"
+  ],
+  "blood disorder": [
+    "blood blood disord",
+    "blood/blood disorder",
+    "blood_blood_disord",
+    "blood disorder"
+  ],
+  "blood pressure diastolic": [
+    "blood_press_diast",
+    "blood pressure diastolic",
+    "blood press diast"
+  ],
+  "blood pressure systolic": [
+    "blood pressure systolic",
+    "blood press syst",
+    "blood_press_syst"
+  ],
+  "body habitat": [
+    "body habitat",
+    "body_habitat"
+  ],
+  "body mass index": [
+    "body mass index",
+    "body_mass_index",
+    "bmi"
+  ],
+  "body product": [
+    "body product",
+    "body_product"
+  ],
+  "breed": [
+    "breed"
+  ],
+  "breeding history": [
+    "breeding_history",
+    "breeding history"
+  ],
+  "breeding method": [
+    "breeding_method",
+    "breeding method"
+  ],
+  "broad-scale environmental context": [
+    "broad scale environmental context",
+    "env broad range",
+    "env biome",
+    "env broad scale",
+    "environment biome",
+    "environment (biome)",
+    "biome",
+    "env_broad_scale",
+    "broad-scale environmental context"
+  ],
+  "bromide": [
+    "bromide"
+  ],
+  "building occupancy type": [
+    "building occupancy type",
+    "build_occup_type",
+    "build occup type"
+  ],
+  "building setting": [
+    "building_setting",
+    "building setting"
+  ],
+  "built structure age": [
+    "built structure age",
+    "built_struc_age",
+    "built struc age"
+  ],
+  "built structure setting": [
+    "built struc set",
+    "built_struc_set",
+    "built structure setting"
+  ],
+  "built structure type": [
+    "built_struc_type",
+    "built struc type",
+    "built structure type"
+  ],
+  "calcium": [
+    "calcium"
+  ],
+  "carbapenemase": [
+    "carbapenemase"
+  ],
+  "carbon dioxide": [
+    "carb_dioxide",
+    "carbon dioxide",
+    "carb dioxide"
+  ],
+  "carbon monoxide": [
+    "carb monoxide",
+    "carbon monoxide",
+    "carb_monoxide"
+  ],
+  "carbon/nitrogen ratio": [
+    "carb_nitro_ratio",
+    "carbon/nitrogen ratio",
+    "carb nitro ratio"
+  ],
+  "ceiling area": [
+    "ceil_area",
+    "ceil area",
+    "ceiling area"
+  ],
+  "ceiling condition": [
+    "ceil cond",
+    "ceil_cond",
+    "ceiling condition"
+  ],
+  "ceiling finish material": [
+    "ceil finish mat",
+    "ceil_finish_mat",
+    "ceiling finish material"
+  ],
+  "ceiling signs of water/mold": [
+    "ceiling signs of water/mold",
+    "ceil_water_mold",
+    "ceil water mold"
+  ],
+  "ceiling structure": [
+    "ceil_struc",
+    "ceiling structure",
+    "ceil struc"
+  ],
+  "ceiling texture": [
+    "ceil_texture",
+    "ceiling texture",
+    "ceil texture"
+  ],
+  "ceiling thermal mass": [
+    "ceil_thermal_mass",
+    "ceil thermal mass",
+    "ceiling thermal mass"
+  ],
+  "ceiling type": [
+    "ceiling type",
+    "ceil_type",
+    "ceil type"
+  ],
+  "cell line": [
+    "cell loine",
+    "cell_line",
+    "tissue/cell lines",
+    "cell line",
+    "cell lines",
+    "cells",
+    "cell line specifics",
+    "cell line/clone",
+    "celll line",
+    "cellline",
+    "cell lineage",
+    "cell",
+    "cell l ine"
+  ],
+  "cell subtype": [
+    "cell_subtype",
+    "cell subtype"
+  ],
+  "cell type": [
+    "celltype",
+    "developmental stage/cell type",
+    "disease/cell type",
+    "cell_type",
+    "tissue/cell type",
+    "cell type"
+  ],
+  "chemical administration": [
+    "chemical administration",
+    "chem_administration",
+    "chem administration"
+  ],
+  "chemical mutagen": [
+    "chem mutagen",
+    "chem_mutagen",
+    "chemical mutagen"
+  ],
+  "chemical oxygen demand": [
+    "chem oxygen dem",
+    "chemical oxygen demand",
+    "chem_oxygen_dem"
+  ],
+  "chemical treatment": [
+    "chemical treatment",
+    "chem_treatment",
+    "chem treatment"
+  ],
+  "chemical treatment method": [
+    "chemical treatment method",
+    "chem_treat_method",
+    "chem treat method"
+  ],
+  "child of": [
+    "child_of",
+    "child of"
+  ],
+  "chloride": [
+    "chloride"
+  ],
+  "chlorophyll": [
+    "chlorophyll"
+  ],
+  "climate environment": [
+    "climate environment",
+    "climate_environment"
+  ],
+  "clone": [
+    "clone"
+  ],
+  "clone lib": [
+    "clone lib",
+    "clone_lib"
+  ],
+  "collected by": [
+    "collected by",
+    "collectedby",
+    "collected_by"
+  ],
+  "collection date": [
+    "sample date",
+    "year isolated",
+    "collection date",
+    "collection date (yyyymmdd)",
+    "sample collection date",
+    "sampling date",
+    "date of collection",
+    "colection date",
+    "date sample collected",
+    "collectiondate",
+    "collection_date",
+    "isolation year",
+    "time of sample collection",
+    "collection year"
+  ],
+  "collection device": [
+    "collection_device",
+    "collection device"
+  ],
+  "collection method ": [
+    "collection method",
+    "collection_method",
+    "collection method ",
+    "samp collec method"
+  ],
+  "collection site geographic feature": [
+    "coll_site_geo_feat",
+    "coll site geo feat",
+    "collection site geographic feature"
+  ],
+  "component organism": [
+    "component_organism",
+    "component organism"
+  ],
+  "compound": [
+    "agent",
+    "compound"
+  ],
+  "conductivity": [
+    "conduc",
+    "conductivity"
+  ],
+  "cooling system identifier": [
+    "cool_syst_id",
+    "cooling system identifier",
+    "cool syst id"
+  ],
+  "corrosion rate at sample location": [
+    "samp_loc_corr_rate",
+    "corrosion rate at sample location",
+    "samp loc corr rate"
+  ],
+  "crop rotation": [
+    "history/crop rotation",
+    "crop rotation",
+    "crop_rotation"
+  ],
+  "crop yield": [
+    "crop yield",
+    "crop_yield"
+  ],
+  "cultivar": [
+    "cultivar acc",
+    "cultivar/accession",
+    "cultivar"
+  ],
+  "culture collection": [
+    "culturecollection",
+    "culture_collection",
+    "culture collection"
+  ],
+  "culture isolation date": [
+    "culture isolation date",
+    "cult isol date",
+    "cult_isol_date"
+  ],
+  "culture result": [
+    "culture result",
+    "cult result",
+    "cult_result"
+  ],
+  "culture result organism": [
+    "cult result org",
+    "culture result organism",
+    "cult_result_org"
+  ],
+  "culture rooting medium": [
+    "culture rooting medium",
+    "cult_root_med",
+    "cult root med"
+  ],
+  "culture target microbial analyte": [
+    "culture target microbial analyte",
+    "cult target",
+    "cult_target"
+  ],
+  "current land use": [
+    "cur land use",
+    "cur_land_use",
+    "current land use"
+  ],
+  "current vegetation": [
+    "cur_vegetation",
+    "cur vegetation",
+    "current vegetation"
+  ],
+  "current vegetation method": [
+    "cur_vegetation_meth",
+    "cur vegetation meth",
+    "current vegetation method"
+  ],
+  "date last rain": [
+    "date_last_rain",
+    "date last rain"
+  ],
+  "date of SARS-CoV-2 vaccination": [
+    "date_of_sars_cov_2_vaccination",
+    "date of SARS-CoV-2 vaccination",
+    "date of sars cov 2 vaccination"
+  ],
+  "date of prior SARS-CoV-2 antiviral treatment": [
+    "date of prior antiviral treat",
+    "date of prior SARS-CoV-2 antiviral treatment",
+    "date_of_prior_antiviral_treat",
+    "date of prior sars cov 2 antiviral treatment"
+  ],
+  "date of prior SARS-CoV-2 infection": [
+    "date_of_prior_sars_cov_2_infection",
+    "date of prior sars cov 2 infection",
+    "date of prior SARS-CoV-2 infection"
+  ],
+  "death date": [
+    "death_date",
+    "death date"
+  ],
+  "degree of plant part maturity": [
+    "plant_part_maturity",
+    "degree of plant part maturity",
+    "plant part maturity"
+  ],
+  "density": [
+    "density"
+  ],
+  "depositional environment": [
+    "depositional environment",
+    "depos env",
+    "depos_env"
+  ],
+  "depth": [
+    "depth"
+  ],
+  "depth (TVDSS) of hydrocarbon resource pressure": [
+    "tvdss_of_hcr_press",
+    "depth (TVDSS) of hydrocarbon resource pressure",
+    "tvdss of hcr press",
+    "depth (tvdss) of hydrocarbon resource pressure"
+  ],
+  "depth (TVDSS) of hydrocarbon resource temperature": [
+    "depth (tvdss) of hydrocarbon resource temperature",
+    "depth (TVDSS) of hydrocarbon resource temperature",
+    "tvdss of hcr temp",
+    "tvdss_of_hcr_temp"
+  ],
+  "derived from": [
+    "derived from",
+    "derived_from"
+  ],
+  "dermatology disorder": [
+    "dermatology_disord",
+    "dermatology disord",
+    "dermatology disorder"
+  ],
+  "description": [
+    "sample description",
+    "description"
+  ],
+  "design, construction, and operation documents": [
+    "design, construction, and operation documents",
+    "build_docs",
+    "build docs"
+  ],
+  "development stage": [
+    "developmental point",
+    "developmental stage",
+    "dev_stage",
+    "dev stage",
+    "developmentalstage",
+    "tissue/developmental stage",
+    "development stage",
+    "development point",
+    "developmental stages",
+    "tissue/dev stage",
+    "tissue/development stage",
+    "development stages"
+  ],
+  "dew point": [
+    "dew point",
+    "dew_point"
+  ],
+  "diagnostic measurement value 1": [
+    "diagnostic_measurement_1",
+    "diagnostic measurement 1",
+    "diagnostic measurement value 1"
+  ],
+  "diagnostic measurement value 2": [
+    "diagnostic measurement value 2",
+    "diagnostic_measurement_2",
+    "diagnostic measurement 2"
+  ],
+  "diet": [
+    "diet"
+  ],
+  "dietary claim or use": [
+    "dietary claim use",
+    "dietary_claim_use",
+    "dietary claim or use"
+  ],
+  "diether lipids": [
+    "diether lipids",
+    "diether_lipids"
+  ],
+  "disease": [
+    "disease stat",
+    "disease",
+    "disease status",
+    "disease state",
+    "diseases"
+  ],
+  "disease stage": [
+    "disease stage",
+    "diseasestage",
+    "disease_stage"
+  ],
+  "dissolved carbon dioxide": [
+    "dissolved carbon dioxide",
+    "diss_carb_dioxide",
+    "diss carb dioxide"
+  ],
+  "dissolved hydrogen": [
+    "dissolved hydrogen",
+    "diss hydrogen",
+    "diss_hydrogen"
+  ],
+  "dissolved inorganic carbon": [
+    "dissolved inorganic carbon",
+    "diss inorg carb",
+    "diss_inorg_carb"
+  ],
+  "dissolved inorganic nitrogen": [
+    "diss_inorg_nitro",
+    "dissolved inorganic nitrogen",
+    "diss inorg nitro"
+  ],
+  "dissolved inorganic phosphorus": [
+    "diss inorg phosp",
+    "diss_inorg_phosp",
+    "dissolved inorganic phosphorus"
+  ],
+  "dissolved iron": [
+    "diss_iron",
+    "dissolved iron",
+    "diss iron"
+  ],
+  "dissolved organic carbon": [
+    "diss_org_carb",
+    "diss org carb",
+    "dissolved organic carbon"
+  ],
+  "dissolved organic nitrogen": [
+    "diss_org_nitro",
+    "diss org nitro",
+    "dissolved organic nitrogen"
+  ],
+  "dissolved oxygen": [
+    "dissolved oxygen",
+    "diss oxygen",
+    "diss_oxygen"
+  ],
+  "dissolved oxygen in fluids": [
+    "diss oxygen fluid",
+    "diss_oxygen_fluid",
+    "dissolved oxygen in fluids"
+  ],
+  "dominant hand": [
+    "dominant hand",
+    "dominant_hand"
+  ],
+  "door area or size": [
+    "door size",
+    "door area or size",
+    "door_size"
+  ],
+  "door condition": [
+    "door cond",
+    "door condition",
+    "door_cond"
+  ],
+  "door direction of opening": [
+    "door_direct",
+    "door direct",
+    "door direction of opening"
+  ],
+  "door location": [
+    "door_loc",
+    "door location",
+    "door loc"
+  ],
+  "door material": [
+    "door mat",
+    "door material",
+    "door_mat"
+  ],
+  "door movement": [
+    "door movement",
+    "door move",
+    "door_move"
+  ],
+  "door signs of water/mold": [
+    "door_water_mold",
+    "door water mold",
+    "door signs of water/mold"
+  ],
+  "door type": [
+    "door_type",
+    "door type"
+  ],
+  "door type, composite": [
+    "door comp type",
+    "door_comp_type",
+    "door type, composite"
+  ],
+  "door type, metal": [
+    "door type metal",
+    "door_type_metal",
+    "door type, metal"
+  ],
+  "door type, wood": [
+    "door_type_wood",
+    "door type wood",
+    "door type, wood"
+  ],
+  "dose": [
+    "dose"
+  ],
+  "douche": [
+    "douche"
+  ],
+  "downward PAR": [
+    "downward par",
+    "downward PAR",
+    "down_par",
+    "down par"
+  ],
+  "drainage classification": [
+    "drainage_class",
+    "drainage classification",
+    "drainage class"
+  ],
+  "drawings": [
+    "drawings"
+  ],
+  "drug usage": [
+    "drug usage",
+    "drug_usage"
+  ],
+  "dry mass": [
+    "dry_mass",
+    "dry mass"
+  ],
+  "duration of association with the host": [
+    "association_duration",
+    "association duration",
+    "duration of association with the host"
+  ],
+  "ecotype": [
+    "ecotype"
+  ],
+  "efficiency percent": [
+    "efficiency percent",
+    "efficiency_percent"
+  ],
+  "elevation": [
+    "elev",
+    "elevation"
+  ],
+  "elevator count": [
+    "elevator count",
+    "elevator"
+  ],
+  "emulsions": [
+    "emulsions"
+  ],
+  "encoded traits": [
+    "encoded_traits",
+    "encoded traits"
+  ],
+  "enrichment protocol": [
+    "enrichment protocol",
+    "enrichment_protocol"
+  ],
+  "environment adjacent to site": [
+    "adjacent environment",
+    "environment adjacent to site",
+    "adjacent_environment"
+  ],
+  "environmental feature adjacent water source": [
+    "water source adjac",
+    "water_source_adjac",
+    "environmental feature adjacent water source"
+  ],
+  "environmental material properties": [
+    "environmental_material_properties",
+    "environmental material properties"
+  ],
+  "environmental medium": [
+    "env_medium",
+    "environment material",
+    "material",
+    "environment (material)",
+    "env medium",
+    "env material",
+    "environmental medium"
+  ],
+  "environmental package": [
+    "environmental package",
+    "env_package",
+    "env package"
+  ],
+  "equipment shared with other farms": [
+    "farm equip shared",
+    "farm_equip_shared",
+    "equipment shared with other farms"
+  ],
+  "escalator count": [
+    "escalator",
+    "escalator count"
+  ],
+  "estimated size": [
+    "estimated_size",
+    "estimated size"
+  ],
+  "ethnicity": [
+    "ethnicity",
+    "ihmc ethnicity"
+  ],
+  "ethylbenzene": [
+    "ethylbenzene"
+  ],
+  "experimental factor": [
+    "experimental factor",
+    "experimental_factor"
+  ],
+  "experimental protocol": [
+    "experimental_protocol",
+    "experimental protocol"
+  ],
+  "experimental specimen role type": [
+    "experimental_specimen_role_type",
+    "experimental specimen role type"
+  ],
+  "exposed ductwork": [
+    "exp duct",
+    "exposed ductwork",
+    "exp_duct"
+  ],
+  "exposed pipes": [
+    "exp_pipe",
+    "exp pipe",
+    "exposed pipes"
+  ],
+  "exposure event": [
+    "exposure_event",
+    "exposure event"
+  ],
+  "exterior door count": [
+    "ext door",
+    "ext_door",
+    "exterior door count"
+  ],
+  "extrachromosomal elements": [
+    "extrachrom elements",
+    "extrachromosomal elements",
+    "extrachrom_elements"
+  ],
+  "extreme event": [
+    "extreme event",
+    "extreme_event",
+    "history/extreme events"
+  ],
+  "extreme salinity": [
+    "extreme unusual properties/salinity",
+    "extreme_salinity",
+    "extreme salinity"
+  ],
+  "extreme weather date": [
+    "date_extr_weath",
+    "extreme weather date",
+    "date extr weath"
+  ],
+  "extreme weather event": [
+    "extr weather event",
+    "extreme weather event",
+    "extr_weather_event"
+  ],
+  "facility type": [
+    "facility_type",
+    "facility type"
+  ],
+  "family id": [
+    "family id",
+    "family_id",
+    "familyid"
+  ],
+  "family role": [
+    "familymember",
+    "family role",
+    "relationship type",
+    "familyrelationship",
+    "relationshiptype",
+    "familyrole",
+    "family_relationship",
+    "family relationship",
+    "family member",
+    "relationship"
+  ],
+  "farm equipment sanitization": [
+    "farm equip san",
+    "farm_equip_san",
+    "farm equipment sanitization"
+  ],
+  "farm equipment sanitization frequency": [
+    "farm_equip_san_freq",
+    "farm equip san freq",
+    "farm equipment sanitization frequency"
+  ],
+  "farm equipment used": [
+    "farm_equip",
+    "farm equipment used",
+    "farm equip"
+  ],
+  "farm watering water source": [
+    "farm water source",
+    "farm watering water source",
+    "farm_water_source"
+  ],
+  "fecal contamination indicator": [
+    "fecal contamination indicator",
+    "fecal_contamination_indicator"
+  ],
+  "fecal contamination value": [
+    "fecal_contamination_value",
+    "fecal contamination value"
+  ],
+  "fermentation chemical additives": [
+    "fermentation chemical additives",
+    "ferm chem add",
+    "ferm_chem_add"
+  ],
+  "fermentation chemical additives percentage": [
+    "ferm chem add perc",
+    "ferm_chem_add_perc",
+    "fermentation chemical additives percentage"
+  ],
+  "fermentation headspace oxygen": [
+    "ferm headspace oxy",
+    "ferm_headspace_oxy",
+    "fermentation headspace oxygen"
+  ],
+  "fermentation medium": [
+    "fermentation medium",
+    "ferm medium",
+    "ferm_medium"
+  ],
+  "fermentation pH": [
+    "fermentation ph",
+    "fermentation pH",
+    "ferm_ph",
+    "ferm ph"
+  ],
+  "fermentation relative humidity": [
+    "ferm rel humidity",
+    "ferm_rel_humidity",
+    "fermentation relative humidity"
+  ],
+  "fermentation temperature": [
+    "ferm_temp",
+    "ferm temp",
+    "fermentation temperature"
+  ],
+  "fermentation time": [
+    "fermentation time",
+    "ferm time",
+    "ferm_time"
+  ],
+  "fermentation vessel": [
+    "fermentation vessel",
+    "ferm_vessel",
+    "ferm vessel"
+  ],
+  "fertilizer administration": [
+    "fertilizer administration",
+    "fertilizer admin",
+    "fertilizer_admin"
+  ],
+  "fertilizer administration date": [
+    "fertilizer_date",
+    "fertilizer administration date",
+    "fertilizer date"
+  ],
+  "fertilizer regimen": [
+    "fertilizer regm",
+    "fertilizer regimen",
+    "fertilizer_regm"
+  ],
+  "fetal health status": [
+    "fetal health status",
+    "fetal health stat",
+    "foetal health stat",
+    "amniotic fluid/fetal health status",
+    "amniotic fluid/foetal health status",
+    "foetal_health_stat",
+    "foetal health status"
+  ],
+  "field name": [
+    "field",
+    "field name"
+  ],
+  "filter type": [
+    "filter_type",
+    "filter type"
+  ],
+  "fire": [
+    "fire",
+    "history/fire"
+  ],
+  "fireplace type": [
+    "fireplace_type",
+    "fireplace type"
+  ],
+  "flooding": [
+    "history/flooding",
+    "flooding"
+  ],
+  "floor age": [
+    "floor_age",
+    "floor age"
+  ],
+  "floor area": [
+    "floor area",
+    "floor_area"
+  ],
+  "floor condition": [
+    "floor_cond",
+    "floor condition",
+    "floor cond"
+  ],
+  "floor count": [
+    "floor count",
+    "floor_count"
+  ],
+  "floor finish material": [
+    "floor finish material",
+    "floor_finish_mat",
+    "floor finish mat"
+  ],
+  "floor signs of water/mold": [
+    "floor water mold",
+    "floor signs of water/mold",
+    "floor_water_mold"
+  ],
+  "floor structure": [
+    "floor structure",
+    "floor_struc",
+    "floor struc"
+  ],
+  "floor thermal mass": [
+    "floor thermal mass",
+    "floor_thermal_mass"
+  ],
+  "fluorescence": [
+    "fluor",
+    "fluorescence"
+  ],
+  "food additive": [
+    "food additive",
+    "food_additive"
+  ],
+  "food allergen labeling": [
+    "food allergen labeling",
+    "food allergen label",
+    "food_allergen_label"
+  ],
+  "food animal antimicrobial duration": [
+    "animal_am_dur",
+    "food animal antimicrobial duration",
+    "animal am dur"
+  ],
+  "food animal antimicrobial frequency": [
+    "food animal antimicrobial frequency",
+    "animal am freq",
+    "animal_am_freq"
+  ],
+  "food animal antimicrobial intended use": [
+    "animal_am_use",
+    "animal am use",
+    "food animal antimicrobial intended use"
+  ],
+  "food animal antimicrobial route of administration": [
+    "food animal antimicrobial route of administration",
+    "animal_am_route",
+    "animal am route"
+  ],
+  "food animal body condition": [
+    "animal_body_cond",
+    "food animal body condition",
+    "animal body cond"
+  ],
+  "food animal group size": [
+    "food animal group size",
+    "host group size",
+    "animal group size",
+    "host_group_size"
+  ],
+  "food animal source diet": [
+    "animal diet",
+    "food animal source diet",
+    "animal_diet"
+  ],
+  "food animal source sex category": [
+    "animal sex",
+    "animal_sex",
+    "food animal source sex category"
+  ],
+  "food cleaning process ": [
+    "food cleaning process ",
+    "food_clean_proc",
+    "food clean proc"
+  ],
+  "food contact surface": [
+    "food contact surface",
+    "food contact surf",
+    "food_contact_surf"
+  ],
+  "food container or wrapping": [
+    "food contain wrap",
+    "food container or wrapping",
+    "food_contain_wrap"
+  ],
+  "food cooking process": [
+    "food cooking proc",
+    "food cooking process",
+    "food_cooking_proc"
+  ],
+  "food distribution point geographic location": [
+    "food distribution point geographic location",
+    "food_dis_point",
+    "food dis point"
+  ],
+  "food distribution point geographic location (city)": [
+    "food_dis_point_city",
+    "food dis point city",
+    "food distribution point geographic location (city)"
+  ],
+  "food ingredient": [
+    "food ingredient",
+    "food_ingredient"
+  ],
+  "food package capacity": [
+    "food_pack_capacity",
+    "food pack capacity",
+    "food package capacity"
+  ],
+  "food packing integrity": [
+    "food packing integrity",
+    "food_pack_integrity",
+    "food pack integrity"
+  ],
+  "food packing medium": [
+    "food pack medium",
+    "food_pack_medium",
+    "food packing medium"
+  ],
+  "food preservation process": [
+    "food preserv proc",
+    "food preservation process",
+    "food_preserv_proc"
+  ],
+  "food processing method": [
+    "food processing method",
+    "food_processing_method"
+  ],
+  "food product by quality": [
+    "food product qual",
+    "food_product_qual",
+    "food product by quality"
+  ],
+  "food product name legal status": [
+    "food_name_status",
+    "food name status",
+    "food product name legal status"
+  ],
+  "food product origin geographic location": [
+    "food product origin geographic location",
+    "food origin",
+    "food_origin"
+  ],
+  "food product synonym": [
+    "food prod synonym",
+    "food product synonym",
+    "food_prod_synonym"
+  ],
+  "food product type": [
+    "food product type",
+    "food_product_type"
+  ],
+  "food production characteristics": [
+    "food_prod_char",
+    "food production characteristics",
+    "food prod char"
+  ],
+  "food production environmental monitoring zone": [
+    "env monitoring zone",
+    "env_monitoring_zone",
+    "food production environmental monitoring zone"
+  ],
+  "food production system": [
+    "food prod",
+    "food production system",
+    "food_prod"
+  ],
+  "food quality date": [
+    "food quality date",
+    "food_quality_date"
+  ],
+  "food shipping transportation method": [
+    "food trav mode",
+    "food shipping transportation method",
+    "food_trav_mode"
+  ],
+  "food shipping transportation vehicle": [
+    "food_trav_vehic",
+    "food shipping transportation vehicle",
+    "food trav vehic"
+  ],
+  "food source": [
+    "food source",
+    "food_source"
+  ],
+  "food source age": [
+    "food source age",
+    "food_source_age"
+  ],
+  "food stored by consumer (storage duration)": [
+    "cons_food_stor_dur",
+    "food stored by consumer (storage duration)",
+    "cons food stor dur"
+  ],
+  "food stored by consumer (storage temperature)": [
+    "food stored by consumer (storage temperature)",
+    "cons_food_stor_temp",
+    "cons food stor temp"
+  ],
+  "food traceability list category": [
+    "food_trace_list",
+    "food traceability list category",
+    "food trace list"
+  ],
+  "food treatment process": [
+    "food treatment process",
+    "food treat proc",
+    "food_treat_proc"
+  ],
+  "food type processed in facility": [
+    "food type processed",
+    "food_type_processed",
+    "food type processed in facility"
+  ],
+  "forma": [
+    "forma"
+  ],
+  "forma specialis": [
+    "forma_specialis",
+    "forma specialis"
+  ],
+  "formation water salinity": [
+    "hcr fw salinity",
+    "hcr_fw_salinity",
+    "formation water salinity"
+  ],
+  "frequency of cleaning": [
+    "freq clean",
+    "freq_clean",
+    "frequency of cleaning"
+  ],
+  "frequency of cooking": [
+    "frequency of cooking",
+    "freq cook",
+    "freq_cook"
+  ],
+  "fungicide regimen": [
+    "fungicide_regm",
+    "fungicide regimen",
+    "fungicide regm"
+  ],
+  "furniture": [
+    "furniture"
+  ],
+  "gap accession": [
+    "gap_accession",
+    "gap accession"
+  ],
+  "gap change status": [
+    "gap_change_status",
+    "gap change status"
+  ],
+  "gap consent code": [
+    "gap consent code",
+    "gap_consent_code"
+  ],
+  "gap consent short name": [
+    "gap consent short name",
+    "gap_consent_short_name"
+  ],
+  "gap sample id": [
+    "gap_sample_id",
+    "gap sample id"
+  ],
+  "gap study version": [
+    "gap_study_version",
+    "gap study version"
+  ],
+  "gap subject id": [
+    "gap_subject_id",
+    "gap subject id"
+  ],
+  "gaseous environment": [
+    "gaseous environment",
+    "gaseous_environment"
+  ],
+  "gaseous substances": [
+    "gaseous substances",
+    "gaseous_substances"
+  ],
+  "gastrointestinal tract disorder": [
+    "gastrointest disord",
+    "gastrointest_disord",
+    "gastrointestinal tract disorder"
+  ],
+  "gender of restroom": [
+    "gender of restroom",
+    "gender_restroom",
+    "gender restroom"
+  ],
+  "gene symbol 1": [
+    "gene_symbol_1",
+    "gene symbol 1"
+  ],
+  "gene symbol 2": [
+    "gene_symbol_2",
+    "gene symbol 2"
+  ],
+  "genetic modification": [
+    "genetic mod",
+    "genetic modification",
+    "genetic_mod"
+  ],
+  "genotype": [
+    "genotype",
+    "genetic variation",
+    "genotype/variation"
+  ],
+  "geo loc exposure": [
+    "geo_loc_exposure",
+    "geo loc exposure"
+  ],
+  "geographic location": [
+    "geographic location country and or sea",
+    "geographic locations",
+    "geographic location (country and/or sea)",
+    "geographic location (locality)",
+    "geographic location (country and/or sea region)",
+    "geographic location",
+    "geographic location (country and/or sea,region)",
+    "geographic location (country:region,area)",
+    "geolocname",
+    "geo_loc_name",
+    "geographical location",
+    "geographic location (country)",
+    "geographical location (country:region, location)",
+    "country",
+    "geographic origin",
+    "geo loc name",
+    "geographic location (country and/or sea, region)"
+  ],
+  "gestation state": [
+    "amniotic fluid/gestation state",
+    "gestation_state",
+    "gestation state"
+  ],
+  "glucosidase activity": [
+    "glucosidase activity",
+    "glucosidase act",
+    "glucosidase_act"
+  ],
+  "gravidity": [
+    "gravidity"
+  ],
+  "gravity": [
+    "gravity"
+  ],
+  "growth facility": [
+    "growth facil",
+    "growth_facil",
+    "growth facility"
+  ],
+  "growth habit": [
+    "growth habit",
+    "growth_habit"
+  ],
+  "growth hormone regimen": [
+    "growth hormone regimen",
+    "growth hormone regm",
+    "growth_hormone_regm"
+  ],
+  "growth media": [
+    "growth_med",
+    "growth med",
+    "growth media"
+  ],
+  "growth medium": [
+    "growth_medium",
+    "growth medium"
+  ],
+  "growth protocol": [
+    "growth_protocol",
+    "growth protocol"
+  ],
+  "gynecological disorder": [
+    "gynecologic_disord",
+    "gynecological disorder",
+    "gynecologic disord"
+  ],
+  "hallway/corridor count": [
+    "hall_count",
+    "hall count",
+    "hallway/corridor count"
+  ],
+  "handidness": [
+    "handidness"
+  ],
+  "haplotype": [
+    "haplotype"
+  ],
+  "health state": [
+    "health_state",
+    "health disease stat",
+    "health state",
+    "health disease status"
+  ],
+  "heating and cooling system type": [
+    "heating and cooling system type",
+    "heat cool type",
+    "heat_cool_type"
+  ],
+  "heating delivery locations": [
+    "heat deliv loc",
+    "heating delivery locations",
+    "heat_deliv_loc"
+  ],
+  "heating system delivery method": [
+    "heat_sys_deliv_meth",
+    "heating system delivery method",
+    "heat sys deliv meth"
+  ],
+  "heating system identifier": [
+    "heat_system_id",
+    "heat system id",
+    "heating system identifier"
+  ],
+  "heavy metals": [
+    "heavy_metals",
+    "heavy metals",
+    "extreme unusual properties/heavy metals"
+  ],
+  "heavy metals method": [
+    "heavy_metals_meth",
+    "heavy metals meth",
+    "extreme unusual properties/heavy metals method",
+    "heavy metals method"
+  ],
+  "height carpet fiber mat": [
+    "height carper fiber",
+    "height carpet fiber mat",
+    "height_carper_fiber"
+  ],
+  "height or length": [
+    "height or length",
+    "height_or_length"
+  ],
+  "herbicide regimen": [
+    "herbicide regimen",
+    "herbicide regm",
+    "herbicide_regm"
+  ],
+  "histological type": [
+    "histological_type",
+    "histological type"
+  ],
+  "horizon method": [
+    "horizon_meth",
+    "horizon meth",
+    "horizon method"
+  ],
+  "host": [
+    "host",
+    "host organism",
+    "nathost",
+    "host scientific name",
+    "specific host",
+    "host species",
+    "host name",
+    "host (scientific name)",
+    "nat host",
+    "host speciess",
+    "specifichost"
+  ],
+  "host HIV status": [
+    "host_hiv_stat",
+    "host hiv stat",
+    "host hiv status",
+    "host HIV status"
+  ],
+  "host age": [
+    "host age",
+    "host_age"
+  ],
+  "host anatomical material": [
+    "host_anatomical_material",
+    "host anatomical material"
+  ],
+  "host anatomical part": [
+    "host_anatomical_part",
+    "host anatomical part"
+  ],
+  "host animal breed": [
+    "host_animal_breed",
+    "host animal breed"
+  ],
+  "host blood pressure diastolic": [
+    "host blood pressure diastolic",
+    "host_blood_press_diast",
+    "host blood press diast"
+  ],
+  "host blood pressure systolic": [
+    "host blood pressure systolic",
+    "host_blood_press_syst",
+    "host blood press syst",
+    "host blood press systolic"
+  ],
+  "host body habitat": [
+    "host body habitat",
+    "host_body_habitat"
+  ],
+  "host body mass index": [
+    "host_body_mass_index",
+    "host bmi",
+    "host body mass index"
+  ],
+  "host body product": [
+    "host_body_product",
+    "host body product"
+  ],
+  "host body temperature": [
+    "host body temperature",
+    "host_body_temp",
+    "host body temp"
+  ],
+  "host cellular location": [
+    "host cellular location",
+    "host_cellular_loc",
+    "host cellular loc"
+  ],
+  "host color": [
+    "host_color",
+    "host color"
+  ],
+  "host common name": [
+    "host_common_name",
+    "host common name"
+  ],
+  "host dependence": [
+    "host_dependence",
+    "host dependence"
+  ],
+  "host description": [
+    "host_description",
+    "host description"
+  ],
+  "host diet": [
+    "host diet",
+    "host_diet"
+  ],
+  "host disease": [
+    "host_disease",
+    "host disease",
+    "host disease stat"
+  ],
+  "host disease outcome": [
+    "host disease outcome",
+    "host_disease_outcome"
+  ],
+  "host disease stage": [
+    "host_disease_stage",
+    "host disease stage"
+  ],
+  "host dry mass": [
+    "host_dry_mass",
+    "host dry mass"
+  ],
+  "host family relationship": [
+    "host family relationship",
+    "host_family_relationship"
+  ],
+  "host genotype": [
+    "host_genotype",
+    "host genotype"
+  ],
+  "host growth conditions": [
+    "host growth cond",
+    "host growth conditions",
+    "host_growth_cond"
+  ],
+  "host health state": [
+    "host_health_state",
+    "host status",
+    "host health state"
+  ],
+  "host height": [
+    "host height",
+    "host_height"
+  ],
+  "host infra specific name": [
+    "host infra specific name",
+    "host_infra_specific_name"
+  ],
+  "host infra specific rank": [
+    "host_infra_specific_rank",
+    "host infra specific rank"
+  ],
+  "host last meal": [
+    "host last meal",
+    "host_last_meal"
+  ],
+  "host length": [
+    "host_length",
+    "host length"
+  ],
+  "host life stage": [
+    "host_life_stage",
+    "host life stage"
+  ],
+  "host number individual": [
+    "host number",
+    "host number individual",
+    "host_number"
+  ],
+  "host occupation": [
+    "host_occupation",
+    "host occupation"
+  ],
+  "host of the symbiont role": [
+    "host of the symbiont role",
+    "symbiont_host_role",
+    "symbiont host role"
+  ],
+  "host of the symbiotic host common name": [
+    "host of host name",
+    "host_of_host_name",
+    "host of the symbiotic host common name"
+  ],
+  "host of the symbiotic host disease status": [
+    "host of host disease",
+    "host of the symbiotic host disease status",
+    "host_of_host_disease"
+  ],
+  "host of the symbiotic host environemental medium": [
+    "host of host env med",
+    "host of the symbiotic host environemental medium",
+    "host_of_host_env_med"
+  ],
+  "host of the symbiotic host family relationship": [
+    "host of the symbiotic host family relationship",
+    "host of host fam rel",
+    "host_of_host_fam_rel"
+  ],
+  "host of the symbiotic host genotype": [
+    "host of the symbiotic host genotype",
+    "host of host geno",
+    "host_of_host_geno"
+  ],
+  "host of the symbiotic host gravidity": [
+    "host of the symbiotic host gravidity",
+    "host of host gravid",
+    "host_of_host_gravid"
+  ],
+  "host of the symbiotic host infra-specific name": [
+    "host_of_host_infname",
+    "host of the symbiotic host infra specific name",
+    "host of the symbiotic host infra-specific name",
+    "host of host infname"
+  ],
+  "host of the symbiotic host infra-specific rank": [
+    "host_of_host_infrank",
+    "host of the symbiotic host infra-specific rank",
+    "host of the symbiotic host infra specific rank",
+    "host of host infrank"
+  ],
+  "host of the symbiotic host local environmental context": [
+    "host_of_host_env_loc",
+    "host of host env loc",
+    "host of the symbiotic host local environmental context"
+  ],
+  "host of the symbiotic host phenotype": [
+    "host of host pheno",
+    "host_of_host_pheno",
+    "host of the symbiotic host phenotype"
+  ],
+  "host of the symbiotic host subject id": [
+    "host of host sub id",
+    "host_of_host_sub_id",
+    "host of the symbiotic host subject id"
+  ],
+  "host of the symbiotic host taxon id": [
+    "host of the symbiotic host taxon id",
+    "host of host taxid",
+    "host_of_host_taxid"
+  ],
+  "host of the symbiotic host total mass": [
+    "host of host totmass",
+    "host of the symbiotic host total mass",
+    "host_of_host_totmass"
+  ],
+  "host phenotype": [
+    "host phenotype",
+    "host_phenotype"
+  ],
+  "host pulse": [
+    "host_pulse",
+    "host pulse"
+  ],
+  "host recent travel location": [
+    "host recent travel loc",
+    "host recent travel location",
+    "host_recent_travel_loc"
+  ],
+  "host recent travel return date": [
+    "host_recent_travel_return_date",
+    "host recent travel return date"
+  ],
+  "host sex": [
+    "host sex",
+    "host_sex",
+    "host gender"
+  ],
+  "host shape": [
+    "host_shape",
+    "host shape"
+  ],
+  "host specificity": [
+    "host_specificity",
+    "host specificity"
+  ],
+  "host specimen voucher": [
+    "host specimen voucher",
+    "host_specimen_voucher"
+  ],
+  "host subject id": [
+    "host_subject_id",
+    "host subject id"
+  ],
+  "host subspecific genetic lineage": [
+    "host subspecific genetic lineage",
+    "host subspecf genlin",
+    "host_subspecf_genlin"
+  ],
+  "host substrate": [
+    "host_substrate",
+    "host substrate"
+  ],
+  "host taxonomy ID": [
+    "host taxid",
+    "host taxonomy ID",
+    "host_taxid",
+    "host id",
+    "host taxon id",
+    "host tax id",
+    "host spec range",
+    "host ids",
+    "host taxonomy id",
+    "host specificity or range", "TaxID"
+  ],
+  "host tissue sampled": [
+    "host_tissue_sampled",
+    "host body site",
+    "host tissue sampled"
+  ],
+  "host total mass": [
+    "host tot mass",
+    "host total mass",
+    "host_tot_mass"
+  ],
+  "host variety or cultivar": [
+    "host_variety",
+    "host variety or cultivar",
+    "host variety"
+  ],
+  "host wet mass": [
+    "host_wet_mass",
+    "host wet mass"
+  ],
+  "hrt": [
+    "hrt"
+  ],
+  "humidity": [
+    "humidity"
+  ],
+  "humidity regimen": [
+    "humidity_regm",
+    "humidity regm",
+    "humidity regimen"
+  ],
+  "hydrocarbon resource geological age": [
+    "hcr_geol_age",
+    "hcr geol age",
+    "hydrocarbon resource geological age"
+  ],
+  "hydrocarbon resource original pressure": [
+    "hcr pressure",
+    "hcr_pressure",
+    "hydrocarbon resource original pressure"
+  ],
+  "hydrocarbon resource original temperature": [
+    "hcr temp",
+    "hydrocarbon resource original temperature",
+    "hcr_temp"
+  ],
+  "hydrocarbon resource type": [
+    "hydrocarbon resource type",
+    "hcr"
+  ],
+  "hydrocarbon type produced": [
+    "hc produced",
+    "hydrocarbon type produced",
+    "hc_produced"
+  ],
+  "hygienic food production area": [
+    "hygienic food production area",
+    "hygienic area",
+    "hygienic_area"
+  ],
+  "hysterectomy": [
+    "hysterectomy"
+  ],
+  "identified by": [
+    "identified by",
+    "identified_by"
+  ],
+  "image file": [
+    "image_file",
+    "image file"
+  ],
+  "indoor sampling surface or structure subpart": [
+    "indoor sampling surface or structure subpart",
+    "indoor surf subpart",
+    "indoor_surf_subpart"
+  ],
+  "indoor space": [
+    "indoor space",
+    "indoor_space"
+  ],
+  "indoor surface": [
+    "indoor surf",
+    "indoor_surf",
+    "indoor surface"
+  ],
+  "industrial effluent percent": [
+    "industrial effluent percent",
+    "indust eff percent",
+    "indust_eff_percent"
+  ],
+  "infra specific name": [
+    "infra_specific_name",
+    "infra specific name"
+  ],
+  "infra specific rank": [
+    "infra specific rank",
+    "infra_specific_rank"
+  ],
+  "injection water breakthrough date of specific well": [
+    "iw_bt_date_well",
+    "injection water breakthrough date of specific well",
+    "iw bt date well"
+  ],
+  "injection water fraction": [
+    "iwf",
+    "injection water fraction"
+  ],
+  "inorganic particles": [
+    "inorganic particles",
+    "inorg particles",
+    "inorg_particles"
+  ],
+  "inside lux light": [
+    "inside lux light",
+    "inside lux",
+    "inside_lux"
+  ],
+  "instantaneous flow rate measurement value": [
+    "instantaneous flow rate",
+    "instantaneous flow rate measurement value",
+    "instantaneous_flow_rate"
+  ],
+  "intended consumer": [
+    "intended_consumer",
+    "intended consumer"
+  ],
+  "interior wall condition": [
+    "int_wall_cond",
+    "interior wall condition",
+    "int wall cond"
+  ],
+  "investigation type": [
+    "investigation_type",
+    "investigation type"
+  ],
+  "is tumor": [
+    "is tumor",
+    "is_tumor"
+  ],
+  "isolate": [
+    "isolate name",
+    "isolate"
+  ],
+  "isolate name alias": [
+    "isolate name alias",
+    "strain name alias",
+    "isolate_name_alias"
+  ],
+  "isolated by": [
+    "isolated_by",
+    "isolated by"
+  ],
+  "isolation and growth condition": [
+    "isol_growth_condt",
+    "isol growth condt",
+    "isolation and growth condition"
+  ],
+  "isolation source": [
+    "isolation_source",
+    "isolate source",
+    "isolation source",
+    "isolationsource",
+    "source of isolate"
+  ],
+  "karyotype": [
+    "karyotype"
+  ],
+  "kidney disorder": [
+    "kidney disorder",
+    "kidney disord",
+    "kidney_disord"
+  ],
+  "lab host": [
+    "lab host",
+    "lab_host",
+    "labhost"
+  ],
+  "label": [
+    "label"
+  ],
+  "labeling claims": [
+    "label_claims",
+    "labeling claims",
+    "label claims"
+  ],
+  "last meal": [
+    "last_meal",
+    "last meal"
+  ],
+  "last time swept/mopped/vacuumed": [
+    "last clean",
+    "last time swept/mopped/vacuumed",
+    "last_clean"
+  ],
+  "latitude and longitude": [
+    "geographic location (latitude, longitude)",
+    "latitude and longitude",
+    "geographic location (latitude and longitude)",
+    "geographical location (longitude and longitude)",
+    "latlon",
+    "lat lon",
+    "geographical location (lat lon)",
+    "lat_lon"
+  ],
+  "life stage": [
+    "life stage",
+    "life_stage"
+  ],
+  "light intensity": [
+    "light intensity",
+    "light_intensity"
+  ],
+  "light regimen": [
+    "light_regm",
+    "light regm",
+    "light regimen"
+  ],
+  "light type": [
+    "light_type",
+    "light type"
+  ],
+  "link to classification information": [
+    "link class info",
+    "link to classification information",
+    "link_class_info"
+  ],
+  "link to climate information": [
+    "link_climate_info",
+    "link to climate information",
+    "link climate info"
+  ],
+  "links to additional analysis": [
+    "link addit analys",
+    "links to additional analysis",
+    "link_addit_analys"
+  ],
+  "lithology": [
+    "lithology"
+  ],
+  "liver disorder": [
+    "liver disorder",
+    "liver disord",
+    "liver_disord"
+  ],
+  "local air flow impediments": [
+    "local air flow impediments",
+    "air_flow_impede",
+    "air flow impede"
+  ],
+  "local classification": [
+    "soil taxonomic/local classification",
+    "local class",
+    "local classification",
+    "local_class"
+  ],
+  "local classification method": [
+    "local class meth",
+    "soil taxonomic/local classification method",
+    "local classification method",
+    "local_class_meth"
+  ],
+  "local-scale environmental context": [
+    "env local range",
+    "environment feature",
+    "local-scale environmental context",
+    "env feature",
+    "feature",
+    "environment (feature)",
+    "env_local_scale",
+    "env local scale",
+    "local scale environmental context"
+  ],
+  "location or room in facility": [
+    "location in facility",
+    "location_in_facility",
+    "location or room in facility"
+  ],
+  "lot number": [
+    "batch number",
+    "lot_number",
+    "lot number"
+  ],
+  "magnesium": [
+    "magnesium"
+  ],
+  "major diet change in last six months": [
+    "diet last six month",
+    "diet_last_six_month",
+    "major diet change in last six months"
+  ],
+  "material condition": [
+    "material condition",
+    "material_condition"
+  ],
+  "material of contact prior to food packaging": [
+    "food_prior_contact",
+    "food prior contact",
+    "material of contact prior to food packaging"
+  ],
+  "maternal health status": [
+    "maternal health status",
+    "maternal health stat",
+    "maternal_health_stat",
+    "amniotic fluid/maternal health status"
+  ],
+  "mating type": [
+    "mating_type",
+    "mating type"
+  ],
+  "maximum occupancy": [
+    "max occup",
+    "maximum occupancy",
+    "max_occup"
+  ],
+  "mean annual precipitation": [
+    "annual_precpt",
+    "mean annual precipitation",
+    "annual precpt"
+  ],
+  "mean annual temperature": [
+    "annual temp",
+    "mean annual temperature",
+    "annual_temp"
+  ],
+  "mean friction velocity": [
+    "mean friction velocity",
+    "mean frict vel",
+    "mean_frict_vel"
+  ],
+  "mean peak friction velocity": [
+    "mean_peak_frict_vel",
+    "mean peak frict vel",
+    "mean peak friction velocity"
+  ],
+  "mean seasonal humidity": [
+    "mean seasonal humidity",
+    "season humidity",
+    "season_humidity"
+  ],
+  "mean seasonal precipitation": [
+    "season_precpt",
+    "mean seasonal precipitation",
+    "season precpt"
+  ],
+  "mean seasonal temperature": [
+    "season_temp",
+    "season temp",
+    "mean seasonal temperature"
+  ],
+  "mechanical damage": [
+    "mechanical_damage",
+    "mechanical damage"
+  ],
+  "mechanical structure": [
+    "mechanical structure",
+    "mech_struc",
+    "mech struc"
+  ],
+  "medical history performed": [
+    "medical history performed",
+    "medic_hist_perform",
+    "medic hist perform"
+  ],
+  "medication code": [
+    "ihmc medication code",
+    "medication code",
+    "ihmc_medication_code"
+  ],
+  "menarche": [
+    "menarche"
+  ],
+  "menopause": [
+    "menopause"
+  ],
+  "metagenome source": [
+    "metagenome_source",
+    "metagenome source"
+  ],
+  "methane": [
+    "methane"
+  ],
+  "microbial biomass": [
+    "microbial_biomass",
+    "microbial biomass"
+  ],
+  "microbial biomass method": [
+    "microbial biomass meth",
+    "microbial biomass method",
+    "microbial_biomass_meth"
+  ],
+  "microbial starter": [
+    "microbial starter",
+    "microb start",
+    "microb_start"
+  ],
+  "microbial starter NCBI taxonomy ID": [
+    "microb_start_taxid",
+    "microbial starter ncbi taxonomy id",
+    "microbial starter NCBI taxonomy ID",
+    "microb start taxid"
+  ],
+  "microbial starter inoculation": [
+    "microb start inoc",
+    "microbial starter inoculation",
+    "microb_start_inoc"
+  ],
+  "microbial starter organism count": [
+    "microb start count",
+    "microbial starter organism count",
+    "microb_start_count"
+  ],
+  "microbial starter preparation": [
+    "microb_start_prep",
+    "microbial starter preparation",
+    "microb start prep"
+  ],
+  "microbial starter source": [
+    "microbial starter source",
+    "microb start source",
+    "microb_start_source"
+  ],
+  "microbiological culture medium": [
+    "microbiological culture medium",
+    "microb_cult_med",
+    "microb cult med"
+  ],
+  "mineral nutrient regimen": [
+    "mineral nutrient regimen",
+    "mineral_nutr_regm",
+    "mineral nutr regm"
+  ],
+  "miscellaneous parameter": [
+    "miscellaneous parameter",
+    "misc_param",
+    "misc param"
+  ],
+  "mode of transmission": [
+    "mode_transmission",
+    "mode of transmission",
+    "mode transmission"
+  ],
+  "molecular data type": [
+    "molecular_data_type",
+    "molecular data type"
+  ],
+  "morphology": [
+    "morphology"
+  ],
+  "n alkanes": [
+    "n_alkanes",
+    "n alkanes"
+  ],
+  "negative control type": [
+    "neg_cont_type",
+    "negative control type",
+    "neg cont type"
+  ],
+  "nitrate": [
+    "nitrate"
+  ],
+  "nitrite": [
+    "nitrite"
+  ],
+  "nitrogen": [
+    "nitrogen",
+    "nitro"
+  ],
+  "non mineral nutrient regimen": [
+    "non mineral nutrient regimen",
+    "non_mineral_nutr_regm",
+    "non mineral nutr regm"
+  ],
+  "nose throat disorder": [
+    "nose throat disord",
+    "nose throat disorder",
+    "nose_throat_disord"
+  ],
+  "nose/mouth/teeth/throat disorder": [
+    "nose mouth teeth throat disord",
+    "nose_mouth_teeth_throat_disord",
+    "nose/mouth/teeth/throat disorder"
+  ],
+  "number of houseplants": [
+    "number plants",
+    "number of houseplants",
+    "number_plants"
+  ],
+  "number of pets": [
+    "number of pets",
+    "number pets",
+    "number_pets"
+  ],
+  "number of replicons": [
+    "num replicons",
+    "number of replicons",
+    "num_replicons"
+  ],
+  "number of residents": [
+    "number resident",
+    "number of residents",
+    "number_resident"
+  ],
+  "number of samples collected": [
+    "number of samples collected",
+    "num_samp_collect",
+    "num samp collect"
+  ],
+  "observed biotic relationship": [
+    "observed biotic relationship",
+    "biotic_relationship",
+    "biotic relationship"
+  ],
+  "observed coinfecting organisms in host of host": [
+    "observed coinfecting organisms in host of host",
+    "host_of_host_coinf",
+    "host of host coinf"
+  ],
+  "observed host symbionts": [
+    "observed host symbionts",
+    "host_symbiont",
+    "host symbiont"
+  ],
+  "occupancy at sampling": [
+    "occupancy at sampling",
+    "occup_samp",
+    "occup samp"
+  ],
+  "occupancy documentation": [
+    "occupancy documentation",
+    "occup document",
+    "occup_document"
+  ],
+  "occupant density at sampling": [
+    "occupant dens samp",
+    "occupant density at sampling",
+    "occupant_dens_samp"
+  ],
+  "occupation": [
+    "occupation"
+  ],
+  "oil water contact depth": [
+    "oil water contact depth",
+    "owc_tvdss",
+    "owc tvdss"
+  ],
+  "organic carbon": [
+    "org carb",
+    "organic carbon",
+    "org_carb"
+  ],
+  "organic matter": [
+    "org matter",
+    "org_matter",
+    "organic matter"
+  ],
+  "organic nitrogen": [
+    "org nitro",
+    "organic nitrogen",
+    "org_nitro"
+  ],
+  "organic particles": [
+    "organic particles",
+    "org_particles",
+    "org particles"
+  ],
+  "organism count": [
+    "organism count",
+    "organism_count"
+  ],
+  "organism count qPCR information": [
+    "organism count qPCR information",
+    "organism count qpcr information",
+    "org count qpcr info",
+    "org_count_qpcr_info"
+  ],
+  "organism modifier note": [
+    "organism modifier note",
+    "orgmod note",
+    "orgmod_note"
+  ],
+  "orientations of exterior wall": [
+    "orientations of exterior wall",
+    "ext wall orient",
+    "ext_wall_orient"
+  ],
+  "orientations of exterior window": [
+    "ext window orient",
+    "ext_window_orient",
+    "orientations of exterior window"
+  ],
+  "original subject id": [
+    "original_subject_id",
+    "original subject id"
+  ],
+  "outbreak": [
+    "outbreak"
+  ],
+  "outside relative humidity": [
+    "outside relative humidity",
+    "rel_humidity_out",
+    "rel humidity out"
+  ],
+  "oxygen": [
+    "oxygen"
+  ],
+  "oxygenation status of sample": [
+    "oxygenation status of sample",
+    "oxy stat samp",
+    "oxy_stat_samp"
+  ],
+  "pH": [
+    "pH",
+    "ph"
+  ],
+  "pH method": [
+    "ph method",
+    "pH method",
+    "ph_meth",
+    "ph meth"
+  ],
+  "pH regimen": [
+    "ph regm",
+    "ph_regm",
+    "ph regimen",
+    "pH regimen"
+  ],
+  "part of plant or animal": [
+    "part of plant or animal",
+    "part_plant_animal",
+    "part plant animal"
+  ],
+  "particle classification": [
+    "particle classification",
+    "particle class",
+    "particle_class"
+  ],
+  "particulate organic carbon": [
+    "part org carb",
+    "part_org_carb",
+    "particulate organic carbon"
+  ],
+  "particulate organic nitrogen": [
+    "part org nitro",
+    "particulate organic nitrogen",
+    "part_org_nitro"
+  ],
+  "passage history": [
+    "passage history",
+    "passage_history"
+  ],
+  "passage method": [
+    "passage method",
+    "passage_method"
+  ],
+  "passage number": [
+    "passage_number",
+    "passage number"
+  ],
+  "pathogenicity": [
+    "known pathogenicity",
+    "pathogenicity"
+  ],
+  "pathotype": [
+    "pathotype"
+  ],
+  "pathovar": [
+    "pathovar"
+  ],
+  "permeability": [
+    "permeability"
+  ],
+  "perturbation": [
+    "perturbation"
+  ],
+  "pesticide regimen": [
+    "pesticide regimen",
+    "pesticide regm",
+    "pesticide_regm"
+  ],
+  "petroleum hydrocarbon": [
+    "petroleum hydrocarbon",
+    "petroleum hydrocarb",
+    "petroleum_hydrocarb"
+  ],
+  "phaeopigments": [
+    "phaeopigments"
+  ],
+  "phenotype": [
+    "phenotype"
+  ],
+  "phosphate": [
+    "phosphate"
+  ],
+  "phospholipid fatty acid": [
+    "phosplipid fatt acid",
+    "phospholipid fatty acid",
+    "phosplipid_fatt_acid"
+  ],
+  "photon flux": [
+    "photon flux",
+    "photon_flux"
+  ],
+  "photosynthetic activity": [
+    "photosynt_activ",
+    "photosynt activ",
+    "photosynthetic activity"
+  ],
+  "photosynthetic activity method": [
+    "photosynt_activ_meth",
+    "photosynthetic activity method",
+    "photosynt activ meth"
+  ],
+  "plant body site": [
+    "plant body site",
+    "plant_body_site"
+  ],
+  "plant growth medium ": [
+    "plant growth med",
+    "plant_growth_med",
+    "plant growth medium "
+  ],
+  "plant product": [
+    "plant_product",
+    "plant product"
+  ],
+  "plant reproductive part": [
+    "plant reprod crop",
+    "plant_reprod_crop",
+    "plant reproductive part"
+  ],
+  "plant sex": [
+    "plant sex",
+    "plant_sex"
+  ],
+  "plant structure": [
+    "plant_struc",
+    "plant structure",
+    "plant struc"
+  ],
+  "plant water delivery method": [
+    "plant water delivery method",
+    "plant_water_method",
+    "plant water method"
+  ],
+  "ploidy": [
+    "ploidy"
+  ],
+  "pollutants": [
+    "pollutants"
+  ],
+  "pooling of DNA extracts": [
+    "pooling of dna extracts (if done)",
+    "pooling of dna extracts",
+    "pool dna extracts",
+    "pooling of DNA extracts",
+    "pool_dna_extracts"
+  ],
+  "populated area type": [
+    "populated area type",
+    "populated_area_type"
+  ],
+  "population": [
+    "population"
+  ],
+  "porosity": [
+    "porosity"
+  ],
+  "positive control type": [
+    "positive control type",
+    "pos cont type",
+    "pos_cont_type"
+  ],
+  "potassium": [
+    "potassium"
+  ],
+  "pour point": [
+    "pour_point",
+    "pour point"
+  ],
+  "pregnancy": [
+    "pregnancy"
+  ],
+  "presampling activity": [
+    "presampling_activity",
+    "presampling activity"
+  ],
+  "presampling weather conditions": [
+    "presamp_weather",
+    "presampling weather conditions",
+    "presamp weather"
+  ],
+  "presence of pets or farm animals": [
+    "presence of pets or farm animals",
+    "pet_farm_animal",
+    "pet farm animal"
+  ],
+  "presence of pets, animals, or insects": [
+    "pres animal insect",
+    "pres_animal_insect",
+    "presence of pets, animals, or insects"
+  ],
+  "preservative added to sample": [
+    "samp preserv",
+    "preservative added to sample",
+    "samp_preserv"
+  ],
+  "pressure": [
+    "pressure"
+  ],
+  "pretreatment": [
+    "pretreatment",
+    "pre_treatment",
+    "pre treatment"
+  ],
+  "previous land use": [
+    "previous_land_use",
+    "previous land use",
+    "history/previous land use"
+  ],
+  "previous land use method": [
+    "previous land use method",
+    "history/previous land use method",
+    "previous_land_use_meth",
+    "previous land use meth"
+  ],
+  "primary production": [
+    "primary production",
+    "primary_prod",
+    "primary prod"
+  ],
+  "primary treatment": [
+    "primary_treatment",
+    "primary treatment"
+  ],
+  "prior SARS-CoV-2 antiviral treatment": [
+    "prior_sars_cov_2_antiviral_treat",
+    "prior sars cov 2 antiviral treatment",
+    "prior SARS-CoV-2 antiviral treatment",
+    "prior sars cov 2 antiviral treat"
+  ],
+  "prior SARS-CoV-2 infection": [
+    "prior SARS-CoV-2 infection",
+    "prior sars cov 2 infection",
+    "prior_sars_cov_2_infection"
+  ],
+  "prior SARS-CoV-2 vaccination": [
+    "prior sars cov 2 vaccination",
+    "prior_sars_cov_2_vaccination",
+    "prior SARS-CoV-2 vaccination"
+  ],
+  "production labeling claims": [
+    "production labeling claims",
+    "prod label claims",
+    "prod_label_claims"
+  ],
+  "production rate": [
+    "prod rate",
+    "production rate",
+    "prod_rate"
+  ],
+  "production start date": [
+    "production start date",
+    "prod start date",
+    "prod_start_date"
+  ],
+  "profile position": [
+    "profile position",
+    "profile_position"
+  ],
+  "project name": [
+    "project name",
+    "project_name"
+  ],
+  "propagation": [
+    "propagation"
+  ],
+  "pulmonary disorder": [
+    "pulmonary disorder",
+    "pulmonary disord",
+    "pulmonary_disord"
+  ],
+  "pulse": [
+    "pulse"
+  ],
+  "purchase date": [
+    "cons purch date",
+    "purchase date",
+    "cons_purch_date"
+  ],
+  "purpose of sampling": [
+    "samp purpose",
+    "sample purpose",
+    "purpose of sampling",
+    "purpose_of_sampling"
+  ],
+  "purpose of sequencing": [
+    "purpose of sequencing",
+    "purpose_of_sequencing",
+    "purpose of seq"
+  ],
+  "purpose of wastewater sampling": [
+    "purpose of wastewater sampling",
+    "purpose_of_ww_sampling",
+    "purpose of ww sampling"
+  ],
+  "purpose of wastewater sequencing": [
+    "purpose of ww sequencing",
+    "purpose of wastewater sequencing",
+    "purpose_of_ww_sequencing"
+  ],
+  "quadrant position": [
+    "quad pos",
+    "quadrant position",
+    "quad_pos"
+  ],
+  "quantity purchased": [
+    "quantity purchased",
+    "cons_qty_purchased",
+    "cons qty purchased"
+  ],
+  "race": [
+    "race"
+  ],
+  "radiation regimen": [
+    "radiation regm",
+    "radiation regimen",
+    "radiation_regm"
+  ],
+  "rainfall regimen": [
+    "rainfall regm",
+    "rainfall regimen",
+    "rainfall_regm"
+  ],
+  "reactor type": [
+    "reactor_type",
+    "reactor type"
+  ],
+  "redox potential": [
+    "redox potential",
+    "redox_potential"
+  ],
+  "reference for biomaterial": [
+    "reference for biomaterial",
+    "ref_biomaterial",
+    "ref biomaterial"
+  ],
+  "reference material": [
+    "reference_material",
+    "reference material"
+  ],
+  "relationship to oxygen": [
+    "rel to oxygen",
+    "relationship to oxygen",
+    "rel_to_oxygen"
+  ],
+  "relative air humidity": [
+    "relative air humidity",
+    "rel_air_humidity",
+    "rel air humidity"
+  ],
+  "relative location of sample": [
+    "soil rel location",
+    "rel location",
+    "relative location of sample",
+    "rel_location"
+  ],
+  "relative sampling location": [
+    "rel samp loc",
+    "relative sampling location",
+    "rel_samp_loc"
+  ],
+  "repository": [
+    "repository"
+  ],
+  "reservoir name": [
+    "reservoir_name",
+    "reservoir name"
+  ],
+  "resins wt%": [
+    "resins wt%",
+    "resins_pc",
+    "resins pc"
+  ],
+  "risk group": [
+    "risk group",
+    "risk_group"
+  ],
+  "room air exchange rate": [
+    "room air exch rate",
+    "room air exchange rate",
+    "room_air_exch_rate"
+  ],
+  "room architectural elements": [
+    "room architectural elements",
+    "room_architec_elem",
+    "room architec elem"
+  ],
+  "room condition": [
+    "room_condt",
+    "room condt",
+    "room condition"
+  ],
+  "room count": [
+    "room_count",
+    "room count"
+  ],
+  "room dimensions": [
+    "room_dim",
+    "room dim",
+    "room dimensions"
+  ],
+  "room door distance": [
+    "room door distance",
+    "room door dist",
+    "room_door_dist"
+  ],
+  "room location in building": [
+    "room_loc",
+    "room location in building",
+    "room loc"
+  ],
+  "room moisture damage or mold history": [
+    "room_moist_dam_hist",
+    "room moisture damage or mold history",
+    "room moist dam hist"
+  ],
+  "room net area": [
+    "room net area",
+    "room_net_area"
+  ],
+  "room occupancy": [
+    "room occup",
+    "room occupancy",
+    "room_occup"
+  ],
+  "room sampling position": [
+    "room_samp_pos",
+    "room sampling position",
+    "room samp pos"
+  ],
+  "room type": [
+    "room type",
+    "room_type"
+  ],
+  "room volume": [
+    "room_vol",
+    "room volume",
+    "room vol"
+  ],
+  "room window count": [
+    "room_window_count",
+    "room window count"
+  ],
+  "rooms connected by a doorway": [
+    "room connected",
+    "rooms connected by a doorway",
+    "room_connected"
+  ],
+  "rooms that are on the same hallway": [
+    "rooms that are on the same hallway",
+    "room_hallway",
+    "room hallway"
+  ],
+  "rooms that share a door with sampling room": [
+    "room door share",
+    "rooms that share a door with sampling room",
+    "room_door_share"
+  ],
+  "rooms that share a wall with sampling room": [
+    "rooms that share a wall with sampling room",
+    "room wall share",
+    "room_wall_share"
+  ],
+  "rooting conditions": [
+    "rooting conditions",
+    "root_cond",
+    "root cond"
+  ],
+  "rooting medium carbon": [
+    "root med carbon",
+    "rooting medium carbon",
+    "root_med_carbon"
+  ],
+  "rooting medium macronutrients": [
+    "root med macronutr",
+    "root_med_macronutr",
+    "rooting medium macronutrients"
+  ],
+  "rooting medium micronutrients": [
+    "rooting medium micronutrients",
+    "root med micronutr",
+    "root_med_micronutr"
+  ],
+  "rooting medium organic supplements": [
+    "root med suppl",
+    "rooting medium organic supplements",
+    "root_med_suppl"
+  ],
+  "rooting medium pH": [
+    "root med ph",
+    "rooting medium ph",
+    "root_med_ph",
+    "rooting medium pH"
+  ],
+  "rooting medium regulators": [
+    "rooting medium regulators",
+    "root med regl",
+    "root_med_regl"
+  ],
+  "rooting medium solidifier": [
+    "rooting medium solidifier",
+    "root_med_solid",
+    "root med solid"
+  ],
+  "route of transmission": [
+    "route_transmission",
+    "route of transmission",
+    "route transmission"
+  ],
+  "salinity": [
+    "salinity"
+  ],
+  "salinity method": [
+    "salinity_meth",
+    "salinity meth",
+    "extreme unusual properties/salinity method",
+    "salinity method"
+  ],
+  "salt regimen": [
+    "salt regm",
+    "salt regimen",
+    "salt_regm"
+  ],
+  "same as": [
+    "same_as",
+    "same as"
+  ],
+  "sample capture status": [
+    "sample capture status",
+    "samp capt status",
+    "samp_capt_status"
+  ],
+  "sample collection device or method": [
+    "samp collect device",
+    "sampling device",
+    "sample collection device or method",
+    "samp_collect_device"
+  ],
+  "sample collection method": [
+    "sample collection method",
+    "samp_collect_method",
+    "samp collect method"
+  ],
+  "sample collection point": [
+    "sample collection point",
+    "samp_collect_point",
+    "samp collect point"
+  ],
+  "sample collection time duration value": [
+    "sample collection time duration value",
+    "sample collection time duration",
+    "sample_collection_time_duration"
+  ],
+  "sample disease stage": [
+    "samp dis stage",
+    "samp_dis_stage",
+    "sample disease stage"
+  ],
+  "sample location condition": [
+    "sample location condition",
+    "samp_loc_condition",
+    "samp loc condition"
+  ],
+  "sample material processing": [
+    "samp_mat_process",
+    "samp mat process",
+    "sample material processing"
+  ],
+  "sample material type (host or environmental context)": [
+    "samp mat type",
+    "sample material type (host or environmental context)",
+    "samp_mat_type"
+  ],
+  "sample measured depth": [
+    "sample measured depth",
+    "samp_md",
+    "samp md"
+  ],
+  "sample name": [
+    "sample name",
+    "sample_name", "Sample title","SampleName"
+  ],
+  "sample pooling": [
+    "samp_pooling",
+    "samp pooling",
+    "sample pooling"
+  ],
+  "sample salinity": [
+    "samp salinity",
+    "samp_salinity",
+    "sample salinity"
+  ],
+  "sample size": [
+    "samp_size",
+    "sample size",
+    "samp size"
+  ],
+  "sample size sorting method": [
+    "sample size sorting method",
+    "samp_sort_meth",
+    "samp sort meth"
+  ],
+  "sample source material category": [
+    "sample source material category",
+    "samp source mat cat",
+    "samp_source_mat_cat"
+  ],
+  "sample storage device": [
+    "samp stor device",
+    "sample storage device",
+    "samp_stor_device"
+  ],
+  "sample storage duration": [
+    "samp stor dur",
+    "samp store dur",
+    "samp_store_dur",
+    "sample storage duration"
+  ],
+  "sample storage location": [
+    "samp stor loc",
+    "samp_store_loc",
+    "samp store loc",
+    "sample storage location"
+  ],
+  "sample storage media": [
+    "samp_stor_media",
+    "sample storage media",
+    "samp stor media"
+  ],
+  "sample storage solution": [
+    "samp store sol",
+    "samp_store_sol",
+    "sample storage solution"
+  ],
+  "sample storage temperature": [
+    "samp stor temp",
+    "samp store temp",
+    "sample storage temperature",
+    "samp_store_temp"
+  ],
+  "sample subtype": [
+    "samp subtype",
+    "sample subtype",
+    "samp_subtype"
+  ],
+  "sample surface moisture": [
+    "samp_surf_moisture",
+    "sample surface moisture",
+    "samp surf moisture"
+  ],
+  "sample transport conditions": [
+    "sample transport conditions",
+    "samp_transport_cond",
+    "samp transport cond"
+  ],
+  "sample transport container": [
+    "samp_transport_cont",
+    "sample transport container",
+    "samp transport cont"
+  ],
+  "sample transport duration": [
+    "samp transport dur",
+    "samp_transport_dur",
+    "sample transport duration"
+  ],
+  "sample transport temperature": [
+    "samp_transport_temp",
+    "sample transport temperature",
+    "samp transport temp"
+  ],
+  "sample true vertical depth subsea": [
+    "samp_tvdss",
+    "samp tvdss",
+    "sample true vertical depth subsea"
+  ],
+  "sample type": [
+    "sample type",
+    "sample_type"
+  ],
+  "sample use": [
+    "sample use",
+    "sample_use"
+  ],
+  "sample volume or weight for DNA extraction": [
+    "sample volume or weight for DNA extraction",
+    "samp vol we dna ext",
+    "sample volume or weight for dna extraction",
+    "samp_vol_we_dna_ext"
+  ],
+  "sample well name": [
+    "sample well name",
+    "samp well name",
+    "samp_well_name"
+  ],
+  "sampling day weather": [
+    "samp_weather",
+    "sampling day weather",
+    "samp weather"
+  ],
+  "sampling event ID": [
+    "sampling event id",
+    "sampling_event_id",
+    "sampling event ID"
+  ],
+  "sampling floor": [
+    "sampling floor",
+    "samp_floor",
+    "samp floor"
+  ],
+  "sampling room ID or name": [
+    "sampling room id or name",
+    "sampling room ID or name",
+    "samp_room_id",
+    "samp room id"
+  ],
+  "sampling room sterilization method": [
+    "ster meth samp room",
+    "ster_meth_samp_room",
+    "sampling room sterilization method"
+  ],
+  "sampling site ID": [
+    "sampling site ID",
+    "sampling_site_id",
+    "sampling site id",
+    "collection site id"
+  ],
+  "sampling time outside": [
+    "samp_time_out",
+    "sampling time outside",
+    "samp time out"
+  ],
+  "sanitizer used during postharvest cleaning": [
+    "sanitizer used postharvest",
+    "sanitizer used during postharvest cleaning",
+    "sanitizer_used_postharvest"
+  ],
+  "saturates wt%": [
+    "saturates_pc",
+    "saturates wt%",
+    "saturates pc"
+  ],
+  "season": [
+    "season"
+  ],
+  "seasonal environment": [
+    "season environment",
+    "season_environment",
+    "seasonal environment"
+  ],
+  "seasonal use": [
+    "season_use",
+    "seasonal use",
+    "season use"
+  ],
+  "secondary and tertiary recovery methods and start date": [
+    "secondary and tertiary recovery methods and start date",
+    "add_recov_method",
+    "add recov method"
+  ],
+  "secondary treatment": [
+    "secondary_treatment",
+    "secondary treatment"
+  ],
+  "sediment type": [
+    "sediment type",
+    "sediment_type"
+  ],
+  "sequenced by": [
+    "sequenced_by",
+    "sequenced by"
+  ],
+  "serogroup": [
+    "serogroup"
+  ],
+  "serotype": [
+    "serotype"
+  ],
+  "serovar": [
+    "serovar"
+  ],
+  "serovar or serotype": [
+    "serovar_or_serotype",
+    "serovar or serotype"
+  ],
+  "sewage type": [
+    "sewage_type",
+    "sewage type"
+  ],
+  "sex": [
+    "sample sex",
+    "gender",
+    "experimental factor: sex",
+    "donor sex",
+    "sex",
+    "sample gender"
+  ],
+  "sexual activity": [
+    "sexual activity",
+    "sexual_act",
+    "sexual act"
+  ],
+  "shading device condition": [
+    "shading_device_cond",
+    "shading device cond",
+    "shading device condition"
+  ],
+  "shading device location": [
+    "shading_device_loc",
+    "shading device loc",
+    "shading device location"
+  ],
+  "shading device material": [
+    "shading_device_mat",
+    "shading device material",
+    "shading device mat"
+  ],
+  "shading device signs of water/mold": [
+    "shad dev water mold",
+    "shading device signs of water/mold",
+    "shad_dev_water_mold"
+  ],
+  "shading device type": [
+    "shading_device_type",
+    "shading device type"
+  ],
+  "sieving": [
+    "composite design/sieving (if any)",
+    "sieving"
+  ],
+  "silicate": [
+    "silicate"
+  ],
+  "size fraction selected": [
+    "size frac",
+    "size fraction selected",
+    "size_frac"
+  ],
+  "size-fraction lower threshold": [
+    "size_frac_low",
+    "size frac low",
+    "size fraction lower threshold",
+    "size-fraction lower threshold"
+  ],
+  "size-fraction upper threshold": [
+    "size-fraction upper threshold",
+    "size_frac_up",
+    "size fraction upper threshold",
+    "size frac up"
+  ],
+  "slope aspect": [
+    "slope_aspect",
+    "slope aspect"
+  ],
+  "slope gradient": [
+    "slope gradient",
+    "slope_gradient"
+  ],
+  "sludge retention time": [
+    "sludge_retent_time",
+    "sludge retention time",
+    "sludge retent time"
+  ],
+  "smoker": [
+    "smoker"
+  ],
+  "sodium": [
+    "sodium"
+  ],
+  "soil conductivity": [
+    "soil_conductivity",
+    "soil conductivity"
+  ],
+  "soil cover": [
+    "soil_cover",
+    "soil cover"
+  ],
+  "soil depth": [
+    "soil depth",
+    "soil_depth"
+  ],
+  "soil horizon": [
+    "soil_horizon",
+    "horizon",
+    "soil horizon"
+  ],
+  "soil pH": [
+    "soil_ph",
+    "soil pH",
+    "soil ph"
+  ],
+  "soil sediment porosity": [
+    "soil porosity",
+    "soil sediment porosity",
+    "soil_porosity"
+  ],
+  "soil temperature": [
+    "soil temp",
+    "soil temperature",
+    "soil_temp"
+  ],
+  "soil texture classification": [
+    "soil_texture_class",
+    "soil texture classification",
+    "soil texture class"
+  ],
+  "soil texture measurement": [
+    "texture",
+    "soil texture measurement",
+    "soil_text_measure",
+    "soil text measure"
+  ],
+  "soil texture method": [
+    "texture meth",
+    "soil texture meth",
+    "texture method",
+    "soil texture method",
+    "soil_texture_meth"
+  ],
+  "soil type": [
+    "soil_type",
+    "soil type",
+    "soil type name"
+  ],
+  "soil type method": [
+    "soil_type_meth",
+    "soil type method",
+    "soil type meth"
+  ],
+  "solar irradiance": [
+    "solar_irradiance",
+    "solar irradiance"
+  ],
+  "soluble inorganic material": [
+    "soluble inorg mat",
+    "soluble inorganic material",
+    "soluble_inorg_mat"
+  ],
+  "soluble organic material": [
+    "soluble_org_mat",
+    "soluble org mat",
+    "soluble organic material"
+  ],
+  "soluble reactive phosphorus": [
+    "soluble reactive phosphorus",
+    "soluble react phosp",
+    "soluble_react_phosp"
+  ],
+  "source material identifiers": [
+    "source_material_id",
+    "source mat id",
+    "source material id",
+    "source material identifiers"
+  ],
+  "source name": [
+    "source name",
+    "source_name"
+  ],
+  "source of UViGs": [
+    "source uvig",
+    "source of uvigs",
+    "source of UViGs",
+    "source_uvig"
+  ],
+  "source rock depositional environment": [
+    "source rock depositional environment",
+    "sr_dep_env",
+    "sr dep env"
+  ],
+  "source rock geological age": [
+    "sr geol age",
+    "source rock geological age",
+    "sr_geol_age"
+  ],
+  "source rock kerogen type": [
+    "source rock kerogen type",
+    "sr kerog type",
+    "sr_kerog_type"
+  ],
+  "source rock lithology": [
+    "sr_lithology",
+    "source rock lithology",
+    "sr lithology"
+  ],
+  "source type": [
+    "source type",
+    "source_type"
+  ],
+  "space typical state": [
+    "space typ state",
+    "space_typ_state",
+    "space typical state"
+  ],
+  "special diet": [
+    "special_diet",
+    "special diet"
+  ],
+  "specific humidity": [
+    "specific humidity",
+    "specific_humidity"
+  ],
+  "specific intended consumer": [
+    "spec_intended_cons",
+    "spec intended cons",
+    "specific intended consumer"
+  ],
+  "specifications": [
+    "specific",
+    "specifications"
+  ],
+  "specimen voucher": [
+    "specimen_voucher",
+    "specimenvoucher",
+    "specimen voucher"
+  ],
+  "spike in organism": [
+    "spikein_org",
+    "spikein org",
+    "spike in organism"
+  ],
+  "spike-in bacterial serovar or serotype": [
+    "spike-in bacterial serovar or serotype",
+    "spikein_serovar",
+    "spike in bacterial serovar or serotype",
+    "spikein serovar"
+  ],
+  "spike-in growth medium": [
+    "spike-in growth medium",
+    "spikein growth med",
+    "spikein_growth_med",
+    "spike in growth medium"
+  ],
+  "spike-in microbial strain": [
+    "spikein strain",
+    "spikein_strain",
+    "spike-in microbial strain",
+    "spike in microbial strain"
+  ],
+  "spike-in organism count": [
+    "spike-in organism count",
+    "spikein_count",
+    "spike in organism count",
+    "spikein count"
+  ],
+  "spike-in with antibiotics": [
+    "spikein_antibiotic",
+    "spike in with antibiotics",
+    "spike-in with antibiotics",
+    "spikein antibiotic"
+  ],
+  "spike-in with heavy metals": [
+    "spike in with heavy metals",
+    "spike-in with heavy metals",
+    "spikein_metal",
+    "spikein metal"
+  ],
+  "standing water regimen": [
+    "standing water regm",
+    "standing_water_regm",
+    "standing water regimen"
+  ],
+  "storage conditions": [
+    "store_cond",
+    "store cond",
+    "storage conditions (fresh/frozen/other)",
+    "storage conditions"
+  ],
+  "strain": [
+    "organism strain",
+    "strain",
+    "strain id",
+    "strain or line"
+  ],
+  "stud book number": [
+    "stud book number",
+    "stud_book_number"
+  ],
+  "study completion status": [
+    "study complt stat",
+    "study completion status",
+    "study_complt_stat"
+  ],
+  "study design": [
+    "study_design",
+    "study design"
+  ],
+  "study disease": [
+    "study disease",
+    "study_disease"
+  ],
+  "study incubation duration": [
+    "study_inc_dur",
+    "study incubation duration",
+    "study inc dur"
+  ],
+  "study incubation temperature": [
+    "study_inc_temp",
+    "study inc temp",
+    "study incubation temperature"
+  ],
+  "study name": [
+    "study_name",
+    "study name"
+  ],
+  "study treatment": [
+    "study treatment",
+    "study tmnt",
+    "study_tmnt"
+  ],
+  "sub species": [
+    "subspecies",
+    "subsp.",
+    "subsp",
+    "sub species",
+    "sub_species"
+  ],
+  "subclone": [
+    "subclone",
+    "sub clone"
+  ],
+  "subgroup": [
+    "subgroup"
+  ],
+  "subject is affected": [
+    "subject is affected",
+    "subject_is_affected"
+  ],
+  "submitted sample id": [
+    "submitted sample id",
+    "submitted_sample_id"
+  ],
+  "submitted subject id": [
+    "submitted subject id",
+    "submitted_subject_id"
+  ],
+  "submitter handle": [
+    "submitter handle",
+    "submitter_handle"
+  ],
+  "submitter-asserted type strain": [
+    "submitter-asserted type strain",
+    "type strain",
+    "type_strain",
+    "submitter asserted type strain"
+  ],
+  "subsource note": [
+    "subsrc_note",
+    "subsource note",
+    "subsrc note"
+  ],
+  "subspecific genetic lineage": [
+    "subspecf gen lin",
+    "subspecific genetic lineage",
+    "subspecf_gen_lin"
+  ],
+  "substrain": [
+    "sub strain",
+    "substrain"
+  ],
+  "substrate": [
+    "substrate"
+  ],
+  "substructure type": [
+    "substructure_type",
+    "substructure type"
+  ],
+  "subtype": [
+    "subtype",
+    "sub type"
+  ],
+  "sulfate": [
+    "sulfate"
+  ],
+  "sulfate in formation water": [
+    "sulfate_fw",
+    "sulfate in formation water",
+    "sulfate fw"
+  ],
+  "sulfide": [
+    "sulfide"
+  ],
+  "surface humidity": [
+    "surface humidity",
+    "surf_humidity",
+    "surf humidity"
+  ],
+  "surface material": [
+    "surface material",
+    "surf material",
+    "surf_material"
+  ],
+  "surface moisture": [
+    "surf_moisture",
+    "surf moisture",
+    "surface moisture"
+  ],
+  "surface moisture pH": [
+    "surface moisture pH",
+    "surf moisture ph",
+    "surface moisture ph",
+    "surf_moisture_ph"
+  ],
+  "surface orientation": [
+    "surface_orientation",
+    "surface orientation"
+  ],
+  "surface temperature": [
+    "surface temperature",
+    "surf_temp",
+    "surf temp"
+  ],
+  "surface-air contaminant": [
+    "surf_air_cont",
+    "surface air contaminant",
+    "surf air cont",
+    "surface-air contaminant"
+  ],
+  "suspended particulate matter": [
+    "suspend_part_matter",
+    "suspend part matter",
+    "suspended particulate matter"
+  ],
+  "suspended solids": [
+    "suspended solids",
+    "suspend_solids",
+    "suspend solids"
+  ],
+  "symbiotic host organism life cycle type": [
+    "sym_life_cycle_type",
+    "symbiotic host organism life cycle type",
+    "sym life cycle type"
+  ],
+  "technical sample replicate": [
+    "samp_rep_tech",
+    "technical sample replicate",
+    "samp rep tech"
+  ],
+  "teleomorph": [
+    "teleomorph"
+  ],
+  "temperature": [
+    "temperature",
+    "temp"
+  ],
+  "temperature outside house": [
+    "temperature outside house",
+    "temp_out",
+    "temp out"
+  ],
+  "tertiary treatment": [
+    "tertiary_treatment",
+    "tertiary treatment"
+  ],
+  "tidal stage": [
+    "tidal stage",
+    "tidal_stage"
+  ],
+  "tillage": [
+    "tillage",
+    "history/tillage"
+  ],
+  "time since last toothbrushing": [
+    "time since last toothbrushing",
+    "time last toothbrush",
+    "time_last_toothbrush"
+  ],
+  "time since last wash": [
+    "time_since_last_wash",
+    "time since last wash"
+  ],
+  "time-course duration": [
+    "time-course duration",
+    "study timecourse",
+    "time course duration",
+    "study_timecourse"
+  ],
+  "timepoint": [
+    "timepoint"
+  ],
+  "tissue": [
+    "tissue origin",
+    "organ",
+    "source tissue",
+    "tisssue",
+    "body site",
+    "tissue type",
+    "organismpart",
+    "tissuetype",
+    "organism part",
+    "tissue"
+  ],
+  "tissue culture growth media": [
+    "tiss cult growth med",
+    "tissue culture growth media",
+    "tiss_cult_growth_med"
+  ],
+  "tissue lib": [
+    "tissue_lib",
+    "tissue lib"
+  ],
+  "toluene": [
+    "toluene"
+  ],
+  "total N method": [
+    "tot n meth",
+    "tot_n_meth",
+    "total N method",
+    "total n method"
+  ],
+  "total acid number": [
+    "total acid number",
+    "tan"
+  ],
+  "total carbon": [
+    "tot carb",
+    "total carbon",
+    "tot_carb"
+  ],
+  "total daily flow rate measurement value": [
+    "total daily flow rate measurement value",
+    "total daily flow rate",
+    "total_daily_flow_rate"
+  ],
+  "total depth of water column": [
+    "tot_depth_water_col",
+    "tot depth water col",
+    "total depth of water column"
+  ],
+  "total dissolved nitrogen": [
+    "tot_diss_nitro",
+    "tot diss nitro",
+    "total dissolved nitrogen"
+  ],
+  "total inorganic nitrogen": [
+    "tot_inorg_nitro",
+    "total inorganic nitrogen",
+    "tot inorg nitro"
+  ],
+  "total iron": [
+    "tot iron",
+    "total iron",
+    "tot_iron"
+  ],
+  "total mass": [
+    "total mass",
+    "tot_mass",
+    "tot mass"
+  ],
+  "total nitrogen": [
+    "tot n",
+    "tot_nitro",
+    "total n",
+    "total nitrogen",
+    "tot nitro"
+  ],
+  "total nitrogen content method": [
+    "total nitrogen content method",
+    "tot_nitro_cont_meth",
+    "tot nitro cont meth"
+  ],
+  "total organic carbon": [
+    "total organic carbon",
+    "tot org carb",
+    "tot_org_carb"
+  ],
+  "total organic carbon method": [
+    "tot org c meth",
+    "tot_org_c_meth",
+    "total organic carbon method",
+    "total organic c method"
+  ],
+  "total particulate carbon": [
+    "tot part carb",
+    "tot_part_carb",
+    "total particulate carbon"
+  ],
+  "total phosphate": [
+    "tot_phosphate",
+    "total phosphate",
+    "tot phosphate"
+  ],
+  "total phosphorus": [
+    "tot phosp",
+    "tot_phosp",
+    "total phosphorus"
+  ],
+  "total sulfur": [
+    "total sulfur",
+    "tot sulfur",
+    "tot_sulfur"
+  ],
+  "train line": [
+    "train_line",
+    "train line"
+  ],
+  "train station collection location": [
+    "train station collection location",
+    "train stat loc",
+    "train_stat_loc"
+  ],
+  "train stop collection location": [
+    "train_stop_loc",
+    "train stop collection location",
+    "train stop loc"
+  ],
+  "travel outside the country in last six months": [
+    "travel outside the country in last six months",
+    "travel out six month",
+    "travel_out_six_month"
+  ],
+  "treatment": [
+    "treatment protocol",
+    "treatment"
+  ],
+  "trophic level": [
+    "trophic_level",
+    "trophic level"
+  ],
+  "turbidity": [
+    "turbidity"
+  ],
+  "twin sibling existence": [
+    "twin sibling existence",
+    "twin sibling",
+    "twin sibling presence",
+    "twin_sibling"
+  ],
+  "type of symbiosis": [
+    "type of symbiosis",
+    "type_of_symbiosis"
+  ],
+  "type status": [
+    "type_status",
+    "type status"
+  ],
+  "typical occupant density": [
+    "typ occupant dens",
+    "typical occupant density",
+    "typ_occupant_dens"
+  ],
+  "upstream intervention": [
+    "upstream intervention",
+    "upstream_intervention"
+  ],
+  "urine collection method": [
+    "urine collection method",
+    "urine_collect_meth",
+    "urine collect meth"
+  ],
+  "urogenital disorder": [
+    "urogenital disorder",
+    "urogenit_disord",
+    "urogenit disord"
+  ],
+  "urogenital tract disorder": [
+    "urogenit tract disor",
+    "urogenit_tract_disor",
+    "urogenital tract disorder"
+  ],
+  "vaccine received": [
+    "vaccine received",
+    "vaccine_received"
+  ],
+  "variety": [
+    "variety"
+  ],
+  "ventilation rate": [
+    "ventilation_rate",
+    "ventilation rate"
+  ],
+  "ventilation type": [
+    "ventilation type",
+    "ventilation_type"
+  ],
+  "vfa in formation water": [
+    "vfa in formation water",
+    "vfa_fw",
+    "vfa fw"
+  ],
+  "virus enrichment approach": [
+    "virus_enrich_appr",
+    "virus enrich appr",
+    "virus enrichment approach"
+  ],
+  "virus isolate of prior infection": [
+    "virus_isolate_of_prior_infection",
+    "virus isolate of prior infection"
+  ],
+  "viscosity": [
+    "viscosity"
+  ],
+  "visual media": [
+    "visual media",
+    "vis media",
+    "vis_media"
+  ],
+  "volatile fatty acids": [
+    "volatile fatty acids",
+    "vfa"
+  ],
+  "volatile organic compounds": [
+    "volatile_org_comp",
+    "volatile org comp",
+    "volatile organic compounds"
+  ],
+  "wall area": [
+    "wall_area",
+    "wall area"
+  ],
+  "wall construction type": [
+    "wall_const_type",
+    "wall construction type",
+    "wall const type"
+  ],
+  "wall finish material": [
+    "wall finish material",
+    "wall finish mat",
+    "wall_finish_mat"
+  ],
+  "wall height": [
+    "wall height",
+    "wall_height"
+  ],
+  "wall location": [
+    "wall loc",
+    "wall location",
+    "wall_loc"
+  ],
+  "wall signs of water/mold": [
+    "wall water mold",
+    "wall_water_mold",
+    "wall signs of water/mold"
+  ],
+  "wall surface treatment": [
+    "wall surface treatment",
+    "wall surf treatment",
+    "wall_surf_treatment"
+  ],
+  "wall texture": [
+    "wall texture",
+    "wall_texture"
+  ],
+  "wall thermal mass": [
+    "wall_thermal_mass",
+    "wall thermal mass"
+  ],
+  "wastewater endogenous control 1": [
+    "wastewater endogenous control 1",
+    "ww_endog_control_1",
+    "ww endog control 1"
+  ],
+  "wastewater endogenous control 1 concentration": [
+    "ww endog control 1 conc",
+    "wastewater endogenous control 1 concentration",
+    "ww_endog_control_1_conc"
+  ],
+  "wastewater endogenous control 1 protocol": [
+    "ww_endog_control_1_protocol",
+    "wastewater endogenous control 1 protocol",
+    "ww endog control 1 protocol"
+  ],
+  "wastewater endogenous control 1 units": [
+    "wastewater endogenous control 1 units",
+    "ww_endog_control_1_units",
+    "ww endog control 1 units"
+  ],
+  "wastewater endogenous control 2": [
+    "wastewater endogenous control 2",
+    "ww_endog_control_2",
+    "ww endog control 2"
+  ],
+  "wastewater endogenous control 2 concentration": [
+    "wastewater endogenous control 2 concentration",
+    "ww endog control 2 conc",
+    "ww_endog_control_2_conc"
+  ],
+  "wastewater endogenous control 2 protocol": [
+    "ww endog control 2 protocol",
+    "ww_endog_control_2_protocol",
+    "wastewater endogenous control 2 protocol"
+  ],
+  "wastewater endogenous control 2 units": [
+    "ww_endog_control_2_units",
+    "ww endog control 2 units",
+    "wastewater endogenous control 2 units"
+  ],
+  "wastewater flow": [
+    "ww flow",
+    "ww_flow",
+    "wastewater flow"
+  ],
+  "wastewater industrial effluent percent": [
+    "wastewater industrial effluent percent",
+    "ww industrial effluent percent",
+    "ww_industrial_effluent_percent"
+  ],
+  "wastewater pH": [
+    "wastewater pH",
+    "wastewater ph",
+    "ww ph",
+    "ww_ph"
+  ],
+  "wastewater population": [
+    "ww_population",
+    "ww population",
+    "wastewater population"
+  ],
+  "wastewater population source": [
+    "wastewater population source",
+    "ww population source",
+    "ww_population_source"
+  ],
+  "wastewater pre-treatment": [
+    "ww_pre_treatment",
+    "ww pre treatment",
+    "wastewater pre-treatment",
+    "wastewater pre treatment"
+  ],
+  "wastewater primary sludge retention time": [
+    "ww_primary_sludge_retention_time",
+    "ww primary sludge retention time",
+    "wastewater primary sludge retention time"
+  ],
+  "wastewater processing protocol": [
+    "ww_processing_protocol",
+    "ww processing protocol",
+    "wastewater processing protocol"
+  ],
+  "wastewater sample duration": [
+    "ww_sample_duration",
+    "ww sample duration",
+    "wastewater sample duration"
+  ],
+  "wastewater sample matrix": [
+    "ww_sample_matrix",
+    "ww sample matrix",
+    "wastewater sample matrix"
+  ],
+  "wastewater sample salinity": [
+    "wastewater sample salinity",
+    "ww sample salinity",
+    "ww_sample_salinity"
+  ],
+  "wastewater sample site": [
+    "wastewater sample site",
+    "ww_sample_site",
+    "ww sample site"
+  ],
+  "wastewater sample type": [
+    "ww_sample_type",
+    "ww sample type",
+    "wastewater sample type"
+  ],
+  "wastewater surveillance jurisdiction": [
+    "ww_surv_jurisdiction",
+    "wastewater surveillance jurisdiction",
+    "ww surv jurisdiction"
+  ],
+  "wastewater surveillance system sample ID": [
+    "ww_surv_system_sample_id",
+    "ww surv system sample id",
+    "wastewater surveillance system sample ID",
+    "wastewater surveillance system sample id"
+  ],
+  "wastewater surveillance target 1": [
+    "ww_surv_target_1",
+    "ww surv target 1",
+    "wastewater surveillance target 1"
+  ],
+  "wastewater surveillance target 1 conc unit": [
+    "wastewater surveillance target 1 conc unit",
+    "ww surv target 1 conc unit",
+    "ww_surv_target_1_conc_unit"
+  ],
+  "wastewater surveillance target 1 concentration": [
+    "wastewater surveillance target 1 concentration",
+    "ww surv target 1 conc",
+    "ww_surv_target_1_conc"
+  ],
+  "wastewater surveillance target 1 extract": [
+    "ww_surv_target_1_extract",
+    "ww surv target 1 extract",
+    "wastewater surveillance target 1 extract"
+  ],
+  "wastewater surveillance target 1 extract unit": [
+    "wastewater surveillance target 1 extract unit",
+    "ww surv target 1 extract unit",
+    "ww_surv_target_1_extract_unit"
+  ],
+  "wastewater surveillance target 1 gene": [
+    "ww surv target 1 gene",
+    "wastewater surveillance target 1 gene",
+    "ww_surv_target_1_gene"
+  ],
+  "wastewater surveillance target 1 known present": [
+    "ww_surv_target_1_known_present",
+    "wastewater surveillance target 1 known present",
+    "ww surv target 1 known present"
+  ],
+  "wastewater surveillance target 1 protocol": [
+    "ww_surv_target_1_protocol",
+    "wastewater surveillance target 1 protocol",
+    "ww surv target 1 protocol"
+  ],
+  "wastewater surveillance target 2": [
+    "ww surv target 2",
+    "wastewater surveillance target 2",
+    "ww_surv_target_2"
+  ],
+  "wastewater surveillance target 2 conc": [
+    "ww surv target 2 conc",
+    "ww_surv_target_2_conc",
+    "wastewater surveillance target 2 conc"
+  ],
+  "wastewater surveillance target 2 conc unit": [
+    "wastewater surveillance target 2 conc unit",
+    "ww_surv_target_2_conc_unit",
+    "ww surv target 2 conc unit"
+  ],
+  "wastewater surveillance target 2 extract": [
+    "ww_surv_target_2_extract",
+    "ww surv target 2 extract",
+    "wastewater surveillance target 2 extract"
+  ],
+  "wastewater surveillance target 2 extract unit": [
+    "ww surv target 2 extract unit",
+    "ww_surv_target_2_extract_unit",
+    "wastewater surveillance target 2 extract unit"
+  ],
+  "wastewater surveillance target 2 gene": [
+    "ww surv target 2 gene",
+    "ww_surv_target_2_gene",
+    "wastewater surveillance target 2 gene"
+  ],
+  "wastewater surveillance target 2 known present": [
+    "ww surv target 2 known present",
+    "wastewater surveillance target 2 known present",
+    "ww_surv_target_2_known_present"
+  ],
+  "wastewater surveillance target 2 protocol": [
+    "ww surv target 2 protocol",
+    "ww_surv_target_2_protocol",
+    "wastewater surveillance target 2 protocol"
+  ],
+  "wastewater system type": [
+    "ww system type",
+    "wastewater system type",
+    "ww_system_type"
+  ],
+  "wastewater temperature": [
+    "ww temperature",
+    "wastewater temperature",
+    "ww_temperature"
+  ],
+  "wastewater total suspended solids": [
+    "ww_total_suspended_solids",
+    "ww total suspended solids",
+    "wastewater total suspended solids"
+  ],
+  "wastewater type": [
+    "wastewater_type",
+    "wastewater type"
+  ],
+  "water catchment area population measurement": [
+    "water_catchment_area_population",
+    "water catchment area population",
+    "water catchment area population measurement value",
+    "water catchment area population measurement"
+  ],
+  "water content": [
+    "water_content",
+    "water content"
+  ],
+  "water content of soil": [
+    "water_content_soil",
+    "water content of soil",
+    "water content soil"
+  ],
+  "water content of soil method": [
+    "water content of soil method",
+    "water content soil meth",
+    "water_content_soil_meth"
+  ],
+  "water current": [
+    "water_current",
+    "current",
+    "water current"
+  ],
+  "water cut": [
+    "water cut",
+    "water_cut"
+  ],
+  "water delivery frequency": [
+    "water delivery frequency",
+    "water_frequency",
+    "water frequency"
+  ],
+  "water feature size": [
+    "water feature size",
+    "water_feat_size",
+    "water feat size"
+  ],
+  "water feature type": [
+    "water feature type",
+    "water_feat_type",
+    "water feat type"
+  ],
+  "water pH": [
+    "water_ph",
+    "water pH",
+    "water ph"
+  ],
+  "water production rate": [
+    "water prod rate",
+    "water production rate",
+    "water_prod_rate"
+  ],
+  "water source shared": [
+    "water source shared",
+    "water_source_shared"
+  ],
+  "water temperature regimen": [
+    "water_temp_regm",
+    "water temperature regimen",
+    "water temp regm"
+  ],
+  "watering regimen": [
+    "watering_regm",
+    "watering regm",
+    "watering regimen"
+  ],
+  "weekday": [
+    "weekday"
+  ],
+  "weight loss in last three months": [
+    "weight_loss_3_month",
+    "weight loss 3 month",
+    "weight loss in last three months"
+  ],
+  "well identification number": [
+    "well identification number",
+    "win"
+  ],
+  "wet mass": [
+    "wet mass",
+    "wet_mass"
+  ],
+  "wind direction": [
+    "wind_direction",
+    "wind direction"
+  ],
+  "wind speed": [
+    "wind_speed",
+    "wind speed"
+  ],
+  "window area/size": [
+    "window_size",
+    "window size",
+    "window area/size"
+  ],
+  "window condition": [
+    "window condition",
+    "window_cond",
+    "window cond"
+  ],
+  "window covering": [
+    "window covering",
+    "window_cover",
+    "window cover"
+  ],
+  "window horizontal position": [
+    "window horizontal position",
+    "window_horiz_pos",
+    "window horiz pos"
+  ],
+  "window location": [
+    "window loc",
+    "window location",
+    "window_loc"
+  ],
+  "window material": [
+    "window_mat",
+    "window material",
+    "window mat"
+  ],
+  "window open frequency": [
+    "window open freq",
+    "window_open_freq",
+    "window open frequency"
+  ],
+  "window signs of water/mold": [
+    "window water mold",
+    "window_water_mold",
+    "window signs of water/mold"
+  ],
+  "window status": [
+    "window status",
+    "window_status"
+  ],
+  "window type": [
+    "window type",
+    "window_type"
+  ],
+  "window vertical position": [
+    "window vert pos",
+    "window vertical position",
+    "window_vert_pos"
+  ],
+  "xylene": [
+    "xylene"
+  ],
+  "Bioproject": [
+    "Bioproject","Project accession","BioProject"
+  ],
+  "Organization": [
+    "Organization","Submitting organization","Submitter"
+  ],
+  "Run": [
+    "RUN","Run accession","SRA Run", "Accession"
+  ]
+
+}

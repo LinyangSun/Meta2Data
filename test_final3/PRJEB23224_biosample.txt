@@ -1,0 +1,2148 @@
+1: Bee gut
+Identifiers: BioSample: SAMEA4648975; SRA: ERS2469616
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648975"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM75"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM75"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648975	ID: 9105695
+
+2: Bee gut
+Identifiers: BioSample: SAMEA4648974; SRA: ERS2469615
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648974"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM74"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM74"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648974	ID: 9105694
+
+3: Bee gut
+Identifiers: BioSample: SAMEA4648973; SRA: ERS2469614
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648973"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM73"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM73"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648973	ID: 9105693
+
+4: Bee gut
+Identifiers: BioSample: SAMEA4648972; SRA: ERS2469613
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648972"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM72"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM72"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648972	ID: 9105692
+
+5: Bee gut
+Identifiers: BioSample: SAMEA4648971; SRA: ERS2469612
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648971"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM71"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM71"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648971	ID: 9105691
+
+6: Bee gut
+Identifiers: BioSample: SAMEA4648970; SRA: ERS2469611
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648970"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM70"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM70"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648970	ID: 9105690
+
+7: Bee gut
+Identifiers: BioSample: SAMEA4648969; SRA: ERS2469610
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648969"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM69"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM69"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648969	ID: 9105689
+
+8: Bee gut
+Identifiers: BioSample: SAMEA4648968; SRA: ERS2469609
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648968"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM68"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM68"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648968	ID: 9105688
+
+9: Bee gut
+Identifiers: BioSample: SAMEA4648967; SRA: ERS2469608
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648967"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM67"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM67"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648967	ID: 9105687
+
+10: Bee gut
+Identifiers: BioSample: SAMEA4648966; SRA: ERS2469607
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648966"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM66"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM66"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648966	ID: 9105686
+
+11: Bee gut
+Identifiers: BioSample: SAMEA4648965; SRA: ERS2469606
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648965"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM65"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM65"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648965	ID: 9105685
+
+12: Bee gut
+Identifiers: BioSample: SAMEA4648964; SRA: ERS2469605
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648964"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM64"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM64"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648964	ID: 9105684
+
+13: Bee gut
+Identifiers: BioSample: SAMEA4648963; SRA: ERS2469604
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648963"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM63"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM63"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648963	ID: 9105683
+
+14: Bee gut
+Identifiers: BioSample: SAMEA4648962; SRA: ERS2469603
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648962"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM62"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM62"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648962	ID: 9105682
+
+15: Bee gut
+Identifiers: BioSample: SAMEA4648961; SRA: ERS2469602
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648961"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM61"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM61"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648961	ID: 9105681
+
+16: Bee gut
+Identifiers: BioSample: SAMEA4648960; SRA: ERS2469601
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648960"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM60"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM60"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648960	ID: 9105680
+
+17: Bee gut
+Identifiers: BioSample: SAMEA4648959; SRA: ERS2469600
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648959"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM59"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM59"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648959	ID: 9105679
+
+18: Bee gut
+Identifiers: BioSample: SAMEA4648958; SRA: ERS2469599
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648958"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM58"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM58"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648958	ID: 9105678
+
+19: Bee gut
+Identifiers: BioSample: SAMEA4648957; SRA: ERS2469598
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648957"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM57"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM57"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648957	ID: 9105677
+
+20: Bee gut
+Identifiers: BioSample: SAMEA4648956; SRA: ERS2469597
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648956"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM56"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM56"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648956	ID: 9105676
+
+21: Bee gut
+Identifiers: BioSample: SAMEA4648955; SRA: ERS2469596
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648955"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM55"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM55"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648955	ID: 9105675
+
+22: Bee gut
+Identifiers: BioSample: SAMEA4648954; SRA: ERS2469595
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648954"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM54"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM54"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648954	ID: 9105674
+
+23: Bee gut
+Identifiers: BioSample: SAMEA4648953; SRA: ERS2469594
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648953"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM53"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM53"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648953	ID: 9105673
+
+24: Bee gut
+Identifiers: BioSample: SAMEA4648952; SRA: ERS2469593
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648952"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM52"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM52"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648952	ID: 9105672
+
+25: Bee gut
+Identifiers: BioSample: SAMEA4648951; SRA: ERS2469592
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648951"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM51"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM51"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648951	ID: 9105671
+
+26: Bee gut
+Identifiers: BioSample: SAMEA4648950; SRA: ERS2469591
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648950"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM50"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM50"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648950	ID: 9105670
+
+27: Bee gut
+Identifiers: BioSample: SAMEA4648949; SRA: ERS2469590
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648949"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM49"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM49"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648949	ID: 9105669
+
+28: Bee gut
+Identifiers: BioSample: SAMEA4648948; SRA: ERS2469589
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648948"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM48"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM48"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648948	ID: 9105668
+
+29: Bee gut
+Identifiers: BioSample: SAMEA4648947; SRA: ERS2469588
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648947"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM47"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM47"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648947	ID: 9105667
+
+30: Bee gut
+Identifiers: BioSample: SAMEA4648946; SRA: ERS2469587
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648946"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM46"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM46"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648946	ID: 9105666
+
+31: Bee gut
+Identifiers: BioSample: SAMEA4648945; SRA: ERS2469586
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648945"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM45"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM45"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648945	ID: 9105665
+
+32: Bee gut
+Identifiers: BioSample: SAMEA4648944; SRA: ERS2469585
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648944"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM44"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM44"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648944	ID: 9105664
+
+33: Bee gut
+Identifiers: BioSample: SAMEA4648943; SRA: ERS2469584
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648943"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM43"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM43"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648943	ID: 9105663
+
+34: Bee gut
+Identifiers: BioSample: SAMEA4648942; SRA: ERS2469583
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648942"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM42"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM42"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648942	ID: 9105662
+
+35: Bee gut
+Identifiers: BioSample: SAMEA4648941; SRA: ERS2469582
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648941"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM41"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM41"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648941	ID: 9105661
+
+36: Bee gut
+Identifiers: BioSample: SAMEA4648940; SRA: ERS2469581
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648940"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM40"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM40"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648940	ID: 9105660
+
+37: Bee gut
+Identifiers: BioSample: SAMEA4648939; SRA: ERS2469580
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648939"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM39"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM39"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648939	ID: 9105659
+
+38: Bee gut
+Identifiers: BioSample: SAMEA4648938; SRA: ERS2469579
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648938"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM38"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM38"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648938	ID: 9105658
+
+39: Bee gut
+Identifiers: BioSample: SAMEA4648937; SRA: ERS2469578
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648937"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM37"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM37"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648937	ID: 9105657
+
+40: Bee gut
+Identifiers: BioSample: SAMEA4648936; SRA: ERS2469577
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648936"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM36"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM36"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648936	ID: 9105656
+
+41: Bee gut
+Identifiers: BioSample: SAMEA4648935; SRA: ERS2469576
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648935"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM35"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM35"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648935	ID: 9105655
+
+42: Bee gut
+Identifiers: BioSample: SAMEA4648934; SRA: ERS2469575
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648934"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM34"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM34"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648934	ID: 9105654
+
+43: Bee gut
+Identifiers: BioSample: SAMEA4648933; SRA: ERS2469574
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:27Z"
+    /External Id="SAMEA4648933"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:27Z"
+    /INSDC status="public"
+    /Submitter Id="APM33"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM33"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648933	ID: 9105653
+
+44: Bee gut
+Identifiers: BioSample: SAMEA4648932; SRA: ERS2469573
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648932"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM32"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM32"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648932	ID: 9105652
+
+45: Bee gut
+Identifiers: BioSample: SAMEA4648931; SRA: ERS2469572
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648931"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM31"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM31"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648931	ID: 9105651
+
+46: Bee gut
+Identifiers: BioSample: SAMEA4648930; SRA: ERS2469571
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648930"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM30"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM30"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648930	ID: 9105650
+
+47: Bee gut
+Identifiers: BioSample: SAMEA4648929; SRA: ERS2469570
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648929"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM29"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM29"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648929	ID: 9105649
+
+48: Bee gut
+Identifiers: BioSample: SAMEA4648928; SRA: ERS2469569
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648928"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM28"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM28"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648928	ID: 9105648
+
+49: Bee gut
+Identifiers: BioSample: SAMEA4648927; SRA: ERS2469568
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648927"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM27"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM27"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648927	ID: 9105647
+
+50: Bee gut
+Identifiers: BioSample: SAMEA4648926; SRA: ERS2469567
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648926"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM26"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM26"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648926	ID: 9105646
+
+51: Bee gut
+Identifiers: BioSample: SAMEA4648925; SRA: ERS2469566
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648925"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM25"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM25"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648925	ID: 9105645
+
+52: Bee gut
+Identifiers: BioSample: SAMEA4648924; SRA: ERS2469565
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648924"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM24"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM24"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648924	ID: 9105644
+
+53: Bee gut
+Identifiers: BioSample: SAMEA4648923; SRA: ERS2469564
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648923"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM23"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM23"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648923	ID: 9105643
+
+54: Bee gut
+Identifiers: BioSample: SAMEA4648922; SRA: ERS2469563
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648922"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM22"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM22"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648922	ID: 9105642
+
+55: Bee gut
+Identifiers: BioSample: SAMEA4648921; SRA: ERS2469562
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648921"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM21"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM21"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648921	ID: 9105641
+
+56: Bee gut
+Identifiers: BioSample: SAMEA4648920; SRA: ERS2469561
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648920"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM20"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM20"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648920	ID: 9105640
+
+57: Bee gut
+Identifiers: BioSample: SAMEA4648919; SRA: ERS2469560
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648919"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM19"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM19"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648919	ID: 9105639
+
+58: Bee gut
+Identifiers: BioSample: SAMEA4648917; SRA: ERS2469559
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648917"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM18"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM18"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648917	ID: 9105638
+
+59: Bee gut
+Identifiers: BioSample: SAMEA4648916; SRA: ERS2469558
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648916"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM17"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM17"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648916	ID: 9105637
+
+60: Bee gut
+Identifiers: BioSample: SAMEA4648915; SRA: ERS2469557
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648915"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM16"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM16"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648915	ID: 9105636
+
+
+61: Bee gut
+Identifiers: BioSample: SAMEA4648914; SRA: ERS2469556
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648914"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM14"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM14"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648914	ID: 9105635
+
+62: Bee gut
+Identifiers: BioSample: SAMEA4648913; SRA: ERS2469555
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648913"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM13"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM13"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648913	ID: 9105634
+
+63: Bee gut
+Identifiers: BioSample: SAMEA4648912; SRA: ERS2469554
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648912"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM12"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM12"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648912	ID: 9105633
+
+64: Bee gut
+Identifiers: BioSample: SAMEA4648911; SRA: ERS2469553
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648911"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM11"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM11"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648911	ID: 9105632
+
+65: Bee gut
+Identifiers: BioSample: SAMEA4648910; SRA: ERS2469552
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648910"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM10"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM10"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648910	ID: 9105631
+
+66: Bee gut
+Identifiers: BioSample: SAMEA4648909; SRA: ERS2469551
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648909"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM09"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM09"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648909	ID: 9105630
+
+67: Bee gut
+Identifiers: BioSample: SAMEA4648908; SRA: ERS2469550
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648908"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM08"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM08"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648908	ID: 9105629
+
+68: Bee gut
+Identifiers: BioSample: SAMEA4648907; SRA: ERS2469549
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648907"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM07"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM07"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648907	ID: 9105628
+
+69: Bee gut
+Identifiers: BioSample: SAMEA4648906; SRA: ERS2469548
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648906"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM06"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM06"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648906	ID: 9105627
+
+70: Bee gut
+Identifiers: BioSample: SAMEA4648905; SRA: ERS2469547
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648905"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM05"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM05"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648905	ID: 9105626
+
+71: Bee gut
+Identifiers: BioSample: SAMEA4648904; SRA: ERS2469546
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648904"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM04"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM04"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648904	ID: 9105625
+
+72: Bee gut
+Identifiers: BioSample: SAMEA4648903; SRA: ERS2469545
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648903"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM03"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM03"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648903	ID: 9105624
+
+73: Bee gut
+Identifiers: BioSample: SAMEA4648902; SRA: ERS2469544
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648902"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM02"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM02"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648902	ID: 9105623
+
+74: Bee gut
+Identifiers: BioSample: SAMEA4648901; SRA: ERS2469543
+Organism: insect gut metagenome
+Attributes:
+    /ENA-CHECKLIST="ERC000013"
+    /ENA-FIRST-PUBLIC="2018-05-08T17:03:20Z"
+    /ENA-LAST-UPDATE="2018-05-08T12:39:26Z"
+    /External Id="SAMEA4648901"
+    /INSDC center name="EMBL"
+    /INSDC first public="2018-05-08T17:03:20Z"
+    /INSDC last update="2018-05-08T12:39:26Z"
+    /INSDC status="public"
+    /Submitter Id="APM01"
+    /collection date="2014-09"
+    /broad-scale environmental context="insecta-associated habitat [ENVO:00009004]"
+    /local-scale environmental context="intestine environment"
+    /environmental medium="Bee gut"
+    /geographic location="United Kingdom"
+    /geographic location (latitude)="50.8671"
+    /geographic location (longitude)="-0.0879"
+    /host taxonomy ID="7460"
+    /host-associated environmental package="host-associated"
+    /investigation type="metagenome"
+    /project name="The gut microbiome is associated with behavioural task in honey bees"
+    /sample name="APM01"
+    /scientific_name="insect gut metagenome"
+    /sequencing method="Illumina"
+Accession: SAMEA4648901	ID: 9105622
+
+

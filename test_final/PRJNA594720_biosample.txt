@@ -1,0 +1,1490 @@
+1: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527194; Sample name: P.F.16; SRA: SRS5803581
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 93"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527194	ID: 13527194
+
+2: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527193; Sample name: P.F.15; SRA: SRS5803579
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 92"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527193	ID: 13527193
+
+3: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527192; Sample name: P.F.14; SRA: SRS5803578
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 91"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527192	ID: 13527192
+
+4: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527191; Sample name: P.F.13; SRA: SRS5803576
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 90"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527191	ID: 13527191
+
+5: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527190; Sample name: P.F.12; SRA: SRS5803575
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 89"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527190	ID: 13527190
+
+6: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527189; Sample name: P.F.11; SRA: SRS5803574
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 88"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527189	ID: 13527189
+
+7: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527188; Sample name: P.F.10; SRA: SRS5803573
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 87"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527188	ID: 13527188
+
+8: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527187; Sample name: P.F.9; SRA: SRS5803572
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 86"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527187	ID: 13527187
+
+9: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527186; Sample name: P.F.8; SRA: SRS5803571
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 85"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527186	ID: 13527186
+
+10: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527185; Sample name: P.F.7; SRA: SRS5803570
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 84"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527185	ID: 13527185
+
+11: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527184; Sample name: P.F.6; SRA: SRS5803569
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 83"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527184	ID: 13527184
+
+12: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527183; Sample name: P.F.5; SRA: SRS5803568
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 82"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527183	ID: 13527183
+
+13: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527182; Sample name: P.F.3; SRA: SRS5803535
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 81"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527182	ID: 13527182
+
+14: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527181; Sample name: P.F.2; SRA: SRS5803533
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 80"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527181	ID: 13527181
+
+15: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527180; Sample name: P.F.1; SRA: SRS5803532
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 79"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527180	ID: 13527180
+
+16: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527179; Sample name: P.E.16; SRA: SRS5803531
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 78"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527179	ID: 13527179
+
+17: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527178; Sample name: P.E.15; SRA: SRS5803530
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 77"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527178	ID: 13527178
+
+18: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527177; Sample name: P.E.14; SRA: SRS5803529
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 76"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527177	ID: 13527177
+
+19: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527176; Sample name: P.E.13; SRA: SRS5803528
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 75"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527176	ID: 13527176
+
+20: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527175; Sample name: P.E.12; SRA: SRS5803527
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 74"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527175	ID: 13527175
+
+21: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527174; Sample name: P.E.11; SRA: SRS5803526
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 73"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527174	ID: 13527174
+
+22: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527173; Sample name: P.E.10; SRA: SRS5803525
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 72"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527173	ID: 13527173
+
+23: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527172; Sample name: P.E.9; SRA: SRS5803524
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 71"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527172	ID: 13527172
+
+24: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527171; Sample name: P.E.8; SRA: SRS5803522
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 70"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527171	ID: 13527171
+
+25: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527170; Sample name: P.E.7; SRA: SRS5803521
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 69"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527170	ID: 13527170
+
+26: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527169; Sample name: P.E.6; SRA: SRS5803520
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 68"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527169	ID: 13527169
+
+27: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527168; Sample name: P.E.5; SRA: SRS5803596
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 67"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527168	ID: 13527168
+
+28: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527167; Sample name: P.E.3; SRA: SRS5803595
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 66"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527167	ID: 13527167
+
+29: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527166; Sample name: P.E.2; SRA: SRS5803594
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 65"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527166	ID: 13527166
+
+30: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527165; Sample name: P.E.1; SRA: SRS5803593
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 64"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527165	ID: 13527165
+
+31: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527164; Sample name: P.D.16; SRA: SRS5803592
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 63"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527164	ID: 13527164
+
+32: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527163; Sample name: P.D.15; SRA: SRS5803591
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 62"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527163	ID: 13527163
+
+33: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527162; Sample name: P.D.14; SRA: SRS5803590
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 61"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527162	ID: 13527162
+
+34: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527161; Sample name: P.D.13; SRA: SRS5803588
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 60"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527161	ID: 13527161
+
+35: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527160; Sample name: P.D.12; SRA: SRS5803587
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 59"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527160	ID: 13527160
+
+36: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527159; Sample name: P.D.11; SRA: SRS5803586
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 58"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527159	ID: 13527159
+
+37: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527158; Sample name: P.D.10; SRA: SRS5803585
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 57"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527158	ID: 13527158
+
+38: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527157; Sample name: P.D.9; SRA: SRS5803584
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 56"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527157	ID: 13527157
+
+39: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527156; Sample name: P.D.8; SRA: SRS5803583
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 55"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527156	ID: 13527156
+
+40: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527155; Sample name: P.D.7; SRA: SRS5803580
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 54"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527155	ID: 13527155
+
+41: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527154; Sample name: P.D.6; SRA: SRS5803582
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 53"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527154	ID: 13527154
+
+42: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527153; Sample name: P.D.5; SRA: SRS5803567
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 52"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527153	ID: 13527153
+
+43: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527152; Sample name: P.D.3; SRA: SRS5803566
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 51"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527152	ID: 13527152
+
+44: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527151; Sample name: P.D.2; SRA: SRS5803564
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 50"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527151	ID: 13527151
+
+45: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527150; Sample name: P.D.1; SRA: SRS5803563
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 49"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527150	ID: 13527150
+
+46: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527149; Sample name: PplusC.16; SRA: SRS5803562
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 48"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527149	ID: 13527149
+
+47: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527148; Sample name: PplusC.15; SRA: SRS5803561
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 47"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527148	ID: 13527148
+
+48: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527147; Sample name: PplusC.14; SRA: SRS5803560
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 46"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527147	ID: 13527147
+
+49: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527146; Sample name: PplusC.13; SRA: SRS5803559
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 45"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527146	ID: 13527146
+
+50: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527145; Sample name: PplusC.12; SRA: SRS5803558
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 44"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527145	ID: 13527145
+
+51: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527144; Sample name: PplusC.11; SRA: SRS5803557
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 43"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527144	ID: 13527144
+
+52: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527143; Sample name: PplusC.10; SRA: SRS5803556
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 42"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527143	ID: 13527143
+
+53: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527142; Sample name: PplusC.9; SRA: SRS5803555
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 41"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527142	ID: 13527142
+
+54: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527141; Sample name: PplusC.8; SRA: SRS5803553
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 40"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527141	ID: 13527141
+
+55: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527140; Sample name: PplusC.7; SRA: SRS5803552
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 39"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527140	ID: 13527140
+
+56: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527139; Sample name: PplusC.6; SRA: SRS5803551
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 38"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527139	ID: 13527139
+
+57: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527138; Sample name: PplusC.5; SRA: SRS5803550
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 37"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527138	ID: 13527138
+
+58: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527137; Sample name: PplusC.4; SRA: SRS5803549
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 36"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527137	ID: 13527137
+
+59: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527136; Sample name: PplusC.3; SRA: SRS5803548
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 35"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527136	ID: 13527136
+
+60: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527135; Sample name: PplusC.2; SRA: SRS5803547
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 34"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527135	ID: 13527135
+
+
+61: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527134; Sample name: PplusC.1; SRA: SRS5803546
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 33"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527134	ID: 13527134
+
+62: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527133; Sample name: PplusB.16; SRA: SRS5803545
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 32"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527133	ID: 13527133
+
+63: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527132; Sample name: PplusB.15; SRA: SRS5803544
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 31"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527132	ID: 13527132
+
+64: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527131; Sample name: PplusB.14; SRA: SRS5803542
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 30"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527131	ID: 13527131
+
+65: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527130; Sample name: PplusB.13; SRA: SRS5803541
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 29"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527130	ID: 13527130
+
+66: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527129; Sample name: PplusB.12; SRA: SRS5803540
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 28"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527129	ID: 13527129
+
+67: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527128; Sample name: PplusB.11; SRA: SRS5803539
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 27"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527128	ID: 13527128
+
+68: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527127; Sample name: PplusB.10; SRA: SRS5803538
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 26"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527127	ID: 13527127
+
+69: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527126; Sample name: PplusB.9; SRA: SRS5803537
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 25"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527126	ID: 13527126
+
+70: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527125; Sample name: PplusB.8; SRA: SRS5803536
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 24"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527125	ID: 13527125
+
+71: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527124; Sample name: PplusB.7; SRA: SRS5803519
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 23"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527124	ID: 13527124
+
+72: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527123; Sample name: PplusB.6; SRA: SRS5803518
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 22"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527123	ID: 13527123
+
+73: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527122; Sample name: PplusB.5; SRA: SRS5803517
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 21"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527122	ID: 13527122
+
+74: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527121; Sample name: PplusB.4; SRA: SRS5803515
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 20"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527121	ID: 13527121
+
+75: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527120; Sample name: PplusB.3; SRA: SRS5803514
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 19"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527120	ID: 13527120
+
+76: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527119; Sample name: PplusB.2; SRA: SRS5803513
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 18"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527119	ID: 13527119
+
+77: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527118; Sample name: PplusB.1; SRA: SRS5803512
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 17"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527118	ID: 13527118
+
+78: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527117; Sample name: PplusA.16; SRA: SRS5803511
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 16"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527117	ID: 13527117
+
+79: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527116; Sample name: PplusA.15; SRA: SRS5803508
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 15"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527116	ID: 13527116
+
+80: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527115; Sample name: PplusA.14; SRA: SRS5803507
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 14"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527115	ID: 13527115
+
+81: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527114; Sample name: PplusA.13; SRA: SRS5803506
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 13"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527114	ID: 13527114
+
+82: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527113; Sample name: PplusA.12; SRA: SRS5803510
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 12"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527113	ID: 13527113
+
+83: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527112; Sample name: PplusA.11; SRA: SRS5803509
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 11"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527112	ID: 13527112
+
+84: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527111; Sample name: PplusA.10; SRA: SRS5803577
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 10"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527111	ID: 13527111
+
+85: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527110; Sample name: PplusA.9; SRA: SRS5803534
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 9"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527110	ID: 13527110
+
+86: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527109; Sample name: PplusA.8; SRA: SRS5803523
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 8"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527109	ID: 13527109
+
+87: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527108; Sample name: PplusA.7; SRA: SRS5803589
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 7"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527108	ID: 13527108
+
+88: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527107; Sample name: PplusA.6; SRA: SRS5803565
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 6"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527107	ID: 13527107
+
+89: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527106; Sample name: PplusA.5; SRA: SRS5803554
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 5"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527106	ID: 13527106
+
+90: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527105; Sample name: PplusA.4; SRA: SRS5803543
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 4"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527105	ID: 13527105
+
+91: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527104; Sample name: PplusA.3; SRA: SRS5803516
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 3"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527104	ID: 13527104
+
+92: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527103; Sample name: PplusA.2; SRA: SRS5803505
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 2"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527103	ID: 13527103
+
+93: MIMS Environmental/Metagenome sample from insect metagenome
+Identifiers: BioSample: SAMN13527102; Sample name: PplusA.1; SRA: SRS5803504
+Organism: insect metagenome
+Attributes:
+    /collection date="2018-04"
+    /broad-scale environmental context="Northern"
+    /local-scale environmental context="Cold"
+    /environmental medium="Honey bee colony"
+    /geographic location="USA: Minnesota"
+    /host="Apis mellifera"
+    /latitude and longitude="44.9778 N 93.2650 W"
+    /replicate="biological replicate 1"
+Description:
+Keywords: GSC:MIxS;MIMS:6.0
+Accession: SAMN13527102	ID: 13527102
+
+

@@ -1,0 +1,53 @@
+#!/bin/bash
+
+show_help() {
+    cat << EOF
+Usage: Meta2Data <command> [options]
+
+Available commands:
+    MetaDL                  Search keywords combination in NCBI. Download and preclean metadata.
+    MetaDL-v2               Enhanced metadata download with parallel processing and checkpoints (NCBI + CNCB).
+    AmpliconPIP             Download and process amplicon sequencing data based on user provided metadata.
+    ShortreadsPIP           TBD
+    Evaluate                Brief summarize for the sequencing data processing
+
+Run 'Meta2Data <command> --help' for command-specific options.
+EOF
+}
+
+# Check if subcommand is provided
+if [[ $# -eq 0 ]]; then
+    show_help
+    exit 1
+fi
+
+COMMAND=$1
+shift  # Remove first argument, pass remaining to subcommand
+
+# Dispatch to corresponding subcommand
+case $COMMAND in
+    MetaDL)
+        Meta2Data-MetaDL "$@"
+        ;;
+    MetaDL-v2)
+        Meta2Data-MetaDL-v2 "$@"
+        ;;
+    AmpliconPIP)
+        Meta2Data-AmpliconPIP "$@"
+        ;;
+    ShortreadsPIP)
+        Meta2Data-ShortreadsPIP "$@"
+        ;;
+    Evaluate)
+        Meta2Data-Evaluate "$@"
+        ;;
+    -h|--help)
+        show_help
+        exit 0
+        ;;
+    *)
+        echo "Error: Unknown command '$COMMAND'"
+        show_help
+        exit 1
+        ;;
+esac

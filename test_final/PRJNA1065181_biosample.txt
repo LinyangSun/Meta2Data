@@ -1,0 +1,15 @@
+1: Apis florea gut metagenome
+Identifiers: BioSample: SAMN39456270; Sample name: Apis florea metagenome; SRA: SRS20151198
+Organism: Apis florea
+Attributes:
+    /isolate="DOGR"
+    /breed="florea"
+    /host="Allium cepa"
+    /isolation source="Honeybee"
+    /collection date="2023-04-15"
+    /geographic location="India: Pune, Maharashtra"
+    /tissue="Honeybee gut"
+    /latitude and longitude="18.50 N 73.53 E"
+Accession: SAMN39456270	ID: 39456270
+
+

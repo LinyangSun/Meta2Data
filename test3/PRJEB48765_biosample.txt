@@ -1,0 +1,1522 @@
+1: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739144; SRA: ERS8390861
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739144"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc93"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc93"
+    /sex="female"
+Accession: SAMEA10739144	ID: 23177188
+
+2: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739143; SRA: ERS8390860
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739143"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc92"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc92"
+    /sex="female"
+Accession: SAMEA10739143	ID: 23177187
+
+3: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739142; SRA: ERS8390859
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739142"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc91"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc91"
+    /sex="male"
+Accession: SAMEA10739142	ID: 23177186
+
+4: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739141; SRA: ERS8390858
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739141"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc90"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc90"
+    /sex="female"
+Accession: SAMEA10739141	ID: 23177185
+
+5: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739140; SRA: ERS8390857
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739140"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc89"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc89"
+    /sex="female"
+Accession: SAMEA10739140	ID: 23177184
+
+6: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739139; SRA: ERS8390856
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739139"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc88"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc88"
+    /sex="male"
+Accession: SAMEA10739139	ID: 23177183
+
+7: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739138; SRA: ERS8390855
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739138"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc87"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc87"
+    /sex="female"
+Accession: SAMEA10739138	ID: 23177182
+
+8: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739137; SRA: ERS8390854
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739137"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc86"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc86"
+    /sex="female"
+Accession: SAMEA10739137	ID: 23177181
+
+9: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739136; SRA: ERS8390853
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739136"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc85"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc85"
+    /sex="female"
+Accession: SAMEA10739136	ID: 23177180
+
+10: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739135; SRA: ERS8390852
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739135"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc84"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc84"
+    /sex="male"
+Accession: SAMEA10739135	ID: 23177179
+
+11: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739134; SRA: ERS8390851
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739134"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc83"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc83"
+    /sex="female"
+Accession: SAMEA10739134	ID: 23177178
+
+12: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739133; SRA: ERS8390850
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739133"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc82"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc82"
+    /sex="female"
+Accession: SAMEA10739133	ID: 23177177
+
+13: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739132; SRA: ERS8390849
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739132"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc81"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc81"
+    /sex="female"
+Accession: SAMEA10739132	ID: 23177176
+
+14: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739131; SRA: ERS8390848
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739131"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc80"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc80"
+    /sex="male"
+Accession: SAMEA10739131	ID: 23177175
+
+15: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739130; SRA: ERS8390847
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739130"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc79"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc79"
+    /sex="female"
+Accession: SAMEA10739130	ID: 23177174
+
+16: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739129; SRA: ERS8390846
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739129"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc78"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc78"
+    /sex="female"
+Accession: SAMEA10739129	ID: 23177173
+
+17: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739128; SRA: ERS8390845
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739128"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc77"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc77"
+    /sex="female"
+Accession: SAMEA10739128	ID: 23177172
+
+18: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739127; SRA: ERS8390844
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739127"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc76"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc76"
+    /sex="male"
+Accession: SAMEA10739127	ID: 23177171
+
+19: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739126; SRA: ERS8390843
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739126"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc75"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc75"
+    /sex="female"
+Accession: SAMEA10739126	ID: 23177170
+
+20: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739125; SRA: ERS8390842
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739125"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc74"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc74"
+    /sex="female"
+Accession: SAMEA10739125	ID: 23177169
+
+21: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739124; SRA: ERS8390841
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739124"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc73"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc73"
+    /sex="female"
+Accession: SAMEA10739124	ID: 23177168
+
+22: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739123; SRA: ERS8390840
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739123"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc72"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc72"
+    /sex="male"
+Accession: SAMEA10739123	ID: 23177167
+
+23: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739122; SRA: ERS8390839
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739122"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc71"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc71"
+    /sex="female"
+Accession: SAMEA10739122	ID: 23177166
+
+24: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739121; SRA: ERS8390838
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739121"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc70"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc70"
+    /sex="female"
+Accession: SAMEA10739121	ID: 23177165
+
+25: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739120; SRA: ERS8390837
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739120"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc69"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc69"
+    /sex="female"
+Accession: SAMEA10739120	ID: 23177164
+
+26: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739119; SRA: ERS8390836
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739119"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc68"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc68"
+    /sex="female"
+Accession: SAMEA10739119	ID: 23177163
+
+27: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739118; SRA: ERS8390835
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739118"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc67"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc67"
+    /sex="female"
+Accession: SAMEA10739118	ID: 23177162
+
+28: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739117; SRA: ERS8390834
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739117"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc66"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc66"
+    /sex="male"
+Accession: SAMEA10739117	ID: 23177161
+
+29: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739116; SRA: ERS8390833
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739116"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc65"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc65"
+    /sex="female"
+Accession: SAMEA10739116	ID: 23177160
+
+30: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739115; SRA: ERS8390832
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739115"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc64"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc64"
+    /sex="female"
+Accession: SAMEA10739115	ID: 23177159
+
+31: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739114; SRA: ERS8390831
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739114"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc63"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc63"
+    /sex="male"
+Accession: SAMEA10739114	ID: 23177158
+
+32: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739113; SRA: ERS8390830
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739113"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc62"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc62"
+    /sex="female"
+Accession: SAMEA10739113	ID: 23177157
+
+33: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739112; SRA: ERS8390829
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739112"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc61"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc61"
+    /sex="female"
+Accession: SAMEA10739112	ID: 23177156
+
+34: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739111; SRA: ERS8390828
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739111"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc60"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc60"
+    /sex="female"
+Accession: SAMEA10739111	ID: 23177155
+
+35: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739110; SRA: ERS8390827
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739110"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc59"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc59"
+    /sex="female"
+Accession: SAMEA10739110	ID: 23177154
+
+36: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739109; SRA: ERS8390826
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739109"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc58"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc58"
+    /sex="female"
+Accession: SAMEA10739109	ID: 23177153
+
+37: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739108; SRA: ERS8390825
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739108"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc57"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc57"
+    /sex="female"
+Accession: SAMEA10739108	ID: 23177152
+
+38: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739107; SRA: ERS8390824
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739107"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc56"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc56"
+    /sex="male"
+Accession: SAMEA10739107	ID: 23177151
+
+39: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739106; SRA: ERS8390823
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739106"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc55"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc55"
+    /sex="female"
+Accession: SAMEA10739106	ID: 23177150
+
+40: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739105; SRA: ERS8390822
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739105"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc54"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc54"
+    /sex="female"
+Accession: SAMEA10739105	ID: 23177149
+
+41: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739104; SRA: ERS8390821
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739104"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc53"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc53"
+    /sex="female"
+Accession: SAMEA10739104	ID: 23177148
+
+42: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739103; SRA: ERS8390820
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739103"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc52"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc52"
+    /sex="male"
+Accession: SAMEA10739103	ID: 23177147
+
+43: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739102; SRA: ERS8390819
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739102"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc51"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc51"
+    /sex="female"
+Accession: SAMEA10739102	ID: 23177146
+
+44: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739101; SRA: ERS8390818
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739101"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc50"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc50"
+    /sex="female"
+Accession: SAMEA10739101	ID: 23177145
+
+45: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739100; SRA: ERS8390817
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739100"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc46"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc46"
+    /sex="female"
+Accession: SAMEA10739100	ID: 23177144
+
+46: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739099; SRA: ERS8390816
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739099"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc45"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc45"
+    /sex="female"
+Accession: SAMEA10739099	ID: 23177143
+
+47: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739098; SRA: ERS8390815
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739098"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc43"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc43"
+    /sex="male"
+Accession: SAMEA10739098	ID: 23177142
+
+48: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739097; SRA: ERS8390814
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739097"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc42"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc42"
+    /sex="male"
+Accession: SAMEA10739097	ID: 23177141
+
+49: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739096; SRA: ERS8390813
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739096"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc40"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc40"
+    /sex="female"
+Accession: SAMEA10739096	ID: 23177140
+
+50: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739095; SRA: ERS8390812
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739095"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc39"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc39"
+    /sex="female"
+Accession: SAMEA10739095	ID: 23177139
+
+51: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739094; SRA: ERS8390811
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739094"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc35"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc35"
+    /sex="female"
+Accession: SAMEA10739094	ID: 23177138
+
+52: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739093; SRA: ERS8390810
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739093"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc34"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc34"
+    /sex="female"
+Accession: SAMEA10739093	ID: 23177137
+
+53: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739092; SRA: ERS8390809
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739092"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc33"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc33"
+    /sex="female"
+Accession: SAMEA10739092	ID: 23177136
+
+54: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739091; SRA: ERS8390808
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739091"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc30"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc30"
+    /sex="female"
+Accession: SAMEA10739091	ID: 23177135
+
+55: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739090; SRA: ERS8390807
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739090"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc29"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc29"
+    /sex="female"
+Accession: SAMEA10739090	ID: 23177134
+
+56: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739089; SRA: ERS8390806
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739089"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc28"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc28"
+    /sex="female"
+Accession: SAMEA10739089	ID: 23177133
+
+57: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739088; SRA: ERS8390805
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739088"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc27"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc27"
+    /sex="female"
+Accession: SAMEA10739088	ID: 23177132
+
+58: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739087; SRA: ERS8390804
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739087"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc26"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc26"
+    /sex="female"
+Accession: SAMEA10739087	ID: 23177131
+
+59: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739086; SRA: ERS8390803
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739086"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc25"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc25"
+    /sex="female"
+Accession: SAMEA10739086	ID: 23177130
+
+60: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739085; SRA: ERS8390802
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739085"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc24"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc24"
+    /sex="male"
+Accession: SAMEA10739085	ID: 23177129
+
+
+61: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739084; SRA: ERS8390801
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739084"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc23"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc23"
+    /sex="male"
+Accession: SAMEA10739084	ID: 23177128
+
+62: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739083; SRA: ERS8390800
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739083"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc22"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc22"
+    /sex="male"
+Accession: SAMEA10739083	ID: 23177127
+
+63: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739082; SRA: ERS8390799
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739082"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc21"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc21"
+    /sex="male"
+Accession: SAMEA10739082	ID: 23177126
+
+64: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739081; SRA: ERS8390798
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739081"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc20"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc20"
+    /sex="male"
+Accession: SAMEA10739081	ID: 23177125
+
+65: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739080; SRA: ERS8390797
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739080"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc19"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc19"
+    /sex="male"
+Accession: SAMEA10739080	ID: 23177124
+
+66: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739079; SRA: ERS8390796
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739079"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc18"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc18"
+    /sex="female"
+Accession: SAMEA10739079	ID: 23177123
+
+67: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739078; SRA: ERS8390795
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739078"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc17"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc17"
+    /sex="female"
+Accession: SAMEA10739078	ID: 23177122
+
+68: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739077; SRA: ERS8390794
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739077"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc16"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc16"
+    /sex="female"
+Accession: SAMEA10739077	ID: 23177121
+
+69: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739076; SRA: ERS8390793
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739076"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc15"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc15"
+    /sex="female"
+Accession: SAMEA10739076	ID: 23177120
+
+70: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739075; SRA: ERS8390792
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739075"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc14"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc14"
+    /sex="female"
+Accession: SAMEA10739075	ID: 23177119
+
+71: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739074; SRA: ERS8390791
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739074"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc13"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc13"
+    /sex="female"
+Accession: SAMEA10739074	ID: 23177118
+
+72: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739073; SRA: ERS8390790
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739073"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc11"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc11"
+    /sex="female"
+Accession: SAMEA10739073	ID: 23177117
+
+73: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739072; SRA: ERS8390789
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739072"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc7"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc7"
+    /sex="female"
+Accession: SAMEA10739072	ID: 23177116
+
+74: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739071; SRA: ERS8390788
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739071"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc6"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc6"
+    /sex="female"
+Accession: SAMEA10739071	ID: 23177115
+
+75: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739070; SRA: ERS8390787
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739070"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc2"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc2"
+    /sex="female"
+Accession: SAMEA10739070	ID: 23177114
+
+76: Bumblebee gut microbiome
+Identifiers: BioSample: SAMEA10739069; SRA: ERS8390786
+Organism: Bombus terrestris
+Attributes:
+    /ENA first public="2021-11-15"
+    /ENA last update="2021-11-15"
+    /ENA-CHECKLIST="ERC000011"
+    /External Id="SAMEA10739069"
+    /INSDC center alias="Latvian Biomedical Research and Study Centre"
+    /INSDC center name="Latvian Biomedical Research and Study Centre"
+    /INSDC first public="2021-11-15T16:18:15Z"
+    /INSDC last update="2021-11-15T16:18:15Z"
+    /INSDC status="public"
+    /Submitter Id="bmc1"
+    /common name="buff-tailed bumblebee"
+    /geographic location="Latvia"
+    /sample name="bmc1"
+    /sex="female"
+Accession: SAMEA10739069	ID: 23177113
+
+

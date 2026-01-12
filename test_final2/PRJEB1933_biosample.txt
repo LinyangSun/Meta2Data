@@ -1,0 +1,43 @@
+1: Chambers
+Identifiers: BioSample: SAMEA2068792; SRA: ERS244689
+Organism: Osmia bicornis
+Attributes:
+    /ENA-CHECKLIST="ERC000011"
+    /ENA-FIRST-PUBLIC="2013-11-29T17:00:54Z"
+    /ENA-LAST-UPDATE="2018-03-08T16:24:46Z"
+    /ENA-SUBMISSION-TOOL="SRA-Webin"
+    /External Id="SAMEA2068792"
+    /INSDC center name="UNIV-WUE"
+    /INSDC first public="2013-11-29T17:00:54Z"
+    /INSDC last update="2018-03-08T16:24:46Z"
+    /INSDC status="public"
+    /Submitter Id="Or_4"
+    /common name="red mason bee"
+    /sample name="Or_4"
+    /scientific_name="Osmia bicornis"
+Description:
+inward bound nest
+Accession: SAMEA2068792	ID: 2427823
+
+2: Chambers
+Identifiers: BioSample: SAMEA2068791; SRA: ERS244688
+Organism: Osmia bicornis
+Attributes:
+    /ENA-CHECKLIST="ERC000011"
+    /ENA-FIRST-PUBLIC="2013-11-29T17:00:54Z"
+    /ENA-LAST-UPDATE="2018-03-08T16:24:46Z"
+    /ENA-SUBMISSION-TOOL="SRA-Webin"
+    /External Id="SAMEA2068791"
+    /INSDC center name="UNIV-WUE"
+    /INSDC first public="2013-11-29T17:00:54Z"
+    /INSDC last update="2018-03-08T16:24:46Z"
+    /INSDC status="public"
+    /Submitter Id="Or_1"
+    /common name="red mason bee"
+    /sample name="Or_1"
+    /scientific_name="Osmia bicornis"
+Description:
+outward bound nest
+Accession: SAMEA2068791	ID: 2427822
+
+

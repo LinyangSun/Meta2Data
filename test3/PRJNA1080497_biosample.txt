@@ -1,0 +1,2995 @@
+1: JLU092215L
+Identifiers: BioSample: SAMN40136581; Sample name: 2_176; SRA: SRS20565683
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136581	ID: 40136581
+
+2: JLU091514L
+Identifiers: BioSample: SAMN40136580; Sample name: 2_175; SRA: SRS20565685
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-15"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136580	ID: 40136580
+
+3: JLU083014L
+Identifiers: BioSample: SAMN40136579; Sample name: 2_174; SRA: SRS20565682
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136579	ID: 40136579
+
+4: JLU083012L
+Identifiers: BioSample: SAMN40136578; Sample name: 2_173; SRA: SRS20565681
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136578	ID: 40136578
+
+5: JLU083011L
+Identifiers: BioSample: SAMN40136577; Sample name: 2_172; SRA: SRS20565680
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136577	ID: 40136577
+
+6: JLU083010L
+Identifiers: BioSample: SAMN40136576; Sample name: 2_171; SRA: SRS20566342
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136576	ID: 40136576
+
+7: JLU083009L
+Identifiers: BioSample: SAMN40136575; Sample name: 2_170; SRA: SRS20565679
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136575	ID: 40136575
+
+8: JLU083008L
+Identifiers: BioSample: SAMN40136574; Sample name: 2_169; SRA: SRS20565678
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136574	ID: 40136574
+
+9: JLU082317L
+Identifiers: BioSample: SAMN40136573; Sample name: 2_168; SRA: SRS20565676
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136573	ID: 40136573
+
+10: JLU082315L
+Identifiers: BioSample: SAMN40136572; Sample name: 2_167; SRA: SRS20565673
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136572	ID: 40136572
+
+11: JLU082314L
+Identifiers: BioSample: SAMN40136571; Sample name: 2_166; SRA: SRS20565675
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136571	ID: 40136571
+
+12: JLU082313L
+Identifiers: BioSample: SAMN40136570; Sample name: 2_165; SRA: SRS20566343
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136570	ID: 40136570
+
+13: JLU082312L
+Identifiers: BioSample: SAMN40136569; Sample name: 2_164; SRA: SRS20565674
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136569	ID: 40136569
+
+14: JLU082311L
+Identifiers: BioSample: SAMN40136568; Sample name: 2_163; SRA: SRS20565671
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136568	ID: 40136568
+
+15: JLU082310L
+Identifiers: BioSample: SAMN40136567; Sample name: 2_162; SRA: SRS20565672
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136567	ID: 40136567
+
+16: JLU082309L
+Identifiers: BioSample: SAMN40136566; Sample name: 2_161; SRA: SRS20565670
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136566	ID: 40136566
+
+17: JLU082308L
+Identifiers: BioSample: SAMN40136565; Sample name: 2_160; SRA: SRS20566624
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136565	ID: 40136565
+
+18: JLU082307L
+Identifiers: BioSample: SAMN40136564; Sample name: 2_159; SRA: SRS20565668
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136564	ID: 40136564
+
+19: JLU081616L
+Identifiers: BioSample: SAMN40136563; Sample name: 2_158; SRA: SRS20565667
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136563	ID: 40136563
+
+20: JLU081615L
+Identifiers: BioSample: SAMN40136562; Sample name: 2_157; SRA: SRS20565666
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136562	ID: 40136562
+
+21: JLU081614L
+Identifiers: BioSample: SAMN40136561; Sample name: 2_156; SRA: SRS20565664
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136561	ID: 40136561
+
+22: JLU081613L
+Identifiers: BioSample: SAMN40136560; Sample name: 2_155; SRA: SRS20565665
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136560	ID: 40136560
+
+23: JLU081612L
+Identifiers: BioSample: SAMN40136559; Sample name: 2_154; SRA: SRS20566341
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136559	ID: 40136559
+
+24: JLU081611L
+Identifiers: BioSample: SAMN40136558; Sample name: 2_153; SRA: SRS20565663
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136558	ID: 40136558
+
+25: JLU081610L
+Identifiers: BioSample: SAMN40136557; Sample name: 2_152; SRA: SRS20565661
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136557	ID: 40136557
+
+26: JLU081609L
+Identifiers: BioSample: SAMN40136556; Sample name: 2_151; SRA: SRS20565662
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136556	ID: 40136556
+
+27: JLU081608L
+Identifiers: BioSample: SAMN40136555; Sample name: 2_150; SRA: SRS20566340
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136555	ID: 40136555
+
+28: JLU072814L
+Identifiers: BioSample: SAMN40136554; Sample name: 2_149; SRA: SRS20565657
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136554	ID: 40136554
+
+29: JLU072813L
+Identifiers: BioSample: SAMN40136553; Sample name: 2_148; SRA: SRS20565658
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136553	ID: 40136553
+
+30: JLU072811L
+Identifiers: BioSample: SAMN40136552; Sample name: 2_147; SRA: SRS20565659
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136552	ID: 40136552
+
+31: JLU072116L
+Identifiers: BioSample: SAMN40136551; Sample name: 2_146; SRA: SRS20566339
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136551	ID: 40136551
+
+32: JLU072112L
+Identifiers: BioSample: SAMN40136550; Sample name: 2_145; SRA: SRS20565656
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136550	ID: 40136550
+
+33: JLU071416L
+Identifiers: BioSample: SAMN40136549; Sample name: 2_144; SRA: SRS20565655
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136549	ID: 40136549
+
+34: JLU071415L
+Identifiers: BioSample: SAMN40136548; Sample name: 2_143; SRA: SRS20565654
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136548	ID: 40136548
+
+35: JLU071413L
+Identifiers: BioSample: SAMN40136547; Sample name: 2_142; SRA: SRS20565653
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136547	ID: 40136547
+
+36: JLU071412L
+Identifiers: BioSample: SAMN40136546; Sample name: 2_141; SRA: SRS20565652
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136546	ID: 40136546
+
+37: JLU071411L
+Identifiers: BioSample: SAMN40136545; Sample name: 2_140; SRA: SRS20566337
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136545	ID: 40136545
+
+38: JLU071410L
+Identifiers: BioSample: SAMN40136544; Sample name: 2_139; SRA: SRS20565649
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136544	ID: 40136544
+
+39: JLU071409L
+Identifiers: BioSample: SAMN40136543; Sample name: 2_138; SRA: SRS20565650
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136543	ID: 40136543
+
+40: JLU071408L
+Identifiers: BioSample: SAMN40136542; Sample name: 2_137; SRA: SRS20565648
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136542	ID: 40136542
+
+41: JLU062820L
+Identifiers: BioSample: SAMN40136541; Sample name: 2_136; SRA: SRS20565647
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136541	ID: 40136541
+
+42: JLU062819L
+Identifiers: BioSample: SAMN40136540; Sample name: 2_135; SRA: SRS20565646
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136540	ID: 40136540
+
+43: JLU062818L
+Identifiers: BioSample: SAMN40136539; Sample name: 2_134; SRA: SRS20565645
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136539	ID: 40136539
+
+44: JLU062817L
+Identifiers: BioSample: SAMN40136538; Sample name: 2_133; SRA: SRS20566338
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136538	ID: 40136538
+
+45: JLU062816L
+Identifiers: BioSample: SAMN40136537; Sample name: 2_132; SRA: SRS20565644
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136537	ID: 40136537
+
+46: JLU062815L
+Identifiers: BioSample: SAMN40136536; Sample name: 2_131; SRA: SRS20565643
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136536	ID: 40136536
+
+47: JLU062814L
+Identifiers: BioSample: SAMN40136535; Sample name: 2_130; SRA: SRS20565641
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136535	ID: 40136535
+
+48: JLU062220L
+Identifiers: BioSample: SAMN40136534; Sample name: 2_129; SRA: SRS20566346
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136534	ID: 40136534
+
+49: JLU062219L
+Identifiers: BioSample: SAMN40136533; Sample name: 2_128; SRA: SRS20565640
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136533	ID: 40136533
+
+50: JLU062218L
+Identifiers: BioSample: SAMN40136532; Sample name: 2_127; SRA: SRS20565639
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136532	ID: 40136532
+
+51: JLU062217L
+Identifiers: BioSample: SAMN40136531; Sample name: 2_126; SRA: SRS20565638
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136531	ID: 40136531
+
+52: JLU062216L
+Identifiers: BioSample: SAMN40136530; Sample name: 2_125; SRA: SRS20565635
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136530	ID: 40136530
+
+53: JLU062215L
+Identifiers: BioSample: SAMN40136529; Sample name: 2_124; SRA: SRS20565636
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136529	ID: 40136529
+
+54: JLU062214L
+Identifiers: BioSample: SAMN40136528; Sample name: 2_123; SRA: SRS20565634
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136528	ID: 40136528
+
+55: JLU062213L
+Identifiers: BioSample: SAMN40136527; Sample name: 2_122; SRA: SRS20566335
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136527	ID: 40136527
+
+56: JLU062212L
+Identifiers: BioSample: SAMN40136526; Sample name: 2_121; SRA: SRS20565633
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136526	ID: 40136526
+
+57: JLU062211L
+Identifiers: BioSample: SAMN40136525; Sample name: 2_120; SRA: SRS20565629
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136525	ID: 40136525
+
+58: JLU061719L
+Identifiers: BioSample: SAMN40136524; Sample name: 2_119; SRA: SRS20567105
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136524	ID: 40136524
+
+59: JLU061718L
+Identifiers: BioSample: SAMN40136523; Sample name: 2_118; SRA: SRS20565628
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136523	ID: 40136523
+
+60: JLU061717L
+Identifiers: BioSample: SAMN40136522; Sample name: 2_117; SRA: SRS20565627
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136522	ID: 40136522
+
+
+61: JLU061716L
+Identifiers: BioSample: SAMN40136521; Sample name: 2_116; SRA: SRS20566334
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136521	ID: 40136521
+
+62: JLU061715L
+Identifiers: BioSample: SAMN40136520; Sample name: 2_115; SRA: SRS20566336
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136520	ID: 40136520
+
+63: JLU061714L
+Identifiers: BioSample: SAMN40136519; Sample name: 2_114; SRA: SRS20566332
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136519	ID: 40136519
+
+64: JLU061713L
+Identifiers: BioSample: SAMN40136518; Sample name: 2_113; SRA: SRS20566329
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 2"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136518	ID: 40136518
+
+65: JLU092918R
+Identifiers: BioSample: SAMN40136517; Sample name: 1_112; SRA: SRS20566333
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-29"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136517	ID: 40136517
+
+66: JLU092917R
+Identifiers: BioSample: SAMN40136516; Sample name: 1_111; SRA: SRS20567104
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-29"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136516	ID: 40136516
+
+67: JLU092916R
+Identifiers: BioSample: SAMN40136515; Sample name: 1_110; SRA: SRS20566331
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-29"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136515	ID: 40136515
+
+68: JLU092915R
+Identifiers: BioSample: SAMN40136514; Sample name: 1_109; SRA: SRS20566327
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-29"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136514	ID: 40136514
+
+69: JLU092914R
+Identifiers: BioSample: SAMN40136513; Sample name: 1_108; SRA: SRS20565630
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-29"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136513	ID: 40136513
+
+70: JLU092913R
+Identifiers: BioSample: SAMN40136512; Sample name: 1_107; SRA: SRS20566325
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-29"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136512	ID: 40136512
+
+71: JLU092217R
+Identifiers: BioSample: SAMN40136511; Sample name: 1_106; SRA: SRS20565637
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136511	ID: 40136511
+
+72: JLU092216R
+Identifiers: BioSample: SAMN40136510; Sample name: 1_105; SRA: SRS20565631
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136510	ID: 40136510
+
+73: JLU092215R
+Identifiers: BioSample: SAMN40136509; Sample name: 1_104; SRA: SRS20566330
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136509	ID: 40136509
+
+74: JLU092214R
+Identifiers: BioSample: SAMN40136508; Sample name: 1_103; SRA: SRS20565625
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136508	ID: 40136508
+
+75: JLU092213R
+Identifiers: BioSample: SAMN40136507; Sample name: 1_102; SRA: SRS20566323
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136507	ID: 40136507
+
+76: JLU091517R
+Identifiers: BioSample: SAMN40136506; Sample name: 1_101; SRA: SRS20565626
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-15"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136506	ID: 40136506
+
+77: JLU091516R
+Identifiers: BioSample: SAMN40136505; Sample name: 1_100; SRA: SRS20565706
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-15"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136505	ID: 40136505
+
+78: JLU091515R
+Identifiers: BioSample: SAMN40136504; Sample name: 1_99; SRA: SRS20565705
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-15"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136504	ID: 40136504
+
+79: JLU091514R
+Identifiers: BioSample: SAMN40136503; Sample name: 1_98; SRA: SRS20565703
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-15"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136503	ID: 40136503
+
+80: JLU091513R
+Identifiers: BioSample: SAMN40136502; Sample name: 1_97; SRA: SRS20565704
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-15"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136502	ID: 40136502
+
+81: JLU091512R
+Identifiers: BioSample: SAMN40136501; Sample name: 1_96; SRA: SRS20565702
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-09-15"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136501	ID: 40136501
+
+82: JLU083015R
+Identifiers: BioSample: SAMN40136500; Sample name: 1_95; SRA: SRS20566077
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136500	ID: 40136500
+
+83: JLU083014R
+Identifiers: BioSample: SAMN40136499; Sample name: 1_94; SRA: SRS20565701
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136499	ID: 40136499
+
+84: JLU083013R
+Identifiers: BioSample: SAMN40136498; Sample name: 1_93; SRA: SRS20565700
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136498	ID: 40136498
+
+85: JLU083012R
+Identifiers: BioSample: SAMN40136497; Sample name: 1_92; SRA: SRS20565698
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136497	ID: 40136497
+
+86: JLU083011R
+Identifiers: BioSample: SAMN40136496; Sample name: 1_91; SRA: SRS20565699
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136496	ID: 40136496
+
+87: JLU083010R
+Identifiers: BioSample: SAMN40136495; Sample name: 1_90; SRA: SRS20565697
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136495	ID: 40136495
+
+88: JLU083009R
+Identifiers: BioSample: SAMN40136494; Sample name: 1_89; SRA: SRS20565695
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136494	ID: 40136494
+
+89: JLU083008R
+Identifiers: BioSample: SAMN40136493; Sample name: 1_88; SRA: SRS20565696
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-30"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136493	ID: 40136493
+
+90: JLU082315R
+Identifiers: BioSample: SAMN40136492; Sample name: 1_87; SRA: SRS20565693
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136492	ID: 40136492
+
+91: JLU082313R
+Identifiers: BioSample: SAMN40136491; Sample name: 1_86; SRA: SRS20565694
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136491	ID: 40136491
+
+92: JLU082312R
+Identifiers: BioSample: SAMN40136490; Sample name: 1_85; SRA: SRS20565757
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136490	ID: 40136490
+
+93: JLU082311R
+Identifiers: BioSample: SAMN40136489; Sample name: 1_84; SRA: SRS20565759
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136489	ID: 40136489
+
+94: JLU082310R
+Identifiers: BioSample: SAMN40136488; Sample name: 1_83; SRA: SRS20566352
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136488	ID: 40136488
+
+95: JLU082309R
+Identifiers: BioSample: SAMN40136487; Sample name: 1_82; SRA: SRS20566351
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136487	ID: 40136487
+
+96: JLU082308R
+Identifiers: BioSample: SAMN40136486; Sample name: 1_81; SRA: SRS20565758
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136486	ID: 40136486
+
+97: JLU082307R
+Identifiers: BioSample: SAMN40136485; Sample name: 1_80; SRA: SRS20565755
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-23"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136485	ID: 40136485
+
+98: JLU081616R
+Identifiers: BioSample: SAMN40136484; Sample name: 1_79; SRA: SRS20565753
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136484	ID: 40136484
+
+99: JLU081615R
+Identifiers: BioSample: SAMN40136483; Sample name: 1_78; SRA: SRS20565754
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136483	ID: 40136483
+
+100: JLU081614R
+Identifiers: BioSample: SAMN40136482; Sample name: 1_77; SRA: SRS20565752
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136482	ID: 40136482
+
+101: JLU081613R
+Identifiers: BioSample: SAMN40136481; Sample name: 1_76; SRA: SRS20566350
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136481	ID: 40136481
+
+102: JLU081612R
+Identifiers: BioSample: SAMN40136480; Sample name: 1_75; SRA: SRS20566349
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136480	ID: 40136480
+
+103: JLU081611R
+Identifiers: BioSample: SAMN40136479; Sample name: 1_74; SRA: SRS20565751
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136479	ID: 40136479
+
+104: JLU081610R
+Identifiers: BioSample: SAMN40136478; Sample name: 1_73; SRA: SRS20565750
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136478	ID: 40136478
+
+105: JLU081609R
+Identifiers: BioSample: SAMN40136477; Sample name: 1_72; SRA: SRS20565748
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136477	ID: 40136477
+
+106: JLU081608R
+Identifiers: BioSample: SAMN40136476; Sample name: 1_71; SRA: SRS20565749
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-08-16"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136476	ID: 40136476
+
+107: JLU072816R
+Identifiers: BioSample: SAMN40136475; Sample name: 1_70; SRA: SRS20565746
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136475	ID: 40136475
+
+108: JLU072814R
+Identifiers: BioSample: SAMN40136474; Sample name: 1_69; SRA: SRS20565745
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136474	ID: 40136474
+
+109: JLU072812R
+Identifiers: BioSample: SAMN40136473; Sample name: 1_68; SRA: SRS20566345
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136473	ID: 40136473
+
+110: JLU072811R
+Identifiers: BioSample: SAMN40136472; Sample name: 1_67; SRA: SRS20565744
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136472	ID: 40136472
+
+111: JLU072810R
+Identifiers: BioSample: SAMN40136471; Sample name: 1_66; SRA: SRS20565743
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136471	ID: 40136471
+
+112: JLU072120R
+Identifiers: BioSample: SAMN40136470; Sample name: 1_65; SRA: SRS20565740
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136470	ID: 40136470
+
+113: JLU072119R
+Identifiers: BioSample: SAMN40136469; Sample name: 1_64; SRA: SRS20565742
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136469	ID: 40136469
+
+114: JLU072118R
+Identifiers: BioSample: SAMN40136468; Sample name: 1_63; SRA: SRS20565741
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136468	ID: 40136468
+
+115: JLU072117R
+Identifiers: BioSample: SAMN40136467; Sample name: 1_62; SRA: SRS20565738
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136467	ID: 40136467
+
+116: JLU072116R
+Identifiers: BioSample: SAMN40136466; Sample name: 1_61; SRA: SRS20565739
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136466	ID: 40136466
+
+117: JLU072115R
+Identifiers: BioSample: SAMN40136465; Sample name: 1_60; SRA: SRS20565736
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136465	ID: 40136465
+
+118: JLU072114R
+Identifiers: BioSample: SAMN40136464; Sample name: 1_59; SRA: SRS20565737
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136464	ID: 40136464
+
+119: JLU072113R
+Identifiers: BioSample: SAMN40136463; Sample name: 1_58; SRA: SRS20565735
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136463	ID: 40136463
+
+120: JLU072112R
+Identifiers: BioSample: SAMN40136462; Sample name: 1_57; SRA: SRS20565733
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136462	ID: 40136462
+
+
+121: JLU072111R
+Identifiers: BioSample: SAMN40136461; Sample name: 1_56; SRA: SRS20565734
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136461	ID: 40136461
+
+122: JLU072110R
+Identifiers: BioSample: SAMN40136460; Sample name: 1_55; SRA: SRS20565732
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136460	ID: 40136460
+
+123: JLU072109R
+Identifiers: BioSample: SAMN40136459; Sample name: 1_54; SRA: SRS20566076
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136459	ID: 40136459
+
+124: JLU072108R
+Identifiers: BioSample: SAMN40136458; Sample name: 1_53; SRA: SRS20565731
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-21"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136458	ID: 40136458
+
+125: JLU071420R
+Identifiers: BioSample: SAMN40136457; Sample name: 1_52; SRA: SRS20565730
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136457	ID: 40136457
+
+126: JLU071419R
+Identifiers: BioSample: SAMN40136456; Sample name: 1_51; SRA: SRS20565729
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136456	ID: 40136456
+
+127: JLU071418R
+Identifiers: BioSample: SAMN40136455; Sample name: 1_50; SRA: SRS20566625
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136455	ID: 40136455
+
+128: JLU071417R
+Identifiers: BioSample: SAMN40136454; Sample name: 1_49; SRA: SRS20565727
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136454	ID: 40136454
+
+129: JLU071416R
+Identifiers: BioSample: SAMN40136453; Sample name: 1_48; SRA: SRS20565726
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136453	ID: 40136453
+
+130: JLU071415R
+Identifiers: BioSample: SAMN40136452; Sample name: 1_47; SRA: SRS20565725
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136452	ID: 40136452
+
+131: JLU071414R
+Identifiers: BioSample: SAMN40136451; Sample name: 1_46; SRA: SRS20565724
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136451	ID: 40136451
+
+132: JLU071413R
+Identifiers: BioSample: SAMN40136450; Sample name: 1_45; SRA: SRS20565722
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136450	ID: 40136450
+
+133: JLU071412R
+Identifiers: BioSample: SAMN40136449; Sample name: 1_44; SRA: SRS20565723
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136449	ID: 40136449
+
+134: JLU071411R
+Identifiers: BioSample: SAMN40136448; Sample name: 1_43; SRA: SRS20566344
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136448	ID: 40136448
+
+135: JLU071410R
+Identifiers: BioSample: SAMN40136447; Sample name: 1_42; SRA: SRS20565721
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136447	ID: 40136447
+
+136: JLU071409R
+Identifiers: BioSample: SAMN40136446; Sample name: 1_41; SRA: SRS20565720
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136446	ID: 40136446
+
+137: JLU071408R
+Identifiers: BioSample: SAMN40136445; Sample name: 1_40; SRA: SRS20565719
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-07-14"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136445	ID: 40136445
+
+138: JLU062820R
+Identifiers: BioSample: SAMN40136444; Sample name: 1_39; SRA: SRS20565716
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136444	ID: 40136444
+
+139: JLU062819R
+Identifiers: BioSample: SAMN40136443; Sample name: 1_38; SRA: SRS20565718
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136443	ID: 40136443
+
+140: JLU062818R
+Identifiers: BioSample: SAMN40136442; Sample name: 1_37; SRA: SRS20565715
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136442	ID: 40136442
+
+141: JLU062817R
+Identifiers: BioSample: SAMN40136441; Sample name: 1_36; SRA: SRS20566080
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136441	ID: 40136441
+
+142: JLU062816R
+Identifiers: BioSample: SAMN40136440; Sample name: 1_35; SRA: SRS20565713
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136440	ID: 40136440
+
+143: JLU062815R
+Identifiers: BioSample: SAMN40136439; Sample name: 1_34; SRA: SRS20565714
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136439	ID: 40136439
+
+144: JLU062814R
+Identifiers: BioSample: SAMN40136438; Sample name: 1_33; SRA: SRS20565712
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136438	ID: 40136438
+
+145: JLU062813R
+Identifiers: BioSample: SAMN40136437; Sample name: 1_32; SRA: SRS20565711
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136437	ID: 40136437
+
+146: JLU062812R
+Identifiers: BioSample: SAMN40136436; Sample name: 1_31; SRA: SRS20565710
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136436	ID: 40136436
+
+147: JLU062811R
+Identifiers: BioSample: SAMN40136435; Sample name: 1_30; SRA: SRS20565709
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136435	ID: 40136435
+
+148: JLU062810R
+Identifiers: BioSample: SAMN40136434; Sample name: 1_29; SRA: SRS20566081
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-28"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136434	ID: 40136434
+
+149: JLU062221R
+Identifiers: BioSample: SAMN40136433; Sample name: 1_28; SRA: SRS20565708
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136433	ID: 40136433
+
+150: JLU062220R
+Identifiers: BioSample: SAMN40136432; Sample name: 1_27; SRA: SRS20565692
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136432	ID: 40136432
+
+151: JLU062219R
+Identifiers: BioSample: SAMN40136431; Sample name: 1_26; SRA: SRS20565690
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136431	ID: 40136431
+
+152: JLU062218R
+Identifiers: BioSample: SAMN40136430; Sample name: 1_25; SRA: SRS20565691
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136430	ID: 40136430
+
+153: JLU062217R
+Identifiers: BioSample: SAMN40136429; Sample name: 1_24; SRA: SRS20566348
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136429	ID: 40136429
+
+154: JLU062216R
+Identifiers: BioSample: SAMN40136428; Sample name: 1_23; SRA: SRS20565689
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136428	ID: 40136428
+
+155: JLU062215R
+Identifiers: BioSample: SAMN40136427; Sample name: 1_22; SRA: SRS20565688
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136427	ID: 40136427
+
+156: JLU062214R
+Identifiers: BioSample: SAMN40136426; Sample name: 1_21; SRA: SRS20565687
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136426	ID: 40136426
+
+157: JLU062213R
+Identifiers: BioSample: SAMN40136425; Sample name: 1_20; SRA: SRS20566347
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136425	ID: 40136425
+
+158: JLU062212R
+Identifiers: BioSample: SAMN40136424; Sample name: 1_19; SRA: SRS20565684
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136424	ID: 40136424
+
+159: JLU062211R
+Identifiers: BioSample: SAMN40136423; Sample name: 1_18; SRA: SRS20565677
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136423	ID: 40136423
+
+160: JLU062210R
+Identifiers: BioSample: SAMN40136422; Sample name: 1_17; SRA: SRS20565669
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136422	ID: 40136422
+
+161: JLU062209R
+Identifiers: BioSample: SAMN40136421; Sample name: 1_16; SRA: SRS20565660
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136421	ID: 40136421
+
+162: JLU062208R
+Identifiers: BioSample: SAMN40136420; Sample name: 1_15; SRA: SRS20565651
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136420	ID: 40136420
+
+163: JLU062207R
+Identifiers: BioSample: SAMN40136419; Sample name: 1_14; SRA: SRS20565642
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-22"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136419	ID: 40136419
+
+164: JLU061720R
+Identifiers: BioSample: SAMN40136418; Sample name: 1_13; SRA: SRS20565632
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136418	ID: 40136418
+
+165: JLU061719R
+Identifiers: BioSample: SAMN40136417; Sample name: 1_12; SRA: SRS20566328
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136417	ID: 40136417
+
+166: JLU061718R
+Identifiers: BioSample: SAMN40136416; Sample name: 1_11; SRA: SRS20565624
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136416	ID: 40136416
+
+167: JLU061717R
+Identifiers: BioSample: SAMN40136415; Sample name: 1_10; SRA: SRS20566079
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136415	ID: 40136415
+
+168: JLU061716R
+Identifiers: BioSample: SAMN40136414; Sample name: 1_9; SRA: SRS20565756
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136414	ID: 40136414
+
+169: JLU061715R
+Identifiers: BioSample: SAMN40136413; Sample name: 1_8; SRA: SRS20565747
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136413	ID: 40136413
+
+170: JLU061714R
+Identifiers: BioSample: SAMN40136412; Sample name: 1_7; SRA: SRS20566078
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136412	ID: 40136412
+
+171: JLU061713R
+Identifiers: BioSample: SAMN40136411; Sample name: 1_6; SRA: SRS20565728
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136411	ID: 40136411
+
+172: JLU061712R
+Identifiers: BioSample: SAMN40136410; Sample name: 1_5; SRA: SRS20565717
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136410	ID: 40136410
+
+173: JLU061711R
+Identifiers: BioSample: SAMN40136409; Sample name: 1_4; SRA: SRS20565707
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136409	ID: 40136409
+
+174: JLU061710R
+Identifiers: BioSample: SAMN40136408; Sample name: 1_3; SRA: SRS20565686
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136408	ID: 40136408
+
+175: JLU061709R
+Identifiers: BioSample: SAMN40136407; Sample name: 1_2; SRA: SRS20566623
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136407	ID: 40136407
+
+176: JLU061708R
+Identifiers: BioSample: SAMN40136406; Sample name: 1_1; SRA: SRS20566324
+Organism: plant metagenome
+Attributes:
+    /collection date="2022-06-17"
+    /broad-scale environmental context="plant-associated environment [ENVO:01001001]"
+    /local-scale environmental context="apiary [ENVO:01000576]"
+    /environmental medium="plant matter [ENVO:01001121]"
+    /geographic location="Germany: Giessen"
+    /host="not applicable"
+    /latitude and longitude="50.568528 N 8.672139 E"
+    /isolation source="honey bee corbicular pollen"
+    /hive="hive 1"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN40136406	ID: 40136406
+
+

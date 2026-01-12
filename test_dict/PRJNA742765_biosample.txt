@@ -1,0 +1,1609 @@
+1: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976419; Sample name: OY14M; SRA: SRS9372876
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 146"
+Accession: SAMN19976419	ID: 19976419
+
+2: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976418; Sample name: OY13M; SRA: SRS9372878
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 145"
+Accession: SAMN19976418	ID: 19976418
+
+3: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976417; Sample name: OY134M; SRA: SRS9372873
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 144"
+Accession: SAMN19976417	ID: 19976417
+
+4: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976416; Sample name: OY133M; SRA: SRS9372875
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 143"
+Accession: SAMN19976416	ID: 19976416
+
+5: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976415; Sample name: OY132M; SRA: SRS9372874
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 142"
+Accession: SAMN19976415	ID: 19976415
+
+6: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976414; Sample name: OY131M; SRA: SRS9372872
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 141"
+Accession: SAMN19976414	ID: 19976414
+
+7: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976413; Sample name: OY12M; SRA: SRS9372870
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 140"
+Accession: SAMN19976413	ID: 19976413
+
+8: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976412; Sample name: OY11M; SRA: SRS9372869
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 139"
+Accession: SAMN19976412	ID: 19976412
+
+9: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976411; Sample name: OR34M; SRA: SRS9372864
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 138"
+Accession: SAMN19976411	ID: 19976411
+
+10: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976410; Sample name: OR33M; SRA: SRS9372865
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 137"
+Accession: SAMN19976410	ID: 19976410
+
+11: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976409; Sample name: OR32M; SRA: SRS9372863
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 136"
+Accession: SAMN19976409	ID: 19976409
+
+12: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976408; Sample name: OR31M; SRA: SRS9372862
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 135"
+Accession: SAMN19976408	ID: 19976408
+
+13: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976407; Sample name: OR184M; SRA: SRS9372861
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 134"
+Accession: SAMN19976407	ID: 19976407
+
+14: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976406; Sample name: OR183M; SRA: SRS9372860
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 133"
+Accession: SAMN19976406	ID: 19976406
+
+15: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976405; Sample name: OR182M; SRA: SRS9372858
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 132"
+Accession: SAMN19976405	ID: 19976405
+
+16: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976404; Sample name: OR181M; SRA: SRS9372859
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-10"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 131"
+Accession: SAMN19976404	ID: 19976404
+
+17: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976403; Sample name: FY14M; SRA: SRS9372856
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 130"
+Accession: SAMN19976403	ID: 19976403
+
+18: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976402; Sample name: FY13M; SRA: SRS9372855
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 129"
+Accession: SAMN19976402	ID: 19976402
+
+19: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976401; Sample name: FY134M; SRA: SRS9372854
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 128"
+Accession: SAMN19976401	ID: 19976401
+
+20: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976400; Sample name: FY133M; SRA: SRS9372853
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 127"
+Accession: SAMN19976400	ID: 19976400
+
+21: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976399; Sample name: FY132M; SRA: SRS9372852
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 126"
+Accession: SAMN19976399	ID: 19976399
+
+22: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976398; Sample name: FY131M; SRA: SRS9372850
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 125"
+Accession: SAMN19976398	ID: 19976398
+
+23: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976397; Sample name: FY12M; SRA: SRS9372849
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 124"
+Accession: SAMN19976397	ID: 19976397
+
+24: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976396; Sample name: FY11M; SRA: SRS9372848
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 123"
+Accession: SAMN19976396	ID: 19976396
+
+25: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976395; Sample name: FR34M; SRA: SRS9372851
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 122"
+Accession: SAMN19976395	ID: 19976395
+
+26: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976394; Sample name: FR33M; SRA: SRS9372847
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 121"
+Accession: SAMN19976394	ID: 19976394
+
+27: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976393; Sample name: FR32M; SRA: SRS9372991
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 120"
+Accession: SAMN19976393	ID: 19976393
+
+28: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976392; Sample name: FR31M; SRA: SRS9372989
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 119"
+Accession: SAMN19976392	ID: 19976392
+
+29: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976391; Sample name: FR184M; SRA: SRS9372990
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 118"
+Accession: SAMN19976391	ID: 19976391
+
+30: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976390; Sample name: FR183M; SRA: SRS9372987
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 117"
+Accession: SAMN19976390	ID: 19976390
+
+31: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976389; Sample name: FR182M; SRA: SRS9372988
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 116"
+Accession: SAMN19976389	ID: 19976389
+
+32: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976388; Sample name: FR181M; SRA: SRS9372986
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: North Dakota"
+    /latitude and longitude="46.91 N 98.70 W"
+    /replicate="biological replicate 115"
+Accession: SAMN19976388	ID: 19976388
+
+33: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976387; Sample name: F944M; SRA: SRS9372985
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 114"
+Accession: SAMN19976387	ID: 19976387
+
+34: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976386; Sample name: F943M; SRA: SRS9372984
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 113"
+Accession: SAMN19976386	ID: 19976386
+
+35: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976385; Sample name: F942M; SRA: SRS9372982
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 112"
+Accession: SAMN19976385	ID: 19976385
+
+36: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976384; Sample name: F941M; SRA: SRS9372983
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 111"
+Accession: SAMN19976384	ID: 19976384
+
+37: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976383; Sample name: F914M; SRA: SRS9372981
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 110"
+Accession: SAMN19976383	ID: 19976383
+
+38: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976382; Sample name: F913M; SRA: SRS9372979
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 109"
+Accession: SAMN19976382	ID: 19976382
+
+39: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976381; Sample name: F912M; SRA: SRS9372978
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 108"
+Accession: SAMN19976381	ID: 19976381
+
+40: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976380; Sample name: F911M; SRA: SRS9372977
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 107"
+Accession: SAMN19976380	ID: 19976380
+
+41: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976379; Sample name: F844M; SRA: SRS9372976
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 106"
+Accession: SAMN19976379	ID: 19976379
+
+42: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976378; Sample name: F843M; SRA: SRS9372975
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 105"
+Accession: SAMN19976378	ID: 19976378
+
+43: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976377; Sample name: F842M; SRA: SRS9372972
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 104"
+Accession: SAMN19976377	ID: 19976377
+
+44: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976376; Sample name: F841M; SRA: SRS9372974
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 103"
+Accession: SAMN19976376	ID: 19976376
+
+45: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976375; Sample name: F804M; SRA: SRS9372973
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 102"
+Accession: SAMN19976375	ID: 19976375
+
+46: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976374; Sample name: F803M; SRA: SRS9372971
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 101"
+Accession: SAMN19976374	ID: 19976374
+
+47: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976373; Sample name: F802M; SRA: SRS9372970
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 100"
+Accession: SAMN19976373	ID: 19976373
+
+48: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976372; Sample name: F801M; SRA: SRS9372969
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 99"
+Accession: SAMN19976372	ID: 19976372
+
+49: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976371; Sample name: D944M; SRA: SRS9372968
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 98"
+Accession: SAMN19976371	ID: 19976371
+
+50: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976370; Sample name: D943M; SRA: SRS9372967
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 97"
+Accession: SAMN19976370	ID: 19976370
+
+51: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976369; Sample name: D942M; SRA: SRS9372965
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 96"
+Accession: SAMN19976369	ID: 19976369
+
+52: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976368; Sample name: D941M; SRA: SRS9372966
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 95"
+Accession: SAMN19976368	ID: 19976368
+
+53: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976367; Sample name: D914M; SRA: SRS9372963
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 94"
+Accession: SAMN19976367	ID: 19976367
+
+54: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976366; Sample name: D913M; SRA: SRS9372964
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 93"
+Accession: SAMN19976366	ID: 19976366
+
+55: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976365; Sample name: D911M; SRA: SRS9372962
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 92"
+Accession: SAMN19976365	ID: 19976365
+
+56: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976364; Sample name: D844M; SRA: SRS9372961
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 91"
+Accession: SAMN19976364	ID: 19976364
+
+57: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976363; Sample name: D843M; SRA: SRS9372958
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 90"
+Accession: SAMN19976363	ID: 19976363
+
+58: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976362; Sample name: D842M; SRA: SRS9372959
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 89"
+Accession: SAMN19976362	ID: 19976362
+
+59: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976361; Sample name: D804M; SRA: SRS9372956
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 88"
+Accession: SAMN19976361	ID: 19976361
+
+60: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976360; Sample name: D803M; SRA: SRS9372957
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 87"
+Accession: SAMN19976360	ID: 19976360
+
+
+61: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976359; Sample name: D802M; SRA: SRS9372955
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 86"
+Accession: SAMN19976359	ID: 19976359
+
+62: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976358; Sample name: D801M; SRA: SRS9372954
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Santa Rita"
+    /latitude and longitude="31.76 N 110.84 W"
+    /replicate="biological replicate 85"
+Accession: SAMN19976358	ID: 19976358
+
+63: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976357; Sample name: 70S175M; SRA: SRS9372953
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 84"
+Accession: SAMN19976357	ID: 19976357
+
+64: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976356; Sample name: 70S174M; SRA: SRS9372951
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 83"
+Accession: SAMN19976356	ID: 19976356
+
+65: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976355; Sample name: 70S173M; SRA: SRS9372952
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 82"
+Accession: SAMN19976355	ID: 19976355
+
+66: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976354; Sample name: 70S172M; SRA: SRS9372950
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 81"
+Accession: SAMN19976354	ID: 19976354
+
+67: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976353; Sample name: 70S171M; SRA: SRS9372948
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 80"
+Accession: SAMN19976353	ID: 19976353
+
+68: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976352; Sample name: 70R175M; SRA: SRS9372946
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 79"
+Accession: SAMN19976352	ID: 19976352
+
+69: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976351; Sample name: 70R174M; SRA: SRS9372947
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 78"
+Accession: SAMN19976351	ID: 19976351
+
+70: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976350; Sample name: 70R173M; SRA: SRS9372945
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 77"
+Accession: SAMN19976350	ID: 19976350
+
+71: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976349; Sample name: 70R172M; SRA: SRS9372944
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 76"
+Accession: SAMN19976349	ID: 19976349
+
+72: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976348; Sample name: 70R171M; SRA: SRS9372943
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 75"
+Accession: SAMN19976348	ID: 19976348
+
+73: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976347; Sample name: 50S83M; SRA: SRS9372941
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 74"
+Accession: SAMN19976347	ID: 19976347
+
+74: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976346; Sample name: 50S82M; SRA: SRS9372942
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 73"
+Accession: SAMN19976346	ID: 19976346
+
+75: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976345; Sample name: 50S81M; SRA: SRS9372940
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 72"
+Accession: SAMN19976345	ID: 19976345
+
+76: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976344; Sample name: 50S173M; SRA: SRS9372939
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 71"
+Accession: SAMN19976344	ID: 19976344
+
+77: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976343; Sample name: 50S172M; SRA: SRS9372938
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 70"
+Accession: SAMN19976343	ID: 19976343
+
+78: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976342; Sample name: 50S171M; SRA: SRS9372937
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 69"
+Accession: SAMN19976342	ID: 19976342
+
+79: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976341; Sample name: 50R83M; SRA: SRS9372935
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 68"
+Accession: SAMN19976341	ID: 19976341
+
+80: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976340; Sample name: 50R82M; SRA: SRS9372934
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 67"
+Accession: SAMN19976340	ID: 19976340
+
+81: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976339; Sample name: 50R81M; SRA: SRS9372932
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 66"
+Accession: SAMN19976339	ID: 19976339
+
+82: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976338; Sample name: 50R173M; SRA: SRS9372933
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 65"
+Accession: SAMN19976338	ID: 19976338
+
+83: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976337; Sample name: 50R172M; SRA: SRS9372930
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 64"
+Accession: SAMN19976337	ID: 19976337
+
+84: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976336; Sample name: 50R171M; SRA: SRS9372931
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 63"
+Accession: SAMN19976336	ID: 19976336
+
+85: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976335; Sample name: 33S83M; SRA: SRS9372928
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 62"
+Accession: SAMN19976335	ID: 19976335
+
+86: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976334; Sample name: 33S82M; SRA: SRS9372929
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 61"
+Accession: SAMN19976334	ID: 19976334
+
+87: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976333; Sample name: 33S173M; SRA: SRS9372926
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 60"
+Accession: SAMN19976333	ID: 19976333
+
+88: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976332; Sample name: 33S172M; SRA: SRS9372925
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 59"
+Accession: SAMN19976332	ID: 19976332
+
+89: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976331; Sample name: 33S171M; SRA: SRS9372923
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 58"
+Accession: SAMN19976331	ID: 19976331
+
+90: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976330; Sample name: 33R83M; SRA: SRS9372924
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 57"
+Accession: SAMN19976330	ID: 19976330
+
+91: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976329; Sample name: 33R82M; SRA: SRS9372921
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 56"
+Accession: SAMN19976329	ID: 19976329
+
+92: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976328; Sample name: 33R173M; SRA: SRS9372922
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 55"
+Accession: SAMN19976328	ID: 19976328
+
+93: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976327; Sample name: 33R172M; SRA: SRS9372920
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 54"
+Accession: SAMN19976327	ID: 19976327
+
+94: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976326; Sample name: 19S83M; SRA: SRS9372919
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 53"
+Accession: SAMN19976326	ID: 19976326
+
+95: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976325; Sample name: 19S81M; SRA: SRS9372918
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 52"
+Accession: SAMN19976325	ID: 19976325
+
+96: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976324; Sample name: 19S173M; SRA: SRS9372916
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 51"
+Accession: SAMN19976324	ID: 19976324
+
+97: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976323; Sample name: 19S172M; SRA: SRS9372915
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 50"
+Accession: SAMN19976323	ID: 19976323
+
+98: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976322; Sample name: 19S171M; SRA: SRS9372914
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 49"
+Accession: SAMN19976322	ID: 19976322
+
+99: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976321; Sample name: 19R81M; SRA: SRS9372913
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 48"
+Accession: SAMN19976321	ID: 19976321
+
+100: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976320; Sample name: 19R173M; SRA: SRS9372912
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 47"
+Accession: SAMN19976320	ID: 19976320
+
+101: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976319; Sample name: 70S175Mo; SRA: SRS9372911
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 46"
+Accession: SAMN19976319	ID: 19976319
+
+102: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976318; Sample name: 70S174Mo; SRA: SRS9372910
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 45"
+Accession: SAMN19976318	ID: 19976318
+
+103: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976317; Sample name: 70S173Mo; SRA: SRS9372909
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 44"
+Accession: SAMN19976317	ID: 19976317
+
+104: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976316; Sample name: 70S172Mo; SRA: SRS9372908
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 43"
+Accession: SAMN19976316	ID: 19976316
+
+105: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976315; Sample name: 70S171Mo; SRA: SRS9372907
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 42"
+Accession: SAMN19976315	ID: 19976315
+
+106: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976314; Sample name: 70R175Mo; SRA: SRS9372906
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 41"
+Accession: SAMN19976314	ID: 19976314
+
+107: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976313; Sample name: 70R174Mo; SRA: SRS9372904
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 40"
+Accession: SAMN19976313	ID: 19976313
+
+108: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976312; Sample name: 70R173Mo; SRA: SRS9372903
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 39"
+Accession: SAMN19976312	ID: 19976312
+
+109: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976311; Sample name: 70R172Mo; SRA: SRS9372902
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 38"
+Accession: SAMN19976311	ID: 19976311
+
+110: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976310; Sample name: 70R171Mo; SRA: SRS9372900
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-03"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 37"
+Accession: SAMN19976310	ID: 19976310
+
+111: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976309; Sample name: 50S83Mo; SRA: SRS9372901
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 36"
+Accession: SAMN19976309	ID: 19976309
+
+112: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976308; Sample name: 50S82Mo; SRA: SRS9372898
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 35"
+Accession: SAMN19976308	ID: 19976308
+
+113: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976307; Sample name: 50S81Mo; SRA: SRS9372899
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 34"
+Accession: SAMN19976307	ID: 19976307
+
+114: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976306; Sample name: 50S173Mo; SRA: SRS9372897
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 33"
+Accession: SAMN19976306	ID: 19976306
+
+115: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976305; Sample name: 50S172Mo; SRA: SRS9372896
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 32"
+Accession: SAMN19976305	ID: 19976305
+
+116: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976304; Sample name: 50S171Mo; SRA: SRS9372895
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 31"
+Accession: SAMN19976304	ID: 19976304
+
+117: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976303; Sample name: 50R83Mo; SRA: SRS9372893
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 30"
+Accession: SAMN19976303	ID: 19976303
+
+118: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976302; Sample name: 50R82Mo; SRA: SRS9372892
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 29"
+Accession: SAMN19976302	ID: 19976302
+
+119: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976301; Sample name: 50R81Mo; SRA: SRS9372891
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 28"
+Accession: SAMN19976301	ID: 19976301
+
+120: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976300; Sample name: 50R173Mo; SRA: SRS9372890
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 27"
+Accession: SAMN19976300	ID: 19976300
+
+
+121: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976299; Sample name: 50R172Mo; SRA: SRS9372889
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 26"
+Accession: SAMN19976299	ID: 19976299
+
+122: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976298; Sample name: 50R171Mo; SRA: SRS9372888
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-02"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 25"
+Accession: SAMN19976298	ID: 19976298
+
+123: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976297; Sample name: 33S83Mo; SRA: SRS9372887
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 24"
+Accession: SAMN19976297	ID: 19976297
+
+124: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976296; Sample name: 33S82Mo; SRA: SRS9372886
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 23"
+Accession: SAMN19976296	ID: 19976296
+
+125: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976295; Sample name: 33S81Mo; SRA: SRS9372885
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 22"
+Accession: SAMN19976295	ID: 19976295
+
+126: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976294; Sample name: 33S173Mo; SRA: SRS9372884
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 21"
+Accession: SAMN19976294	ID: 19976294
+
+127: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976293; Sample name: 33S172Mo; SRA: SRS9372882
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 20"
+Accession: SAMN19976293	ID: 19976293
+
+128: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976292; Sample name: 33S171Mo; SRA: SRS9372880
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 19"
+Accession: SAMN19976292	ID: 19976292
+
+129: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976291; Sample name: 33R83Mo; SRA: SRS9372881
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 18"
+Accession: SAMN19976291	ID: 19976291
+
+130: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976290; Sample name: 33R82Mo; SRA: SRS9372879
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 17"
+Accession: SAMN19976290	ID: 19976290
+
+131: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976289; Sample name: 33R81Mo; SRA: SRS9372877
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 16"
+Accession: SAMN19976289	ID: 19976289
+
+132: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976288; Sample name: 33R173Mo; SRA: SRS9372871
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 15"
+Accession: SAMN19976288	ID: 19976288
+
+133: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976287; Sample name: 33R172Mo; SRA: SRS9372857
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 14"
+Accession: SAMN19976287	ID: 19976287
+
+134: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976286; Sample name: 33R171Mo; SRA: SRS9372846
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2016-01"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 13"
+Accession: SAMN19976286	ID: 19976286
+
+135: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976285; Sample name: 19S83Mo; SRA: SRS9372980
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 12"
+Accession: SAMN19976285	ID: 19976285
+
+136: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976284; Sample name: 19S82Mo; SRA: SRS9372868
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 11"
+Accession: SAMN19976284	ID: 19976284
+
+137: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976283; Sample name: 19S81Mo; SRA: SRS9372960
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 10"
+Accession: SAMN19976283	ID: 19976283
+
+138: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976282; Sample name: 19S173Mo; SRA: SRS9372949
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 9"
+Accession: SAMN19976282	ID: 19976282
+
+139: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976281; Sample name: 19S172Mo; SRA: SRS9372936
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 8"
+Accession: SAMN19976281	ID: 19976281
+
+140: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976280; Sample name: 19S171Mo; SRA: SRS9372927
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 7"
+Accession: SAMN19976280	ID: 19976280
+
+141: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976279; Sample name: 19R83Mo; SRA: SRS9372917
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 6"
+Accession: SAMN19976279	ID: 19976279
+
+142: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976278; Sample name: 19R82Mo; SRA: SRS9372905
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 5"
+Accession: SAMN19976278	ID: 19976278
+
+143: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976277; Sample name: 19R81Mo; SRA: SRS9372894
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 4"
+Accession: SAMN19976277	ID: 19976277
+
+144: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976276; Sample name: 19R173Mo; SRA: SRS9372883
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 3"
+Accession: SAMN19976276	ID: 19976276
+
+145: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976275; Sample name: 19R172Mo; SRA: SRS9372867
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 2"
+Accession: SAMN19976275	ID: 19976275
+
+146: Metagenome or environmental sample from insect gut metagenome
+Identifiers: BioSample: SAMN19976274; Sample name: 19R171Mo; SRA: SRS9372866
+Organism: insect gut metagenome
+Attributes:
+    /host="Apis mellifera"
+    /collection date="2015-12"
+    /geographic location="USA: Tucson"
+    /latitude and longitude="31.46 N 110.51 W"
+    /replicate="biological replicate 1"
+Accession: SAMN19976274	ID: 19976274
+
+

@@ -1,0 +1,751 @@
+1: D10 (SAMC5196462)
+Identifiers: BioSample: SAMD01679006; SRA: DRS543945
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196462_D10"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196462"
+Accession: SAMD01679006	ID: 53232185
+
+2: D9 (SAMC5196461)
+Identifiers: BioSample: SAMD01679005; SRA: DRS543944
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196461_D9"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196461"
+Accession: SAMD01679005	ID: 53232184
+
+3: D8 (SAMC5196460)
+Identifiers: BioSample: SAMD01679004; SRA: DRS543943
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196460_D8"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196460"
+Accession: SAMD01679004	ID: 53232183
+
+4: D7 (SAMC5196459)
+Identifiers: BioSample: SAMD01679003; SRA: DRS543942
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196459_D7"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196459"
+Accession: SAMD01679003	ID: 53232182
+
+5: D6 (SAMC5196458)
+Identifiers: BioSample: SAMD01679002; SRA: DRS543941
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196458_D6"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196458"
+Accession: SAMD01679002	ID: 53232181
+
+6: D5 (SAMC5196457)
+Identifiers: BioSample: SAMD01679001; SRA: DRS543940
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196457_D5"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196457"
+Accession: SAMD01679001	ID: 53232180
+
+7: D4 (SAMC5196456)
+Identifiers: BioSample: SAMD01679000; SRA: DRS543939
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196456_D4"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196456"
+Accession: SAMD01679000	ID: 53232179
+
+8: D3 (SAMC5196455)
+Identifiers: BioSample: SAMD01678999; SRA: DRS543938
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196455_D3"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196455"
+Accession: SAMD01678999	ID: 53232178
+
+9: D2 (SAMC5196454)
+Identifiers: BioSample: SAMD01678998; SRA: DRS543937
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196454_D2"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196454"
+Accession: SAMD01678998	ID: 53232177
+
+10: D1 (SAMC5196453)
+Identifiers: BioSample: SAMD01678997; SRA: DRS543936
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196453_D1"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196453"
+Accession: SAMD01678997	ID: 53232176
+
+11: C10 (SAMC5196452)
+Identifiers: BioSample: SAMD01678996; SRA: DRS543935
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196452_C10"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196452"
+Accession: SAMD01678996	ID: 53232175
+
+12: C9 (SAMC5196451)
+Identifiers: BioSample: SAMD01678995; SRA: DRS543934
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196451_C9"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196451"
+Accession: SAMD01678995	ID: 53232174
+
+13: C8 (SAMC5196450)
+Identifiers: BioSample: SAMD01678994; SRA: DRS543933
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196450_C8"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196450"
+Accession: SAMD01678994	ID: 53232173
+
+14: C7 (SAMC5196449)
+Identifiers: BioSample: SAMD01678993; SRA: DRS543932
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196449_C7"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196449"
+Accession: SAMD01678993	ID: 53232172
+
+15: C6 (SAMC5196448)
+Identifiers: BioSample: SAMD01678992; SRA: DRS543931
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196448_C6"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196448"
+Accession: SAMD01678992	ID: 53232171
+
+16: C5 (SAMC5196447)
+Identifiers: BioSample: SAMD01678991; SRA: DRS543930
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196447_C5"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196447"
+Accession: SAMD01678991	ID: 53232170
+
+17: C4 (SAMC5196446)
+Identifiers: BioSample: SAMD01678990; SRA: DRS543929
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196446_C4"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196446"
+Accession: SAMD01678990	ID: 53232169
+
+18: C3 (SAMC5196445)
+Identifiers: BioSample: SAMD01678989; SRA: DRS543928
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196445_C3"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196445"
+Accession: SAMD01678989	ID: 53232168
+
+19: C2 (SAMC5196444)
+Identifiers: BioSample: SAMD01678988; SRA: DRS543927
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196444_C2"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196444"
+Accession: SAMD01678988	ID: 53232167
+
+20: C1 (SAMC5196443)
+Identifiers: BioSample: SAMD01678987; SRA: DRS543926
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196443_C1"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196443"
+Accession: SAMD01678987	ID: 53232166
+
+21: B10 (SAMC5196442)
+Identifiers: BioSample: SAMD01678986; SRA: DRS543925
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196442_B10"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196442"
+Accession: SAMD01678986	ID: 53232165
+
+22: B9 (SAMC5196441)
+Identifiers: BioSample: SAMD01678985; SRA: DRS543924
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196441_B9"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196441"
+Accession: SAMD01678985	ID: 53232164
+
+23: B8 (SAMC5196440)
+Identifiers: BioSample: SAMD01678984; SRA: DRS543923
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196440_B8"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196440"
+Accession: SAMD01678984	ID: 53232163
+
+24: B7 (SAMC5196439)
+Identifiers: BioSample: SAMD01678983; SRA: DRS543922
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196439_B7"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196439"
+Accession: SAMD01678983	ID: 53232162
+
+25: B6 (SAMC5196438)
+Identifiers: BioSample: SAMD01678982; SRA: DRS543921
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196438_B6"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196438"
+Accession: SAMD01678982	ID: 53232161
+
+26: B5 (SAMC5196437)
+Identifiers: BioSample: SAMD01678981; SRA: DRS543920
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196437_B5"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196437"
+Accession: SAMD01678981	ID: 53232160
+
+27: B4 (SAMC5196436)
+Identifiers: BioSample: SAMD01678980; SRA: DRS543919
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196436_B4"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196436"
+Accession: SAMD01678980	ID: 53232159
+
+28: B3 (SAMC5196435)
+Identifiers: BioSample: SAMD01678979; SRA: DRS543918
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196435_B3"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196435"
+Accession: SAMD01678979	ID: 53232158
+
+29: B2 (SAMC5196434)
+Identifiers: BioSample: SAMD01678978; SRA: DRS543917
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196434_B2"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196434"
+Accession: SAMD01678978	ID: 53232157
+
+30: B1 (SAMC5196433)
+Identifiers: BioSample: SAMD01678977; SRA: DRS543916
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196433_B1"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196433"
+Accession: SAMD01678977	ID: 53232156
+
+31: A10 (SAMC5196432)
+Identifiers: BioSample: SAMD01678976; SRA: DRS543915
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196432_A10"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196432"
+Accession: SAMD01678976	ID: 53232155
+
+32: A9 (SAMC5196431)
+Identifiers: BioSample: SAMD01678975; SRA: DRS543914
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196431_A9"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196431"
+Accession: SAMD01678975	ID: 53232154
+
+33: A8 (SAMC5196430)
+Identifiers: BioSample: SAMD01678974; SRA: DRS543913
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196430_A8"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196430"
+Accession: SAMD01678974	ID: 53232153
+
+34: A7 (SAMC5196429)
+Identifiers: BioSample: SAMD01678973; SRA: DRS543912
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196429_A7"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196429"
+Accession: SAMD01678973	ID: 53232152
+
+35: A6 (SAMC5196428)
+Identifiers: BioSample: SAMD01678972; SRA: DRS543911
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196428_A6"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196428"
+Accession: SAMD01678972	ID: 53232151
+
+36: A5 (SAMC5196427)
+Identifiers: BioSample: SAMD01678971; SRA: DRS543910
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196427_A5"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196427"
+Accession: SAMD01678971	ID: 53232150
+
+37: A4 (SAMC5196426)
+Identifiers: BioSample: SAMD01678970; SRA: DRS543909
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196426_A4"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196426"
+Accession: SAMD01678970	ID: 53232149
+
+38: A3 (SAMC5196425)
+Identifiers: BioSample: SAMD01678969; SRA: DRS543908
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196425_A3"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196425"
+Accession: SAMD01678969	ID: 53232148
+
+39: A2 (SAMC5196424)
+Identifiers: BioSample: SAMD01678968; SRA: DRS543907
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196424_A2"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196424"
+Accession: SAMD01678968	ID: 53232147
+
+40: A1 (SAMC5196423)
+Identifiers: BioSample: SAMD01678967; SRA: DRS543906
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196423_A1"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196423"
+Accession: SAMD01678967	ID: 53232146
+
+41: CK10 (SAMC5196422)
+Identifiers: BioSample: SAMD01678966; SRA: DRS543905
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196422_CK10"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196422"
+Accession: SAMD01678966	ID: 53232145
+
+42: CK9 (SAMC5196421)
+Identifiers: BioSample: SAMD01678965; SRA: DRS543904
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196421_CK9"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196421"
+Accession: SAMD01678965	ID: 53232144
+
+43: CK8 (SAMC5196420)
+Identifiers: BioSample: SAMD01678964; SRA: DRS543903
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196420_CK8"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196420"
+Accession: SAMD01678964	ID: 53232143
+
+44: CK7 (SAMC5196419)
+Identifiers: BioSample: SAMD01678963; SRA: DRS543902
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196419_CK7"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196419"
+Accession: SAMD01678963	ID: 53232142
+
+45: CK6 (SAMC5196418)
+Identifiers: BioSample: SAMD01678962; SRA: DRS543901
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196418_CK6"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196418"
+Accession: SAMD01678962	ID: 53232141
+
+46: CK5 (SAMC5196417)
+Identifiers: BioSample: SAMD01678961; SRA: DRS543900
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196417_CK5"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196417"
+Accession: SAMD01678961	ID: 53232140
+
+47: CK4 (SAMC5196416)
+Identifiers: BioSample: SAMD01678960; SRA: DRS543899
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196416_CK4"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196416"
+Accession: SAMD01678960	ID: 53232139
+
+48: CK3 (SAMC5196415)
+Identifiers: BioSample: SAMD01678959; SRA: DRS543898
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196415_CK3"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196415"
+Accession: SAMD01678959	ID: 53232138
+
+49: CK2 (SAMC5196414)
+Identifiers: BioSample: SAMD01678958; SRA: DRS543897
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196414_CK2"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196414"
+Accession: SAMD01678958	ID: 53232137
+
+50: CK1 (SAMC5196413)
+Identifiers: BioSample: SAMD01678957; SRA: DRS543896
+Organism: bee metagenome
+Attributes:
+    /sample name="SAMC5196413_CK1"
+    /collection date="2022-06-01"
+    /geographic location="missing: data agreement established pre-2023"
+    /host="Apis mellifera"
+    /isolation source="missing"
+    /latitude and longitude="missing"
+    /ngdc_project_id="PRJCA040882"
+    /ngdc_release_date="2025-05-30"
+    /ngdc_sample_id="SAMC5196413"
+Accession: SAMD01678957	ID: 53232136
+
+

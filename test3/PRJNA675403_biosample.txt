@@ -1,0 +1,1250 @@
+1: P7_03
+Identifiers: BioSample: SAMN16707083; Sample name: P7_03; SRA: SRS7674327
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P7_03"
+Accession: SAMN16707083	ID: 16707083
+
+2: P6_02
+Identifiers: BioSample: SAMN16707082; Sample name: P6_02; SRA: SRS7674325
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P6_02"
+Accession: SAMN16707082	ID: 16707082
+
+3: P4_02
+Identifiers: BioSample: SAMN16707081; Sample name: P4_02; SRA: SRS7674326
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P4_02"
+Accession: SAMN16707081	ID: 16707081
+
+4: P3_02
+Identifiers: BioSample: SAMN16707080; Sample name: P3_02; SRA: SRS7674323
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P3_02"
+Accession: SAMN16707080	ID: 16707080
+
+5: P11_03
+Identifiers: BioSample: SAMN16707079; Sample name: P11_03; SRA: SRS7674324
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P11_03"
+Accession: SAMN16707079	ID: 16707079
+
+6: P11_02
+Identifiers: BioSample: SAMN16707078; Sample name: P11_02; SRA: SRS7674322
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P11_02"
+Accession: SAMN16707078	ID: 16707078
+
+7: P10_03
+Identifiers: BioSample: SAMN16707077; Sample name: P10_03; SRA: SRS7674320
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P10_03"
+Accession: SAMN16707077	ID: 16707077
+
+8: P1_03
+Identifiers: BioSample: SAMN16707076; Sample name: P1_03; SRA: SRS7674319
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P1_03"
+Accession: SAMN16707076	ID: 16707076
+
+9: P1_02
+Identifiers: BioSample: SAMN16707075; Sample name: P1_02; SRA: SRS7674318
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.027162 N 118.723867 W"
+    /bee_bed_of_origin="D"
+    /sampleID="P1_02"
+Accession: SAMN16707075	ID: 16707075
+
+10: M9
+Identifiers: BioSample: SAMN16707074; Sample name: M9; SRA: SRS7674317
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M9"
+Accession: SAMN16707074	ID: 16707074
+
+11: M8
+Identifiers: BioSample: SAMN16707073; Sample name: M8; SRA: SRS7674316
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M8"
+Accession: SAMN16707073	ID: 16707073
+
+12: M7
+Identifiers: BioSample: SAMN16707072; Sample name: M7; SRA: SRS7674315
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M7"
+Accession: SAMN16707072	ID: 16707072
+
+13: M68
+Identifiers: BioSample: SAMN16707071; Sample name: M68; SRA: SRS7674314
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M68"
+Accession: SAMN16707071	ID: 16707071
+
+14: M59
+Identifiers: BioSample: SAMN16707070; Sample name: M59; SRA: SRS7674313
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M59"
+Accession: SAMN16707070	ID: 16707070
+
+15: M46
+Identifiers: BioSample: SAMN16707069; Sample name: M46; SRA: SRS7674311
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M46"
+Accession: SAMN16707069	ID: 16707069
+
+16: M45
+Identifiers: BioSample: SAMN16707068; Sample name: M45; SRA: SRS7674312
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M45"
+Accession: SAMN16707068	ID: 16707068
+
+17: M44
+Identifiers: BioSample: SAMN16707067; Sample name: M44; SRA: SRS7674309
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M44"
+Accession: SAMN16707067	ID: 16707067
+
+18: M43
+Identifiers: BioSample: SAMN16707066; Sample name: M43; SRA: SRS7674308
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M43"
+Accession: SAMN16707066	ID: 16707066
+
+19: M42
+Identifiers: BioSample: SAMN16707065; Sample name: M42; SRA: SRS7674307
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M42"
+Accession: SAMN16707065	ID: 16707065
+
+20: M41
+Identifiers: BioSample: SAMN16707064; Sample name: M41; SRA: SRS7674306
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M41"
+Accession: SAMN16707064	ID: 16707064
+
+21: M40
+Identifiers: BioSample: SAMN16707063; Sample name: M40; SRA: SRS7674305
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M40"
+Accession: SAMN16707063	ID: 16707063
+
+22: M4
+Identifiers: BioSample: SAMN16707062; Sample name: M4; SRA: SRS7674302
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M4"
+Accession: SAMN16707062	ID: 16707062
+
+23: M39
+Identifiers: BioSample: SAMN16707061; Sample name: M39; SRA: SRS7674304
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M39"
+Accession: SAMN16707061	ID: 16707061
+
+24: M38
+Identifiers: BioSample: SAMN16707060; Sample name: M38; SRA: SRS7674303
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M38"
+Accession: SAMN16707060	ID: 16707060
+
+25: M36
+Identifiers: BioSample: SAMN16707059; Sample name: M36; SRA: SRS7674301
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M36"
+Accession: SAMN16707059	ID: 16707059
+
+26: M35
+Identifiers: BioSample: SAMN16707058; Sample name: M35; SRA: SRS7674300
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M35"
+Accession: SAMN16707058	ID: 16707058
+
+27: M34
+Identifiers: BioSample: SAMN16707057; Sample name: M34; SRA: SRS7674298
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M34"
+Accession: SAMN16707057	ID: 16707057
+
+28: M33
+Identifiers: BioSample: SAMN16707056; Sample name: M33; SRA: SRS7674297
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M33"
+Accession: SAMN16707056	ID: 16707056
+
+29: M32
+Identifiers: BioSample: SAMN16707055; Sample name: M32; SRA: SRS7674296
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M32"
+Accession: SAMN16707055	ID: 16707055
+
+30: M31
+Identifiers: BioSample: SAMN16707054; Sample name: M31; SRA: SRS7674295
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M31"
+Accession: SAMN16707054	ID: 16707054
+
+31: M30
+Identifiers: BioSample: SAMN16707053; Sample name: M30; SRA: SRS7674294
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M30"
+Accession: SAMN16707053	ID: 16707053
+
+32: M29
+Identifiers: BioSample: SAMN16707052; Sample name: M29; SRA: SRS7674293
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M29"
+Accession: SAMN16707052	ID: 16707052
+
+33: M27
+Identifiers: BioSample: SAMN16707051; Sample name: M27; SRA: SRS7674292
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M27"
+Accession: SAMN16707051	ID: 16707051
+
+34: M26
+Identifiers: BioSample: SAMN16707050; Sample name: M26; SRA: SRS7674291
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M26"
+Accession: SAMN16707050	ID: 16707050
+
+35: M25
+Identifiers: BioSample: SAMN16707049; Sample name: M25; SRA: SRS7674290
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M25"
+Accession: SAMN16707049	ID: 16707049
+
+36: M24
+Identifiers: BioSample: SAMN16707048; Sample name: M24; SRA: SRS7674288
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M24"
+Accession: SAMN16707048	ID: 16707048
+
+37: M23
+Identifiers: BioSample: SAMN16707047; Sample name: M23; SRA: SRS7674286
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M23"
+Accession: SAMN16707047	ID: 16707047
+
+38: M22
+Identifiers: BioSample: SAMN16707046; Sample name: M22; SRA: SRS7674287
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M22"
+Accession: SAMN16707046	ID: 16707046
+
+39: M21
+Identifiers: BioSample: SAMN16707045; Sample name: M21; SRA: SRS7674285
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M21"
+Accession: SAMN16707045	ID: 16707045
+
+40: M2
+Identifiers: BioSample: SAMN16707044; Sample name: M2; SRA: SRS7674284
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M2"
+Accession: SAMN16707044	ID: 16707044
+
+41: M19
+Identifiers: BioSample: SAMN16707043; Sample name: M19; SRA: SRS7674283
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M19"
+Accession: SAMN16707043	ID: 16707043
+
+42: M18
+Identifiers: BioSample: SAMN16707042; Sample name: M18; SRA: SRS7674282
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M18"
+Accession: SAMN16707042	ID: 16707042
+
+43: M17
+Identifiers: BioSample: SAMN16707041; Sample name: M17; SRA: SRS7674281
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M17"
+Accession: SAMN16707041	ID: 16707041
+
+44: M16
+Identifiers: BioSample: SAMN16707040; Sample name: M16; SRA: SRS7674280
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.032304 N 118.709809 W"
+    /bee_bed_of_origin="B"
+    /sampleID="M16"
+Accession: SAMN16707040	ID: 16707040
+
+45: M15
+Identifiers: BioSample: SAMN16707039; Sample name: M15; SRA: SRS7674278
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M15"
+Accession: SAMN16707039	ID: 16707039
+
+46: M14
+Identifiers: BioSample: SAMN16707038; Sample name: M14; SRA: SRS7674279
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="lab-reared female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M14"
+Accession: SAMN16707038	ID: 16707038
+
+47: M13
+Identifiers: BioSample: SAMN16707037; Sample name: M13; SRA: SRS7674276
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M13"
+Accession: SAMN16707037	ID: 16707037
+
+48: M12
+Identifiers: BioSample: SAMN16707036; Sample name: M12; SRA: SRS7674275
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="nesting female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M12"
+Accession: SAMN16707036	ID: 16707036
+
+49: M11
+Identifiers: BioSample: SAMN16707035; Sample name: M11; SRA: SRS7674274
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="M11"
+Accession: SAMN16707035	ID: 16707035
+
+50: M10
+Identifiers: BioSample: SAMN16707034; Sample name: M10; SRA: SRS7674273
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="newly emerged female"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="M10"
+Accession: SAMN16707034	ID: 16707034
+
+51: J1129
+Identifiers: BioSample: SAMN16707033; Sample name: J1129; SRA: SRS7674272
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J1129"
+Accession: SAMN16707033	ID: 16707033
+
+52: J1111
+Identifiers: BioSample: SAMN16707032; Sample name: J1111; SRA: SRS7674271
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J1111"
+Accession: SAMN16707032	ID: 16707032
+
+53: J0410
+Identifiers: BioSample: SAMN16707031; Sample name: J0410; SRA: SRS7674270
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J0410"
+Accession: SAMN16707031	ID: 16707031
+
+54: J0406
+Identifiers: BioSample: SAMN16707030; Sample name: J0406; SRA: SRS7674269
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J0406"
+Accession: SAMN16707030	ID: 16707030
+
+55: J0328
+Identifiers: BioSample: SAMN16707029; Sample name: J0328; SRA: SRS7674268
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J0328"
+Accession: SAMN16707029	ID: 16707029
+
+56: J0320
+Identifiers: BioSample: SAMN16707028; Sample name: J0320; SRA: SRS7674267
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J0320"
+Accession: SAMN16707028	ID: 16707028
+
+57: J0317
+Identifiers: BioSample: SAMN16707027; Sample name: J0317; SRA: SRS7674265
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J0317"
+Accession: SAMN16707027	ID: 16707027
+
+58: J0315
+Identifiers: BioSample: SAMN16707026; Sample name: J0315; SRA: SRS7674264
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J0315"
+Accession: SAMN16707026	ID: 16707026
+
+59: J0201
+Identifiers: BioSample: SAMN16707025; Sample name: J0201; SRA: SRS7674263
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J0201"
+Accession: SAMN16707025	ID: 16707025
+
+60: J0131
+Identifiers: BioSample: SAMN16707024; Sample name: J0131; SRA: SRS7674262
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="J0131"
+Accession: SAMN16707024	ID: 16707024
+
+
+61: H542_01
+Identifiers: BioSample: SAMN16707023; Sample name: H542_01; SRA: SRS7674261
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="small larva"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H542_01"
+Accession: SAMN16707023	ID: 16707023
+
+62: H525_01
+Identifiers: BioSample: SAMN16707022; Sample name: H525_01; SRA: SRS7674260
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="small larva"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H525_01"
+Accession: SAMN16707022	ID: 16707022
+
+63: H520_01
+Identifiers: BioSample: SAMN16707021; Sample name: H520_01; SRA: SRS7674259
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="small larva"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H520_01"
+Accession: SAMN16707021	ID: 16707021
+
+64: H512_03
+Identifiers: BioSample: SAMN16707020; Sample name: H512_03; SRA: SRS7674258
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H512_03"
+Accession: SAMN16707020	ID: 16707020
+
+65: H511_01
+Identifiers: BioSample: SAMN16707019; Sample name: H511_01; SRA: SRS7674257
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="small larva"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H511_01"
+Accession: SAMN16707019	ID: 16707019
+
+66: H510_02
+Identifiers: BioSample: SAMN16707018; Sample name: H510_02; SRA: SRS7674256
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H510_02"
+Accession: SAMN16707018	ID: 16707018
+
+67: H508_03
+Identifiers: BioSample: SAMN16707017; Sample name: H508_03; SRA: SRS7674254
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H508_03"
+Accession: SAMN16707017	ID: 16707017
+
+68: H508_02
+Identifiers: BioSample: SAMN16707016; Sample name: H508_02; SRA: SRS7674253
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H508_02"
+Accession: SAMN16707016	ID: 16707016
+
+69: H507_02
+Identifiers: BioSample: SAMN16707015; Sample name: H507_02; SRA: SRS7674252
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H507_02"
+Accession: SAMN16707015	ID: 16707015
+
+70: H506_03
+Identifiers: BioSample: SAMN16707014; Sample name: H506_03; SRA: SRS7674251
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H506_03"
+Accession: SAMN16707014	ID: 16707014
+
+71: H504_02
+Identifiers: BioSample: SAMN16707013; Sample name: H504_02; SRA: SRS7674250
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H504_02"
+Accession: SAMN16707013	ID: 16707013
+
+72: H502_03
+Identifiers: BioSample: SAMN16707012; Sample name: H502_03; SRA: SRS7674249
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H502_03"
+Accession: SAMN16707012	ID: 16707012
+
+73: H502_02
+Identifiers: BioSample: SAMN16707011; Sample name: H502_02; SRA: SRS7674248
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017658 N 118.656813 W"
+    /bee_bed_of_origin="C"
+    /sampleID="H502_02"
+Accession: SAMN16707011	ID: 16707011
+
+74: E1118
+Identifiers: BioSample: SAMN16707010; Sample name: E1118; SRA: SRS7674247
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="E1118"
+Accession: SAMN16707010	ID: 16707010
+
+75: E1103
+Identifiers: BioSample: SAMN16707009; Sample name: E1103; SRA: SRS7674246
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="negative control"
+    /collection date="2016"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.742741 N 111.811133 W"
+    /bee_bed_of_origin="NA"
+    /sampleID="E1103"
+Accession: SAMN16707009	ID: 16707009
+
+76: A536_01
+Identifiers: BioSample: SAMN16707008; Sample name: A536_01; SRA: SRS7674245
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="small larva"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A536_01"
+Accession: SAMN16707008	ID: 16707008
+
+77: A532_02
+Identifiers: BioSample: SAMN16707007; Sample name: A532_02; SRA: SRS7674243
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A532_02"
+Accession: SAMN16707007	ID: 16707007
+
+78: A530_01
+Identifiers: BioSample: SAMN16707006; Sample name: A530_01; SRA: SRS7674242
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="small larva"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A530_01"
+Accession: SAMN16707006	ID: 16707006
+
+79: A529_02
+Identifiers: BioSample: SAMN16707005; Sample name: A529_02; SRA: SRS7674241
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A529_02"
+Accession: SAMN16707005	ID: 16707005
+
+80: A528_02
+Identifiers: BioSample: SAMN16707004; Sample name: A528_02; SRA: SRS7674240
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A528_02"
+Accession: SAMN16707004	ID: 16707004
+
+81: A528_01
+Identifiers: BioSample: SAMN16707003; Sample name: A528_01; SRA: SRS7674239
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="small larva"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A528_01"
+Accession: SAMN16707003	ID: 16707003
+
+82: A527_02
+Identifiers: BioSample: SAMN16707002; Sample name: A527_02; SRA: SRS7674238
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A527_02"
+Accession: SAMN16707002	ID: 16707002
+
+83: A523_01
+Identifiers: BioSample: SAMN16707001; Sample name: A523_01; SRA: SRS7674237
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pre-pupa"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A523_01"
+Accession: SAMN16707001	ID: 16707001
+
+84: A522_01
+Identifiers: BioSample: SAMN16707000; Sample name: A522_01; SRA: SRS7674236
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pre-pupa"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A522_01"
+Accession: SAMN16707000	ID: 16707000
+
+85: A518_01
+Identifiers: BioSample: SAMN16706999; Sample name: A518_01; SRA: SRS7674235
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pre-pupa"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A518_01"
+Accession: SAMN16706999	ID: 16706999
+
+86: A517_02
+Identifiers: BioSample: SAMN16706998; Sample name: A517_02; SRA: SRS7674234
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pollen ball"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A517_02"
+Accession: SAMN16706998	ID: 16706998
+
+87: A516_01
+Identifiers: BioSample: SAMN16706997; Sample name: A516_01; SRA: SRS7674321
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pre-pupa"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A516_01"
+Accession: SAMN16706997	ID: 16706997
+
+88: A515_02
+Identifiers: BioSample: SAMN16706996; Sample name: A515_02; SRA: SRS7674310
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A515_02"
+Accession: SAMN16706996	ID: 16706996
+
+89: A514_02
+Identifiers: BioSample: SAMN16706995; Sample name: A514_02; SRA: SRS7674299
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A514_02"
+Accession: SAMN16706995	ID: 16706995
+
+90: A513_01
+Identifiers: BioSample: SAMN16706994; Sample name: A513_01; SRA: SRS7674289
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="small larva"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A513_01"
+Accession: SAMN16706994	ID: 16706994
+
+91: A512_01
+Identifiers: BioSample: SAMN16706993; Sample name: A512_01; SRA: SRS7674277
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pre-pupa"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A512_01"
+Accession: SAMN16706993	ID: 16706993
+
+92: A510_02
+Identifiers: BioSample: SAMN16706992; Sample name: A510_02; SRA: SRS7674266
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A510_02"
+Accession: SAMN16706992	ID: 16706992
+
+93: A510_01
+Identifiers: BioSample: SAMN16706991; Sample name: A510_01; SRA: SRS7674255
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pre-pupa"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A510_01"
+Accession: SAMN16706991	ID: 16706991
+
+94: A509_01
+Identifiers: BioSample: SAMN16706990; Sample name: A509_01; SRA: SRS7674244
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="pre-pupa"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A509_01"
+Accession: SAMN16706990	ID: 16706990
+
+95: A507_02
+Identifiers: BioSample: SAMN16706989; Sample name: A507_02; SRA: SRS7674233
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A507_02"
+Accession: SAMN16706989	ID: 16706989
+
+96: A502_02
+Identifiers: BioSample: SAMN16706988; Sample name: A502_02; SRA: SRS7674232
+Organism: insect metagenome
+Attributes:
+    /host="Nomia melanderi"
+    /isolation source="cell wall"
+    /collection date="2016"
+    /geographic location="USA: Touchet, Washington"
+    /latitude and longitude="46.017620 N 118.697251 W"
+    /bee_bed_of_origin="A"
+    /sampleID="A502_02"
+Accession: SAMN16706988	ID: 16706988
+
+

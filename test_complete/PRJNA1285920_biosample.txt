@@ -1,0 +1,561 @@
+1: Larva-678
+Identifiers: BioSample: SAMN49783883; Sample name: Larva_678; SRA: SRS25657718
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515906 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="678_R1_001.fastq"
+    /filename2="678_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783883	ID: 49783883
+
+2: Larva-677
+Identifiers: BioSample: SAMN49783882; Sample name: Larva_677; SRA: SRS25657717
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515905 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="677_R1_001.fastq"
+    /filename2="677_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783882	ID: 49783882
+
+3: Larva-676
+Identifiers: BioSample: SAMN49783881; Sample name: Larva_676; SRA: SRS25657716
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515904 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="676_R1_001.fastq"
+    /filename2="676_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783881	ID: 49783881
+
+4: Larva-675
+Identifiers: BioSample: SAMN49783880; Sample name: Larva_675; SRA: SRS25657715
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515903 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="675_R1_001.fastq"
+    /filename2="675_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783880	ID: 49783880
+
+5: Larva-674
+Identifiers: BioSample: SAMN49783879; Sample name: Larva_674; SRA: SRS25657714
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515902 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="674_R1_001.fastq"
+    /filename2="674_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783879	ID: 49783879
+
+6: Larva-673
+Identifiers: BioSample: SAMN49783878; Sample name: Larva_673; SRA: SRS25657713
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515901 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="673_R1_001.fastq"
+    /filename2="673_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783878	ID: 49783878
+
+7: Larva-672
+Identifiers: BioSample: SAMN49783877; Sample name: Larva_672; SRA: SRS25657711
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515900 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="672_R1_001.fastq"
+    /filename2="672_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783877	ID: 49783877
+
+8: Larva-671
+Identifiers: BioSample: SAMN49783876; Sample name: Larva_671; SRA: SRS25657710
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515899 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="671_R1_001.fastq"
+    /filename2="671_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783876	ID: 49783876
+
+9: Larva-670
+Identifiers: BioSample: SAMN49783875; Sample name: Larva_670; SRA: SRS25657712
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515898 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="670_R1_001.fastq"
+    /filename2="670_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783875	ID: 49783875
+
+10: Larva-669
+Identifiers: BioSample: SAMN49783874; Sample name: Larva_669; SRA: SRS25657707
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515897 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="669_R1_001.fastq"
+    /filename2="669_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783874	ID: 49783874
+
+11: Larva-552
+Identifiers: BioSample: SAMN49783873; Sample name: Larva_552; SRA: SRS25657726
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515896 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="552_R1_001.fastq"
+    /filename2="552_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783873	ID: 49783873
+
+12: Larva-551
+Identifiers: BioSample: SAMN49783872; Sample name: Larva_551; SRA: SRS25657725
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515895 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="551_R1_001.fastq"
+    /filename2="551_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783872	ID: 49783872
+
+13: Larva-550
+Identifiers: BioSample: SAMN49783871; Sample name: Larva_550; SRA: SRS25657724
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515894 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="550_R1_001.fastq"
+    /filename2="550_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783871	ID: 49783871
+
+14: Larva-549
+Identifiers: BioSample: SAMN49783870; Sample name: Larva_549; SRA: SRS25657721
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515893 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="549_R1_001.fastq"
+    /filename2="549_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783870	ID: 49783870
+
+15: Larva-548
+Identifiers: BioSample: SAMN49783869; Sample name: Larva_548; SRA: SRS25657722
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515892 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="548_R1_001.fastq"
+    /filename2="548_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783869	ID: 49783869
+
+16: Larva-547
+Identifiers: BioSample: SAMN49783868; Sample name: Larva_547; SRA: SRS25657723
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515891 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="547_R1_001.fastq"
+    /filename2="547_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783868	ID: 49783868
+
+17: Larva-546
+Identifiers: BioSample: SAMN49783867; Sample name: Larva_546; SRA: SRS25657720
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515890 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="546_R1_001.fastq"
+    /filename2="546_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783867	ID: 49783867
+
+18: Larva-545
+Identifiers: BioSample: SAMN49783866; Sample name: Larva_545; SRA: SRS25657719
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515889 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="545_R1_001.fastq"
+    /filename2="545_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783866	ID: 49783866
+
+19: Larva-543
+Identifiers: BioSample: SAMN49783865; Sample name: Larva_543; SRA: SRS25657708
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515888 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="543_R1_001.fastq"
+    /filename2="543_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783865	ID: 49783865
+
+20: Larva-542
+Identifiers: BioSample: SAMN49783864; Sample name: Larva_542; SRA: SRS25657709
+Organism: Apis mellifera
+Attributes:
+    /isolate="Apis mellifera whole larva"
+    /collection date="2021"
+    /broad-scale environmental context="Honey Bee Hive"
+    /local-scale environmental context="Brood Frame"
+    /environmental medium="Larva"
+    /geographic location="USA: Michigan"
+    /host="Apis mellifera worker"
+    /isolation and growth condition="whole larva"
+    /latitude and longitude="44.978718 N 84.515887 W"
+    /collection method ="DNA extraction"
+    /library_strategy="AMPLICON"
+    /library_source="METAGENOMIC"
+    /library_selection="RANDOM"
+    /library_layout="paired"
+    /platform="ILLUMINA"
+    /instrument_model="Illumina MiSeq"
+    /design_description="The V3–V4 region of the bacterial rRNA gene was amplified from total DNA using universal primer pair (5′-CCTACGGGDGGCWGCA-3′ and 5′-GGACTACHVGGGTMTCTAATC-3′) Sequencing was performed at the University of Arizona Genetics Core on a MiSeq following the manufacturer s guidelines."
+    /filetype="fastq"
+    /filename="542_R1_001.fastq"
+    /filename2="542_R2_001.fastq"
+Description:
+Keywords: GSC:MIxS;MIMARKS:6.0
+Accession: SAMN49783864	ID: 49783864
+
+

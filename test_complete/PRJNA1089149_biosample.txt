@@ -1,0 +1,1058 @@
+1: Osmia_lignaria_ITS_OCC163
+Identifiers: BioSample: SAMN40530045; Sample name: OCC163_F; SRA: SRS20808831
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="P41"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530045	ID: 40530045
+
+2: Osmia_lignaria_ITS_OCC160
+Identifiers: BioSample: SAMN40530044; Sample name: OCC160_F; SRA: SRS20808830
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B82"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530044	ID: 40530044
+
+3: Osmia_lignaria_ITS_OCC158
+Identifiers: BioSample: SAMN40530043; Sample name: OCC158_F; SRA: SRS20808828
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 5.9"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530043	ID: 40530043
+
+4: Osmia_lignaria_ITS_OCC150
+Identifiers: BioSample: SAMN40530042; Sample name: OCC150_F; SRA: SRS20808829
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="P32"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530042	ID: 40530042
+
+5: Osmia_lignaria_ITS_OCC137
+Identifiers: BioSample: SAMN40530041; Sample name: OCC137_F; SRA: SRS20808827
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="P14"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530041	ID: 40530041
+
+6: Osmia_lignaria_ITS_OCC132
+Identifiers: BioSample: SAMN40530040; Sample name: OCC132_F; SRA: SRS20808826
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="P26"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530040	ID: 40530040
+
+7: Osmia_lignaria_ITS_OCC130
+Identifiers: BioSample: SAMN40530039; Sample name: OCC130_F; SRA: SRS20808825
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="P43"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530039	ID: 40530039
+
+8: Osmia_lignaria_ITS_OCC129
+Identifiers: BioSample: SAMN40530038; Sample name: OCC129_F; SRA: SRS20808823
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B278"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530038	ID: 40530038
+
+9: Osmia_lignaria_ITS_OCC126
+Identifiers: BioSample: SAMN40530037; Sample name: OCC126_F; SRA: SRS20808822
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B206"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530037	ID: 40530037
+
+10: Osmia_lignaria_ITS_OCC108
+Identifiers: BioSample: SAMN40530036; Sample name: OCC108_F; SRA: SRS20808821
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B74"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530036	ID: 40530036
+
+11: Osmia_lignaria_ITS_OCC102
+Identifiers: BioSample: SAMN40530035; Sample name: OCC102_F; SRA: SRS20808820
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 3.40"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530035	ID: 40530035
+
+12: Osmia_lignaria_ITS_OCC101
+Identifiers: BioSample: SAMN40530034; Sample name: OCC101_F; SRA: SRS20808819
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="P25"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530034	ID: 40530034
+
+13: Osmia_lignaria_ITS_OCC97
+Identifiers: BioSample: SAMN40530033; Sample name: OCC97_F; SRA: SRS20808817
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="natural pollen 1"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530033	ID: 40530033
+
+14: Osmia_lignaria_ITS_OCC95
+Identifiers: BioSample: SAMN40530032; Sample name: OCC95_F; SRA: SRS20808818
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="sterile DI water 3"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530032	ID: 40530032
+
+15: Osmia_lignaria_ITS_OCC86
+Identifiers: BioSample: SAMN40530031; Sample name: OCC86_F; SRA: SRS20808816
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank 5"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530031	ID: 40530031
+
+16: Osmia_lignaria_ITS_OCC81
+Identifiers: BioSample: SAMN40530030; Sample name: OCC81_F; SRA: SRS20808815
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B247"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530030	ID: 40530030
+
+17: Osmia_lignaria_ITS_OCC79
+Identifiers: BioSample: SAMN40530029; Sample name: OCC79_F; SRA: SRS20808813
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B154"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530029	ID: 40530029
+
+18: Osmia_lignaria_ITS_OCC78
+Identifiers: BioSample: SAMN40530028; Sample name: OCC78_F; SRA: SRS20808812
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="P44"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530028	ID: 40530028
+
+19: Osmia_lignaria_ITS_OCC77
+Identifiers: BioSample: SAMN40530027; Sample name: OCC77_F; SRA: SRS20808811
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="ringers 1.1"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530027	ID: 40530027
+
+20: Osmia_lignaria_ITS_OCC69
+Identifiers: BioSample: SAMN40530026; Sample name: OCC69_F; SRA: SRS20808810
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank 4"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530026	ID: 40530026
+
+21: Osmia_lignaria_ITS_OCC65
+Identifiers: BioSample: SAMN40530025; Sample name: OCC65_F; SRA: SRS20808809
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="P42"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530025	ID: 40530025
+
+22: Osmia_lignaria_ITS_OCC58
+Identifiers: BioSample: SAMN40530024; Sample name: OCC58_F; SRA: SRS20808808
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 1.3"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530024	ID: 40530024
+
+23: Osmia_lignaria_ITS_OCC55
+Identifiers: BioSample: SAMN40530023; Sample name: OCC55_F; SRA: SRS20808807
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B98"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530023	ID: 40530023
+
+24: Osmia_lignaria_ITS_OCC54
+Identifiers: BioSample: SAMN40530022; Sample name: OCC54_F; SRA: SRS20808806
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B142"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530022	ID: 40530022
+
+25: Osmia_lignaria_ITS_OCC51
+Identifiers: BioSample: SAMN40530021; Sample name: OCC51_F; SRA: SRS20808805
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank 3"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530021	ID: 40530021
+
+26: Osmia_lignaria_ITS_OCC50
+Identifiers: BioSample: SAMN40530020; Sample name: OCC50_F; SRA: SRS20808804
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B156"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530020	ID: 40530020
+
+27: Osmia_lignaria_ITS_OCC45
+Identifiers: BioSample: SAMN40530019; Sample name: OCC45_F; SRA: SRS20808802
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B70"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530019	ID: 40530019
+
+28: Osmia_lignaria_ITS_OCC42
+Identifiers: BioSample: SAMN40530018; Sample name: OCC42_F; SRA: SRS20808801
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="sterile DI water 2"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530018	ID: 40530018
+
+29: Osmia_lignaria_ITS_OCC36
+Identifiers: BioSample: SAMN40530017; Sample name: OCC36_F; SRA: SRS20808800
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank 2"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530017	ID: 40530017
+
+30: Osmia_lignaria_ITS_OCC29
+Identifiers: BioSample: SAMN40530016; Sample name: OCC29_F; SRA: SRS20808799
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B168"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530016	ID: 40530016
+
+31: Osmia_lignaria_ITS_OCC23
+Identifiers: BioSample: SAMN40530015; Sample name: OCC23_F; SRA: SRS20808798
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B88"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530015	ID: 40530015
+
+32: Osmia_lignaria_ITS_OCC19
+Identifiers: BioSample: SAMN40530014; Sample name: OCC19_F; SRA: SRS20808797
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B50"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530014	ID: 40530014
+
+33: Osmia_lignaria_ITS_OCC9
+Identifiers: BioSample: SAMN40530013; Sample name: OCC9_F; SRA: SRS20808796
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="sterile DI water 1"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530013	ID: 40530013
+
+34: Osmia_lignaria_ITS_OCC1
+Identifiers: BioSample: SAMN40530012; Sample name: OCC1_F; SRA: SRS20808795
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B203"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530012	ID: 40530012
+
+35: Osmia_lignaria_ITS_OCC165
+Identifiers: BioSample: SAMN40530011; Sample name: OCC165_F; SRA: SRS20808794
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B3"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530011	ID: 40530011
+
+36: Osmia_lignaria_ITS_OCC164
+Identifiers: BioSample: SAMN40530010; Sample name: OCC164_F; SRA: SRS20808793
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank 10"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530010	ID: 40530010
+
+37: Osmia_lignaria_ITS_OCC162
+Identifiers: BioSample: SAMN40530009; Sample name: OCC162_F; SRA: SRS20808791
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B79"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530009	ID: 40530009
+
+38: Osmia_lignaria_ITS_OCC151
+Identifiers: BioSample: SAMN40530008; Sample name: OCC151_F; SRA: SRS20808790
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B174"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530008	ID: 40530008
+
+39: Osmia_lignaria_ITS_OCC149
+Identifiers: BioSample: SAMN40530007; Sample name: OCC149_F; SRA: SRS20808789
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 5.7"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530007	ID: 40530007
+
+40: Osmia_lignaria_ITS_OCC146
+Identifiers: BioSample: SAMN40530006; Sample name: OCC146_F; SRA: SRS20808788
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank 9"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530006	ID: 40530006
+
+41: Osmia_lignaria_ITS_OCC144
+Identifiers: BioSample: SAMN40530005; Sample name: OCC144_F; SRA: SRS20808786
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B53"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530005	ID: 40530005
+
+42: Osmia_lignaria_ITS_OCC143
+Identifiers: BioSample: SAMN40530004; Sample name: OCC143_F; SRA: SRS20808787
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B186"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530004	ID: 40530004
+
+43: Osmia_lignaria_ITS_OCC142
+Identifiers: BioSample: SAMN40530003; Sample name: OCC142_F; SRA: SRS20808785
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B66"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530003	ID: 40530003
+
+44: Osmia_lignaria_ITS_OCC140
+Identifiers: BioSample: SAMN40530002; Sample name: OCC140_F; SRA: SRS20808784
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank 8"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530002	ID: 40530002
+
+45: Osmia_lignaria_ITS_OCC138
+Identifiers: BioSample: SAMN40530001; Sample name: OCC138_F; SRA: SRS20808783
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B147"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530001	ID: 40530001
+
+46: Osmia_lignaria_ITS_OCC134
+Identifiers: BioSample: SAMN40530000; Sample name: OCC134_F; SRA: SRS20808782
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B71"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40530000	ID: 40530000
+
+47: Osmia_lignaria_ITS_OCC131
+Identifiers: BioSample: SAMN40529999; Sample name: OCC131_F; SRA: SRS20808781
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 4.12"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529999	ID: 40529999
+
+48: Osmia_lignaria_ITS_OCC127
+Identifiers: BioSample: SAMN40529998; Sample name: OCC127_F; SRA: SRS20808779
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="natural pollen 2"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529998	ID: 40529998
+
+49: Osmia_lignaria_ITS_OCC125
+Identifiers: BioSample: SAMN40529997; Sample name: OCC125_F; SRA: SRS20808778
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B176"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529997	ID: 40529997
+
+50: Osmia_lignaria_ITS_OCC120
+Identifiers: BioSample: SAMN40529996; Sample name: OCC120_F; SRA: SRS20808777
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 1.71"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529996	ID: 40529996
+
+51: Osmia_lignaria_ITS_OCC118
+Identifiers: BioSample: SAMN40529995; Sample name: OCC118_F; SRA: SRS20808776
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B146"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529995	ID: 40529995
+
+52: Osmia_lignaria_ITS_OCC114
+Identifiers: BioSample: SAMN40529994; Sample name: OCC114_F; SRA: SRS20808775
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B171"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529994	ID: 40529994
+
+53: Osmia_lignaria_ITS_OCC113
+Identifiers: BioSample: SAMN40529993; Sample name: OCC113_F; SRA: SRS20808774
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 6.6"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529993	ID: 40529993
+
+54: Osmia_lignaria_ITS_OCC111
+Identifiers: BioSample: SAMN40529992; Sample name: OCC111_F; SRA: SRS20808773
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 3.28"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529992	ID: 40529992
+
+55: Osmia_lignaria_ITS_OCC109
+Identifiers: BioSample: SAMN40529991; Sample name: OCC109_F; SRA: SRS20808772
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B144"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529991	ID: 40529991
+
+56: Osmia_lignaria_ITS_OCC105
+Identifiers: BioSample: SAMN40529990; Sample name: OCC105_F; SRA: SRS20808771
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B33"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529990	ID: 40529990
+
+57: Osmia_lignaria_ITS_OCC104
+Identifiers: BioSample: SAMN40529989; Sample name: OCC104_F; SRA: SRS20808769
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="extraction blank 6"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529989	ID: 40529989
+
+58: Osmia_lignaria_ITS_OCC103
+Identifiers: BioSample: SAMN40529988; Sample name: OCC103_F; SRA: SRS20808768
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B6"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529988	ID: 40529988
+
+59: Osmia_lignaria_ITS_OCC99
+Identifiers: BioSample: SAMN40529987; Sample name: OCC99_F; SRA: SRS20808767
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B273"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529987	ID: 40529987
+
+60: Osmia_lignaria_ITS_OCC94
+Identifiers: BioSample: SAMN40529986; Sample name: OCC94_F; SRA: SRS20808766
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B127"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529986	ID: 40529986
+
+
+61: Osmia_lignaria_ITS_OCC93
+Identifiers: BioSample: SAMN40529985; Sample name: OCC93_F; SRA: SRS20808765
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 1.8"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529985	ID: 40529985
+
+62: Osmia_lignaria_ITS_OCC91
+Identifiers: BioSample: SAMN40529984; Sample name: OCC91_F; SRA: SRS20808764
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B125"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529984	ID: 40529984
+
+63: Osmia_lignaria_ITS_OCC88
+Identifiers: BioSample: SAMN40529983; Sample name: OCC88_F; SRA: SRS20808763
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B160"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529983	ID: 40529983
+
+64: Osmia_lignaria_ITS_OCC85
+Identifiers: BioSample: SAMN40529982; Sample name: OCC85_F; SRA: SRS20808762
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B57"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529982	ID: 40529982
+
+65: Osmia_lignaria_ITS_OCC84
+Identifiers: BioSample: SAMN40529981; Sample name: OCC84_F; SRA: SRS20808761
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 4.7"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529981	ID: 40529981
+
+66: Osmia_lignaria_ITS_OCC82
+Identifiers: BioSample: SAMN40529980; Sample name: OCC82_F; SRA: SRS20808760
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B102"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529980	ID: 40529980
+
+67: Osmia_lignaria_ITS_OCC76
+Identifiers: BioSample: SAMN40529979; Sample name: OCC76_F; SRA: SRS20808758
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B84"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529979	ID: 40529979
+
+68: Osmia_lignaria_ITS_OCC75
+Identifiers: BioSample: SAMN40529978; Sample name: OCC75_F; SRA: SRS20808757
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 6.7"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529978	ID: 40529978
+
+69: Osmia_lignaria_ITS_OCC73
+Identifiers: BioSample: SAMN40529977; Sample name: OCC73_F; SRA: SRS20808756
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B120"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529977	ID: 40529977
+
+70: Osmia_lignaria_ITS_OCC72
+Identifiers: BioSample: SAMN40529976; Sample name: OCC72_F; SRA: SRS20808755
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B68"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529976	ID: 40529976
+
+71: Osmia_lignaria_ITS_OCC70
+Identifiers: BioSample: SAMN40529975; Sample name: OCC70_F; SRA: SRS20808754
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B137"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529975	ID: 40529975
+
+72: Osmia_lignaria_ITS_OCC68
+Identifiers: BioSample: SAMN40529974; Sample name: OCC68_F; SRA: SRS20808753
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B95"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529974	ID: 40529974
+
+73: Osmia_lignaria_ITS_OCC67
+Identifiers: BioSample: SAMN40529973; Sample name: OCC67_F; SRA: SRS20808752
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 2.27"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529973	ID: 40529973
+
+74: Osmia_lignaria_ITS_OCC66
+Identifiers: BioSample: SAMN40529972; Sample name: OCC66_F; SRA: SRS20808751
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B104"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529972	ID: 40529972
+
+75: Osmia_lignaria_ITS_OCC64
+Identifiers: BioSample: SAMN40529971; Sample name: OCC64_F; SRA: SRS20808750
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B145"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529971	ID: 40529971
+
+76: Osmia_lignaria_ITS_OCC63
+Identifiers: BioSample: SAMN40529970; Sample name: OCC63_F; SRA: SRS20808749
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B5"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529970	ID: 40529970
+
+77: Osmia_lignaria_ITS_OCC61
+Identifiers: BioSample: SAMN40529969; Sample name: OCC61_F; SRA: SRS20808748
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B136"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529969	ID: 40529969
+
+78: Osmia_lignaria_ITS_OCC60
+Identifiers: BioSample: SAMN40529968; Sample name: OCC60_F; SRA: SRS20808746
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="ringers 2.1"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529968	ID: 40529968
+
+79: Osmia_lignaria_ITS_OCC57
+Identifiers: BioSample: SAMN40529967; Sample name: OCC57_F; SRA: SRS20808745
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B49"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529967	ID: 40529967
+
+80: Osmia_lignaria_ITS_OCC49
+Identifiers: BioSample: SAMN40529966; Sample name: OCC49_F; SRA: SRS20808744
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 5.3"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529966	ID: 40529966
+
+81: Osmia_lignaria_ITS_OCC48
+Identifiers: BioSample: SAMN40529965; Sample name: OCC48_F; SRA: SRS20808743
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B129"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529965	ID: 40529965
+
+82: Osmia_lignaria_ITS_OCC46
+Identifiers: BioSample: SAMN40529964; Sample name: OCC46_F; SRA: SRS20808742
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B115"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529964	ID: 40529964
+
+83: Osmia_lignaria_ITS_OCC43
+Identifiers: BioSample: SAMN40529963; Sample name: OCC43_F; SRA: SRS20808741
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B173"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529963	ID: 40529963
+
+84: Osmia_lignaria_ITS_OCC37
+Identifiers: BioSample: SAMN40529962; Sample name: OCC37_F; SRA: SRS20808740
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B150"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529962	ID: 40529962
+
+85: Osmia_lignaria_ITS_OCC34
+Identifiers: BioSample: SAMN40529961; Sample name: OCC34_F; SRA: SRS20808738
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B11"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529961	ID: 40529961
+
+86: Osmia_lignaria_ITS_OCC32
+Identifiers: BioSample: SAMN40529960; Sample name: OCC32_F; SRA: SRS20808739
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B94"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529960	ID: 40529960
+
+87: Osmia_lignaria_ITS_OCC27
+Identifiers: BioSample: SAMN40529959; Sample name: OCC27_F; SRA: SRS20808824
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="ringers 2.2"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529959	ID: 40529959
+
+88: Osmia_lignaria_ITS_OCC26
+Identifiers: BioSample: SAMN40529958; Sample name: OCC26_F; SRA: SRS20808814
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B200"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529958	ID: 40529958
+
+89: Osmia_lignaria_ITS_OCC17
+Identifiers: BioSample: SAMN40529957; Sample name: OCC17_F; SRA: SRS20808803
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B148"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529957	ID: 40529957
+
+90: Osmia_lignaria_ITS_OCC15
+Identifiers: BioSample: SAMN40529956; Sample name: OCC15_F; SRA: SRS20808792
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 4.13"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529956	ID: 40529956
+
+91: Osmia_lignaria_ITS_OCC13
+Identifiers: BioSample: SAMN40529955; Sample name: OCC13_F; SRA: SRS20808780
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B221"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529955	ID: 40529955
+
+92: Osmia_lignaria_ITS_OCC11
+Identifiers: BioSample: SAMN40529954; Sample name: OCC11_F; SRA: SRS20808770
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="PBS tween"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529954	ID: 40529954
+
+93: Osmia_lignaria_ITS_OCC8
+Identifiers: BioSample: SAMN40529953; Sample name: OCC8_F; SRA: SRS20808759
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B164"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529953	ID: 40529953
+
+94: Osmia_lignaria_ITS_OCC7
+Identifiers: BioSample: SAMN40529952; Sample name: OCC7_F; SRA: SRS20808747
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="B201"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529952	ID: 40529952
+
+95: Osmia_lignaria_ITS_OCC6
+Identifiers: BioSample: SAMN40529951; Sample name: OCC6_F; SRA: SRS20808736
+Organism: pollen metagenome
+Attributes:
+    /host="Osmia lignaria"
+    /isolation source="nest 6.5"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529951	ID: 40529951
+
+96: Osmia_lignaria_ITS_OCC2
+Identifiers: BioSample: SAMN40529950; Sample name: OCC2_F; SRA: SRS20808737
+Organism: metagenome
+Attributes:
+    /host="not applicable"
+    /isolation source="ringers 1.2"
+    /collection date="2023"
+    /geographic location="USA: Logan, UT"
+    /latitude and longitude="41.89827 N 111.57591 W"
+Accession: SAMN40529950	ID: 40529950
+
+
