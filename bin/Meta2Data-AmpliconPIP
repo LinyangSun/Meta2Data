@@ -14,6 +14,17 @@ Download and process amplicon sequencing data based on user provided metadata.
 Required options:
     -m, --metadata FILE       Input metadata CSV file
 
+Processing mode (choose one):
+    -s, --single PLATFORM     Single-platform processing mode
+                              PLATFORM: illumina | pacbio | ont | 454
+    --multi-vsearch           Multi-platform data processing with vsearch pipeline
+                              (requires --col-platform),(default)
+    --multi-soft              Multi-platform data processing with multiple clustering/denoising software pipeline
+                              (requires --col-platform)
+
+    Note: --single and --multi-* modes are mutually exclusive
+    Note: If no mode specified, defaults to --multi-vsearch
+
 Optional options:
     -o, --output DIR          Output base directory (default: same directory as metadata file)
     -t, --threads INT         Number of CPU threads (default: 4)
@@ -24,6 +35,7 @@ Optional options:
 Column name customization (specify your CSV column names):
     --col-bioproject NAME     Column for BioProject/Dataset ID (default: 'Data-Bioproject')
     --col-platform NAME       Column for platform (default: 'Data-SequencingPlatform')
+                              Required when using --multi-vsearch or --multi-soft
     --col-sra NAME            Column for SRA accession (default: 'Data-SRA')
     --col-biosample NAME      Column for BioSample (default: 'Data-Biosample')
     --col-forward NAME        Column for forward primer (default: 'Data-Forward')
@@ -71,9 +83,28 @@ Pipeline workflow:
        e. Generate final QZA files
 
 Supported platforms:
-    - illumina : Uses Deblur for denoising
-    - 454      : Uses de novo clustering with chimera removal
-    - pacbio   : Uses DADA2 for denoising
+    - illumina : Illumina short-read (uses Deblur for denoising)
+    - 454      : Roche 454 pyrosequencing (uses de novo clustering with chimera removal)
+    - pacbio   : PacBio HiFi/CCS long-read (uses DADA2 for denoising)
+    - ont      : Oxford Nanopore long-read (TODO: pipeline not yet implemented)
+
+Processing modes explained:
+    Single-platform mode (--single):
+        Process all samples using ONE specified platform pipeline, regardless of
+        platform column in metadata. Useful when metadata lacks platform info or
+        you want to override it.
+
+    Multi-platform vsearch mode (--multi-vsearch):
+        Process samples from DIFFERENT platforms using a unified workflow:
+        1. Smart primer detection and trimming (auto-detects V1-V9 regions)
+        2. Unified 454-based processing pipeline for all platforms
+        3. Merge results with GreenGenes2 taxonomy assignment
+        Requires platform column in metadata for tracking purposes.
+
+    Multi-platform multi-software mode (--multi-soft):
+        Process samples from DIFFERENT platforms using platform-specific tools,
+        then merge using advanced multi-software integration.
+        TODO: Pipeline not yet implemented.
 
 Output structure:
     <output_dir>/
@@ -96,6 +127,10 @@ OUTPUT=""
 THREADS=4
 SKIP_DOWNLOAD=false
 KEEP_TMP=false
+
+# Processing mode parameters
+MODE=""                    # Processing mode: single, multi-vsearch, multi-soft
+SINGLE_PLATFORM=""         # Platform for single-platform mode
 
 # Default column names (customizable by user)
 COL_BIOPROJECT="Data-Bioproject"
@@ -120,6 +155,44 @@ while [[ $# -gt 0 ]]; do
         -t|--threads)
             THREADS="$2"
             shift 2
+            ;;
+        -s|--single)
+            if [[ -n "$MODE" ]]; then
+                echo "Error: Cannot specify multiple processing modes"
+                echo "Choose only one: --single, --multi-vsearch, or --multi-soft"
+                exit 1
+            fi
+            MODE="single"
+            SINGLE_PLATFORM="$2"
+            # Validate platform
+            case "$SINGLE_PLATFORM" in
+                illumina|pacbio|ont|454)
+                    ;;
+                *)
+                    echo "Error: Invalid platform '$SINGLE_PLATFORM'"
+                    echo "Valid platforms: illumina, pacbio, ont, 454"
+                    exit 1
+                    ;;
+            esac
+            shift 2
+            ;;
+        --multi-vsearch)
+            if [[ -n "$MODE" ]]; then
+                echo "Error: Cannot specify multiple processing modes"
+                echo "Choose only one: --single, --multi-vsearch, or --multi-soft"
+                exit 1
+            fi
+            MODE="multi-vsearch"
+            shift
+            ;;
+        --multi-soft)
+            if [[ -n "$MODE" ]]; then
+                echo "Error: Cannot specify multiple processing modes"
+                echo "Choose only one: --single, --multi-vsearch, or --multi-soft"
+                exit 1
+            fi
+            MODE="multi-soft"
+            shift
             ;;
         --skip-download)
             SKIP_DOWNLOAD=true
@@ -182,6 +255,51 @@ if [[ ! -f "$METADATA" ]]; then
     exit 1
 fi
 
+# Validate processing mode requirements
+if [[ "$MODE" == "multi-vsearch" ]] || [[ "$MODE" == "multi-soft" ]]; then
+    # Multi-platform modes require --col-platform to be specified
+    # Check if user actually has a platform column in their metadata
+    if ! head -1 "$METADATA" | grep -q "$COL_PLATFORM"; then
+        echo "Error: Multi-platform mode requires platform information in metadata"
+        echo "       Column '$COL_PLATFORM' not found in metadata file"
+        echo "       Either:"
+        echo "       1. Use --col-platform to specify your platform column name, or"
+        echo "       2. Use --single mode if all samples are from the same platform"
+        exit 1
+    fi
+fi
+
+# Show warning for unimplemented features
+if [[ "$MODE" == "multi-soft" ]]; then
+    echo "========================================="
+    echo "WARNING: Multi-software mode"
+    echo "========================================="
+    echo "The --multi-soft pipeline is not yet implemented."
+    echo "This feature is under development."
+    echo ""
+    read -p "Continue anyway? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Aborted by user"
+        exit 1
+    fi
+fi
+
+if [[ "$MODE" == "single" ]] && [[ "$SINGLE_PLATFORM" == "ont" ]]; then
+    echo "========================================="
+    echo "WARNING: ONT pipeline"
+    echo "========================================="
+    echo "The Oxford Nanopore (ONT) pipeline is not yet implemented."
+    echo "This feature is under development."
+    echo ""
+    read -p "Continue anyway? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Aborted by user"
+        exit 1
+    fi
+fi
+
 # Convert metadata to absolute path
 METADATA=$(cd "$(dirname "$METADATA")" && pwd)/$(basename "$METADATA")
 
@@ -216,6 +334,15 @@ echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
 echo "Skip download:  $SKIP_DOWNLOAD"
 echo "Keep tmp:       $KEEP_TMP"
+echo ""
+if [[ -n "$MODE" ]]; then
+    echo "Processing mode: $MODE"
+    if [[ "$MODE" == "single" ]]; then
+        echo "  Platform:      $SINGLE_PLATFORM"
+    fi
+else
+    echo "Processing mode: auto-detect (from metadata)"
+fi
 echo "========================================="
 echo ""
 
@@ -228,6 +355,14 @@ export KEEP_TMP
 ################################################################################
 #                       PHASE 1: Dataset Preparation                           #
 ################################################################################
+
+# Skip Phase 1 if using multi-vsearch mode (handled by multi-vsearch.sh)
+if [[ "$MODE" == "multi-vsearch" ]]; then
+    echo "========================================="
+    echo "PHASE 1-2: Skipped (will be handled by multi-vsearch.sh)"
+    echo "========================================="
+    echo ""
+else
 
 echo "========================================="
 echo "PHASE 1: Dataset Preparation"
@@ -326,14 +461,27 @@ for i in "${!Dataset_ID_sets[@]}"; do
     # Dataset initialization
     # -----------------------------------------------------------------------
     dataset_ID="${Dataset_ID_sets[$i]}"
-    platform="${SequencingPlatform_sets[$i]}"
+
+    # Determine platform based on processing mode
+    if [[ "$MODE" == "single" ]]; then
+        # Single-platform mode: use specified platform for all datasets
+        platform="$SINGLE_PLATFORM"
+    else
+        # Auto-detect or multi-platform mode: use platform from metadata
+        platform="${SequencingPlatform_sets[$i]}"
+    fi
     platform="${platform,,}"  # Convert to lowercase
+
     dataset_path="${OUTPUT}/${dataset_ID}/"
     sra_file_name="${dataset_ID}_sra.txt"
 
     echo "========================================"
     echo "Dataset $((i+1))/${#Dataset_ID_sets[@]}: $dataset_ID"
-    echo "Platform: $platform"
+    if [[ "$MODE" == "single" ]]; then
+        echo "Platform: $platform (forced by --single mode)"
+    else
+        echo "Platform: $platform"
+    fi
     echo "Path: $dataset_path"
     echo "========================================"
 
@@ -436,6 +584,20 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Amplicon_Pacbio_DenosingDada2 || { echo "❌ Failed at Denoising"; exit 1; }
             Amplicon_Common_FinalFilesCleaning || { echo "❌ Failed at FinalFilesCleaning"; exit 1; }
 
+        elif [[ "$platform" == "ont" ]]; then
+            # ---- ONT SEQUENCING PIPELINE ----
+            # TODO: Oxford Nanopore pipeline not yet implemented
+            echo "Pipeline: Oxford Nanopore Long-Read"
+            echo "❌ ERROR: ONT pipeline is not yet implemented"
+            echo "TODO: Implement the following steps:"
+            echo "  1. Amplicon_ONT_PrimerDetectionAndQualityControl"
+            echo "  2. Amplicon_Common_MakeManifestFileForQiime2"
+            echo "  3. Amplicon_Common_ImportFastqToQiime2"
+            echo "  4. Amplicon_ONT_QualityControlForQZA"
+            echo "  5. Amplicon_ONT_DenosingMethod (TBD)"
+            echo "  6. Amplicon_Common_FinalFilesCleaning"
+            exit 1
+
         else
             # ---- ILLUMINA SEQUENCING PIPELINE (DEFAULT) ----
             echo "Pipeline: Illumina Short-Read"
@@ -470,6 +632,59 @@ for i in "${!Dataset_ID_sets[@]}"; do
     echo ""
 
 done
+
+fi  # End of non-multi-vsearch Phase 2
+
+
+################################################################################
+#                   PHASE 3: Multi-Platform Merging (if applicable)            #
+################################################################################
+
+if [[ "$MODE" == "multi-vsearch" ]]; then
+    # Call multi-vsearch.sh which handles ALL phases (1, 2, and 3)
+    if ! bash "${SCRIPTS}/multi-vsearch.sh" \
+        -m "$METADATA" \
+        -o "$OUTPUT" \
+        -t "$THREADS" \
+        --skip-download="$SKIP_DOWNLOAD" \
+        --keep-tmp="$KEEP_TMP" \
+        --col-bioproject "$COL_BIOPROJECT" \
+        --col-platform "$COL_PLATFORM" \
+        --col-sra "$COL_SRA" \
+        --col-biosample "$COL_BIOSAMPLE" \
+        --col-forward "$COL_FORWARD" \
+        --col-reverse "$COL_REVERSE" \
+        --col-region "$COL_REGION"; then
+        echo "❌ ERROR: Multi-vsearch pipeline failed"
+        echo "Check logs in: $OUTPUT"
+        exit 1
+    fi
+
+    echo ""
+    echo "========================================="
+    echo "✓ Multi-vsearch pipeline completed successfully"
+    echo "========================================="
+    echo ""
+
+elif [[ "$MODE" == "multi-soft" ]]; then
+    echo "========================================="
+    echo "PHASE 3: Multi-Platform Merging (multi-software)"
+    echo "Started: $(date)"
+    echo "========================================="
+    echo ""
+    echo "TODO: Implement multi-platform merging with multi-software integration"
+    echo ""
+    echo "Planned steps:"
+    echo "  1. Collect results from different platform-specific tools"
+    echo "  2. Normalize feature representations across tools"
+    echo "  3. Apply cross-platform consensus clustering"
+    echo "  4. Generate integrated feature table"
+    echo "  5. Quality metrics and validation"
+    echo ""
+    echo "⚠️  Multi-soft pipeline is under development"
+    echo "   Individual platform processing completed successfully"
+    echo ""
+fi
 
 
 ################################################################################
