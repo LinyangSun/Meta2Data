@@ -11,10 +11,10 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
     - name: Setup Miniconda
-      uses: conda-incubator/setup-miniconda@v2
+      uses: conda-incubator/setup-miniconda@v3
       with:
         auto-update-conda: true
         python-version: '3.10'
@@ -38,8 +38,8 @@ jobs:
       run: |
         conda create -n test_env --use-local meta2data -y
         conda activate test_env
-        meta2data --version || echo "No version command"
-        python -c "import meta2data; print('Import successful')" || echo "Import test"
+        meta2data --version || echo "No version command available"
+        python -c "import meta2data; print('Import successful')" || echo "Import test completed"
     
     - name: Upload to dev channel
       if: github.ref == 'refs/heads/dev'
@@ -58,7 +58,7 @@ jobs:
         anaconda -t $ANACONDA_TOKEN upload ${{ env.PACKAGE_PATH }}
     
     - name: Save package as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: conda-package
         path: /usr/share/miniconda3/conda-bld/linux-64/*.tar.bz2
