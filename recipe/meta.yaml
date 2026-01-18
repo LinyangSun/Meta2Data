@@ -14,14 +14,45 @@ build:
     chmod +x $PREFIX/bin/*
 
 requirements:
+  host:
+    - python >=3.10,<3.11
+    - pip
+    - setuptools
+  
   run:
-    # Python 核心
-    - python >=3.10
-    - pandas
-    - biopython
+    - python >=3.10,<3.11
+    # QIIME2 核心
+    - qiime2 =2024.10.1
+    - q2cli =2024.10.1
     
-    # 你的流程实际调用的工具
-    - qiime2 >=2024.10
+    # QIIME2 所有插件（全部列出）
+    - q2-alignment =2024.10.0
+    - q2-composition =2024.10.0
+    - q2-cutadapt =2024.10.0
+    - q2-dada2 =2024.10.0
+    - q2-deblur =2024.10.0
+    - q2-demux =2024.10.0
+    - q2-diversity =2024.10.0
+    - q2-diversity-lib =2024.10.0
+    - q2-emperor =2024.10.0
+    - q2-feature-classifier =2024.10.0
+    - q2-feature-table =2024.10.0
+    - q2-fragment-insertion =2024.10.0
+    - q2-longitudinal =2024.10.0
+    - q2-metadata =2024.10.0
+    - q2-mystery-stew =2024.10.0
+    - q2-phylogeny =2024.10.0
+    - q2-quality-control =2024.10.0
+    - q2-quality-filter =2024.10.0
+    - q2-sample-classifier =2024.10.0
+    - q2-stats =2024.10.0
+    - q2-taxa =2024.10.0
+    - q2-types =2024.10.0
+    - q2-vizard =2024.10.0
+    - q2-vsearch =2024.10.0
+    - q2galaxy =2024.10.0
+    - q2templates =2024.10.0
+    
     - fastp
     - cutadapt
     - vsearch
