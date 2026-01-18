@@ -1,8 +1,8 @@
-name: Build Conda Package
+name: Build and Upload Conda Package
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main, master, dev ]
   workflow_dispatch:
 
 jobs:
@@ -10,23 +10,56 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     
-    - uses: conda-incubator/setup-miniconda@v2
+    - name: Setup Miniconda
+      uses: conda-incubator/setup-miniconda@v2
       with:
         auto-update-conda: true
         python-version: '3.10'
+        miniconda-version: "latest"
+        channels: conda-forge,bioconda,defaults
+        channel-priority: strict
     
-    - name: Build
+    - name: Install conda-build
       shell: bash -l {0}
       run: |
         conda install -y conda-build anaconda-client
-        conda build recipe/
     
-    - name: Upload to Anaconda
-      if: github.event_name == 'push'
+    - name: Build package
+      shell: bash -l {0}
+      run: |
+        conda build recipe/
+        echo "PACKAGE_PATH=$(conda build recipe/ --output)" >> $GITHUB_ENV
+    
+    - name: Test package
+      shell: bash -l {0}
+      run: |
+        conda create -n test_env --use-local meta2data -y
+        conda activate test_env
+        meta2data --version || echo "No version command"
+        python -c "import meta2data; print('Import successful')" || echo "Import test"
+    
+    - name: Upload to dev channel
+      if: github.ref == 'refs/heads/dev'
       shell: bash -l {0}
       env:
         ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
       run: |
-        anaconda -t $ANACONDA_TOKEN upload --label dev $(conda build recipe/ --output)
+        anaconda -t $ANACONDA_TOKEN upload --label dev ${{ env.PACKAGE_PATH }}
+    
+    - name: Upload to main channel
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      shell: bash -l {0}
+      env:
+        ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+      run: |
+        anaconda -t $ANACONDA_TOKEN upload ${{ env.PACKAGE_PATH }}
+    
+    - name: Save package as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: conda-package
+        path: /usr/share/miniconda3/conda-bld/linux-64/*.tar.bz2
+        retention-days: 30
