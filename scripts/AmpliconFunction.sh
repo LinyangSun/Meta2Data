@@ -26,7 +26,201 @@ set -e
 #                         COMMON FUNCTIONS                                     #
 ################################################################################
 # Functions shared across all sequencing platforms
+Download_CRR_Aspera() {
+    local crr=$1
+    local target_dir=$2
+    local rename_prefix=$3
+    local max_retries=3
+    local ascp_key=".aspera01.openssh"
+    
+    echo "[CNCB] Processing $crr"
 
+    # 1. Ensure Aspera key exists
+    if [[ ! -f "$ascp_key" ]]; then
+        wget -q --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/file/downFile?fileName=download/aspera01.openssh" -O "$ascp_key"
+        chmod 600 "$ascp_key"
+    fi
+
+    # 2. Map CRR to parent CRA ID
+    local cra=$(wget -qO- --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search?searchTerm=${crr}" | grep -v "example" | grep -oe "CRA[0-9]\+" | uniq | head -n 1)
+    
+    if [[ -z "$cra" ]]; then
+        echo "Error: Could not map $crr to a CRA project." >&2
+        return 1
+    fi
+
+    # 3. Fetch project MD5 list and path prefix
+    local md5_file="${cra}_md5.txt"
+    local path_prefix=""
+    if [[ ! -s "$md5_file" ]]; then
+        path_prefix=$(wget -qO- --post-data="searchTerm=${cra}&totalDatas=1&downLoadCount=1" --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search/getRunInfoByCra" | grep -oe "gsa[0-9]\+/${cra}\|gsa/${cra}" | uniq | head -n 1)
+        wget -q "https://download.cncb.ac.cn/${path_prefix}/md5sum.txt" -O "$md5_file"
+    else
+        # Get path prefix from existing md5 file or fetch it
+        path_prefix=$(wget -qO- --post-data="searchTerm=${cra}&totalDatas=1&downLoadCount=1" --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search/getRunInfoByCra" | grep -oe "gsa[0-9]\+/${cra}\|gsa/${cra}" | uniq | head -n 1)
+    fi
+
+    echo "  Using path prefix: $path_prefix"
+
+    # 4. Identify files belonging to the CRR accession
+    local -a files
+    while IFS= read -r filepath; do
+        files+=("$(basename "$filepath")")
+    done < <(grep "$crr" "$md5_file" | awk '{print $2}')
+
+    for filename in "${files[@]}"; do
+        local expected_md5=$(grep "$filename" "$md5_file" | awk '{print tolower($1)}')
+        local success=false
+
+        # Try Aspera first
+        echo "  Trying Aspera for $filename..."
+        for ((i=1; i<=max_retries; i++)); do
+            # Aspera download (Quiet mode)
+            if command -v ascp >/dev/null 2>&1 && ascp -P 33001 -i "$ascp_key" -QT -l 200M -k1 -d "aspera01@download.cncb.ac.cn:gsa/${cra}/${crr}/${filename}" . > /dev/null 2>&1; then
+                # MD5 Verification
+                if [[ -f "$filename" ]]; then
+                    local current_md5=$(md5sum "$filename" | awk '{print $1}')
+                    if [[ "$current_md5" == "$expected_md5" ]]; then
+                        # Standardize filename: _r1/_R1 → _1, _r2/_R2 → _2
+                        local new_filename=$(echo "$filename" | sed -E 's/_[rR]1([._])/_1\1/; s/_[rR]2([._])/_2\1/')
+                        mv "$filename" "${target_dir}/${rename_prefix}-${new_filename}"
+                        success=true
+                        echo "  ✓ Downloaded via Aspera: $filename → ${rename_prefix}-${new_filename}"
+                        break
+                    else
+                        rm -f "$filename"
+                    fi
+                fi
+            fi
+            [[ $i -lt $max_retries ]] && sleep 2
+        done
+
+        # Fallback to wget if Aspera failed
+        if [[ "$success" = false ]]; then
+            echo "  Aspera failed, trying wget for $filename..."
+            for ((i=1; i<=max_retries; i++)); do
+                local wget_url="https://download.cncb.ac.cn/${path_prefix}/${crr}/${filename}"
+                echo "    Downloading from: $wget_url"
+                if wget -q --user-agent="Mozilla/5.0" "$wget_url" -O "$filename"; then
+                    # MD5 Verification
+                    if [[ -f "$filename" ]]; then
+                        local current_md5=$(md5sum "$filename" | awk '{print $1}')
+                        if [[ "$current_md5" == "$expected_md5" ]]; then
+                            # Standardize filename: _r1/_R1 → _1, _r2/_R2 → _2
+                            local new_filename=$(echo "$filename" | sed -E 's/_[rR]1([._])/_1\1/; s/_[rR]2([._])/_2\1/')
+                            mv "$filename" "${target_dir}/${rename_prefix}-${new_filename}"
+                            success=true
+                            echo "  ✓ Downloaded via wget: $filename → ${rename_prefix}-${new_filename}"
+                            break
+                        else
+                            echo "  MD5 mismatch, retrying..."
+                            rm -f "$filename"
+                        fi
+                    fi
+                fi
+                [[ $i -lt $max_retries ]] && sleep 2
+            done
+        fi
+
+        if [[ "$success" = false ]]; then
+            echo "Error: Failed to download $filename after trying both Aspera and wget." >&2
+            return 1
+        fi
+    done
+    return 0
+}
+
+
+Common_SRADownloadToFastq_MultiSource() {
+    local dir_path="" acc_file=""
+    OPTIND=1
+    while getopts ":d:a:" opt; do
+        case $opt in
+            d) dir_path=$OPTARG ;;
+            a) acc_file=$OPTARG ;;
+            ?) echo "Unknown Parameter: -$OPTARG" >&2; return 1 ;;
+        esac
+    done
+
+    if [[ -z "$dir_path" || -z "$acc_file" ]]; then
+        echo "Usage: Common_SRADownloadToFastq_MultiSource -d <dir> -a <accession_tsv>" >&2
+        return 1
+    fi
+
+    # Check dependencies
+    command -v prefetch >/dev/null 2>&1 || { echo "Error: 'prefetch' not found." >&2; return 1; }
+    command -v fasterq-dump >/dev/null 2>&1 || { echo "Error: 'fasterq-dump' not found." >&2; return 1; }
+    command -v ascp >/dev/null 2>&1 || { echo "Error: 'ascp' not found." >&2; return 1; }
+    
+    local base_dir="${dir_path%/}/"
+    local fastq_path="${base_dir}ori_fastq/"
+    local temp_dl_path="${base_dir}temp1/"
+    mkdir -p "$fastq_path" "$temp_dl_path"
+
+    # Phase 1: Data Acquisition
+    while IFS=$'\t' read -r srr rename _; do
+        [[ -z "$srr" || -z "$rename" ]] && continue
+
+        # Route by ID type (CRR vs SRR/ERR/DRR)
+        if [[ "$srr" =~ ^CRR ]]; then
+            # CRR files go directly to ori_fastq/ with rename prefix
+            Download_CRR_Aspera "$srr" "$fastq_path" "$rename"
+
+        elif [[ "$srr" =~ ^[EDS]RR ]]; then
+            echo "[NCBI] Processing $srr"
+            local attempt=0
+            # SRA Toolkit prefetch (Quiet mode)
+            until prefetch -q -O "$temp_dl_path" "$srr" > /dev/null 2>&1; do
+                (( attempt++ >= 10 )) && { echo "Error: Download failed for $srr" >&2; break; }
+                sleep 5
+            done
+
+            # Extract downloaded SRA files to temp
+            local sra_files=()
+            while IFS= read -r -d '' file; do
+                sra_files+=("$file")
+            done < <(find "$temp_dl_path/$srr" -type f \( -name "*.sra" -o -name "*.fastq*" \) -print0 2>/dev/null)
+
+            # Process each file
+            for file in "${sra_files[@]}"; do
+                local basename_file=$(basename "$file")
+                local ext="${basename_file##*.}"
+
+                if [[ "$ext" == "sra" ]]; then
+                    # Convert SRA to FASTQ with rename prefix
+                    local temp_outdir="${temp_dl_path}/fastq_${srr}"
+                    mkdir -p "$temp_outdir"
+
+                    if fasterq-dump --split-3 -q "$file" --outdir "$temp_outdir" > /dev/null 2>&1; then
+                        # Rename and move converted FASTQ files
+                        find "$temp_outdir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
+                        while IFS= read -r -d '' fq_file; do
+                            local fq_basename=$(basename "$fq_file")
+                            mv "$fq_file" "${fastq_path}${rename}-${fq_basename}"
+                        done
+                        rm -rf "$temp_outdir"
+                    else
+                        echo "Error: fasterq-dump failed for $basename_file" >&2
+                    fi
+                    rm -f "$file"
+
+                elif [[ "$ext" == "fastq" || "$basename_file" =~ \.fastq\.gz$ ]]; then
+                    # Already FASTQ, just rename and move
+                    mv "$file" "${fastq_path}${rename}-${basename_file}"
+                fi
+            done
+
+            rm -rf "${temp_dl_path:?}/$srr"
+        else
+            echo "Warning: Unknown Accession format: $srr" >&2
+        fi
+    done < "${base_dir}${acc_file}"
+    rm -rf "$temp_dl_path"
+
+    # [Note: Subsequent vsearch merging and reporting logic should follow here]
+    
+    echo "Process finished. Output directory: $fastq_path"
+}
 
 Amplicon_Common_MakeManifestFileForQiime2() {
     cd $dataset_path
@@ -157,28 +351,28 @@ Amplicon_Common_ImportFastqToQiime2() {
 Amplicon_Common_FinalFilesCleaning() {
     dataset_path="${dataset_path%/}/"
     local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    local deblur_path="${dataset_path%/}/temp/step_05_denoise/deblur/"
+    local denoising_path="${dataset_path%/}/temp/step_05_denoise/"
     local qf_vis_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/"
     local qf_view_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_view/"
     local qf_trim_pos_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
     local qc_vis="${dataset_path%/}/temp/temp_file/qc_vis/"
-    local denosing_vis="${dataset_path%/}/temp/temp_file/denosing_vis/"
+    local denoising_vis="${dataset_path%/}/temp/temp_file/denoising_vis/"
     
     cd "$dataset_path" || { echo "Error: dataset_path not found"; return 1; }
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
     quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    deblur_path="${dataset_path%/}/temp/step_05_denoise/deblur/"
+    denoising_path="${dataset_path%/}/temp/step_05_denoise/"
     qf_trim_pos_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
     qc_vis="${dataset_path%/}/temp/temp_file/qc_vis/"
-    denosing_vis="${dataset_path%/}/temp/temp_file/denosing_vis/"
-    mkdir -p "$qc_vis" "$denosing_vis"
+    denoising_vis="${dataset_path%/}/temp/temp_file/denoising_vis/"
+    mkdir -p "$qc_vis" "$denoising_vis"
     
-    # Check for Deblur output
-    if [ -d "$deblur_path" ] && [ -f "${deblur_path%/}/${dataset_name}-table-deblur.qza" ]; then
+    # Check for denoising output
+    if [ -d "$denoising_path" ] && [ -f "${denoising_path%/}/${dataset_name}-table-denoising.qza" ]; then
         echo "The analysis ran successfully! Now only keeping final files to save space."
-        cp "${deblur_path%/}/${dataset_name}-rep-seqs-deblur.qza" "${dataset_path%/}/${dataset_name}-final-rep-seqs.qza"
-        cp "${deblur_path%/}/${dataset_name}-table-deblur.qza" "${dataset_path%/}/${dataset_name}-final-table.qza"
+        cp "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" "${dataset_path%/}/${dataset_name}-final-rep-seqs.qza"
+        cp "${denoising_path%/}/${dataset_name}-table-denoising.qza" "${dataset_path%/}/${dataset_name}-final-table.qza"
         
         # Copy trim position files if they exist
         if [ -f "${qf_trim_pos_path%/}/Trim_position.txt" ]; then
@@ -194,16 +388,19 @@ Amplicon_Common_FinalFilesCleaning() {
             find "$qc_vis" -type f -name 'stats.csv' -exec cp {} "${dataset_path%/}/${dataset_name}-QCStats.csv" \;
         fi
         
-        if [ -f "${deblur_path%/}/${dataset_name}-deblur-stats.qza" ]; then
-            unzip -q "${deblur_path%/}/${dataset_name}-deblur-stats.qza" -d "$denosing_vis"
-            find "$denosing_vis" -type f -name 'stats.csv' -exec cp {} "${dataset_path%/}/${dataset_name}-DenosingStats.csv" \;
+        if [ -f "${denoising_path%/}/${dataset_name}-denoising-stats.qza" ]; then
+            unzip -q "${denoising_path%/}/${dataset_name}-denoising-stats.qza" -d "$denoising_vis"
+            find "$denoising_vis" -type f -name 'stats.csv' -exec cp {} "${dataset_path%/}/${dataset_name}-DenoisingStats.csv" \;
         fi
         
         # Remove temporary directories but keep dataset_path itself
         find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
         
         # Remove unwanted logs
-        rm -f "${dataset_path%/}/"{deblur.log,fastp.html,fastp.json,wild-v4-1_sra.txt}
+        rm -f "${dataset_path%/}/"{denoising.log,fastp.html,fastp.json}
+
+        rm -rf "${dataset_path}ori_fastq/" 2>/dev/null || true
+        rm -rf "${dataset_path}working_fastq/" 2>/dev/null || true
         
         return 0
         
@@ -219,8 +416,7 @@ Amplicon_Common_FinalFilesCleaning() {
     else
         echo "❌ ERROR: The analysis failed! The final denoising output does not exist."
         echo "   Expected files:"
-        echo "     - ${deblur_path%/}/${dataset_name}-table-deblur.qza (Illumina)"
-        echo "     - ${dataset_path%/}/${dataset_name}-table-vsearch.qza (454)"
+        echo "     - ${denoising_path%/}/${dataset_name}-table-denoising.qza "
         echo ""
         echo "   Check previous steps for errors."
         
@@ -228,6 +424,7 @@ Amplicon_Common_FinalFilesCleaning() {
         return 1
     fi
 }
+
 
 
 ################################################################################
@@ -273,11 +470,11 @@ Amplicon_Illumina_DenosingDada2() {
     # Paths
     local base="${dataset_path%/}"
     local quality_filter_path="${base%/}/temp/step_04_qza_import_QualityFilter/"
-    local deblur_path="${base%/}/temp/step_05_denoise/deblur/"
+    local denoising_path="${base%/}/temp/step_05_denoise/"
     local qf_vis_path="${base%/}/temp/temp_file/QualityFilter_vis/"
     local qf_view_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_view/"
     local qf_trim_pos_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
-    mkdir -p "$deblur_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
+    mkdir -p "$denoising_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
     local dataset_name="${base##*/}"
     # Decide if we need to compute positions
     local need_compute=true
@@ -315,9 +512,9 @@ Amplicon_Illumina_DenosingDada2() {
         --i-demultiplexed-seqs "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --p-trunc-len "$end" \
         --p-trim-left "$start" \
-        --o-representative-sequences "${deblur_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
-        --o-table "${deblur_path%/}/${dataset_name}-table-denoising.qza" \
-        --o-denoising-stats "${deblur_path%/}/${dataset_name}-denoising-stats.qza"
+        --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
+        --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
+        --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
     echo "denoising complete."
 }
 ################################################################################
@@ -360,18 +557,18 @@ Amplicon_Pacbio_DenosingDada2() {
     # Paths
     local base="${dataset_path%/}"
     local quality_filter_path="${base%/}/temp/step_04_qza_import_QualityFilter/"
-    local deblur_path="${base%/}/temp/step_05_denoise/deblur/"
+    local denoising_path="${base%/}/temp/step_05_denoise/"
     local qf_vis_path="${base%/}/temp/temp_file/QualityFilter_vis/"
     local qf_view_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_view/"
     local qf_trim_pos_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
-    mkdir -p "$deblur_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
+    mkdir -p "$denoising_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
     # Deblur
     qiime dada2 denoise-ccs \
         --i-demultiplexed-seqs "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --p-max-len 1600 \
-        --o-table "${deblur_path%/}/${dataset_name}-table-deblur.qza" \
-        --o-representative-sequences "${deblur_path%/}/${dataset_name}-rep-seqs-deblur.qza" \
-        --o-denoising-stats "${deblur_path%/}/${dataset_name}-deblur-stats.qza"
+        --o-table "${denoising_path%/}/${dataset_name}-table-denosing.qza" \
+        --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denosing.qza" \
+        --o-denoising-stats "${denoising_path%/}/${dataset_name}-denosing-stats.qza"
 }
 
 ################################################################################

@@ -1,9 +1,0 @@
-FROM --platform=linux/amd64 condaforge/mambaforge:latest
-
-# 安装axel和iseq
-RUN mamba install -y -c conda-forge -c bioconda axel iseq && \
-    mamba clean -a
-
-WORKDIR /workspace
-
-CMD ["/bin/bash"]

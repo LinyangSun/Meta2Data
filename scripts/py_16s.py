@@ -52,12 +52,12 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform):
     return datasets
 
 
-def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample, Forward, Reverse, region):
+def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample):
     """Generate SRA files for each bioproject"""
     directory_path = os.path.dirname(os.path.abspath(file_path))
     df = pd.read_csv(file_path)
 
-    columns_to_clean = [Bioproject, SRA_Number, Biosample, Forward, Reverse, region]
+    columns_to_clean = [Bioproject, SRA_Number, Biosample]
     for col in columns_to_clean:
         if col in df.columns:
             df[col] = (
@@ -78,10 +78,7 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample, Forward, Reve
         sub = df[df[Bioproject] == value].copy()
         out_df = pd.concat([
             sub[SRA_Number],
-            sub["rename"],
-            sub[region],
-            sub[Forward],
-            sub[Reverse]
+            sub["rename"]
         ], axis=1)
 
         folder_path = f"{directory_path}/{value}/"
@@ -508,11 +505,10 @@ if __name__ == "__main__":
         trim_pos_deblur(args.FilePath)
         
     elif args.function == "GenerateDatasetsIDsFile":
-        GenerateDatasetsIDsFile(args.FilePath, args.Datasets_ID, args.SequencingPlatform)
+        GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, args.SequencingPlatform)
         
     elif args.function == "GenerateSRAsFile":
-        GenerateSRAsFile(args.FilePath, args.Datasets_ID, args.Bioproject, args.SRA_Number, 
-                        args.Biosample, args.Forward, args.Reverse, args.region)
+        GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample)
         
     elif args.function == "add_prefix_to_file":
         add_prefix_to_file(args.In_fasta, args.In_table, args.Prefix)

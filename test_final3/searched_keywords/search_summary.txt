@@ -1,6 +1,0 @@
-Total queries: 1
-Time: 2026-01-10 13:13:21
-
-[1] ("microbiome") AND ("bee")
-  NCBI: ncbi_1768043581.xml
-  CNCB: cncb_1768043601.tsv

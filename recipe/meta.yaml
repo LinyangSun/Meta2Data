@@ -1,0 +1,42 @@
+package:
+  name: meta2data
+  version: "0.1.0"
+
+source:
+  path: .
+
+build:
+  number: 0
+  script: |
+    mkdir -p $PREFIX/bin $PREFIX/share/meta2data
+    cp -r bin/* $PREFIX/bin/
+    cp -r scripts $PREFIX/share/meta2data/
+    chmod +x $PREFIX/bin/*
+
+requirements:
+  run:
+    # Python 核心
+    - python >=3.10
+    - pandas
+    - biopython
+    
+    # 你的流程实际调用的工具
+    - qiime2 >=2024.10
+    - fastp
+    - cutadapt
+    - vsearch
+    - blast
+    - samtools
+    - seqkit
+    - q2-greengenes2
+    - aspera-cli
+
+channels:
+  - https://packages.qiime2.org/qiime2/2024.10/amplicon/released
+  - conda-forge
+  - bioconda
+
+about:
+  home: https://github.com/你的用户名/Meta2Data
+  license: MIT
+  summary: 扩增子测序分析流程

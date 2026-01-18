@@ -1,0 +1,32 @@
+name: Build Conda Package
+
+on:
+  push:
+    branches: [ main, dev ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        python-version: '3.10'
+    
+    - name: Build
+      shell: bash -l {0}
+      run: |
+        conda install -y conda-build anaconda-client
+        conda build recipe/
+    
+    - name: Upload to Anaconda
+      if: github.event_name == 'push'
+      shell: bash -l {0}
+      env:
+        ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+      run: |
+        anaconda -t $ANACONDA_TOKEN upload --label dev $(conda build recipe/ --output)
