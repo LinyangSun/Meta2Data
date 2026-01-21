@@ -136,7 +136,37 @@ done
 
 # Handle test mode - set defaults for test mode
 if [[ "$TEST_MODE" == true ]]; then
-    METADATA="${SCRIPT_DIR}/test/ampliconpiptest.csv"
+    # Search for test file in multiple possible locations
+    TEST_FILE="ampliconpiptest.csv"
+    METADATA=""
+
+    # Search paths (in order of preference)
+    SEARCH_PATHS=(
+        "${SCRIPT_DIR}/test/${TEST_FILE}"                    # Development/git repo
+        "/usr/local/share/Meta2Data/test/${TEST_FILE}"       # System install
+        "${HOME}/.local/share/Meta2Data/test/${TEST_FILE}"   # User install
+        "${CONDA_PREFIX}/share/Meta2Data/test/${TEST_FILE}"  # Conda install
+        "${PREFIX}/share/Meta2Data/test/${TEST_FILE}"        # Alternative prefix
+    )
+
+    for path in "${SEARCH_PATHS[@]}"; do
+        if [[ -f "$path" ]]; then
+            METADATA="$path"
+            break
+        fi
+    done
+
+    if [[ -z "$METADATA" ]]; then
+        echo "Error: Test metadata file not found in any of these locations:"
+        for path in "${SEARCH_PATHS[@]}"; do
+            echo "  - $path"
+        done
+        echo ""
+        echo "Hint: The test file may not be included in pip installations."
+        echo "      Use -m /path/to/your/metadata.csv instead of --test"
+        exit 1
+    fi
+
     # Set default column names for test mode
     COL_BIOPROJECT="Bioproject"
     COL_SRA="Run"
