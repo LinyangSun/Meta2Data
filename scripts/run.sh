@@ -93,6 +93,43 @@ cd "$OUTPUT" || exit 1
 mkdir -p "${OUTPUT}/analysis/"
 
 ################################################################################
+#                          FIND REFERENCE FILE                                 #
+################################################################################
+
+# Find the 16S reference file in multiple possible locations
+find_reference_file() {
+    local ref_file="J01859.1.fna"
+    local search_paths=(
+        "${SCRIPT_DIR}/docs/${ref_file}"                    # Development/git repo
+        "/usr/local/share/Meta2Data/docs/${ref_file}"       # System install
+        "${HOME}/.local/share/Meta2Data/docs/${ref_file}"   # User install
+        "${CONDA_PREFIX}/share/Meta2Data/docs/${ref_file}"  # Conda install
+        "${PREFIX}/share/Meta2Data/docs/${ref_file}"        # Alternative prefix
+    )
+
+    for path in "${search_paths[@]}"; do
+        if [[ -f "$path" ]]; then
+            echo "$path"
+            return 0
+        fi
+    done
+
+    echo "ERROR: 16S reference file '${ref_file}' not found in any location:" >&2
+    for path in "${search_paths[@]}"; do
+        echo "  - $path" >&2
+    done
+    return 1
+}
+
+# Find and export reference file path
+REF_16S_PATH=$(find_reference_file)
+if [[ $? -ne 0 ]]; then
+    echo "❌ ERROR: Cannot find 16S reference sequence file"
+    exit 1
+fi
+echo "Using 16S reference: $REF_16S_PATH"
+
+################################################################################
 #                          PHASE 1: DATASET PREPARATION                        #
 ################################################################################
 
@@ -187,7 +224,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         primer_output=$(py_16s.py detect_primers_16s \
             --input_path "$ori_fastq_path" \
             --tmp_path "${dataset_path}temp/" \
-            --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1)
+            --ref_path "$REF_16S_PATH" 2>&1)
         primer_exit_code=$?
 
         if [ $primer_exit_code -eq 0 ]; then
