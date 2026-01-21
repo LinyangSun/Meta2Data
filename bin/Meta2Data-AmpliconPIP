@@ -20,6 +20,8 @@ Optional options:
     -o, --output DIR          Output base directory (default: same directory as metadata file)
     -t, --threads int         Number of CPU threads (default: 4)
     --gg2                     Enable GreenGenes2 taxonomy assignment after processing
+    --i-backbone FILE         Backbone tree file (required if --gg2 is enabled)
+    --i-reference-taxonomy FILE Reference taxonomy file (required if --gg2 is enabled)
     --test                    Use test metadata file (test/ampliconpiptest.csv)
     -h, --help                Show this help message
 
@@ -46,7 +48,7 @@ Example usage:
     Meta2Data AmpliconPIP -m /path/a/to/metadata.csv -o /path/b/to/output/ --col-bioproject Bioproject --col-sra Run -t 8
 
     # Enable GreenGenes2 taxonomy assignment
-    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8 --gg2
+    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8 --gg2 --i-backbone backbone.qza --i-reference-taxonomy taxonomy.qza
 
     # Use test metadata file
     Meta2Data AmpliconPIP --test -t 8
@@ -74,6 +76,8 @@ OUTPUT=""
 THREADS=4
 ENABLE_GG2=false
 TEST_MODE=false
+I_BACKBONE=""
+I_REFERENCE_TAXONOMY=""
 
 # Initialize column names as empty (no defaults)
 COL_BIOPROJECT=""
@@ -97,6 +101,14 @@ while [[ $# -gt 0 ]]; do
         --gg2)
             ENABLE_GG2=true
             shift
+            ;;
+        --i-backbone)
+            I_BACKBONE="$2"
+            shift 2
+            ;;
+        --i-reference-taxonomy)
+            I_REFERENCE_TAXONOMY="$2"
+            shift 2
             ;;
         --test)
             TEST_MODE=true
@@ -150,6 +162,36 @@ if [[ -z "$COL_SRA" ]]; then
     exit 1
 fi
 
+# Validate GG2-specific parameters
+if [[ "$ENABLE_GG2" == true ]]; then
+    if [[ -z "$I_BACKBONE" ]]; then
+        echo "Error: --i-backbone is required when --gg2 is enabled"
+        show_help
+        exit 1
+    fi
+    
+    if [[ -z "$I_REFERENCE_TAXONOMY" ]]; then
+        echo "Error: --i-reference-taxonomy is required when --gg2 is enabled"
+        show_help
+        exit 1
+    fi
+    
+    # Check if backbone file exists
+    if [[ ! -f "$I_BACKBONE" ]]; then
+        echo "Error: Backbone file '$I_BACKBONE' not found"
+        exit 1
+    fi
+    
+    # Check if reference taxonomy file exists
+    if [[ ! -f "$I_REFERENCE_TAXONOMY" ]]; then
+        echo "Error: Reference taxonomy file '$I_REFERENCE_TAXONOMY' not found"
+        exit 1
+    fi
+    
+    # Convert to absolute paths
+    I_BACKBONE=$(cd "$(dirname "$I_BACKBONE")" && pwd)/$(basename "$I_BACKBONE")
+    I_REFERENCE_TAXONOMY=$(cd "$(dirname "$I_REFERENCE_TAXONOMY")" && pwd)/$(basename "$I_REFERENCE_TAXONOMY")
+fi
 
 # Check if metadata file exists
 if [[ ! -f "$METADATA" ]]; then
@@ -190,6 +232,10 @@ echo "Metadata:       $METADATA"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
 echo "GG2 Taxonomy:   $ENABLE_GG2"
+if [[ "$ENABLE_GG2" == true ]]; then
+    echo "Backbone:       $I_BACKBONE"
+    echo "Ref Taxonomy:   $I_REFERENCE_TAXONOMY"
+fi
 echo "BioProject Col: $COL_BIOPROJECT"
 echo "SRA Col:        $COL_SRA"
 echo "========================================="
@@ -238,8 +284,10 @@ if [[ "$ENABLE_GG2" == true ]]; then
     # Export OUTPUT for taxonomy.sh
     export OUTPUT
 
-    # Call taxonomy.sh for GreenGenes2 annotation
-    if ! bash "${SCRIPTS}/taxonomy.sh"; then
+    # Call taxonomy.sh for GreenGenes2 annotation with required parameters
+    if ! bash "${SCRIPTS}/taxonomy.sh" \
+        --i-backbone "$I_BACKBONE" \
+        --i-reference-taxonomy "$I_REFERENCE_TAXONOMY"; then
         echo "❌ ERROR: Taxonomy assignment failed"
         echo "Check logs in: $OUTPUT"
         exit 1
