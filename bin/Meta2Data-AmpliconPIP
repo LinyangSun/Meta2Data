@@ -12,18 +12,20 @@ Usage: Meta2Data AmpliconPIP [options]
 Download and process amplicon sequencing data based on user provided metadata.
 
 Options:
-    -m, --metadata FILE       Input metadata CSV file (required unless --test is used)
+    -m, --metadata FILE       Input metadata CSV file (required; unless --test is used)
+    --col-bioproject Chr     Column name for BioProject in metadata (required; unless --test is used)
+    --col-sra Chr            Column name for SRA accession in metadata (required; unless --test is used)
 
 Optional options:
     -o, --output DIR          Output base directory (default: same directory as metadata file)
-    -t, --threads INT         Number of CPU threads (default: 4)
+    -t, --threads int         Number of CPU threads (default: 4)
     --gg2                     Enable GreenGenes2 taxonomy assignment after processing
+    --i-backbone FILE         Backbone tree file (required if --gg2 is enabled)
+    --i-reference-taxonomy FILE Reference taxonomy file (required if --gg2 is enabled)
     --test                    Use test metadata file (test/ampliconpiptest.csv)
     -h, --help                Show this help message
 
 Column name customization (specify your CSV column names):
-    --col-bioproject NAME     Column for BioProject/Dataset ID (default: 'Data-Bioproject')
-    --col-sra NAME            Column for SRA accession (default: 'Run')
 
 Metadata CSV file format:
     Required columns (default names, customizable with --col-* options):
@@ -36,38 +38,20 @@ Example CSV structure:
     PRJNA12345,SRR123457
 
 Example usage:
-    # Basic usage (output to metadata file directory)
-    Meta2Data AmpliconPIP -m /path/to/metadata.csv -t 8
+    # For test mode
+    Meta2Data AmpliconPIP --test -t 8
 
-    # Specify custom output directory
-    Meta2Data AmpliconPIP -m metadata.csv -o /custom/output/dir/ -t 8
+    # Basic usage (output to metadata file directory)
+    Meta2Data AmpliconPIP -m /path/to/metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
+
+    # Or Specify custom output directory
+    Meta2Data AmpliconPIP -m /path/a/to/metadata.csv -o /path/b/to/output/ --col-bioproject Bioproject --col-sra Run -t 8
 
     # Enable GreenGenes2 taxonomy assignment
-    Meta2Data AmpliconPIP -m metadata.csv -t 8 --gg2
+    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8 --gg2 --i-backbone backbone.qza --i-reference-taxonomy taxonomy.qza
 
     # Use test metadata file
     Meta2Data AmpliconPIP --test -t 8
-
-    # Using custom column names
-    Meta2Data AmpliconPIP -m metadata.csv -t 8 \
-        --col-bioproject "ProjectID" \
-        --col-sra "SRA_Accession"
-
-Pipeline workflow:
-    1. Run multi-platform amplicon processing pipeline (run.sh):
-       a. Parse metadata and generate dataset ID lists
-       b. Generate SRA accession files for each dataset
-       c. For each dataset:
-          - Download SRA data (via Aspera/FTP)
-          - Auto-detect sequencing platform
-          - Smart primer detection and trimming
-          - Platform-specific processing with DADA2(illumina,iontorrent, and pacbio). and ONT(TBD)
-          - Generate final QZA files
-
-    2. (Optional) Run GreenGenes2 taxonomy assignment (taxonomy.sh):
-       - Merge all dataset results
-       - Assign taxonomy using GreenGenes2 database
-       - Generate phylogenetic tree
 
 Output structure:
     <output_dir>/
@@ -92,10 +76,12 @@ OUTPUT=""
 THREADS=4
 ENABLE_GG2=false
 TEST_MODE=false
+I_BACKBONE=""
+I_REFERENCE_TAXONOMY=""
 
-# Default column names (customizable by user)
-COL_BIOPROJECT="Bioproject"
-COL_SRA="Run"
+# Initialize column names as empty (no defaults)
+COL_BIOPROJECT=""
+COL_SRA=""
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -115,6 +101,14 @@ while [[ $# -gt 0 ]]; do
         --gg2)
             ENABLE_GG2=true
             shift
+            ;;
+        --i-backbone)
+            I_BACKBONE="$2"
+            shift 2
+            ;;
+        --i-reference-taxonomy)
+            I_REFERENCE_TAXONOMY="$2"
+            shift 2
             ;;
         --test)
             TEST_MODE=true
@@ -140,9 +134,12 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Handle test mode
+# Handle test mode - set defaults for test mode
 if [[ "$TEST_MODE" == true ]]; then
     METADATA="${SCRIPT_DIR}/test/ampliconpiptest.csv"
+    # Set default column names for test mode
+    COL_BIOPROJECT="Bioproject"
+    COL_SRA="Run"
     echo "Test mode enabled: Using $METADATA"
 fi
 
@@ -151,6 +148,49 @@ if [[ -z "$METADATA" ]]; then
     echo "Error: --metadata is required (or use --test for test mode)"
     show_help
     exit 1
+fi
+
+if [[ -z "$COL_BIOPROJECT" ]]; then
+    echo "Error: --col-bioproject is required (or use --test for test mode)"
+    show_help
+    exit 1
+fi
+
+if [[ -z "$COL_SRA" ]]; then
+    echo "Error: --col-sra is required (or use --test for test mode)"
+    show_help
+    exit 1
+fi
+
+# Validate GG2-specific parameters
+if [[ "$ENABLE_GG2" == true ]]; then
+    if [[ -z "$I_BACKBONE" ]]; then
+        echo "Error: --i-backbone is required when --gg2 is enabled"
+        show_help
+        exit 1
+    fi
+    
+    if [[ -z "$I_REFERENCE_TAXONOMY" ]]; then
+        echo "Error: --i-reference-taxonomy is required when --gg2 is enabled"
+        show_help
+        exit 1
+    fi
+    
+    # Check if backbone file exists
+    if [[ ! -f "$I_BACKBONE" ]]; then
+        echo "Error: Backbone file '$I_BACKBONE' not found"
+        exit 1
+    fi
+    
+    # Check if reference taxonomy file exists
+    if [[ ! -f "$I_REFERENCE_TAXONOMY" ]]; then
+        echo "Error: Reference taxonomy file '$I_REFERENCE_TAXONOMY' not found"
+        exit 1
+    fi
+    
+    # Convert to absolute paths
+    I_BACKBONE=$(cd "$(dirname "$I_BACKBONE")" && pwd)/$(basename "$I_BACKBONE")
+    I_REFERENCE_TAXONOMY=$(cd "$(dirname "$I_REFERENCE_TAXONOMY")" && pwd)/$(basename "$I_REFERENCE_TAXONOMY")
 fi
 
 # Check if metadata file exists
@@ -192,6 +232,12 @@ echo "Metadata:       $METADATA"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
 echo "GG2 Taxonomy:   $ENABLE_GG2"
+if [[ "$ENABLE_GG2" == true ]]; then
+    echo "Backbone:       $I_BACKBONE"
+    echo "Ref Taxonomy:   $I_REFERENCE_TAXONOMY"
+fi
+echo "BioProject Col: $COL_BIOPROJECT"
+echo "SRA Col:        $COL_SRA"
 echo "========================================="
 echo ""
 
@@ -238,8 +284,10 @@ if [[ "$ENABLE_GG2" == true ]]; then
     # Export OUTPUT for taxonomy.sh
     export OUTPUT
 
-    # Call taxonomy.sh for GreenGenes2 annotation
-    if ! bash "${SCRIPTS}/taxonomy.sh"; then
+    # Call taxonomy.sh for GreenGenes2 annotation with required parameters
+    if ! bash "${SCRIPTS}/taxonomy.sh" \
+        --i-backbone "$I_BACKBONE" \
+        --i-reference-taxonomy "$I_REFERENCE_TAXONOMY"; then
         echo "❌ ERROR: Taxonomy assignment failed"
         echo "Check logs in: $OUTPUT"
         exit 1
