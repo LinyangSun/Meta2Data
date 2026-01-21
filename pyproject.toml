@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools-scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meta2data"
+version = "0.1.0"
+description = "Unified Metadata Download Pipeline for bioinformatics data"
+readme = "CLAUDE.MD"
+requires-python = ">=3.10"
+authors = [
+    {name = "LinyangSun", email = "linyang.sun@example.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+
+dependencies = [
+    "biopython",
+    "pandas",
+    "openpyxl",
+    "requests",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.scripts]
+metadata-downloader = "scripts.metadata_downloader:main"
+
+[tool.setuptools]
+packages = ["scripts"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+scripts = ["*.py"]
