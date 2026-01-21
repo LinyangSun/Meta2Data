@@ -179,20 +179,48 @@ for i in "${!Dataset_ID_sets[@]}"; do
         echo "Sequence type: ${sequence_type^^}"
 
         # 4. Primer detection & Trimming
-        echo ">>> Handling primers..."
+        echo ">>> Handling adapters and primers..."
         working_fastq_path="${dataset_path}working_fastq/"
         mkdir -p "$working_fastq_path"
 
-        if py_16s.py detect_primers_16s --input_path "$ori_fastq_path" --tmp_path "${dataset_path}temp/" --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" > /dev/null 2>&1; then
-            echo "✓ Primers detected, trimming 20bp..."
+        # Detect primers and get trim length
+        primer_output=$(py_16s.py detect_primers_16s \
+            --input_path "$ori_fastq_path" \
+            --tmp_path "${dataset_path}temp/" \
+            --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1)
+        primer_exit_code=$?
+
+        if [ $primer_exit_code -eq 0 ]; then
+            # Extract trim length from output (expects format: "TRIM:N")
+            trim_len=$(echo "$primer_output" | grep -oP 'TRIM:\K\d+')
+            
+            if [ -z "$trim_len" ]; then
+                trim_len=20  # Default fallback
+            fi
+            
+            echo "✓ Primers detected at position $((trim_len - 20)), trimming ${trim_len}bp total..."
+            
             if [[ "$sequence_type" == "single" ]]; then
                 for f in "${ori_fastq_path}"*.fastq*; do
-                    fastp -i "$f" -o "${working_fastq_path}$(basename "$f")" -f 20 -w "$THREADS" -j /dev/null -h /dev/null 2>/dev/null
+                    fastp -i "$f" \
+                        -o "${working_fastq_path}$(basename "$f")" \
+                        -f "$trim_len" \
+                        -w "$THREADS" \
+                        --length_required 100 \
+                        -j /dev/null -h /dev/null 2>/dev/null
                 done
             else
                 for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
                     r2="${r1/_R1/_R2}"
-                    fastp -i "$r1" -I "$r2" -o "${working_fastq_path}$(basename "$r1")" -O "${working_fastq_path}$(basename "$r2")" -f 20 -F 20 -w "$THREADS" -j /dev/null -h /dev/null 2>/dev/null
+                    if [ -f "$r2" ]; then
+                        fastp -i "$r1" -I "$r2" \
+                            -o "${working_fastq_path}$(basename "$r1")" \
+                            -O "${working_fastq_path}$(basename "$r2")" \
+                            -f "$trim_len" -F "$trim_len" \
+                            -w "$THREADS" \
+                            --length_required 100 \
+                            -j /dev/null -h /dev/null 2>/dev/null
+                    fi
                 done
             fi
         else

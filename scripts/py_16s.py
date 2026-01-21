@@ -268,11 +268,18 @@ def trim_pos_dada2(file_path):
 
 
 def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J01859.1.fna"):
-    """Detect 16S primers in FASTQ files"""
+    """
+    Detect 16S primers in FASTQ files using sliding window approach
+    Returns: (primers_found: bool, trim_length: int)
+    """
     if not os.path.exists(ref_path):
-        return False
+        return False, 0
 
     LEGAL_ANCHORS = [8, 27, 338, 341, 515, 518, 534, 785, 799, 806, 907, 926, 1046, 1099, 1100, 1391, 1492]
+    
+    # Two-stage search strategy
+    COARSE_OFFSETS = [0, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60]  # Fast initial search
+    FINE_SEARCH_RANGE = 60  # If coarse fails, try every position
 
     # Build BLAST database if needed
     if not os.path.exists(f"{ref_path}.nhr"):
@@ -281,43 +288,95 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
             shell=True, check=True, capture_output=True
         )
 
+    # Find input files
     fwd_files = sorted(glob.glob(os.path.join(input_path, "*_R1*.fastq*")))
     if not fwd_files:
-        return False
+        # Try single-end pattern
+        fwd_files = sorted(glob.glob(os.path.join(input_path, "*.fastq*")))
+        if not fwd_files:
+            return False, 0
 
     test_file = fwd_files[0]
     
-    # Count prefix frequencies
-    prefixes = Counter()
+    # Stage 1: Coarse search with fixed offsets
+    offset_prefixes = {offset: Counter() for offset in COARSE_OFFSETS}
+    
     with (gzip.open(test_file, "rt") if test_file.endswith(".gz") else open(test_file, "r")) as h:
         for i, rec in enumerate(SeqIO.parse(h, "fastq")):
             if i >= 1000:
                 break
-            prefixes[str(rec.seq[:20])] += 1
+            for offset in COARSE_OFFSETS:
+                if len(rec.seq) >= offset + 20:
+                    offset_prefixes[offset][str(rec.seq[offset:offset+20])] += 1
 
-    if not prefixes:
-        return False
+    # Check each coarse offset for primer matches
+    os.makedirs(tmp_path, exist_ok=True)
+    
+    for offset in COARSE_OFFSETS:
+        if not offset_prefixes[offset]:
+            continue
+            
+        top_seq, count = offset_prefixes[offset].most_common(1)[0]
+        
+        if count > 500:  # High frequency suggests conserved primer sequence
+            result = _check_primer_blast(top_seq, offset, ref_path, tmp_path, LEGAL_ANCHORS)
+            if result is not None:
+                return True, result
+    
+    # Stage 2: Fine search if coarse search failed
+    # Only do this if we suspect primers might be present but at unusual positions
+    fine_offset_prefixes = {offset: Counter() for offset in range(0, FINE_SEARCH_RANGE)}
+    
+    with (gzip.open(test_file, "rt") if test_file.endswith(".gz") else open(test_file, "r")) as h:
+        for i, rec in enumerate(SeqIO.parse(h, "fastq")):
+            if i >= 1000:
+                break
+            for offset in range(0, FINE_SEARCH_RANGE):
+                if len(rec.seq) >= offset + 20:
+                    fine_offset_prefixes[offset][str(rec.seq[offset:offset+20])] += 1
+    
+    # Check fine offsets
+    for offset in range(0, FINE_SEARCH_RANGE):
+        if not fine_offset_prefixes[offset]:
+            continue
+            
+        top_seq, count = fine_offset_prefixes[offset].most_common(1)[0]
+        
+        if count > 500:
+            result = _check_primer_blast(top_seq, offset, ref_path, tmp_path, LEGAL_ANCHORS)
+            if result is not None:
+                return True, result
 
-    top_seq, count = prefixes.most_common(1)[0]
+    return False, 0
 
-    if count > 500:
-        tmp_fa = os.path.join(tmp_path, "primer_detect.fa")
-        with open(tmp_fa, "w") as f:
-            f.write(f">candidate\n{top_seq}")
 
-        try:
-            res = subprocess.check_output(
-                f"blastn -query {tmp_fa} -db {ref_path} -outfmt '6 sstart' -task blastn-short",
-                shell=True, stderr=subprocess.DEVNULL
-            ).decode().strip()
+def _check_primer_blast(seq, offset, ref_path, tmp_path, legal_anchors):
+    """
+    Helper function to BLAST a candidate primer sequence
+    Returns trim_length if valid primer found, None otherwise
+    """
+    tmp_fa = os.path.join(tmp_path, f"primer_detect_offset{offset}.fa")
+    with open(tmp_fa, "w") as f:
+        f.write(f">candidate_offset{offset}\n{seq}")
 
-            if res:
-                sstart = int(res.split('\n')[0])
-                return any(abs(sstart - anchor) < 20 for anchor in LEGAL_ANCHORS)
-        except subprocess.CalledProcessError:
-            return False
+    try:
+        res = subprocess.check_output(
+            f"blastn -query {tmp_fa} -db {ref_path} -outfmt '6 sstart' -task blastn-short",
+            shell=True, stderr=subprocess.DEVNULL
+        ).decode().strip()
 
-    return False
+        if res:
+            sstart = int(res.split('\n')[0])
+            if any(abs(sstart - anchor) < 20 for anchor in legal_anchors):
+                # Found primers at this offset
+                # Trim length = offset (adapter/barcode) + 20 (primer)
+                trim_length = offset + 20
+                return trim_length
+                
+    except subprocess.CalledProcessError:
+        pass
+    
+    return None
 
 
 def smart_trim_16s(input_path, output_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J01859.1.fna"):
@@ -514,8 +573,16 @@ if __name__ == "__main__":
         add_prefix_to_file(args.In_fasta, args.In_table, args.Prefix)
 
     elif args.function == "detect_primers_16s":
-        has_primers = detect_primers_16s(args.input_path, args.tmp_path, args.ref_path)
-        sys.exit(0 if has_primers else 1)
+        primers_found, trim_length = detect_primers_16s(
+            args.input_path, 
+            args.tmp_path, 
+            args.ref_path
+        )
+        if primers_found:
+            print(f"TRIM:{trim_length}", file=sys.stdout)
+            sys.exit(0)  # Success - primers detected
+        else:
+            sys.exit(1)  # No primers found
 
     elif args.function == "smart_trim_16s":
         smart_trim_16s(args.input_path, args.output_path, args.tmp_path, args.ref_path)
