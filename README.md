@@ -6,26 +6,32 @@ Meta2Data is a comprehensive command-line tool for downloading, processing, and 
 
 ## Features
 
-- **Metadata Download**: Search and download metadata from NCBI and CNCB/GSA databases with parallel processing and checkpoint/resume capability
-- **Multi-Platform Support**: Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms
+- **Metadata Download and pre-clean**: Search, download and clean for metadata from NCBI and CNCB databases by keywords or provied bioproject id
+- **Multi-Platform Support**: Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms(ONT not supported)
 - **Smart Primer Detection**: Automatic primer detection and trimming for amplicon data
 - **QIIME2 Integration**: Seamless integration with QIIME2 2024.10 for downstream analysis
-- **Parallel Processing**: Concurrent processing with configurable thread counts
-- **Robust Error Handling**: Checkpoint system, retry mechanism, and comprehensive logging
 - **Taxonomy Assignment**: Optional GreenGenes2 taxonomy classification and phylogenetic tree generation
 
 ## Installation
 
 ### Option 1: Conda Environment (Recommended)
 
-The conda environment includes all dependencies (QIIME2, vsearch, fastp, sra-tools, seqkit, etc.):
+copy the env1.yml or env2.yml to your service.
+env1.yml : qiime2 included (QIIME2, vsearch, fastp, sra-tools, seqkit, q2-greengenes, Meta2Data, etc.)
 
 ```bash
-# Create environment from env.yml
-conda env create -f env.yml
+# Create environment from env1.yml
+conda env create -f env1.yml
 
-# Activate environment
-conda activate Meta2Data
+# Verify installation
+Meta2Data --help
+```
+
+env2.yml: Meta2Data only (vsearch, fastp, sra-tools, seqkit, q2-greengenes, Meta2Data, etc.)
+
+```bash
+# Create environment from env2.yml
+conda env create -f env2.yml
 
 # Verify installation
 Meta2Data --help
@@ -84,7 +90,7 @@ Meta2Data <command> [options]
 
 Available commands:
     MetaDL         Enhanced metadata download with parallel processing (NCBI + CNCB)
-    AmpliconPIP    Download and process amplicon sequencing data
+    AmpliconPIP    Download and process 16s amplicon sequencing data (ITS AND 18S TBD)
     Evaluate       Summarize processing results
     ShortreadsPIP  (In development)
 ```
