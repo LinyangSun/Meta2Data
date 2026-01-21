@@ -83,14 +83,13 @@ Meta2Data provides several subcommands for different stages of the workflow:
 Meta2Data <command> [options]
 
 Available commands:
-    MetaDL         Search and download metadata from NCBI
-    MetaDL-v2      Enhanced metadata download with parallel processing (NCBI + CNCB)
+    MetaDL         Enhanced metadata download with parallel processing (NCBI + CNCB)
     AmpliconPIP    Download and process amplicon sequencing data
     Evaluate       Summarize processing results
     ShortreadsPIP  (In development)
 ```
 
-### 1. MetaDL-v2: Enhanced Metadata Download
+### 1. MetaDL: Enhanced Metadata Download
 
 Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability.
 
@@ -100,12 +99,12 @@ Download metadata from NCBI and CNCB databases with parallel processing and chec
 
 ```bash
 # Basic usage
-Meta2Data MetaDL-v2 \
+Meta2Data MetaDL \
     -i bioproject_ids/ \
     -o metadata_output/
 
 # With NCBI API key (faster, 8 parallel workers)
-Meta2Data MetaDL-v2 \
+Meta2Data MetaDL \
     -i bioproject_ids/ \
     -o metadata_output/ \
     -k YOUR_NCBI_API_KEY
@@ -118,14 +117,14 @@ Meta2Data MetaDL-v2 \
 
 ```bash
 # Search by keywords
-Meta2Data MetaDL-v2 \
+Meta2Data MetaDL \
     -o metadata_output/ \
     --keywords \
     --field "16S rRNA" "amplicon" \
     --organism "gut microbiome" "bacteria"
 
 # With optional terms
-Meta2Data MetaDL-v2 \
+Meta2Data MetaDL \
     -o metadata_output/ \
     --keywords \
     --field "metagenome" \
@@ -147,16 +146,32 @@ Download SRA data and process amplicon sequencing data through platform-specific
 #### Basic Usage
 
 ```bash
-# Basic processing
-Meta2Data AmpliconPIP -m metadata.csv -t 8
+# Basic processing (with standard column names)
+Meta2Data AmpliconPIP \
+    -m metadata.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -t 8
 
 # Specify output directory
-Meta2Data AmpliconPIP -m metadata.csv -o /output/path/ -t 8
+Meta2Data AmpliconPIP \
+    -m metadata.csv \
+    -o /output/path/ \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -t 8
 
-# Enable GreenGenes2 taxonomy assignment
-Meta2Data AmpliconPIP -m metadata.csv -t 8 --gg2
+# Enable GreenGenes2 taxonomy assignment (requires backbone and taxonomy files)
+Meta2Data AmpliconPIP \
+    -m metadata.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -t 8 \
+    --gg2 \
+    --i-backbone /path/to/backbone.qza \
+    --i-reference-taxonomy /path/to/taxonomy.qza
 
-# Test mode with sample data
+# Test mode with sample data (no column names needed)
 Meta2Data AmpliconPIP --test -t 8
 ```
 
@@ -165,9 +180,11 @@ Meta2Data AmpliconPIP --test -t 8
 If your CSV uses different column names:
 
 ```bash
-Meta2Data AmpliconPIP -m metadata.csv -t 8 \
+Meta2Data AmpliconPIP \
+    -m metadata.csv \
     --col-bioproject "ProjectID" \
-    --col-sra "SRA_Accession"
+    --col-sra "SRA_Accession" \
+    -t 8
 ```
 
 #### Metadata CSV Format
@@ -220,7 +237,7 @@ The pipeline automatically:
 
 ## Command-Line Options
 
-### MetaDL-v2 Options
+### MetaDL Options
 
 ```
 Required:
@@ -245,17 +262,21 @@ Optional:
 ### AmpliconPIP Options
 
 ```
-Required:
+Required (unless --test is used):
     -m, --metadata FILE           Input metadata CSV file
+    --col-bioproject NAME         Column name for BioProject in CSV
+    --col-sra NAME                Column name for SRA accession in CSV
 
 Optional:
     -o, --output DIR              Output directory (default: metadata file dir)
     -t, --threads INT             CPU threads (default: 4)
-    --gg2                         Enable GreenGenes2 taxonomy assignment
     --test                        Use test data (test/ampliconpiptest.csv)
-    --col-bioproject NAME         Column name for BioProject (default: 'Bioproject')
-    --col-sra NAME                Column name for SRA (default: 'Run')
     -h, --help                    Show help
+
+GreenGenes2 Taxonomy Options:
+    --gg2                         Enable GreenGenes2 taxonomy assignment
+    --i-backbone FILE             Backbone tree file (required if --gg2 enabled)
+    --i-reference-taxonomy FILE   Reference taxonomy file (required if --gg2 enabled)
 ```
 
 ## Examples
@@ -267,7 +288,7 @@ Optional:
 conda activate Meta2Data
 
 # 2. Download metadata
-Meta2Data MetaDL-v2 \
+Meta2Data MetaDL \
     -i bioproject_list/ \
     -o metadata/ \
     -k YOUR_API_KEY
@@ -275,9 +296,13 @@ Meta2Data MetaDL-v2 \
 # 3. Process amplicon data with taxonomy
 Meta2Data AmpliconPIP \
     -m metadata/all_metadata_merged.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
     -o results/ \
     -t 16 \
-    --gg2
+    --gg2 \
+    --i-backbone /path/to/backbone.qza \
+    --i-reference-taxonomy /path/to/taxonomy.qza
 
 # 4. Check results
 ls results/final/merged/
@@ -288,16 +313,20 @@ ls results/final/merged/
 ```bash
 # Process only Illumina data (filter metadata first)
 grep "ILLUMINA" metadata.csv > illumina_only.csv
-Meta2Data AmpliconPIP -m illumina_only.csv -t 8
+Meta2Data AmpliconPIP \
+    -m illumina_only.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -t 8
 ```
 
 ### Resume Interrupted Download
 
-If MetaDL-v2 is interrupted, it automatically resumes from the last checkpoint:
+If MetaDL is interrupted, it automatically resumes from the last checkpoint:
 
 ```bash
 # Simply rerun the same command
-Meta2Data MetaDL-v2 -i bioproject_ids/ -o metadata_output/
+Meta2Data MetaDL -i bioproject_ids/ -o metadata_output/
 # Output: "Resuming from checkpoint..."
 ```
 
