@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Meta2Data"
+version = "1.0.0"
+description = "Bioinformatics pipeline for automated amplicon sequencing data processing from NCBI databases"
+readme = "CLAUDE.MD"
+requires-python = ">=3.10"
+authors = [
+    {name = "Meta2Data Contributors"}
+]
+# Most dependencies are provided by the conda environment (QIIME2, etc.)
+# Only include essential Python packages here
+dependencies = [
+    "biopython",
+    "pandas",
+    "openpyxl",
+    "requests",
+    "numpy",
+]
+
+[tool.setuptools]
+# This is primarily a command-line tool package
+# Files are included via MANIFEST.in
+py-modules = []
+packages = []

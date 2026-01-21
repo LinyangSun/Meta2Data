@@ -1,0 +1,7 @@
+include README.md
+include CLAUDE.MD
+include CHANGELOG-BIOPROJECT.md
+include env.yml
+recursive-include bin *
+recursive-include scripts *.py *.sh
+recursive-include docs *
