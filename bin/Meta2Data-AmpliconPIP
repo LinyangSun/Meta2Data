@@ -34,14 +34,6 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-# Add scripts directory to PATH so py_16s.py can be found
-export PATH="${SCRIPTS}:${PATH}"
-
-# Ensure py_16s.py is executable
-if [[ -f "${SCRIPTS}/py_16s.py" ]]; then
-    chmod +x "${SCRIPTS}/py_16s.py" 2>/dev/null || true
-fi
-
 show_help() {
     cat << EOF
 Usage: Meta2Data AmpliconPIP [options]
@@ -304,7 +296,7 @@ fi
 
 # Check required tools
 command -v iseq >/dev/null 2>&1 || { echo "Error: 'iseq' not found. Please install via: conda install bioconda::iseq"; exit 1; }
-command -v py_16s.py >/dev/null 2>&1 || { echo "Error: 'py_16s.py' not found. Make sure scripts directory is in PATH."; exit 1; }
+[[ -f "${SCRIPTS}/py_16s.py" ]] || { echo "Error: 'py_16s.py' not found at ${SCRIPTS}/py_16s.py"; exit 1; }
 
 # Display configuration
 echo "========================================="

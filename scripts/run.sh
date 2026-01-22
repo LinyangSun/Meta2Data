@@ -14,12 +14,6 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SCRIPTS="${SCRIPT_DIR}/scripts"
 
-# Ensure py_16s.py is in PATH and executable
-export PATH="${SCRIPTS}:${PATH}"
-if [[ -f "${SCRIPTS}/py_16s.py" ]]; then
-    chmod +x "${SCRIPTS}/py_16s.py" 2>/dev/null || true
-fi
-
 show_help() {
     cat << EOF
 Usage: multi-vsearch.sh [options]
@@ -145,7 +139,7 @@ echo "Started: $(date)"
 echo "========================================="
 
 # Step 1: Generate dataset ID list
-if ! py_16s.py GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT"; then
+if ! python "${SCRIPTS}/py_16s.py" GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT"; then
     echo "❌ ERROR: Failed to generate dataset IDs"
     exit 1
 fi
@@ -158,7 +152,7 @@ if [ ${#Dataset_ID_sets[@]} -eq 0 ]; then
 fi
 
 # Step 2: Generate SRA file list
-if ! py_16s.py GenerateSRAsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --SRA_Number "$COL_SRA"; then
+if ! python "${SCRIPTS}/py_16s.py" GenerateSRAsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --SRA_Number "$COL_SRA"; then
     echo "❌ ERROR: Failed to generate SRA file lists"
     exit 1
 fi
@@ -206,7 +200,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         # 2. Dynamic Platform Detection
         echo ">>> Detecting sequencing platform..."
         first_srr=$(awk 'NR==1 {print $1}' "${sra_file_name}")
-        platform=$(py_16s.py get_sequencing_platform --srr_id "$first_srr")
+        platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr")
         echo "Detected platform: $platform"
 
         # 3. Analyze sequence characteristics
@@ -227,7 +221,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         mkdir -p "$working_fastq_path"
 
         # Detect primers and get trim length
-        primer_output=$(py_16s.py detect_primers_16s \
+        primer_output=$(python "${SCRIPTS}/py_16s.py" detect_primers_16s \
             --input_path "$ori_fastq_path" \
             --tmp_path "${dataset_path}temp/" \
             --ref_path "$REF_16S_PATH" 2>&1)
