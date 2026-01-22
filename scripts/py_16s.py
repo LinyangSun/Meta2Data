@@ -24,27 +24,57 @@ def check_and_install(module, module2):
         __import__(module)
 
 
-def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform):
-    """Generate datasets ID file from CSV"""
+def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None):
+    """
+    Generate datasets ID file from CSV
+
+    Extracts unique BioProject IDs from metadata CSV.
+    Platform parameter is optional since platform is detected dynamically downstream.
+
+    Args:
+        file_path: Path to metadata CSV
+        Bioproject: Column name for BioProject ID
+        Data_SequencingPlatform: (Optional) Column name for platform - if provided, outputs both columns
+
+    Returns:
+        Array of dataset IDs
+    """
     directory_path = os.path.dirname(os.path.abspath(file_path))
     df = pd.read_csv(file_path)
 
-    columns_to_clean = [Bioproject, Data_SequencingPlatform]
-    for col in columns_to_clean:
-        if col in df.columns:
-            df[col] = (
-                df[col]
-                .astype(str)
-                .str.replace(' ', '', regex=True)
-                .str.replace('\n', '', regex=True)
-                .str.replace('\t', '', regex=True)
-            )
+    # Clean BioProject column
+    if Bioproject in df.columns:
+        df[Bioproject] = (
+            df[Bioproject]
+            .astype(str)
+            .str.replace(' ', '', regex=True)
+            .str.replace('\n', '', regex=True)
+            .str.replace('\t', '', regex=True)
+        )
 
-    df_pair = (
-        df[[Bioproject, Data_SequencingPlatform]]
-        .dropna(subset=[Bioproject])
-        .drop_duplicates()
-    )
+    # If platform column is provided and exists, include it (backward compatibility)
+    if Data_SequencingPlatform and Data_SequencingPlatform in df.columns:
+        df[Data_SequencingPlatform] = (
+            df[Data_SequencingPlatform]
+            .astype(str)
+            .str.replace(' ', '', regex=True)
+            .str.replace('\n', '', regex=True)
+            .str.replace('\t', '', regex=True)
+        )
+        # Output both columns
+        df_pair = (
+            df[[Bioproject, Data_SequencingPlatform]]
+            .dropna(subset=[Bioproject])
+            .drop_duplicates()
+        )
+    else:
+        # Output only BioProject column (default behavior)
+        # Platform is detected dynamically later via get_sequencing_platform()
+        df_pair = (
+            df[[Bioproject]]
+            .dropna(subset=[Bioproject])
+            .drop_duplicates()
+        )
 
     datasets = df_pair.values.astype(object)
     out_path = f"{directory_path}/datasets_ID.txt"
@@ -564,6 +594,7 @@ if __name__ == "__main__":
         trim_pos_deblur(args.FilePath)
         
     elif args.function == "GenerateDatasetsIDsFile":
+        # SequencingPlatform is optional - if not provided, only outputs BioProject IDs
         GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, args.SequencingPlatform)
         
     elif args.function == "GenerateSRAsFile":
