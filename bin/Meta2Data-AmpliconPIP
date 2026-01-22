@@ -294,12 +294,8 @@ else
     exit 1
 fi
 
-
-
-
-
-
-
+# Check required tools
+[[ -f "${SCRIPTS}/py_16s.py" ]] || { echo "Error: 'py_16s.py' not found at ${SCRIPTS}/py_16s.py"; exit 1; }
 
 # Display configuration
 echo "========================================="
