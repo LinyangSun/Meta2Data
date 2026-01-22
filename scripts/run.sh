@@ -139,7 +139,7 @@ echo "Started: $(date)"
 echo "========================================="
 
 # Step 1: Generate dataset ID list
-if ! python "${SCRIPTS}/py_16s.py" GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT"; then
+if ! python "${SCRIPTS}/py_16s.py" GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --OutputDir "$OUTPUT"; then
     echo "❌ ERROR: Failed to generate dataset IDs"
     exit 1
 fi
@@ -152,7 +152,7 @@ if [ ${#Dataset_ID_sets[@]} -eq 0 ]; then
 fi
 
 # Step 2: Generate SRA file list
-if ! python "${SCRIPTS}/py_16s.py" GenerateSRAsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --SRA_Number "$COL_SRA"; then
+if ! python "${SCRIPTS}/py_16s.py" GenerateSRAsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --SRA_Number "$COL_SRA" --OutputDir "$OUTPUT"; then
     echo "❌ ERROR: Failed to generate SRA file lists"
     exit 1
 fi
