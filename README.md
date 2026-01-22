@@ -6,7 +6,7 @@ Meta2Data is a comprehensive command-line tool for downloading, processing, and 
 
 ## Features
 
-- **Metadata Download and pre-clean**: Search, download and clean for metadata from NCBI and CNCB databases by keywords or provied bioproject id
+- **Metadata Download and pre-clean**: Search, download and pre-clean for metadata from NCBI and CNCB databases by keywords or provied bioproject id
 - **Multi-Platform Support**: Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms(ONT not supported)
 - **Smart Primer Detection**: Automatic primer detection and trimming for amplicon data
 - **QIIME2 Integration**: Seamless integration with QIIME2 2024.10 for downstream analysis
@@ -16,7 +16,8 @@ Meta2Data is a comprehensive command-line tool for downloading, processing, and 
 
 ### Option 1: Conda Environment (Recommended)
 
-copy the env1.yml or env2.yml to your service.
+copy the **env1.yml** or **env2.yml** to your device.
+
 env1.yml : qiime2 included (QIIME2, vsearch, fastp, sra-tools, seqkit, q2-greengenes, Meta2Data, etc.)
 
 ```bash
@@ -27,7 +28,8 @@ conda env create -f env1.yml
 Meta2Data --help
 ```
 
-env2.yml: Meta2Data only (vsearch, fastp, sra-tools, seqkit, q2-greengenes, Meta2Data, etc.)
+env2.yml: Meta2Data only (vsearch, fastp, sra-tools, seqkit, Meta2Data, etc.)
+If you already installed the qiime2 and q2-greengenes2 on your device, use this. 
 
 ```bash
 # Create environment from env2.yml
@@ -59,14 +61,14 @@ Meta2Data --help
 ### System Requirements
 - **OS**: Linux (tested on Ubuntu/CentOS)
 - **Memory**: Minimum 8GB RAM, 16GB+ recommended for large datasets
-- **Storage**: Varies by dataset size (SRA files can be large)
+- **Storage**: Varies by dataset size (SRA files could be large)
 
 ### Software Dependencies
 - Python ≥ 3.10
 - QIIME2 2024.10 (Amplicon distribution)
 - vsearch 2.22+
 - fastp
-- sra-tools (including Aspera for fast downloads)
+- sra-tools
 - seqkit
 - q2-greengenes2 (for taxonomy assignment)
 
@@ -90,19 +92,19 @@ Meta2Data <command> [options]
 
 Available commands:
     MetaDL         Enhanced metadata download with parallel processing (NCBI + CNCB)
-    AmpliconPIP    Download and process 16s amplicon sequencing data (ITS AND 18S TBD)
-    Evaluate       Summarize processing results
+    AmpliconPIP    Download and process 16s amplicon sequencing data (ITS AND 18S not included)
     ShortreadsPIP  (In development)
 ```
 
 ### 1. MetaDL: Enhanced Metadata Download
 
-Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability.
+Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability. Also included the basic column combination and format standardization. 
 
 **Two modes available:**
 
 #### Mode 1: BioProject ID Input
 
+In this mode, the user might already have a list of bioproject id. the bioproject id could be separate as multiple files, but store under same dir. In this dir you should only include the bioproject id files. For each bioproject id files, they should be only have one column and tab separated. please see the example under 
 ```bash
 # Basic usage
 Meta2Data MetaDL \
@@ -177,8 +179,11 @@ Meta2Data AmpliconPIP \
     --i-backbone /path/to/backbone.qza \
     --i-reference-taxonomy /path/to/taxonomy.qza
 
-# Test mode with sample data (no column names needed)
+# Test mode with sample data (output to current directory)
 Meta2Data AmpliconPIP --test -t 8
+
+# Test mode with custom output directory
+Meta2Data AmpliconPIP --test -o /path/to/output/ -t 8
 ```
 
 #### Custom Column Names
@@ -274,9 +279,12 @@ Required (unless --test is used):
     --col-sra NAME                Column name for SRA accession in CSV
 
 Optional:
-    -o, --output DIR              Output directory (default: metadata file dir)
+    -o, --output DIR              Output directory
+                                  Default: current directory in --test mode
+                                           metadata file directory in normal mode
     -t, --threads INT             CPU threads (default: 4)
     --test                        Use test data (test/ampliconpiptest.csv)
+                                  Output defaults to current directory
     -h, --help                    Show help
 
 GreenGenes2 Taxonomy Options:

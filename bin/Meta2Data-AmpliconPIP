@@ -17,12 +17,15 @@ Options:
     --col-sra Chr            Column name for SRA accession in metadata (required; unless --test is used)
 
 Optional options:
-    -o, --output DIR          Output base directory (default: same directory as metadata file)
+    -o, --output DIR          Output base directory
+                              Default: current directory in --test mode
+                                       metadata file directory in normal mode
     -t, --threads int         Number of CPU threads (default: 4)
     --gg2                     Enable GreenGenes2 taxonomy assignment after processing
     --i-backbone FILE         Backbone tree file (required if --gg2 is enabled)
     --i-reference-taxonomy FILE Reference taxonomy file (required if --gg2 is enabled)
     --test                    Use test metadata file (test/ampliconpiptest.csv)
+                              Output defaults to current directory in test mode
     -h, --help                Show this help message
 
 Column name customization (specify your CSV column names):
@@ -38,13 +41,16 @@ Example CSV structure:
     PRJNA12345,SRR123457
 
 Example usage:
-    # For test mode
+    # Test mode (output to current directory)
     Meta2Data AmpliconPIP --test -t 8
+
+    # Test mode with custom output directory
+    Meta2Data AmpliconPIP --test -o /path/to/output/ -t 8
 
     # Basic usage (output to metadata file directory)
     Meta2Data AmpliconPIP -m /path/to/metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
 
-    # Or Specify custom output directory
+    # Specify custom output directory
     Meta2Data AmpliconPIP -m /path/a/to/metadata.csv -o /path/b/to/output/ --col-bioproject Bioproject --col-sra Run -t 8
 
     # Enable GreenGenes2 taxonomy assignment
@@ -232,12 +238,20 @@ fi
 # Convert metadata to absolute path
 METADATA=$(cd "$(dirname "$METADATA")" && pwd)/$(basename "$METADATA")
 
-# Set output directory (default: same directory as metadata file)
+# Set output directory
 if [[ -z "$OUTPUT" ]]; then
-    OUTPUT=$(dirname "$METADATA")
-    echo "Output directory not specified, using metadata file directory: $OUTPUT"
+    if [[ "$TEST_MODE" == true ]]; then
+        # In test mode, default to current working directory
+        # (test metadata is inside package, can't write there)
+        OUTPUT=$(pwd)
+        echo "Output directory not specified, using current directory: $OUTPUT"
+    else
+        # Normal mode: use metadata file directory
+        OUTPUT=$(dirname "$METADATA")
+        echo "Output directory not specified, using metadata file directory: $OUTPUT"
+    fi
 else
-    # Create output directory if specified
+    # User specified output directory
     mkdir -p "$OUTPUT"
     OUTPUT=$(cd "$OUTPUT" && pwd)
 fi
