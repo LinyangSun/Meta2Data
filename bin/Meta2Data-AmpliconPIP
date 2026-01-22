@@ -34,14 +34,6 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-# Add scripts directory to PATH so py_16s.py can be found
-export PATH="${SCRIPTS}:${PATH}"
-
-# Ensure py_16s.py is executable
-if [[ -f "${SCRIPTS}/py_16s.py" ]]; then
-    chmod +x "${SCRIPTS}/py_16s.py" 2>/dev/null || true
-fi
-
 show_help() {
     cat << EOF
 Usage: Meta2Data AmpliconPIP [options]
@@ -301,6 +293,12 @@ else
     echo "Error: AmpliconFunction.sh not found at ${SCRIPTS}/AmpliconFunction.sh"
     exit 1
 fi
+
+
+
+
+
+
 
 
 # Display configuration
