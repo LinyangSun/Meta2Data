@@ -171,8 +171,11 @@ Meta2Data AmpliconPIP \
     --i-backbone /path/to/backbone.qza \
     --i-reference-taxonomy /path/to/taxonomy.qza
 
-# Test mode with sample data (no column names needed)
+# Test mode with sample data (output to current directory)
 Meta2Data AmpliconPIP --test -t 8
+
+# Test mode with custom output directory
+Meta2Data AmpliconPIP --test -o /path/to/output/ -t 8
 ```
 
 #### Custom Column Names
@@ -268,9 +271,12 @@ Required (unless --test is used):
     --col-sra NAME                Column name for SRA accession in CSV
 
 Optional:
-    -o, --output DIR              Output directory (default: metadata file dir)
+    -o, --output DIR              Output directory
+                                  Default: current directory in --test mode
+                                           metadata file directory in normal mode
     -t, --threads INT             CPU threads (default: 4)
     --test                        Use test data (test/ampliconpiptest.csv)
+                                  Output defaults to current directory
     -h, --help                    Show help
 
 GreenGenes2 Taxonomy Options:
