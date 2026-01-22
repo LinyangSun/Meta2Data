@@ -250,9 +250,6 @@ else
     exit 1
 fi
 
-# Check required tools
-command -v iseq >/dev/null 2>&1 || { echo "Error: 'iseq' not found. Please install via: conda install bioconda::iseq"; exit 1; }
-command -v py_16s.py >/dev/null 2>&1 || { echo "Error: 'py_16s.py' not found. Make sure scripts directory is in PATH."; exit 1; }
 
 # Display configuration
 echo "========================================="
