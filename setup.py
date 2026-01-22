@@ -25,6 +25,11 @@ docs_files = glob.glob('docs/*')
 if docs_files:
     data_files.append(('share/Meta2Data/docs', docs_files))
 
+# Scripts directory (includes AmpliconFunction.sh, py_16s.py, run.sh, taxonomy.sh)
+scripts_files = glob.glob('scripts/*.sh') + glob.glob('scripts/*.py')
+if scripts_files:
+    data_files.append(('share/Meta2Data/scripts', scripts_files))
+
 setup(
     scripts=[
         'bin/Meta2Data',

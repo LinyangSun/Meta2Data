@@ -3,7 +3,36 @@ set -e
 
 # Find scripts directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SCRIPTS="${SCRIPT_DIR}/scripts"
+
+# Search for scripts directory in multiple possible locations
+find_scripts_dir() {
+    local search_paths=(
+        "${SCRIPT_DIR}/scripts"                          # Development/git repo
+        "/usr/local/share/Meta2Data/scripts"             # System install
+        "${HOME}/.local/share/Meta2Data/scripts"         # User install
+        "${CONDA_PREFIX}/share/Meta2Data/scripts"        # Conda install
+        "${PREFIX}/share/Meta2Data/scripts"              # Alternative prefix
+    )
+
+    for path in "${search_paths[@]}"; do
+        if [[ -d "$path" && -f "$path/AmpliconFunction.sh" ]]; then
+            echo "$path"
+            return 0
+        fi
+    done
+
+    echo "ERROR: Scripts directory not found in any location:" >&2
+    for path in "${search_paths[@]}"; do
+        echo "  - $path" >&2
+    done
+    return 1
+}
+
+SCRIPTS=$(find_scripts_dir)
+if [[ $? -ne 0 ]]; then
+    echo "❌ ERROR: Cannot find scripts directory"
+    exit 1
+fi
 
 show_help() {
     cat << EOF
@@ -256,11 +285,12 @@ else
     OUTPUT=$(cd "$OUTPUT" && pwd)
 fi
 
-# Source function library
-if [[ -f "${SCRIPTS}/Function_Import.sh" ]]; then
-    source "${SCRIPTS}/Function_Import.sh"
+# Source function library (AmpliconFunction.sh)
+# Note: py_16s.py must be in PATH (installed via setup.py or conda env)
+if [[ -f "${SCRIPTS}/AmpliconFunction.sh" ]]; then
+    source "${SCRIPTS}/AmpliconFunction.sh"
 else
-    echo "Error: Function_Import.sh not found at ${SCRIPTS}/Function_Import.sh"
+    echo "Error: AmpliconFunction.sh not found at ${SCRIPTS}/AmpliconFunction.sh"
     exit 1
 fi
 
