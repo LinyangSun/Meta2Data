@@ -81,11 +81,11 @@ fi
 
 export cpu=$THREADS
 
-# Source function library
-if [[ -f "${SCRIPTS}/Function_Import.sh" ]]; then
-    source "${SCRIPTS}/Function_Import.sh"
+# Source function library (AmpliconFunction.sh contains all processing functions)
+if [[ -f "${SCRIPTS}/AmpliconFunction.sh" ]]; then
+    source "${SCRIPTS}/AmpliconFunction.sh"
 else
-    echo "Error: Function_Import.sh not found"
+    echo "Error: AmpliconFunction.sh not found at ${SCRIPTS}/AmpliconFunction.sh"
     exit 1
 fi
 
