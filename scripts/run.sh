@@ -14,6 +14,12 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SCRIPTS="${SCRIPT_DIR}/scripts"
 
+# Ensure py_16s.py is in PATH and executable
+export PATH="${SCRIPTS}:${PATH}"
+if [[ -f "${SCRIPTS}/py_16s.py" ]]; then
+    chmod +x "${SCRIPTS}/py_16s.py" 2>/dev/null || true
+fi
+
 show_help() {
     cat << EOF
 Usage: multi-vsearch.sh [options]
