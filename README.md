@@ -6,26 +6,34 @@ Meta2Data is a comprehensive command-line tool for downloading, processing, and 
 
 ## Features
 
-- **Metadata Download**: Search and download metadata from NCBI and CNCB/GSA databases with parallel processing and checkpoint/resume capability
-- **Multi-Platform Support**: Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms
+- **Metadata Download and pre-clean**: Search, download and pre-clean for metadata from NCBI and CNCB databases by keywords or provied bioproject id
+- **Multi-Platform Support**: Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms(ONT not supported)
 - **Smart Primer Detection**: Automatic primer detection and trimming for amplicon data
 - **QIIME2 Integration**: Seamless integration with QIIME2 2024.10 for downstream analysis
-- **Parallel Processing**: Concurrent processing with configurable thread counts
-- **Robust Error Handling**: Checkpoint system, retry mechanism, and comprehensive logging
 - **Taxonomy Assignment**: Optional GreenGenes2 taxonomy classification and phylogenetic tree generation
 
 ## Installation
 
 ### Option 1: Conda Environment (Recommended)
 
-The conda environment includes all dependencies (QIIME2, vsearch, fastp, sra-tools, seqkit, etc.):
+copy the **env1.yml** or **env2.yml** to your device.
+
+env1.yml : qiime2 included (QIIME2, vsearch, fastp, sra-tools, seqkit, q2-greengenes, Meta2Data, etc.)
 
 ```bash
-# Create environment from env.yml
-conda env create -f env.yml
+# Create environment from env1.yml
+conda env create -f env1.yml
 
-# Activate environment
-conda activate Meta2Data
+# Verify installation
+Meta2Data --help
+```
+
+env2.yml: Meta2Data only (vsearch, fastp, sra-tools, seqkit, Meta2Data, etc.)
+If you already installed the qiime2 and q2-greengenes2 on your device, use this. 
+
+```bash
+# Create environment from env2.yml
+conda env create -f env2.yml
 
 # Verify installation
 Meta2Data --help
@@ -53,14 +61,14 @@ Meta2Data --help
 ### System Requirements
 - **OS**: Linux (tested on Ubuntu/CentOS)
 - **Memory**: Minimum 8GB RAM, 16GB+ recommended for large datasets
-- **Storage**: Varies by dataset size (SRA files can be large)
+- **Storage**: Varies by dataset size (SRA files could be large)
 
 ### Software Dependencies
 - Python ≥ 3.10
 - QIIME2 2024.10 (Amplicon distribution)
 - vsearch 2.22+
 - fastp
-- sra-tools (including Aspera for fast downloads)
+- sra-tools
 - seqkit
 - q2-greengenes2 (for taxonomy assignment)
 
@@ -84,18 +92,19 @@ Meta2Data <command> [options]
 
 Available commands:
     MetaDL         Enhanced metadata download with parallel processing (NCBI + CNCB)
-    AmpliconPIP    Download and process amplicon sequencing data
-    Evaluate       Summarize processing results
+    AmpliconPIP    Download and process 16s amplicon sequencing data (ITS AND 18S not included)
     ShortreadsPIP  (In development)
 ```
 
 ### 1. MetaDL: Enhanced Metadata Download
 
-Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability.
+Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability. Also included the basic column combination and format standardization. 
 
 **Two modes available:**
 
 #### Mode 1: BioProject ID Input
+
+In this mode, the user might already have a list of bioproject id. the bioproject id could be separate as multiple files, but store under same dir. In this dir you should only include the bioproject id files. For each bioproject id files, it should only have one column and tab separated. please see the example under example/MetaDL/bioprojectID.txt
 
 ```bash
 # Basic usage
@@ -111,7 +120,7 @@ Meta2Data MetaDL \
 ```
 
 **Input format**: Directory containing `.txt` files with one BioProject ID per line
-- Supports: PRJNA*, PRJEB*, PRJDB*, PRJCA*, CRA*, etc.
+- Supports: PRJNA*, PRJEB*, PRJDB*, PRJCA*, etc.
 
 #### Mode 2: Keyword Search
 
@@ -120,8 +129,8 @@ Meta2Data MetaDL \
 Meta2Data MetaDL \
     -o metadata_output/ \
     --keywords \
-    --field "16S rRNA" "amplicon" \
-    --organism "gut microbiome" "bacteria"
+    --field "16S rRNA" \
+    --organism "gut microbiome"
 
 # With optional terms
 Meta2Data MetaDL \
@@ -130,6 +139,25 @@ Meta2Data MetaDL \
     --field "metagenome" \
     --organism "soil" \
     --opt "Illumina"
+
+# or use a set of keywords
+field=("Bacteria" "Microbiome" "Microbes" "Metagenomics" "Metabarcoding")
+organism=("bee" "apis" "bombus")
+opt=("Amplicon" "16s" "skin" "gut")
+
+Meta2Data MetaDL \
+    -o metadata_output/ \
+    --keywords \
+    --field "${field[@]}" \
+    --organism "${organism[@]}"
+
+# With optional terms
+Meta2Data MetaDL \
+    -o metadata_output/ \
+    --keywords \
+    --field "${field[@]}" \
+    --organism "${organism[@]}" \
+    --opt "${opt[@]}"
 ```
 
 **Output files:**
@@ -141,31 +169,31 @@ Meta2Data MetaDL \
 
 ### 2. AmpliconPIP: Amplicon Data Processing
 
-Download SRA data and process amplicon sequencing data through platform-specific pipelines.
+Download SRA data and process amplicon sequencing data with provided metadata.
 
 #### Basic Usage
 
 ```bash
 # Basic processing (with standard column names)
 Meta2Data AmpliconPIP \
-    -m metadata.csv \
-    --col-bioproject Bioproject \
-    --col-sra Run \
+    -m path/to/metadata.csv \
+    --col-bioproject "Bioproject" \
+    --col-sra "Run" \
     -t 8
 
-# Specify output directory
+# Or specify output directory
 Meta2Data AmpliconPIP \
-    -m metadata.csv \
+    -m path/to/metadata.csv \
     -o /output/path/ \
-    --col-bioproject Bioproject \
-    --col-sra Run \
+    --col-bioproject "Bioproject" \
+    --col-sra "Run" \
     -t 8
 
 # Enable GreenGenes2 taxonomy assignment (requires backbone and taxonomy files)
 Meta2Data AmpliconPIP \
-    -m metadata.csv \
-    --col-bioproject Bioproject \
-    --col-sra Run \
+    -m path/to/metadata.csv \
+    --col-bioproject "Bioproject" \
+    --col-sra "Run" \
     -t 8 \
     --gg2 \
     --i-backbone /path/to/backbone.qza \
@@ -178,17 +206,6 @@ Meta2Data AmpliconPIP --test -t 8
 Meta2Data AmpliconPIP --test -o /path/to/output/ -t 8
 ```
 
-#### Custom Column Names
-
-If your CSV uses different column names:
-
-```bash
-Meta2Data AmpliconPIP \
-    -m metadata.csv \
-    --col-bioproject "ProjectID" \
-    --col-sra "SRA_Accession" \
-    -t 8
-```
 
 #### Metadata CSV Format
 
@@ -213,7 +230,6 @@ The pipeline automatically:
 4. **Processes** data using platform-specific methods:
    - **Illumina/Ion Torrent**: DADA2 denoising
    - **PacBio**: DADA2 with PacBio parameters
-   - **454**: Vsearch clustering and chimera removal
 5. **Generates** QIIME2 artifacts (`.qza` files)
 6. **Assigns** taxonomy (optional, with `--gg2`)
 
@@ -408,16 +424,3 @@ If you use Meta2Data in your research, please cite:
 
 [License information to be added]
 
-## Contact
-
-- **Issues**: https://github.com/LinyangSun/Meta2Data/issues
-- **Repository**: https://github.com/LinyangSun/Meta2Data
-
-## Acknowledgments
-
-This project integrates several excellent bioinformatics tools:
-- QIIME2 for microbiome analysis
-- DADA2 for sequence denoising
-- Vsearch for sequence clustering
-- GreenGenes2 for taxonomy classification
-- SRA Toolkit for data access
