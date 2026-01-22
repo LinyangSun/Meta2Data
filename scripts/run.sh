@@ -277,7 +277,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         elif [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
-            Amplicon_Illumina_QualityControl
+            Amplicon_Illumina_QualityControlForQZA
             Amplicon_Illumina_DenosingDada2
             Amplicon_Common_FinalFilesCleaning
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
