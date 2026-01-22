@@ -104,7 +104,8 @@ Download metadata from NCBI and CNCB databases with parallel processing and chec
 
 #### Mode 1: BioProject ID Input
 
-In this mode, the user might already have a list of bioproject id. the bioproject id could be separate as multiple files, but store under same dir. In this dir you should only include the bioproject id files. For each bioproject id files, they should be only have one column and tab separated. please see the example under 
+In this mode, the user might already have a list of bioproject id. the bioproject id could be separate as multiple files, but store under same dir. In this dir you should only include the bioproject id files. For each bioproject id files, it should only have one column and tab separated. please see the example under example/MetaDL/bioprojectID.txt
+
 ```bash
 # Basic usage
 Meta2Data MetaDL \
@@ -119,7 +120,7 @@ Meta2Data MetaDL \
 ```
 
 **Input format**: Directory containing `.txt` files with one BioProject ID per line
-- Supports: PRJNA*, PRJEB*, PRJDB*, PRJCA*, CRA*, etc.
+- Supports: PRJNA*, PRJEB*, PRJDB*, PRJCA*, etc.
 
 #### Mode 2: Keyword Search
 
@@ -128,8 +129,8 @@ Meta2Data MetaDL \
 Meta2Data MetaDL \
     -o metadata_output/ \
     --keywords \
-    --field "16S rRNA" "amplicon" \
-    --organism "gut microbiome" "bacteria"
+    --field "16S rRNA" \
+    --organism "gut microbiome"
 
 # With optional terms
 Meta2Data MetaDL \
@@ -138,6 +139,25 @@ Meta2Data MetaDL \
     --field "metagenome" \
     --organism "soil" \
     --opt "Illumina"
+
+# or use a set of keywords
+field=("Bacteria" "Microbiome" "Microbes" "Metagenomics" "Metabarcoding")
+organism=("bee" "apis" "bombus")
+opt=("Amplicon" "16s" "skin" "gut")
+
+Meta2Data MetaDL \
+    -o metadata_output/ \
+    --keywords \
+    --field "${field[@]}" \
+    --organism "${organism[@]}"
+
+# With optional terms
+Meta2Data MetaDL \
+    -o metadata_output/ \
+    --keywords \
+    --field "${field[@]}" \
+    --organism "${organism[@]}" \
+    --opt "${opt[@]}"
 ```
 
 **Output files:**
@@ -149,31 +169,31 @@ Meta2Data MetaDL \
 
 ### 2. AmpliconPIP: Amplicon Data Processing
 
-Download SRA data and process amplicon sequencing data through platform-specific pipelines.
+Download SRA data and process amplicon sequencing data with provided metadata.
 
 #### Basic Usage
 
 ```bash
 # Basic processing (with standard column names)
 Meta2Data AmpliconPIP \
-    -m metadata.csv \
-    --col-bioproject Bioproject \
-    --col-sra Run \
+    -m path/to/metadata.csv \
+    --col-bioproject "Bioproject" \
+    --col-sra "Run" \
     -t 8
 
-# Specify output directory
+# Or specify output directory
 Meta2Data AmpliconPIP \
-    -m metadata.csv \
+    -m path/to/metadata.csv \
     -o /output/path/ \
-    --col-bioproject Bioproject \
-    --col-sra Run \
+    --col-bioproject "Bioproject" \
+    --col-sra "Run" \
     -t 8
 
 # Enable GreenGenes2 taxonomy assignment (requires backbone and taxonomy files)
 Meta2Data AmpliconPIP \
-    -m metadata.csv \
-    --col-bioproject Bioproject \
-    --col-sra Run \
+    -m path/to/metadata.csv \
+    --col-bioproject "Bioproject" \
+    --col-sra "Run" \
     -t 8 \
     --gg2 \
     --i-backbone /path/to/backbone.qza \
@@ -186,17 +206,6 @@ Meta2Data AmpliconPIP --test -t 8
 Meta2Data AmpliconPIP --test -o /path/to/output/ -t 8
 ```
 
-#### Custom Column Names
-
-If your CSV uses different column names:
-
-```bash
-Meta2Data AmpliconPIP \
-    -m metadata.csv \
-    --col-bioproject "ProjectID" \
-    --col-sra "SRA_Accession" \
-    -t 8
-```
 
 #### Metadata CSV Format
 
@@ -221,7 +230,6 @@ The pipeline automatically:
 4. **Processes** data using platform-specific methods:
    - **Illumina/Ion Torrent**: DADA2 denoising
    - **PacBio**: DADA2 with PacBio parameters
-   - **454**: Vsearch clustering and chimera removal
 5. **Generates** QIIME2 artifacts (`.qza` files)
 6. **Assigns** taxonomy (optional, with `--gg2`)
 
