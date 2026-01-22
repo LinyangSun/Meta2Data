@@ -424,16 +424,3 @@ If you use Meta2Data in your research, please cite:
 
 [License information to be added]
 
-## Contact
-
-- **Issues**: https://github.com/LinyangSun/Meta2Data/issues
-- **Repository**: https://github.com/LinyangSun/Meta2Data
-
-## Acknowledgments
-
-This project integrates several excellent bioinformatics tools:
-- QIIME2 for microbiome analysis
-- DADA2 for sequence denoising
-- Vsearch for sequence clustering
-- GreenGenes2 for taxonomy classification
-- SRA Toolkit for data access
