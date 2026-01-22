@@ -150,7 +150,7 @@ Common_SRADownloadToFastq_MultiSource() {
     # Check dependencies
     command -v prefetch >/dev/null 2>&1 || { echo "Error: 'prefetch' not found." >&2; return 1; }
     command -v fasterq-dump >/dev/null 2>&1 || { echo "Error: 'fasterq-dump' not found." >&2; return 1; }
-    command -v ascp >/dev/null 2>&1 || { echo "Error: 'ascp' not found." >&2; return 1; }
+    command -v ascp >/dev/null 2>&1 || { echo "Warning: 'ascp' not found. CRR downloads may fail." >&2; }
     
     local base_dir="${dir_path%/}/"
     local fastq_path="${base_dir}ori_fastq/"
