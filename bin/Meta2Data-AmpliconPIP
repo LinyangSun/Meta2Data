@@ -34,6 +34,9 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
+# Add scripts directory to PATH so py_16s.py can be found
+export PATH="${SCRIPTS}:${PATH}"
+
 show_help() {
     cat << EOF
 Usage: Meta2Data AmpliconPIP [options]

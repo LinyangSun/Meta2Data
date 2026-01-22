@@ -35,6 +35,7 @@ setup(
         'bin/Meta2Data',
         'bin/Meta2Data-AmpliconPIP',
         'bin/Meta2Data-MetaDL',
+        'scripts/py_16s.py',  # Install as executable script in bin/
     ],
     data_files=data_files,
 )
