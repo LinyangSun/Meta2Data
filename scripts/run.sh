@@ -200,7 +200,26 @@ for i in "${!Dataset_ID_sets[@]}"; do
         # 2. Dynamic Platform Detection
         echo ">>> Detecting sequencing platform..."
         first_srr=$(awk 'NR==1 {print $1}' "${sra_file_name}")
-        platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr")
+
+        # Try to read platform from metadata CSV first (if plt/platform column exists)
+        platform=""
+        if [ -f "$METADATA" ]; then
+            # Check if metadata has a platform column (plt, Platform, platform, etc.)
+            header=$(head -n1 "$METADATA")
+            if echo "$header" | grep -qi "plt\|platform"; then
+                # Extract platform for this specific run
+                platform=$(awk -F',' -v run="$first_srr" 'NR==1{for(i=1;i<=NF;i++){if(tolower($i)=="plt"||tolower($i)=="platform"){col=i}}; next} $0~run{print $col; exit}' "$METADATA" | tr -d ' \r\n')
+            fi
+        fi
+
+        # If platform not in CSV or empty, query API
+        if [ -z "$platform" ] || [ "$platform" == "nan" ]; then
+            echo "  Platform not in CSV, querying API..."
+            platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr")
+        else
+            echo "  Platform from CSV: $platform"
+        fi
+
         echo "Detected platform: $platform"
 
         # 3. Analyze sequence characteristics
