@@ -24,7 +24,7 @@ def check_and_install(module, module2):
         __import__(module)
 
 
-def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None):
+def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None, output_dir=None):
     """
     Generate datasets ID file from CSV
 
@@ -35,11 +35,17 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None)
         file_path: Path to metadata CSV
         Bioproject: Column name for BioProject ID
         Data_SequencingPlatform: (Optional) Column name for platform - if provided, outputs both columns
+        output_dir: (Optional) Directory to write output file. If not provided, uses input file directory
 
     Returns:
         Array of dataset IDs
     """
-    directory_path = os.path.dirname(os.path.abspath(file_path))
+    # Use output directory if provided, otherwise use input file's directory
+    if output_dir:
+        directory_path = output_dir
+    else:
+        directory_path = os.path.dirname(os.path.abspath(file_path))
+
     df = pd.read_csv(file_path)
 
     # Clean BioProject column
@@ -82,9 +88,13 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None)
     return datasets
 
 
-def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample):
+def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample, output_dir=None):
     """Generate SRA files for each bioproject"""
-    directory_path = os.path.dirname(os.path.abspath(file_path))
+    # Use output directory if provided, otherwise use input file's directory
+    if output_dir:
+        directory_path = output_dir
+    else:
+        directory_path = os.path.dirname(os.path.abspath(file_path))
     df = pd.read_csv(file_path)
 
     columns_to_clean = [Bioproject, SRA_Number, Biosample]
@@ -568,6 +578,7 @@ if __name__ == "__main__":
     parser.add_argument("--Prefix", help="Prefix for output files")
     parser.add_argument("--input_path", help="Input directory with FASTQ files")
     parser.add_argument("--output_path", help="Output directory")
+    parser.add_argument("--OutputDir", help="Output directory for generated files")
     parser.add_argument("--tmp_path", default="/tmp", help="Temporary directory")
     parser.add_argument("--ref_path", default="./Meta2Data/docs/J01859.1.fna", help="E. coli 16S reference")
     parser.add_argument("--srr_id", help="SRA accession number")
@@ -595,10 +606,12 @@ if __name__ == "__main__":
         
     elif args.function == "GenerateDatasetsIDsFile":
         # SequencingPlatform is optional - if not provided, only outputs BioProject IDs
-        GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, args.SequencingPlatform)
+        # OutputDir is optional - if not provided, uses input file directory
+        GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, args.SequencingPlatform, args.OutputDir)
         
     elif args.function == "GenerateSRAsFile":
-        GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample)
+        # OutputDir is optional - if not provided, uses input file directory
+        GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample, args.OutputDir)
         
     elif args.function == "add_prefix_to_file":
         add_prefix_to_file(args.In_fasta, args.In_table, args.Prefix)
