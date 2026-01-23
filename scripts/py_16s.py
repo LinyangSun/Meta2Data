@@ -329,23 +329,47 @@ def trim_pos_dada2(file_path):
 def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J01859.1.fna"):
     """
     Detect 16S primers in FASTQ files using sliding window approach
+
+    Method:
+    1. Sample first 1000 reads from FASTQ file
+    2. Extract 20bp sequences at different offsets (positions)
+    3. Find most common 20bp sequence at each offset (conserved = likely primer)
+    4. BLAST against E. coli 16S reference to verify it's a real primer
+    5. Check if BLAST hit matches known 16S primer binding sites
+
     Returns: (primers_found: bool, trim_length: int)
     """
+    print("=" * 60, file=sys.stderr)
+    print("16S PRIMER DETECTION METHOD", file=sys.stderr)
+    print("=" * 60, file=sys.stderr)
+    print("\nPurpose: Detect if reads contain adapters/barcodes + 16S primers", file=sys.stderr)
+    print("Strategy: Two-stage sliding window search with BLAST verification\n", file=sys.stderr)
+
     if not os.path.exists(ref_path):
+        print(f"✗ Reference not found: {ref_path}", file=sys.stderr)
         return False, 0
 
+    # Known 16S primer binding sites on E. coli 16S rRNA gene
     LEGAL_ANCHORS = [8, 27, 338, 341, 515, 518, 534, 785, 799, 806, 907, 926, 1046, 1099, 1100, 1391, 1492]
-    
+    print(f"Known 16S primer sites: {len(LEGAL_ANCHORS)} positions", file=sys.stderr)
+    print(f"  (e.g., V3-V4: 341F/785R, V4: 515F/806R)\n", file=sys.stderr)
+
     # Two-stage search strategy
     COARSE_OFFSETS = [0, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60]  # Fast initial search
     FINE_SEARCH_RANGE = 60  # If coarse fails, try every position
 
+    print(f"Stage 1: Coarse search at {len(COARSE_OFFSETS)} key offsets", file=sys.stderr)
+    print(f"  Offsets: {COARSE_OFFSETS}", file=sys.stderr)
+    print(f"Stage 2: Fine search (0-{FINE_SEARCH_RANGE}bp) if Stage 1 fails\n", file=sys.stderr)
+
     # Build BLAST database if needed
     if not os.path.exists(f"{ref_path}.nhr"):
+        print("Building BLAST database for 16S reference...", file=sys.stderr)
         subprocess.run(
             f"makeblastdb -in {ref_path} -dbtype nucl",
             shell=True, check=True, capture_output=True
         )
+        print("✓ BLAST database ready\n", file=sys.stderr)
 
     # Find input files
     fwd_files = sorted(glob.glob(os.path.join(input_path, "*_R1*.fastq*")))
@@ -353,13 +377,19 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
         # Try single-end pattern
         fwd_files = sorted(glob.glob(os.path.join(input_path, "*.fastq*")))
         if not fwd_files:
+            print("✗ No FASTQ files found", file=sys.stderr)
             return False, 0
 
     test_file = fwd_files[0]
-    
+    print(f"Analyzing: {os.path.basename(test_file)}", file=sys.stderr)
+    print(f"Sampling: First 1000 reads\n", file=sys.stderr)
+
     # Stage 1: Coarse search with fixed offsets
+    print("-" * 60, file=sys.stderr)
+    print("STAGE 1: Coarse Search (Fast)", file=sys.stderr)
+    print("-" * 60, file=sys.stderr)
     offset_prefixes = {offset: Counter() for offset in COARSE_OFFSETS}
-    
+
     with (gzip.open(test_file, "rt") if test_file.endswith(".gz") else open(test_file, "r")) as h:
         for i, rec in enumerate(SeqIO.parse(h, "fastq")):
             if i >= 1000:
@@ -368,22 +398,40 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
                 if len(rec.seq) >= offset + 20:
                     offset_prefixes[offset][str(rec.seq[offset:offset+20])] += 1
 
+    print("Extracting most common 20bp sequences at each offset...", file=sys.stderr)
+
     # Check each coarse offset for primer matches
     os.makedirs(tmp_path, exist_ok=True)
-    
+
     for offset in COARSE_OFFSETS:
         if not offset_prefixes[offset]:
             continue
-            
+
         top_seq, count = offset_prefixes[offset].most_common(1)[0]
-        
+        frequency_pct = (count / 1000) * 100
+
         if count > 500:  # High frequency suggests conserved primer sequence
+            print(f"\nOffset {offset:2d}bp: Found conserved sequence (freq: {count}/1000 = {frequency_pct:.1f}%)", file=sys.stderr)
+            print(f"  Sequence: {top_seq}", file=sys.stderr)
+            print(f"  BLASTing against 16S reference...", file=sys.stderr)
+
             result = _check_primer_blast(top_seq, offset, ref_path, tmp_path, LEGAL_ANCHORS)
             if result is not None:
+                print(f"  ✓ CONFIRMED: Matches known 16S primer site!", file=sys.stderr)
+                print(f"  → Trim length: {result}bp (adapter/barcode={offset}bp + primer=20bp)", file=sys.stderr)
+                print("=" * 60, file=sys.stderr)
                 return True, result
-    
+            else:
+                print(f"  ✗ No match to 16S primer sites", file=sys.stderr)
+
+    print(f"\n✗ Stage 1: No primers detected at coarse offsets", file=sys.stderr)
+
     # Stage 2: Fine search if coarse search failed
-    # Only do this if we suspect primers might be present but at unusual positions
+    print("\n" + "-" * 60, file=sys.stderr)
+    print("STAGE 2: Fine Search (Thorough)", file=sys.stderr)
+    print("-" * 60, file=sys.stderr)
+    print(f"Searching every position from 0-{FINE_SEARCH_RANGE}bp...\n", file=sys.stderr)
+
     fine_offset_prefixes = {offset: Counter() for offset in range(0, FINE_SEARCH_RANGE)}
     
     with (gzip.open(test_file, "rt") if test_file.endswith(".gz") else open(test_file, "r")) as h:
@@ -393,18 +441,37 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
             for offset in range(0, FINE_SEARCH_RANGE):
                 if len(rec.seq) >= offset + 20:
                     fine_offset_prefixes[offset][str(rec.seq[offset:offset+20])] += 1
-    
+
     # Check fine offsets
+    candidates_found = 0
     for offset in range(0, FINE_SEARCH_RANGE):
         if not fine_offset_prefixes[offset]:
             continue
-            
+
         top_seq, count = fine_offset_prefixes[offset].most_common(1)[0]
-        
+        frequency_pct = (count / 1000) * 100
+
         if count > 500:
+            candidates_found += 1
+            print(f"Offset {offset:2d}bp: Conserved sequence (freq: {count}/1000 = {frequency_pct:.1f}%)", file=sys.stderr)
             result = _check_primer_blast(top_seq, offset, ref_path, tmp_path, LEGAL_ANCHORS)
             if result is not None:
+                print(f"  ✓ CONFIRMED: Matches known 16S primer site!", file=sys.stderr)
+                print(f"  → Trim length: {result}bp", file=sys.stderr)
+                print("=" * 60, file=sys.stderr)
                 return True, result
+
+    print(f"\n✗ Stage 2: Checked {FINE_SEARCH_RANGE} positions, found {candidates_found} candidates", file=sys.stderr)
+    print("  None matched known 16S primer sites\n", file=sys.stderr)
+
+    print("=" * 60, file=sys.stderr)
+    print("CONCLUSION: No 16S primers detected", file=sys.stderr)
+    print("=" * 60, file=sys.stderr)
+    print("\nInterpretation:", file=sys.stderr)
+    print("  • Reads may already be primer-trimmed", file=sys.stderr)
+    print("  • Or using non-standard primer sequences", file=sys.stderr)
+    print("  • Or primer sequences are variable (not conserved)", file=sys.stderr)
+    print("  → Pipeline will proceed without primer trimming\n", file=sys.stderr)
 
     return False, 0
 
@@ -412,6 +479,13 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
 def _check_primer_blast(seq, offset, ref_path, tmp_path, legal_anchors):
     """
     Helper function to BLAST a candidate primer sequence
+
+    Process:
+    1. Write candidate sequence to FASTA file
+    2. BLAST against E. coli 16S reference
+    3. Get alignment start position on reference
+    4. Check if position matches known primer binding sites (±20bp tolerance)
+
     Returns trim_length if valid primer found, None otherwise
     """
     tmp_fa = os.path.join(tmp_path, f"primer_detect_offset{offset}.fa")
@@ -426,15 +500,24 @@ def _check_primer_blast(seq, offset, ref_path, tmp_path, legal_anchors):
 
         if res:
             sstart = int(res.split('\n')[0])
-            if any(abs(sstart - anchor) < 20 for anchor in legal_anchors):
-                # Found primers at this offset
-                # Trim length = offset (adapter/barcode) + 20 (primer)
-                trim_length = offset + 20
-                return trim_length
-                
-    except subprocess.CalledProcessError:
-        pass
-    
+            print(f"    BLAST hit at position: {sstart}bp on 16S gene", file=sys.stderr)
+
+            # Check if within 20bp of any known primer site
+            for anchor in legal_anchors:
+                distance = abs(sstart - anchor)
+                if distance < 20:
+                    print(f"    Match! Within {distance}bp of primer site {anchor}", file=sys.stderr)
+                    # Trim length = offset (adapter/barcode) + 20 (primer)
+                    trim_length = offset + 20
+                    return trim_length
+
+            print(f"    No match to known primer sites (closest: {min(abs(sstart - a) for a in legal_anchors)}bp away)", file=sys.stderr)
+        else:
+            print(f"    No BLAST hits found", file=sys.stderr)
+
+    except subprocess.CalledProcessError as e:
+        print(f"    BLAST error: {e}", file=sys.stderr)
+
     return None
 
 
