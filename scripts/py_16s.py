@@ -515,35 +515,58 @@ def smart_trim_16s(input_path, output_path, tmp_path="/tmp", ref_path="./Meta2Da
 
 
 def get_sequencing_platform(srr_id):
-    """Get sequencing platform from SRA accession"""
+    """
+    Get sequencing platform from SRA accession
+
+    Args:
+        srr_id: SRA/Run accession (SRR/ERR/DRR/CRR)
+
+    Returns:
+        Platform name (e.g., 'ILLUMINA', 'OXFORD_NANOPORE') or None
+
+    Note:
+        - Works for NCBI accessions (SRR/ERR/DRR)
+        - CRR accessions (CNCB/China) are not supported by NCBI Entrez
+        - Returns None if platform cannot be determined
+    """
     from Bio import Entrez
     import xml.etree.ElementTree as ET
-    
+
+    # Check if this is a CRR accession (CNCB/China)
+    if srr_id and srr_id.startswith('CRR'):
+        # CRR accessions are from CNCB, not NCBI
+        # Cannot query via Entrez API
+        print(f"Warning: CRR accessions (CNCB) not supported by NCBI Entrez API", file=sys.stderr)
+        return None
+
     Entrez.email = "your_email@example.com"
-    
+
     try:
         search_handle = Entrez.esearch(db="sra", term=srr_id)
         search_results = Entrez.read(search_handle)
         search_handle.close()
-        
+
         if not search_results['IdList']:
+            print(f"Warning: No results found for {srr_id}", file=sys.stderr)
             return None
-        
+
         uid = search_results['IdList'][0]
-        
+
         fetch_handle = Entrez.efetch(db="sra", id=uid, retmode="xml")
         xml_data = fetch_handle.read()
         fetch_handle.close()
-        
+
         root = ET.fromstring(xml_data)
         platform = root.find('.//PLATFORM')
-        
+
         if platform is not None and len(platform) > 0:
             return platform[0].tag
-        
+
+        print(f"Warning: Platform not found in metadata for {srr_id}", file=sys.stderr)
         return None
-        
-    except Exception:
+
+    except Exception as e:
+        print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
         return None
 
 
