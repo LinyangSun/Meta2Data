@@ -200,7 +200,17 @@ for i in "${!Dataset_ID_sets[@]}"; do
         # 2. Dynamic Platform Detection
         echo ">>> Detecting sequencing platform..."
         first_srr=$(awk 'NR==1 {print $1}' "${sra_file_name}")
-        platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr")
+
+        # Query API for platform (pass BioProject ID for CNCB/CRR accessions)
+        if [[ "$first_srr" =~ ^CRR ]]; then
+            # CRR accession - need to pass BioProject ID to CNCB API
+            echo "  CNCB accession detected, using BioProject: $dataset_ID"
+            platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr" --bioproject_id "$dataset_ID")
+        else
+            # NCBI accession (SRR/ERR/DRR)
+            platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr")
+        fi
+
         echo "Detected platform: $platform"
 
         # 3. Analyze sequence characteristics
