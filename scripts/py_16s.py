@@ -88,8 +88,17 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None,
     return datasets
 
 
-def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample, output_dir=None):
-    """Generate SRA files for each bioproject"""
+def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_dir=None):
+    """
+    Generate SRA files for each bioproject
+
+    Args:
+        file_path: Path to metadata CSV
+        Bioproject: Column name for BioProject ID
+        SRA_Number: Column name for SRA/Run accession
+        Biosample: (Optional) Column name for BioSample ID - if not provided, uses SRA_Number for naming
+        output_dir: (Optional) Directory to write output files
+    """
     # Use output directory if provided, otherwise use input file's directory
     if output_dir:
         directory_path = output_dir
@@ -97,7 +106,11 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample, output_dir=No
         directory_path = os.path.dirname(os.path.abspath(file_path))
     df = pd.read_csv(file_path)
 
-    columns_to_clean = [Bioproject, SRA_Number, Biosample]
+    # Determine which columns to clean
+    columns_to_clean = [Bioproject, SRA_Number]
+    if Biosample and Biosample in df.columns:
+        columns_to_clean.append(Biosample)
+
     for col in columns_to_clean:
         if col in df.columns:
             df[col] = (
@@ -108,7 +121,13 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample, output_dir=No
                 .str.replace('\t', '', regex=True)
             )
 
-    df["rename"] = df[Bioproject] + '-' + df[Biosample]
+    # Create rename column: use Biosample if available, otherwise use SRA_Number
+    if Biosample and Biosample in df.columns:
+        df["rename"] = df[Bioproject] + '-' + df[Biosample]
+    else:
+        # Fallback: use SRA_Number (Run ID) when Biosample is not available
+        df["rename"] = df[Bioproject] + '-' + df[SRA_Number]
+
     datasets = np.array(
         [str(x).strip().replace('\t', '') for x in df[Bioproject].dropna().unique()],
         dtype=object
@@ -610,7 +629,8 @@ if __name__ == "__main__":
         GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, args.SequencingPlatform, args.OutputDir)
         
     elif args.function == "GenerateSRAsFile":
-        # OutputDir is optional - if not provided, uses input file directory
+        # Biosample and OutputDir are optional
+        # If Biosample not provided, uses SRA_Number for sample naming
         GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample, args.OutputDir)
         
     elif args.function == "add_prefix_to_file":
