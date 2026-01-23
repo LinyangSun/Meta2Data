@@ -629,14 +629,18 @@ def _get_platform_from_cncb(crr_id, bioproject_id=None):
     Args:
         crr_id: CRR accession (e.g., CRR1878501)
         bioproject_id: Optional BioProject ID (e.g., PRJCA040882)
-                      CNCB API requires BioProject to query run info
 
     Returns:
         Platform name or None
 
+    Strategy:
+        1. Try querying by CRR run ID directly using getRunInfoByCra endpoint
+        2. If fails, try querying by BioProject ID
+        3. Parse response and extract platform information
+
     Note:
-        The CNCB getRunInfo API requires a BioProject accession, not a run accession.
-        If bioproject_id is not provided, will attempt to extract from context.
+        This is a copy/adaptation of MetaDL's CNCB query logic for AmpliconPIP use.
+        According to iSeq updates (2024), API endpoint changed from getRunInfo to getRunInfoByCra.
     """
     import requests
     from io import StringIO
@@ -644,16 +648,13 @@ def _get_platform_from_cncb(crr_id, bioproject_id=None):
     BASE_URL = "https://ngdc.cncb.ac.cn/gsa"
     HEADERS = {"User-Agent": "Mozilla/5.0"}
 
-    # Determine what to query - prefer BioProject ID
-    search_term = bioproject_id if bioproject_id else crr_id
+    # Strategy 1: Try querying by run ID directly with getRunInfoByCra endpoint
+    print(f"  Attempting CNCB query with run ID: {crr_id}", file=sys.stderr)
 
     try:
-        # Query CNCB GSA API for run information
-        # Note: This API expects a BioProject ID, not a run ID
-        url = f"{BASE_URL}/search/getRunInfo"
-        data = f'searchTerm=%26quot%3B{search_term}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
-
-        print(f"  Querying CNCB API with: {search_term}", file=sys.stderr)
+        # Try updated getRunInfoByCra endpoint with CRR ID
+        url = f"{BASE_URL}/search/getRunInfoByCra"
+        data = f'searchTerm=%26quot%3B{crr_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
 
         resp = requests.post(
             url,
@@ -663,37 +664,102 @@ def _get_platform_from_cncb(crr_id, bioproject_id=None):
         )
         resp.raise_for_status()
 
-        # Parse CSV response
         csv_content = resp.text
-        if csv_content.count('\n') < 2:
-            print(f"Warning: No data returned from CNCB for {search_term}", file=sys.stderr)
-            if bioproject_id is None:
-                print(f"  Hint: CNCB API requires BioProject ID, not run ID", file=sys.stderr)
-                print(f"  Try passing bioproject_id parameter", file=sys.stderr)
-            return None
+        if csv_content.count('\n') >= 2:
+            # Successfully got data with run ID
+            print(f"  ✓ getRunInfoByCra with CRR ID successful", file=sys.stderr)
+            platform = _parse_cncb_platform_response(csv_content, crr_id)
+            if platform:
+                return platform
+    except Exception as e:
+        print(f"  getRunInfoByCra with CRR failed: {str(e)}", file=sys.stderr)
 
-        # Read as DataFrame
+    # Strategy 2: If BioProject ID provided, try querying with it
+    if bioproject_id:
+        print(f"  Attempting CNCB query with BioProject: {bioproject_id}", file=sys.stderr)
+
+        try:
+            # Try with BioProject using getRunInfoByCra
+            url = f"{BASE_URL}/search/getRunInfoByCra"
+            data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+
+            resp = requests.post(
+                url,
+                data=data,
+                headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+                timeout=30
+            )
+            resp.raise_for_status()
+
+            csv_content = resp.text
+            if csv_content.count('\n') >= 2:
+                print(f"  ✓ getRunInfoByCra with BioProject successful", file=sys.stderr)
+                platform = _parse_cncb_platform_response(csv_content, crr_id)
+                if platform:
+                    return platform
+        except Exception as e:
+            print(f"  getRunInfoByCra with BioProject failed: {str(e)}", file=sys.stderr)
+
+        # Strategy 3: Fallback to old getRunInfo endpoint with BioProject
+        print(f"  Trying legacy getRunInfo endpoint with BioProject", file=sys.stderr)
+
+        try:
+            url = f"{BASE_URL}/search/getRunInfo"
+            data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+
+            resp = requests.post(
+                url,
+                data=data,
+                headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+                timeout=30
+            )
+            resp.raise_for_status()
+
+            csv_content = resp.text
+            if csv_content.count('\n') >= 2:
+                print(f"  ✓ Legacy getRunInfo successful", file=sys.stderr)
+                platform = _parse_cncb_platform_response(csv_content, crr_id)
+                if platform:
+                    return platform
+        except Exception as e:
+            print(f"  Legacy getRunInfo failed: {str(e)}", file=sys.stderr)
+
+    print(f"Warning: All CNCB query strategies failed for {crr_id}", file=sys.stderr)
+    return None
+
+
+def _parse_cncb_platform_response(csv_content, target_run_id=None):
+    """
+    Parse CNCB API CSV response and extract platform information
+
+    Args:
+        csv_content: CSV string from CNCB API
+        target_run_id: Optional specific run ID to filter for
+
+    Returns:
+        Platform name or None
+    """
+    from io import StringIO
+
+    try:
         df = pd.read_csv(StringIO(csv_content))
 
         if df.empty:
-            print(f"Warning: Empty response from CNCB for {search_term}", file=sys.stderr)
             return None
 
         print(f"  ✓ Retrieved {len(df)} runs from CNCB", file=sys.stderr)
 
         # If we have a specific run ID, filter for it
-        if crr_id and 'Run' in df.columns:
-            run_df = df[df['Run'] == crr_id]
+        if target_run_id and 'Run' in df.columns:
+            run_df = df[df['Run'] == target_run_id]
             if not run_df.empty:
                 df = run_df
-                print(f"  ✓ Found metadata for run {crr_id}", file=sys.stderr)
+                print(f"  ✓ Found metadata for run {target_run_id}", file=sys.stderr)
             else:
-                print(f"Warning: Run {crr_id} not found in BioProject results", file=sys.stderr)
-                # Use first run's platform as fallback
-                print(f"  Using platform from first run as fallback", file=sys.stderr)
+                print(f"Warning: Run {target_run_id} not found, using first run as fallback", file=sys.stderr)
 
         # Look for platform information in common column names
-        platform_columns = ['Platform', 'Instrument', 'Model', 'Sequencing Platform']
+        platform_columns = ['Platform', 'Instrument', 'Model', 'Sequencing Platform', 'instrument']
 
         for col in platform_columns:
             if col in df.columns:
@@ -719,12 +785,12 @@ def _get_platform_from_cncb(crr_id, bioproject_id=None):
                         # Return the original value if no mapping found
                         return platform_str
 
-        print(f"Warning: Platform column not found in CNCB metadata", file=sys.stderr)
+        print(f"Warning: Platform column not found in CNCB response", file=sys.stderr)
         print(f"Available columns: {', '.join(df.columns)}", file=sys.stderr)
         return None
 
     except Exception as e:
-        print(f"Warning: Failed to retrieve platform from CNCB for {search_term}: {str(e)}", file=sys.stderr)
+        print(f"Warning: Failed to parse CNCB response: {str(e)}", file=sys.stderr)
         return None
 
 
