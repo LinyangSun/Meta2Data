@@ -525,19 +525,106 @@ def get_sequencing_platform(srr_id):
         Platform name (e.g., 'ILLUMINA', 'OXFORD_NANOPORE') or None
 
     Note:
-        - Works for NCBI accessions (SRR/ERR/DRR)
-        - CRR accessions (CNCB/China) are not supported by NCBI Entrez
+        - Works for NCBI accessions (SRR/ERR/DRR) via Entrez API
+        - Works for CNCB accessions (CRR) via CNCB GSA API
         - Returns None if platform cannot be determined
+    """
+    # Check if this is a CRR accession (CNCB/China)
+    if srr_id and srr_id.startswith('CRR'):
+        return _get_platform_from_cncb(srr_id)
+
+    # Handle NCBI accessions (SRR/ERR/DRR)
+    return _get_platform_from_ncbi(srr_id)
+
+
+def _get_platform_from_cncb(crr_id):
+    """
+    Get sequencing platform from CNCB/GSA for CRR accession
+
+    Args:
+        crr_id: CRR accession (e.g., CRR1878501)
+
+    Returns:
+        Platform name or None
+    """
+    import requests
+    from io import StringIO
+
+    BASE_URL = "https://ngdc.cncb.ac.cn/gsa"
+    HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+    try:
+        # Query CNCB GSA API for run information
+        url = f"{BASE_URL}/search/getRunInfo"
+        data = f'searchTerm=%26quot%3B{crr_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+
+        resp = requests.post(
+            url,
+            data=data,
+            headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+            timeout=30
+        )
+        resp.raise_for_status()
+
+        # Parse CSV response
+        csv_content = resp.text
+        if csv_content.count('\n') < 2:
+            print(f"Warning: No data returned from CNCB for {crr_id}", file=sys.stderr)
+            return None
+
+        # Read as DataFrame
+        df = pd.read_csv(StringIO(csv_content))
+
+        if df.empty:
+            print(f"Warning: Empty response from CNCB for {crr_id}", file=sys.stderr)
+            return None
+
+        # Look for platform information in common column names
+        platform_columns = ['Platform', 'Instrument', 'Model', 'Sequencing Platform']
+
+        for col in platform_columns:
+            if col in df.columns:
+                platform_value = df[col].iloc[0] if not df[col].empty else None
+                if platform_value and str(platform_value) != 'nan':
+                    # Normalize platform names to match NCBI format
+                    platform_str = str(platform_value).upper()
+
+                    # Map common platform names
+                    if 'ILLUMINA' in platform_str or 'HISEQ' in platform_str or 'NOVASEQ' in platform_str or 'MISEQ' in platform_str:
+                        return 'ILLUMINA'
+                    elif 'NANOPORE' in platform_str or 'MINION' in platform_str or 'PROMETHION' in platform_str:
+                        return 'OXFORD_NANOPORE'
+                    elif 'PACBIO' in platform_str or 'SEQUEL' in platform_str:
+                        return 'PACBIO_SMRT'
+                    elif 'ION' in platform_str or 'TORRENT' in platform_str:
+                        return 'ION_TORRENT'
+                    elif '454' in platform_str or 'ROCHE' in platform_str:
+                        return 'LS454'
+                    else:
+                        # Return the original value if no mapping found
+                        return platform_str
+
+        print(f"Warning: Platform column not found in CNCB metadata for {crr_id}", file=sys.stderr)
+        print(f"Available columns: {', '.join(df.columns)}", file=sys.stderr)
+        return None
+
+    except Exception as e:
+        print(f"Warning: Failed to retrieve platform from CNCB for {crr_id}: {str(e)}", file=sys.stderr)
+        return None
+
+
+def _get_platform_from_ncbi(srr_id):
+    """
+    Get sequencing platform from NCBI for SRR/ERR/DRR accession
+
+    Args:
+        srr_id: NCBI SRA accession (SRR/ERR/DRR)
+
+    Returns:
+        Platform name or None
     """
     from Bio import Entrez
     import xml.etree.ElementTree as ET
-
-    # Check if this is a CRR accession (CNCB/China)
-    if srr_id and srr_id.startswith('CRR'):
-        # CRR accessions are from CNCB, not NCBI
-        # Cannot query via Entrez API
-        print(f"Warning: CRR accessions (CNCB) not supported by NCBI Entrez API", file=sys.stderr)
-        return None
 
     Entrez.email = "your_email@example.com"
 
