@@ -19,6 +19,7 @@ dependencies = [
     "openpyxl",
     "requests",
     "numpy",
+    "biom-format",
 ]
 
 [tool.setuptools]

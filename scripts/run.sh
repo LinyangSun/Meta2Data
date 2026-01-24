@@ -81,16 +81,53 @@ fi
 
 export cpu=$THREADS
 
-# Source function library
-if [[ -f "${SCRIPTS}/Function_Import.sh" ]]; then
-    source "${SCRIPTS}/Function_Import.sh"
+# Source function library (AmpliconFunction.sh contains all processing functions)
+if [[ -f "${SCRIPTS}/AmpliconFunction.sh" ]]; then
+    source "${SCRIPTS}/AmpliconFunction.sh"
 else
-    echo "Error: Function_Import.sh not found"
+    echo "Error: AmpliconFunction.sh not found at ${SCRIPTS}/AmpliconFunction.sh"
     exit 1
 fi
 
 cd "$OUTPUT" || exit 1
 mkdir -p "${OUTPUT}/analysis/"
+
+################################################################################
+#                          FIND REFERENCE FILE                                 #
+################################################################################
+
+# Find the 16S reference file in multiple possible locations
+find_reference_file() {
+    local ref_file="J01859.1.fna"
+    local search_paths=(
+        "${SCRIPT_DIR}/docs/${ref_file}"                    # Development/git repo
+        "/usr/local/share/Meta2Data/docs/${ref_file}"       # System install
+        "${HOME}/.local/share/Meta2Data/docs/${ref_file}"   # User install
+        "${CONDA_PREFIX}/share/Meta2Data/docs/${ref_file}"  # Conda install
+        "${PREFIX}/share/Meta2Data/docs/${ref_file}"        # Alternative prefix
+    )
+
+    for path in "${search_paths[@]}"; do
+        if [[ -f "$path" ]]; then
+            echo "$path"
+            return 0
+        fi
+    done
+
+    echo "ERROR: 16S reference file '${ref_file}' not found in any location:" >&2
+    for path in "${search_paths[@]}"; do
+        echo "  - $path" >&2
+    done
+    return 1
+}
+
+# Find and export reference file path
+REF_16S_PATH=$(find_reference_file)
+if [[ $? -ne 0 ]]; then
+    echo "❌ ERROR: Cannot find 16S reference sequence file"
+    exit 1
+fi
+echo "Using 16S reference: $REF_16S_PATH"
 
 ################################################################################
 #                          PHASE 1: DATASET PREPARATION                        #
@@ -102,7 +139,7 @@ echo "Started: $(date)"
 echo "========================================="
 
 # Step 1: Generate dataset ID list
-if ! py_16s.py GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT"; then
+if ! python "${SCRIPTS}/py_16s.py" GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --OutputDir "$OUTPUT"; then
     echo "❌ ERROR: Failed to generate dataset IDs"
     exit 1
 fi
@@ -115,7 +152,7 @@ if [ ${#Dataset_ID_sets[@]} -eq 0 ]; then
 fi
 
 # Step 2: Generate SRA file list
-if ! py_16s.py GenerateSRAsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --SRA_Number "$COL_SRA"; then
+if ! python "${SCRIPTS}/py_16s.py" GenerateSRAsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --SRA_Number "$COL_SRA" --OutputDir "$OUTPUT"; then
     echo "❌ ERROR: Failed to generate SRA file lists"
     exit 1
 fi
@@ -163,7 +200,17 @@ for i in "${!Dataset_ID_sets[@]}"; do
         # 2. Dynamic Platform Detection
         echo ">>> Detecting sequencing platform..."
         first_srr=$(awk 'NR==1 {print $1}' "${sra_file_name}")
-        platform=$(py_16s.py get_sequencing_platform --srr_id "$first_srr")
+
+        # Query API for platform (pass BioProject ID for CNCB/CRR accessions)
+        if [[ "$first_srr" =~ ^CRR ]]; then
+            # CRR accession - need to pass BioProject ID to CNCB API
+            echo "  CNCB accession detected, using BioProject: $dataset_ID"
+            platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr" --bioproject_id "$dataset_ID")
+        else
+            # NCBI accession (SRR/ERR/DRR)
+            platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr")
+        fi
+
         echo "Detected platform: $platform"
 
         # 3. Analyze sequence characteristics
@@ -179,7 +226,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         echo "Sequence type: ${sequence_type^^}"
 
         # 4. Primer detection & Trimming
-        echo ">>> Handling primers..."
+        echo ">>> Handling adapters and primers..."
         working_fastq_path="${dataset_path}working_fastq/"
         mkdir -p "$working_fastq_path"
 
@@ -231,7 +278,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         elif [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
-            Amplicon_Illumina_QualityControl
+            Amplicon_Illumina_QualityControlForQZA
             Amplicon_Illumina_DenosingDada2
             Amplicon_Common_FinalFilesCleaning
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
