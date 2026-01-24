@@ -251,9 +251,9 @@ Amplicon_Common_MakeManifestFileForQiime2() {
     dataset_name="${trimmed_path##*/}"
     find $fastp_path -type f > $temp_file_path$dataset_name"-file.txt"
     if [ "$sequence_type" = "single" ]; then
-        py_16s.py mk_manifest_SE --FilePath $temp_file_path$dataset_name"-file.txt"
+        python "${SCRIPTS}/py_16s.py" mk_manifest_SE --FilePath $temp_file_path$dataset_name"-file.txt"
     else
-        py_16s.py mk_manifest_PE --FilePath $temp_file_path$dataset_name"-file.txt"
+        python "${SCRIPTS}/py_16s.py" mk_manifest_PE --FilePath $temp_file_path$dataset_name"-file.txt"
     fi
 }
 Amplicon_Common_ImportFastqToQiime2() {
@@ -517,7 +517,7 @@ Amplicon_Illumina_DenosingDada2() {
             return 1
         fi
         local trim_pos_result
-        trim_pos_result="$(py_16s.py trim_pos_deblur --FilePath "$tsv_path")"
+        trim_pos_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$tsv_path")"
         echo "$trim_pos_result"
         IFS=',' read -r final_start final_end <<< "$trim_pos_result"
         echo "Computed: start=$final_start, end=$final_end"
