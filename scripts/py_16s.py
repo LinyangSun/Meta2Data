@@ -5,6 +5,7 @@ import subprocess
 import os
 import glob
 import gzip
+import statistics
 from collections import Counter
 import pandas as pd
 import numpy as np
@@ -24,27 +25,63 @@ def check_and_install(module, module2):
         __import__(module)
 
 
-def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform):
-    """Generate datasets ID file from CSV"""
-    directory_path = os.path.dirname(os.path.abspath(file_path))
+def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None, output_dir=None):
+    """
+    Generate datasets ID file from CSV
+
+    Extracts unique BioProject IDs from metadata CSV.
+    Platform parameter is optional since platform is detected dynamically downstream.
+
+    Args:
+        file_path: Path to metadata CSV
+        Bioproject: Column name for BioProject ID
+        Data_SequencingPlatform: (Optional) Column name for platform - if provided, outputs both columns
+        output_dir: (Optional) Directory to write output file. If not provided, uses input file directory
+
+    Returns:
+        Array of dataset IDs
+    """
+    # Use output directory if provided, otherwise use input file's directory
+    if output_dir:
+        directory_path = output_dir
+    else:
+        directory_path = os.path.dirname(os.path.abspath(file_path))
+
     df = pd.read_csv(file_path)
 
-    columns_to_clean = [Bioproject, Data_SequencingPlatform]
-    for col in columns_to_clean:
-        if col in df.columns:
-            df[col] = (
-                df[col]
-                .astype(str)
-                .str.replace(' ', '', regex=True)
-                .str.replace('\n', '', regex=True)
-                .str.replace('\t', '', regex=True)
-            )
+    # Clean BioProject column
+    if Bioproject in df.columns:
+        df[Bioproject] = (
+            df[Bioproject]
+            .astype(str)
+            .str.replace(' ', '', regex=True)
+            .str.replace('\n', '', regex=True)
+            .str.replace('\t', '', regex=True)
+        )
 
-    df_pair = (
-        df[[Bioproject, Data_SequencingPlatform]]
-        .dropna(subset=[Bioproject])
-        .drop_duplicates()
-    )
+    # If platform column is provided and exists, include it (backward compatibility)
+    if Data_SequencingPlatform and Data_SequencingPlatform in df.columns:
+        df[Data_SequencingPlatform] = (
+            df[Data_SequencingPlatform]
+            .astype(str)
+            .str.replace(' ', '', regex=True)
+            .str.replace('\n', '', regex=True)
+            .str.replace('\t', '', regex=True)
+        )
+        # Output both columns
+        df_pair = (
+            df[[Bioproject, Data_SequencingPlatform]]
+            .dropna(subset=[Bioproject])
+            .drop_duplicates()
+        )
+    else:
+        # Output only BioProject column (default behavior)
+        # Platform is detected dynamically later via get_sequencing_platform()
+        df_pair = (
+            df[[Bioproject]]
+            .dropna(subset=[Bioproject])
+            .drop_duplicates()
+        )
 
     datasets = df_pair.values.astype(object)
     out_path = f"{directory_path}/datasets_ID.txt"
@@ -52,12 +89,29 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform):
     return datasets
 
 
-def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample):
-    """Generate SRA files for each bioproject"""
-    directory_path = os.path.dirname(os.path.abspath(file_path))
+def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_dir=None):
+    """
+    Generate SRA files for each bioproject
+
+    Args:
+        file_path: Path to metadata CSV
+        Bioproject: Column name for BioProject ID
+        SRA_Number: Column name for SRA/Run accession
+        Biosample: (Optional) Column name for BioSample ID - if not provided, uses SRA_Number for naming
+        output_dir: (Optional) Directory to write output files
+    """
+    # Use output directory if provided, otherwise use input file's directory
+    if output_dir:
+        directory_path = output_dir
+    else:
+        directory_path = os.path.dirname(os.path.abspath(file_path))
     df = pd.read_csv(file_path)
 
-    columns_to_clean = [Bioproject, SRA_Number, Biosample]
+    # Determine which columns to clean
+    columns_to_clean = [Bioproject, SRA_Number]
+    if Biosample and Biosample in df.columns:
+        columns_to_clean.append(Biosample)
+
     for col in columns_to_clean:
         if col in df.columns:
             df[col] = (
@@ -68,7 +122,13 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample):
                 .str.replace('\t', '', regex=True)
             )
 
-    df["rename"] = df[Bioproject] + '-' + df[Biosample]
+    # Create rename column: use Biosample if available, otherwise use SRA_Number
+    if Biosample and Biosample in df.columns:
+        df["rename"] = df[Bioproject] + '-' + df[Biosample]
+    else:
+        # Fallback: use SRA_Number (Run ID) when Biosample is not available
+        df["rename"] = df[Bioproject] + '-' + df[SRA_Number]
+
     datasets = np.array(
         [str(x).strip().replace('\t', '') for x in df[Bioproject].dropna().unique()],
         dtype=object
@@ -268,56 +328,227 @@ def trim_pos_dada2(file_path):
 
 
 def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J01859.1.fna"):
-    """Detect 16S primers in FASTQ files"""
-    if not os.path.exists(ref_path):
-        return False
+    """
+    Detect 16S primers using alignment-based approach
 
-    LEGAL_ANCHORS = [8, 27, 338, 341, 515, 518, 534, 785, 799, 806, 907, 926, 1046, 1099, 1100, 1391, 1492]
+    Method:
+    1. Sample 1000 reads from FASTQ file
+    2. BLAST align reads to E. coli 16S reference (only plus strand)
+    3. Find consensus alignment start position
+    4. Calculate distance to nearest LEGAL_ANCHOR
+    5. Determine if primers need trimming:
+       - Distance < 10bp: Primers already removed
+       - Distance >= 18bp: Primers present, calculate trim length
+
+    Returns: (primers_found: bool, trim_length: int)
+    """
+    print("=" * 60, file=sys.stderr)
+    print("16S PRIMER DETECTION (ALIGNMENT-BASED)", file=sys.stderr)
+    print("=" * 60, file=sys.stderr)
+    print("\nStrategy: Align reads to reference → Find consensus position → Detect primers\n", file=sys.stderr)
+
+    if not os.path.exists(ref_path):
+        print(f"✗ Reference not found: {ref_path}", file=sys.stderr)
+        return False, 0
+
+    # Known 16S primer binding sites on E. coli 16S rRNA gene
+    LEGAL_ANCHORS = [27, 341, 518, 534, 785, 799, 806, 907, 926, 1046, 1100, 1391, 1492]
+    print(f"Known 16S primer sites: {LEGAL_ANCHORS}", file=sys.stderr)
+    print(f"  (e.g., V3-V4: 341F/785R, V4: 515F/806R)\n", file=sys.stderr)
 
     # Build BLAST database if needed
     if not os.path.exists(f"{ref_path}.nhr"):
+        print("Building BLAST database for 16S reference...", file=sys.stderr)
         subprocess.run(
             f"makeblastdb -in {ref_path} -dbtype nucl",
             shell=True, check=True, capture_output=True
         )
+        print("✓ BLAST database ready\n", file=sys.stderr)
 
+    # Find input files
     fwd_files = sorted(glob.glob(os.path.join(input_path, "*_R1*.fastq*")))
     if not fwd_files:
-        return False
+        fwd_files = sorted(glob.glob(os.path.join(input_path, "*.fastq*")))
+        if not fwd_files:
+            print("✗ No FASTQ files found", file=sys.stderr)
+            return False, 0
 
     test_file = fwd_files[0]
-    
-    # Count prefix frequencies
-    prefixes = Counter()
+    print(f"Analyzing: {os.path.basename(test_file)}", file=sys.stderr)
+    print(f"Sampling: First 1000 reads\n", file=sys.stderr)
+
+    # 1. Sample reads
+    sampled_reads = []
     with (gzip.open(test_file, "rt") if test_file.endswith(".gz") else open(test_file, "r")) as h:
         for i, rec in enumerate(SeqIO.parse(h, "fastq")):
             if i >= 1000:
                 break
-            prefixes[str(rec.seq[:20])] += 1
+            sampled_reads.append((f"read{i}", str(rec.seq)))
 
-    if not prefixes:
-        return False
+    if len(sampled_reads) < 100:
+        print(f"✗ Too few reads ({len(sampled_reads)}), need at least 100", file=sys.stderr)
+        return False, 0
 
-    top_seq, count = prefixes.most_common(1)[0]
+    # 2. Write to temporary FASTA
+    os.makedirs(tmp_path, exist_ok=True)
+    query_fa = os.path.join(tmp_path, "primer_detect_reads.fa")
+    with open(query_fa, 'w') as f:
+        for read_id, seq in sampled_reads:
+            f.write(f">{read_id}\n{seq}\n")
 
-    if count > 500:
-        tmp_fa = os.path.join(tmp_path, "primer_detect.fa")
-        with open(tmp_fa, "w") as f:
-            f.write(f">candidate\n{top_seq}")
+    # 3. BLAST alignment
+    print("BLAST aligning reads to reference...", file=sys.stderr)
+    blast_out = os.path.join(tmp_path, "primer_detect_alignment.txt")
 
-        try:
-            res = subprocess.check_output(
-                f"blastn -query {tmp_fa} -db {ref_path} -outfmt '6 sstart' -task blastn-short",
-                shell=True, stderr=subprocess.DEVNULL
-            ).decode().strip()
+    try:
+        subprocess.run(
+            f"blastn -query {query_fa} -db {ref_path} "
+            f"-outfmt '6 qseqid qstart qend sstart send sstrand qlen' "
+            f"-out {blast_out} -task blastn-short -max_target_seqs 1 -evalue 1e-5",
+            shell=True, check=True, capture_output=True, stderr=subprocess.DEVNULL
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ BLAST failed: {e}", file=sys.stderr)
+        return False, 0
 
-            if res:
-                sstart = int(res.split('\n')[0])
-                return any(abs(sstart - anchor) < 20 for anchor in LEGAL_ANCHORS)
-        except subprocess.CalledProcessError:
-            return False
+    # 4. Parse alignment results (only plus strand)
+    alignment_starts = []  # Position on reference sequence
+    query_starts = []      # Position on read (how much to trim)
 
-    return False
+    with open(blast_out) as f:
+        for line in f:
+            parts = line.strip().split('\t')
+            if len(parts) >= 7:
+                qseqid, qstart, qend, sstart, send, sstrand, qlen = parts
+                qstart, qend = int(qstart), int(qend)
+                sstart, send = int(sstart), int(send)
+
+                # Only process plus strand alignments
+                if sstrand == 'plus':
+                    alignment_starts.append(sstart)
+                    query_starts.append(qstart - 1)  # 0-based trim length
+
+    if len(alignment_starts) < 50:
+        print(f"✗ Too few alignments ({len(alignment_starts)}), need at least 50", file=sys.stderr)
+        print("  Possible reasons:", file=sys.stderr)
+        print("  • Reads are not 16S sequences", file=sys.stderr)
+        print("  • Poor sequencing quality", file=sys.stderr)
+        print("  • Non-standard 16S region\n", file=sys.stderr)
+        return False, 0
+
+    print(f"✓ Successfully aligned {len(alignment_starts)}/{len(sampled_reads)} reads (plus strand)\n", file=sys.stderr)
+
+    # 5. Find consensus alignment start position
+    from collections import Counter
+    start_counter = Counter(alignment_starts)
+
+    # Get the most common start position (consensus)
+    consensus_start, consensus_count = start_counter.most_common(1)[0]
+    consensus_freq = (consensus_count / len(alignment_starts)) * 100
+
+    print(f"Consensus alignment start position:", file=sys.stderr)
+    print(f"  Position on reference: {consensus_start}", file=sys.stderr)
+    print(f"  Frequency: {consensus_count}/{len(alignment_starts)} ({consensus_freq:.1f}%)", file=sys.stderr)
+
+    # 6. Find nearest LEGAL_ANCHOR
+    nearest_anchor = min(LEGAL_ANCHORS, key=lambda x: abs(x - consensus_start))
+    distance = consensus_start - nearest_anchor
+
+    print(f"  Nearest primer anchor: {nearest_anchor}", file=sys.stderr)
+    print(f"  Distance: {distance} bp\n", file=sys.stderr)
+
+    # 7. Calculate consensus trim length from reads that align near consensus_start
+    trim_candidates = []
+    for align_start, query_start in zip(alignment_starts, query_starts):
+        # Only consider reads that align within ±5bp of consensus
+        if abs(align_start - consensus_start) <= 5:
+            trim_candidates.append(query_start)
+
+    if not trim_candidates:
+        trim_candidates = query_starts  # Fallback to all reads
+
+    consensus_trim = int(statistics.median(trim_candidates))
+
+    # 8. Determine primer status
+    print("-" * 60, file=sys.stderr)
+
+    if abs(distance) < 10:
+        print("✓ PRIMERS ALREADY REMOVED", file=sys.stderr)
+        print(f"  Distance to primer anchor ({distance} bp) < 10 bp", file=sys.stderr)
+        print("  → No trimming needed\n", file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
+        return True, 0
+
+    elif distance >= 18:
+        print("✗ PRIMERS DETECTED (NOT REMOVED)", file=sys.stderr)
+        print(f"  Distance to primer anchor ({distance} bp) >= 18 bp", file=sys.stderr)
+        print(f"  Primer length: ~19-20 bp", file=sys.stderr)
+        print(f"\n✓ Calculated trim length: {consensus_trim} bp", file=sys.stderr)
+        print(f"  (includes adapter/barcode + primer)", file=sys.stderr)
+        print("  → Will trim both F and R ends with same length\n", file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
+        return True, consensus_trim
+
+    elif distance <= -18:
+        print("⚠️ UNUSUAL: Reads align upstream of primer anchor", file=sys.stderr)
+        print(f"  Distance: {distance} bp", file=sys.stderr)
+        print("  This may indicate non-standard primers or sequencing issues", file=sys.stderr)
+        print(f"  Calculated trim length: {consensus_trim} bp\n", file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
+        return True, consensus_trim
+
+    else:
+        print("⚠️ AMBIGUOUS DISTANCE", file=sys.stderr)
+        print(f"  Distance ({distance} bp) is in range [10, 18) bp", file=sys.stderr)
+        print("  Cannot confidently determine primer status", file=sys.stderr)
+        print("  → Pipeline will proceed without trimming\n", file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
+        return False, 0
+
+
+def _check_primer_blast(seq, offset, ref_path, tmp_path, legal_anchors):
+    """
+    Helper function to BLAST a candidate primer sequence
+
+    Process:
+    1. Write candidate sequence to FASTA file
+    2. BLAST against E. coli 16S reference
+    3. Get alignment start position on reference
+    4. Check if position matches known primer binding sites (±20bp tolerance)
+
+    Returns trim_length if valid primer found, None otherwise
+    """
+    tmp_fa = os.path.join(tmp_path, f"primer_detect_offset{offset}.fa")
+    with open(tmp_fa, "w") as f:
+        f.write(f">candidate_offset{offset}\n{seq}")
+
+    try:
+        res = subprocess.check_output(
+            f"blastn -query {tmp_fa} -db {ref_path} -outfmt '6 sstart' -task blastn-short",
+            shell=True, stderr=subprocess.DEVNULL
+        ).decode().strip()
+
+        if res:
+            sstart = int(res.split('\n')[0])
+            print(f"    BLAST hit at position: {sstart}bp on 16S gene", file=sys.stderr)
+
+            # Check if within 20bp of any known primer site
+            for anchor in legal_anchors:
+                distance = abs(sstart - anchor)
+                if distance < 20:
+                    print(f"    Match! Within {distance}bp of primer site {anchor}", file=sys.stderr)
+                    # Trim length = offset (adapter/barcode) + 20 (primer)
+                    trim_length = offset + 20
+                    return trim_length
+
+            print(f"    No match to known primer sites (closest: {min(abs(sstart - a) for a in legal_anchors)}bp away)", file=sys.stderr)
+        else:
+            print(f"    No BLAST hits found", file=sys.stderr)
+
+    except subprocess.CalledProcessError as e:
+        print(f"    BLAST error: {e}", file=sys.stderr)
+
+    return None
 
 
 def smart_trim_16s(input_path, output_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J01859.1.fna"):
@@ -396,36 +627,244 @@ def smart_trim_16s(input_path, output_path, tmp_path="/tmp", ref_path="./Meta2Da
                 os.symlink(os.path.abspath(f), target)
 
 
-def get_sequencing_platform(srr_id):
-    """Get sequencing platform from SRA accession"""
+def get_sequencing_platform(srr_id, bioproject_id=None):
+    """
+    Get sequencing platform from SRA accession
+
+    Args:
+        srr_id: SRA/Run accession (SRR/ERR/DRR/CRR)
+        bioproject_id: Optional BioProject ID (required for CNCB/CRR accessions)
+
+    Returns:
+        Platform name (e.g., 'ILLUMINA', 'OXFORD_NANOPORE') or None
+
+    Note:
+        - Works for NCBI accessions (SRR/ERR/DRR) via Entrez API
+        - Works for CNCB accessions (CRR) via CNCB GSA API
+        - CNCB queries require bioproject_id parameter (e.g., PRJCA040882)
+        - Returns None if platform cannot be determined
+    """
+    # Check if this is a CRR accession (CNCB/China)
+    if srr_id and srr_id.startswith('CRR'):
+        return _get_platform_from_cncb(srr_id, bioproject_id)
+
+    # Handle NCBI accessions (SRR/ERR/DRR)
+    return _get_platform_from_ncbi(srr_id)
+
+
+def _get_platform_from_cncb(crr_id, bioproject_id=None):
+    """
+    Get sequencing platform from CNCB/GSA for CRR accession
+
+    Args:
+        crr_id: CRR accession (e.g., CRR1878501)
+        bioproject_id: Optional BioProject ID (e.g., PRJCA040882)
+
+    Returns:
+        Platform name or None
+
+    Strategy:
+        1. Try querying by CRR run ID directly using getRunInfoByCra endpoint
+        2. If fails, try querying by BioProject ID
+        3. Parse response and extract platform information
+
+    Note:
+        This is a copy/adaptation of MetaDL's CNCB query logic for AmpliconPIP use.
+        According to iSeq updates (2024), API endpoint changed from getRunInfo to getRunInfoByCra.
+    """
+    import requests
+    from io import StringIO
+
+    BASE_URL = "https://ngdc.cncb.ac.cn/gsa"
+    HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+    # Strategy 1: Try querying by run ID directly with getRunInfoByCra endpoint
+    print(f"  Attempting CNCB query with run ID: {crr_id}", file=sys.stderr)
+
+    try:
+        # Try updated getRunInfoByCra endpoint with CRR ID
+        url = f"{BASE_URL}/search/getRunInfoByCra"
+        data = f'searchTerm=%26quot%3B{crr_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+
+        resp = requests.post(
+            url,
+            data=data,
+            headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+            timeout=30
+        )
+        resp.raise_for_status()
+
+        csv_content = resp.text
+        if csv_content.count('\n') >= 2:
+            # Successfully got data with run ID
+            print(f"  ✓ getRunInfoByCra with CRR ID successful", file=sys.stderr)
+            platform = _parse_cncb_platform_response(csv_content, crr_id)
+            if platform:
+                return platform
+    except Exception as e:
+        print(f"  getRunInfoByCra with CRR failed: {str(e)}", file=sys.stderr)
+
+    # Strategy 2: If BioProject ID provided, try querying with it
+    if bioproject_id:
+        print(f"  Attempting CNCB query with BioProject: {bioproject_id}", file=sys.stderr)
+
+        try:
+            # Try with BioProject using getRunInfoByCra
+            url = f"{BASE_URL}/search/getRunInfoByCra"
+            data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+
+            resp = requests.post(
+                url,
+                data=data,
+                headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+                timeout=30
+            )
+            resp.raise_for_status()
+
+            csv_content = resp.text
+            if csv_content.count('\n') >= 2:
+                print(f"  ✓ getRunInfoByCra with BioProject successful", file=sys.stderr)
+                platform = _parse_cncb_platform_response(csv_content, crr_id)
+                if platform:
+                    return platform
+        except Exception as e:
+            print(f"  getRunInfoByCra with BioProject failed: {str(e)}", file=sys.stderr)
+
+        # Strategy 3: Fallback to old getRunInfo endpoint with BioProject
+        print(f"  Trying legacy getRunInfo endpoint with BioProject", file=sys.stderr)
+
+        try:
+            url = f"{BASE_URL}/search/getRunInfo"
+            data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+
+            resp = requests.post(
+                url,
+                data=data,
+                headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+                timeout=30
+            )
+            resp.raise_for_status()
+
+            csv_content = resp.text
+            if csv_content.count('\n') >= 2:
+                print(f"  ✓ Legacy getRunInfo successful", file=sys.stderr)
+                platform = _parse_cncb_platform_response(csv_content, crr_id)
+                if platform:
+                    return platform
+        except Exception as e:
+            print(f"  Legacy getRunInfo failed: {str(e)}", file=sys.stderr)
+
+    print(f"Warning: All CNCB query strategies failed for {crr_id}", file=sys.stderr)
+    return None
+
+
+def _parse_cncb_platform_response(csv_content, target_run_id=None):
+    """
+    Parse CNCB API CSV response and extract platform information
+
+    Args:
+        csv_content: CSV string from CNCB API
+        target_run_id: Optional specific run ID to filter for
+
+    Returns:
+        Platform name or None
+    """
+    from io import StringIO
+
+    try:
+        df = pd.read_csv(StringIO(csv_content))
+
+        if df.empty:
+            return None
+
+        print(f"  ✓ Retrieved {len(df)} runs from CNCB", file=sys.stderr)
+
+        # If we have a specific run ID, filter for it
+        if target_run_id and 'Run' in df.columns:
+            run_df = df[df['Run'] == target_run_id]
+            if not run_df.empty:
+                df = run_df
+                print(f"  ✓ Found metadata for run {target_run_id}", file=sys.stderr)
+            else:
+                print(f"Warning: Run {target_run_id} not found, using first run as fallback", file=sys.stderr)
+
+        # Look for platform information in common column names
+        platform_columns = ['Platform', 'Instrument', 'Model', 'Sequencing Platform', 'instrument']
+
+        for col in platform_columns:
+            if col in df.columns:
+                platform_value = df[col].iloc[0] if not df[col].empty else None
+                if platform_value and str(platform_value) != 'nan':
+                    # Normalize platform names to match NCBI format
+                    platform_str = str(platform_value).upper()
+
+                    print(f"  Platform from CNCB: {platform_str}", file=sys.stderr)
+
+                    # Map common platform names
+                    if 'ILLUMINA' in platform_str or 'HISEQ' in platform_str or 'NOVASEQ' in platform_str or 'MISEQ' in platform_str:
+                        return 'ILLUMINA'
+                    elif 'NANOPORE' in platform_str or 'MINION' in platform_str or 'PROMETHION' in platform_str:
+                        return 'OXFORD_NANOPORE'
+                    elif 'PACBIO' in platform_str or 'SEQUEL' in platform_str:
+                        return 'PACBIO_SMRT'
+                    elif 'ION' in platform_str or 'TORRENT' in platform_str:
+                        return 'ION_TORRENT'
+                    elif '454' in platform_str or 'ROCHE' in platform_str:
+                        return 'LS454'
+                    else:
+                        # Return the original value if no mapping found
+                        return platform_str
+
+        print(f"Warning: Platform column not found in CNCB response", file=sys.stderr)
+        print(f"Available columns: {', '.join(df.columns)}", file=sys.stderr)
+        return None
+
+    except Exception as e:
+        print(f"Warning: Failed to parse CNCB response: {str(e)}", file=sys.stderr)
+        return None
+
+
+def _get_platform_from_ncbi(srr_id):
+    """
+    Get sequencing platform from NCBI for SRR/ERR/DRR accession
+
+    Args:
+        srr_id: NCBI SRA accession (SRR/ERR/DRR)
+
+    Returns:
+        Platform name or None
+    """
     from Bio import Entrez
     import xml.etree.ElementTree as ET
-    
+
     Entrez.email = "your_email@example.com"
-    
+
     try:
         search_handle = Entrez.esearch(db="sra", term=srr_id)
         search_results = Entrez.read(search_handle)
         search_handle.close()
-        
+
         if not search_results['IdList']:
+            print(f"Warning: No results found for {srr_id}", file=sys.stderr)
             return None
-        
+
         uid = search_results['IdList'][0]
-        
+
         fetch_handle = Entrez.efetch(db="sra", id=uid, retmode="xml")
         xml_data = fetch_handle.read()
         fetch_handle.close()
-        
+
         root = ET.fromstring(xml_data)
         platform = root.find('.//PLATFORM')
-        
+
         if platform is not None and len(platform) > 0:
             return platform[0].tag
-        
+
+        print(f"Warning: Platform not found in metadata for {srr_id}", file=sys.stderr)
         return None
-        
-    except Exception:
+
+    except Exception as e:
+        print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
         return None
 
 
@@ -479,9 +918,11 @@ if __name__ == "__main__":
     parser.add_argument("--Prefix", help="Prefix for output files")
     parser.add_argument("--input_path", help="Input directory with FASTQ files")
     parser.add_argument("--output_path", help="Output directory")
+    parser.add_argument("--OutputDir", help="Output directory for generated files")
     parser.add_argument("--tmp_path", default="/tmp", help="Temporary directory")
     parser.add_argument("--ref_path", default="./Meta2Data/docs/J01859.1.fna", help="E. coli 16S reference")
     parser.add_argument("--srr_id", help="SRA accession number")
+    parser.add_argument("--bioproject_id", help="BioProject ID (required for CNCB/CRR accessions)")
 
     args = parser.parse_args()
     
@@ -505,23 +946,35 @@ if __name__ == "__main__":
         trim_pos_deblur(args.FilePath)
         
     elif args.function == "GenerateDatasetsIDsFile":
-        GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, args.SequencingPlatform)
+        # SequencingPlatform is optional - if not provided, only outputs BioProject IDs
+        # OutputDir is optional - if not provided, uses input file directory
+        GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, args.SequencingPlatform, args.OutputDir)
         
     elif args.function == "GenerateSRAsFile":
-        GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample)
+        # Biosample and OutputDir are optional
+        # If Biosample not provided, uses SRA_Number for sample naming
+        GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample, args.OutputDir)
         
     elif args.function == "add_prefix_to_file":
         add_prefix_to_file(args.In_fasta, args.In_table, args.Prefix)
 
     elif args.function == "detect_primers_16s":
-        has_primers = detect_primers_16s(args.input_path, args.tmp_path, args.ref_path)
-        sys.exit(0 if has_primers else 1)
+        primers_found, trim_length = detect_primers_16s(
+            args.input_path, 
+            args.tmp_path, 
+            args.ref_path
+        )
+        if primers_found:
+            print(f"TRIM:{trim_length}", file=sys.stdout)
+            sys.exit(0)  # Success - primers detected
+        else:
+            sys.exit(1)  # No primers found
 
     elif args.function == "smart_trim_16s":
         smart_trim_16s(args.input_path, args.output_path, args.tmp_path, args.ref_path)
 
     elif args.function == "get_sequencing_platform":
-        platform = get_sequencing_platform(args.srr_id)
+        platform = get_sequencing_platform(args.srr_id, args.bioproject_id)
         if platform:
             print(platform)
         else:
