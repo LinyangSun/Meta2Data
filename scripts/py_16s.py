@@ -5,6 +5,7 @@ import subprocess
 import os
 import glob
 import gzip
+import statistics
 from collections import Counter
 import pandas as pd
 import numpy as np
@@ -328,39 +329,32 @@ def trim_pos_dada2(file_path):
 
 def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J01859.1.fna"):
     """
-    Detect 16S primers in FASTQ files using sliding window approach
+    Detect 16S primers using alignment-based approach
 
     Method:
-    1. Sample first 1000 reads from FASTQ file
-    2. Extract 20bp sequences at different offsets (positions)
-    3. Find most common 20bp sequence at each offset (conserved = likely primer)
-    4. BLAST against E. coli 16S reference to verify it's a real primer
-    5. Check if BLAST hit matches known 16S primer binding sites
+    1. Sample 1000 reads from FASTQ file
+    2. BLAST align reads to E. coli 16S reference (only plus strand)
+    3. Find consensus alignment start position
+    4. Calculate distance to nearest LEGAL_ANCHOR
+    5. Determine if primers need trimming:
+       - Distance < 10bp: Primers already removed
+       - Distance >= 18bp: Primers present, calculate trim length
 
     Returns: (primers_found: bool, trim_length: int)
     """
     print("=" * 60, file=sys.stderr)
-    print("16S PRIMER DETECTION METHOD", file=sys.stderr)
+    print("16S PRIMER DETECTION (ALIGNMENT-BASED)", file=sys.stderr)
     print("=" * 60, file=sys.stderr)
-    print("\nPurpose: Detect if reads contain adapters/barcodes + 16S primers", file=sys.stderr)
-    print("Strategy: Two-stage sliding window search with BLAST verification\n", file=sys.stderr)
+    print("\nStrategy: Align reads to reference → Find consensus position → Detect primers\n", file=sys.stderr)
 
     if not os.path.exists(ref_path):
         print(f"✗ Reference not found: {ref_path}", file=sys.stderr)
         return False, 0
 
     # Known 16S primer binding sites on E. coli 16S rRNA gene
-    LEGAL_ANCHORS = [8, 27, 338, 341, 515, 518, 534, 785, 799, 806, 907, 926, 1046, 1099, 1100, 1391, 1492]
-    print(f"Known 16S primer sites: {len(LEGAL_ANCHORS)} positions", file=sys.stderr)
+    LEGAL_ANCHORS = [27, 341, 518, 534, 785, 799, 806, 907, 926, 1046, 1100, 1391, 1492]
+    print(f"Known 16S primer sites: {LEGAL_ANCHORS}", file=sys.stderr)
     print(f"  (e.g., V3-V4: 341F/785R, V4: 515F/806R)\n", file=sys.stderr)
-
-    # Two-stage search strategy
-    COARSE_OFFSETS = [0, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60]  # Fast initial search
-    FINE_SEARCH_RANGE = 60  # If coarse fails, try every position
-
-    print(f"Stage 1: Coarse search at {len(COARSE_OFFSETS)} key offsets", file=sys.stderr)
-    print(f"  Offsets: {COARSE_OFFSETS}", file=sys.stderr)
-    print(f"Stage 2: Fine search (0-{FINE_SEARCH_RANGE}bp) if Stage 1 fails\n", file=sys.stderr)
 
     # Build BLAST database if needed
     if not os.path.exists(f"{ref_path}.nhr"):
@@ -374,7 +368,6 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     # Find input files
     fwd_files = sorted(glob.glob(os.path.join(input_path, "*_R1*.fastq*")))
     if not fwd_files:
-        # Try single-end pattern
         fwd_files = sorted(glob.glob(os.path.join(input_path, "*.fastq*")))
         if not fwd_files:
             print("✗ No FASTQ files found", file=sys.stderr)
@@ -384,96 +377,133 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     print(f"Analyzing: {os.path.basename(test_file)}", file=sys.stderr)
     print(f"Sampling: First 1000 reads\n", file=sys.stderr)
 
-    # Stage 1: Coarse search with fixed offsets
-    print("-" * 60, file=sys.stderr)
-    print("STAGE 1: Coarse Search (Fast)", file=sys.stderr)
-    print("-" * 60, file=sys.stderr)
-    offset_prefixes = {offset: Counter() for offset in COARSE_OFFSETS}
-
+    # 1. Sample reads
+    sampled_reads = []
     with (gzip.open(test_file, "rt") if test_file.endswith(".gz") else open(test_file, "r")) as h:
         for i, rec in enumerate(SeqIO.parse(h, "fastq")):
             if i >= 1000:
                 break
-            for offset in COARSE_OFFSETS:
-                if len(rec.seq) >= offset + 20:
-                    offset_prefixes[offset][str(rec.seq[offset:offset+20])] += 1
+            sampled_reads.append((f"read{i}", str(rec.seq)))
 
-    print("Extracting most common 20bp sequences at each offset...", file=sys.stderr)
+    if len(sampled_reads) < 100:
+        print(f"✗ Too few reads ({len(sampled_reads)}), need at least 100", file=sys.stderr)
+        return False, 0
 
-    # Check each coarse offset for primer matches
+    # 2. Write to temporary FASTA
     os.makedirs(tmp_path, exist_ok=True)
+    query_fa = os.path.join(tmp_path, "primer_detect_reads.fa")
+    with open(query_fa, 'w') as f:
+        for read_id, seq in sampled_reads:
+            f.write(f">{read_id}\n{seq}\n")
 
-    for offset in COARSE_OFFSETS:
-        if not offset_prefixes[offset]:
-            continue
+    # 3. BLAST alignment
+    print("BLAST aligning reads to reference...", file=sys.stderr)
+    blast_out = os.path.join(tmp_path, "primer_detect_alignment.txt")
 
-        top_seq, count = offset_prefixes[offset].most_common(1)[0]
-        frequency_pct = (count / 1000) * 100
+    try:
+        subprocess.run(
+            f"blastn -query {query_fa} -db {ref_path} "
+            f"-outfmt '6 qseqid qstart qend sstart send sstrand qlen' "
+            f"-out {blast_out} -task blastn-short -max_target_seqs 1 -evalue 1e-5",
+            shell=True, check=True, capture_output=True, stderr=subprocess.DEVNULL
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ BLAST failed: {e}", file=sys.stderr)
+        return False, 0
 
-        if count > 500:  # High frequency suggests conserved primer sequence
-            print(f"\nOffset {offset:2d}bp: Found conserved sequence (freq: {count}/1000 = {frequency_pct:.1f}%)", file=sys.stderr)
-            print(f"  Sequence: {top_seq}", file=sys.stderr)
-            print(f"  BLASTing against 16S reference...", file=sys.stderr)
+    # 4. Parse alignment results (only plus strand)
+    alignment_starts = []  # Position on reference sequence
+    query_starts = []      # Position on read (how much to trim)
 
-            result = _check_primer_blast(top_seq, offset, ref_path, tmp_path, LEGAL_ANCHORS)
-            if result is not None:
-                print(f"  ✓ CONFIRMED: Matches known 16S primer site!", file=sys.stderr)
-                print(f"  → Trim length: {result}bp (adapter/barcode={offset}bp + primer=20bp)", file=sys.stderr)
-                print("=" * 60, file=sys.stderr)
-                return True, result
-            else:
-                print(f"  ✗ No match to 16S primer sites", file=sys.stderr)
+    with open(blast_out) as f:
+        for line in f:
+            parts = line.strip().split('\t')
+            if len(parts) >= 7:
+                qseqid, qstart, qend, sstart, send, sstrand, qlen = parts
+                qstart, qend = int(qstart), int(qend)
+                sstart, send = int(sstart), int(send)
 
-    print(f"\n✗ Stage 1: No primers detected at coarse offsets", file=sys.stderr)
+                # Only process plus strand alignments
+                if sstrand == 'plus':
+                    alignment_starts.append(sstart)
+                    query_starts.append(qstart - 1)  # 0-based trim length
 
-    # Stage 2: Fine search if coarse search failed
-    print("\n" + "-" * 60, file=sys.stderr)
-    print("STAGE 2: Fine Search (Thorough)", file=sys.stderr)
+    if len(alignment_starts) < 50:
+        print(f"✗ Too few alignments ({len(alignment_starts)}), need at least 50", file=sys.stderr)
+        print("  Possible reasons:", file=sys.stderr)
+        print("  • Reads are not 16S sequences", file=sys.stderr)
+        print("  • Poor sequencing quality", file=sys.stderr)
+        print("  • Non-standard 16S region\n", file=sys.stderr)
+        return False, 0
+
+    print(f"✓ Successfully aligned {len(alignment_starts)}/{len(sampled_reads)} reads (plus strand)\n", file=sys.stderr)
+
+    # 5. Find consensus alignment start position
+    from collections import Counter
+    start_counter = Counter(alignment_starts)
+
+    # Get the most common start position (consensus)
+    consensus_start, consensus_count = start_counter.most_common(1)[0]
+    consensus_freq = (consensus_count / len(alignment_starts)) * 100
+
+    print(f"Consensus alignment start position:", file=sys.stderr)
+    print(f"  Position on reference: {consensus_start}", file=sys.stderr)
+    print(f"  Frequency: {consensus_count}/{len(alignment_starts)} ({consensus_freq:.1f}%)", file=sys.stderr)
+
+    # 6. Find nearest LEGAL_ANCHOR
+    nearest_anchor = min(LEGAL_ANCHORS, key=lambda x: abs(x - consensus_start))
+    distance = consensus_start - nearest_anchor
+
+    print(f"  Nearest primer anchor: {nearest_anchor}", file=sys.stderr)
+    print(f"  Distance: {distance} bp\n", file=sys.stderr)
+
+    # 7. Calculate consensus trim length from reads that align near consensus_start
+    trim_candidates = []
+    for align_start, query_start in zip(alignment_starts, query_starts):
+        # Only consider reads that align within ±5bp of consensus
+        if abs(align_start - consensus_start) <= 5:
+            trim_candidates.append(query_start)
+
+    if not trim_candidates:
+        trim_candidates = query_starts  # Fallback to all reads
+
+    consensus_trim = int(statistics.median(trim_candidates))
+
+    # 8. Determine primer status
     print("-" * 60, file=sys.stderr)
-    print(f"Searching every position from 0-{FINE_SEARCH_RANGE}bp...\n", file=sys.stderr)
 
-    fine_offset_prefixes = {offset: Counter() for offset in range(0, FINE_SEARCH_RANGE)}
-    
-    with (gzip.open(test_file, "rt") if test_file.endswith(".gz") else open(test_file, "r")) as h:
-        for i, rec in enumerate(SeqIO.parse(h, "fastq")):
-            if i >= 1000:
-                break
-            for offset in range(0, FINE_SEARCH_RANGE):
-                if len(rec.seq) >= offset + 20:
-                    fine_offset_prefixes[offset][str(rec.seq[offset:offset+20])] += 1
+    if abs(distance) < 10:
+        print("✓ PRIMERS ALREADY REMOVED", file=sys.stderr)
+        print(f"  Distance to primer anchor ({distance} bp) < 10 bp", file=sys.stderr)
+        print("  → No trimming needed\n", file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
+        return True, 0
 
-    # Check fine offsets
-    candidates_found = 0
-    for offset in range(0, FINE_SEARCH_RANGE):
-        if not fine_offset_prefixes[offset]:
-            continue
+    elif distance >= 18:
+        print("✗ PRIMERS DETECTED (NOT REMOVED)", file=sys.stderr)
+        print(f"  Distance to primer anchor ({distance} bp) >= 18 bp", file=sys.stderr)
+        print(f"  Primer length: ~19-20 bp", file=sys.stderr)
+        print(f"\n✓ Calculated trim length: {consensus_trim} bp", file=sys.stderr)
+        print(f"  (includes adapter/barcode + primer)", file=sys.stderr)
+        print("  → Will trim both F and R ends with same length\n", file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
+        return True, consensus_trim
 
-        top_seq, count = fine_offset_prefixes[offset].most_common(1)[0]
-        frequency_pct = (count / 1000) * 100
+    elif distance <= -18:
+        print("⚠️ UNUSUAL: Reads align upstream of primer anchor", file=sys.stderr)
+        print(f"  Distance: {distance} bp", file=sys.stderr)
+        print("  This may indicate non-standard primers or sequencing issues", file=sys.stderr)
+        print(f"  Calculated trim length: {consensus_trim} bp\n", file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
+        return True, consensus_trim
 
-        if count > 500:
-            candidates_found += 1
-            print(f"Offset {offset:2d}bp: Conserved sequence (freq: {count}/1000 = {frequency_pct:.1f}%)", file=sys.stderr)
-            result = _check_primer_blast(top_seq, offset, ref_path, tmp_path, LEGAL_ANCHORS)
-            if result is not None:
-                print(f"  ✓ CONFIRMED: Matches known 16S primer site!", file=sys.stderr)
-                print(f"  → Trim length: {result}bp", file=sys.stderr)
-                print("=" * 60, file=sys.stderr)
-                return True, result
-
-    print(f"\n✗ Stage 2: Checked {FINE_SEARCH_RANGE} positions, found {candidates_found} candidates", file=sys.stderr)
-    print("  None matched known 16S primer sites\n", file=sys.stderr)
-
-    print("=" * 60, file=sys.stderr)
-    print("CONCLUSION: No 16S primers detected", file=sys.stderr)
-    print("=" * 60, file=sys.stderr)
-    print("\nInterpretation:", file=sys.stderr)
-    print("  • Reads may already be primer-trimmed", file=sys.stderr)
-    print("  • Or using non-standard primer sequences", file=sys.stderr)
-    print("  • Or primer sequences are variable (not conserved)", file=sys.stderr)
-    print("  → Pipeline will proceed without primer trimming\n", file=sys.stderr)
-
-    return False, 0
+    else:
+        print("⚠️ AMBIGUOUS DISTANCE", file=sys.stderr)
+        print(f"  Distance ({distance} bp) is in range [10, 18) bp", file=sys.stderr)
+        print("  Cannot confidently determine primer status", file=sys.stderr)
+        print("  → Pipeline will proceed without trimming\n", file=sys.stderr)
+        print("=" * 60, file=sys.stderr)
+        return False, 0
 
 
 def _check_primer_blast(seq, offset, ref_path, tmp_path, legal_anchors):

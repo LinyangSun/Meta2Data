@@ -230,48 +230,39 @@ for i in "${!Dataset_ID_sets[@]}"; do
         working_fastq_path="${dataset_path}working_fastq/"
         mkdir -p "$working_fastq_path"
 
-        # Detect primers and get trim length
-        primer_output=$(python "${SCRIPTS}/py_16s.py" detect_primers_16s \
+        # Call primer detection and capture output
+        primer_result=$(python "${SCRIPTS}/py_16s.py" detect_primers_16s \
             --input_path "$ori_fastq_path" \
             --tmp_path "${dataset_path}temp/" \
-            --ref_path "$REF_16S_PATH" 2>&1)
-        primer_exit_code=$?
+            --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1)
 
-        if [ $primer_exit_code -eq 0 ]; then
-            # Extract trim length from output (expects format: "TRIM:N")
-            trim_len=$(echo "$primer_output" | grep -oP 'TRIM:\K\d+')
-            
-            if [ -z "$trim_len" ]; then
-                trim_len=20  # Default fallback
-            fi
-            
-            echo "✓ Primers detected at position $((trim_len - 20)), trimming ${trim_len}bp total..."
-            
-            if [[ "$sequence_type" == "single" ]]; then
-                for f in "${ori_fastq_path}"*.fastq*; do
-                    fastp -i "$f" \
-                        -o "${working_fastq_path}$(basename "$f")" \
-                        -f "$trim_len" \
-                        -w "$THREADS" \
-                        --length_required 100 \
-                        -j /dev/null -h /dev/null 2>/dev/null
-                done
-            else
-                for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
-                    r2="${r1/_R1/_R2}"
-                    if [ -f "$r2" ]; then
+        # Parse result: output format is "TRIM:number"
+        if [[ "$primer_result" =~ TRIM:([0-9]+) ]]; then
+            trim_length="${BASH_REMATCH[1]}"
+
+            if [[ "$trim_length" -gt 0 ]]; then
+                echo "✓ Primers detected, trimming ${trim_length}bp from both ends..."
+                if [[ "$sequence_type" == "single" ]]; then
+                    for f in "${ori_fastq_path}"*.fastq*; do
+                        fastp -i "$f" -o "${working_fastq_path}$(basename "$f")" \
+                            -f "$trim_length" -w "$THREADS" -j /dev/null -h /dev/null 2>/dev/null
+                    done
+                else
+                    for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
+                        r2="${r1/_R1/_R2}"
                         fastp -i "$r1" -I "$r2" \
                             -o "${working_fastq_path}$(basename "$r1")" \
                             -O "${working_fastq_path}$(basename "$r2")" \
-                            -f "$trim_len" -F "$trim_len" \
-                            -w "$THREADS" \
-                            --length_required 100 \
+                            -f "$trim_length" -F "$trim_length" -w "$THREADS" \
                             -j /dev/null -h /dev/null 2>/dev/null
-                    fi
-                done
+                    done
+                fi
+            else
+                echo "✓ Primers already removed, copying files..."
+                cp "${ori_fastq_path}"*.fastq* "$working_fastq_path" 2>/dev/null || true
             fi
         else
-            echo "✓ No primers detected, copying files..."
+            echo "✓ No primers detected or ambiguous, copying files..."
             cp "${ori_fastq_path}"*.fastq* "$working_fastq_path" 2>/dev/null || true
         fi
 
