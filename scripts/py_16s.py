@@ -472,38 +472,45 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     # 8. Determine primer status
     print("-" * 60, file=sys.stderr)
 
-    if abs(distance) < 10:
+    # Primer length is typically 19-20bp
+    PRIMER_LENGTH = 20
+
+    # Logic:
+    # - distance = consensus_start - nearest_anchor
+    # - If distance > PRIMER_LENGTH: read starts after primer → primers removed
+    # - If distance <= PRIMER_LENGTH: read starts at or before primer → primers present
+
+    if distance > PRIMER_LENGTH:
         print("✓ PRIMERS ALREADY REMOVED", file=sys.stderr)
-        print(f"  Distance to primer anchor ({distance} bp) < 10 bp", file=sys.stderr)
-        print("  → No trimming needed\n", file=sys.stderr)
+        print(f"  Read starts {distance}bp after primer anchor", file=sys.stderr)
+        print(f"  → No trimming needed\n", file=sys.stderr)
         print("=" * 60, file=sys.stderr)
         return True, 0
 
-    elif distance >= 18:
-        print("✗ PRIMERS DETECTED (NOT REMOVED)", file=sys.stderr)
-        print(f"  Distance to primer anchor ({distance} bp) >= 18 bp", file=sys.stderr)
-        print(f"  Primer length: ~19-20 bp", file=sys.stderr)
-        print(f"\n✓ Calculated trim length: {consensus_trim} bp", file=sys.stderr)
-        print(f"  (includes adapter/barcode + primer)", file=sys.stderr)
-        print("  → Will trim both F and R ends with same length\n", file=sys.stderr)
-        print("=" * 60, file=sys.stderr)
-        return True, consensus_trim
-
-    elif distance <= -18:
-        print("⚠️ UNUSUAL: Reads align upstream of primer anchor", file=sys.stderr)
-        print(f"  Distance: {distance} bp", file=sys.stderr)
-        print("  This may indicate non-standard primers or sequencing issues", file=sys.stderr)
-        print(f"  Calculated trim length: {consensus_trim} bp\n", file=sys.stderr)
-        print("=" * 60, file=sys.stderr)
-        return True, consensus_trim
-
     else:
-        print("⚠️ AMBIGUOUS DISTANCE", file=sys.stderr)
-        print(f"  Distance ({distance} bp) is in range [10, 18) bp", file=sys.stderr)
-        print("  Cannot confidently determine primer status", file=sys.stderr)
-        print("  → Pipeline will proceed without trimming\n", file=sys.stderr)
+        # Primers present - need to trim
+        # If consensus_trim > 0: has adapter + primer
+        # If consensus_trim = 0: starts directly at primer
+
+        if consensus_trim > 0:
+            # Has adapter before primer
+            trim_length = consensus_trim + PRIMER_LENGTH
+            print("✗ PRIMERS DETECTED (WITH ADAPTER)", file=sys.stderr)
+            print(f"  Read starts {abs(distance)}bp before primer anchor", file=sys.stderr)
+            print(f"  Adapter length: ~{consensus_trim}bp", file=sys.stderr)
+            print(f"  Primer length: ~{PRIMER_LENGTH}bp", file=sys.stderr)
+            print(f"\n✓ Total trim length: {trim_length}bp", file=sys.stderr)
+        else:
+            # Starts directly at primer (no adapter)
+            trim_length = PRIMER_LENGTH
+            print("✗ PRIMERS DETECTED (NO ADAPTER)", file=sys.stderr)
+            print(f"  Read starts at primer position (distance: {distance}bp)", file=sys.stderr)
+            print(f"  Primer length: ~{PRIMER_LENGTH}bp", file=sys.stderr)
+            print(f"\n✓ Trim length: {trim_length}bp", file=sys.stderr)
+
+        print(f"  → Will trim both F and R ends with {trim_length}bp\n", file=sys.stderr)
         print("=" * 60, file=sys.stderr)
-        return False, 0
+        return True, trim_length
 
 
 def _check_primer_blast(seq, offset, ref_path, tmp_path, legal_anchors):
