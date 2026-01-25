@@ -378,12 +378,18 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     print(f"Sampling: First 1000 reads\n", file=sys.stderr)
 
     # 1. Sample reads
+    print("[DEBUG] Step 1: Sampling reads...", file=sys.stderr)
     sampled_reads = []
     with (gzip.open(test_file, "rt") if test_file.endswith(".gz") else open(test_file, "r")) as h:
         for i, rec in enumerate(SeqIO.parse(h, "fastq")):
             if i >= 1000:
                 break
             sampled_reads.append((f"read{i}", str(rec.seq)))
+            if i == 0:
+                # Show first read as example
+                print(f"[DEBUG] First read (len={len(rec.seq)}): {str(rec.seq)[:50]}...", file=sys.stderr)
+
+    print(f"[DEBUG] Sampled {len(sampled_reads)} reads", file=sys.stderr)
 
     if len(sampled_reads) < 100:
         print(f"✗ Too few reads ({len(sampled_reads)}), need at least 100", file=sys.stderr)
@@ -397,36 +403,55 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
             f.write(f">{read_id}\n{seq}\n")
 
     # 3. BLAST alignment
-    print("BLAST aligning reads to reference...", file=sys.stderr)
+    print("\n[DEBUG] Step 2: BLAST aligning reads to reference...", file=sys.stderr)
+    print(f"[DEBUG] Query file: {query_fa}", file=sys.stderr)
+    print(f"[DEBUG] Reference: {ref_path}", file=sys.stderr)
     blast_out = os.path.join(tmp_path, "primer_detect_alignment.txt")
 
+    blast_cmd = (f"blastn -query {query_fa} -db {ref_path} "
+                 f"-outfmt '6 qseqid qstart qend sstart send sstrand qlen' "
+                 f"-out {blast_out} -task blastn-short -max_target_seqs 1 -evalue 1e-5")
+    print(f"[DEBUG] BLAST command: {blast_cmd}", file=sys.stderr)
+
     try:
-        subprocess.run(
-            f"blastn -query {query_fa} -db {ref_path} "
-            f"-outfmt '6 qseqid qstart qend sstart send sstrand qlen' "
-            f"-out {blast_out} -task blastn-short -max_target_seqs 1 -evalue 1e-5",
-            shell=True, check=True, capture_output=True, stderr=subprocess.DEVNULL
-        )
+        subprocess.run(blast_cmd, shell=True, check=True, capture_output=True, stderr=subprocess.DEVNULL)
+        print(f"[DEBUG] BLAST completed successfully", file=sys.stderr)
     except subprocess.CalledProcessError as e:
         print(f"✗ BLAST failed: {e}", file=sys.stderr)
         return False, 0
 
     # 4. Parse alignment results (only plus strand)
+    print("\n[DEBUG] Step 3: Parsing alignment results...", file=sys.stderr)
     alignment_starts = []  # Position on reference sequence
     query_starts = []      # Position on read (how much to trim)
+    total_alignments = 0
+    plus_strand_count = 0
+    minus_strand_count = 0
 
     with open(blast_out) as f:
-        for line in f:
+        for i, line in enumerate(f):
             parts = line.strip().split('\t')
             if len(parts) >= 7:
+                total_alignments += 1
                 qseqid, qstart, qend, sstart, send, sstrand, qlen = parts
                 qstart, qend = int(qstart), int(qend)
                 sstart, send = int(sstart), int(send)
 
+                # Show first few alignments as examples
+                if i < 3:
+                    print(f"[DEBUG] Alignment {i+1}: {qseqid} → ref pos {sstart}-{send} ({sstrand}), query pos {qstart}-{qend}", file=sys.stderr)
+
                 # Only process plus strand alignments
                 if sstrand == 'plus':
+                    plus_strand_count += 1
                     alignment_starts.append(sstart)
                     query_starts.append(qstart - 1)  # 0-based trim length
+                else:
+                    minus_strand_count += 1
+
+    print(f"[DEBUG] Total alignments: {total_alignments}", file=sys.stderr)
+    print(f"[DEBUG] Plus strand: {plus_strand_count}, Minus strand: {minus_strand_count}", file=sys.stderr)
+    print(f"[DEBUG] Alignment starts (first 10): {alignment_starts[:10]}", file=sys.stderr)
 
     if len(alignment_starts) < 50:
         print(f"✗ Too few alignments ({len(alignment_starts)}), need at least 50", file=sys.stderr)
@@ -439,22 +464,35 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     print(f"✓ Successfully aligned {len(alignment_starts)}/{len(sampled_reads)} reads (plus strand)\n", file=sys.stderr)
 
     # 5. Find consensus alignment start position
+    print("\n[DEBUG] Step 4: Finding consensus position...", file=sys.stderr)
     from collections import Counter
     start_counter = Counter(alignment_starts)
+
+    # Show top 5 most common positions
+    print(f"[DEBUG] Top 5 alignment positions:", file=sys.stderr)
+    for pos, count in start_counter.most_common(5):
+        freq = (count / len(alignment_starts)) * 100
+        print(f"[DEBUG]   Position {pos}: {count} reads ({freq:.1f}%)", file=sys.stderr)
 
     # Get the most common start position (consensus)
     consensus_start, consensus_count = start_counter.most_common(1)[0]
     consensus_freq = (consensus_count / len(alignment_starts)) * 100
 
-    print(f"Consensus alignment start position:", file=sys.stderr)
+    print(f"\nConsensus alignment start position:", file=sys.stderr)
     print(f"  Position on reference: {consensus_start}", file=sys.stderr)
     print(f"  Frequency: {consensus_count}/{len(alignment_starts)} ({consensus_freq:.1f}%)", file=sys.stderr)
 
     # 6. Find first forward primer anchor (>= consensus position)
+    print("\n[DEBUG] Step 5: Finding forward primer anchor...", file=sys.stderr)
+    print(f"[DEBUG] LEGAL_ANCHORS: {LEGAL_ANCHORS}", file=sys.stderr)
+    print(f"[DEBUG] Consensus position: {consensus_start}", file=sys.stderr)
+
     forward_anchors = [a for a in LEGAL_ANCHORS if a >= consensus_start]
+    print(f"[DEBUG] Forward anchors (>= {consensus_start}): {forward_anchors}", file=sys.stderr)
 
     if not forward_anchors:
         # Consensus position is after all known primer sites → primers already removed
+        print(f"[DEBUG] No forward anchors found!", file=sys.stderr)
         print(f"  ✓ Consensus position ({consensus_start}) is beyond all primer anchors", file=sys.stderr)
         print("  → Primers already removed\n", file=sys.stderr)
         print("=" * 60, file=sys.stderr)
@@ -463,7 +501,10 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     nearest_forward_anchor = min(forward_anchors)
     distance = nearest_forward_anchor - consensus_start
 
-    print(f"  First forward primer anchor: {nearest_forward_anchor}", file=sys.stderr)
+    print(f"[DEBUG] Nearest forward anchor: {nearest_forward_anchor}", file=sys.stderr)
+    print(f"[DEBUG] Distance = {nearest_forward_anchor} - {consensus_start} = {distance} bp", file=sys.stderr)
+
+    print(f"\n  First forward primer anchor: {nearest_forward_anchor}", file=sys.stderr)
     print(f"  Distance to anchor: {distance} bp", file=sys.stderr)
 
     # 7. Calculate consensus trim length from reads that align near consensus_start
@@ -479,11 +520,17 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     consensus_trim = int(statistics.median(trim_candidates))
 
     # 8. Determine primer status based on distance
-    print(f"", file=sys.stderr)
+    print("\n[DEBUG] Step 6: Determining primer status...", file=sys.stderr)
     print("-" * 60, file=sys.stderr)
 
     # Primer length is typically 19-20bp
     PRIMER_LENGTH = 20
+
+    print(f"[DEBUG] Distance = {distance} bp", file=sys.stderr)
+    print(f"[DEBUG] Checking conditions:", file=sys.stderr)
+    print(f"[DEBUG]   distance < 10? {distance < 10}", file=sys.stderr)
+    print(f"[DEBUG]   distance >= 18? {distance >= 18}", file=sys.stderr)
+    print(f"[DEBUG]   10 <= distance < 18? {10 <= distance < 18}", file=sys.stderr)
 
     # Logic:
     # distance = anchor - consensus_start (distance from read start to primer anchor)
