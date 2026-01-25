@@ -351,10 +351,10 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
         print(f"✗ Reference not found: {ref_path}", file=sys.stderr)
         return False, 0
 
-    # Known 16S primer binding sites on E. coli 16S rRNA gene
-    LEGAL_ANCHORS = [27, 341, 518, 534, 785, 799, 806, 907, 926, 1046, 1100, 1391, 1492]
-    print(f"Known 16S primer sites: {LEGAL_ANCHORS}", file=sys.stderr)
-    print(f"  (e.g., V3-V4: 341F/785R, V4: 515F/806R)\n", file=sys.stderr)
+    # Primer end positions on E. coli 16S rRNA gene (where 16S sequence actually starts)
+    END_ANCHORS = [28, 64, 357, 533, 799]
+    print(f"Primer end positions (16S starts after): {END_ANCHORS}", file=sys.stderr)
+    print(f"  (e.g., V1: 28, V2: 64, V3: 357, V4: 533, V5-V6: 799)\n", file=sys.stderr)
 
     # Build BLAST database if needed
     if not os.path.exists(f"{ref_path}.nhr"):
@@ -482,93 +482,81 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     print(f"  Position on reference: {consensus_start}", file=sys.stderr)
     print(f"  Frequency: {consensus_count}/{len(alignment_starts)} ({consensus_freq:.1f}%)", file=sys.stderr)
 
-    # 6. Find first forward primer anchor (>= consensus position)
-    print("\n[DEBUG] Step 5: Finding forward primer anchor...", file=sys.stderr)
-    print(f"[DEBUG] LEGAL_ANCHORS: {LEGAL_ANCHORS}", file=sys.stderr)
+    # 6. Find nearest primer end anchor
+    print("\n[DEBUG] Step 5: Finding nearest primer end position...", file=sys.stderr)
+    print(f"[DEBUG] END_ANCHORS: {END_ANCHORS}", file=sys.stderr)
     print(f"[DEBUG] Consensus position: {consensus_start}", file=sys.stderr)
 
-    forward_anchors = [a for a in LEGAL_ANCHORS if a >= consensus_start]
-    print(f"[DEBUG] Forward anchors (>= {consensus_start}): {forward_anchors}", file=sys.stderr)
+    # Find the nearest anchor by absolute distance
+    nearest_anchor = min(END_ANCHORS, key=lambda a: abs(a - consensus_start))
+    ref_distance = nearest_anchor - consensus_start
 
-    if not forward_anchors:
-        # Consensus position is after all known primer sites → primers already removed
-        print(f"[DEBUG] No forward anchors found!", file=sys.stderr)
-        print(f"  ✓ Consensus position ({consensus_start}) is beyond all primer anchors", file=sys.stderr)
-        print("  → Primers already removed\n", file=sys.stderr)
-        print("=" * 60, file=sys.stderr)
-        return True, 0
+    print(f"[DEBUG] Nearest anchor: {nearest_anchor}", file=sys.stderr)
+    print(f"[DEBUG] Distance = {nearest_anchor} - {consensus_start} = {ref_distance} bp", file=sys.stderr)
 
-    nearest_forward_anchor = min(forward_anchors)
-    distance = nearest_forward_anchor - consensus_start
+    print(f"\n  Nearest primer end position: {nearest_anchor}", file=sys.stderr)
+    print(f"  Distance from consensus: {ref_distance} bp", file=sys.stderr)
 
-    print(f"[DEBUG] Nearest forward anchor: {nearest_forward_anchor}", file=sys.stderr)
-    print(f"[DEBUG] Distance = {nearest_forward_anchor} - {consensus_start} = {distance} bp", file=sys.stderr)
-
-    print(f"\n  First forward primer anchor: {nearest_forward_anchor}", file=sys.stderr)
-    print(f"  Distance to anchor: {distance} bp", file=sys.stderr)
-
-    # 7. Calculate consensus trim length from reads that align near consensus_start
-    trim_candidates = []
-    for align_start, query_start in zip(alignment_starts, query_starts):
-        # Only consider reads that align within ±5bp of consensus
-        if abs(align_start - consensus_start) <= 5:
-            trim_candidates.append(query_start)
-
-    if not trim_candidates:
-        trim_candidates = query_starts  # Fallback to all reads
-
-    consensus_trim = int(statistics.median(trim_candidates))
-
-    # 8. Determine primer status based on distance
+    # 7. Determine primer status based on ref_distance
     print("\n[DEBUG] Step 6: Determining primer status...", file=sys.stderr)
     print("-" * 60, file=sys.stderr)
 
-    # Primer length is typically 19-20bp
-    PRIMER_LENGTH = 20
+    print(f"[DEBUG] ref_distance = {ref_distance} bp", file=sys.stderr)
+    print(f"[DEBUG] Checking: ref_distance < 10? {ref_distance < 10}", file=sys.stderr)
 
-    print(f"[DEBUG] Distance = {distance} bp", file=sys.stderr)
-    print(f"[DEBUG] Checking conditions:", file=sys.stderr)
-    print(f"[DEBUG]   distance < 10? {distance < 10}", file=sys.stderr)
-    print(f"[DEBUG]   distance >= 18? {distance >= 18}", file=sys.stderr)
-    print(f"[DEBUG]   10 <= distance < 18? {10 <= distance < 18}", file=sys.stderr)
+    # New Logic:
+    # ref_distance = end_anchor - consensus_start
+    # - ref_distance < 10: Read aligns close to primer end → primers already removed
+    # - ref_distance >= 10: Read aligns before primer end → primers present
+    #   trim = (qstart - 1) + ref_distance for each consensus read
 
-    # Logic:
-    # distance = anchor - consensus_start (distance from read start to primer anchor)
-    # - distance < 10: read starts near primer anchor → primer at read start
-    # - distance >= 18: read starts before primer → has adapter/barcode
-    # - 10 <= distance < 18: ambiguous region
-
-    if distance < 10:
-        # Read starts at or very near primer position
-        print("✗ PRIMERS DETECTED (AT READ START)", file=sys.stderr)
-        print(f"  Read starts {distance}bp before primer anchor", file=sys.stderr)
-        print(f"  → Primer is at read start position", file=sys.stderr)
-        print(f"\n✓ Trim length: {PRIMER_LENGTH}bp", file=sys.stderr)
-        print(f"  → Will trim both F and R ends\n", file=sys.stderr)
+    if ref_distance < 10:
+        # Primers already removed
+        print("✓ PRIMERS ALREADY REMOVED", file=sys.stderr)
+        print(f"  Consensus position ({consensus_start}) is within 10bp of primer end ({nearest_anchor})", file=sys.stderr)
+        print(f"  → No trimming needed\n", file=sys.stderr)
         print("=" * 60, file=sys.stderr)
-        return True, PRIMER_LENGTH
-
-    elif distance >= 18:
-        # Read starts well before primer → has adapter/barcode
-        trim_length = distance + PRIMER_LENGTH
-        print("✗ PRIMERS DETECTED (WITH ADAPTER)", file=sys.stderr)
-        print(f"  Read starts {distance}bp before primer anchor", file=sys.stderr)
-        print(f"  → Adapter/barcode length: ~{distance}bp", file=sys.stderr)
-        print(f"  → Primer length: ~{PRIMER_LENGTH}bp", file=sys.stderr)
-        print(f"\n✓ Total trim length: {trim_length}bp", file=sys.stderr)
-        print(f"  (adapter {distance}bp + primer {PRIMER_LENGTH}bp)", file=sys.stderr)
-        print(f"  → Will trim both F and R ends\n", file=sys.stderr)
-        print("=" * 60, file=sys.stderr)
-        return True, trim_length
+        return True, 0
 
     else:
-        # Ambiguous region: 10 <= distance < 18
-        print("⚠️  AMBIGUOUS DISTANCE", file=sys.stderr)
-        print(f"  Distance ({distance}bp) is in range [10, 18)", file=sys.stderr)
-        print(f"  Cannot confidently determine primer status", file=sys.stderr)
-        print(f"  → Pipeline will proceed without trimming\n", file=sys.stderr)
+        # Primers present - calculate trim length
+        print("✗ PRIMERS DETECTED", file=sys.stderr)
+        print(f"  Consensus position ({consensus_start}) is {ref_distance}bp before primer end ({nearest_anchor})", file=sys.stderr)
+
+        # Calculate trim length for reads at consensus position
+        # trim = adapter_length + primer_length
+        # adapter_length = qstart - 1
+        # primer_length = ref_distance
+        print(f"\n[DEBUG] Calculating trim length from consensus reads...", file=sys.stderr)
+
+        trim_candidates = []
+        for align_start, query_start in zip(alignment_starts, query_starts):
+            # Only consider reads that align within ±5bp of consensus
+            if abs(align_start - consensus_start) <= 5:
+                # trim = (qstart - 1) + ref_distance
+                adapter_len = query_start  # Already 0-based from earlier
+                trim_len = adapter_len + ref_distance
+                trim_candidates.append(trim_len)
+
+        if not trim_candidates:
+            # Fallback: use all reads
+            trim_candidates = [qs + ref_distance for qs in query_starts]
+
+        final_trim = int(statistics.median(trim_candidates))
+
+        print(f"[DEBUG] Trim candidates (first 10): {trim_candidates[:10]}", file=sys.stderr)
+        print(f"[DEBUG] Median trim length: {final_trim} bp", file=sys.stderr)
+
+        # Calculate median adapter length for display
+        median_adapter = int(statistics.median([qs for qs in query_starts if abs(alignment_starts[query_starts.index(qs)] - consensus_start) <= 5] or query_starts))
+
+        print(f"\n  Estimated adapter length: ~{median_adapter} bp", file=sys.stderr)
+        print(f"  Primer length: {ref_distance} bp", file=sys.stderr)
+        print(f"\n✓ Total trim length: {final_trim} bp", file=sys.stderr)
+        print(f"  (adapter + primer)", file=sys.stderr)
+        print(f"  → Will trim both F and R ends\n", file=sys.stderr)
         print("=" * 60, file=sys.stderr)
-        return False, 0
+        return True, final_trim
 
 
 def _check_primer_blast(seq, offset, ref_path, tmp_path, legal_anchors):
