@@ -183,11 +183,16 @@ for i in "${!Dataset_ID_sets[@]}"; do
         working_fastq_path="${dataset_path}working_fastq/"
         mkdir -p "$working_fastq_path"
 
-        # Call primer detection and capture output
+        # Call primer detection - show all debug output
+        echo "[Running primer detection...]"
         primer_result=$(python "${SCRIPTS}/py_16s.py" detect_primers_16s \
             --input_path "$ori_fastq_path" \
             --tmp_path "${dataset_path}temp/" \
-            --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1)
+            --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1 | tee /dev/stderr)
+
+        echo ""
+        echo "[Primer detection output above]"
+        echo ""
 
         # Parse result: output format is "TRIM:number"
         if [[ "$primer_result" =~ TRIM:([0-9]+) ]]; then
