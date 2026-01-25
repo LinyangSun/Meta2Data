@@ -414,7 +414,7 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     print(f"[DEBUG] BLAST command: {blast_cmd}", file=sys.stderr)
 
     try:
-        subprocess.run(blast_cmd, shell=True, check=True, capture_output=True, stderr=subprocess.DEVNULL)
+        subprocess.run(blast_cmd, shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         print(f"[DEBUG] BLAST completed successfully", file=sys.stderr)
     except subprocess.CalledProcessError as e:
         print(f"✗ BLAST failed: {e}", file=sys.stderr)
