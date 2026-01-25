@@ -354,7 +354,7 @@ def detect_primers_16s(input_path, tmp_path="/tmp", ref_path="./Meta2Data/docs/J
     # Primer end positions on E. coli 16S rRNA gene (where 16S sequence actually starts)
     END_ANCHORS = [28, 64, 357, 533, 799]
     print(f"Primer end positions (16S starts after): {END_ANCHORS}", file=sys.stderr)
-    print(f"  (e.g., V1: 28, V2: 64, V3: 357, V4: 533, V5-V6: 799)\n", file=sys.stderr)
+    print(f"  (e.g., V1: 28/64, V3: 357, V4: 533, V5-V6: 799)\n", file=sys.stderr)
 
     # Build BLAST database if needed
     if not os.path.exists(f"{ref_path}.nhr"):
