@@ -236,6 +236,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
             --tmp_path "${dataset_path}temp/" \
             --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1)
 
+        # Display the full output for debugging
+        echo "$primer_result"
+        echo ""
+
         # Parse result: output format is "TRIM:number"
         if [[ "$primer_result" =~ TRIM:([0-9]+) ]]; then
             trim_length="${BASH_REMATCH[1]}"
