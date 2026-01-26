@@ -152,10 +152,16 @@ echo "  Prefix length: ${PREFIX_LENGTH}bp" | tee -a "$REPORT"
 echo "  Frequency threshold: >${FREQ_THRESHOLD}%" | tee -a "$REPORT"
 echo "" | tee -a "$REPORT"
 
-# Extract prefixes and find high-frequency sequences
-LITERAL_REFS_R1=$(zcat "$CLEAN_R1" 2>/dev/null || cat "$CLEAN_R1" | \
+# Convert FASTQ to FASTA and extract prefixes
+SAMPLE_FASTA_R1="${TEMP_DIR}/sample_R1.fa"
+zcat "$CLEAN_R1" 2>/dev/null || cat "$CLEAN_R1" | \
     head -n $((SAMPLE_SIZE * 4)) | \
-    awk -v len="$PREFIX_LENGTH" 'NR%4==2 {print substr($0,1,len)}' | \
+    awk 'NR%4==1 {printf(">read%d\n", (NR-1)/4+1)} NR%4==2 {print}' > "$SAMPLE_FASTA_R1"
+
+# Extract prefixes and find high-frequency sequences
+LITERAL_REFS_R1=$(awk -v len="$PREFIX_LENGTH" '
+    NR%2==0 {print substr($0,1,len)}
+' "$SAMPLE_FASTA_R1" | \
     sort | uniq -c | sort -rn | \
     awk -v limit=$((SAMPLE_SIZE * FREQ_THRESHOLD / 100)) -v minlen="$MIN_TECH_LENGTH" \
         '$1 > limit && length($2) >= minlen {print $2}')
@@ -185,9 +191,16 @@ echo "" | tee -a "$REPORT"
 if [[ -n "$CLEAN_R2" ]]; then
     echo "[Step 3] Profiling R2 5' ends for technical sequences..." | tee -a "$REPORT"
 
-    LITERAL_REFS_R2=$(zcat "$CLEAN_R2" 2>/dev/null || cat "$CLEAN_R2" | \
+    # Convert FASTQ to FASTA and extract prefixes
+    SAMPLE_FASTA_R2="${TEMP_DIR}/sample_R2.fa"
+    zcat "$CLEAN_R2" 2>/dev/null || cat "$CLEAN_R2" | \
         head -n $((SAMPLE_SIZE * 4)) | \
-        awk -v len="$PREFIX_LENGTH" 'NR%4==2 {print substr($0,1,len)}' | \
+        awk 'NR%4==1 {printf(">read%d\n", (NR-1)/4+1)} NR%4==2 {print}' > "$SAMPLE_FASTA_R2"
+
+    # Extract prefixes and find high-frequency sequences
+    LITERAL_REFS_R2=$(awk -v len="$PREFIX_LENGTH" '
+        NR%2==0 {print substr($0,1,len)}
+    ' "$SAMPLE_FASTA_R2" | \
         sort | uniq -c | sort -rn | \
         awk -v limit=$((SAMPLE_SIZE * FREQ_THRESHOLD / 100)) -v minlen="$MIN_TECH_LENGTH" \
             '$1 > limit && length($2) >= minlen {print $2}')
