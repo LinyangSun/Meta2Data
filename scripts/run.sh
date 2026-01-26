@@ -201,19 +201,28 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 echo "✓ Primers detected, trimming ${trim_length}bp from both ends..."
                 if [[ "$sequence_type" == "single" ]]; then
                     for f in "${ori_fastq_path}"*.fastq*; do
+                        echo "  Processing: $(basename "$f")"
                         fastp -i "$f" -o "${working_fastq_path}$(basename "$f")" \
-                            -f "$trim_length" -w "$THREADS" -j /dev/null -h /dev/null 2>/dev/null
+                            -f "$trim_length" -w "$THREADS" -j /dev/null -h /dev/null || {
+                            echo "  ✗ fastp failed for $(basename "$f")"
+                            exit 1
+                        }
                     done
                 else
                     for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
                         r2="${r1/_R1/_R2}"
+                        echo "  Processing: $(basename "$r1") and $(basename "$r2")"
                         fastp -i "$r1" -I "$r2" \
                             -o "${working_fastq_path}$(basename "$r1")" \
                             -O "${working_fastq_path}$(basename "$r2")" \
                             -f "$trim_length" -F "$trim_length" -w "$THREADS" \
-                            -j /dev/null -h /dev/null 2>/dev/null
+                            -j /dev/null -h /dev/null || {
+                            echo "  ✗ fastp failed for $(basename "$r1")/$(basename "$r2")"
+                            exit 1
+                        }
                     done
                 fi
+                echo "✓ Fastp trimming completed"
             else
                 echo "✓ Primers already removed, copying files..."
                 cp "${ori_fastq_path}"*.fastq* "$working_fastq_path" 2>/dev/null || true
