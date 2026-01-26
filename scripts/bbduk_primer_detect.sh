@@ -104,6 +104,9 @@ mkdir -p "$OUTPUT_DIR"
 REPORT="${OUTPUT_DIR}/primer_detection_report.txt"
 DETECTED_FA="${OUTPUT_DIR}/detected_primers.fa"
 
+# Use OUTPUT_DIR directly for temp files (don't create nested /temp)
+TEMP_DIR="$OUTPUT_DIR"
+
 ################################################################################
 # Step 1: Pre-clean Noise (Poly-G, Quality Trim)
 ################################################################################
@@ -117,9 +120,6 @@ echo "  1. Sample reads and extract 5' prefixes" | tee -a "$REPORT"
 echo "  2. Find high-frequency sequences (>${FREQ_THRESHOLD}%)" | tee -a "$REPORT"
 echo "  3. Use BBDuk to trim matching sequences" | tee -a "$REPORT"
 echo "" | tee -a "$REPORT"
-
-TEMP_DIR="${OUTPUT_DIR}/temp"
-mkdir -p "$TEMP_DIR"
 
 echo "[Step 1] Pre-cleaning: Removing poly-G tails and low-quality bases..." | tee -a "$REPORT"
 
