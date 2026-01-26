@@ -256,18 +256,53 @@ for i in "${!Dataset_ID_sets[@]}"; do
                         }
                     done
                 else
-                    for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
-                        r2="${r1/_R1/_R2}"
-                        echo "  Processing: $(basename "$r1") and $(basename "$r2")"
-                        fastp -i "$r1" -I "$r2" \
-                            -o "${working_fastq_path}$(basename "$r1")" \
-                            -O "${working_fastq_path}$(basename "$r2")" \
-                            -f "$trim_length" -F "$trim_length" -w "$THREADS" \
-                            -j /dev/null -h /dev/null || {
-                            echo "  ✗ fastp failed for $(basename "$r1")/$(basename "$r2")"
-                            exit 1
-                        }
+                    # Try both naming conventions: _1/_2 and _R1/_R2
+                    found_files=false
+
+                    # First try _1/_2 pattern (CNCB style)
+                    for r1 in "${ori_fastq_path}"*_1.fastq*; do
+                        if [[ -f "$r1" ]]; then
+                            r2="${r1/_1.fastq/_2.fastq}"
+                            if [[ -f "$r2" ]]; then
+                                found_files=true
+                                echo "  Processing: $(basename "$r1") and $(basename "$r2")"
+                                fastp -i "$r1" -I "$r2" \
+                                    -o "${working_fastq_path}$(basename "$r1")" \
+                                    -O "${working_fastq_path}$(basename "$r2")" \
+                                    -f "$trim_length" -F "$trim_length" -w "$THREADS" \
+                                    -j /dev/null -h /dev/null || {
+                                    echo "  ✗ fastp failed for $(basename "$r1")/$(basename "$r2")"
+                                    exit 1
+                                }
+                            fi
+                        fi
                     done
+
+                    # If not found, try _R1/_R2 pattern (NCBI style)
+                    if [[ "$found_files" == false ]]; then
+                        for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
+                            if [[ -f "$r1" ]]; then
+                                r2="${r1/_R1/_R2}"
+                                if [[ -f "$r2" ]]; then
+                                    found_files=true
+                                    echo "  Processing: $(basename "$r1") and $(basename "$r2")"
+                                    fastp -i "$r1" -I "$r2" \
+                                        -o "${working_fastq_path}$(basename "$r1")" \
+                                        -O "${working_fastq_path}$(basename "$r2")" \
+                                        -f "$trim_length" -F "$trim_length" -w "$THREADS" \
+                                        -j /dev/null -h /dev/null || {
+                                        echo "  ✗ fastp failed for $(basename "$r1")/$(basename "$r2")"
+                                        exit 1
+                                    }
+                                fi
+                            fi
+                        done
+                    fi
+
+                    if [[ "$found_files" == false ]]; then
+                        echo "  ✗ No paired-end fastq files found in ${ori_fastq_path}"
+                        exit 1
+                    fi
                 fi
                 echo "✓ Fastp trimming completed"
             else
