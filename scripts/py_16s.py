@@ -124,10 +124,10 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_d
 
     # Create rename column: use Biosample if available, otherwise use SRA_Number
     if Biosample and Biosample in df.columns:
-        df["rename"] = df[Bioproject] + '-' + df[Biosample]
+        df["rename"] = df[Bioproject] + '_' + df[Biosample]
     else:
         # Fallback: use SRA_Number (Run ID) when Biosample is not available
-        df["rename"] = df[Bioproject] + '-' + df[SRA_Number]
+        df["rename"] = df[Bioproject] + '_' + df[SRA_Number]
 
     datasets = np.array(
         [str(x).strip().replace('\t', '') for x in df[Bioproject].dropna().unique()],

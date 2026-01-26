@@ -5,11 +5,14 @@
 # Usage: fix_duplicate_filenames.sh <directory>
 #
 # Fixes filenames like:
-#   PRJCA040882-CRR1878501-CRR1878501_1.fastq.gz
-#   → PRJCA040882-CRR1878501_1.fastq.gz
+#   PRJCA040882_CRR1878501_CRR1878501_1.fastq.gz
+#   → PRJCA040882_CRR1878501_1.fastq.gz
 #
-#   PRJNA123-SRR456-SRR456_1.fastq
-#   → PRJNA123-SRR456_1.fastq
+#   PRJCA040882-CRR1878501-CRR1878501_1.fastq.gz (legacy)
+#   → PRJCA040882_CRR1878501_1.fastq.gz
+#
+#   PRJNA123_SRR456_SRR456_1.fastq
+#   → PRJNA123_SRR456_1.fastq
 
 set -e
 
@@ -38,14 +41,14 @@ find "$target_dir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) | while r
     filename=$(basename "$filepath")
     dirname=$(dirname "$filepath")
 
-    # Pattern: PROJECT-RUNID-RUNID_1.fastq(.gz)
+    # Pattern: PROJECT_RUNID_RUNID_1.fastq(.gz) or PROJECT-RUNID-RUNID_1.fastq(.gz)
     # Extract the run ID that appears twice
-    if [[ "$filename" =~ ^([^-]+)-([CDE]RR[0-9]+)-\2(_[12]\.(fastq|fastq\.gz))$ ]]; then
+    if [[ "$filename" =~ ^([^_-]+)[_-]([CDE]RR[0-9]+)[_-]\2(_[12]\.(fastq|fastq\.gz))$ ]]; then
         project="${BASH_REMATCH[1]}"
         runid="${BASH_REMATCH[2]}"
         suffix="${BASH_REMATCH[3]}"
 
-        new_filename="${project}-${runid}${suffix}"
+        new_filename="${project}_${runid}${suffix}"
 
         echo "  Renaming: $filename"
         echo "        → $new_filename"
@@ -53,13 +56,13 @@ find "$target_dir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) | while r
         mv "$filepath" "${dirname}/${new_filename}"
         ((renamed_count++))
 
-    elif [[ "$filename" =~ ^([^-]+)-([A-Z]RR[0-9]+)-\2(\.(fastq|fastq\.gz))$ ]]; then
+    elif [[ "$filename" =~ ^([^_-]+)[_-]([A-Z]RR[0-9]+)[_-]\2(\.(fastq|fastq\.gz))$ ]]; then
         # Single-end pattern without _1/_2
         project="${BASH_REMATCH[1]}"
         runid="${BASH_REMATCH[2]}"
         suffix="${BASH_REMATCH[3]}"
 
-        new_filename="${project}-${runid}${suffix}"
+        new_filename="${project}_${runid}${suffix}"
 
         echo "  Renaming: $filename"
         echo "        → $new_filename"
