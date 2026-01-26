@@ -192,12 +192,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
     {
         cd "$dataset_path" || exit 1
-        
-        # 1. Download data
-        echo ">>> Downloading SRA data..."
-        Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
 
-        # 2. Dynamic Platform Detection
+        # 1. Dynamic Platform Detection (BEFORE downloading)
         echo ">>> Detecting sequencing platform..."
         first_srr=$(awk 'NR==1 {print $1}' "${sra_file_name}")
 
@@ -212,6 +208,17 @@ for i in "${!Dataset_ID_sets[@]}"; do
         fi
 
         echo "Detected platform: $platform"
+
+        # Skip unsupported platforms BEFORE downloading
+        if [[ "$platform" == "OXFORD_NANOPORE" ]]; then
+            echo "⚠️ Nanopore not supported yet. Skipping download and processing."
+            echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - Platform: $platform" >> "$skipped_log"
+            continue
+        fi
+
+        # 2. Download data (only for supported platforms)
+        echo ">>> Downloading SRA data..."
+        Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
 
         # 3. Analyze sequence characteristics
         ori_fastq_path="${dataset_path}ori_fastq/"
@@ -229,16 +236,12 @@ for i in "${!Dataset_ID_sets[@]}"; do
         export dataset_path sequence_type
         export dataset_name="$dataset_ID"
 
-        if [[ "$platform" == "OXFORD_NANOPORE" ]]; then
-            echo "⚠️ Nanopore not supported yet. Skipping primer detection and processing."
-            echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - Platform: $platform" >> "$skipped_log"
-            continue
-
-        elif [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
+        if [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
             # Illumina/IonTorrent: Frequency-based primer detection & trimming with BBDuk
             echo ">>> Handling adapters and primers (BBDuk frequency method)..."
-            working_fastq_path="${dataset_path}working_fastq/"
-            mkdir -p "$working_fastq_path"
+            # Use temp/step_02_fastp as output (matches manifest generation expectations)
+            fastp_path="${dataset_path}temp/step_02_fastp/"
+            mkdir -p "$fastp_path"
 
             # Use BBDuk frequency-based detection
             bbduk_temp_out="${dataset_path}temp/bbduk_output/"
@@ -257,11 +260,11 @@ for i in "${!Dataset_ID_sets[@]}"; do
                         exit 1
                     }
 
-                    # Move cleaned file to working directory (remove _clean suffix)
+                    # Move cleaned file to fastp directory (remove _clean suffix)
                     for cleaned in "${bbduk_temp_out}"/*.fastq*; do
                         [[ -f "$cleaned" ]] || continue
                         original_name=$(basename "$f")
-                        mv "$cleaned" "${working_fastq_path}${original_name}"
+                        mv "$cleaned" "${fastp_path}${original_name}"
                     done
                     rm -rf "$bbduk_temp_out"
                 done
@@ -293,7 +296,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                         cleaned_base=$(basename "$cleaned")
                         # Restore original naming by removing _clean
                         original_name="${cleaned_base/_clean/}"
-                        mv "$cleaned" "${working_fastq_path}${original_name}"
+                        mv "$cleaned" "${fastp_path}${original_name}"
                     done
                     rm -rf "$bbduk_temp_out"
                 done
@@ -322,14 +325,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
                             [[ -f "$cleaned" ]] || continue
                             cleaned_base=$(basename "$cleaned")
                             # Restore original naming
-                            if [[ "$cleaned_base" =~ _R1.*_clean\.fastq ]]; then
-                                original_name="${cleaned_base/_clean/}"
-                            elif [[ "$cleaned_base" =~ _R2.*_clean\.fastq ]]; then
-                                original_name="${cleaned_base/_clean/}"
-                            else
-                                original_name="$cleaned_base"
-                            fi
-                            mv "$cleaned" "${working_fastq_path}${original_name}"
+                            original_name="${cleaned_base/_clean/}"
+                            mv "$cleaned" "${fastp_path}${original_name}"
                         done
                         rm -rf "$bbduk_temp_out"
                     done
@@ -343,8 +340,13 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             echo "✓ BBDuk primer removal completed"
 
+            # Delete original fastq files to save space
+            echo ">>> Cleaning up original files..."
+            rm -rf "$ori_fastq_path"
+            echo "✓ Removed ori_fastq/ to save space"
+
             # Run Illumina pipeline
-            fastq_path="$working_fastq_path"
+            fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
@@ -355,8 +357,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
             # PacBio: Frequency-based primer detection & trimming with BBDuk
             echo ">>> Handling adapters and primers (BBDuk frequency method)..."
-            working_fastq_path="${dataset_path}working_fastq/"
-            mkdir -p "$working_fastq_path"
+            # Use temp/step_02_fastp as output (matches manifest generation expectations)
+            fastp_path="${dataset_path}temp/step_02_fastp/"
+            mkdir -p "$fastp_path"
 
             # Use BBDuk frequency-based detection
             bbduk_temp_out="${dataset_path}temp/bbduk_output/"
@@ -375,11 +378,11 @@ for i in "${!Dataset_ID_sets[@]}"; do
                         exit 1
                     }
 
-                    # Move cleaned file to working directory (remove _clean suffix)
+                    # Move cleaned file to fastp directory (remove _clean suffix)
                     for cleaned in "${bbduk_temp_out}"/*.fastq*; do
                         [[ -f "$cleaned" ]] || continue
                         original_name=$(basename "$f")
-                        mv "$cleaned" "${working_fastq_path}${original_name}"
+                        mv "$cleaned" "${fastp_path}${original_name}"
                     done
                     rm -rf "$bbduk_temp_out"
                 done
@@ -411,7 +414,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                         cleaned_base=$(basename "$cleaned")
                         # Restore original naming by removing _clean
                         original_name="${cleaned_base/_clean/}"
-                        mv "$cleaned" "${working_fastq_path}${original_name}"
+                        mv "$cleaned" "${fastp_path}${original_name}"
                     done
                     rm -rf "$bbduk_temp_out"
                 done
@@ -440,14 +443,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
                             [[ -f "$cleaned" ]] || continue
                             cleaned_base=$(basename "$cleaned")
                             # Restore original naming
-                            if [[ "$cleaned_base" =~ _R1.*_clean\.fastq ]]; then
-                                original_name="${cleaned_base/_clean/}"
-                            elif [[ "$cleaned_base" =~ _R2.*_clean\.fastq ]]; then
-                                original_name="${cleaned_base/_clean/}"
-                            else
-                                original_name="$cleaned_base"
-                            fi
-                            mv "$cleaned" "${working_fastq_path}${original_name}"
+                            original_name="${cleaned_base/_clean/}"
+                            mv "$cleaned" "${fastp_path}${original_name}"
                         done
                         rm -rf "$bbduk_temp_out"
                     done
@@ -461,8 +458,13 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             echo "✓ BBDuk primer removal completed"
 
+            # Delete original fastq files to save space
+            echo ">>> Cleaning up original files..."
+            rm -rf "$ori_fastq_path"
+            echo "✓ Removed ori_fastq/ to save space"
+
             # Run PacBio pipeline
-            fastq_path="$working_fastq_path"
+            fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
