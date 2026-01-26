@@ -178,64 +178,54 @@ for i in "${!Dataset_ID_sets[@]}"; do
         fi
         echo "Sequence type: ${sequence_type^^}"
 
-        # 4. Primer detection & Trimming
-        echo ">>> Handling primers..."
-        working_fastq_path="${dataset_path}working_fastq/"
-        mkdir -p "$working_fastq_path"
+        # 4. Platform-specific processing
+        export dataset_path sequence_type
+        export dataset_name="$dataset_ID"
 
-        # Call primer detection and capture output
-        primer_result=$(python "${SCRIPTS}/py_16s.py" detect_primers_16s \
-            --input_path "$ori_fastq_path" \
-            --tmp_path "${dataset_path}temp/" \
-            --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1)
+        if [[ "$platform" == "OXFORD_NANOPORE" ]]; then
+            echo "⚠️ Nanopore not supported yet. Skipping primer detection and processing."
+            echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - Platform: $platform" >> "$skipped_log"
+            continue
 
-        # Display the full output for debugging
-        echo "$primer_result"
-        echo ""
+        elif [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
+            # Illumina/IonTorrent: Primer detection & trimming
+            echo ">>> Handling adapters and primers..."
+            working_fastq_path="${dataset_path}working_fastq/"
+            mkdir -p "$working_fastq_path"
 
-        # Parse result: output format is "TRIM:number"
-        if [[ "$primer_result" =~ TRIM:([0-9]+) ]]; then
-            trim_length="${BASH_REMATCH[1]}"
+            # Call primer detection and capture output
+            primer_result=$(python "${SCRIPTS}/py_16s.py" detect_primers_16s \
+                --input_path "$ori_fastq_path" \
+                --tmp_path "${dataset_path}temp/" \
+                --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1)
 
-            if [[ "$trim_length" -gt 0 ]]; then
-                echo "✓ Primers detected, trimming ${trim_length}bp from both ends..."
-                if [[ "$sequence_type" == "single" ]]; then
-                    for f in "${ori_fastq_path}"*.fastq*; do
-                        echo "  Processing: $(basename "$f")"
-                        fastp -i "$f" -o "${working_fastq_path}$(basename "$f")" \
-                            -f "$trim_length" -w "$THREADS" -j /dev/null -h /dev/null || {
-                            echo "  ✗ fastp failed for $(basename "$f")"
-                            exit 1
-                        }
-                    done
-                else
-                    # Try both naming conventions: _1/_2 and _R1/_R2
-                    found_files=false
+            # Display the full output for debugging
+            echo "$primer_result"
+            echo ""
 
-                    # First try _1/_2 pattern (CNCB style)
-                    for r1 in "${ori_fastq_path}"*_1.fastq*; do
-                        if [[ -f "$r1" ]]; then
-                            r2="${r1/_1.fastq/_2.fastq}"
-                            if [[ -f "$r2" ]]; then
-                                found_files=true
-                                echo "  Processing: $(basename "$r1") and $(basename "$r2")"
-                                fastp -i "$r1" -I "$r2" \
-                                    -o "${working_fastq_path}$(basename "$r1")" \
-                                    -O "${working_fastq_path}$(basename "$r2")" \
-                                    -f "$trim_length" -F "$trim_length" -w "$THREADS" \
-                                    -j /dev/null -h /dev/null || {
-                                    echo "  ✗ fastp failed for $(basename "$r1")/$(basename "$r2")"
-                                    exit 1
-                                }
-                            fi
-                        fi
-                    done
+            # Parse result: output format is "TRIM:number"
+            if [[ "$primer_result" =~ TRIM:([0-9]+) ]]; then
+                trim_length="${BASH_REMATCH[1]}"
 
-                    # If not found, try _R1/_R2 pattern (NCBI style)
-                    if [[ "$found_files" == false ]]; then
-                        for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
+                if [[ "$trim_length" -gt 0 ]]; then
+                    echo "✓ Primers detected, trimming ${trim_length}bp from both ends..."
+                    if [[ "$sequence_type" == "single" ]]; then
+                        for f in "${ori_fastq_path}"*.fastq*; do
+                            echo "  Processing: $(basename "$f")"
+                            fastp -i "$f" -o "${working_fastq_path}$(basename "$f")" \
+                                -f "$trim_length" -w "$THREADS" -j /dev/null -h /dev/null || {
+                                echo "  ✗ fastp failed for $(basename "$f")"
+                                exit 1
+                            }
+                        done
+                    else
+                        # Try both naming conventions: _1/_2 and _R1/_R2
+                        found_files=false
+
+                        # First try _1/_2 pattern (CNCB style)
+                        for r1 in "${ori_fastq_path}"*_1.fastq*; do
                             if [[ -f "$r1" ]]; then
-                                r2="${r1/_R1/_R2}"
+                                r2="${r1/_1.fastq/_2.fastq}"
                                 if [[ -f "$r2" ]]; then
                                     found_files=true
                                     echo "  Processing: $(basename "$r1") and $(basename "$r2")"
@@ -250,44 +240,151 @@ for i in "${!Dataset_ID_sets[@]}"; do
                                 fi
                             fi
                         done
-                    fi
 
-                    if [[ "$found_files" == false ]]; then
-                        echo "  ✗ No paired-end fastq files found in ${ori_fastq_path}"
-                        exit 1
+                        # If not found, try _R1/_R2 pattern (NCBI style)
+                        if [[ "$found_files" == false ]]; then
+                            for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
+                                if [[ -f "$r1" ]]; then
+                                    r2="${r1/_R1/_R2}"
+                                    if [[ -f "$r2" ]]; then
+                                        found_files=true
+                                        echo "  Processing: $(basename "$r1") and $(basename "$r2")"
+                                        fastp -i "$r1" -I "$r2" \
+                                            -o "${working_fastq_path}$(basename "$r1")" \
+                                            -O "${working_fastq_path}$(basename "$r2")" \
+                                            -f "$trim_length" -F "$trim_length" -w "$THREADS" \
+                                            -j /dev/null -h /dev/null || {
+                                            echo "  ✗ fastp failed for $(basename "$r1")/$(basename "$r2")"
+                                            exit 1
+                                        }
+                                    fi
+                                fi
+                            done
+                        fi
+
+                        if [[ "$found_files" == false ]]; then
+                            echo "  ✗ No paired-end fastq files found in ${ori_fastq_path}"
+                            exit 1
+                        fi
                     fi
+                    echo "✓ Fastp trimming completed"
+                else
+                    echo "✓ Primers already removed, copying files..."
+                    cp "${ori_fastq_path}"*.fastq* "$working_fastq_path" 2>/dev/null || true
                 fi
-                echo "✓ Fastp trimming completed"
             else
-                echo "✓ Primers already removed, copying files..."
+                echo "✓ No primers detected or ambiguous, copying files..."
                 cp "${ori_fastq_path}"*.fastq* "$working_fastq_path" 2>/dev/null || true
             fi
-        else
-            echo "✓ No primers detected or ambiguous, copying files..."
-            cp "${ori_fastq_path}"*.fastq* "$working_fastq_path" 2>/dev/null || true
-        fi
 
-        # 5. Pipeline execution
-        fastq_path="$working_fastq_path"
-        export dataset_path sequence_type fastq_path
-        export dataset_name="$dataset_ID"
-
-        if [[ "$platform" == "OXFORD_NANOPORE" ]]; then
-            echo "⚠️ Nanopore not supported yet."
-            echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - Platform: $platform" >> "$skipped_log"
-            continue
-        elif [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
+            # Run Illumina pipeline
+            fastq_path="$working_fastq_path"
+            export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
             Amplicon_Illumina_QualityControl
             Amplicon_Illumina_DenosingDada2
             Amplicon_Common_FinalFilesCleaning
+
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
+            # PacBio: Primer detection & trimming
+            echo ">>> Handling adapters and primers..."
+            working_fastq_path="${dataset_path}working_fastq/"
+            mkdir -p "$working_fastq_path"
+
+            # Call primer detection and capture output
+            primer_result=$(python "${SCRIPTS}/py_16s.py" detect_primers_16s \
+                --input_path "$ori_fastq_path" \
+                --tmp_path "${dataset_path}temp/" \
+                --ref_path "${SCRIPT_DIR}/docs/J01859.1.fna" 2>&1)
+
+            # Display the full output for debugging
+            echo "$primer_result"
+            echo ""
+
+            # Parse result: output format is "TRIM:number"
+            if [[ "$primer_result" =~ TRIM:([0-9]+) ]]; then
+                trim_length="${BASH_REMATCH[1]}"
+
+                if [[ "$trim_length" -gt 0 ]]; then
+                    echo "✓ Primers detected, trimming ${trim_length}bp from both ends..."
+                    if [[ "$sequence_type" == "single" ]]; then
+                        for f in "${ori_fastq_path}"*.fastq*; do
+                            echo "  Processing: $(basename "$f")"
+                            fastp -i "$f" -o "${working_fastq_path}$(basename "$f")" \
+                                -f "$trim_length" -w "$THREADS" -j /dev/null -h /dev/null || {
+                                echo "  ✗ fastp failed for $(basename "$f")"
+                                exit 1
+                            }
+                        done
+                    else
+                        # Try both naming conventions: _1/_2 and _R1/_R2
+                        found_files=false
+
+                        # First try _1/_2 pattern (CNCB style)
+                        for r1 in "${ori_fastq_path}"*_1.fastq*; do
+                            if [[ -f "$r1" ]]; then
+                                r2="${r1/_1.fastq/_2.fastq}"
+                                if [[ -f "$r2" ]]; then
+                                    found_files=true
+                                    echo "  Processing: $(basename "$r1") and $(basename "$r2")"
+                                    fastp -i "$r1" -I "$r2" \
+                                        -o "${working_fastq_path}$(basename "$r1")" \
+                                        -O "${working_fastq_path}$(basename "$r2")" \
+                                        -f "$trim_length" -F "$trim_length" -w "$THREADS" \
+                                        -j /dev/null -h /dev/null || {
+                                        echo "  ✗ fastp failed for $(basename "$r1")/$(basename "$r2")"
+                                        exit 1
+                                    }
+                                fi
+                            fi
+                        done
+
+                        # If not found, try _R1/_R2 pattern (NCBI style)
+                        if [[ "$found_files" == false ]]; then
+                            for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
+                                if [[ -f "$r1" ]]; then
+                                    r2="${r1/_R1/_R2}"
+                                    if [[ -f "$r2" ]]; then
+                                        found_files=true
+                                        echo "  Processing: $(basename "$r1") and $(basename "$r2")"
+                                        fastp -i "$r1" -I "$r2" \
+                                            -o "${working_fastq_path}$(basename "$r1")" \
+                                            -O "${working_fastq_path}$(basename "$r2")" \
+                                            -f "$trim_length" -F "$trim_length" -w "$THREADS" \
+                                            -j /dev/null -h /dev/null || {
+                                            echo "  ✗ fastp failed for $(basename "$r1")/$(basename "$r2")"
+                                            exit 1
+                                        }
+                                    fi
+                                fi
+                            done
+                        fi
+
+                        if [[ "$found_files" == false ]]; then
+                            echo "  ✗ No paired-end fastq files found in ${ori_fastq_path}"
+                            exit 1
+                        fi
+                    fi
+                    echo "✓ Fastp trimming completed"
+                else
+                    echo "✓ Primers already removed, copying files..."
+                    cp "${ori_fastq_path}"*.fastq* "$working_fastq_path" 2>/dev/null || true
+                fi
+            else
+                echo "✓ No primers detected or ambiguous, copying files..."
+                cp "${ori_fastq_path}"*.fastq* "$working_fastq_path" 2>/dev/null || true
+            fi
+
+            # Run PacBio pipeline
+            fastq_path="$working_fastq_path"
+            export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
             Amplicon_Pacbio_QualityControlForQZA
             Amplicon_Pacbio_DenosingDada2
             Amplicon_Common_FinalFilesCleaning
+
         else
             echo "❌ Unknown platform: $platform"
             exit 1
