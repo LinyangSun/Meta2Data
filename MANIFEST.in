@@ -5,3 +5,6 @@ include env.yml
 recursive-include bin *
 recursive-include scripts *.py *.sh
 recursive-include docs *
+include test/*.csv
+global-exclude test/*.fastq.gz
+global-exclude test/*.fastq

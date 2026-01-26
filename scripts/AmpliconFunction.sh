@@ -151,12 +151,32 @@ Common_SRADownloadToFastq_MultiSource() {
         return 1
     fi
 
-    # Check dependencies
-    command -v prefetch >/dev/null 2>&1 || { echo "Error: 'prefetch' not found." >&2; return 1; }
-    command -v fasterq-dump >/dev/null 2>&1 || { echo "Error: 'fasterq-dump' not found." >&2; return 1; }
-    command -v ascp >/dev/null 2>&1 || { echo "Error: 'ascp' not found." >&2; return 1; }
-    
+    # Pre-scan accession file to determine required tools
+    local has_ncbi_accessions=false
+    local has_cncb_accessions=false
     local base_dir="${dir_path%/}/"
+
+    while IFS=$'\t' read -r srr _; do
+        [[ -z "$srr" ]] && continue
+        if [[ "$srr" =~ ^CRR ]]; then
+            has_cncb_accessions=true
+        elif [[ "$srr" =~ ^[EDS]RR ]]; then
+            has_ncbi_accessions=true
+        fi
+    done < "${base_dir}${acc_file}"
+
+    # Check dependencies based on what we'll download
+    if [[ "$has_ncbi_accessions" == true ]]; then
+        command -v prefetch >/dev/null 2>&1 || { echo "Error: 'prefetch' not found (required for NCBI SRR/ERR/DRR downloads)." >&2; return 1; }
+        command -v fasterq-dump >/dev/null 2>&1 || { echo "Error: 'fasterq-dump' not found (required for NCBI SRR/ERR/DRR downloads)." >&2; return 1; }
+    fi
+
+    if [[ "$has_cncb_accessions" == true ]]; then
+        command -v ascp >/dev/null 2>&1 || { echo "Warning: 'ascp' not found. CRR downloads will use wget (slower)." >&2; }
+        command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found (required for CNCB CRR downloads)." >&2; return 1; }
+    fi
+
+    # base_dir already declared above
     local fastq_path="${base_dir}ori_fastq/"
     local temp_dl_path="${base_dir}temp1/"
     mkdir -p "$fastq_path" "$temp_dl_path"
@@ -242,9 +262,9 @@ Amplicon_Common_MakeManifestFileForQiime2() {
     dataset_name="${trimmed_path##*/}"
     find $fastp_path -type f > $temp_file_path$dataset_name"-file.txt"
     if [ "$sequence_type" = "single" ]; then
-        py_16s.py mk_manifest_SE --FilePath $temp_file_path$dataset_name"-file.txt"
+        python "${SCRIPTS}/py_16s.py" mk_manifest_SE --FilePath $temp_file_path$dataset_name"-file.txt"
     else
-        py_16s.py mk_manifest_PE --FilePath $temp_file_path$dataset_name"-file.txt"
+        python "${SCRIPTS}/py_16s.py" mk_manifest_PE --FilePath $temp_file_path$dataset_name"-file.txt"
     fi
 }
 Amplicon_Common_ImportFastqToQiime2() {
@@ -508,7 +528,7 @@ Amplicon_Illumina_DenosingDada2() {
             return 1
         fi
         local trim_pos_result
-        trim_pos_result="$(py_16s.py trim_pos_deblur --FilePath "$tsv_path")"
+        trim_pos_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$tsv_path")"
         echo "$trim_pos_result"
         IFS=',' read -r final_start final_end <<< "$trim_pos_result"
         echo "Computed: start=$final_start, end=$final_end"
