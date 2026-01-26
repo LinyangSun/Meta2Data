@@ -83,9 +83,11 @@ Download_CRR_Aspera() {
                     if [[ "$current_md5" == "$expected_md5" ]]; then
                         # Standardize filename: _r1/_R1 → _1, _r2/_R2 → _2
                         local new_filename=$(echo "$filename" | sed -E 's/_[rR]1([._])/_1\1/; s/_[rR]2([._])/_2\1/')
-                        mv "$filename" "${target_dir}/${rename_prefix}-${new_filename}"
+                        # Strip CRR ID from filename to avoid duplication
+                        local base_filename=$(echo "$new_filename" | sed "s/${crr}[_-]//")
+                        mv "$filename" "${target_dir}/${rename_prefix}-${base_filename}"
                         success=true
-                        echo "  ✓ Downloaded via Aspera: $filename → ${rename_prefix}-${new_filename}"
+                        echo "  ✓ Downloaded via Aspera: $filename → ${rename_prefix}-${base_filename}"
                         break
                     else
                         rm -f "$filename"
@@ -108,9 +110,11 @@ Download_CRR_Aspera() {
                         if [[ "$current_md5" == "$expected_md5" ]]; then
                             # Standardize filename: _r1/_R1 → _1, _r2/_R2 → _2
                             local new_filename=$(echo "$filename" | sed -E 's/_[rR]1([._])/_1\1/; s/_[rR]2([._])/_2\1/')
-                            mv "$filename" "${target_dir}/${rename_prefix}-${new_filename}"
+                            # Strip CRR ID from filename to avoid duplication
+                            local base_filename=$(echo "$new_filename" | sed "s/${crr}[_-]//")
+                            mv "$filename" "${target_dir}/${rename_prefix}-${base_filename}"
                             success=true
-                            echo "  ✓ Downloaded via wget: $filename → ${rename_prefix}-${new_filename}"
+                            echo "  ✓ Downloaded via wget: $filename → ${rename_prefix}-${base_filename}"
                             break
                         else
                             echo "  MD5 mismatch, retrying..."
@@ -196,7 +200,11 @@ Common_SRADownloadToFastq_MultiSource() {
                         find "$temp_outdir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
                         while IFS= read -r -d '' fq_file; do
                             local fq_basename=$(basename "$fq_file")
-                            mv "$fq_file" "${fastq_path}${rename}-${fq_basename}"
+                            # Strip SRR/ERR/DRR ID from filename to avoid duplication
+                            local base_filename=$(echo "$fq_basename" | sed "s/${srr}[_-]//; s/^_//")
+                            # Standardize to _1/_2 format
+                            base_filename=$(echo "$base_filename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
+                            mv "$fq_file" "${fastq_path}${rename}-${base_filename}"
                         done
                         rm -rf "$temp_outdir"
                     else
@@ -205,8 +213,11 @@ Common_SRADownloadToFastq_MultiSource() {
                     rm -f "$file"
 
                 elif [[ "$ext" == "fastq" || "$basename_file" =~ \.fastq\.gz$ ]]; then
-                    # Already FASTQ, just rename and move
-                    mv "$file" "${fastq_path}${rename}-${basename_file}"
+                    # Already FASTQ, strip SRR/ERR/DRR ID and rename
+                    local base_filename=$(echo "$basename_file" | sed "s/${srr}[_-]//; s/^_//")
+                    # Standardize to _1/_2 format
+                    base_filename=$(echo "$base_filename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
+                    mv "$file" "${fastq_path}${rename}-${base_filename}"
                 fi
             done
 
