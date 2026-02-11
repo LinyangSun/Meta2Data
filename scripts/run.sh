@@ -237,13 +237,71 @@ for i in "${!Dataset_ID_sets[@]}"; do
         export dataset_name="$dataset_ID"
 
         if [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
-            # Illumina/IonTorrent: Entropy-based primer detection & trimming
-            echo ">>> Handling adapters and primers (entropy method)..."
+            # ── Step A: Remove sequencing adapters with fastp ──
+            echo ">>> Removing sequencing adapters with fastp..."
+            adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
+            mkdir -p "$adapter_removed_path"
+
+            if [[ "$sequence_type" == "paired" ]]; then
+                # PE: find R1/R2 pairs and run fastp in PE mode
+                pe_done=false
+                for r1 in "$ori_fastq_path"*_R1*.fastq*; do
+                    [[ -f "$r1" ]] || continue
+                    r2="${r1/_R1/_R2}"
+                    [[ -f "$r2" ]] || continue
+                    fastp -i "$r1" -I "$r2" \
+                          -o "${adapter_removed_path}$(basename "$r1")" \
+                          -O "${adapter_removed_path}$(basename "$r2")" \
+                          --detect_adapter_for_pe \
+                          --disable_quality_filtering \
+                          --disable_length_filtering \
+                          -w "$cpu" \
+                          -j "${adapter_removed_path}fastp.json" \
+                          -h "${adapter_removed_path}fastp.html"
+                    echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2")"
+                    pe_done=true
+                done
+                if [[ "$pe_done" == false ]]; then
+                    # Fallback: try _1/_2 pattern
+                    for r1 in "$ori_fastq_path"*_1.fastq*; do
+                        [[ -f "$r1" ]] || continue
+                        r2="${r1/_1.fastq/_2.fastq}"
+                        [[ -f "$r2" ]] || continue
+                        fastp -i "$r1" -I "$r2" \
+                              -o "${adapter_removed_path}$(basename "$r1")" \
+                              -O "${adapter_removed_path}$(basename "$r2")" \
+                              --detect_adapter_for_pe \
+                              --disable_quality_filtering \
+                              --disable_length_filtering \
+                              -w "$cpu" \
+                              -j "${adapter_removed_path}fastp.json" \
+                              -h "${adapter_removed_path}fastp.html"
+                        echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2")"
+                    done
+                fi
+            else
+                # SE: run fastp on each file
+                for fq in "$ori_fastq_path"*.fastq*; do
+                    [[ -f "$fq" ]] || continue
+                    fastp -i "$fq" \
+                          -o "${adapter_removed_path}$(basename "$fq")" \
+                          --disable_quality_filtering \
+                          --disable_length_filtering \
+                          -w "$cpu" \
+                          -j "${adapter_removed_path}fastp.json" \
+                          -h "${adapter_removed_path}fastp.html"
+                    echo "  ✓ Adapter removal: $(basename "$fq")"
+                done
+            fi
+            echo "✓ Adapter removal completed"
+
+            # ── Step B: Entropy-based primer detection & trimming ──
+            echo ">>> Detecting and removing primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
-                -i "$ori_fastq_path" \
+                -i "$adapter_removed_path" \
                 -o "$fastp_path" || {
                 echo "  ✗ Entropy primer detection failed"
                 exit 1
@@ -251,10 +309,11 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             echo "✓ Entropy primer detection/removal completed"
 
-            # Delete original fastq files to save space
-            echo ">>> Cleaning up original files..."
+            # Delete original and intermediate fastq files to save space
+            echo ">>> Cleaning up intermediate files..."
             rm -rf "$ori_fastq_path"
-            echo "✓ Removed ori_fastq/ to save space"
+            rm -rf "$adapter_removed_path"
+            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
             # Run Illumina pipeline
             fastq_path="$fastp_path"
@@ -266,13 +325,32 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
-            # PacBio: Entropy-based primer detection & trimming
-            echo ">>> Handling adapters and primers (entropy method)..."
+            # ── Step A: Remove sequencing adapters with fastp ──
+            echo ">>> Removing sequencing adapters with fastp..."
+            adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
+            mkdir -p "$adapter_removed_path"
+
+            # PacBio is typically SE
+            for fq in "$ori_fastq_path"*.fastq*; do
+                [[ -f "$fq" ]] || continue
+                fastp -i "$fq" \
+                      -o "${adapter_removed_path}$(basename "$fq")" \
+                      --disable_quality_filtering \
+                      --disable_length_filtering \
+                      -w "$cpu" \
+                      -j "${adapter_removed_path}fastp.json" \
+                      -h "${adapter_removed_path}fastp.html"
+                echo "  ✓ Adapter removal: $(basename "$fq")"
+            done
+            echo "✓ Adapter removal completed"
+
+            # ── Step B: Entropy-based primer detection & trimming ──
+            echo ">>> Detecting and removing primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
-                -i "$ori_fastq_path" \
+                -i "$adapter_removed_path" \
                 -o "$fastp_path" || {
                 echo "  ✗ Entropy primer detection failed"
                 exit 1
@@ -280,10 +358,11 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             echo "✓ Entropy primer detection/removal completed"
 
-            # Delete original fastq files to save space
-            echo ">>> Cleaning up original files..."
+            # Delete original and intermediate fastq files to save space
+            echo ">>> Cleaning up intermediate files..."
             rm -rf "$ori_fastq_path"
-            echo "✓ Removed ori_fastq/ to save space"
+            rm -rf "$adapter_removed_path"
+            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
             # Run PacBio pipeline
             fastq_path="$fastp_path"

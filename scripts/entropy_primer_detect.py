@@ -90,15 +90,43 @@ def _sequence_complexity(seq):
     return len(kmers) / 16.0
 
 
+def _read_entropy(seq):
+    """
+    Per-read Shannon entropy of base composition.
+    H = -sum(p * log2(p)) for ACGT frequencies within the read.
+    Max = 2.0 (equal ACGT), min = 0.0 (homopolymer).
+    Filters out compositionally biased reads (e.g., poly-A, AT-rich artifacts).
+    """
+    if len(seq) < 2:
+        return 0.0
+    counts = Counter(seq.upper())
+    total = sum(counts.get(b, 0) for b in 'ACGT')
+    if total == 0:
+        return 0.0
+    h = 0.0
+    for b in 'ACGT':
+        c = counts.get(b, 0)
+        if c > 0:
+            p = c / total
+            h -= p * math.log2(p)
+    return h
+
+
 def read_and_filter(filepath, max_reads=2000, min_len=50,
-                    min_avg_qual=20, min_complexity=0.3):
+                    min_avg_qual=20, min_complexity=0.3,
+                    min_entropy=1.0):
     """
     Step 1: Read FASTQ, apply quality filters, return up to max_reads reads.
+    Filters:
+      - Length >= min_len
+      - Average Phred quality >= min_avg_qual
+      - K-mer complexity >= min_complexity (unique 2-mers / 16)
+      - Shannon entropy >= min_entropy (base composition diversity)
     Returns list of (seq_string, qual_string) tuples.
     """
     reads = []
     total = 0
-    disc_len = disc_qual = disc_cplx = 0
+    disc_len = disc_qual = disc_cplx = disc_entropy = 0
 
     with _open_fq(filepath) as fh:
         for header, seq, plus, qual in _iter_fastq(fh):
@@ -115,13 +143,17 @@ def read_and_filter(filepath, max_reads=2000, min_len=50,
             if _sequence_complexity(seq) < min_complexity:
                 disc_cplx += 1
                 continue
+            if _read_entropy(seq) < min_entropy:
+                disc_entropy += 1
+                continue
 
             reads.append((seq, qual))
 
     print(f"  Scanned {total} reads, kept {len(reads)}", file=sys.stderr)
     print(f"  Discarded: {disc_len} (length<{min_len}), "
           f"{disc_qual} (avgQ<{min_avg_qual}), "
-          f"{disc_cplx} (complexity<{min_complexity})", file=sys.stderr)
+          f"{disc_cplx} (complexity<{min_complexity}), "
+          f"{disc_entropy} (entropy<{min_entropy})", file=sys.stderr)
 
     if len(reads) < 500:
         print(f"  WARNING: Only {len(reads)} reads passed filters (< 500)",
