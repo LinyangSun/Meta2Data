@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Entropy-based 16S Primer Detection and Removal
+(with mixed R1/R2 orientation support)
 
 Principle:
   Primer positions are conserved across reads → low Shannon entropy.
@@ -8,14 +9,28 @@ Principle:
   The entropy jump point marks the primer→biology transition.
 
 Algorithm:
-  Step 0: Scan directory, pick first sample (PE or SE).
-  Step 1: Read & pre-filter 2000 reads (length, quality, complexity).
-  Step 2: Build 60×4 position-wise base frequency matrix.
-  Step 3: Compute Shannon entropy per position.
-  Step 4: Smooth with sliding window (w=3).
-  Step 5: Detect jump point (primer→biology transition).
-  Step 6: Classify result and extract consensus.
-  Step 7: Trim ALL files in the dataset using detected length.
+  Step 0:   Scan directory, pick first sample (PE or SE).
+  Step 1:   Read & pre-filter 2000 R1 reads (length, quality, complexity).
+  Step 2:   Build 60×4 position-wise base frequency matrix.
+  Phase 1:  Mixed-orientation detection (PE only).
+            Check first 15 positions for bimodal base distributions.
+            If >50% bimodal → mixed orientation detected.
+
+  --- Branch A (mixed orientation) ---
+  Phase 2:  Split sampled reads into majority/minority groups by the base
+            at the best bimodal position. Run entropy detection (Steps 3-6)
+            on each group independently to determine forward/reverse primer
+            lengths.
+  Phase 3:  Trim ALL files with per-read orientation correction.
+            For each read pair, classify by a single-character check at
+            best_pos. Flipped reads have R1↔R2 swapped before trimming.
+
+  --- Branch B (single orientation) ---
+  Step 3:   Compute Shannon entropy per position.
+  Step 4:   Smooth with sliding window (w=3).
+  Step 5:   Detect jump point (primer→biology transition).
+  Step 6:   Classify result and extract consensus.
+  Step 7:   Trim ALL files using detected primer length.
 """
 
 import sys
@@ -143,6 +158,93 @@ def build_frequency_matrix(reads, num_positions=60):
             matrix.append([0.25, 0.25, 0.25, 0.25])
 
     return matrix
+
+
+# ===========================================================================
+# Phase 1: Mixed-orientation detection
+# ===========================================================================
+
+def detect_mixed_orientation(freq_matrix, reads, num_check=15):
+    """
+    Detect mixed R1/R2 orientation from the position-wise frequency matrix.
+
+    Mixed orientation creates bimodal base distributions in the primer region:
+    at each position, the forward primer base and reverse primer base produce
+    two distinct frequency peaks.
+
+    Criterion per position (i in 0..num_check-1):
+        Sort frequencies desc → f1, f2, f3, f4
+        Bimodal if: f1+f2 > 0.85  AND  f2 > 0.15  AND  f1 < 0.85
+
+    If >50% of checked positions are bimodal → mixed orientation.
+
+    Returns None if single orientation, or a dict:
+        best_pos       – position with the clearest bimodal split
+        majority_base  – dominant base at best_pos (forward-primer reads)
+        minority_base  – second base at best_pos (reverse-primer reads)
+        majority_reads – list of (seq, qual) in majority group
+        minority_reads – list of (seq, qual) in minority group
+        ratio          – fraction of minority reads
+    """
+    bimodal_count = 0
+    best_pos = -1
+    best_f2 = 0.0
+
+    n_check = min(num_check, len(freq_matrix))
+    for i in range(n_check):
+        freqs = sorted(freq_matrix[i], reverse=True)
+        f1, f2 = freqs[0], freqs[1]
+        if f1 + f2 > 0.85 and f2 > 0.15 and f1 < 0.85:
+            bimodal_count += 1
+            if f2 > best_f2:
+                best_f2 = f2
+                best_pos = i
+
+    bimodal_ratio = bimodal_count / n_check
+    print(f"\n  [Mixed-orientation check] "
+          f"Bimodal positions: {bimodal_count}/{n_check} "
+          f"(ratio={bimodal_ratio:.2f})", file=sys.stderr)
+
+    if bimodal_ratio <= 0.5:
+        print(f"  -> Single orientation", file=sys.stderr)
+        return None
+
+    # Identify the two dominant bases at best_pos
+    idx_base = {0: 'A', 1: 'C', 2: 'G', 3: 'T'}
+    freqs_at_best = freq_matrix[best_pos]
+    sorted_idx = sorted(range(4), key=lambda x: freqs_at_best[x],
+                        reverse=True)
+    majority_base = idx_base[sorted_idx[0]]
+    minority_base = idx_base[sorted_idx[1]]
+
+    # Split sampled reads by the base at best_pos
+    majority_reads = []
+    minority_reads = []
+    for seq, qual in reads:
+        if best_pos < len(seq) and seq[best_pos].upper() == minority_base:
+            minority_reads.append((seq, qual))
+        else:
+            majority_reads.append((seq, qual))
+
+    ratio = len(minority_reads) / max(1, len(reads))
+    print(f"  -> MIXED ORIENTATION DETECTED", file=sys.stderr)
+    print(f"  Best split position: {best_pos} "
+          f"(majority='{majority_base}' "
+          f"[{freqs_at_best[sorted_idx[0]]:.2f}], "
+          f"minority='{minority_base}' "
+          f"[{freqs_at_best[sorted_idx[1]]:.2f}])", file=sys.stderr)
+    print(f"  Majority: {len(majority_reads)} reads, "
+          f"Minority: {len(minority_reads)} reads "
+          f"(flip ratio={ratio:.2f})", file=sys.stderr)
+
+    return {
+        'best_pos': best_pos,
+        'majority_base': majority_base,
+        'minority_base': minority_base,
+        'majority_reads': majority_reads,
+        'minority_reads': minority_reads,
+        'ratio': ratio,
+    }
 
 
 # ===========================================================================
@@ -291,6 +393,44 @@ def trim_paired_files(r1_in, r2_in, r1_out, r2_out, r1_trim, r2_trim):
     return count
 
 
+def trim_paired_files_mixed(r1_in, r2_in, r1_out, r2_out,
+                            r1_trim, r2_trim, best_pos, majority_base):
+    """
+    Trim PE files with per-read orientation correction.
+
+    For each read pair, checks R1's base at best_pos:
+      - majority_base  -> normal:  R1 trimmed by r1_trim, R2 by r2_trim
+      - other base     -> flipped: swap sequences, then trim
+
+    This applies the sampled detection result to ALL reads in the file.
+    Classification cost per read: one character comparison at best_pos.
+
+    Returns (total_count, swapped_count).
+    """
+    r1_mode = "wt" if r1_out.endswith(".gz") else "w"
+    r2_mode = "wt" if r2_out.endswith(".gz") else "w"
+    count = 0
+    swapped = 0
+    with _open_fq(r1_in) as f1i, _open_fq(r2_in) as f2i, \
+         _open_fq(r1_out, r1_mode) as f1o, \
+         _open_fq(r2_out, r2_mode) as f2o:
+        for (h1, s1, p1, q1), (h2, s2, p2, q2) in zip(
+                _iter_fastq(f1i), _iter_fastq(f2i)):
+            count += 1
+            # Classify: if R1 base at best_pos != majority → flipped
+            is_flipped = (best_pos < len(s1)
+                          and s1[best_pos].upper() != majority_base)
+            if is_flipped:
+                # Swap: output R1 = input R2, output R2 = input R1
+                swapped += 1
+                f1o.write(f"{h1}\n{s2[r1_trim:]}\n+\n{q2[r1_trim:]}\n")
+                f2o.write(f"{h2}\n{s1[r2_trim:]}\n+\n{q1[r2_trim:]}\n")
+            else:
+                f1o.write(f"{h1}\n{s1[r1_trim:]}\n+\n{q1[r1_trim:]}\n")
+                f2o.write(f"{h2}\n{s2[r2_trim:]}\n+\n{q2[r2_trim:]}\n")
+    return count, swapped
+
+
 def copy_file(src, dst):
     """Copy a file without modification."""
     shutil.copy2(src, dst)
@@ -332,17 +472,14 @@ def find_files(input_dir):
 # Detection pipeline (Steps 1-6) for one file
 # ===========================================================================
 
-def detect_for_file(filepath, label):
-    """Run Steps 1-6 on a single FASTQ file. Returns result dict."""
+def detect_for_reads(reads, label):
+    """Run Steps 2-6 on a pre-filtered list of (seq, qual) tuples."""
     print(f"\n{'=' * 60}", file=sys.stderr)
-    print(f"  Analyzing {label}: {os.path.basename(filepath)}", file=sys.stderr)
+    print(f"  Analyzing {label}: {len(reads)} reads", file=sys.stderr)
     print(f"{'=' * 60}", file=sys.stderr)
 
-    # Step 1
-    print(f"\n[Step 1] Reading and filtering reads ...", file=sys.stderr)
-    reads = read_and_filter(filepath)
     if not reads:
-        print("  ERROR: No reads passed filters", file=sys.stderr)
+        print("  ERROR: No reads to analyze", file=sys.stderr)
         return classify_result(0, 0.0, [[0.25]*4]*60)
 
     # Step 2
@@ -380,9 +517,38 @@ def detect_for_file(filepath, label):
     return result
 
 
+def detect_for_file(filepath, label):
+    """Run Steps 1-6 on a single FASTQ file. Returns result dict."""
+    print(f"\n[Step 1] Reading and filtering reads from "
+          f"{os.path.basename(filepath)} ...", file=sys.stderr)
+    reads = read_and_filter(filepath)
+    if not reads:
+        print("  ERROR: No reads passed filters", file=sys.stderr)
+        return classify_result(0, 0.0, [[0.25]*4]*60)
+    return detect_for_reads(reads, label)
+
+
 # ===========================================================================
 # Main
 # ===========================================================================
+
+def _find_pe_pairs(input_dir):
+    """Find all PE file pairs in input_dir. Yields (r1_path, r2_path)."""
+    # Try _R1/_R2 pattern first
+    found = False
+    for r1 in sorted(glob.glob(os.path.join(input_dir, "*_R1*.fastq*"))):
+        r2 = r1.replace("_R1", "_R2")
+        if os.path.exists(r2):
+            found = True
+            yield r1, r2
+    if found:
+        return
+    # Fallback: _1/_2 pattern
+    for r1 in sorted(glob.glob(os.path.join(input_dir, "*_1.fastq*"))):
+        r2 = r1.replace("_1.fastq", "_2.fastq")
+        if os.path.exists(r2):
+            yield r1, r2
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -419,86 +585,151 @@ def main():
               file=sys.stderr)
 
     # ------------------------------------------------------------------
-    # Detection (Steps 1-6) — only on the first sample
+    # Step 1: Read & filter first R1 sample
     # ------------------------------------------------------------------
-    r1_result = detect_for_file(first_file,
-                                "R1" if mode == "PE" else "SE")
-
-    r2_result = None
-    if mode == "PE" and second_file:
-        r2_result = detect_for_file(second_file, "R2")
+    print(f"\n[Step 1] Reading and filtering reads from "
+          f"{os.path.basename(first_file)} ...", file=sys.stderr)
+    r1_reads = read_and_filter(first_file)
+    if not r1_reads:
+        print("  ERROR: No reads passed filters", file=sys.stderr)
+        sys.exit(1)
 
     # ------------------------------------------------------------------
-    # Summary
+    # Step 2: Build frequency matrix (used for both entropy and
+    #         mixed-orientation detection)
     # ------------------------------------------------------------------
-    print(f"\n{'=' * 60}", file=sys.stderr)
-    print("DETECTION SUMMARY", file=sys.stderr)
-    print(f"{'=' * 60}", file=sys.stderr)
+    print(f"\n[Step 2] Building frequency matrix (60 positions) ...",
+          file=sys.stderr)
+    freq_matrix = build_frequency_matrix(r1_reads, num_positions=60)
 
+    # ------------------------------------------------------------------
+    # Phase 1: Mixed-orientation detection (PE only)
+    # ------------------------------------------------------------------
+    mixed_info = None
     if mode == "PE":
-        print(f"  R1: {r1_result['message']}", file=sys.stderr)
-        print(f"  R2: {r2_result['message']}", file=sys.stderr)
+        mixed_info = detect_mixed_orientation(freq_matrix, r1_reads)
+
+    # ==================================================================
+    # Branch A: Mixed orientation — detect from majority/minority,
+    #           trim all files with per-read orientation correction
+    # ==================================================================
+    if mixed_info is not None:
+        # Phase 2: Entropy detection on each orientation group
+        r1_result = detect_for_reads(mixed_info['majority_reads'],
+                                     "R1 majority (forward primer)")
+        r2_result = detect_for_reads(mixed_info['minority_reads'],
+                                     "R1 minority (reverse primer)")
+
         r1_trim = r1_result['primer_length']
         r2_trim = r2_result['primer_length']
-        any_detected = r1_result['detected'] or r2_result['detected']
-    else:
-        print(f"  SE: {r1_result['message']}", file=sys.stderr)
-        r1_trim = r1_result['primer_length']
-        r2_trim = 0
-        any_detected = r1_result['detected']
 
-    # ------------------------------------------------------------------
-    # Step 7: Trim the ENTIRE dataset
-    # ------------------------------------------------------------------
-    print(f"\n{'=' * 60}", file=sys.stderr)
-    print("TRIMMING", file=sys.stderr)
-    print(f"{'=' * 60}", file=sys.stderr)
-
-    if not any_detected:
-        print("\n  No primers detected. Copying files unchanged ...",
+        # Summary
+        print(f"\n{'=' * 60}", file=sys.stderr)
+        print("DETECTION SUMMARY (Mixed Orientation)", file=sys.stderr)
+        print(f"{'=' * 60}", file=sys.stderr)
+        print(f"  Forward primer (majority R1): {r1_result['message']}",
               file=sys.stderr)
-        for f in glob.glob(os.path.join(input_dir, "*.fastq*")):
-            copy_file(f, os.path.join(output_dir, os.path.basename(f)))
-        print("  Done.", file=sys.stderr)
-        return
-
-    # --- SE trimming ---
-    if mode == "SE":
-        print(f"\n  Trimming all SE files: remove first {r1_trim} bp ...",
+        print(f"  Reverse primer (minority R1): {r2_result['message']}",
               file=sys.stderr)
-        for f in sorted(glob.glob(os.path.join(input_dir, "*.fastq*"))):
-            out = os.path.join(output_dir, os.path.basename(f))
-            n = trim_single_file(f, out, r1_trim)
-            print(f"    {os.path.basename(f)}: {n} reads trimmed",
-                  file=sys.stderr)
+        print(f"  R1 trim: {r1_trim} bp, R2 trim: {r2_trim} bp",
+              file=sys.stderr)
 
-    # --- PE trimming ---
-    else:
-        print(f"\n  Trimming all PE pairs: "
-              f"R1 -{r1_trim} bp, R2 -{r2_trim} bp ...", file=sys.stderr)
+        # Phase 3: Trim all PE files with orientation correction
+        print(f"\n{'=' * 60}", file=sys.stderr)
+        print("TRIMMING (with orientation correction)", file=sys.stderr)
+        print(f"{'=' * 60}", file=sys.stderr)
+
+        best_pos = mixed_info['best_pos']
+        majority_base = mixed_info['majority_base']
+        total_pairs = 0
+        total_swapped = 0
         pairs_found = False
 
-        # _R1/_R2 pattern
-        for r1 in sorted(glob.glob(os.path.join(input_dir,
-                                                 "*_R1*.fastq*"))):
-            r2 = r1.replace("_R1", "_R2")
-            if not os.path.exists(r2):
-                continue
+        for r1, r2 in _find_pe_pairs(input_dir):
             pairs_found = True
             r1_out = os.path.join(output_dir, os.path.basename(r1))
             r2_out = os.path.join(output_dir, os.path.basename(r2))
-            n = trim_paired_files(r1, r2, r1_out, r2_out, r1_trim, r2_trim)
+            n, s = trim_paired_files_mixed(
+                r1, r2, r1_out, r2_out,
+                r1_trim, r2_trim, best_pos, majority_base)
+            total_pairs += n
+            total_swapped += s
             print(f"    {os.path.basename(r1)} + "
-                  f"{os.path.basename(r2)}: {n} pairs trimmed",
-                  file=sys.stderr)
+                  f"{os.path.basename(r2)}: "
+                  f"{n} pairs ({s} swapped)", file=sys.stderr)
 
-        # _1/_2 pattern
         if not pairs_found:
-            for r1 in sorted(glob.glob(os.path.join(input_dir,
-                                                     "*_1.fastq*"))):
-                r2 = r1.replace("_1.fastq", "_2.fastq")
-                if not os.path.exists(r2):
-                    continue
+            print("  ERROR: No PE file pairs found for trimming",
+                  file=sys.stderr)
+            sys.exit(1)
+
+        print(f"\n  Total: {total_pairs} pairs processed, "
+              f"{total_swapped} orientation-corrected "
+              f"({total_swapped/max(1,total_pairs)*100:.1f}%)",
+              file=sys.stderr)
+
+    # ==================================================================
+    # Branch B: Normal single orientation
+    # ==================================================================
+    else:
+        # Steps 3-6 on already-loaded R1 reads (avoid re-reading)
+        r1_result = detect_for_reads(r1_reads,
+                                     "R1" if mode == "PE" else "SE")
+
+        r2_result = None
+        if mode == "PE" and second_file:
+            r2_result = detect_for_file(second_file, "R2")
+
+        # Summary
+        print(f"\n{'=' * 60}", file=sys.stderr)
+        print("DETECTION SUMMARY", file=sys.stderr)
+        print(f"{'=' * 60}", file=sys.stderr)
+
+        if mode == "PE":
+            print(f"  R1: {r1_result['message']}", file=sys.stderr)
+            print(f"  R2: {r2_result['message']}", file=sys.stderr)
+            r1_trim = r1_result['primer_length']
+            r2_trim = r2_result['primer_length']
+            any_detected = (r1_result['detected']
+                            or r2_result['detected'])
+        else:
+            print(f"  SE: {r1_result['message']}", file=sys.stderr)
+            r1_trim = r1_result['primer_length']
+            r2_trim = 0
+            any_detected = r1_result['detected']
+
+        # Step 7: Trim the ENTIRE dataset
+        print(f"\n{'=' * 60}", file=sys.stderr)
+        print("TRIMMING", file=sys.stderr)
+        print(f"{'=' * 60}", file=sys.stderr)
+
+        if not any_detected:
+            print("\n  No primers detected. Copying files unchanged ...",
+                  file=sys.stderr)
+            for f in glob.glob(os.path.join(input_dir, "*.fastq*")):
+                copy_file(f, os.path.join(output_dir,
+                                          os.path.basename(f)))
+            print("  Done.", file=sys.stderr)
+            return
+
+        # --- SE trimming ---
+        if mode == "SE":
+            print(f"\n  Trimming all SE files: "
+                  f"remove first {r1_trim} bp ...", file=sys.stderr)
+            for f in sorted(glob.glob(os.path.join(input_dir,
+                                                    "*.fastq*"))):
+                out = os.path.join(output_dir, os.path.basename(f))
+                n = trim_single_file(f, out, r1_trim)
+                print(f"    {os.path.basename(f)}: {n} reads trimmed",
+                      file=sys.stderr)
+
+        # --- PE trimming ---
+        else:
+            print(f"\n  Trimming all PE pairs: "
+                  f"R1 -{r1_trim} bp, R2 -{r2_trim} bp ...",
+                  file=sys.stderr)
+            pairs_found = False
+            for r1, r2 in _find_pe_pairs(input_dir):
                 pairs_found = True
                 r1_out = os.path.join(output_dir, os.path.basename(r1))
                 r2_out = os.path.join(output_dir, os.path.basename(r2))
@@ -508,10 +739,10 @@ def main():
                       f"{os.path.basename(r2)}: {n} pairs trimmed",
                       file=sys.stderr)
 
-        if not pairs_found:
-            print("  ERROR: No PE file pairs found for trimming",
-                  file=sys.stderr)
-            sys.exit(1)
+            if not pairs_found:
+                print("  ERROR: No PE file pairs found for trimming",
+                      file=sys.stderr)
+                sys.exit(1)
 
     print(f"\n  Output directory: {output_dir}", file=sys.stderr)
     print("  Done.", file=sys.stderr)
