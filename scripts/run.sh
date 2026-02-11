@@ -237,108 +237,19 @@ for i in "${!Dataset_ID_sets[@]}"; do
         export dataset_name="$dataset_ID"
 
         if [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
-            # Illumina/IonTorrent: Frequency-based primer detection & trimming with BBDuk
-            echo ">>> Handling adapters and primers (BBDuk frequency method)..."
-            # Use temp/step_02_fastp as output (matches manifest generation expectations)
+            # Illumina/IonTorrent: Entropy-based primer detection & trimming
+            echo ">>> Handling adapters and primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
 
-            # Use BBDuk frequency-based detection
-            bbduk_temp_out="${dataset_path}temp/bbduk_output/"
+            python3 "${SCRIPTS}/entropy_primer_detect.py" \
+                -i "$ori_fastq_path" \
+                -o "$fastp_path" || {
+                echo "  ✗ Entropy primer detection failed"
+                exit 1
+            }
 
-            if [[ "$sequence_type" == "single" ]]; then
-                # Single-end: process each file
-                for f in "${ori_fastq_path}"*.fastq*; do
-                    [[ -f "$f" ]] || continue
-                    echo "  Processing: $(basename "$f")"
-
-                    "${SCRIPTS}/bbduk_primer_detect.sh" \
-                        -i "$f" \
-                        -o "$bbduk_temp_out" \
-                        -t "$THREADS" || {
-                        echo "  ✗ BBDuk primer detection failed"
-                        exit 1
-                    }
-
-                    # Move cleaned file to fastp directory (remove _clean suffix)
-                    for cleaned in "${bbduk_temp_out}"/*.fastq*; do
-                        [[ -f "$cleaned" ]] || continue
-                        original_name=$(basename "$f")
-                        mv "$cleaned" "${fastp_path}${original_name}"
-                    done
-                    rm -rf "$bbduk_temp_out"
-                done
-            else
-                # Paired-end: find and process pairs
-                found_files=false
-
-                # Try _1/_2 pattern first (CNCB style)
-                for r1 in "${ori_fastq_path}"*_1.fastq*; do
-                    [[ -f "$r1" ]] || continue
-                    r2="${r1/_1.fastq/_2.fastq}"
-                    [[ -f "$r2" ]] || continue
-
-                    found_files=true
-                    echo "  Processing pair: $(basename "$r1") and $(basename "$r2")"
-
-                    "${SCRIPTS}/bbduk_primer_detect.sh" \
-                        -1 "$r1" \
-                        -2 "$r2" \
-                        -o "$bbduk_temp_out" \
-                        -t "$THREADS" || {
-                        echo "  ✗ BBDuk primer detection failed"
-                        exit 1
-                    }
-
-                    # Move cleaned files (remove _clean suffix)
-                    for cleaned in "${bbduk_temp_out}"/*.fastq*; do
-                        [[ -f "$cleaned" ]] || continue
-                        cleaned_base=$(basename "$cleaned")
-                        # Restore original naming by removing _clean
-                        original_name="${cleaned_base/_clean/}"
-                        mv "$cleaned" "${fastp_path}${original_name}"
-                    done
-                    rm -rf "$bbduk_temp_out"
-                done
-
-                # Try _R1/_R2 pattern if not found (NCBI style)
-                if [[ "$found_files" == false ]]; then
-                    for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
-                        [[ -f "$r1" ]] || continue
-                        r2="${r1/_R1/_R2}"
-                        [[ -f "$r2" ]] || continue
-
-                        found_files=true
-                        echo "  Processing pair: $(basename "$r1") and $(basename "$r2")"
-
-                        "${SCRIPTS}/bbduk_primer_detect.sh" \
-                            -1 "$r1" \
-                            -2 "$r2" \
-                            -o "$bbduk_temp_out" \
-                            -t "$THREADS" || {
-                            echo "  ✗ BBDuk primer detection failed"
-                            exit 1
-                        }
-
-                        # Move cleaned files (remove _clean suffix)
-                        for cleaned in "${bbduk_temp_out}"/*.fastq*; do
-                            [[ -f "$cleaned" ]] || continue
-                            cleaned_base=$(basename "$cleaned")
-                            # Restore original naming
-                            original_name="${cleaned_base/_clean/}"
-                            mv "$cleaned" "${fastp_path}${original_name}"
-                        done
-                        rm -rf "$bbduk_temp_out"
-                    done
-                fi
-
-                if [[ "$found_files" == false ]]; then
-                    echo "  ✗ No paired-end fastq files found in ${ori_fastq_path}"
-                    exit 1
-                fi
-            fi
-
-            echo "✓ BBDuk primer removal completed"
+            echo "✓ Entropy primer detection/removal completed"
 
             # Delete original fastq files to save space
             echo ">>> Cleaning up original files..."
@@ -355,108 +266,19 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
-            # PacBio: Frequency-based primer detection & trimming with BBDuk
-            echo ">>> Handling adapters and primers (BBDuk frequency method)..."
-            # Use temp/step_02_fastp as output (matches manifest generation expectations)
+            # PacBio: Entropy-based primer detection & trimming
+            echo ">>> Handling adapters and primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
 
-            # Use BBDuk frequency-based detection
-            bbduk_temp_out="${dataset_path}temp/bbduk_output/"
+            python3 "${SCRIPTS}/entropy_primer_detect.py" \
+                -i "$ori_fastq_path" \
+                -o "$fastp_path" || {
+                echo "  ✗ Entropy primer detection failed"
+                exit 1
+            }
 
-            if [[ "$sequence_type" == "single" ]]; then
-                # Single-end: process each file
-                for f in "${ori_fastq_path}"*.fastq*; do
-                    [[ -f "$f" ]] || continue
-                    echo "  Processing: $(basename "$f")"
-
-                    "${SCRIPTS}/bbduk_primer_detect.sh" \
-                        -i "$f" \
-                        -o "$bbduk_temp_out" \
-                        -t "$THREADS" || {
-                        echo "  ✗ BBDuk primer detection failed"
-                        exit 1
-                    }
-
-                    # Move cleaned file to fastp directory (remove _clean suffix)
-                    for cleaned in "${bbduk_temp_out}"/*.fastq*; do
-                        [[ -f "$cleaned" ]] || continue
-                        original_name=$(basename "$f")
-                        mv "$cleaned" "${fastp_path}${original_name}"
-                    done
-                    rm -rf "$bbduk_temp_out"
-                done
-            else
-                # Paired-end: find and process pairs
-                found_files=false
-
-                # Try _1/_2 pattern first (CNCB style)
-                for r1 in "${ori_fastq_path}"*_1.fastq*; do
-                    [[ -f "$r1" ]] || continue
-                    r2="${r1/_1.fastq/_2.fastq}"
-                    [[ -f "$r2" ]] || continue
-
-                    found_files=true
-                    echo "  Processing pair: $(basename "$r1") and $(basename "$r2")"
-
-                    "${SCRIPTS}/bbduk_primer_detect.sh" \
-                        -1 "$r1" \
-                        -2 "$r2" \
-                        -o "$bbduk_temp_out" \
-                        -t "$THREADS" || {
-                        echo "  ✗ BBDuk primer detection failed"
-                        exit 1
-                    }
-
-                    # Move cleaned files (remove _clean suffix)
-                    for cleaned in "${bbduk_temp_out}"/*.fastq*; do
-                        [[ -f "$cleaned" ]] || continue
-                        cleaned_base=$(basename "$cleaned")
-                        # Restore original naming by removing _clean
-                        original_name="${cleaned_base/_clean/}"
-                        mv "$cleaned" "${fastp_path}${original_name}"
-                    done
-                    rm -rf "$bbduk_temp_out"
-                done
-
-                # Try _R1/_R2 pattern if not found (NCBI style)
-                if [[ "$found_files" == false ]]; then
-                    for r1 in "${ori_fastq_path}"*_R1*.fastq*; do
-                        [[ -f "$r1" ]] || continue
-                        r2="${r1/_R1/_R2}"
-                        [[ -f "$r2" ]] || continue
-
-                        found_files=true
-                        echo "  Processing pair: $(basename "$r1") and $(basename "$r2")"
-
-                        "${SCRIPTS}/bbduk_primer_detect.sh" \
-                            -1 "$r1" \
-                            -2 "$r2" \
-                            -o "$bbduk_temp_out" \
-                            -t "$THREADS" || {
-                            echo "  ✗ BBDuk primer detection failed"
-                            exit 1
-                        }
-
-                        # Move cleaned files (remove _clean suffix)
-                        for cleaned in "${bbduk_temp_out}"/*.fastq*; do
-                            [[ -f "$cleaned" ]] || continue
-                            cleaned_base=$(basename "$cleaned")
-                            # Restore original naming
-                            original_name="${cleaned_base/_clean/}"
-                            mv "$cleaned" "${fastp_path}${original_name}"
-                        done
-                        rm -rf "$bbduk_temp_out"
-                    done
-                fi
-
-                if [[ "$found_files" == false ]]; then
-                    echo "  ✗ No paired-end fastq files found in ${ori_fastq_path}"
-                    exit 1
-                fi
-            fi
-
-            echo "✓ BBDuk primer removal completed"
+            echo "✓ Entropy primer detection/removal completed"
 
             # Delete original fastq files to save space
             echo ">>> Cleaning up original files..."
