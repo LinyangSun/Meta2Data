@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """
-Entropy-based 16S Primer Detection and Removal
+Three-state (C/D/V) Primer Detection and Removal
 (with mixed R1/R2 orientation support)
 
 Principle:
-  Primer positions are conserved across reads → low Shannon entropy.
-  Biological positions are variable across reads → high Shannon entropy.
-  The entropy jump point marks the primer→biology transition.
+  Analogous to FastQC "Per Base Sequence Content": build a position-wise
+  base frequency matrix and classify each position into one of three states:
+    C (Conserved) — one dominant base (f1 ≥ 0.80)
+    D (Degenerate) — two dominant bases (f1+f2 ≥ 0.80, f2 ≥ 0.10)
+    V (Variable)  — no clear dominant pattern (biological region)
+  Primer = longest [CD]* prefix from position 0, terminated at first V.
 
 Algorithm:
   Step 0:   Scan directory, pick first sample (PE or SE).
@@ -18,7 +21,7 @@ Algorithm:
 
   --- Branch A (mixed orientation) ---
   Phase 2:  Split sampled reads into majority/minority groups by the base
-            at the best bimodal position. Run entropy detection (Steps 3-6)
+            at the best bimodal position. Run CDV detection (Steps 3-5)
             on each group independently to determine forward/reverse primer
             lengths.
   Phase 3:  Trim ALL files with per-read orientation correction.
@@ -26,11 +29,16 @@ Algorithm:
             best_pos. Flipped reads have R1↔R2 swapped before trimming.
 
   --- Branch B (single orientation) ---
-  Step 3:   Compute Shannon entropy per position.
-  Step 4:   Smooth with sliding window (w=3).
-  Step 5:   Detect jump point (primer→biology transition).
-  Step 6:   Classify result and extract consensus.
-  Step 7:   Trim ALL files using detected primer length.
+  Step 3:   Classify each position as C / D / V.
+  Step 4:   Find primer boundary (longest [CD]* prefix, with noise tolerance).
+  Step 5:   Build consensus (C→dominant base, D→N) and report.
+  Step 6:   Trim ALL files using detected primer length.
+
+  Constraints:
+    - Minimum primer length: 10 bp (V before pos 10 → no primer).
+    - Maximum primer length: 30 bp.
+    - Noise tolerance: 1 isolated V surrounded by ≥3 non-V positions
+      on each side is treated as sequencing noise and skipped.
 """
 
 import sys
@@ -280,123 +288,107 @@ def detect_mixed_orientation(freq_matrix, reads, num_check=15):
 
 
 # ===========================================================================
-# Step 3: Shannon entropy
+# Step 3: Three-state position classification (C / D / V)
 # ===========================================================================
-
-def compute_entropy(freq_matrix):
-    """H(i) = -sum( p * log2(p) ) for each position."""
-    entropy = []
-    for freqs in freq_matrix:
-        h = 0.0
-        for p in freqs:
-            if p > 0:
-                h -= p * math.log2(p)
-        entropy.append(h)
-    return entropy
-
-
-# ===========================================================================
-# Step 4: Smoothing
-# ===========================================================================
-
-def smooth_entropy(entropy, window=3):
-    """Sliding-window mean smoothing."""
-    n = len(entropy)
-    half = window // 2
-    smoothed = []
-    for i in range(n):
-        lo = max(0, i - half)
-        hi = min(n, i + half + 1)
-        smoothed.append(sum(entropy[lo:hi]) / (hi - lo))
-    return smoothed
-
-
-# ===========================================================================
-# Step 5: Jump-point detection
-# ===========================================================================
-
-def detect_jump_point(smoothed):
-    """
-    baseline = mean(smoothed[40:60])
-    Scan from position 0 rightward; first i satisfying BOTH:
-      A) smoothed[i] > baseline * 0.75
-      C) mean(smoothed[i:i+5]) > baseline * 0.7
-    primer_length = i
-    """
-    baseline = sum(smoothed[40:60]) / 20.0
-
-    if baseline < 0.1:
-        print(f"  WARNING: Very low baseline entropy ({baseline:.4f})",
-              file=sys.stderr)
-        return 0, baseline
-
-    for i in range(len(smoothed) - 5):
-        cond_a = smoothed[i] > baseline * 0.75
-        win_mean = sum(smoothed[i:i + 5]) / 5.0
-        cond_c = win_mean > baseline * 0.7
-        if cond_a and cond_c:
-            return i, baseline
-
-    # No jump found within analysis range
-    return 0, baseline
-
-
-# ===========================================================================
-# Step 6: Classification & consensus
-# ===========================================================================
-
-IUPAC_MAP = {
-    frozenset('A'): 'A', frozenset('C'): 'C',
-    frozenset('G'): 'G', frozenset('T'): 'T',
-    frozenset('AG'): 'R', frozenset('CT'): 'Y',
-    frozenset('CG'): 'S', frozenset('AT'): 'W',
-    frozenset('GT'): 'K', frozenset('AC'): 'M',
-    frozenset('CGT'): 'B', frozenset('AGT'): 'D',
-    frozenset('ACT'): 'H', frozenset('ACG'): 'V',
-    frozenset('ACGT'): 'N',
-}
 
 BASES = ['A', 'C', 'G', 'T']
 
 
-def _iupac_code(freqs):
-    """IUPAC ambiguity code for one position's frequency vector."""
-    max_freq = max(freqs)
-    if max_freq >= 0.7:
-        return BASES[freqs.index(max_freq)]
-    present = frozenset(b for b, f in zip(BASES, freqs) if f > 0.1)
-    if not present:
-        return 'N'
-    return IUPAC_MAP.get(present, 'N')
+def classify_position(freqs):
+    """
+    Classify a single position based on its base frequency distribution.
+
+    C (Conserved):  one dominant base, f1 >= 0.80
+    D (Degenerate): two dominant bases, f1+f2 >= 0.80 and f2 >= 0.10
+    V (Variable):   no clear dominant pattern (biological region)
+
+    Analogous to FastQC "Per Base Sequence Content" interpretation.
+    """
+    sorted_f = sorted(freqs, reverse=True)
+    f1, f2 = sorted_f[0], sorted_f[1]
+    if f1 >= 0.80:
+        return 'C'
+    if f1 + f2 >= 0.80 and f2 >= 0.10:
+        return 'D'
+    return 'V'
 
 
-def classify_result(jump_point, baseline, freq_matrix):
-    """Return a result dict describing primer status."""
-    consensus = "".join(_iupac_code(freq_matrix[i])
-                        for i in range(jump_point))
-
-    if jump_point <= 1:
-        return dict(detected=False, primer_length=0, confidence=None,
-                    consensus="", message="No primer detected")
-    elif 10 <= jump_point <= 35:
-        return dict(detected=True, primer_length=jump_point,
-                    confidence="high", consensus=consensus,
-                    message=f"Primer detected (length={jump_point}bp, "
-                            f"confidence=high)")
-    elif jump_point > 35:
-        return dict(detected=True, primer_length=jump_point,
-                    confidence="low", consensus=consensus,
-                    message=f"Adapter+primer detected "
-                            f"(length={jump_point}bp, confidence=low)")
-    else:  # 2-9
-        return dict(detected=True, primer_length=jump_point,
-                    confidence="low", consensus=consensus,
-                    message=f"Short technical sequence "
-                            f"(length={jump_point}bp, confidence=low)")
+def classify_all_positions(freq_matrix):
+    """Classify every position in the frequency matrix as C, D, or V."""
+    return [classify_position(freqs) for freqs in freq_matrix]
 
 
 # ===========================================================================
-# Step 7: Trimming helpers
+# Step 4: Primer boundary detection
+# ===========================================================================
+
+def find_primer_boundary(states, min_len=10, max_len=30):
+    """
+    Primer = longest [CD]* prefix from position 0, terminated at first V.
+
+    Constraints:
+      - Minimum length 10 bp (V before pos 10 → no primer).
+      - Maximum length 30 bp.
+      - Noise tolerance: a *single* isolated V is skipped if it has
+        >= 3 non-V positions on each side (likely sequencing noise).
+
+    Returns primer_length (0 if no primer detected).
+    """
+    n = min(max_len, len(states))
+    end = 0
+    i = 0
+
+    while i < n:
+        if states[i] in ('C', 'D'):
+            end = i + 1
+            i += 1
+        elif states[i] == 'V':
+            # Check if this is an isolated V (noise)
+            is_single = (i + 1 < len(states) and states[i + 1] != 'V')
+            before_ok = (i >= 3 and
+                         all(s != 'V' for s in states[max(0, i - 3):i]))
+            after_ok = (i + 3 < len(states) and
+                        all(s != 'V' for s in states[i + 1:i + 4]))
+            if is_single and before_ok and after_ok:
+                # Isolated V — treat as noise, skip
+                end = i + 1
+                i += 1
+            else:
+                # Real variable region — primer ends here
+                break
+        else:
+            i += 1
+
+    if end < min_len:
+        return 0  # Too short to be a primer
+
+    return end
+
+
+# ===========================================================================
+# Step 5: Consensus sequence
+# ===========================================================================
+
+def build_consensus_cdv(freq_matrix, states, primer_length):
+    """
+    Build consensus sequence for the detected primer region.
+
+    C positions → dominant base (A/C/G/T)
+    D positions → N (degenerate)
+    Tolerated V → N
+    """
+    consensus = []
+    for i in range(primer_length):
+        if states[i] == 'C':
+            max_idx = freq_matrix[i].index(max(freq_matrix[i]))
+            consensus.append(BASES[max_idx])
+        else:  # D or tolerated V
+            consensus.append('N')
+    return ''.join(consensus)
+
+
+# ===========================================================================
+# Step 6: Trimming helpers
 # ===========================================================================
 
 def trim_single_file(in_path, out_path, trim_len):
@@ -505,46 +497,66 @@ def find_files(input_dir):
 # ===========================================================================
 
 def detect_for_reads(reads, label):
-    """Run Steps 2-6 on a pre-filtered list of (seq, qual) tuples."""
+    """
+    Run three-state (C/D/V) primer detection on pre-filtered reads.
+
+    Steps:
+      2. Build 60×4 position-wise base frequency matrix.
+      3. Classify each position as C (Conserved), D (Degenerate), V (Variable).
+      4. Find primer boundary: longest [CD]* prefix with noise tolerance.
+      5. Build consensus (C→dominant base, D/V→N) and report.
+    """
     print(f"\n{'=' * 60}", file=sys.stderr)
     print(f"  Analyzing {label}: {len(reads)} reads", file=sys.stderr)
     print(f"{'=' * 60}", file=sys.stderr)
 
     if not reads:
         print("  ERROR: No reads to analyze", file=sys.stderr)
-        return classify_result(0, 0.0, [[0.25]*4]*60)
+        return dict(detected=False, primer_length=0, consensus="",
+                    message="No primer detected (no reads)")
 
-    # Step 2
+    # Step 2: Build frequency matrix
     print(f"\n[Step 2] Building frequency matrix (60 positions) ...",
           file=sys.stderr)
     freq_matrix = build_frequency_matrix(reads, num_positions=60)
 
-    # Step 3
-    print(f"\n[Step 3] Computing Shannon entropy ...", file=sys.stderr)
-    entropy = compute_entropy(freq_matrix)
-    print(f"  Entropy[0:5]   = {['%.3f' % e for e in entropy[:5]]}",
-          file=sys.stderr)
-    print(f"  Entropy[25:30] = {['%.3f' % e for e in entropy[25:30]]}",
-          file=sys.stderr)
-    print(f"  Entropy[55:60] = {['%.3f' % e for e in entropy[55:60]]}",
-          file=sys.stderr)
+    # Step 3: Classify each position as C/D/V
+    print(f"\n[Step 3] Classifying positions (C/D/V) ...", file=sys.stderr)
+    states = classify_all_positions(freq_matrix)
+    state_str = ''.join(states)
+    print(f"  Pos  0-29: {state_str[:30]}", file=sys.stderr)
+    print(f"  Pos 30-59: {state_str[30:]}", file=sys.stderr)
 
-    # Step 4
-    print(f"\n[Step 4] Smoothing (window=3) ...", file=sys.stderr)
-    smoothed = smooth_entropy(entropy, window=3)
+    # Per-position detail for the first 30 positions (max primer range)
+    for i in range(min(30, len(freq_matrix))):
+        freqs = freq_matrix[i]
+        paired = sorted(zip(BASES, freqs), key=lambda x: -x[1])
+        top = '  '.join(f"{b}:{f:.2f}" for b, f in paired[:2])
+        print(f"    [{i:2d}] {states[i]}  {top}", file=sys.stderr)
 
-    # Step 5
-    print(f"\n[Step 5] Detecting jump point ...", file=sys.stderr)
-    jump_point, baseline = detect_jump_point(smoothed)
-    print(f"  Baseline entropy (pos 40-60): {baseline:.4f}", file=sys.stderr)
-    print(f"  Jump point: position {jump_point}", file=sys.stderr)
+    # Step 4: Find primer boundary
+    print(f"\n[Step 4] Finding primer boundary "
+          f"(min=10bp, max=30bp) ...", file=sys.stderr)
+    primer_length = find_primer_boundary(states, min_len=10, max_len=30)
 
-    # Step 6
-    print(f"\n[Step 6] Classification ...", file=sys.stderr)
-    result = classify_result(jump_point, baseline, freq_matrix)
-    print(f"  {result['message']}", file=sys.stderr)
-    if result['consensus']:
-        print(f"  Consensus: {result['consensus']}", file=sys.stderr)
+    # Step 5: Build consensus and report
+    print(f"\n[Step 5] Result:", file=sys.stderr)
+    if primer_length == 0:
+        result = dict(detected=False, primer_length=0, consensus="",
+                      message="No primer detected")
+    else:
+        consensus = build_consensus_cdv(freq_matrix, states, primer_length)
+        result = dict(detected=True, primer_length=primer_length,
+                      consensus=consensus,
+                      message=f"Primer detected (length={primer_length}bp)")
+
+    print(f"  1. Primer exists:     "
+          f"{'Yes' if result['detected'] else 'No'}", file=sys.stderr)
+    print(f"  2. Truncation length: {result['primer_length']} bp",
+          file=sys.stderr)
+    print(f"  3. Consensus:         "
+          f"{result['consensus'] if result['consensus'] else 'N/A'}",
+          file=sys.stderr)
 
     return result
 
@@ -556,7 +568,8 @@ def detect_for_file(filepath, label):
     reads = read_and_filter(filepath)
     if not reads:
         print("  ERROR: No reads passed filters", file=sys.stderr)
-        return classify_result(0, 0.0, [[0.25]*4]*60)
+        return dict(detected=False, primer_length=0, consensus="",
+                    message="No primer detected (no reads)")
     return detect_for_reads(reads, label)
 
 
@@ -584,7 +597,7 @@ def _find_pe_pairs(input_dir):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Entropy-based 16S primer detection and removal")
+        description="Three-state (C/D/V) primer detection and removal")
     parser.add_argument("-i", "--input", required=True,
                         help="Input directory containing FASTQ files")
     parser.add_argument("-o", "--output", required=True,
@@ -596,7 +609,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
 
     print("=" * 60, file=sys.stderr)
-    print("ENTROPY-BASED PRIMER DETECTION", file=sys.stderr)
+    print("THREE-STATE (C/D/V) PRIMER DETECTION", file=sys.stderr)
     print("=" * 60, file=sys.stderr)
 
     # ------------------------------------------------------------------
@@ -627,8 +640,8 @@ def main():
         sys.exit(1)
 
     # ------------------------------------------------------------------
-    # Step 2: Build frequency matrix (used for both entropy and
-    #         mixed-orientation detection)
+    # Step 2: Build frequency matrix (used for both CDV classification
+    #         and mixed-orientation detection)
     # ------------------------------------------------------------------
     print(f"\n[Step 2] Building frequency matrix (60 positions) ...",
           file=sys.stderr)
@@ -646,7 +659,7 @@ def main():
     #           trim all files with per-read orientation correction
     # ==================================================================
     if mixed_info is not None:
-        # Phase 2: Entropy detection on each orientation group
+        # Phase 2: CDV detection on each orientation group
         r1_result = detect_for_reads(mixed_info['majority_reads'],
                                      "R1 majority (forward primer)")
         r2_result = detect_for_reads(mixed_info['minority_reads'],
@@ -730,7 +743,7 @@ def main():
             r2_trim = 0
             any_detected = r1_result['detected']
 
-        # Step 7: Trim the ENTIRE dataset
+        # Step 6: Trim the ENTIRE dataset
         print(f"\n{'=' * 60}", file=sys.stderr)
         print("TRIMMING", file=sys.stderr)
         print(f"{'=' * 60}", file=sys.stderr)
