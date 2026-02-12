@@ -745,10 +745,10 @@ Amplicon_IonTorrent_QualityControlForQZA() {
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
 
-    # Length filter + N removal (same as 454, no q-score filtering)
+    # Length filter + N removal (no q-score filtering for Ion Torrent)
     # Note: primers are already removed by entropy_primer_detect.py before QIIME2
-    # import, and the Ion Torrent key signal is handled by fastp adapter removal,
-    # so no additional front-trimming is needed here.
+    # import, and the first 15bp of biological sequence are trimmed by a post-primer
+    # fastp step in run.sh, so no additional front-trimming is needed here.
     qiime quality-filter q-score \
         --i-demux "${qza_path%/}/${dataset_name}.qza" \
         --p-min-quality 0 \

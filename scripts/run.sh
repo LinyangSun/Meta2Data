@@ -391,9 +391,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
             echo "Sequence type: ${sequence_type^^}"
             export sequence_type
 
-            # ── Step B: Remove sequencing adapters + trim front 15bp with fastp (SE mode) ──
-            # Ion Torrent reads have low-quality bases in the first ~15bp
-            echo ">>> Removing sequencing adapters + trimming front 15bp with fastp..."
+            # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
+            echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
 
@@ -401,15 +400,14 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 [[ -f "$fq" ]] || continue
                 fastp -i "$fq" \
                       -o "${adapter_removed_path}$(basename "$fq")" \
-                      --trim_front1 15 \
                       --disable_quality_filtering \
                       --disable_length_filtering \
                       -w "$cpu" \
                       -j "${adapter_removed_path}fastp.json" \
                       -h "${adapter_removed_path}fastp.html"
-                echo "  ✓ Adapter removal + front 15bp trim: $(basename "$fq")"
+                echo "  ✓ Adapter removal: $(basename "$fq")"
             done
-            echo "✓ Adapter removal + front 15bp trim completed"
+            echo "✓ Adapter removal completed"
 
             # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
             echo ">>> Detecting and removing primers (entropy method)..."
@@ -425,13 +423,36 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             echo "✓ Entropy primer detection/removal completed"
 
+            # ── Step C2: Trim first 15bp of biological sequence (post-primer) ──
+            # Ion Torrent reads have low-quality bases in the first ~15bp after
+            # the primer due to signal instability at sequencing start.
+            echo ">>> Trimming first 15bp of biological sequence (post-primer)..."
+            trimmed_path="${dataset_path}temp/step_02b_trimmed/"
+            mkdir -p "$trimmed_path"
+
+            for fq in "$fastp_path"*.fastq*; do
+                [[ -f "$fq" ]] || continue
+                fastp -i "$fq" \
+                      -o "${trimmed_path}$(basename "$fq")" \
+                      --trim_front1 15 \
+                      --disable_adapter_trimming \
+                      --disable_quality_filtering \
+                      --disable_length_filtering \
+                      -w "$cpu" \
+                      -j "${trimmed_path}fastp_trim.json" \
+                      -h "${trimmed_path}fastp_trim.html"
+                echo "  ✓ Front 15bp trimmed: $(basename "$fq")"
+            done
+            echo "✓ Post-primer 15bp trim completed"
+
             echo ">>> Cleaning up intermediate files..."
             rm -rf "$ori_fastq_path"
             rm -rf "$adapter_removed_path"
-            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
+            rm -rf "$fastp_path"
+            echo "✓ Removed ori_fastq/, adapter_removed/, and fastp/ to save space"
 
             # ── Step D: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% ──
-            fastq_path="$fastp_path"
+            fastq_path="$trimmed_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
