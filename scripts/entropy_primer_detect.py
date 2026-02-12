@@ -496,14 +496,16 @@ def match_primer_database(consensus_30bp, database, min_identity=0.85):
     Both orientations are tested so the match works regardless of how
     R-end primers are stored (oligo 5'->3' or reference orientation).
 
-    Returns (primer_name, trim_position, identity) or (None, 0, 0.0).
+    Returns (primer_name, trim_position, identity, primer_sequence)
+    or (None, 0, 0.0, "").
     """
     if not consensus_30bp:
-        return None, 0, 0.0
+        return None, 0, 0.0, ""
 
     best_name = None
     best_trim = 0
     best_identity = 0.0
+    best_seq = ""
 
     for name, db_seq in database:
         # Try both orientations: original and reverse complement
@@ -536,8 +538,9 @@ def match_primer_database(consensus_30bp, database, min_identity=0.85):
                     best_name = f"{name}{suffix}" if suffix else name
                     best_trim = offset + L
                     best_identity = identity
+                    best_seq = seq
 
-    return best_name, best_trim, best_identity
+    return best_name, best_trim, best_identity, best_seq
 
 
 # ===========================================================================
@@ -703,8 +706,8 @@ def detect_for_reads(reads, label, database):
     print(f"  30bp consensus: {consensus_30}", file=sys.stderr)
 
     # Sliding window: tries both orientations (original + RC)
-    db_name, db_trim, db_identity = match_primer_database(consensus_30,
-                                                          database)
+    db_name, db_trim, db_identity, db_seq = match_primer_database(
+        consensus_30, database)
 
     if db_name:
         # Database match → use database-defined trim position
@@ -713,6 +716,7 @@ def detect_for_reads(reads, label, database):
         print(f"  Database match: {db_name} "
               f"(trim={db_trim}bp, identity={db_identity:.2f})"
               f"{orient_msg}", file=sys.stderr)
+        print(f"  Database primer seq: {db_seq}", file=sys.stderr)
         if cdv_boundary > 0 and db_trim != cdv_boundary:
             print(f"  CDV boundary={cdv_boundary}bp -> "
                   f"overridden by database trim={db_trim}bp",
@@ -722,6 +726,7 @@ def detect_for_reads(reads, label, database):
         primer_name = db_name
         result = dict(detected=True, primer_length=primer_length,
                       consensus=consensus, primer_name=primer_name,
+                      primer_seq=db_seq,
                       message=f"Primer detected: {primer_name} "
                               f"(trim={primer_length}bp)")
     elif cdv_boundary > 0:
@@ -732,12 +737,14 @@ def detect_for_reads(reads, label, database):
         consensus = consensus_30[:cdv_boundary]
         result = dict(detected=True, primer_length=primer_length,
                       consensus=consensus, primer_name="unknown",
+                      primer_seq="",
                       message=f"Primer detected: unknown "
                               f"(trim={primer_length}bp, CDV fallback)")
     else:
         # Neither database nor CDV detected a primer
         primer_length = 0
         result = dict(detected=False, primer_length=0, consensus="",
+                      primer_seq="",
                       message="No primer detected")
 
     print(f"  1. Primer exists:     "
@@ -983,6 +990,8 @@ def main():
                 sys.exit(1)
 
     # Save detected primer info to JSON for downstream tools (e.g. DADA2)
+    # primer_seq = actual database primer sequence (preferred for DADA2 --p-front)
+    # consensus  = CDV consensus from data (fallback when no database match)
     primer_info = {}
     if mixed_info is not None:
         # Branch A: mixed orientation PE
@@ -990,12 +999,14 @@ def main():
             "mode": "PE_mixed",
             "forward_primer": {
                 "name": r1_result.get('primer_name', 'unknown'),
+                "primer_seq": r1_result.get('primer_seq', ''),
                 "consensus": r1_result.get('consensus', ''),
                 "length": r1_result.get('primer_length', 0),
                 "detected": r1_result.get('detected', False),
             },
             "reverse_primer": {
                 "name": r2_result.get('primer_name', 'unknown'),
+                "primer_seq": r2_result.get('primer_seq', ''),
                 "consensus": r2_result.get('consensus', ''),
                 "length": r2_result.get('primer_length', 0),
                 "detected": r2_result.get('detected', False),
@@ -1006,12 +1017,14 @@ def main():
             "mode": "PE",
             "forward_primer": {
                 "name": r1_result.get('primer_name', 'unknown'),
+                "primer_seq": r1_result.get('primer_seq', ''),
                 "consensus": r1_result.get('consensus', ''),
                 "length": r1_result.get('primer_length', 0),
                 "detected": r1_result.get('detected', False),
             },
             "reverse_primer": {
                 "name": r2_result.get('primer_name', 'unknown') if r2_result else 'unknown',
+                "primer_seq": r2_result.get('primer_seq', '') if r2_result else '',
                 "consensus": r2_result.get('consensus', '') if r2_result else '',
                 "length": r2_result.get('primer_length', 0) if r2_result else 0,
                 "detected": r2_result.get('detected', False) if r2_result else False,
@@ -1022,6 +1035,7 @@ def main():
             "mode": "SE",
             "forward_primer": {
                 "name": r1_result.get('primer_name', 'unknown'),
+                "primer_seq": r1_result.get('primer_seq', ''),
                 "consensus": r1_result.get('consensus', ''),
                 "length": r1_result.get('primer_length', 0),
                 "detected": r1_result.get('detected', False),

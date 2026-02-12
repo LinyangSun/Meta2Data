@@ -516,15 +516,20 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             echo "✓ Entropy primer detection completed"
 
-            # Read detected primer consensus from JSON
+            # Read detected primer from JSON
+            # Prefer database primer sequence; fall back to CDV consensus
             primer_info_json="${primer_detect_path}primer_info.json"
             if [[ -f "$primer_info_json" ]]; then
                 detected_primer=$(python3 -c "
-import json, sys
+import json
 with open('${primer_info_json}') as f:
     info = json.load(f)
 fp = info.get('forward_primer', {})
-if fp.get('detected', False) and fp.get('consensus', ''):
+if not fp.get('detected', False):
+    print('')
+elif fp.get('primer_seq', ''):
+    print(fp['primer_seq'])
+elif fp.get('consensus', ''):
     print(fp['consensus'])
 else:
     print('')
