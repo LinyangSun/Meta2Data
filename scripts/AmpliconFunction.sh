@@ -629,16 +629,104 @@ Amplicon_Illumina_DenosingDada2() {
 #                        LS454 PLATFORM FUNCTIONS                              #
 ################################################################################
 # Functions for 454 pyrosequencing data processing
-# TODO: These functions are placeholders and need to be implemented
+# 454 pipeline: QC (length filter) → Deduplication → Chimera removal → OTU clustering (97%)
+# Quality scores from fasterq-dump are unreliable for 454, so q-score filtering is disabled.
 
 Amplicon_LS454_QualityControlForQZA() {
-    echo "TODO: Implement LS454 quality control for QZA"
-    return 1
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local qza_path="${dataset_path%/}/temp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
+    mkdir -p "$quality_filter_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+
+    # 454 quality scores are unreliable (dummy values from fasterq-dump),
+    # so disable q-score filtering (--p-min-quality 0) and only apply:
+    #   - length filtering (keep reads >= 85% of median length)
+    #   - ambiguous base removal (remove reads containing N)
+    qiime quality-filter q-score \
+        --i-demux "${qza_path%/}/${dataset_name}.qza" \
+        --p-min-quality 0 \
+        --p-min-length-fraction 0.85 \
+        --p-max-ambiguous 0 \
+        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
+        --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
+        --verbose
 }
 
-Amplicon_LS454_DenosingDada2() {
-    echo "TODO: Implement LS454 denoising (dada2 denoise-pyro)"
-    return 1
+Amplicon_LS454_Deduplication() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
+    local dedupicate_path="${dataset_path%/}/temp/step_05_dedupicate/"
+    mkdir -p "$dedupicate_path"
+
+    # Dereplicate: collapse identical sequences
+    qiime vsearch dereplicate-sequences \
+        --i-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
+        --o-dereplicated-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
+        --o-dereplicated-sequences "${dedupicate_path%/}/${dataset_name}-repseq.qza"
+
+    # Remove singletons (features appearing only once)
+    qiime feature-table filter-features \
+        --i-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
+        --p-min-frequency 2 \
+        --o-filtered-table "${dedupicate_path%/}/${dataset_name}-table-nosingle.qza"
+
+    # Sync sequences with filtered table
+    qiime feature-table filter-seqs \
+        --i-data "${dedupicate_path%/}/${dataset_name}-repseq.qza" \
+        --i-table "${dedupicate_path%/}/${dataset_name}-table-nosingle.qza" \
+        --o-filtered-data "${dedupicate_path%/}/${dataset_name}-repseq-nosingle.qza"
+}
+
+Amplicon_LS454_ChimerasRemoval() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local dedupicate_path="${dataset_path%/}/temp/step_05_dedupicate/"
+    local chimeras_path="${dataset_path%/}/temp/step_06_ChimerasRemoval/"
+    mkdir -p "$chimeras_path"
+
+    # De novo chimera detection
+    qiime vsearch uchime-denovo \
+        --i-sequences "${dedupicate_path%/}/${dataset_name}-repseq-nosingle.qza" \
+        --i-table "${dedupicate_path%/}/${dataset_name}-table-nosingle.qza" \
+        --o-chimeras "${chimeras_path%/}/${dataset_name}-chimeras.qza" \
+        --o-nonchimeras "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
+        --o-stats "${chimeras_path%/}/${dataset_name}-uchime-stats.qza"
+
+    # Keep only non-chimeric features in the table
+    qiime feature-table filter-features \
+        --i-table "${dedupicate_path%/}/${dataset_name}-table-nosingle.qza" \
+        --m-metadata-file "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
+        --o-filtered-table "${chimeras_path%/}/${dataset_name}-table-nochimera.qza"
+
+    # Filter sequences to non-chimeras
+    qiime feature-table filter-seqs \
+        --i-data "${dedupicate_path%/}/${dataset_name}-repseq-nosingle.qza" \
+        --m-metadata-file "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
+        --o-filtered-data "${chimeras_path%/}/${dataset_name}-repseq-nochimera.qza"
+}
+
+Amplicon_LS454_ClusterDenovo() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local chimeras_path="${dataset_path%/}/temp/step_06_ChimerasRemoval/"
+
+    # OTU clustering at 97% identity
+    qiime vsearch cluster-features-de-novo \
+        --i-table "${chimeras_path%/}/${dataset_name}-table-nochimera.qza" \
+        --i-sequences "${chimeras_path%/}/${dataset_name}-repseq-nochimera.qza" \
+        --p-perc-identity 0.97 \
+        --o-clustered-table "${dataset_path%/}/${dataset_name}-table-vsearch.qza" \
+        --o-clustered-sequences "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza"
 }
 
 ################################################################################
