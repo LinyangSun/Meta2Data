@@ -236,7 +236,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         export dataset_path sequence_type
         export dataset_name="$dataset_ID"
 
-        if [[ "$platform" == "ILLUMINA" || "$platform" == "ION_TORRENT" ]]; then
+        if [[ "$platform" == "ILLUMINA" ]]; then
             # ── Step A: Remove sequencing adapters with fastp ──
             echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
@@ -321,7 +321,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             rm -rf "$adapter_removed_path"
             echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
-            # Run Illumina pipeline
+            # Run Illumina pipeline (dada2 denoise-paired for PE, denoise-pyro for SE)
             fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
@@ -329,6 +329,24 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Amplicon_Illumina_QualityControlForQZA
             Amplicon_Illumina_DenosingDada2
             Amplicon_Common_FinalFilesCleaning
+
+        elif [[ "$platform" == "LS454" ]]; then
+            # TODO: Implement LS454 pipeline
+            echo "⚠️ LS454 platform support is not yet implemented."
+            echo "   Pipeline steps needed: adapter removal, quality filter, dada2 denoise-pyro"
+            exit 1
+
+        elif [[ "$platform" == "ION_TORRENT" ]]; then
+            # TODO: Implement Ion Torrent pipeline
+            echo "⚠️ ION_TORRENT platform support is not yet implemented."
+            echo "   Pipeline steps needed: adapter removal, quality filter, dada2 denoise-pyro"
+            exit 1
+
+        elif [[ "$platform" == "OXFORD_NANOPORE" ]]; then
+            echo "⚠️ OXFORD_NANOPORE platform is not supported for amplicon analysis."
+            echo "   Skipping dataset: $dataset_ID"
+            echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - Platform: $platform (not supported)" >> "$failed_log"
+            continue
 
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
             # ── Step A: Remove sequencing adapters with fastp ──

@@ -505,6 +505,38 @@ Amplicon_Illumina_DenosingDada2() {
     echo "denoising complete."
 }
 ################################################################################
+#                        LS454 PLATFORM FUNCTIONS                              #
+################################################################################
+# Functions for 454 pyrosequencing data processing
+# TODO: These functions are placeholders and need to be implemented
+
+Amplicon_LS454_QualityControlForQZA() {
+    echo "TODO: Implement LS454 quality control for QZA"
+    return 1
+}
+
+Amplicon_LS454_DenosingDada2() {
+    echo "TODO: Implement LS454 denoising (dada2 denoise-pyro)"
+    return 1
+}
+
+################################################################################
+#                      ION_TORRENT PLATFORM FUNCTIONS                          #
+################################################################################
+# Functions for Ion Torrent sequencing data processing
+# TODO: These functions are placeholders and need to be implemented
+
+Amplicon_IonTorrent_QualityControlForQZA() {
+    echo "TODO: Implement Ion Torrent quality control for QZA"
+    return 1
+}
+
+Amplicon_IonTorrent_DenosingDada2() {
+    echo "TODO: Implement Ion Torrent denoising (dada2 denoise-pyro)"
+    return 1
+}
+
+################################################################################
 #                        PACBIO PLATFORM FUNCTIONS                             #
 ################################################################################
 # Functions for PacBio HiFi/CCS long-read sequencing data processing
