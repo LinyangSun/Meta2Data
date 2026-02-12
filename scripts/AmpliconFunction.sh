@@ -206,8 +206,129 @@ Common_SRADownloadToFastq_MultiSource() {
     rm -rf "$temp_dl_path"
 
     # [Note: Subsequent vsearch merging and reporting logic should follow here]
-    
+
     echo "Process finished. Output directory: $fastq_path"
+}
+
+
+Common_SRADownloadViaSFF() {
+    # Download SRA data via SFF format for LS454/ION_TORRENT platforms.
+    # SFF preserves original flowgram signals and quality scores, which are
+    # critical for dada2 denoise-pyro.
+    #
+    # Flow: prefetch → sff-dump → sff2fastq → FASTQ (with quality scores)
+    # Fallback: prefetch → fasterq-dump → FASTQ (quality may be missing)
+    local dir_path="" acc_file=""
+    OPTIND=1
+    while getopts ":d:a:" opt; do
+        case $opt in
+            d) dir_path=$OPTARG ;;
+            a) acc_file=$OPTARG ;;
+            ?) echo "Unknown Parameter: -$OPTARG" >&2; return 1 ;;
+        esac
+    done
+
+    if [[ -z "$dir_path" || -z "$acc_file" ]]; then
+        echo "Usage: Common_SRADownloadViaSFF -d <dir> -a <accession_tsv>" >&2
+        return 1
+    fi
+
+    local base_dir="${dir_path%/}/"
+    local fastq_path="${base_dir}ori_fastq/"
+    local temp_dl_path="${base_dir}temp1/"
+    mkdir -p "$fastq_path" "$temp_dl_path"
+
+    # Pre-scan for dependency check
+    local has_ncbi=false has_cncb=false
+    while IFS=$'\t' read -r srr _; do
+        [[ -z "$srr" ]] && continue
+        if [[ "$srr" =~ ^CRR ]]; then has_cncb=true
+        elif [[ "$srr" =~ ^[EDS]RR ]]; then has_ncbi=true; fi
+    done < "${base_dir}${acc_file}"
+
+    if [[ "$has_ncbi" == true ]]; then
+        command -v prefetch >/dev/null 2>&1 || { echo "Error: 'prefetch' not found" >&2; return 1; }
+        if ! command -v sff-dump >/dev/null 2>&1; then
+            echo "⚠️ 'sff-dump' not found; will fall back to fasterq-dump"
+        fi
+        if ! command -v sff2fastq >/dev/null 2>&1; then
+            echo "⚠️ 'sff2fastq' not found; will fall back to fasterq-dump"
+        fi
+    fi
+    if [[ "$has_cncb" == true ]]; then
+        command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found" >&2; return 1; }
+    fi
+
+    while IFS=$'\t' read -r srr rename _; do
+        [[ -z "$srr" || -z "$rename" ]] && continue
+
+        if [[ "$srr" =~ ^CRR ]]; then
+            # CNCB: download via wget (already FASTQ)
+            Download_CRR "$srr" "$fastq_path" "$rename"
+
+        elif [[ "$srr" =~ ^[EDS]RR ]]; then
+            echo "[NCBI/SFF] Processing $srr"
+
+            # Step 1: prefetch .sra file
+            local attempt=0
+            until prefetch -q -O "$temp_dl_path" "$srr" > /dev/null 2>&1; do
+                (( attempt++ >= 10 )) && { echo "Error: prefetch failed for $srr" >&2; break; }
+                sleep 5
+            done
+
+            local sra_file
+            sra_file=$(find "$temp_dl_path/$srr" -name "*.sra" -type f 2>/dev/null | head -1)
+
+            # Step 2: Try sff-dump → sff2fastq (preserves quality)
+            local used_sff=false
+            if [[ -n "$sra_file" ]] && command -v sff-dump >/dev/null 2>&1 && command -v sff2fastq >/dev/null 2>&1; then
+                local sff_outdir="${temp_dl_path}/sff_${srr}"
+                mkdir -p "$sff_outdir"
+
+                if sff-dump --outdir "$sff_outdir" "$sra_file" 2>/dev/null; then
+                    for sff_file in "$sff_outdir"/*.sff; do
+                        [[ -f "$sff_file" ]] || continue
+                        sff2fastq "$sff_file" -o "${fastq_path}${rename}.fastq"
+                        echo "  ✓ SFF→FASTQ: ${srr} → ${rename}.fastq (quality scores preserved)"
+                        used_sff=true
+                    done
+                else
+                    echo "  ⚠️ sff-dump failed (data may not be SFF format)"
+                fi
+                rm -rf "$sff_outdir"
+            fi
+
+            # Step 3: Fallback to fasterq-dump
+            if [[ "$used_sff" == false ]]; then
+                echo "  ↩️ Falling back to fasterq-dump..."
+                if [[ -n "$sra_file" ]]; then
+                    local temp_fq="${temp_dl_path}/fastq_${srr}"
+                    mkdir -p "$temp_fq"
+
+                    if fasterq-dump --split-3 -q "$sra_file" --outdir "$temp_fq" 2>/dev/null; then
+                        find "$temp_fq" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
+                        while IFS= read -r -d '' fq_file; do
+                            local fq_basename=$(basename "$fq_file")
+                            local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
+                            local base_filename=$(echo "$normalized" | sed "s/${srr}//")
+                            mv "$fq_file" "${fastq_path}${rename}${base_filename}"
+                            echo "  ✓ fasterq-dump: ${srr} → ${rename}${base_filename} (quality may be missing)"
+                        done
+                    else
+                        echo "Error: Both sff-dump and fasterq-dump failed for $srr" >&2
+                    fi
+                    rm -rf "$temp_fq"
+                fi
+            fi
+
+            rm -rf "${temp_dl_path:?}/$srr"
+        else
+            echo "Warning: Unknown accession format: $srr" >&2
+        fi
+    done < "${base_dir}${acc_file}"
+
+    rm -rf "$temp_dl_path"
+    echo "Process finished (SFF mode). Output directory: $fastq_path"
 }
 
 Amplicon_Common_MakeManifestFileForQiime2() {
@@ -237,8 +358,6 @@ Amplicon_Common_ImportFastqToQiime2() {
     dataset_name="${dataset_name##*/}"
 
     local paired_manifest="${temp_file_path}${dataset_name}_manifest.tsv"
-    local forward_manifest="${temp_file_path}${dataset_name}_manifest_forward.tsv"
-    local merge_log="${temp_path}${dataset_name}_vsearch_merge.log"
 
     echo "🔹 Processing dataset: $dataset_name"
 
@@ -255,86 +374,14 @@ Amplicon_Common_ImportFastqToQiime2() {
     fi
 
     # --- PAIRED-END ---
+    # Import as paired-end; DADA2 denoise-paired handles merging internally
     echo "🧬 Importing paired-end reads..."
     qiime tools import \
         --type 'SampleData[PairedEndSequencesWithQuality]' \
         --input-path "$paired_manifest" \
         --output-path "${qza_path}${dataset_name}.qza" \
         --input-format PairedEndFastqManifestPhred33V2
-
-    echo "🔄 Merging paired-end reads..."
-    # Try merging, but don't exit on failure; capture logs.
-    if ! qiime vsearch merge-pairs \
-        --i-demultiplexed-seqs "${qza_path}${dataset_name}.qza" \
-        --o-unmerged-sequences "${qza_path}${dataset_name}_unmerged.qza" \
-        --o-merged-sequences "${qza_path}${dataset_name}_join.qza" \
-        &> "$merge_log"
-    then
-        echo "⚠️ vsearch merge failed. See log: $merge_log"
-        echo "↩️ Falling back to forward reads only..."
-
-        # Build forward-only manifest from paired manifest
-        awk -F'\t' '
-            BEGIN { OFS="\t" }
-            NR==1 { 
-                print "sample-id","absolute-filepath"
-                next 
-            }
-            NR>1 {
-                print $1, $2
-            }
-        ' "$paired_manifest" > "$forward_manifest"
-
-        # Replace any existing paired artifact with forward-only import
-        rm -f "${qza_path}${dataset_name}.qza"
-        qiime tools import \
-            --type 'SampleData[SequencesWithQuality]' \
-            --input-path "$forward_manifest" \
-            --output-path "${qza_path}${dataset_name}.qza" \
-            --input-format SingleEndFastqManifestPhred33V2
-
-        echo "✅ Forward-only import completed after merge failure."
-        return
-    fi
-
-    # --- CHECK MERGE QUALITY (only if merge succeeded) ---
-    local unmerged_qza="${qza_path}${dataset_name}_unmerged.qza"
-    local merged_qza="${qza_path}${dataset_name}_join.qza"
-    local unmerged_size merged_size
-
-    unmerged_size=$(stat -c%s "$unmerged_qza")
-    merged_size=$(stat -c%s "$merged_qza")
-
-    echo "📏 unmerged.qza = $unmerged_size bytes"
-    echo "📏 merged.qza   = $merged_size bytes"
-
-    if (( $(echo "$unmerged_size * 1.5 > $merged_size" | bc -l) )); then
-        echo "⚠️ Less than ~70% merged — switching to forward reads only..."
-
-        awk -F'\t' '
-            BEGIN { OFS="\t" }
-            NR==1 { 
-                print "sample-id","absolute-filepath"
-                next 
-            }
-            NR>1 {
-                print $1, $2
-            }
-        ' "$paired_manifest" > "$forward_manifest"
-
-        rm -f "${qza_path}${dataset_name}.qza"
-        qiime tools import \
-            --type 'SampleData[SequencesWithQuality]' \
-            --input-path "$forward_manifest" \
-            --output-path "${qza_path}${dataset_name}.qza" \
-            --input-format SingleEndFastqManifestPhred33V2
-
-        echo "✅ Forward-only import completed."
-    else
-        echo "✅ Merge quality acceptable. Using merged reads."
-        rm -f "${qza_path}${dataset_name}.qza"
-        mv "$merged_qza" "${qza_path}${dataset_name}.qza"
-    fi
+    echo "✅ Paired-end import completed."
 }
 Amplicon_Common_FinalFilesCleaning() {
     dataset_path="${dataset_path%/}/"
@@ -442,6 +489,7 @@ Amplicon_Illumina_QualityControlForQZA(){
 Amplicon_Illumina_DenosingDada2() {
     # Parse flags: -s <start>, -e <end>
     local start_in="" end_in="" opt
+    OPTIND=1
     while getopts ":s:e:" opt; do
         case "$opt" in
             s) start_in="$OPTARG" ;;
@@ -451,7 +499,6 @@ Amplicon_Illumina_DenosingDada2() {
         esac
     done
     shift $((OPTIND-1))
-    # Safety
     set -euo pipefail
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
@@ -464,47 +511,152 @@ Amplicon_Illumina_DenosingDada2() {
     local qf_trim_pos_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
     mkdir -p "$denoising_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
     local dataset_name="${base##*/}"
-    # Decide if we need to compute positions
-    local need_compute=true
-    [[ -n "$start_in" && -n "$end_in" ]] && need_compute=false
-    echo  "start_in: $start_in ; end_in $end_in"
-    local start_calc="" end_calc=""
-    echo "need_compute is : $need_compute"
-    if $need_compute; then
-        echo "Computing trim positions from QIIME 2 visualization..."
-        qiime demux summarize \
-            --i-data "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
-            --o-visualization "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv"
-        unzip -q -o "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv" -d "$qf_view_path"
-        # Fixed wrong var name from original; keep forward file
-        find "$qf_view_path" -type f -name 'forward-seven-number-summaries.tsv' -exec cp -f {} "${qf_trim_pos_path%/}/" \;
-        rm -rf "$qf_view_path"
-        local tsv_path="${qf_trim_pos_path%/}/forward-seven-number-summaries.tsv"
-        if [[ ! -s "$tsv_path" ]]; then
-            echo "ERROR: Expected TSV not found: $tsv_path" >&2
-            return 1
+
+    local qza_file="${quality_filter_path%/}/${dataset_name}_QualityFilter.qza"
+
+    # Detect if data is paired-end or single-end
+    local qza_type
+    qza_type=$(qiime tools peek "$qza_file" | grep "Type:" | sed 's/.*Type:[[:space:]]*//')
+    echo "📊 Detected QZA type: $qza_type"
+
+    if [[ "$qza_type" == *"PairedEnd"* ]]; then
+        # ── PAIRED-END: use dada2 denoise-paired ──
+        echo "📊 Using dada2 denoise-paired for paired-end data..."
+        local need_compute=true
+        [[ -n "$start_in" && -n "$end_in" ]] && need_compute=false
+
+        local start_f="" end_f="" start_r="" end_r=""
+
+        if $need_compute; then
+            echo "Computing trim positions from QIIME 2 visualization..."
+            qiime demux summarize \
+                --i-data "$qza_file" \
+                --o-visualization "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv"
+            unzip -q -o "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv" -d "$qf_view_path"
+
+            # Forward trim positions
+            find "$qf_view_path" -type f -name 'forward-seven-number-summaries.tsv' -exec cp -f {} "${qf_trim_pos_path%/}/" \;
+            local fwd_tsv="${qf_trim_pos_path%/}/forward-seven-number-summaries.tsv"
+            if [[ ! -s "$fwd_tsv" ]]; then
+                echo "ERROR: Forward seven-number-summaries.tsv not found" >&2
+                return 1
+            fi
+            local fwd_result
+            fwd_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$fwd_tsv")"
+            echo "Forward: $fwd_result"
+            IFS=',' read -r start_f end_f <<< "$fwd_result"
+
+            # Reverse trim positions
+            find "$qf_view_path" -type f -name 'reverse-seven-number-summaries.tsv' -exec cp -f {} "${qf_trim_pos_path%/}/" \;
+            local rev_tsv="${qf_trim_pos_path%/}/reverse-seven-number-summaries.tsv"
+            if [[ -s "$rev_tsv" ]]; then
+                local rev_result
+                rev_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$rev_tsv")"
+                echo "Reverse: $rev_result"
+                IFS=',' read -r start_r end_r <<< "$rev_result"
+            else
+                echo "⚠️ No reverse summary found, using forward positions for reverse"
+                start_r="$start_f"
+                end_r="$end_f"
+            fi
+
+            rm -rf "$qf_view_path"
+            echo "Computed: forward start=$start_f, end=$end_f; reverse start=$start_r, end=$end_r"
         fi
-        local trim_pos_result
-        trim_pos_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$tsv_path")"
-        echo "$trim_pos_result"
-        IFS=',' read -r final_start final_end <<< "$trim_pos_result"
-        echo "Computed: start=$final_start, end=$final_end"
+
+        local start="${start_in:-$start_f}"
+        local end="${end_in:-$end_f}"
+        local start_rev="${start_in:-$start_r}"
+        local end_rev="${end_in:-$end_r}"
+        echo "Using trim positions: forward start=$start, end=$end; reverse start=$start_rev, end=$end_rev"
+        echo "$start $end $start_rev $end_rev" > "${qf_trim_pos_path%/}/Trim_position.txt"
+
+        qiime dada2 denoise-paired \
+            --i-demultiplexed-seqs "$qza_file" \
+            --p-trunc-len-f "$end" \
+            --p-trunc-len-r "$end_rev" \
+            --p-trim-left-f "$start" \
+            --p-trim-left-r "$start_rev" \
+            --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
+            --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
+            --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+    else
+        # ── SINGLE-END: use dada2 denoise-pyro ──
+        echo "📊 Using dada2 denoise-pyro for single-end data..."
+        local need_compute=true
+        [[ -n "$start_in" && -n "$end_in" ]] && need_compute=false
+        echo "start_in: $start_in ; end_in: $end_in"
+        echo "need_compute is: $need_compute"
+
+        local final_start="" final_end=""
+
+        if $need_compute; then
+            echo "Computing trim positions from QIIME 2 visualization..."
+            qiime demux summarize \
+                --i-data "$qza_file" \
+                --o-visualization "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv"
+            unzip -q -o "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv" -d "$qf_view_path"
+            find "$qf_view_path" -type f -name 'forward-seven-number-summaries.tsv' -exec cp -f {} "${qf_trim_pos_path%/}/" \;
+            rm -rf "$qf_view_path"
+            local tsv_path="${qf_trim_pos_path%/}/forward-seven-number-summaries.tsv"
+            if [[ ! -s "$tsv_path" ]]; then
+                echo "ERROR: Expected TSV not found: $tsv_path" >&2
+                return 1
+            fi
+            local trim_pos_result
+            trim_pos_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$tsv_path")"
+            echo "$trim_pos_result"
+            IFS=',' read -r final_start final_end <<< "$trim_pos_result"
+            echo "Computed: start=$final_start, end=$final_end"
+        fi
+
+        local start="${start_in:-$final_start}"
+        local end="${end_in:-$final_end}"
+        echo "Using trim positions: start=$start, end=$end"
+        echo "$start $end" > "${qf_trim_pos_path%/}/Trim_position.txt"
+
+        qiime dada2 denoise-pyro \
+            --i-demultiplexed-seqs "$qza_file" \
+            --p-trunc-len "$end" \
+            --p-trim-left "$start" \
+            --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
+            --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
+            --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
     fi
-    # Final positions: use flags if set, otherwise computed
-    local start="${start_in:-$final_start}"
-    local end="${end_in:-$final_end}"
-    echo "Using trim positions: start=$start, end=$end"
-    echo "$start $end" > "${qf_trim_pos_path%/}/Trim_position.txt"
-    # Deblur
-    qiime dada2 denoise-pyro \
-        --i-demultiplexed-seqs "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
-        --p-trunc-len "$end" \
-        --p-trim-left "$start" \
-        --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
-        --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
-        --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
     echo "denoising complete."
 }
+################################################################################
+#                        LS454 PLATFORM FUNCTIONS                              #
+################################################################################
+# Functions for 454 pyrosequencing data processing
+# TODO: These functions are placeholders and need to be implemented
+
+Amplicon_LS454_QualityControlForQZA() {
+    echo "TODO: Implement LS454 quality control for QZA"
+    return 1
+}
+
+Amplicon_LS454_DenosingDada2() {
+    echo "TODO: Implement LS454 denoising (dada2 denoise-pyro)"
+    return 1
+}
+
+################################################################################
+#                      ION_TORRENT PLATFORM FUNCTIONS                          #
+################################################################################
+# Functions for Ion Torrent sequencing data processing
+# TODO: These functions are placeholders and need to be implemented
+
+Amplicon_IonTorrent_QualityControlForQZA() {
+    echo "TODO: Implement Ion Torrent quality control for QZA"
+    return 1
+}
+
+Amplicon_IonTorrent_DenosingDada2() {
+    echo "TODO: Implement Ion Torrent denoising (dada2 denoise-pyro)"
+    return 1
+}
+
 ################################################################################
 #                        PACBIO PLATFORM FUNCTIONS                             #
 ################################################################################
