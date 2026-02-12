@@ -206,8 +206,129 @@ Common_SRADownloadToFastq_MultiSource() {
     rm -rf "$temp_dl_path"
 
     # [Note: Subsequent vsearch merging and reporting logic should follow here]
-    
+
     echo "Process finished. Output directory: $fastq_path"
+}
+
+
+Common_SRADownloadViaSFF() {
+    # Download SRA data via SFF format for LS454/ION_TORRENT platforms.
+    # SFF preserves original flowgram signals and quality scores, which are
+    # critical for dada2 denoise-pyro.
+    #
+    # Flow: prefetch → sff-dump → sff2fastq → FASTQ (with quality scores)
+    # Fallback: prefetch → fasterq-dump → FASTQ (quality may be missing)
+    local dir_path="" acc_file=""
+    OPTIND=1
+    while getopts ":d:a:" opt; do
+        case $opt in
+            d) dir_path=$OPTARG ;;
+            a) acc_file=$OPTARG ;;
+            ?) echo "Unknown Parameter: -$OPTARG" >&2; return 1 ;;
+        esac
+    done
+
+    if [[ -z "$dir_path" || -z "$acc_file" ]]; then
+        echo "Usage: Common_SRADownloadViaSFF -d <dir> -a <accession_tsv>" >&2
+        return 1
+    fi
+
+    local base_dir="${dir_path%/}/"
+    local fastq_path="${base_dir}ori_fastq/"
+    local temp_dl_path="${base_dir}temp1/"
+    mkdir -p "$fastq_path" "$temp_dl_path"
+
+    # Pre-scan for dependency check
+    local has_ncbi=false has_cncb=false
+    while IFS=$'\t' read -r srr _; do
+        [[ -z "$srr" ]] && continue
+        if [[ "$srr" =~ ^CRR ]]; then has_cncb=true
+        elif [[ "$srr" =~ ^[EDS]RR ]]; then has_ncbi=true; fi
+    done < "${base_dir}${acc_file}"
+
+    if [[ "$has_ncbi" == true ]]; then
+        command -v prefetch >/dev/null 2>&1 || { echo "Error: 'prefetch' not found" >&2; return 1; }
+        if ! command -v sff-dump >/dev/null 2>&1; then
+            echo "⚠️ 'sff-dump' not found; will fall back to fasterq-dump"
+        fi
+        if ! command -v sff2fastq >/dev/null 2>&1; then
+            echo "⚠️ 'sff2fastq' not found; will fall back to fasterq-dump"
+        fi
+    fi
+    if [[ "$has_cncb" == true ]]; then
+        command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found" >&2; return 1; }
+    fi
+
+    while IFS=$'\t' read -r srr rename _; do
+        [[ -z "$srr" || -z "$rename" ]] && continue
+
+        if [[ "$srr" =~ ^CRR ]]; then
+            # CNCB: download via wget (already FASTQ)
+            Download_CRR "$srr" "$fastq_path" "$rename"
+
+        elif [[ "$srr" =~ ^[EDS]RR ]]; then
+            echo "[NCBI/SFF] Processing $srr"
+
+            # Step 1: prefetch .sra file
+            local attempt=0
+            until prefetch -q -O "$temp_dl_path" "$srr" > /dev/null 2>&1; do
+                (( attempt++ >= 10 )) && { echo "Error: prefetch failed for $srr" >&2; break; }
+                sleep 5
+            done
+
+            local sra_file
+            sra_file=$(find "$temp_dl_path/$srr" -name "*.sra" -type f 2>/dev/null | head -1)
+
+            # Step 2: Try sff-dump → sff2fastq (preserves quality)
+            local used_sff=false
+            if [[ -n "$sra_file" ]] && command -v sff-dump >/dev/null 2>&1 && command -v sff2fastq >/dev/null 2>&1; then
+                local sff_outdir="${temp_dl_path}/sff_${srr}"
+                mkdir -p "$sff_outdir"
+
+                if sff-dump --outdir "$sff_outdir" "$sra_file" 2>/dev/null; then
+                    for sff_file in "$sff_outdir"/*.sff; do
+                        [[ -f "$sff_file" ]] || continue
+                        sff2fastq "$sff_file" -o "${fastq_path}${rename}.fastq"
+                        echo "  ✓ SFF→FASTQ: ${srr} → ${rename}.fastq (quality scores preserved)"
+                        used_sff=true
+                    done
+                else
+                    echo "  ⚠️ sff-dump failed (data may not be SFF format)"
+                fi
+                rm -rf "$sff_outdir"
+            fi
+
+            # Step 3: Fallback to fasterq-dump
+            if [[ "$used_sff" == false ]]; then
+                echo "  ↩️ Falling back to fasterq-dump..."
+                if [[ -n "$sra_file" ]]; then
+                    local temp_fq="${temp_dl_path}/fastq_${srr}"
+                    mkdir -p "$temp_fq"
+
+                    if fasterq-dump --split-3 -q "$sra_file" --outdir "$temp_fq" 2>/dev/null; then
+                        find "$temp_fq" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
+                        while IFS= read -r -d '' fq_file; do
+                            local fq_basename=$(basename "$fq_file")
+                            local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
+                            local base_filename=$(echo "$normalized" | sed "s/${srr}//")
+                            mv "$fq_file" "${fastq_path}${rename}${base_filename}"
+                            echo "  ✓ fasterq-dump: ${srr} → ${rename}${base_filename} (quality may be missing)"
+                        done
+                    else
+                        echo "Error: Both sff-dump and fasterq-dump failed for $srr" >&2
+                    fi
+                    rm -rf "$temp_fq"
+                fi
+            fi
+
+            rm -rf "${temp_dl_path:?}/$srr"
+        else
+            echo "Warning: Unknown accession format: $srr" >&2
+        fi
+    done < "${base_dir}${acc_file}"
+
+    rm -rf "$temp_dl_path"
+    echo "Process finished (SFF mode). Output directory: $fastq_path"
 }
 
 Amplicon_Common_MakeManifestFileForQiime2() {

@@ -331,16 +331,145 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "LS454" ]]; then
-            # TODO: Implement LS454 pipeline
-            echo "⚠️ LS454 platform support is not yet implemented."
-            echo "   Pipeline steps needed: adapter removal, quality filter, dada2 denoise-pyro"
-            exit 1
+            # ── Step A: Download via SFF (preserves flowgram quality scores) ──
+            echo ">>> Downloading SRA data via SFF format (454 preferred)..."
+            Common_SRADownloadViaSFF -d "$dataset_path" -a "${sra_file_name}"
+
+            # ── Step B: Remove sequencing adapters with fastp (454 is typically SE) ──
+            echo ">>> Removing sequencing adapters with fastp..."
+            adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
+            mkdir -p "$adapter_removed_path"
+
+            for fq in "$ori_fastq_path"*.fastq*; do
+                [[ -f "$fq" ]] || continue
+                fastp -i "$fq" \
+                      -o "${adapter_removed_path}$(basename "$fq")" \
+                      --disable_quality_filtering \
+                      --disable_length_filtering \
+                      -w "$cpu" \
+                      -j "${adapter_removed_path}fastp.json" \
+                      -h "${adapter_removed_path}fastp.html"
+                echo "  ✓ Adapter removal: $(basename "$fq")"
+            done
+            echo "✓ Adapter removal completed"
+
+            # ── Step C: Entropy-based primer detection & trimming ──
+            echo ">>> Detecting and removing primers (entropy method)..."
+            fastp_path="${dataset_path}temp/step_02_fastp/"
+            mkdir -p "$fastp_path"
+
+            python3 "${SCRIPTS}/entropy_primer_detect.py" \
+                -i "$adapter_removed_path" \
+                -o "$fastp_path" || {
+                echo "  ✗ Entropy primer detection failed"
+                exit 1
+            }
+
+            echo "✓ Entropy primer detection/removal completed"
+
+            echo ">>> Cleaning up intermediate files..."
+            rm -rf "$ori_fastq_path"
+            rm -rf "$adapter_removed_path"
+            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
+
+            # Run LS454 pipeline (TODO: QC and denoising not yet implemented)
+            fastq_path="$fastp_path"
+            export fastq_path
+            Amplicon_Common_MakeManifestFileForQiime2
+            Amplicon_Common_ImportFastqToQiime2
+            Amplicon_LS454_QualityControlForQZA
+            Amplicon_LS454_DenosingDada2
+            Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "ION_TORRENT" ]]; then
-            # TODO: Implement Ion Torrent pipeline
-            echo "⚠️ ION_TORRENT platform support is not yet implemented."
-            echo "   Pipeline steps needed: adapter removal, quality filter, dada2 denoise-pyro"
-            exit 1
+            # ── Step A: Download via SFF (preserves flowgram quality scores) ──
+            echo ">>> Downloading SRA data via SFF format (Ion Torrent)..."
+            Common_SRADownloadViaSFF -d "$dataset_path" -a "${sra_file_name}"
+
+            # ── Step B: Remove sequencing adapters with fastp ──
+            echo ">>> Removing sequencing adapters with fastp..."
+            adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
+            mkdir -p "$adapter_removed_path"
+
+            if [[ "$sequence_type" == "paired" ]]; then
+                pe_done=false
+                for r1 in "$ori_fastq_path"*_R1*.fastq*; do
+                    [[ -f "$r1" ]] || continue
+                    r2="${r1/_R1/_R2}"
+                    [[ -f "$r2" ]] || continue
+                    r1_out=$(basename "$r1"); r1_out="${r1_out/_R1/_1}"
+                    r2_out=$(basename "$r2"); r2_out="${r2_out/_R2/_2}"
+                    fastp -i "$r1" -I "$r2" \
+                          -o "${adapter_removed_path}${r1_out}" \
+                          -O "${adapter_removed_path}${r2_out}" \
+                          --detect_adapter_for_pe \
+                          --disable_quality_filtering \
+                          --disable_length_filtering \
+                          -w "$cpu" \
+                          -j "${adapter_removed_path}fastp.json" \
+                          -h "${adapter_removed_path}fastp.html"
+                    echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2") → ${r1_out} + ${r2_out}"
+                    pe_done=true
+                done
+                if [[ "$pe_done" == false ]]; then
+                    for r1 in "$ori_fastq_path"*_1.fastq*; do
+                        [[ -f "$r1" ]] || continue
+                        r2="${r1/_1.fastq/_2.fastq}"
+                        [[ -f "$r2" ]] || continue
+                        fastp -i "$r1" -I "$r2" \
+                              -o "${adapter_removed_path}$(basename "$r1")" \
+                              -O "${adapter_removed_path}$(basename "$r2")" \
+                              --detect_adapter_for_pe \
+                              --disable_quality_filtering \
+                              --disable_length_filtering \
+                              -w "$cpu" \
+                              -j "${adapter_removed_path}fastp.json" \
+                              -h "${adapter_removed_path}fastp.html"
+                        echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2")"
+                    done
+                fi
+            else
+                for fq in "$ori_fastq_path"*.fastq*; do
+                    [[ -f "$fq" ]] || continue
+                    fastp -i "$fq" \
+                          -o "${adapter_removed_path}$(basename "$fq")" \
+                          --disable_quality_filtering \
+                          --disable_length_filtering \
+                          -w "$cpu" \
+                          -j "${adapter_removed_path}fastp.json" \
+                          -h "${adapter_removed_path}fastp.html"
+                    echo "  ✓ Adapter removal: $(basename "$fq")"
+                done
+            fi
+            echo "✓ Adapter removal completed"
+
+            # ── Step C: Entropy-based primer detection & trimming ──
+            echo ">>> Detecting and removing primers (entropy method)..."
+            fastp_path="${dataset_path}temp/step_02_fastp/"
+            mkdir -p "$fastp_path"
+
+            python3 "${SCRIPTS}/entropy_primer_detect.py" \
+                -i "$adapter_removed_path" \
+                -o "$fastp_path" || {
+                echo "  ✗ Entropy primer detection failed"
+                exit 1
+            }
+
+            echo "✓ Entropy primer detection/removal completed"
+
+            echo ">>> Cleaning up intermediate files..."
+            rm -rf "$ori_fastq_path"
+            rm -rf "$adapter_removed_path"
+            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
+
+            # Run Ion Torrent pipeline (TODO: QC and denoising not yet implemented)
+            fastq_path="$fastp_path"
+            export fastq_path
+            Amplicon_Common_MakeManifestFileForQiime2
+            Amplicon_Common_ImportFastqToQiime2
+            Amplicon_IonTorrent_QualityControlForQZA
+            Amplicon_IonTorrent_DenosingDada2
+            Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "OXFORD_NANOPORE" ]]; then
             echo "⚠️ OXFORD_NANOPORE platform is not supported for amplicon analysis."
