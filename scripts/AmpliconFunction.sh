@@ -26,43 +26,31 @@ set -e
 #                         COMMON FUNCTIONS                                     #
 ################################################################################
 # Functions shared across all sequencing platforms
-Download_CRR_Aspera() {
+Download_CRR() {
     local crr=$1
     local target_dir=$2
     local rename_prefix=$3
     local max_retries=3
-    local ascp_key=".aspera01.openssh"
-    
+
     echo "[CNCB] Processing $crr"
 
-    # 1. Ensure Aspera key exists
-    if [[ ! -f "$ascp_key" ]]; then
-        wget -q --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/file/downFile?fileName=download/aspera01.openssh" -O "$ascp_key"
-        chmod 600 "$ascp_key"
-    fi
-
-    # 2. Map CRR to parent CRA ID
+    # 1. Map CRR to parent CRA ID
     local cra=$(wget -qO- --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search?searchTerm=${crr}" | grep -v "example" | grep -oe "CRA[0-9]\+" | uniq | head -n 1)
-    
+
     if [[ -z "$cra" ]]; then
         echo "Error: Could not map $crr to a CRA project." >&2
         return 1
     fi
 
-    # 3. Fetch project MD5 list and path prefix
+    # 2. Fetch project MD5 list and path prefix
     local md5_file="${cra}_md5.txt"
     local path_prefix=""
+    path_prefix=$(wget -qO- --post-data="searchTerm=${cra}&totalDatas=1&downLoadCount=1" --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search/getRunInfoByCra" | grep -oe "gsa[0-9]\+/${cra}\|gsa/${cra}" | uniq | head -n 1)
     if [[ ! -s "$md5_file" ]]; then
-        path_prefix=$(wget -qO- --post-data="searchTerm=${cra}&totalDatas=1&downLoadCount=1" --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search/getRunInfoByCra" | grep -oe "gsa[0-9]\+/${cra}\|gsa/${cra}" | uniq | head -n 1)
         wget -q "https://download.cncb.ac.cn/${path_prefix}/md5sum.txt" -O "$md5_file"
-    else
-        # Get path prefix from existing md5 file or fetch it
-        path_prefix=$(wget -qO- --post-data="searchTerm=${cra}&totalDatas=1&downLoadCount=1" --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search/getRunInfoByCra" | grep -oe "gsa[0-9]\+/${cra}\|gsa/${cra}" | uniq | head -n 1)
     fi
 
-    echo "  Using path prefix: $path_prefix"
-
-    # 4. Identify files belonging to the CRR accession
+    # 3. Identify files belonging to the CRR accession
     local -a files
     while IFS= read -r filepath; do
         files+=("$(basename "$filepath")")
@@ -72,12 +60,9 @@ Download_CRR_Aspera() {
         local expected_md5=$(grep "$filename" "$md5_file" | awk '{print tolower($1)}')
         local success=false
 
-        # Try Aspera first
-        echo "  Trying Aspera for $filename..."
         for ((i=1; i<=max_retries; i++)); do
-            # Aspera download (Quiet mode)
-            if command -v ascp >/dev/null 2>&1 && ascp -P 33001 -i "$ascp_key" -QT -l 200M -k1 -d "aspera01@download.cncb.ac.cn:gsa/${cra}/${crr}/${filename}" . > /dev/null 2>&1; then
-                # MD5 Verification
+            local wget_url="https://download.cncb.ac.cn/${path_prefix}/${crr}/${filename}"
+            if wget -q --user-agent="Mozilla/5.0" "$wget_url" -O "$filename"; then
                 if [[ -f "$filename" ]]; then
                     local current_md5=$(md5sum "$filename" | awk '{print $1}')
                     if [[ "$current_md5" == "$expected_md5" ]]; then
@@ -87,9 +72,10 @@ Download_CRR_Aspera() {
                         local base_filename=$(echo "$new_filename" | sed "s/${crr}//")
                         mv "$filename" "${target_dir}/${rename_prefix}${base_filename}"
                         success=true
-                        echo "  ✓ Downloaded via Aspera: $filename → ${rename_prefix}${base_filename}"
+                        echo "  ✓ Downloaded: $filename → ${rename_prefix}${base_filename}"
                         break
                     else
+                        echo "  MD5 mismatch (attempt $i/$max_retries), retrying..."
                         rm -f "$filename"
                     fi
                 fi
@@ -97,37 +83,8 @@ Download_CRR_Aspera() {
             [[ $i -lt $max_retries ]] && sleep 2
         done
 
-        # Fallback to wget if Aspera failed
         if [[ "$success" = false ]]; then
-            echo "  Aspera failed, trying wget for $filename..."
-            for ((i=1; i<=max_retries; i++)); do
-                local wget_url="https://download.cncb.ac.cn/${path_prefix}/${crr}/${filename}"
-                echo "    Downloading from: $wget_url"
-                if wget -q --user-agent="Mozilla/5.0" "$wget_url" -O "$filename"; then
-                    # MD5 Verification
-                    if [[ -f "$filename" ]]; then
-                        local current_md5=$(md5sum "$filename" | awk '{print $1}')
-                        if [[ "$current_md5" == "$expected_md5" ]]; then
-                            # Standardize filename: _r1/_R1 → _1, _r2/_R2 → _2
-                            local new_filename=$(echo "$filename" | sed -E 's/_[rR]1([._])/_1\1/; s/_[rR]2([._])/_2\1/')
-                            # Strip CRR ID from filename (keep the separator)
-                            local base_filename=$(echo "$new_filename" | sed "s/${crr}//")
-                            mv "$filename" "${target_dir}/${rename_prefix}${base_filename}"
-                            success=true
-                            echo "  ✓ Downloaded via wget: $filename → ${rename_prefix}${base_filename}"
-                            break
-                        else
-                            echo "  MD5 mismatch, retrying..."
-                            rm -f "$filename"
-                        fi
-                    fi
-                fi
-                [[ $i -lt $max_retries ]] && sleep 2
-            done
-        fi
-
-        if [[ "$success" = false ]]; then
-            echo "Error: Failed to download $filename after trying both Aspera and wget." >&2
+            echo "Error: Failed to download $filename after $max_retries attempts." >&2
             return 1
         fi
     done
@@ -172,7 +129,6 @@ Common_SRADownloadToFastq_MultiSource() {
     fi
 
     if [[ "$has_cncb_accessions" == true ]]; then
-        command -v ascp >/dev/null 2>&1 || { echo "Warning: 'ascp' not found. CRR downloads will use wget (slower)." >&2; }
         command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found (required for CNCB CRR downloads)." >&2; return 1; }
     fi
 
@@ -188,7 +144,7 @@ Common_SRADownloadToFastq_MultiSource() {
         # Route by ID type (CRR vs SRR/ERR/DRR)
         if [[ "$srr" =~ ^CRR ]]; then
             # CRR files go directly to ori_fastq/ with rename prefix
-            Download_CRR_Aspera "$srr" "$fastq_path" "$rename"
+            Download_CRR "$srr" "$fastq_path" "$rename"
 
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
             echo "[NCBI] Processing $srr"
