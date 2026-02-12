@@ -733,16 +733,38 @@ Amplicon_LS454_ClusterDenovo() {
 #                      ION_TORRENT PLATFORM FUNCTIONS                          #
 ################################################################################
 # Functions for Ion Torrent sequencing data processing
-# TODO: These functions are placeholders and need to be implemented
+# Same OTU pipeline as LS454, with additional 15-base front trimming after QC
+# to remove Ion Torrent key signal artifact.
 
 Amplicon_IonTorrent_QualityControlForQZA() {
-    echo "TODO: Implement Ion Torrent quality control for QZA"
-    return 1
-}
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local qza_path="${dataset_path%/}/temp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
+    mkdir -p "$quality_filter_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
 
-Amplicon_IonTorrent_DenosingDada2() {
-    echo "TODO: Implement Ion Torrent denoising (dada2 denoise-pyro)"
-    return 1
+    # Step 1: Length filter + N removal (same as 454, no q-score filtering)
+    qiime quality-filter q-score \
+        --i-demux "${qza_path%/}/${dataset_name}.qza" \
+        --p-min-quality 0 \
+        --p-min-length-fraction 0.85 \
+        --p-max-ambiguous 0 \
+        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter_pretrim.qza" \
+        --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
+        --verbose
+
+    # Step 2: Trim first 15 bases (Ion Torrent key signal artifact)
+    # N is an IUPAC wildcard matching any base, so 15 N's will unconditionally
+    # trim the first 15 bases from every read.
+    qiime cutadapt trim-single \
+        --i-demultiplexed-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter_pretrim.qza" \
+        --p-front "NNNNNNNNNNNNNNN" \
+        --o-trimmed-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza"
+
+    # Clean up intermediate file
+    rm -f "${quality_filter_path%/}/${dataset_name}_QualityFilter_pretrim.qza"
 }
 
 ################################################################################

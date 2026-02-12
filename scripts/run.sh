@@ -382,79 +382,34 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "ION_TORRENT" ]]; then
-            # ── Step A: Download via SFF (preserves flowgram quality scores) ──
-            echo ">>> Downloading SRA data via SFF format (Ion Torrent)..."
-            Common_SRADownloadViaSFF -d "$dataset_path" -a "${sra_file_name}"
+            # ── Step A: Download with normal prefetch + fasterq-dump (same as 454) ──
+            echo ">>> Downloading SRA data (Ion Torrent)..."
+            Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
 
-            # Detect PE/SE after download
-            line_count=$(wc -l < "${dataset_path}${sra_file_name}")
-            file_count=$(find "$ori_fastq_path" -type f 2>/dev/null | wc -l)
-            if [ $((line_count * 2)) -eq $file_count ]; then
-                sequence_type="paired"
-            else
-                sequence_type="single"
-            fi
+            # Ion Torrent treated as single-end (same as 454)
+            sequence_type="single"
             echo "Sequence type: ${sequence_type^^}"
             export sequence_type
 
-            # ── Step B: Remove sequencing adapters with fastp ──
+            # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
             echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
 
-            if [[ "$sequence_type" == "paired" ]]; then
-                pe_done=false
-                for r1 in "$ori_fastq_path"*_R1*.fastq*; do
-                    [[ -f "$r1" ]] || continue
-                    r2="${r1/_R1/_R2}"
-                    [[ -f "$r2" ]] || continue
-                    r1_out=$(basename "$r1"); r1_out="${r1_out/_R1/_1}"
-                    r2_out=$(basename "$r2"); r2_out="${r2_out/_R2/_2}"
-                    fastp -i "$r1" -I "$r2" \
-                          -o "${adapter_removed_path}${r1_out}" \
-                          -O "${adapter_removed_path}${r2_out}" \
-                          --detect_adapter_for_pe \
-                          --disable_quality_filtering \
-                          --disable_length_filtering \
-                          -w "$cpu" \
-                          -j "${adapter_removed_path}fastp.json" \
-                          -h "${adapter_removed_path}fastp.html"
-                    echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2") → ${r1_out} + ${r2_out}"
-                    pe_done=true
-                done
-                if [[ "$pe_done" == false ]]; then
-                    for r1 in "$ori_fastq_path"*_1.fastq*; do
-                        [[ -f "$r1" ]] || continue
-                        r2="${r1/_1.fastq/_2.fastq}"
-                        [[ -f "$r2" ]] || continue
-                        fastp -i "$r1" -I "$r2" \
-                              -o "${adapter_removed_path}$(basename "$r1")" \
-                              -O "${adapter_removed_path}$(basename "$r2")" \
-                              --detect_adapter_for_pe \
-                              --disable_quality_filtering \
-                              --disable_length_filtering \
-                              -w "$cpu" \
-                              -j "${adapter_removed_path}fastp.json" \
-                              -h "${adapter_removed_path}fastp.html"
-                        echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2")"
-                    done
-                fi
-            else
-                for fq in "$ori_fastq_path"*.fastq*; do
-                    [[ -f "$fq" ]] || continue
-                    fastp -i "$fq" \
-                          -o "${adapter_removed_path}$(basename "$fq")" \
-                          --disable_quality_filtering \
-                          --disable_length_filtering \
-                          -w "$cpu" \
-                          -j "${adapter_removed_path}fastp.json" \
-                          -h "${adapter_removed_path}fastp.html"
-                    echo "  ✓ Adapter removal: $(basename "$fq")"
-                done
-            fi
+            for fq in "$ori_fastq_path"*.fastq*; do
+                [[ -f "$fq" ]] || continue
+                fastp -i "$fq" \
+                      -o "${adapter_removed_path}$(basename "$fq")" \
+                      --disable_quality_filtering \
+                      --disable_length_filtering \
+                      -w "$cpu" \
+                      -j "${adapter_removed_path}fastp.json" \
+                      -h "${adapter_removed_path}fastp.html"
+                echo "  ✓ Adapter removal: $(basename "$fq")"
+            done
             echo "✓ Adapter removal completed"
 
-            # ── Step C: Entropy-based primer detection & trimming ──
+            # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
             echo ">>> Detecting and removing primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
@@ -473,13 +428,15 @@ for i in "${!Dataset_ID_sets[@]}"; do
             rm -rf "$adapter_removed_path"
             echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
-            # Run Ion Torrent pipeline (TODO: QC and denoising not yet implemented)
+            # ── Step D: QIIME2 Import → Length filter + trim 15bp → Dedup → Chimera → OTU 97% ──
             fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
             Amplicon_IonTorrent_QualityControlForQZA
-            Amplicon_IonTorrent_DenosingDada2
+            Amplicon_LS454_Deduplication
+            Amplicon_LS454_ChimerasRemoval
+            Amplicon_LS454_ClusterDenovo
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "OXFORD_NANOPORE" ]]; then
