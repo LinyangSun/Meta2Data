@@ -415,6 +415,26 @@ _IUPAC = {
     'N': {'A', 'C', 'G', 'T'},
 }
 
+_COMPLEMENT = str.maketrans(
+    'ACGTRYSWKMBDHVNacgtryswkmbdhvn',
+    'TGCAYRSWMKVHDBNtgcayrswmkvhdbn')
+
+
+def reverse_complement_iupac(seq):
+    """
+    Reverse complement a sequence, supporting IUPAC degenerate bases.
+
+    IUPAC complement rules:
+      A<->T, C<->G, R(AG)<->Y(CT), S(GC)<->S(GC), W(AT)<->W(AT),
+      K(GT)<->M(AC), B(CGT)<->V(ACG), D(AGT)<->H(ACT), N<->N
+
+    Used for R-end primer matching: R2 reads start with the reverse primer
+    oligo sequence (5'->3'), but some databases store reverse primers in
+    the reference orientation (reverse complement of the oligo). This
+    function allows matching in both orientations.
+    """
+    return seq.translate(_COMPLEMENT)[::-1]
+
 # Common 16S rRNA gene primers (5'->3' as they appear in reads)
 KNOWN_16S_PRIMERS = [
     # Forward primers
@@ -452,30 +472,41 @@ def match_known_primer(consensus, min_identity=0.85):
     For each known primer, checks if the first len(primer) bases of the
     consensus match with >= min_identity (IUPAC-aware comparison).
 
-    Returns (primer_name, primer_length) or (None, 0).
+    Both the original primer sequence and its reverse complement are tested,
+    so the match works regardless of how the database stores R-end primers:
+      - Oligo orientation (5'->3'):   matches R2 reads directly
+      - Reference orientation (RC):   matched via reverse complement
+
+    Returns (primer_name, primer_length, identity) or (None, 0, 0.0).
     """
     if not consensus:
-        return None, 0
+        return None, 0, 0.0
 
     best_name = None
     best_len = 0
     best_score = 0.0
 
     for name, primer_seq in KNOWN_16S_PRIMERS:
-        plen = len(primer_seq)
-        if plen > len(consensus):
-            continue
+        # Try both orientations: original and reverse complement
+        candidates = [
+            (primer_seq, ""),
+            (reverse_complement_iupac(primer_seq), "_RC"),
+        ]
+        for seq, suffix in candidates:
+            plen = len(seq)
+            if plen > len(consensus):
+                continue
 
-        matches = sum(1 for i in range(plen)
-                      if _iupac_compatible(consensus[i], primer_seq[i]))
-        identity = matches / plen
+            matches = sum(1 for i in range(plen)
+                          if _iupac_compatible(consensus[i], seq[i]))
+            identity = matches / plen
 
-        if identity >= min_identity and identity > best_score:
-            best_name = name
-            best_len = plen
-            best_score = identity
+            if identity >= min_identity and identity > best_score:
+                best_name = f"{name}{suffix}" if suffix else name
+                best_len = plen
+                best_score = identity
 
-    return best_name, best_len
+    return best_name, best_len, best_score
 
 
 # ===========================================================================
@@ -640,18 +671,27 @@ def detect_for_reads(reads, label):
 
         # Refine boundary using known primer database
         # CDV can over-extend into conserved genomic region; known primers
-        # provide the exact length
-        known_name, known_len = match_known_primer(consensus)
-        if known_name and known_len < primer_length:
-            print(f"  CDV boundary: {primer_length} bp", file=sys.stderr)
-            print(f"  Known primer match: {known_name} ({known_len}bp)",
-                  file=sys.stderr)
-            primer_length = known_len
-            consensus = consensus[:known_len]
+        # provide the exact length.
+        # match_known_primer tries both orientations (original + RC) to
+        # handle R-end primers stored in either oligo or reference direction.
+        known_name, known_len, known_identity = match_known_primer(consensus)
+        if known_name:
+            is_rc = known_name.endswith("_RC")
+            orient_msg = " (matched via reverse complement)" if is_rc else ""
+            print(f"  Known primer match: {known_name} "
+                  f"({known_len}bp, identity={known_identity:.2f})"
+                  f"{orient_msg}", file=sys.stderr)
+            if known_len < primer_length:
+                print(f"  CDV boundary: {primer_length} bp -> "
+                      f"refined to {known_len} bp", file=sys.stderr)
+                primer_length = known_len
+                consensus = consensus[:known_len]
 
+        primer_name = known_name if known_name else "unknown"
         result = dict(detected=True, primer_length=primer_length,
-                      consensus=consensus,
-                      message=f"Primer detected (length={primer_length}bp)")
+                      consensus=consensus, primer_name=primer_name,
+                      message=f"Primer detected: {primer_name} "
+                              f"(length={primer_length}bp)")
 
     print(f"  1. Primer exists:     "
           f"{'Yes' if result['detected'] else 'No'}", file=sys.stderr)
