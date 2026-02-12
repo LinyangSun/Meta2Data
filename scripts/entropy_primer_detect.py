@@ -435,27 +435,33 @@ def reverse_complement_iupac(seq):
     """
     return seq.translate(_COMPLEMENT)[::-1]
 
-# Common 16S rRNA gene primers (5'->3' as they appear in reads)
-KNOWN_16S_PRIMERS = [
-    # Forward primers
-    ("27F",    "AGAGTTTGATCMTGGCTCAG"),
-    ("338F",   "ACTCCTACGGGAGGCAGC"),
-    ("341F",   "CCTACGGGNGGCWGCAG"),
-    ("515F",   "GTGYCAGCMGCCGCGGTAA"),
-    ("799F",   "AACMGGATTAGATACCCKG"),
-    ("926F",   "AAACTYAAAKGAATTGACGG"),
-    ("1100F",  "YAACGAGCGCAACCC"),
-    # Reverse primers
-    ("338R",   "GCTGCCTCCCGTAGGAGT"),
-    ("518R",   "ATTACCGCGGCTGCTGG"),
-    ("785R",   "GACTACHVGGGTATCTAATCC"),
-    ("806R",   "GGACTACNVGGGTWTCTAAT"),
-    ("907R",   "CCGTCAATTCMTTTRAGTTT"),
-    ("926R",   "CCGTCAATTCMTTTRAGT"),
-    ("1100R",  "GGGTTGCGCTCGTTG"),
-    ("1391R",  "GACGGGCGGTGWGTRCA"),
-    ("1492R",  "TACGGYTACCTTGTTACGACTT"),
-]
+# ---------------------------------------------------------------------------
+# Primer database loading (CONS_F.fas / CONS_R.fas)
+# ---------------------------------------------------------------------------
+
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_DOCS_DIR = os.path.join(os.path.dirname(_SCRIPT_DIR), "docs")
+
+
+def load_primer_fasta(filepath):
+    """Load primers from a FASTA file. Returns list of (name, sequence)."""
+    primers = []
+    name = None
+    with open(filepath) as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            if line.startswith('>'):
+                name = line[1:]
+            elif name is not None:
+                primers.append((name, line.upper()))
+                name = None
+    return primers
+
+
+PRIMERS_F = load_primer_fasta(os.path.join(_DOCS_DIR, "CONS_F.fas"))
+PRIMERS_R = load_primer_fasta(os.path.join(_DOCS_DIR, "CONS_R.fas"))
 
 
 def _iupac_compatible(base1, base2):
@@ -465,9 +471,12 @@ def _iupac_compatible(base1, base2):
     return bool(set1 & set2)
 
 
-def match_primer_database(consensus_30bp, database=None, min_identity=0.85):
+def match_primer_database(consensus_30bp, database, min_identity=0.85):
     """
     Sliding-window match of CDV consensus against a primer database.
+
+    database: list of (name, sequence) tuples, e.g. from load_primer_fasta().
+              Use PRIMERS_F for forward/R1 reads, PRIMERS_R for reverse/R2.
 
     For each database primer (and its reverse complement), slides a window
     across the 30bp consensus to find the best matching position.
@@ -488,9 +497,6 @@ def match_primer_database(consensus_30bp, database=None, min_identity=0.85):
 
     Returns (primer_name, trim_position, identity) or (None, 0, 0.0).
     """
-    if database is None:
-        database = KNOWN_16S_PRIMERS
-
     if not consensus_30bp:
         return None, 0, 0.0
 
@@ -642,15 +648,18 @@ def find_files(input_dir):
 # Detection pipeline (Steps 1-6) for one file
 # ===========================================================================
 
-def detect_for_reads(reads, label):
+def detect_for_reads(reads, label, database):
     """
     Run three-state (C/D/V) primer detection on pre-filtered reads.
+
+    database: list of (name, sequence) tuples from load_primer_fasta().
+              Use PRIMERS_F for forward/R1, PRIMERS_R for reverse/R2.
 
     Steps:
       2. Build 60×4 position-wise base frequency matrix.
       3. Classify each position as C (Conserved), D (Degenerate), V (Variable).
       4. Find primer boundary: longest [CD]* prefix with noise tolerance.
-      5. Build consensus (C→dominant base, D/V→N) and report.
+      5. Build consensus (C→dominant base, D/V→N), match against database.
     """
     print(f"\n{'=' * 60}", file=sys.stderr)
     print(f"  Analyzing {label}: {len(reads)} reads", file=sys.stderr)
@@ -692,8 +701,9 @@ def detect_for_reads(reads, label):
     consensus_30 = build_consensus_cdv(freq_matrix, states, 30)
     print(f"  30bp consensus: {consensus_30}", file=sys.stderr)
 
-    # Sliding window: tries both orientations (original + RC) for R-end
-    db_name, db_trim, db_identity = match_primer_database(consensus_30)
+    # Sliding window: tries both orientations (original + RC)
+    db_name, db_trim, db_identity = match_primer_database(consensus_30,
+                                                          database)
 
     if db_name:
         # Database match → use database-defined trim position
@@ -740,7 +750,7 @@ def detect_for_reads(reads, label):
     return result
 
 
-def detect_for_file(filepath, label):
+def detect_for_file(filepath, label, database):
     """Run Steps 1-6 on a single FASTQ file. Returns result dict."""
     print(f"\n[Step 1] Reading and filtering reads from "
           f"{os.path.basename(filepath)} ...", file=sys.stderr)
@@ -749,7 +759,7 @@ def detect_for_file(filepath, label):
         print("  ERROR: No reads passed filters", file=sys.stderr)
         return dict(detected=False, primer_length=0, consensus="",
                     message="No primer detected (no reads)")
-    return detect_for_reads(reads, label)
+    return detect_for_reads(reads, label, database)
 
 
 # ===========================================================================
@@ -840,9 +850,11 @@ def main():
     if mixed_info is not None:
         # Phase 2: CDV detection on each orientation group
         r1_result = detect_for_reads(mixed_info['majority_reads'],
-                                     "R1 majority (forward primer)")
+                                     "R1 majority (forward primer)",
+                                     PRIMERS_F)
         r2_result = detect_for_reads(mixed_info['minority_reads'],
-                                     "R1 minority (reverse primer)")
+                                     "R1 minority (reverse primer)",
+                                     PRIMERS_R)
 
         r1_trim = r1_result['primer_length']
         r2_trim = r2_result['primer_length']
@@ -898,11 +910,12 @@ def main():
     else:
         # Steps 3-6 on already-loaded R1 reads (avoid re-reading)
         r1_result = detect_for_reads(r1_reads,
-                                     "R1" if mode == "PE" else "SE")
+                                     "R1" if mode == "PE" else "SE",
+                                     PRIMERS_F)
 
         r2_result = None
         if mode == "PE" and second_file:
-            r2_result = detect_for_file(second_file, "R2")
+            r2_result = detect_for_file(second_file, "R2", PRIMERS_R)
 
         # Summary
         print(f"\n{'=' * 60}", file=sys.stderr)
