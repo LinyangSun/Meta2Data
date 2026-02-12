@@ -37,8 +37,9 @@ Algorithm:
   Constraints:
     - Minimum primer length: 10 bp (V before pos 10 → no primer).
     - Maximum primer length: 30 bp.
-    - Noise tolerance: 1 isolated V surrounded by ≥3 non-V positions
-      on each side is treated as sequencing noise and skipped.
+    - Noise tolerance: up to 2 consecutive V positions surrounded by
+      ≥3 non-V positions on each side are treated as degenerate primer
+      bases (e.g., IUPAC N/V/W) and skipped.
 """
 
 import sys
@@ -322,15 +323,17 @@ def classify_all_positions(freq_matrix):
 # Step 4: Primer boundary detection
 # ===========================================================================
 
-def find_primer_boundary(states, min_len=10, max_len=30):
+def find_primer_boundary(states, min_len=10, max_len=30, max_v_run=2):
     """
     Primer = longest [CD]* prefix from position 0, terminated at first V.
 
     Constraints:
       - Minimum length 10 bp (V before pos 10 → no primer).
       - Maximum length 30 bp.
-      - Noise tolerance: a *single* isolated V is skipped if it has
-        >= 3 non-V positions on each side (likely sequencing noise).
+      - Noise tolerance: up to max_v_run (default 2) consecutive V positions
+        are skipped if surrounded by >= 3 non-V positions on each side.
+        This handles 3-way/4-way degenerate primer bases (e.g., N/V/W in
+        IUPAC) that look variable by frequency alone.
 
     Returns primer_length (0 if no primer detected).
     """
@@ -343,19 +346,28 @@ def find_primer_boundary(states, min_len=10, max_len=30):
             end = i + 1
             i += 1
         elif states[i] == 'V':
-            # Check if this is an isolated V (noise)
-            is_single = (i + 1 < len(states) and states[i + 1] != 'V')
-            before_ok = (i >= 3 and
-                         all(s != 'V' for s in states[max(0, i - 3):i]))
-            after_ok = (i + 3 < len(states) and
-                        all(s != 'V' for s in states[i + 1:i + 4]))
-            if is_single and before_ok and after_ok:
-                # Isolated V — treat as noise, skip
-                end = i + 1
+            # Count consecutive V's starting at position i
+            v_start = i
+            while i < len(states) and states[i] == 'V':
                 i += 1
-            else:
-                # Real variable region — primer ends here
-                break
+            v_count = i - v_start
+
+            # Tolerance: up to max_v_run consecutive V's, if surrounded
+            # by >= 3 non-V positions on each side
+            if v_count <= max_v_run:
+                before_ok = (v_start >= 3 and
+                             all(s != 'V'
+                                 for s in states[v_start - 3:v_start]))
+                after_ok = (i + 2 < len(states) and
+                            all(s != 'V'
+                                for s in states[i:i + 3]))
+                if before_ok and after_ok:
+                    # Degenerate primer positions — treat as noise, skip
+                    end = i
+                    continue
+
+            # Real variable region — primer ends before these V's
+            break
         else:
             i += 1
 
