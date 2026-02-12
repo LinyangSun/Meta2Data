@@ -244,25 +244,31 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             if [[ "$sequence_type" == "paired" ]]; then
                 # PE: find R1/R2 pairs and run fastp in PE mode
+                # Output filenames are normalised to _1/_2 so that all
+                # downstream tools (entropy_primer_detect, mk_manifest_PE,
+                # QIIME2 import) see a consistent naming convention.
                 pe_done=false
                 for r1 in "$ori_fastq_path"*_R1*.fastq*; do
                     [[ -f "$r1" ]] || continue
                     r2="${r1/_R1/_R2}"
                     [[ -f "$r2" ]] || continue
+                    # Normalise _R1 → _1, _R2 → _2
+                    r1_out=$(basename "$r1"); r1_out="${r1_out/_R1/_1}"
+                    r2_out=$(basename "$r2"); r2_out="${r2_out/_R2/_2}"
                     fastp -i "$r1" -I "$r2" \
-                          -o "${adapter_removed_path}$(basename "$r1")" \
-                          -O "${adapter_removed_path}$(basename "$r2")" \
+                          -o "${adapter_removed_path}${r1_out}" \
+                          -O "${adapter_removed_path}${r2_out}" \
                           --detect_adapter_for_pe \
                           --disable_quality_filtering \
                           --disable_length_filtering \
                           -w "$cpu" \
                           -j "${adapter_removed_path}fastp.json" \
                           -h "${adapter_removed_path}fastp.html"
-                    echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2")"
+                    echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2") → ${r1_out} + ${r2_out}"
                     pe_done=true
                 done
                 if [[ "$pe_done" == false ]]; then
-                    # Fallback: try _1/_2 pattern
+                    # Fallback: files already use _1/_2 pattern
                     for r1 in "$ori_fastq_path"*_1.fastq*; do
                         [[ -f "$r1" ]] || continue
                         r2="${r1/_1.fastq/_2.fastq}"
