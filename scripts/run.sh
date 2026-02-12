@@ -324,16 +324,16 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "LS454" ]]; then
-            # ── Step A: Download via SFF (preserves flowgram quality scores) ──
-            echo ">>> Downloading SRA data via SFF format (454 preferred)..."
-            Common_SRADownloadViaSFF -d "$dataset_path" -a "${sra_file_name}"
+            # ── Step A: Download with normal prefetch + fasterq-dump (same as Illumina) ──
+            echo ">>> Downloading SRA data (454)..."
+            Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
 
-            # 454 is typically SE
+            # 454 is always single-end
             sequence_type="single"
             echo "Sequence type: ${sequence_type^^}"
             export sequence_type
 
-            # ── Step B: Remove sequencing adapters with fastp ──
+            # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
             echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
@@ -351,7 +351,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             done
             echo "✓ Adapter removal completed"
 
-            # ── Step C: Entropy-based primer detection & trimming ──
+            # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
             echo ">>> Detecting and removing primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
@@ -370,13 +370,15 @@ for i in "${!Dataset_ID_sets[@]}"; do
             rm -rf "$adapter_removed_path"
             echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
-            # Run LS454 pipeline (TODO: QC and denoising not yet implemented)
+            # ── Step D: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% ──
             fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
             Amplicon_LS454_QualityControlForQZA
-            Amplicon_LS454_DenosingDada2
+            Amplicon_LS454_Deduplication
+            Amplicon_LS454_ChimerasRemoval
+            Amplicon_LS454_ClusterDenovo
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "ION_TORRENT" ]]; then
