@@ -745,26 +745,18 @@ Amplicon_IonTorrent_QualityControlForQZA() {
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
 
-    # Step 1: Length filter + N removal (same as 454, no q-score filtering)
+    # Length filter + N removal (same as 454, no q-score filtering)
+    # Note: primers are already removed by entropy_primer_detect.py before QIIME2
+    # import, and the Ion Torrent key signal is handled by fastp adapter removal,
+    # so no additional front-trimming is needed here.
     qiime quality-filter q-score \
         --i-demux "${qza_path%/}/${dataset_name}.qza" \
         --p-min-quality 0 \
         --p-min-length-fraction 0.85 \
         --p-max-ambiguous 0 \
-        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter_pretrim.qza" \
+        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
         --verbose
-
-    # Step 2: Trim first 15 bases (Ion Torrent key signal artifact)
-    # N is an IUPAC wildcard matching any base, so 15 N's will unconditionally
-    # trim the first 15 bases from every read.
-    qiime cutadapt trim-single \
-        --i-demultiplexed-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter_pretrim.qza" \
-        --p-front "NNNNNNNNNNNNNNN" \
-        --o-trimmed-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza"
-
-    # Clean up intermediate file
-    rm -f "${quality_filter_path%/}/${dataset_name}_QualityFilter_pretrim.qza"
 }
 
 ################################################################################
