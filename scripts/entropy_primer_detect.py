@@ -400,6 +400,85 @@ def build_consensus_cdv(freq_matrix, states, primer_length):
 
 
 # ===========================================================================
+# Known 16S primer database (boundary refinement)
+# ===========================================================================
+# CDV classification cannot distinguish primer-conserved from
+# genomic-conserved positions. After CDV detects a primer exists,
+# match the consensus against known 16S primers to get the exact length.
+
+_IUPAC = {
+    'A': {'A'}, 'C': {'C'}, 'G': {'G'}, 'T': {'T'},
+    'R': {'A', 'G'}, 'Y': {'C', 'T'}, 'S': {'G', 'C'},
+    'W': {'A', 'T'}, 'K': {'G', 'T'}, 'M': {'A', 'C'},
+    'B': {'C', 'G', 'T'}, 'D': {'A', 'G', 'T'},
+    'H': {'A', 'C', 'T'}, 'V': {'A', 'C', 'G'},
+    'N': {'A', 'C', 'G', 'T'},
+}
+
+# Common 16S rRNA gene primers (5'->3' as they appear in reads)
+KNOWN_16S_PRIMERS = [
+    # Forward primers
+    ("27F",    "AGAGTTTGATCMTGGCTCAG"),
+    ("338F",   "ACTCCTACGGGAGGCAGC"),
+    ("341F",   "CCTACGGGNGGCWGCAG"),
+    ("515F",   "GTGYCAGCMGCCGCGGTAA"),
+    ("799F",   "AACMGGATTAGATACCCKG"),
+    ("926F",   "AAACTYAAAKGAATTGACGG"),
+    ("1100F",  "YAACGAGCGCAACCC"),
+    # Reverse primers
+    ("338R",   "GCTGCCTCCCGTAGGAGT"),
+    ("518R",   "ATTACCGCGGCTGCTGG"),
+    ("785R",   "GACTACHVGGGTATCTAATCC"),
+    ("806R",   "GGACTACNVGGGTWTCTAAT"),
+    ("907R",   "CCGTCAATTCMTTTRAGTTT"),
+    ("926R",   "CCGTCAATTCMTTTRAGT"),
+    ("1100R",  "GGGTTGCGCTCGTTG"),
+    ("1391R",  "GACGGGCGGTGWGTRCA"),
+    ("1492R",  "TACGGYTACCTTGTTACGACTT"),
+]
+
+
+def _iupac_compatible(base1, base2):
+    """Check if two IUPAC bases are compatible (share at least one base)."""
+    set1 = _IUPAC.get(base1.upper(), {base1.upper()})
+    set2 = _IUPAC.get(base2.upper(), {base2.upper()})
+    return bool(set1 & set2)
+
+
+def match_known_primer(consensus, min_identity=0.85):
+    """
+    Match a CDV consensus against the known 16S primer database.
+
+    For each known primer, checks if the first len(primer) bases of the
+    consensus match with >= min_identity (IUPAC-aware comparison).
+
+    Returns (primer_name, primer_length) or (None, 0).
+    """
+    if not consensus:
+        return None, 0
+
+    best_name = None
+    best_len = 0
+    best_score = 0.0
+
+    for name, primer_seq in KNOWN_16S_PRIMERS:
+        plen = len(primer_seq)
+        if plen > len(consensus):
+            continue
+
+        matches = sum(1 for i in range(plen)
+                      if _iupac_compatible(consensus[i], primer_seq[i]))
+        identity = matches / plen
+
+        if identity >= min_identity and identity > best_score:
+            best_name = name
+            best_len = plen
+            best_score = identity
+
+    return best_name, best_len
+
+
+# ===========================================================================
 # Step 6: Trimming helpers
 # ===========================================================================
 
@@ -551,13 +630,25 @@ def detect_for_reads(reads, label):
           f"(min=10bp, max=30bp) ...", file=sys.stderr)
     primer_length = find_primer_boundary(states, min_len=10, max_len=30)
 
-    # Step 5: Build consensus and report
+    # Step 5: Build consensus, refine boundary, and report
     print(f"\n[Step 5] Result:", file=sys.stderr)
     if primer_length == 0:
         result = dict(detected=False, primer_length=0, consensus="",
                       message="No primer detected")
     else:
         consensus = build_consensus_cdv(freq_matrix, states, primer_length)
+
+        # Refine boundary using known primer database
+        # CDV can over-extend into conserved genomic region; known primers
+        # provide the exact length
+        known_name, known_len = match_known_primer(consensus)
+        if known_name and known_len < primer_length:
+            print(f"  CDV boundary: {primer_length} bp", file=sys.stderr)
+            print(f"  Known primer match: {known_name} ({known_len}bp)",
+                  file=sys.stderr)
+            primer_length = known_len
+            consensus = consensus[:known_len]
+
         result = dict(detected=True, primer_length=primer_length,
                       consensus=consensus,
                       message=f"Primer detected (length={primer_length}bp)")
