@@ -400,6 +400,146 @@ def build_consensus_cdv(freq_matrix, states, primer_length):
 
 
 # ===========================================================================
+# Known 16S primer database (boundary refinement)
+# ===========================================================================
+# CDV classification cannot distinguish primer-conserved from
+# genomic-conserved positions. After CDV detects a primer exists,
+# match the consensus against known 16S primers to get the exact length.
+
+_IUPAC = {
+    'A': {'A'}, 'C': {'C'}, 'G': {'G'}, 'T': {'T'},
+    'R': {'A', 'G'}, 'Y': {'C', 'T'}, 'S': {'G', 'C'},
+    'W': {'A', 'T'}, 'K': {'G', 'T'}, 'M': {'A', 'C'},
+    'B': {'C', 'G', 'T'}, 'D': {'A', 'G', 'T'},
+    'H': {'A', 'C', 'T'}, 'V': {'A', 'C', 'G'},
+    'N': {'A', 'C', 'G', 'T'},
+}
+
+_COMPLEMENT = str.maketrans(
+    'ACGTRYSWKMBDHVNacgtryswkmbdhvn',
+    'TGCAYRSWMKVHDBNtgcayrswmkvhdbn')
+
+
+def reverse_complement_iupac(seq):
+    """
+    Reverse complement a sequence, supporting IUPAC degenerate bases.
+
+    IUPAC complement rules:
+      A<->T, C<->G, R(AG)<->Y(CT), S(GC)<->S(GC), W(AT)<->W(AT),
+      K(GT)<->M(AC), B(CGT)<->V(ACG), D(AGT)<->H(ACT), N<->N
+
+    Used for R-end primer matching: R2 reads start with the reverse primer
+    oligo sequence (5'->3'), but some databases store reverse primers in
+    the reference orientation (reverse complement of the oligo). This
+    function allows matching in both orientations.
+    """
+    return seq.translate(_COMPLEMENT)[::-1]
+
+# ---------------------------------------------------------------------------
+# Primer database loading (CONS_F.fas / CONS_R.fas)
+# ---------------------------------------------------------------------------
+
+_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+_DOCS_DIR = os.path.join(os.path.dirname(_SCRIPT_DIR), "docs")
+
+
+def load_primer_fasta(filepath):
+    """Load primers from a FASTA file. Returns list of (name, sequence)."""
+    primers = []
+    name = None
+    with open(filepath) as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            if line.startswith('>'):
+                name = line[1:]
+            elif name is not None:
+                primers.append((name, line.upper()))
+                name = None
+    return primers
+
+
+PRIMERS_F = load_primer_fasta(os.path.join(_DOCS_DIR, "CONS_F.fas"))
+PRIMERS_R = load_primer_fasta(os.path.join(_DOCS_DIR, "CONS_R.fas"))
+
+
+def _iupac_compatible(base1, base2):
+    """Check if two IUPAC bases are compatible (share at least one base)."""
+    set1 = _IUPAC.get(base1.upper(), {base1.upper()})
+    set2 = _IUPAC.get(base2.upper(), {base2.upper()})
+    return bool(set1 & set2)
+
+
+def match_primer_database(consensus_30bp, database, min_identity=0.85):
+    """
+    Sliding-window match of CDV consensus against a primer database.
+
+    database: list of (name, sequence) tuples, e.g. from load_primer_fasta().
+              Use PRIMERS_F for forward/R1 reads, PRIMERS_R for reverse/R2.
+
+    For each database primer (and its reverse complement), slides a window
+    across the 30bp consensus to find the best matching position.
+
+    The trim position is calculated as: offset + primer_length
+    This means everything from position 0 to the end of the matched primer
+    region is trimmed, regardless of prefix/suffix mismatches:
+      - Database lacks prefix → prefix is trimmed together, no problem
+      - Database lacks suffix → a few residual bases stay in read, harmless
+      - Exact match → perfect
+
+    N positions in the consensus (from CDV D/V classification) are skipped
+    as uninformative. At least 50% of positions must be informative for a
+    valid match.
+
+    Both orientations are tested so the match works regardless of how
+    R-end primers are stored (oligo 5'->3' or reference orientation).
+
+    Returns (primer_name, trim_position, identity) or (None, 0, 0.0).
+    """
+    if not consensus_30bp:
+        return None, 0, 0.0
+
+    best_name = None
+    best_trim = 0
+    best_identity = 0.0
+
+    for name, db_seq in database:
+        # Try both orientations: original and reverse complement
+        candidates = [
+            (db_seq, ""),
+            (reverse_complement_iupac(db_seq), "_RC"),
+        ]
+        for seq, suffix in candidates:
+            L = len(seq)
+            if L > len(consensus_30bp):
+                continue
+
+            # Slide window across consensus
+            for offset in range(len(consensus_30bp) - L + 1):
+                segment = consensus_30bp[offset:offset + L]
+                informative = 0
+                matches = 0
+                for i in range(L):
+                    if segment[i] == 'N':
+                        continue  # uninformative position, skip
+                    informative += 1
+                    if _iupac_compatible(segment[i], seq[i]):
+                        matches += 1
+
+                if informative < L * 0.5:
+                    continue  # not enough informative positions
+
+                identity = matches / informative
+                if identity >= min_identity and identity > best_identity:
+                    best_name = f"{name}{suffix}" if suffix else name
+                    best_trim = offset + L
+                    best_identity = identity
+
+    return best_name, best_trim, best_identity
+
+
+# ===========================================================================
 # Step 6: Trimming helpers
 # ===========================================================================
 
@@ -508,15 +648,18 @@ def find_files(input_dir):
 # Detection pipeline (Steps 1-6) for one file
 # ===========================================================================
 
-def detect_for_reads(reads, label):
+def detect_for_reads(reads, label, database):
     """
     Run three-state (C/D/V) primer detection on pre-filtered reads.
+
+    database: list of (name, sequence) tuples from load_primer_fasta().
+              Use PRIMERS_F for forward/R1, PRIMERS_R for reverse/R2.
 
     Steps:
       2. Build 60×4 position-wise base frequency matrix.
       3. Classify each position as C (Conserved), D (Degenerate), V (Variable).
       4. Find primer boundary: longest [CD]* prefix with noise tolerance.
-      5. Build consensus (C→dominant base, D/V→N) and report.
+      5. Build consensus (C→dominant base, D/V→N), match against database.
     """
     print(f"\n{'=' * 60}", file=sys.stderr)
     print(f"  Analyzing {label}: {len(reads)} reads", file=sys.stderr)
@@ -546,21 +689,55 @@ def detect_for_reads(reads, label):
         top = '  '.join(f"{b}:{f:.2f}" for b, f in paired[:2])
         print(f"    [{i:2d}] {states[i]}  {top}", file=sys.stderr)
 
-    # Step 4: Find primer boundary
-    print(f"\n[Step 4] Finding primer boundary "
+    # Step 4: Find primer boundary (CDV — used as fallback)
+    print(f"\n[Step 4] Finding CDV primer boundary "
           f"(min=10bp, max=30bp) ...", file=sys.stderr)
-    primer_length = find_primer_boundary(states, min_len=10, max_len=30)
+    cdv_boundary = find_primer_boundary(states, min_len=10, max_len=30)
+    print(f"  CDV boundary: {cdv_boundary} bp", file=sys.stderr)
 
-    # Step 5: Build consensus and report
-    print(f"\n[Step 5] Result:", file=sys.stderr)
-    if primer_length == 0:
+    # Step 5: Build 30bp consensus, then match against primer database
+    print(f"\n[Step 5] Database matching (sliding window) ...",
+          file=sys.stderr)
+    consensus_30 = build_consensus_cdv(freq_matrix, states, 30)
+    print(f"  30bp consensus: {consensus_30}", file=sys.stderr)
+
+    # Sliding window: tries both orientations (original + RC)
+    db_name, db_trim, db_identity = match_primer_database(consensus_30,
+                                                          database)
+
+    if db_name:
+        # Database match → use database-defined trim position
+        is_rc = db_name.endswith("_RC")
+        orient_msg = " (matched via reverse complement)" if is_rc else ""
+        print(f"  Database match: {db_name} "
+              f"(trim={db_trim}bp, identity={db_identity:.2f})"
+              f"{orient_msg}", file=sys.stderr)
+        if cdv_boundary > 0 and db_trim != cdv_boundary:
+            print(f"  CDV boundary={cdv_boundary}bp -> "
+                  f"overridden by database trim={db_trim}bp",
+                  file=sys.stderr)
+        primer_length = db_trim
+        consensus = consensus_30[:db_trim]
+        primer_name = db_name
+        result = dict(detected=True, primer_length=primer_length,
+                      consensus=consensus, primer_name=primer_name,
+                      message=f"Primer detected: {primer_name} "
+                              f"(trim={primer_length}bp)")
+    elif cdv_boundary > 0:
+        # No database match → fall back to CDV boundary
+        print(f"  No database match, using CDV boundary: "
+              f"{cdv_boundary}bp", file=sys.stderr)
+        primer_length = cdv_boundary
+        consensus = consensus_30[:cdv_boundary]
+        result = dict(detected=True, primer_length=primer_length,
+                      consensus=consensus, primer_name="unknown",
+                      message=f"Primer detected: unknown "
+                              f"(trim={primer_length}bp, CDV fallback)")
+    else:
+        # Neither database nor CDV detected a primer
+        primer_length = 0
         result = dict(detected=False, primer_length=0, consensus="",
                       message="No primer detected")
-    else:
-        consensus = build_consensus_cdv(freq_matrix, states, primer_length)
-        result = dict(detected=True, primer_length=primer_length,
-                      consensus=consensus,
-                      message=f"Primer detected (length={primer_length}bp)")
 
     print(f"  1. Primer exists:     "
           f"{'Yes' if result['detected'] else 'No'}", file=sys.stderr)
@@ -573,7 +750,7 @@ def detect_for_reads(reads, label):
     return result
 
 
-def detect_for_file(filepath, label):
+def detect_for_file(filepath, label, database):
     """Run Steps 1-6 on a single FASTQ file. Returns result dict."""
     print(f"\n[Step 1] Reading and filtering reads from "
           f"{os.path.basename(filepath)} ...", file=sys.stderr)
@@ -582,7 +759,7 @@ def detect_for_file(filepath, label):
         print("  ERROR: No reads passed filters", file=sys.stderr)
         return dict(detected=False, primer_length=0, consensus="",
                     message="No primer detected (no reads)")
-    return detect_for_reads(reads, label)
+    return detect_for_reads(reads, label, database)
 
 
 # ===========================================================================
@@ -673,9 +850,11 @@ def main():
     if mixed_info is not None:
         # Phase 2: CDV detection on each orientation group
         r1_result = detect_for_reads(mixed_info['majority_reads'],
-                                     "R1 majority (forward primer)")
+                                     "R1 majority (forward primer)",
+                                     PRIMERS_F)
         r2_result = detect_for_reads(mixed_info['minority_reads'],
-                                     "R1 minority (reverse primer)")
+                                     "R1 minority (reverse primer)",
+                                     PRIMERS_R)
 
         r1_trim = r1_result['primer_length']
         r2_trim = r2_result['primer_length']
@@ -731,11 +910,12 @@ def main():
     else:
         # Steps 3-6 on already-loaded R1 reads (avoid re-reading)
         r1_result = detect_for_reads(r1_reads,
-                                     "R1" if mode == "PE" else "SE")
+                                     "R1" if mode == "PE" else "SE",
+                                     PRIMERS_F)
 
         r2_result = None
         if mode == "PE" and second_file:
-            r2_result = detect_for_file(second_file, "R2")
+            r2_result = detect_for_file(second_file, "R2", PRIMERS_R)
 
         # Summary
         print(f"\n{'=' * 60}", file=sys.stderr)
