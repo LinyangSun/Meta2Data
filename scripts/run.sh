@@ -391,8 +391,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
             echo "Sequence type: ${sequence_type^^}"
             export sequence_type
 
-            # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
-            echo ">>> Removing sequencing adapters with fastp..."
+            # ── Step B: Remove sequencing adapters + trim front 15bp with fastp (SE mode) ──
+            # Ion Torrent reads have low-quality bases in the first ~15bp
+            echo ">>> Removing sequencing adapters + trimming front 15bp with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
 
@@ -400,14 +401,15 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 [[ -f "$fq" ]] || continue
                 fastp -i "$fq" \
                       -o "${adapter_removed_path}$(basename "$fq")" \
+                      --trim_front1 15 \
                       --disable_quality_filtering \
                       --disable_length_filtering \
                       -w "$cpu" \
                       -j "${adapter_removed_path}fastp.json" \
                       -h "${adapter_removed_path}fastp.html"
-                echo "  ✓ Adapter removal: $(basename "$fq")"
+                echo "  ✓ Adapter removal + front 15bp trim: $(basename "$fq")"
             done
-            echo "✓ Adapter removal completed"
+            echo "✓ Adapter removal + front 15bp trim completed"
 
             # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
             echo ">>> Detecting and removing primers (entropy method)..."
@@ -428,7 +430,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             rm -rf "$adapter_removed_path"
             echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
-            # ── Step D: QIIME2 Import → Length filter + trim 15bp → Dedup → Chimera → OTU 97% ──
+            # ── Step D: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% ──
             fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
