@@ -497,29 +497,55 @@ for i in "${!Dataset_ID_sets[@]}"; do
             done
             echo "✓ Adapter removal completed"
 
-            # ── Step B: Entropy-based primer detection & trimming ──
-            echo ">>> Detecting and removing primers (entropy method)..."
-            fastp_path="${dataset_path}temp/step_02_fastp/"
-            mkdir -p "$fastp_path"
+            # ── Step B2: Entropy-based primer DETECTION (no trimming) ──
+            # For PacBio CCS, DADA2 denoise-ccs needs the primer sequence
+            # (--p-front) to re-orient reads (CCS reads are in random
+            # forward/reverse-complement orientations). So we only detect
+            # the primer here and let DADA2 handle both orientation and
+            # primer removal.
+            echo ">>> Detecting primers (entropy method, no trimming)..."
+            primer_detect_path="${dataset_path}temp/step_02_primer_detect/"
+            mkdir -p "$primer_detect_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
                 -i "$adapter_removed_path" \
-                -o "$fastp_path" || {
+                -o "$primer_detect_path" || {
                 echo "  ✗ Entropy primer detection failed"
                 exit 1
             }
 
-            echo "✓ Entropy primer detection/removal completed"
+            echo "✓ Entropy primer detection completed"
 
-            # Delete original and intermediate fastq files to save space
+            # Read detected primer consensus from JSON
+            primer_info_json="${primer_detect_path}primer_info.json"
+            if [[ -f "$primer_info_json" ]]; then
+                detected_primer=$(python3 -c "
+import json, sys
+with open('${primer_info_json}') as f:
+    info = json.load(f)
+fp = info.get('forward_primer', {})
+if fp.get('detected', False) and fp.get('consensus', ''):
+    print(fp['consensus'])
+else:
+    print('')
+")
+                echo "  Detected forward primer: ${detected_primer:-none}"
+            else
+                echo "  ⚠ primer_info.json not found"
+                detected_primer=""
+            fi
+
+            # Clean up detection output (we only needed the JSON)
             echo ">>> Cleaning up intermediate files..."
             rm -rf "$ori_fastq_path"
-            rm -rf "$adapter_removed_path"
-            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
+            rm -rf "$primer_detect_path"
+            echo "✓ Removed ori_fastq/ and primer_detect/ to save space"
 
-            # Run PacBio pipeline
-            fastq_path="$fastp_path"
+            # ── Step C: QIIME2 Import → QC → DADA2 denoise-ccs ──
+            # Import adapter-removed reads (still containing primers for DADA2)
+            fastq_path="$adapter_removed_path"
             export fastq_path
+            export detected_primer
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
             Amplicon_Pacbio_QualityControlForQZA

@@ -782,24 +782,34 @@ Amplicon_Pacbio_QualityControlForQZA() {
         --verbose
 }
 Amplicon_Pacbio_DenosingDada2() {
-    
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
-    # Paths
     local base="${dataset_path%/}"
-    local quality_filter_path="${base%/}/temp/step_04_qza_import_QualityFilter/"
-    local denoising_path="${base%/}/temp/step_05_denoise/"
-    local qf_vis_path="${base%/}/temp/temp_file/QualityFilter_vis/"
-    local qf_view_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_view/"
-    local qf_trim_pos_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
-    mkdir -p "$denoising_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
-    # Deblur
+    local quality_filter_path="${base}/temp/step_04_qza_import_QualityFilter/"
+    local denoising_path="${base}/temp/step_05_denoise/"
+    mkdir -p "$denoising_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+
+    # Validate that a primer was detected
+    if [[ -z "$detected_primer" ]]; then
+        echo "❌ ERROR: No primer detected for PacBio denoise-ccs."
+        echo "   dada2 denoise-ccs requires --p-front to orient CCS reads."
+        return 1
+    fi
+    echo "  Using detected primer for --p-front: $detected_primer"
+
+    # DADA2 denoise-ccs: handles read orientation, primer removal, denoising,
+    # and chimera removal in one step
     qiime dada2 denoise-ccs \
         --i-demultiplexed-seqs "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
+        --p-front "$detected_primer" \
+        --p-min-len 1000 \
         --p-max-len 1600 \
-        --o-table "${denoising_path%/}/${dataset_name}-table-denosing.qza" \
-        --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denosing.qza" \
-        --o-denoising-stats "${denoising_path%/}/${dataset_name}-denosing-stats.qza"
+        --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
+        --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
+        --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
+        --verbose
 }
 
 ################################################################################

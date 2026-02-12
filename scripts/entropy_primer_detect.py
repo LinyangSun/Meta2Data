@@ -49,6 +49,7 @@ import glob
 import math
 import shutil
 import argparse
+import json
 from collections import Counter
 
 
@@ -980,6 +981,57 @@ def main():
                 print("  ERROR: No PE file pairs found for trimming",
                       file=sys.stderr)
                 sys.exit(1)
+
+    # Save detected primer info to JSON for downstream tools (e.g. DADA2)
+    primer_info = {}
+    if mixed_info is not None:
+        # Branch A: mixed orientation PE
+        primer_info = {
+            "mode": "PE_mixed",
+            "forward_primer": {
+                "name": r1_result.get('primer_name', 'unknown'),
+                "consensus": r1_result.get('consensus', ''),
+                "length": r1_result.get('primer_length', 0),
+                "detected": r1_result.get('detected', False),
+            },
+            "reverse_primer": {
+                "name": r2_result.get('primer_name', 'unknown'),
+                "consensus": r2_result.get('consensus', ''),
+                "length": r2_result.get('primer_length', 0),
+                "detected": r2_result.get('detected', False),
+            },
+        }
+    elif mode == "PE":
+        primer_info = {
+            "mode": "PE",
+            "forward_primer": {
+                "name": r1_result.get('primer_name', 'unknown'),
+                "consensus": r1_result.get('consensus', ''),
+                "length": r1_result.get('primer_length', 0),
+                "detected": r1_result.get('detected', False),
+            },
+            "reverse_primer": {
+                "name": r2_result.get('primer_name', 'unknown') if r2_result else 'unknown',
+                "consensus": r2_result.get('consensus', '') if r2_result else '',
+                "length": r2_result.get('primer_length', 0) if r2_result else 0,
+                "detected": r2_result.get('detected', False) if r2_result else False,
+            },
+        }
+    else:
+        primer_info = {
+            "mode": "SE",
+            "forward_primer": {
+                "name": r1_result.get('primer_name', 'unknown'),
+                "consensus": r1_result.get('consensus', ''),
+                "length": r1_result.get('primer_length', 0),
+                "detected": r1_result.get('detected', False),
+            },
+        }
+
+    primer_info_path = os.path.join(output_dir, "primer_info.json")
+    with open(primer_info_path, 'w') as f:
+        json.dump(primer_info, f, indent=2)
+    print(f"\n  Primer info saved to: {primer_info_path}", file=sys.stderr)
 
     print(f"\n  Output directory: {output_dir}", file=sys.stderr)
     print("  Done.", file=sys.stderr)
