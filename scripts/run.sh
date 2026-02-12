@@ -209,35 +209,28 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
         echo "Detected platform: $platform"
 
-        # Skip unsupported platforms BEFORE downloading
-        if [[ "$platform" == "OXFORD_NANOPORE" ]]; then
-            echo "⚠️ Nanopore not supported yet. Skipping download and processing."
-            echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - Platform: $platform" >> "$skipped_log"
-            continue
-        fi
-
-        # 2. Download data (only for supported platforms)
-        echo ">>> Downloading SRA data..."
-        Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
-
-        # 3. Analyze sequence characteristics
-        ori_fastq_path="${dataset_path}ori_fastq/"
-        line_count=$(wc -l < "${dataset_path}${sra_file_name}")
-        file_count=$(find "$ori_fastq_path" -type f 2>/dev/null | wc -l)
-        
-        if [ $((line_count * 2)) -eq $file_count ]; then
-            sequence_type="paired"
-        else
-            sequence_type="single"
-        fi
-        echo "Sequence type: ${sequence_type^^}"
-
-        # 4. Platform-specific processing
-        export dataset_path sequence_type
+        # 2. Platform-specific pipeline (download + processing)
+        export dataset_path
         export dataset_name="$dataset_ID"
+        ori_fastq_path="${dataset_path}ori_fastq/"
 
         if [[ "$platform" == "ILLUMINA" ]]; then
-            # ── Step A: Remove sequencing adapters with fastp ──
+            # ── Step A: Download ──
+            echo ">>> Downloading SRA data..."
+            Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
+
+            # Detect PE/SE after download
+            line_count=$(wc -l < "${dataset_path}${sra_file_name}")
+            file_count=$(find "$ori_fastq_path" -type f 2>/dev/null | wc -l)
+            if [ $((line_count * 2)) -eq $file_count ]; then
+                sequence_type="paired"
+            else
+                sequence_type="single"
+            fi
+            echo "Sequence type: ${sequence_type^^}"
+            export sequence_type
+
+            # ── Step B: Remove sequencing adapters with fastp ──
             echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
@@ -335,7 +328,12 @@ for i in "${!Dataset_ID_sets[@]}"; do
             echo ">>> Downloading SRA data via SFF format (454 preferred)..."
             Common_SRADownloadViaSFF -d "$dataset_path" -a "${sra_file_name}"
 
-            # ── Step B: Remove sequencing adapters with fastp (454 is typically SE) ──
+            # 454 is typically SE
+            sequence_type="single"
+            echo "Sequence type: ${sequence_type^^}"
+            export sequence_type
+
+            # ── Step B: Remove sequencing adapters with fastp ──
             echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
@@ -385,6 +383,17 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # ── Step A: Download via SFF (preserves flowgram quality scores) ──
             echo ">>> Downloading SRA data via SFF format (Ion Torrent)..."
             Common_SRADownloadViaSFF -d "$dataset_path" -a "${sra_file_name}"
+
+            # Detect PE/SE after download
+            line_count=$(wc -l < "${dataset_path}${sra_file_name}")
+            file_count=$(find "$ori_fastq_path" -type f 2>/dev/null | wc -l)
+            if [ $((line_count * 2)) -eq $file_count ]; then
+                sequence_type="paired"
+            else
+                sequence_type="single"
+            fi
+            echo "Sequence type: ${sequence_type^^}"
+            export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp ──
             echo ">>> Removing sequencing adapters with fastp..."
@@ -478,7 +487,16 @@ for i in "${!Dataset_ID_sets[@]}"; do
             continue
 
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
-            # ── Step A: Remove sequencing adapters with fastp ──
+            # ── Step A: Download ──
+            echo ">>> Downloading SRA data..."
+            Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
+
+            # PacBio is typically SE
+            sequence_type="single"
+            echo "Sequence type: ${sequence_type^^}"
+            export sequence_type
+
+            # ── Step B: Remove sequencing adapters with fastp ──
             echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
