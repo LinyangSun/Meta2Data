@@ -13,7 +13,7 @@ Principle:
 
 Algorithm:
   Step 0:   Scan directory, pick first sample (PE or SE).
-  Step 1:   Read & pre-filter 2000 R1 reads (length, quality, complexity).
+  Step 1:   Read & pre-filter ALL R1 reads (length, quality, complexity).
   Step 2:   Build 60×4 position-wise base frequency matrix.
   Phase 1:  Mixed-orientation detection (PE only).
             Check first 15 positions for bimodal base distributions.
@@ -121,11 +121,13 @@ def _read_entropy(seq):
     return h
 
 
-def read_and_filter(filepath, max_reads=2000, min_len=50,
+def read_and_filter(filepath, min_len=50,
                     min_avg_qual=20, min_complexity=0.3,
                     min_entropy=1.0):
     """
-    Step 1: Read FASTQ, apply quality filters, return up to max_reads reads.
+    Step 1: Read ALL reads from a FASTQ file, applying quality filters.
+    Uses the entire first sample for maximum species diversity in the
+    frequency matrix, which improves primer boundary accuracy.
     Filters:
       - Length >= min_len
       - Average Phred quality >= min_avg_qual
@@ -139,8 +141,6 @@ def read_and_filter(filepath, max_reads=2000, min_len=50,
 
     with _open_fq(filepath) as fh:
         for header, seq, plus, qual in _iter_fastq(fh):
-            if len(reads) >= max_reads:
-                break
             total += 1
 
             if len(seq) < min_len:
