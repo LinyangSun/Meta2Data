@@ -165,26 +165,35 @@ def mk_manifest_SE(file_path):
 
 
 def mk_manifest_PE(file_path):
-    """Generate paired-end manifest file"""
+    """Generate paired-end manifest file from a list of actual file paths."""
     df = pd.read_csv(file_path, sep='\t', header=None)
     dataset_name = os.path.basename(file_path).replace("-file.txt", "")
-    df1 = pd.DataFrame({
-        'sample-id': [],
-        'forward-absolute-filepath': [],
-        'reverse-absolute-filepath': []
-    })
 
-    for i, row in df.iterrows():
-        basenames = os.path.basename(row[0])
-        sample = basenames.rsplit('_', 1)[0]
-        path = os.path.dirname(row[0])
-        df1.loc[i, 'sample-id'] = sample
-        df1.loc[i, 'forward-absolute-filepath'] = os.path.join(path, f"{sample}_1.fastq")
-        df1.loc[i, 'reverse-absolute-filepath'] = os.path.join(path, f"{sample}_2.fastq")
+    # Group actual file paths by sample ID and read direction
+    samples = {}
+    for _, row in df.iterrows():
+        filepath = row[0].strip()
+        basename = os.path.basename(filepath)
+        # Extract sample name and suffix: e.g. "PROJ_SAMPLE_1.fastq.gz" → ("PROJ_SAMPLE", "1.fastq.gz")
+        sample, suffix = basename.rsplit('_', 1)
+        if suffix.startswith('1.fastq'):
+            samples.setdefault(sample, {})['forward'] = filepath
+        elif suffix.startswith('2.fastq'):
+            samples.setdefault(sample, {})['reverse'] = filepath
 
-    df_unique = df1.drop_duplicates(subset=['sample-id'])
+    rows = []
+    for sample in sorted(samples):
+        paths = samples[sample]
+        if 'forward' in paths and 'reverse' in paths:
+            rows.append({
+                'sample-id': sample,
+                'forward-absolute-filepath': paths['forward'],
+                'reverse-absolute-filepath': paths['reverse'],
+            })
+
+    df1 = pd.DataFrame(rows)
     out_path = os.path.join(os.path.dirname(file_path), f"{dataset_name}_manifest.tsv")
-    df_unique.to_csv(out_path, sep='\t', index=False)
+    df1.to_csv(out_path, sep='\t', index=False)
 
 
 def trim_pos_deblur(file_path):
