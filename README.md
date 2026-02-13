@@ -16,13 +16,13 @@ Meta2Data is a comprehensive command-line tool for downloading, processing, and 
 
 ### Option 1: Conda Environment (Recommended)
 
-copy the **env1.yml** to your device.
+copy the **env.yml** to your device.
 
-env1.yml : qiime2 included (QIIME2, vsearch, fastp, sra-tools, seqkit, q2-greengenes, Meta2Data, etc.)
+env.yml : qiime2 included (QIIME2, vsearch, fastp, sra-tools, seqkit, q2-greengenes, Meta2Data, etc.)
 
 ```bash
 # Create environment from env1.yml
-conda env create -f env1.yml
+conda env create -f env.yml
 
 # Verify installation
 Meta2Data --help
