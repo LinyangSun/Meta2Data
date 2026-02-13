@@ -879,17 +879,18 @@ def main():
     freq_matrix = build_frequency_matrix(r1_reads, num_positions=60)
 
     # ------------------------------------------------------------------
-    # Phase 1: Mixed-orientation detection (PE only)
+    # Phase 1: Mixed-orientation detection
     # ------------------------------------------------------------------
-    mixed_info = None
-    if mode == "PE":
-        mixed_info = detect_mixed_orientation(freq_matrix, r1_reads)
+    # Check all modes — PacBio CCS reads have random forward/reverse-
+    # complement orientations even in SE mode, which creates bimodal
+    # frequency patterns that prevent CDV primer detection.
+    mixed_info = detect_mixed_orientation(freq_matrix, r1_reads)
 
     # ==================================================================
-    # Branch A: Mixed orientation — detect from majority/minority,
+    # Branch A: PE + mixed orientation — detect from majority/minority,
     #           trim all files with per-read orientation correction
     # ==================================================================
-    if mixed_info is not None:
+    if mixed_info is not None and mode == "PE":
         # Phase 2: CDV detection on each orientation group
         r1_result = detect_for_reads(mixed_info['majority_reads'],
                                      "R1 majority (forward primer)",
@@ -945,6 +946,34 @@ def main():
               f"{total_swapped} orientation-corrected "
               f"({total_swapped/max(1,total_pairs)*100:.1f}%)",
               file=sys.stderr)
+
+    # ==================================================================
+    # Branch A2: SE + mixed orientation (e.g., PacBio CCS)
+    #   Detect primer on the majority (forward) group for primer_info.json.
+    #   Copy files unchanged — downstream tool (DADA2 denoise-ccs) handles
+    #   read orientation and primer removal via --p-front.
+    # ==================================================================
+    elif mixed_info is not None and mode == "SE":
+        r1_result = detect_for_reads(mixed_info['majority_reads'],
+                                     "SE majority (forward primer)",
+                                     PRIMERS_F)
+
+        # Summary
+        print(f"\n{'=' * 60}", file=sys.stderr)
+        print("DETECTION SUMMARY (SE Mixed Orientation)", file=sys.stderr)
+        print(f"{'=' * 60}", file=sys.stderr)
+        print(f"  Forward primer (majority): {r1_result['message']}",
+              file=sys.stderr)
+        print(f"  Flip ratio: {mixed_info['ratio']:.0%}", file=sys.stderr)
+
+        # Copy files unchanged
+        print(f"\n{'=' * 60}", file=sys.stderr)
+        print("COPYING (no trimming — downstream handles orientation)",
+              file=sys.stderr)
+        print(f"{'=' * 60}", file=sys.stderr)
+        for f in sorted(glob.glob(os.path.join(input_dir, "*.fastq*"))):
+            copy_file(f, os.path.join(output_dir, os.path.basename(f)))
+            print(f"  Copied: {os.path.basename(f)}", file=sys.stderr)
 
     # ==================================================================
     # Branch B: Normal single orientation
@@ -1025,7 +1054,7 @@ def main():
 
     # Save detected primer info to JSON for downstream tools (e.g. DADA2)
     primer_info = {}
-    if mixed_info is not None:
+    if mixed_info is not None and mode == "PE":
         # Branch A: mixed orientation PE
         primer_info = {
             "mode": "PE_mixed",
@@ -1040,6 +1069,17 @@ def main():
                 "consensus": r2_result.get('consensus', ''),
                 "length": r2_result.get('primer_length', 0),
                 "detected": r2_result.get('detected', False),
+            },
+        }
+    elif mixed_info is not None and mode == "SE":
+        # Branch A2: mixed orientation SE (e.g., PacBio CCS)
+        primer_info = {
+            "mode": "SE_mixed",
+            "forward_primer": {
+                "name": r1_result.get('primer_name', 'unknown'),
+                "consensus": r1_result.get('consensus', ''),
+                "length": r1_result.get('primer_length', 0),
+                "detected": r1_result.get('detected', False),
             },
         }
     elif mode == "PE":
