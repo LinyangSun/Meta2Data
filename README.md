@@ -16,7 +16,7 @@ Meta2Data is a comprehensive command-line tool for downloading, processing, and 
 
 ### Option 1: Conda Environment (Recommended)
 
-copy the **env1.yml** or **env2.yml** to your device.
+copy the **env1.yml** to your device.
 
 env1.yml : qiime2 included (QIIME2, vsearch, fastp, sra-tools, seqkit, q2-greengenes, Meta2Data, etc.)
 
@@ -150,7 +150,7 @@ Meta2Data MetaDL \
 
 **Output files:**
 - `all_metadata_merged.csv` - Final merged dataset (NCBI + CNCB)
-- `ncbi_merged_*.csv` - NCBI data
+- `ncbi_merged_*.csv` - NCBI, EBI & DDBJ data
 - `cncb_combined.csv` - CNCB data
 - `logs/metadl_v2_*.log` - Detailed execution log
 - `checkpoints/download_state.json` - Resume state for interrupted runs
@@ -214,12 +214,14 @@ PRJNA67890,SRR234567
 The pipeline automatically:
 1. **Downloads** SRA data (via Aspera/FTP)
 2. **Detects** sequencing platform (Illumina, PacBio, Ion Torrent, 454)
-3. **Identifies** and trims primers
-4. **Processes** data using platform-specific methods:
-   - **Illumina/Ion Torrent**: DADA2 denoising
-   - **PacBio**: DADA2 with PacBio parameters
-5. **Generates** QIIME2 artifacts (`.qza` files)
-6. **Assigns** taxonomy (optional, with `--gg2`)
+               sequencing type (single / pair-end)
+4. **Identifies** detect and trims primers
+5. **Processes** data using platform-specific methods:
+   - **Illumina**: DADA2 single / pair-end
+   - **LS454/Ion Torrent** : DADA2 pyro
+   - **PacBio**: DADA2 with PacBio ccs
+6. **Generates** QIIME2 artifacts (`.qza` files)
+7. **Assigns** taxonomy (optional, with `--gg2`)
 
 #### Output Structure
 
@@ -235,12 +237,10 @@ The pipeline automatically:
 │   └── merged/                        # Merged results with taxonomy
 ├── failed_datasets.log
 ├── success_datasets.log
-└── skipped_datasets.log
+├── skipped_datasets.log
+└── summary.csv                       # sequencing depth for raw reads / final data
 ```
 
-### 3. Evaluate: Summarize Results
-
-(Feature in development - check `Meta2Data Evaluate --help` for details)
 
 ## Command-Line Options
 
