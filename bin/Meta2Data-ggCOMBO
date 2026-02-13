@@ -1,0 +1,276 @@
+#!/bin/bash
+set -e
+
+# Find scripts directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Search for scripts directory in multiple possible locations
+find_scripts_dir() {
+    local search_paths=(
+        "${SCRIPT_DIR}/scripts"                          # Development/git repo
+        "/usr/local/share/Meta2Data/scripts"             # System install
+        "${HOME}/.local/share/Meta2Data/scripts"         # User install
+        "${CONDA_PREFIX}/share/Meta2Data/scripts"        # Conda install
+        "${PREFIX}/share/Meta2Data/scripts"              # Alternative prefix
+    )
+
+    for path in "${search_paths[@]}"; do
+        if [[ -d "$path" && -f "$path/taxonomy.sh" ]]; then
+            echo "$path"
+            return 0
+        fi
+    done
+
+    echo "ERROR: Scripts directory not found in any location:" >&2
+    for path in "${search_paths[@]}"; do
+        echo "  - $path" >&2
+    done
+    return 1
+}
+
+SCRIPTS=$(find_scripts_dir)
+if [[ $? -ne 0 ]]; then
+    echo "ERROR: Cannot find scripts directory"
+    exit 1
+fi
+
+show_help() {
+    cat << EOF
+Usage: Meta2Data ggCOMBO [options]
+
+Merge amplicon datasets and assign taxonomy using GreenGenes2 database.
+
+This command takes the output of AmpliconPIP (directories containing
+*-final-table.qza and *-final-rep-seqs.qza files) and performs:
+  1. Merge all feature tables and representative sequences
+  2. GreenGenes2 backbone mapping (non-v4-16s)
+  3. Taxonomy assignment from GreenGenes2 reference
+  4. Phylogenetic tree filtering
+
+Required options:
+    --db DIR              Path to GreenGenes2 database directory (required)
+                          Expected files inside:
+                            2024.09.backbone.full-length.fna.qza
+                            2024.09.taxonomy.asv.nwk.qza
+                            2024.09.phylogeny.id.nwk.qza
+    -o, --output DIR      Output directory from AmpliconPIP run (required)
+                          Must contain PRJ* dataset folders
+
+Optional options:
+    -t, --threads int     Number of CPU threads (default: 4)
+    --dl                  Download GreenGenes2 database files to --db directory
+                          Source: https://ftp.microbio.me/greengenes_release/current/
+    -h, --help            Show this help message
+
+Example usage:
+    # Basic usage (database already downloaded)
+    Meta2Data ggCOMBO --db /path/to/gg2db -o /path/to/amplicon_output -t 8
+
+    # Download database first, then run
+    Meta2Data ggCOMBO --db /path/to/gg2db --dl -o /path/to/amplicon_output -t 8
+
+Output structure:
+    <output_dir>/
+    └── final/
+        └── merged/
+            ├── merged-table.qza                 # Merged feature table
+            ├── merged-rep-seqs.qza              # Merged representative sequences
+            ├── merged-table-summary.qzv         # Pre-merge summary
+            ├── merged-table-gg2.qza             # GG2-mapped feature table
+            ├── merged-rep-seqs-gg2.qza          # GG2-mapped sequences
+            ├── merged-taxonomy.qza              # Taxonomy classification
+            ├── merged-table-gg2-summary.qzv     # Post-merge summary
+            └── final-tree.qza                   # Filtered phylogenetic tree
+
+EOF
+}
+
+# Default parameters
+DB_DIR=""
+ENABLE_DL=false
+OUTPUT=""
+THREADS=4
+
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --db)
+            DB_DIR="$2"
+            shift 2
+            ;;
+        --dl)
+            ENABLE_DL=true
+            shift
+            ;;
+        -o|--output)
+            OUTPUT="$2"
+            shift 2
+            ;;
+        -t|--threads)
+            THREADS="$2"
+            shift 2
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "Error: Unknown option '$1'"
+            show_help
+            exit 1
+            ;;
+    esac
+done
+
+# Validate required parameters
+if [[ -z "$DB_DIR" ]]; then
+    echo "Error: --db is required"
+    show_help
+    exit 1
+fi
+
+if [[ -z "$OUTPUT" ]]; then
+    echo "Error: --output is required"
+    show_help
+    exit 1
+fi
+
+# Strip trailing slash from DB_DIR
+DB_DIR="${DB_DIR%/}"
+
+# Create DB_DIR if it doesn't exist (needed for --dl)
+mkdir -p "$DB_DIR"
+DB_DIR=$(cd "$DB_DIR" && pwd)
+
+# Validate and convert OUTPUT to absolute path
+if [[ ! -d "$OUTPUT" ]]; then
+    echo "Error: Output directory '$OUTPUT' does not exist"
+    echo "This should be the output directory from a previous AmpliconPIP run"
+    exit 1
+fi
+OUTPUT=$(cd "$OUTPUT" && pwd)
+
+# Fixed database file names
+BACKBONE="${DB_DIR}/2024.09.backbone.full-length.fna.qza"
+TAXONOMY="${DB_DIR}/2024.09.taxonomy.asv.nwk.qza"
+PHYLO="${DB_DIR}/2024.09.phylogeny.id.nwk.qza"
+
+################################################################################
+#                    DOWNLOAD DATABASE (if --dl enabled)                        #
+################################################################################
+
+if [[ "$ENABLE_DL" == true ]]; then
+    BASE_URL="https://ftp.microbio.me/greengenes_release/current/"
+
+    echo "========================================="
+    echo "Downloading GreenGenes2 Database"
+    echo "Target: $DB_DIR"
+    echo "========================================="
+    echo ""
+
+    DL_FILES=(
+        "2024.09.backbone.full-length.fna.qza"
+        "2024.09.taxonomy.asv.nwk.qza"
+        "2024.09.phylogeny.id.nwk.qza"
+    )
+
+    for fname in "${DL_FILES[@]}"; do
+        target="${DB_DIR}/${fname}"
+        if [[ -f "$target" ]]; then
+            echo "Already exists: ${fname}, skipping"
+        else
+            echo "Downloading: ${fname}..."
+            if ! wget -q --show-progress -O "$target" "${BASE_URL}${fname}"; then
+                echo "ERROR: Failed to download ${fname}"
+                rm -f "$target"
+                exit 1
+            fi
+            echo "Downloaded: ${fname}"
+        fi
+    done
+
+    echo ""
+    echo "Database download complete."
+    echo ""
+fi
+
+################################################################################
+#                    VALIDATE DATABASE FILES                                    #
+################################################################################
+
+echo "========================================="
+echo "Validating GreenGenes2 Database"
+echo "========================================="
+
+MISSING=false
+for f in "$BACKBONE" "$TAXONOMY" "$PHYLO"; do
+    if [[ ! -f "$f" ]]; then
+        echo "ERROR: Required file not found: $f"
+        MISSING=true
+    else
+        echo "Found: $(basename "$f")"
+    fi
+done
+
+if [[ "$MISSING" == true ]]; then
+    echo ""
+    echo "Use --dl to download missing database files automatically"
+    exit 1
+fi
+echo ""
+
+################################################################################
+#                    DISPLAY CONFIGURATION                                     #
+################################################################################
+
+echo "========================================="
+echo "Meta2Data ggCOMBO"
+echo "========================================="
+echo "Database:       $DB_DIR"
+echo "  Backbone:     $(basename "$BACKBONE")"
+echo "  Taxonomy:     $(basename "$TAXONOMY")"
+echo "  Phylogeny:    $(basename "$PHYLO")"
+echo "Output:         $OUTPUT"
+echo "Threads:        $THREADS"
+echo "========================================="
+echo ""
+
+################################################################################
+#                    RUN TAXONOMY PIPELINE                                      #
+################################################################################
+
+# Export environment variables for taxonomy.sh
+export DB_DIR
+export BACKBONE
+export TAXONOMY
+export PHYLO
+export OUTPUT
+export cpu=$THREADS
+
+echo "========================================="
+echo "Running GreenGenes2 Taxonomy Pipeline"
+echo "Started: $(date)"
+echo "========================================="
+echo ""
+
+if ! bash "${SCRIPTS}/taxonomy.sh"; then
+    echo "ERROR: Taxonomy pipeline failed"
+    echo "Check logs in: $OUTPUT"
+    exit 1
+fi
+
+echo ""
+echo "Taxonomy pipeline completed successfully"
+echo ""
+
+################################################################################
+#                             Final Summary                                    #
+################################################################################
+
+echo "========================================="
+echo "ggCOMBO COMPLETE"
+echo "Finished: $(date)"
+echo "========================================="
+echo ""
+echo "Results saved in: ${OUTPUT}/final/merged/"
+echo "========================================="
