@@ -365,7 +365,8 @@ if [[ "$ENABLE_GG2" == true ]]; then
     echo "========================================="
     echo ""
 
-    # Export OUTPUT for taxonomy.sh
+    # Export paths for taxonomy.sh (input and output are the same directory)
+    export INPUT_DIR="$OUTPUT"
     export OUTPUT
 
     # Call taxonomy.sh for GreenGenes2 annotation with required parameters
