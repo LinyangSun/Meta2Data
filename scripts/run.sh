@@ -59,6 +59,12 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Validate thread count is a positive integer
+if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
+    echo "Error: --threads must be a positive integer, got '$THREADS'"
+    exit 1
+fi
+
 # Strip trailing slashes from paths
 METADATA="${METADATA%/}"
 OUTPUT="${OUTPUT%/}"
@@ -126,9 +132,8 @@ find_reference_file() {
 }
 
 # Find and export reference file path
-REF_16S_PATH=$(find_reference_file)
-if [[ $? -ne 0 ]]; then
-    echo "❌ ERROR: Cannot find 16S reference sequence file"
+if ! REF_16S_PATH=$(find_reference_file); then
+    echo "ERROR: Cannot find 16S reference sequence file"
     exit 1
 fi
 echo "Using 16S reference: $REF_16S_PATH"

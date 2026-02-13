@@ -1,3 +1,15 @@
+set -euo pipefail
+
+# Guard required environment variables
+if [[ -z "${OUTPUT:-}" ]]; then
+    echo "ERROR: \$OUTPUT is not set. taxonomy.sh must be called from ggCOMBO or AmpliconPIP." >&2
+    exit 1
+fi
+if [[ -z "${cpu:-}" ]]; then
+    echo "ERROR: \$cpu is not set. taxonomy.sh must be called from ggCOMBO or AmpliconPIP." >&2
+    exit 1
+fi
+
 ################################################################################
 #                          DATABASE RESOLUTION                                 #
 ################################################################################
@@ -101,8 +113,12 @@ FINAL_DIR="${OUTPUT}/final"
 TMP_DIR="${FINAL_DIR}/tmp"
 MERGED_DIR="${FINAL_DIR}/merged"
 
-# Create directories
+# Clean previous run output to avoid QIIME2 "file already exists" errors
 echo ">>> Step 1: Preparing output directories..."
+if [ -d "${MERGED_DIR}" ]; then
+    echo "Removing previous merged output: ${MERGED_DIR}"
+    rm -rf "${MERGED_DIR}"
+fi
 mkdir -p "${FINAL_DIR}" "${TMP_DIR}" "${MERGED_DIR}"
 echo "✓ Directories ready"
 echo ""
@@ -111,8 +127,11 @@ echo ""
 echo ">>> Step 2: Collecting dataset outputs..."
 
 all_folders=()
-for folder in "${OUTPUT}"/PRJ*/; do
-    if [ -d "$folder" ]; then
+for folder in "${OUTPUT}"/*/; do
+    [ -d "$folder" ] || continue
+    folder_base=$(basename "$folder")
+    # Match BioProject accessions (PRJ*) and CNCB/GSA accessions (CRA*)
+    if [[ "$folder_base" == PRJ* || "$folder_base" == CRA* ]]; then
         all_folders+=("$folder")
     fi
 done
