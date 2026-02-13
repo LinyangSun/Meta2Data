@@ -28,20 +28,9 @@ conda env create -f env1.yml
 Meta2Data --help
 ```
 
-env2.yml: Meta2Data only (vsearch, fastp, sra-tools, seqkit, Meta2Data, etc.)
-If you already installed the qiime2 and q2-greengenes2 on your device, use this. 
-
-```bash
-# Create environment from env2.yml
-conda env create -f env2.yml
-
-# Verify installation
-Meta2Data --help
-```
-
 ### Option 2: Pip Installation
 
-Install Meta2Data package into an existing conda environment with QIIME2:
+Install Meta2Data package only in your current conda env:
 
 ```bash
 # Install from GitHub
@@ -53,7 +42,6 @@ pip install -e .
 # Verify installation
 Meta2Data --help
 ```
-
 **Note**: Pip installation only installs Meta2Data scripts and Python dependencies. You must have QIIME2 and other bioinformatics tools (vsearch, fastp, sra-tools, seqkit) already installed in your environment.
 
 ## Requirements
