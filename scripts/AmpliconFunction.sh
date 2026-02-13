@@ -822,25 +822,39 @@ Amplicon_Pacbio_DenosingDada2() {
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
 
-    # Validate that a primer was detected
-    if [[ -z "$detected_primer" ]]; then
-        echo "❌ ERROR: No primer detected for PacBio denoise-ccs."
+    # Validate that primer sequences are provided
+    if [[ -z "$primer_front" ]]; then
+        echo "❌ ERROR: No forward primer (primer_front) set for PacBio denoise-ccs."
         echo "   dada2 denoise-ccs requires --p-front to orient CCS reads."
         return 1
     fi
-    echo "  Using detected primer for --p-front: $detected_primer"
+    echo "  Using forward primer for --p-front: $primer_front"
+
+    # Build denoise-ccs command with required parameters
+    local cmd=(
+        qiime dada2 denoise-ccs
+        --i-demultiplexed-seqs "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza"
+        --p-front "$primer_front"
+        --p-min-len 1000
+        --p-max-len 1600
+        --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza"
+        --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza"
+        --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+        --verbose
+    )
+
+    # Add reverse primer (--p-adapter) if provided
+    if [[ -n "$primer_adapter" ]]; then
+        echo "  Using reverse primer for --p-adapter: $primer_adapter"
+        cmd+=(--p-adapter "$primer_adapter")
+    fi
 
     # DADA2 denoise-ccs: handles read orientation, primer removal, denoising,
-    # and chimera removal in one step
-    qiime dada2 denoise-ccs \
-        --i-demultiplexed-seqs "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
-        --p-front "$detected_primer" \
-        --p-min-len 1000 \
-        --p-max-len 1600 \
-        --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
-        --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
-        --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
-        --verbose
+    # and chimera removal in one step.
+    # --p-front: forward primer (27F) — used to orient reads and trim 5' end
+    # --p-adapter: reverse primer (1492R) — trims 3' end
+    # Reads without primers are discarded; RC reads are re-oriented.
+    "${cmd[@]}"
 }
 
 ################################################################################

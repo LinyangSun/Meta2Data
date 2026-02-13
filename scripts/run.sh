@@ -474,7 +474,6 @@ for i in "${!Dataset_ID_sets[@]}"; do
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
 
-            # PacBio is typically SE
             for fq in "$ori_fastq_path"*.fastq*; do
                 [[ -f "$fq" ]] || continue
                 fastp -i "$fq" \
@@ -488,61 +487,83 @@ for i in "${!Dataset_ID_sets[@]}"; do
             done
             echo "✓ Adapter removal completed"
 
-            # ── Step B2: Entropy-based primer DETECTION (no trimming) ──
-            # For PacBio CCS, DADA2 denoise-ccs needs the primer sequence
-            # (--p-front) to re-orient reads (CCS reads are in random
-            # forward/reverse-complement orientations). So we only detect
-            # the primer here and let DADA2 handle both orientation and
-            # primer removal.
-            echo ">>> Detecting primers (entropy method, no trimming)..."
-            primer_detect_path="${dataset_path}temp/step_02_primer_detect/"
-            mkdir -p "$primer_detect_path"
+            # Clean up original FASTQ to save space
+            rm -rf "$ori_fastq_path"
 
-            python3 "${SCRIPTS}/entropy_primer_detect.py" \
-                -i "$adapter_removed_path" \
-                -o "$primer_detect_path" \
-                --detect-only || {
-                echo "  ✗ Entropy primer detection failed"
+            # ── Step B2: Read length check on first sample ──
+            # Sample the first 1000 reads from the first FASTQ file to
+            # determine whether these are near-full-length 16S CCS reads.
+            first_fq=$(ls "${adapter_removed_path}"*.fastq* 2>/dev/null | head -n 1)
+            if [[ -z "$first_fq" ]]; then
+                echo "❌ ERROR: No FASTQ files found after adapter removal"
                 exit 1
-            }
-
-            echo "✓ Entropy primer detection completed"
-
-            # Read detected primer consensus from JSON
-            primer_info_json="${primer_detect_path}primer_info.json"
-            if [[ -f "$primer_info_json" ]]; then
-                detected_primer=$(python3 -c "
-import json, sys
-with open('${primer_info_json}') as f:
-    info = json.load(f)
-fp = info.get('forward_primer', {})
-if fp.get('detected', False) and fp.get('consensus', ''):
-    print(fp['consensus'])
-else:
-    print('')
-")
-                echo "  Detected forward primer: ${detected_primer:-none}"
-            else
-                echo "  ⚠ primer_info.json not found"
-                detected_primer=""
             fi
 
-            # Clean up detection output (we only needed the JSON)
-            echo ">>> Cleaning up intermediate files..."
-            rm -rf "$ori_fastq_path"
-            rm -rf "$primer_detect_path"
-            echo "✓ Removed ori_fastq/ and primer_detect/ to save space"
+            echo ">>> Checking read lengths from first sample: $(basename "$first_fq")"
+            long_read_ratio=$(python3 -c "
+import sys, gzip, os
 
-            # ── Step C: QIIME2 Import → QC → DADA2 denoise-ccs ──
-            # Import adapter-removed reads (still containing primers for DADA2)
-            fastq_path="$adapter_removed_path"
-            export fastq_path
-            export detected_primer
-            Amplicon_Common_MakeManifestFileForQiime2
-            Amplicon_Common_ImportFastqToQiime2
-            Amplicon_Pacbio_QualityControlForQZA
-            Amplicon_Pacbio_DenosingDada2
-            Amplicon_Common_FinalFilesCleaning
+fq_path = '${first_fq}'
+open_fn = gzip.open if fq_path.endswith('.gz') else open
+count = 0
+long_count = 0
+with open_fn(fq_path, 'rt') as fh:
+    while count < 1000:
+        header = fh.readline()
+        if not header:
+            break
+        seq = fh.readline().strip()
+        fh.readline()  # +
+        fh.readline()  # qual
+        count += 1
+        if len(seq) > 1400:
+            long_count += 1
+if count == 0:
+    print('0.0')
+else:
+    print(f'{long_count / count:.4f}')
+")
+            echo "  Reads > 1400 bp ratio: ${long_read_ratio} (from first 1000 reads)"
+
+            # ── Sub-condition A: Full-length 16S CCS reads (majority > 1400bp) ──
+            if python3 -c "sys_exit = __import__('sys').exit; sys_exit(0 if float('${long_read_ratio}') > 0.5 else 1)"; then
+                echo ">>> Full-length 16S detected (>50% reads > 1400bp). Using 27F/1492R primers."
+
+                # Read primer sequences from reference FASTA files
+                DOCS_DIR="${SCRIPT_DIR}/docs"
+                primer_front=$(python3 -c "
+with open('${DOCS_DIR}/27F.fas') as f:
+    lines = f.read().strip().split('\n')
+    print(lines[1].strip())
+")
+                primer_adapter=$(python3 -c "
+with open('${DOCS_DIR}/1492R.fas') as f:
+    lines = f.read().strip().split('\n')
+    print(lines[1].strip())
+")
+                echo "  Forward primer (27F): $primer_front"
+                echo "  Adapter primer (1492R): $primer_adapter"
+
+                # Import adapter-removed reads directly into QIIME2
+                fastq_path="$adapter_removed_path"
+                export fastq_path
+                Amplicon_Common_MakeManifestFileForQiime2
+                Amplicon_Common_ImportFastqToQiime2
+                Amplicon_Pacbio_QualityControlForQZA
+
+                # DADA2 denoise-ccs with known 27F/1492R primers
+                export primer_front
+                export primer_adapter
+                Amplicon_Pacbio_DenosingDada2
+                Amplicon_Common_FinalFilesCleaning
+
+            else
+                echo "❌ ERROR: PacBio reads are mostly < 1400bp."
+                echo "   This pipeline currently only supports full-length 16S PacBio CCS reads."
+                echo "   Skipping dataset: $dataset_ID"
+                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - PacBio reads too short (ratio > 1400bp: ${long_read_ratio})" >> "$failed_log"
+                continue
+            fi
 
         else
             echo "❌ Unknown platform: $platform"
