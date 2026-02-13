@@ -833,6 +833,10 @@ def main():
                         help="Input directory containing FASTQ files")
     parser.add_argument("-o", "--output", required=True,
                         help="Output directory for trimmed files")
+    parser.add_argument("--detect-only", action="store_true",
+                        help="Detection-only mode: enable SE mixed-"
+                             "orientation detection (for PacBio CCS) "
+                             "and copy files unchanged")
     args = parser.parse_args()
 
     input_dir = os.path.abspath(args.input)
@@ -881,10 +885,12 @@ def main():
     # ------------------------------------------------------------------
     # Phase 1: Mixed-orientation detection
     # ------------------------------------------------------------------
-    # Check all modes — PacBio CCS reads have random forward/reverse-
-    # complement orientations even in SE mode, which creates bimodal
-    # frequency patterns that prevent CDV primer detection.
-    mixed_info = detect_mixed_orientation(freq_matrix, r1_reads)
+    # PE: always check (Illumina PE can have mixed R1/R2 orientations).
+    # SE: only check in --detect-only mode (PacBio CCS reads have random
+    #     forward/RC orientations that prevent CDV primer detection).
+    mixed_info = None
+    if mode == "PE" or args.detect_only:
+        mixed_info = detect_mixed_orientation(freq_matrix, r1_reads)
 
     # ==================================================================
     # Branch A: PE + mixed orientation — detect from majority/minority,

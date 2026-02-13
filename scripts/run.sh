@@ -500,7 +500,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
                 -i "$adapter_removed_path" \
-                -o "$primer_detect_path" || {
+                -o "$primer_detect_path" \
+                --detect-only || {
                 echo "  ✗ Entropy primer detection failed"
                 exit 1
             }
