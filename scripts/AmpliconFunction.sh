@@ -847,6 +847,42 @@ Amplicon_Pacbio_DenosingDada2() {
     "${cmd[@]}"
 }
 
+Amplicon_Pacbio_ExtractReads() {
+    # Extract the V3-V4 region from full-length 16S PacBio rep-seqs so that
+    # they are comparable with Illumina V3-V4 amplicon data.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local base="${dataset_path%/}"
+    local denoising_path="${base}/temp/step_05_denoise"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+
+    local original="${denoising_path}/${dataset_name}-rep-seqs-denoising.qza"
+    local ori_renamed="${denoising_path}/${dataset_name}-ori-rep-seqs-denoising.qza"
+
+    if [[ ! -f "$original" ]]; then
+        echo "❌ ERROR: Rep-seqs file not found: $original"
+        return 1
+    fi
+
+    # Rename the full-length rep-seqs to ori-rep-seqs
+    mv "$original" "$ori_renamed"
+    echo ">>> Renamed full-length rep-seqs to: $(basename "$ori_renamed")"
+
+    # Extract V3-V4 region using 341F / 785R primers
+    echo ">>> Extracting V3-V4 region from full-length 16S rep-seqs..."
+    qiime feature-classifier extract-reads \
+        --i-sequences "$ori_renamed" \
+        --p-f-primer CCTACGGGNGGCWGCAG \
+        --p-r-primer GACTACHVGGGTATCTAATCC \
+        --p-min-length 300 \
+        --p-max-length 500 \
+        --p-n-jobs "$cpu" \
+        --o-reads "$original"
+
+    echo ">>> V3-V4 extraction complete: $(basename "$original")"
+}
+
 ################################################################################
 #                         ONT PLATFORM FUNCTIONS                               #
 ################################################################################

@@ -526,6 +526,7 @@ with open('${DOCS_DIR}/1492R.fas') as f:
                 export primer_front
                 export primer_adapter
                 Amplicon_Pacbio_DenosingDada2
+                Amplicon_Pacbio_ExtractReads
                 Amplicon_Common_FinalFilesCleaning
 
             else
