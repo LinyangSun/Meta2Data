@@ -34,6 +34,7 @@ setup(
     scripts=[
         'bin/Meta2Data',
         'bin/Meta2Data-AmpliconPIP',
+        'bin/Meta2Data-ggCOMBO',
         'bin/Meta2Data-MetaDL',
     ],
     data_files=data_files,

@@ -7,6 +7,7 @@ Usage: Meta2Data <command> [options]
 Available commands:
     MetaDL                  Search keywords combination in NCBI and CNCB. Download and preclean metadata.
     AmpliconPIP             Download and process amplicon sequencing data based on user provided metadata.
+    ggCOMBO                 Merge amplicon datasets and assign taxonomy using GreenGenes2 database.
     ShortreadsPIP           TBD
 
 Run 'Meta2Data <command> --help' for command-specific options.
@@ -29,6 +30,9 @@ case $COMMAND in
         ;;
     AmpliconPIP)
         Meta2Data-AmpliconPIP "$@"
+        ;;
+    ggCOMBO)
+        Meta2Data-ggCOMBO "$@"
         ;;
     ShortreadsPIP)
         Meta2Data-ShortreadsPIP "$@"

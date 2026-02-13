@@ -6,78 +6,85 @@ echo "========================================="
 echo "Resolving GreenGenes2 database..."
 echo "========================================="
 
-# Database auto-detection function
-find_database_dir() {
-    if [[ -n "$DB_DIR" && -d "$DB_DIR" ]]; then
-        echo "$DB_DIR"
-        return 0
-    fi
-
-    local COMMON_PATHS=(
-        "$CONDA_PREFIX/share/qiime2/data/greengenes2"
-        "$HOME/.qiime2/db/greengenes2"
-        "/scratch/project_2009135/db/gg2"
-        "/usr/local/share/qiime2/data/greengenes2"
-    )
-
-    for path in "${COMMON_PATHS[@]}"; do
-        if [[ -d "$path" ]] && [[ -n "$(ls -A "$path" 2>/dev/null)" ]]; then
-            echo "$path"
+# If BACKBONE, TAXONOMY, PHYLO are already set (e.g. from ggCOMBO), use them directly
+if [[ -n "$BACKBONE" && -f "$BACKBONE" ]] && \
+   [[ -n "$TAXONOMY" && -f "$TAXONOMY" ]] && \
+   [[ -n "$PHYLO" && -f "$PHYLO" ]]; then
+    echo "Using pre-configured database paths:"
+    echo "  Backbone:  $(basename "$BACKBONE")"
+    echo "  Taxonomy:  $(basename "$TAXONOMY")"
+    echo "  Phylogeny: $(basename "$PHYLO")"
+    echo ""
+else
+    # Auto-detection fallback
+    find_database_dir() {
+        if [[ -n "$DB_DIR" && -d "$DB_DIR" ]]; then
+            echo "$DB_DIR"
             return 0
         fi
-    done
 
-    echo ""
-    return 1
-}
+        local COMMON_PATHS=(
+            "$CONDA_PREFIX/share/qiime2/data/greengenes2"
+            "$HOME/.qiime2/db/greengenes2"
+            "/scratch/project_2009135/db/gg2"
+            "/usr/local/share/qiime2/data/greengenes2"
+        )
 
-# Find specific database file
-find_db_file() {
-    local pattern="$1"
-    local db_dir="$2"
-    local files=("${db_dir}/"*${pattern}*.qza)
+        for path in "${COMMON_PATHS[@]}"; do
+            if [[ -d "$path" ]] && [[ -n "$(ls -A "$path" 2>/dev/null)" ]]; then
+                echo "$path"
+                return 0
+            fi
+        done
 
-    if [[ -f "${files[0]}" ]]; then
-        echo "${files[0]}"
-        return 0
+        echo ""
+        return 1
+    }
+
+    find_db_file() {
+        local pattern="$1"
+        local db_dir="$2"
+        local files=("${db_dir}/"*${pattern}*.qza)
+
+        if [[ -f "${files[0]}" ]]; then
+            echo "${files[0]}"
+            return 0
+        fi
+
+        echo ""
+        return 1
+    }
+
+    DB_DIR=$(find_database_dir)
+
+    if [[ -z "$DB_DIR" ]]; then
+        echo "ERROR: GreenGenes2 database not found"
+        echo ""
+        echo "Searched locations:"
+        echo "  - \$CONDA_PREFIX/share/qiime2/data/greengenes2"
+        echo "  - \$HOME/.qiime2/db/greengenes2"
+        echo "  - /scratch/project_2009135/db/gg2"
+        echo ""
+        echo "Use 'Meta2Data ggCOMBO --db /path/to/db' to specify manually"
+        exit 1
     fi
 
-    echo ""
-    return 1
-}
+    echo "Database found: $DB_DIR"
 
-# Resolve database
-DB_DIR=$(find_database_dir)
+    BACKBONE=$(find_db_file "backbone" "$DB_DIR")
+    TAXONOMY=$(find_db_file "taxonomy" "$DB_DIR")
+    PHYLO=$(find_db_file "phylogeny" "$DB_DIR")
 
-if [[ -z "$DB_DIR" ]]; then
-    echo "❌ ERROR: GreenGenes2 database not found"
+    if [[ -z "$BACKBONE" ]] || [[ -z "$TAXONOMY" ]] || [[ -z "$PHYLO" ]]; then
+        echo "ERROR: Required database files not found in $DB_DIR"
+        exit 1
+    fi
+
+    echo "Backbone:  $(basename "$BACKBONE")"
+    echo "Taxonomy:  $(basename "$TAXONOMY")"
+    echo "Phylogeny: $(basename "$PHYLO")"
     echo ""
-    echo "Searched locations:"
-    echo "  - \$CONDA_PREFIX/share/qiime2/data/greengenes2"
-    echo "  - \$HOME/.qiime2/db/greengenes2"
-    echo "  - /scratch/project_2009135/db/gg2"
-    echo ""
-    echo "Install with: conda install -c conda-forge -c bioconda q2-greengenes2"
-    echo "Or specify: --db-dir /path/to/greengenes2"
-    exit 1
 fi
-
-echo "✓ Database found: $DB_DIR"
-
-# Resolve individual files
-BACKBONE=$(find_db_file "backbone" "$DB_DIR")
-TAXONOMY=$(find_db_file "taxonomy" "$DB_DIR")
-PHYLO=$(find_db_file "phylogeny" "$DB_DIR")
-
-if [[ -z "$BACKBONE" ]] || [[ -z "$TAXONOMY" ]] || [[ -z "$PHYLO" ]]; then
-    echo "❌ ERROR: Required database files not found"
-    exit 1
-fi
-
-echo "✓ Backbone: $(basename "$BACKBONE")"
-echo "✓ Taxonomy: $(basename "$TAXONOMY")"
-echo "✓ Phylogeny: $(basename "$PHYLO")"
-echo ""
 
 ################################################################################
 #                    PHASE 3: MERGE AND TAXONOMY ASSIGNMENT                    #
