@@ -47,26 +47,30 @@ This command takes the output of AmpliconPIP (directories containing
   4. Phylogenetic tree filtering
 
 Required options:
-    --db DIR              Path to GreenGenes2 database directory (required)
+    --db DIR              Path to GreenGenes2 database directory
                           Expected files inside:
                             2024.09.backbone.full-length.fna.qza
                             2024.09.taxonomy.asv.nwk.qza
                             2024.09.phylogeny.id.nwk.qza
-    -o, --output DIR      Output directory from AmpliconPIP run (required)
-                          Must contain PRJ* dataset folders
+    -i, --input DIR       Input directory containing PRJ* dataset folders
+                          (output of a previous AmpliconPIP run)
 
 Optional options:
+    -o, --output DIR      Output directory for merged results (default: same as --input)
     -t, --threads int     Number of CPU threads (default: 4)
     --dl                  Download GreenGenes2 database files to --db directory
                           Source: https://ftp.microbio.me/greengenes_release/current/
     -h, --help            Show this help message
 
 Example usage:
-    # Basic usage (database already downloaded)
-    Meta2Data ggCOMBO --db /path/to/gg2db -o /path/to/amplicon_output -t 8
+    # Basic: input and output in the same directory
+    Meta2Data ggCOMBO --db /path/to/gg2db -i /path/to/amplicon_output -t 8
+
+    # Separate output directory
+    Meta2Data ggCOMBO --db /path/to/gg2db -i /path/to/amplicon_output -o /path/to/results -t 8
 
     # Download database first, then run
-    Meta2Data ggCOMBO --db /path/to/gg2db --dl -o /path/to/amplicon_output -t 8
+    Meta2Data ggCOMBO --db /path/to/gg2db --dl -i /path/to/amplicon_output -t 8
 
 Output structure:
     <output_dir>/
@@ -87,6 +91,7 @@ EOF
 # Default parameters
 DB_DIR=""
 ENABLE_DL=false
+INPUT_DIR=""
 OUTPUT=""
 THREADS=4
 
@@ -100,6 +105,10 @@ while [[ $# -gt 0 ]]; do
         --dl)
             ENABLE_DL=true
             shift
+            ;;
+        -i|--input)
+            INPUT_DIR="$2"
+            shift 2
             ;;
         -o|--output)
             OUTPUT="$2"
@@ -134,27 +143,36 @@ if [[ -z "$DB_DIR" ]]; then
     exit 1
 fi
 
-if [[ -z "$OUTPUT" ]]; then
-    echo "Error: --output is required"
+if [[ -z "$INPUT_DIR" ]]; then
+    echo "Error: --input is required"
     show_help
     exit 1
 fi
 
 # Strip trailing slashes from user-provided paths
 DB_DIR="${DB_DIR%/}"
+INPUT_DIR="${INPUT_DIR%/}"
 OUTPUT="${OUTPUT%/}"
 
 # Create DB_DIR if it doesn't exist (needed for --dl)
 mkdir -p "$DB_DIR"
 DB_DIR=$(cd "$DB_DIR" && pwd)
 
-# Validate and convert OUTPUT to absolute path
-if [[ ! -d "$OUTPUT" ]]; then
-    echo "Error: Output directory '$OUTPUT' does not exist"
+# Validate and convert INPUT_DIR to absolute path
+if [[ ! -d "$INPUT_DIR" ]]; then
+    echo "Error: Input directory '$INPUT_DIR' does not exist"
     echo "This should be the output directory from a previous AmpliconPIP run"
     exit 1
 fi
-OUTPUT=$(cd "$OUTPUT" && pwd)
+INPUT_DIR=$(cd "$INPUT_DIR" && pwd)
+
+# Default OUTPUT to INPUT_DIR if not specified
+if [[ -z "$OUTPUT" ]]; then
+    OUTPUT="$INPUT_DIR"
+else
+    mkdir -p "$OUTPUT"
+    OUTPUT=$(cd "$OUTPUT" && pwd)
+fi
 
 # Fixed database file names
 BACKBONE="${DB_DIR}/2024.09.backbone.full-length.fna.qza"
@@ -249,6 +267,7 @@ echo "Database:       $DB_DIR"
 echo "  Backbone:     $(basename "$BACKBONE")"
 echo "  Taxonomy:     $(basename "$TAXONOMY")"
 echo "  Phylogeny:    $(basename "$PHYLO")"
+echo "Input:          $INPUT_DIR"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
 echo "========================================="
@@ -263,6 +282,7 @@ export DB_DIR
 export BACKBONE
 export TAXONOMY
 export PHYLO
+export INPUT_DIR
 export OUTPUT
 export cpu=$THREADS
 

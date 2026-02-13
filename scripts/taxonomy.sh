@@ -1,6 +1,10 @@
 set -euo pipefail
 
 # Guard required environment variables
+if [[ -z "${INPUT_DIR:-}" ]]; then
+    echo "ERROR: \$INPUT_DIR is not set. taxonomy.sh must be called from ggCOMBO or AmpliconPIP." >&2
+    exit 1
+fi
 if [[ -z "${OUTPUT:-}" ]]; then
     echo "ERROR: \$OUTPUT is not set. taxonomy.sh must be called from ggCOMBO or AmpliconPIP." >&2
     exit 1
@@ -127,13 +131,9 @@ echo ""
 echo ">>> Step 2: Collecting dataset outputs..."
 
 all_folders=()
-for folder in "${OUTPUT}"/*/; do
+for folder in "${INPUT_DIR}"/PRJ*/; do
     [ -d "$folder" ] || continue
-    folder_base=$(basename "$folder")
-    # Match BioProject accessions (PRJ*) and CNCB/GSA accessions (CRA*)
-    if [[ "$folder_base" == PRJ* || "$folder_base" == CRA* ]]; then
-        all_folders+=("$folder")
-    fi
+    all_folders+=("$folder")
 done
 
 if [ ${#all_folders[@]} -eq 0 ]; then
