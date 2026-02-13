@@ -205,22 +205,12 @@ PRJNA67890,SRR234567
 The pipeline automatically:
 1. **Downloads** SRA data (via Aspera/FTP)
 2. **Detects** sequencing platform (Illumina, PacBio, Ion Torrent, 454)
-<<<<<<< claude/amplicon-workflow-docs-DCMNN
+               sequencing type (single / pair-end)
 3. **Identifies** and trims primers
 4. **Processes** data using platform-specific methods:
    - **Illumina/Ion Torrent**: DADA2 denoising
    - **PacBio**: DADA2 with PacBio parameters
 5. **Generates** QIIME2 artifacts (`.qza` files)
-=======
-               sequencing type (single / pair-end)
-4. **Identifies** detect and trims primers
-5. **Processes** data using platform-specific methods:
-   - **Illumina**: DADA2 single / pair-end
-   - **LS454/Ion Torrent** : DADA2 pyro
-   - **PacBio**: DADA2 with PacBio ccs
-6. **Generates** QIIME2 artifacts (`.qza` files)
-7. **Assigns** taxonomy (optional, with `--gg2`)
->>>>>>> main
 
 #### Output Structure
 
@@ -238,7 +228,6 @@ The pipeline automatically:
 └── summary.csv                       # sequencing depth for raw reads / final data
 ```
 
-<<<<<<< claude/amplicon-workflow-docs-DCMNN
 ### 3. ggCOMBO: Merge & Taxonomy Assignment
 
 Merge multiple AmpliconPIP dataset outputs and assign taxonomy using the GreenGenes2 database. Can be run independently from AmpliconPIP.
@@ -259,7 +248,7 @@ Meta2Data ggCOMBO \
     -o /path/to/results \
     -t 8
 
-# Download GreenGenes2 database first, then run
+# if not download database, use this
 Meta2Data ggCOMBO \
     --db /path/to/gg2db \
     --dl \
@@ -303,11 +292,6 @@ Use `--dl` to download these automatically.
         └── final-tree.qza                # Filtered phylogenetic tree
 ```
 
-### 4. Evaluate: Summarize Results
-
-(Feature in development - check `Meta2Data Evaluate --help` for details)
-=======
->>>>>>> main
 
 ## Command-Line Options
 
@@ -400,57 +384,7 @@ Meta2Data ggCOMBO \
 ls results/final/merged/
 ```
 
-### Process Specific Platform Data
 
-```bash
-# Process only Illumina data (filter metadata first)
-grep "ILLUMINA" metadata.csv > illumina_only.csv
-Meta2Data AmpliconPIP \
-    -m illumina_only.csv \
-    --col-bioproject Bioproject \
-    --col-sra Run \
-    -t 8
-```
-
-### Resume Interrupted Download
-
-If MetaDL is interrupted, it automatically resumes from the last checkpoint:
-
-```bash
-# Simply rerun the same command
-Meta2Data MetaDL -i bioproject_ids/ -o metadata_output/
-# Output: "Resuming from checkpoint..."
-```
-
-## Troubleshooting
-
-### Command Not Found After Pip Install
-
-If `Meta2Data` command is not found after `pip install`:
-
-```bash
-# Reinstall ensuring scripts are installed
-pip uninstall Meta2Data
-pip install --force-reinstall git+https://github.com/LinyangSun/Meta2Data.git@main
-
-# Verify scripts are in PATH
-which Meta2Data
-```
-
-### SRA Download Issues
-
-If SRA downloads fail:
-1. Check internet connectivity
-2. Verify sra-tools installation: `which prefetch`
-3. Configure Aspera for faster downloads: `vdb-config --interactive`
-4. Check available disk space
-
-### Memory Issues
-
-For large datasets, increase memory allocation:
-- Reduce parallel workers: `-t 4` instead of `-t 16`
-- Process datasets individually
-- Use high-memory compute nodes on HPC systems
 
 ## Development
 
