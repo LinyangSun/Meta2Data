@@ -202,6 +202,10 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Strip trailing slashes from user-provided paths
+INPUT="${INPUT%/}"
+OUTPUT="${OUTPUT%/}"
+
 # Validate required parameters
 if [[ -z "$OUTPUT" ]]; then
     echo "Error: --output is required"

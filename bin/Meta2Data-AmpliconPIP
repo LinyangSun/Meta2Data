@@ -169,6 +169,12 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Strip trailing slashes from user-provided paths
+METADATA="${METADATA%/}"
+OUTPUT="${OUTPUT%/}"
+I_BACKBONE="${I_BACKBONE%/}"
+I_REFERENCE_TAXONOMY="${I_REFERENCE_TAXONOMY%/}"
+
 # Handle test mode - set defaults for test mode
 if [[ "$TEST_MODE" == true ]]; then
     # Search for test file in multiple possible locations

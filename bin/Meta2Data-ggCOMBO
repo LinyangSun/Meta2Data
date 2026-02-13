@@ -135,8 +135,9 @@ if [[ -z "$OUTPUT" ]]; then
     exit 1
 fi
 
-# Strip trailing slash from DB_DIR
+# Strip trailing slashes from user-provided paths
 DB_DIR="${DB_DIR%/}"
+OUTPUT="${OUTPUT%/}"
 
 # Create DB_DIR if it doesn't exist (needed for --dl)
 mkdir -p "$DB_DIR"
