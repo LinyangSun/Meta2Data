@@ -207,7 +207,6 @@ Common_SRADownloadToFastq_MultiSource() {
 
     # [Note: Subsequent vsearch merging and reporting logic should follow here]
 
-    echo "Process finished. Output directory: $fastq_path"
 }
 
 
@@ -328,7 +327,6 @@ Common_SRADownloadViaSFF() {
     done < "${base_dir}${acc_file}"
 
     rm -rf "$temp_dl_path"
-    echo "Process finished (SFF mode). Output directory: $fastq_path"
 }
 
 Amplicon_Common_MakeManifestFileForQiime2() {
@@ -358,29 +356,23 @@ Amplicon_Common_ImportFastqToQiime2() {
 
     local paired_manifest="${temp_file_path}${dataset_name}_manifest.tsv"
 
-    echo "🔹 Processing dataset: $dataset_name"
-
     # --- SINGLE-END ---
     if [ "${sequence_type:-paired}" = "single" ]; then
-        echo "🧬 Importing single-end reads..."
         qiime tools import \
             --type 'SampleData[SequencesWithQuality]' \
             --input-path "$paired_manifest" \
             --output-path "${qza_path}${dataset_name}.qza" \
             --input-format SingleEndFastqManifestPhred33V2
-        echo "✅ Single-end import completed."
         return
     fi
 
     # --- PAIRED-END ---
     # Import as paired-end; DADA2 denoise-paired handles merging internally
-    echo "🧬 Importing paired-end reads..."
     qiime tools import \
         --type 'SampleData[PairedEndSequencesWithQuality]' \
         --input-path "$paired_manifest" \
         --output-path "${qza_path}${dataset_name}.qza" \
         --input-format PairedEndFastqManifestPhred33V2
-    echo "✅ Paired-end import completed."
 }
 Amplicon_Common_FinalFilesCleaning() {
     dataset_path="${dataset_path%/}/"
@@ -404,7 +396,6 @@ Amplicon_Common_FinalFilesCleaning() {
     
     # Check for denoising output
     if [ -d "$denoising_path" ] && [ -f "${denoising_path%/}/${dataset_name}-table-denoising.qza" ]; then
-        echo "The analysis ran successfully! Now only keeping final files to save space."
         cp "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" "${dataset_path%/}/${dataset_name}-final-rep-seqs.qza"
         cp "${denoising_path%/}/${dataset_name}-table-denoising.qza" "${dataset_path%/}/${dataset_name}-final-table.qza"
         
@@ -440,7 +431,6 @@ Amplicon_Common_FinalFilesCleaning() {
         
     # Check for vsearch output (454 pipeline)
     elif [ -f "${dataset_path%/}/${dataset_name}-table-vsearch.qza" ]; then
-        echo "The analysis ran successfully! Now only keeping final files to save space."
         mv "${dataset_path%/}/${dataset_name}-table-vsearch.qza" "${dataset_path%/}/${dataset_name}-final-table.qza"
         mv "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza" "${dataset_path%/}/${dataset_name}-final-rep-seqs.qza"
         find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
@@ -472,7 +462,6 @@ Common_CountRawReads() {
     local raw_counts_file="${base_dir}${dataset_name}_raw_read_counts.tsv"
     : > "$raw_counts_file"
 
-    echo ">>> Counting raw reads per sample..."
     while IFS=$'\t' read -r srr rename _; do
         [[ -z "$srr" || -z "$rename" ]] && continue
         local total_lines=0
@@ -489,8 +478,6 @@ Common_CountRawReads() {
         local total_reads=$((total_lines / 4))
         printf '%s\t%s\t%d\n' "$srr" "$rename" "$total_reads" >> "$raw_counts_file"
     done < "${base_dir}${acc_file}"
-
-    echo "✓ Raw read counts saved to $raw_counts_file"
 }
 
 ################################################################################
@@ -548,18 +535,14 @@ Amplicon_Illumina_DenosingDada2() {
     # Detect if data is paired-end or single-end
     local qza_type
     qza_type=$(qiime tools peek "$qza_file" | grep "Type:" | sed 's/.*Type:[[:space:]]*//')
-    echo "📊 Detected QZA type: $qza_type"
-
     if [[ "$qza_type" == *"PairedEnd"* ]]; then
         # ── PAIRED-END: use dada2 denoise-paired ──
-        echo "📊 Using dada2 denoise-paired for paired-end data..."
         local need_compute=true
         [[ -n "$start_in" && -n "$end_in" ]] && need_compute=false
 
         local start_f="" end_f="" start_r="" end_r=""
 
         if $need_compute; then
-            echo "Computing trim positions from QIIME 2 visualization..."
             qiime demux summarize \
                 --i-data "$qza_file" \
                 --o-visualization "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv"
@@ -574,7 +557,6 @@ Amplicon_Illumina_DenosingDada2() {
             fi
             local fwd_result
             fwd_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$fwd_tsv")"
-            echo "Forward: $fwd_result"
             IFS=',' read -r start_f end_f <<< "$fwd_result"
 
             # Reverse trim positions
@@ -583,7 +565,6 @@ Amplicon_Illumina_DenosingDada2() {
             if [[ -s "$rev_tsv" ]]; then
                 local rev_result
                 rev_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$rev_tsv")"
-                echo "Reverse: $rev_result"
                 IFS=',' read -r start_r end_r <<< "$rev_result"
             else
                 echo "⚠️ No reverse summary found, using forward positions for reverse"
@@ -592,14 +573,12 @@ Amplicon_Illumina_DenosingDada2() {
             fi
 
             rm -rf "$qf_view_path"
-            echo "Computed: forward start=$start_f, end=$end_f; reverse start=$start_r, end=$end_r"
         fi
 
         local start="${start_in:-$start_f}"
         local end="${end_in:-$end_f}"
         local start_rev="${start_in:-$start_r}"
         local end_rev="${end_in:-$end_r}"
-        echo "Using trim positions: forward start=$start, end=$end; reverse start=$start_rev, end=$end_rev"
         echo "$start $end $start_rev $end_rev" > "${qf_trim_pos_path%/}/Trim_position.txt"
 
         qiime dada2 denoise-paired \
@@ -613,16 +592,12 @@ Amplicon_Illumina_DenosingDada2() {
             --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
     else
         # ── SINGLE-END: use dada2 denoise-pyro ──
-        echo "📊 Using dada2 denoise-pyro for single-end data..."
         local need_compute=true
         [[ -n "$start_in" && -n "$end_in" ]] && need_compute=false
-        echo "start_in: $start_in ; end_in: $end_in"
-        echo "need_compute is: $need_compute"
 
         local final_start="" final_end=""
 
         if $need_compute; then
-            echo "Computing trim positions from QIIME 2 visualization..."
             qiime demux summarize \
                 --i-data "$qza_file" \
                 --o-visualization "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv"
@@ -636,14 +611,11 @@ Amplicon_Illumina_DenosingDada2() {
             fi
             local trim_pos_result
             trim_pos_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$tsv_path")"
-            echo "$trim_pos_result"
             IFS=',' read -r final_start final_end <<< "$trim_pos_result"
-            echo "Computed: start=$final_start, end=$final_end"
         fi
 
         local start="${start_in:-$final_start}"
         local end="${end_in:-$final_end}"
-        echo "Using trim positions: start=$start, end=$end"
         echo "$start $end" > "${qf_trim_pos_path%/}/Trim_position.txt"
 
         qiime dada2 denoise-pyro \
@@ -654,7 +626,6 @@ Amplicon_Illumina_DenosingDada2() {
             --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
             --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
     fi
-    echo "denoising complete."
 }
 ################################################################################
 #                        LS454 PLATFORM FUNCTIONS                              #
@@ -828,8 +799,6 @@ Amplicon_Pacbio_DenosingDada2() {
         echo "   dada2 denoise-ccs requires --p-front to orient CCS reads."
         return 1
     fi
-    echo "  Using forward primer for --p-front: $primer_front"
-
     # Build denoise-ccs command with required parameters
     local cmd=(
         qiime dada2 denoise-ccs
@@ -845,7 +814,6 @@ Amplicon_Pacbio_DenosingDada2() {
 
     # Add reverse primer (--p-adapter) if provided
     if [[ -n "$primer_adapter" ]]; then
-        echo "  Using reverse primer for --p-adapter: $primer_adapter"
         cmd+=(--p-adapter "$primer_adapter")
     fi
 
