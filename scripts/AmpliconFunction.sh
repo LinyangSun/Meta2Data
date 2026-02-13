@@ -111,7 +111,7 @@ Common_SRADownloadToFastq_MultiSource() {
     # Pre-scan accession file to determine required tools
     local has_ncbi_accessions=false
     local has_cncb_accessions=false
-    local base_dir="${dir_path%/}/"
+    local base_dir="${dir_path%/}"
 
     while IFS=$'\t' read -r srr _; do
         [[ -z "$srr" ]] && continue
@@ -120,7 +120,7 @@ Common_SRADownloadToFastq_MultiSource() {
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
             has_ncbi_accessions=true
         fi
-    done < "${base_dir}${acc_file}"
+    done < "${base_dir}/${acc_file}"
 
     # Check dependencies based on what we'll download
     if [[ "$has_ncbi_accessions" == true ]]; then
@@ -133,8 +133,8 @@ Common_SRADownloadToFastq_MultiSource() {
     fi
 
     # base_dir already declared above
-    local fastq_path="${base_dir}ori_fastq/"
-    local temp_dl_path="${base_dir}temp1/"
+    local fastq_path="${base_dir}/ori_fastq"
+    local temp_dl_path="${base_dir}/temp1"
     mkdir -p "$fastq_path" "$temp_dl_path"
 
     # Phase 1: Data Acquisition
@@ -180,7 +180,7 @@ Common_SRADownloadToFastq_MultiSource() {
                             local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
                             # Strip SRR/ERR/DRR ID from filename (keep separator)
                             local base_filename=$(echo "$normalized" | sed "s/${srr}//")
-                            mv "$fq_file" "${fastq_path}${rename}${base_filename}"
+                            mv "$fq_file" "${fastq_path}/${rename}${base_filename}"
                         done
                         rm -rf "$temp_outdir"
                     else
@@ -194,7 +194,7 @@ Common_SRADownloadToFastq_MultiSource() {
                     local normalized=$(echo "$basename_file" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
                     # Strip SRR/ERR/DRR ID from filename (keep separator)
                     local base_filename=$(echo "$normalized" | sed "s/${srr}//")
-                    mv "$file" "${fastq_path}${rename}${base_filename}"
+                    mv "$file" "${fastq_path}/${rename}${base_filename}"
                 fi
             done
 
@@ -202,7 +202,7 @@ Common_SRADownloadToFastq_MultiSource() {
         else
             echo "Warning: Unknown Accession format: $srr" >&2
         fi
-    done < "${base_dir}${acc_file}"
+    done < "${base_dir}/${acc_file}"
     rm -rf "$temp_dl_path"
 
     # Orphan file cleanup: fasterq-dump --split-3 may produce 3 files per sample
@@ -210,7 +210,7 @@ Common_SRADownloadToFastq_MultiSource() {
     # reads (prefix.fastq) must be removed when paired files exist, otherwise
     # downstream tools will misinterpret them as additional SE samples.
     local orphan_count=0
-    for r1 in "${fastq_path}"*_1.fastq*; do
+    for r1 in "${fastq_path}/"*_1.fastq*; do
         [[ -f "$r1" ]] || continue
         local prefix="${r1%_1.fastq*}"
         # Verify R2 also exists
@@ -255,9 +255,9 @@ Common_SRADownloadViaSFF() {
         return 1
     fi
 
-    local base_dir="${dir_path%/}/"
-    local fastq_path="${base_dir}ori_fastq/"
-    local temp_dl_path="${base_dir}temp1/"
+    local base_dir="${dir_path%/}"
+    local fastq_path="${base_dir}/ori_fastq"
+    local temp_dl_path="${base_dir}/temp1"
     mkdir -p "$fastq_path" "$temp_dl_path"
 
     # Pre-scan for dependency check
@@ -266,7 +266,7 @@ Common_SRADownloadViaSFF() {
         [[ -z "$srr" ]] && continue
         if [[ "$srr" =~ ^CRR ]]; then has_cncb=true
         elif [[ "$srr" =~ ^[EDS]RR ]]; then has_ncbi=true; fi
-    done < "${base_dir}${acc_file}"
+    done < "${base_dir}/${acc_file}"
 
     if [[ "$has_ncbi" == true ]]; then
         command -v prefetch >/dev/null 2>&1 || { echo "Error: 'prefetch' not found" >&2; return 1; }
@@ -310,7 +310,7 @@ Common_SRADownloadViaSFF() {
                 if sff-dump --outdir "$sff_outdir" "$sra_file" 2>/dev/null; then
                     for sff_file in "$sff_outdir"/*.sff; do
                         [[ -f "$sff_file" ]] || continue
-                        sff2fastq "$sff_file" -o "${fastq_path}${rename}.fastq"
+                        sff2fastq "$sff_file" -o "${fastq_path}/${rename}.fastq"
                         echo "  ✓ SFF→FASTQ: ${srr} → ${rename}.fastq (quality scores preserved)"
                         used_sff=true
                     done
@@ -333,7 +333,7 @@ Common_SRADownloadViaSFF() {
                             local fq_basename=$(basename "$fq_file")
                             local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
                             local base_filename=$(echo "$normalized" | sed "s/${srr}//")
-                            mv "$fq_file" "${fastq_path}${rename}${base_filename}"
+                            mv "$fq_file" "${fastq_path}/${rename}${base_filename}"
                             echo "  ✓ fasterq-dump: ${srr} → ${rename}${base_filename} (quality may be missing)"
                         done
                     else
@@ -347,22 +347,22 @@ Common_SRADownloadViaSFF() {
         else
             echo "Warning: Unknown accession format: $srr" >&2
         fi
-    done < "${base_dir}${acc_file}"
+    done < "${base_dir}/${acc_file}"
 
     rm -rf "$temp_dl_path"
 }
 
 Amplicon_Common_MakeManifestFileForQiime2() {
-    cd $dataset_path
-    local temp_file_path=$dataset_path"temp/temp_file/"
+    cd "${dataset_path%/}" || { echo "ERROR: Cannot access dataset path: $dataset_path"; exit 1; }
+    local temp_file_path="${dataset_path%/}/temp/temp_file"
     mkdir -p "$temp_file_path"
     local _dp="${dataset_path%/}"
     dataset_name="${_dp##*/}"
-    find "$fastq_path" -type f -name "*.fastq*" > $temp_file_path$dataset_name"-file.txt"
+    find "$fastq_path" -type f -name "*.fastq*" > "${temp_file_path}/${dataset_name}-file.txt"
     if [ "$sequence_type" = "single" ]; then
-        python "${SCRIPTS}/py_16s.py" mk_manifest_SE --FilePath $temp_file_path$dataset_name"-file.txt"
+        python "${SCRIPTS}/py_16s.py" mk_manifest_SE --FilePath "${temp_file_path}/${dataset_name}-file.txt"
     else
-        python "${SCRIPTS}/py_16s.py" mk_manifest_PE --FilePath $temp_file_path$dataset_name"-file.txt"
+        python "${SCRIPTS}/py_16s.py" mk_manifest_PE --FilePath "${temp_file_path}/${dataset_name}-file.txt"
     fi
 }
 Amplicon_Common_ImportFastqToQiime2() {
@@ -447,8 +447,8 @@ Amplicon_Common_FinalFilesCleaning() {
         # Remove unwanted logs
         rm -f "${dataset_path%/}/"{denoising.log,fastp.html,fastp.json}
 
-        rm -rf "${dataset_path}ori_fastq/" 2>/dev/null || true
-        rm -rf "${dataset_path}working_fastq/" 2>/dev/null || true
+        rm -rf "${dataset_path%/}/ori_fastq" 2>/dev/null || true
+        rm -rf "${dataset_path%/}/working_fastq" 2>/dev/null || true
         
         return 0
         
@@ -477,18 +477,17 @@ Amplicon_Common_FinalFilesCleaning() {
 Common_CountRawReads() {
     # Count raw reads per sample from ori_fastq and save to TSV
     # Args: $1 = dataset_path, $2 = sra_file_name
-    local base_dir="${1%/}/"
+    local base_dir="${1%/}"
     local acc_file="$2"
-    local fastq_path="${base_dir}ori_fastq/"
-    local dataset_name="${base_dir%/}"
-    dataset_name="${dataset_name##*/}"
-    local raw_counts_file="${base_dir}${dataset_name}_raw_read_counts.tsv"
+    local fastq_path="${base_dir}/ori_fastq"
+    local dataset_name="${base_dir##*/}"
+    local raw_counts_file="${base_dir}/${dataset_name}_raw_read_counts.tsv"
     : > "$raw_counts_file"
 
     while IFS=$'\t' read -r srr rename _; do
         [[ -z "$srr" || -z "$rename" ]] && continue
         local total_lines=0
-        for fq in "${fastq_path}${rename}"*.fastq*; do
+        for fq in "${fastq_path}/${rename}"*.fastq*; do
             [[ -f "$fq" ]] || continue
             local lines
             if [[ "$fq" == *.gz ]]; then
@@ -500,7 +499,7 @@ Common_CountRawReads() {
         done
         local total_reads=$((total_lines / 4))
         printf '%s\t%s\t%d\n' "$srr" "$rename" "$total_reads" >> "$raw_counts_file"
-    done < "${base_dir}${acc_file}"
+    done < "${base_dir}/${acc_file}"
 }
 
 ################################################################################

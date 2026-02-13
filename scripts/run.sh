@@ -59,6 +59,10 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Strip trailing slashes from paths
+METADATA="${METADATA%/}"
+OUTPUT="${OUTPUT%/}"
+
 # Validate input
 if [[ -z "$METADATA" ]]; then
     echo "Error: --metadata is required"
@@ -177,7 +181,7 @@ summary_csv="${OUTPUT}/summary.csv"
 
 for i in "${!Dataset_ID_sets[@]}"; do
     dataset_ID="${Dataset_ID_sets[$i]}"
-    dataset_path="${OUTPUT}/${dataset_ID}/"
+    dataset_path="${OUTPUT}/${dataset_ID}"
     sra_file_name="${dataset_ID}_sra.txt"
     platform="Unknown" 
 
@@ -185,7 +189,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
     echo "Dataset $((i+1))/${#Dataset_ID_sets[@]}: $dataset_ID"
     
     # Check if already processed
-    if [ -f "${dataset_path}${dataset_ID}-final-rep-seqs.qza" ]; then
+    if [ -f "${dataset_path}/${dataset_ID}-final-rep-seqs.qza" ]; then
         echo "✓ Already processed. Skipping."
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - ALREADY_DONE" >> "$skipped_log"
         continue
@@ -213,7 +217,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         # 2. Platform-specific pipeline (download + processing)
         export dataset_path
         export dataset_name="$dataset_ID"
-        ori_fastq_path="${dataset_path}ori_fastq/"
+        ori_fastq_path="${dataset_path}/ori_fastq"
 
         if [[ "$platform" == "ILLUMINA" ]]; then
             # ── Step A: Download ──
@@ -224,7 +228,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Common_CountRawReads "$dataset_path" "$sra_file_name"
 
             # Detect PE/SE after download
-            line_count=$(wc -l < "${dataset_path}${sra_file_name}")
+            line_count=$(wc -l < "${dataset_path}/${sra_file_name}")
             file_count=$(find "$ori_fastq_path" -type f 2>/dev/null | wc -l)
             if [ $((line_count * 2)) -eq $file_count ]; then
                 sequence_type="paired"
@@ -235,7 +239,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp ──
-            adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
+            adapter_removed_path="${dataset_path}/temp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
 
             if [[ "$sequence_type" == "paired" ]]; then
@@ -244,7 +248,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # downstream tools (entropy_primer_detect, mk_manifest_PE,
                 # QIIME2 import) see a consistent naming convention.
                 pe_done=false
-                for r1 in "$ori_fastq_path"*_R1*.fastq*; do
+                for r1 in "${ori_fastq_path}/"*_R1*.fastq*; do
                     [[ -f "$r1" ]] || continue
                     r2="${r1/_R1/_R2}"
                     [[ -f "$r2" ]] || continue
@@ -252,49 +256,49 @@ for i in "${!Dataset_ID_sets[@]}"; do
                     r1_out=$(basename "$r1"); r1_out="${r1_out/_R1/_1}"
                     r2_out=$(basename "$r2"); r2_out="${r2_out/_R2/_2}"
                     fastp -i "$r1" -I "$r2" \
-                          -o "${adapter_removed_path}${r1_out}" \
-                          -O "${adapter_removed_path}${r2_out}" \
+                          -o "${adapter_removed_path}/${r1_out}" \
+                          -O "${adapter_removed_path}/${r2_out}" \
                           --detect_adapter_for_pe \
                           --disable_quality_filtering \
                           --disable_length_filtering \
                           -w "$cpu" \
-                          -j "${adapter_removed_path}fastp.json" \
-                          -h "${adapter_removed_path}fastp.html"
+                          -j "${adapter_removed_path}/fastp.json" \
+                          -h "${adapter_removed_path}/fastp.html"
                     pe_done=true
                 done
                 if [[ "$pe_done" == false ]]; then
                     # Fallback: files already use _1/_2 pattern
-                    for r1 in "$ori_fastq_path"*_1.fastq*; do
+                    for r1 in "${ori_fastq_path}/"*_1.fastq*; do
                         [[ -f "$r1" ]] || continue
                         r2="${r1/_1.fastq/_2.fastq}"
                         [[ -f "$r2" ]] || continue
                         fastp -i "$r1" -I "$r2" \
-                              -o "${adapter_removed_path}$(basename "$r1")" \
-                              -O "${adapter_removed_path}$(basename "$r2")" \
+                              -o "${adapter_removed_path}/$(basename "$r1")" \
+                              -O "${adapter_removed_path}/$(basename "$r2")" \
                               --detect_adapter_for_pe \
                               --disable_quality_filtering \
                               --disable_length_filtering \
                               -w "$cpu" \
-                              -j "${adapter_removed_path}fastp.json" \
-                              -h "${adapter_removed_path}fastp.html"
+                              -j "${adapter_removed_path}/fastp.json" \
+                              -h "${adapter_removed_path}/fastp.html"
                     done
                 fi
             else
                 # SE: run fastp on each file
-                for fq in "$ori_fastq_path"*.fastq*; do
+                for fq in "${ori_fastq_path}/"*.fastq*; do
                     [[ -f "$fq" ]] || continue
                     fastp -i "$fq" \
-                          -o "${adapter_removed_path}$(basename "$fq")" \
+                          -o "${adapter_removed_path}/$(basename "$fq")" \
                           --disable_quality_filtering \
                           --disable_length_filtering \
                           -w "$cpu" \
-                          -j "${adapter_removed_path}fastp.json" \
-                          -h "${adapter_removed_path}fastp.html"
+                          -j "${adapter_removed_path}/fastp.json" \
+                          -h "${adapter_removed_path}/fastp.html"
                 done
             fi
 
             # ── Step B: Entropy-based primer detection & trimming ──
-            fastp_path="${dataset_path}temp/step_02_fastp/"
+            fastp_path="${dataset_path}/temp/step_02_fastp"
             mkdir -p "$fastp_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
@@ -329,22 +333,22 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
-            adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
+            adapter_removed_path="${dataset_path}/temp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
 
-            for fq in "$ori_fastq_path"*.fastq*; do
+            for fq in "${ori_fastq_path}/"*.fastq*; do
                 [[ -f "$fq" ]] || continue
                 fastp -i "$fq" \
-                      -o "${adapter_removed_path}$(basename "$fq")" \
+                      -o "${adapter_removed_path}/$(basename "$fq")" \
                       --disable_quality_filtering \
                       --disable_length_filtering \
                       -w "$cpu" \
-                      -j "${adapter_removed_path}fastp.json" \
-                      -h "${adapter_removed_path}fastp.html"
+                      -j "${adapter_removed_path}/fastp.json" \
+                      -h "${adapter_removed_path}/fastp.html"
             done
 
             # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
-            fastp_path="${dataset_path}temp/step_02_fastp/"
+            fastp_path="${dataset_path}/temp/step_02_fastp"
             mkdir -p "$fastp_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
@@ -380,22 +384,22 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
-            adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
+            adapter_removed_path="${dataset_path}/temp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
 
-            for fq in "$ori_fastq_path"*.fastq*; do
+            for fq in "${ori_fastq_path}/"*.fastq*; do
                 [[ -f "$fq" ]] || continue
                 fastp -i "$fq" \
-                      -o "${adapter_removed_path}$(basename "$fq")" \
+                      -o "${adapter_removed_path}/$(basename "$fq")" \
                       --disable_quality_filtering \
                       --disable_length_filtering \
                       -w "$cpu" \
-                      -j "${adapter_removed_path}fastp.json" \
-                      -h "${adapter_removed_path}fastp.html"
+                      -j "${adapter_removed_path}/fastp.json" \
+                      -h "${adapter_removed_path}/fastp.html"
             done
 
             # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
-            fastp_path="${dataset_path}temp/step_02_fastp/"
+            fastp_path="${dataset_path}/temp/step_02_fastp"
             mkdir -p "$fastp_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
@@ -438,18 +442,18 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp ──
-            adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
+            adapter_removed_path="${dataset_path}/temp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
 
-            for fq in "$ori_fastq_path"*.fastq*; do
+            for fq in "${ori_fastq_path}/"*.fastq*; do
                 [[ -f "$fq" ]] || continue
                 fastp -i "$fq" \
-                      -o "${adapter_removed_path}$(basename "$fq")" \
+                      -o "${adapter_removed_path}/$(basename "$fq")" \
                       --disable_quality_filtering \
                       --disable_length_filtering \
                       -w "$cpu" \
-                      -j "${adapter_removed_path}fastp.json" \
-                      -h "${adapter_removed_path}fastp.html"
+                      -j "${adapter_removed_path}/fastp.json" \
+                      -h "${adapter_removed_path}/fastp.html"
             done
 
             # Clean up original FASTQ to save space
@@ -458,7 +462,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # ── Step B2: Read length check on first sample ──
             # Sample the first 1000 reads from the first FASTQ file to
             # determine whether these are near-full-length 16S CCS reads.
-            first_fq=$(ls "${adapter_removed_path}"*.fastq* 2>/dev/null | head -n 1)
+            first_fq=$(ls "${adapter_removed_path}/"*.fastq* 2>/dev/null | head -n 1)
             if [[ -z "$first_fq" ]]; then
                 echo "❌ ERROR: No FASTQ files found after adapter removal"
                 exit 1
@@ -536,9 +540,9 @@ with open('${DOCS_DIR}/1492R.fas') as f:
         echo ">>> Generating summary for $dataset_ID..."
         python "${SCRIPTS}/py_16s.py" append_summary \
             --dataset_id "$dataset_ID" \
-            --sra_file "${dataset_path}${sra_file_name}" \
-            --raw_counts "${dataset_path}${dataset_ID}_raw_read_counts.tsv" \
-            --final_table "${dataset_path}${dataset_ID}-final-table.qza" \
+            --sra_file "${dataset_path}/${sra_file_name}" \
+            --raw_counts "${dataset_path}/${dataset_ID}_raw_read_counts.tsv" \
+            --final_table "${dataset_path}/${dataset_ID}-final-table.qza" \
             --output_csv "$summary_csv"
 
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SUCCESS - Platform: $platform" >> "$success_log"
