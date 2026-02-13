@@ -337,7 +337,7 @@ Amplicon_Common_MakeManifestFileForQiime2() {
     mkdir -p "$temp_file_path"
     local _dp="${dataset_path%/}"
     dataset_name="${_dp##*/}"
-    find "$fastq_path" -type f > $temp_file_path$dataset_name"-file.txt"
+    find "$fastq_path" -type f -name "*.fastq*" > $temp_file_path$dataset_name"-file.txt"
     if [ "$sequence_type" = "single" ]; then
         python "${SCRIPTS}/py_16s.py" mk_manifest_SE --FilePath $temp_file_path$dataset_name"-file.txt"
     else
@@ -764,8 +764,8 @@ Amplicon_LS454_ClusterDenovo() {
 #                      ION_TORRENT PLATFORM FUNCTIONS                          #
 ################################################################################
 # Functions for Ion Torrent sequencing data processing
-# Same OTU pipeline as LS454, with additional 15-base front trimming after QC
-# to remove Ion Torrent key signal artifact.
+# Uses DADA2 denoise-pyro with --p-trim-left 10 to handle Ion Torrent
+# signal instability in the first ~10bp.
 
 Amplicon_IonTorrent_QualityControlForQZA() {
     dataset_path="${dataset_path%/}/"
@@ -778,8 +778,8 @@ Amplicon_IonTorrent_QualityControlForQZA() {
 
     # Length filter + N removal (no q-score filtering for Ion Torrent)
     # Note: primers are already removed by entropy_primer_detect.py before QIIME2
-    # import, and the first 15bp of biological sequence are trimmed by a post-primer
-    # fastp step in run.sh, so no additional front-trimming is needed here.
+    # import. The first 10bp trim (Ion Torrent signal instability) is handled
+    # downstream by DADA2 denoise-pyro --p-trim-left.
     qiime quality-filter q-score \
         --i-demux "${qza_path%/}/${dataset_name}.qza" \
         --p-min-quality 0 \

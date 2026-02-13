@@ -433,43 +433,21 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
             echo "✓ Entropy primer detection/removal completed"
 
-            # ── Step C2: Trim first 15bp of biological sequence (post-primer) ──
-            # Ion Torrent reads have low-quality bases in the first ~15bp after
-            # the primer due to signal instability at sequencing start.
-            echo ">>> Trimming first 15bp of biological sequence (post-primer)..."
-            trimmed_path="${dataset_path}temp/step_02b_trimmed/"
-            mkdir -p "$trimmed_path"
-
-            for fq in "$fastp_path"*.fastq*; do
-                [[ -f "$fq" ]] || continue
-                fastp -i "$fq" \
-                      -o "${trimmed_path}$(basename "$fq")" \
-                      --trim_front1 15 \
-                      --disable_adapter_trimming \
-                      --disable_quality_filtering \
-                      --disable_length_filtering \
-                      -w "$cpu" \
-                      -j "${trimmed_path}fastp_trim.json" \
-                      -h "${trimmed_path}fastp_trim.html"
-                echo "  ✓ Front 15bp trimmed: $(basename "$fq")"
-            done
-            echo "✓ Post-primer 15bp trim completed"
-
             echo ">>> Cleaning up intermediate files..."
             rm -rf "$ori_fastq_path"
             rm -rf "$adapter_removed_path"
-            rm -rf "$fastp_path"
-            echo "✓ Removed ori_fastq/, adapter_removed/, and fastp/ to save space"
+            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
-            # ── Step D: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% ──
-            fastq_path="$trimmed_path"
+            # ── Step D: QIIME2 Import → Quality filter → DADA2 denoise-pyro ──
+            # Ion Torrent signal instability in the first ~10bp is handled by
+            # DADA2 denoise-pyro --p-trim-left 10 (passed via -s 10).
+            # trunc-len is computed automatically from QC visualization.
+            fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
             Amplicon_IonTorrent_QualityControlForQZA
-            Amplicon_LS454_Deduplication
-            Amplicon_LS454_ChimerasRemoval
-            Amplicon_LS454_ClusterDenovo
+            Amplicon_Illumina_DenosingDada2 -s 10
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "OXFORD_NANOPORE" ]]; then
