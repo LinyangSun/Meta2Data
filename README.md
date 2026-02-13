@@ -81,6 +81,7 @@ Meta2Data <command> [options]
 Available commands:
     MetaDL         Enhanced metadata download with parallel processing (NCBI + CNCB)
     AmpliconPIP    Download and process 16s amplicon sequencing data (ITS AND 18S not included)
+    ggCOMBO        Merge AmpliconPIP results and assign taxonomy via GreenGenes2
     ShortreadsPIP  (In development)
 ```
 
@@ -177,16 +178,6 @@ Meta2Data AmpliconPIP \
     --col-sra "Run" \
     -t 8
 
-# Enable GreenGenes2 taxonomy assignment (requires backbone and taxonomy files)
-Meta2Data AmpliconPIP \
-    -m path/to/metadata.csv \
-    --col-bioproject "Bioproject" \
-    --col-sra "Run" \
-    -t 8 \
-    --gg2 \
-    --i-backbone /path/to/backbone.qza \
-    --i-reference-taxonomy /path/to/taxonomy.qza
-
 # Test mode with sample data (output to current directory)
 Meta2Data AmpliconPIP --test -t 8
 
@@ -214,6 +205,13 @@ PRJNA67890,SRR234567
 The pipeline automatically:
 1. **Downloads** SRA data (via Aspera/FTP)
 2. **Detects** sequencing platform (Illumina, PacBio, Ion Torrent, 454)
+<<<<<<< claude/amplicon-workflow-docs-DCMNN
+3. **Identifies** and trims primers
+4. **Processes** data using platform-specific methods:
+   - **Illumina/Ion Torrent**: DADA2 denoising
+   - **PacBio**: DADA2 with PacBio parameters
+5. **Generates** QIIME2 artifacts (`.qza` files)
+=======
                sequencing type (single / pair-end)
 4. **Identifies** detect and trims primers
 5. **Processes** data using platform-specific methods:
@@ -222,6 +220,7 @@ The pipeline automatically:
    - **PacBio**: DADA2 with PacBio ccs
 6. **Generates** QIIME2 artifacts (`.qza` files)
 7. **Assigns** taxonomy (optional, with `--gg2`)
+>>>>>>> main
 
 #### Output Structure
 
@@ -233,14 +232,82 @@ The pipeline automatically:
 │   ├── ori_fastq/                     # Downloaded FASTQ files
 │   ├── <dataset_ID>-final-rep-seqs.qza       # Final sequences
 │   └── <dataset_ID>-final-table.qza          # Final feature table
-├── final/                             # (if --gg2 enabled)
-│   └── merged/                        # Merged results with taxonomy
 ├── failed_datasets.log
 ├── success_datasets.log
 ├── skipped_datasets.log
 └── summary.csv                       # sequencing depth for raw reads / final data
 ```
 
+<<<<<<< claude/amplicon-workflow-docs-DCMNN
+### 3. ggCOMBO: Merge & Taxonomy Assignment
+
+Merge multiple AmpliconPIP dataset outputs and assign taxonomy using the GreenGenes2 database. Can be run independently from AmpliconPIP.
+
+#### Basic Usage
+
+```bash
+# Input and output in the same directory
+Meta2Data ggCOMBO \
+    --db /path/to/gg2db \
+    -i /path/to/amplicon_output \
+    -t 8
+
+# Separate output directory
+Meta2Data ggCOMBO \
+    --db /path/to/gg2db \
+    -i /path/to/amplicon_output \
+    -o /path/to/results \
+    -t 8
+
+# Download GreenGenes2 database first, then run
+Meta2Data ggCOMBO \
+    --db /path/to/gg2db \
+    --dl \
+    -i /path/to/amplicon_output \
+    -t 8
+```
+
+#### Input
+
+The `--input` directory must contain one or more `PRJ*` subdirectories (output of AmpliconPIP), each with:
+- `<dataset_ID>-final-table.qza` — feature table
+- `<dataset_ID>-final-rep-seqs.qza` — representative sequences
+
+The `--db` directory must contain three GreenGenes2 files:
+- `2024.09.backbone.full-length.fna.qza`
+- `2024.09.taxonomy.asv.nwk.qza`
+- `2024.09.phylogeny.id.nwk.qza`
+
+Use `--dl` to download these automatically.
+
+#### Processing Pipeline
+
+1. **Merge** feature tables and representative sequences across all datasets
+2. **Map** to GreenGenes2 backbone (`greengenes2 non-v4-16s`)
+3. **Assign** taxonomy from GreenGenes2 reference
+4. **Filter** phylogenetic tree to matched features
+
+#### Output Structure
+
+```
+<output_dir>/
+└── final/
+    └── merged/
+        ├── merged-table.qza               # Merged feature table
+        ├── merged-rep-seqs.qza            # Merged representative sequences
+        ├── merged-table-summary.qzv       # Pre-annotation summary
+        ├── merged-table-gg2.qza           # GG2-mapped feature table
+        ├── merged-rep-seqs-gg2.qza        # GG2-mapped sequences
+        ├── merged-taxonomy.qza            # Taxonomy classification
+        ├── merged-table-gg2-summary.qzv   # Post-annotation summary
+        └── final-tree.qza                # Filtered phylogenetic tree
+```
+
+### 4. Evaluate: Summarize Results
+
+(Feature in development - check `Meta2Data Evaluate --help` for details)
+=======
+>>>>>>> main
 
 ## Command-Line Options
 
@@ -282,11 +349,22 @@ Optional:
     --test                        Use test data (test/ampliconpiptest.csv)
                                   Output defaults to current directory
     -h, --help                    Show help
+```
 
-GreenGenes2 Taxonomy Options:
-    --gg2                         Enable GreenGenes2 taxonomy assignment
-    --i-backbone FILE             Backbone tree file (required if --gg2 enabled)
-    --i-reference-taxonomy FILE   Reference taxonomy file (required if --gg2 enabled)
+### ggCOMBO Options
+
+```
+Required:
+    --db DIR                      Path to GreenGenes2 database directory
+    -i, --input DIR               Input directory containing PRJ* dataset folders
+                                  (output of a previous AmpliconPIP run)
+
+Optional:
+    -o, --output DIR              Output directory for merged results
+                                  (default: same as --input)
+    -t, --threads INT             CPU threads (default: 4)
+    --dl                          Download GreenGenes2 database files to --db directory
+    -h, --help                    Show help
 ```
 
 ## Examples
@@ -303,18 +381,22 @@ Meta2Data MetaDL \
     -o metadata/ \
     -k YOUR_API_KEY
 
-# 3. Process amplicon data with taxonomy
+# 3. Process amplicon data
 Meta2Data AmpliconPIP \
     -m metadata/all_metadata_merged.csv \
     --col-bioproject Bioproject \
     --col-sra Run \
     -o results/ \
-    -t 16 \
-    --gg2 \
-    --i-backbone /path/to/backbone.qza \
-    --i-reference-taxonomy /path/to/taxonomy.qza
+    -t 16
 
-# 4. Check results
+# 4. Merge and assign taxonomy with GreenGenes2
+Meta2Data ggCOMBO \
+    --db /path/to/gg2db \
+    --dl \
+    -i results/ \
+    -t 16
+
+# 5. Check results
 ls results/final/merged/
 ```
 
@@ -378,14 +460,17 @@ For large datasets, increase memory allocation:
 Meta2Data/
 ├── bin/                    # Command-line entry points
 │   ├── Meta2Data           # Main dispatcher
-│   ├── Meta2Data-MetaDL    # Metadata download v2
-│   └── Meta2Data-AmpliconPIP # Amplicon pipeline
+│   ├── Meta2Data-MetaDL    # Metadata download
+│   ├── Meta2Data-AmpliconPIP # Amplicon pipeline
+│   └── Meta2Data-ggCOMBO   # Merge & taxonomy assignment
 ├── scripts/                # Processing scripts
 │   ├── AmpliconFunction.sh # Amplicon processing functions
+│   ├── run.sh             # AmpliconPIP orchestrator
+│   ├── taxonomy.sh        # ggCOMBO taxonomy pipeline
 │   ├── metadata_downloader.py # Python metadata downloader
 │   └── py_16s.py          # 16S data processing
 ├── test/                   # Test data
-├── docs/                   # Documentation
+├── docs/                   # Documentation & reference sequences
 ├── env.yml                 # Conda environment
 ├── pyproject.toml          # Python package config
 └── setup.py               # Script installation config
