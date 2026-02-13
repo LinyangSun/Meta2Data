@@ -235,7 +235,6 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp ──
-            echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
 
@@ -261,7 +260,6 @@ for i in "${!Dataset_ID_sets[@]}"; do
                           -w "$cpu" \
                           -j "${adapter_removed_path}fastp.json" \
                           -h "${adapter_removed_path}fastp.html"
-                    echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2") → ${r1_out} + ${r2_out}"
                     pe_done=true
                 done
                 if [[ "$pe_done" == false ]]; then
@@ -279,7 +277,6 @@ for i in "${!Dataset_ID_sets[@]}"; do
                               -w "$cpu" \
                               -j "${adapter_removed_path}fastp.json" \
                               -h "${adapter_removed_path}fastp.html"
-                        echo "  ✓ Adapter removal: $(basename "$r1") + $(basename "$r2")"
                     done
                 fi
             else
@@ -293,13 +290,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
                           -w "$cpu" \
                           -j "${adapter_removed_path}fastp.json" \
                           -h "${adapter_removed_path}fastp.html"
-                    echo "  ✓ Adapter removal: $(basename "$fq")"
                 done
             fi
-            echo "✓ Adapter removal completed"
 
             # ── Step B: Entropy-based primer detection & trimming ──
-            echo ">>> Detecting and removing primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
 
@@ -310,13 +304,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 exit 1
             }
 
-            echo "✓ Entropy primer detection/removal completed"
-
             # Delete original and intermediate fastq files to save space
-            echo ">>> Cleaning up intermediate files..."
             rm -rf "$ori_fastq_path"
             rm -rf "$adapter_removed_path"
-            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
             # Run Illumina pipeline (dada2 denoise-paired for PE, denoise-pyro for SE)
             fastq_path="$fastp_path"
@@ -335,13 +325,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # Count raw reads before any processing
             Common_CountRawReads "$dataset_path" "$sra_file_name"
 
-            # 454 is always single-end
             sequence_type="single"
-            echo "Sequence type: ${sequence_type^^}"
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
-            echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
 
@@ -354,12 +341,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
                       -w "$cpu" \
                       -j "${adapter_removed_path}fastp.json" \
                       -h "${adapter_removed_path}fastp.html"
-                echo "  ✓ Adapter removal: $(basename "$fq")"
             done
-            echo "✓ Adapter removal completed"
 
             # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
-            echo ">>> Detecting and removing primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
 
@@ -370,12 +354,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 exit 1
             }
 
-            echo "✓ Entropy primer detection/removal completed"
-
-            echo ">>> Cleaning up intermediate files..."
             rm -rf "$ori_fastq_path"
             rm -rf "$adapter_removed_path"
-            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
             # ── Step D: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% ──
             fastq_path="$fastp_path"
@@ -396,13 +376,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # Count raw reads before any processing
             Common_CountRawReads "$dataset_path" "$sra_file_name"
 
-            # Ion Torrent treated as single-end (same as 454)
             sequence_type="single"
-            echo "Sequence type: ${sequence_type^^}"
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
-            echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
 
@@ -415,12 +392,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
                       -w "$cpu" \
                       -j "${adapter_removed_path}fastp.json" \
                       -h "${adapter_removed_path}fastp.html"
-                echo "  ✓ Adapter removal: $(basename "$fq")"
             done
-            echo "✓ Adapter removal completed"
 
             # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
-            echo ">>> Detecting and removing primers (entropy method)..."
             fastp_path="${dataset_path}temp/step_02_fastp/"
             mkdir -p "$fastp_path"
 
@@ -431,12 +405,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 exit 1
             }
 
-            echo "✓ Entropy primer detection/removal completed"
-
-            echo ">>> Cleaning up intermediate files..."
             rm -rf "$ori_fastq_path"
             rm -rf "$adapter_removed_path"
-            echo "✓ Removed ori_fastq/ and adapter_removed/ to save space"
 
             # ── Step D: QIIME2 Import → Quality filter → DADA2 denoise-pyro ──
             # Ion Torrent signal instability in the first ~10bp is handled by
@@ -464,13 +434,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # Count raw reads before any processing
             Common_CountRawReads "$dataset_path" "$sra_file_name"
 
-            # PacBio is typically SE
             sequence_type="single"
-            echo "Sequence type: ${sequence_type^^}"
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp ──
-            echo ">>> Removing sequencing adapters with fastp..."
             adapter_removed_path="${dataset_path}temp/step_01_adapter_removed/"
             mkdir -p "$adapter_removed_path"
 
@@ -483,9 +450,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                       -w "$cpu" \
                       -j "${adapter_removed_path}fastp.json" \
                       -h "${adapter_removed_path}fastp.html"
-                echo "  ✓ Adapter removal: $(basename "$fq")"
             done
-            echo "✓ Adapter removal completed"
 
             # Clean up original FASTQ to save space
             rm -rf "$ori_fastq_path"
@@ -541,9 +506,6 @@ with open('${DOCS_DIR}/1492R.fas') as f:
     lines = f.read().strip().split('\n')
     print(lines[1].strip())
 ")
-                echo "  Forward primer (27F): $primer_front"
-                echo "  Adapter primer (1492R): $primer_adapter"
-
                 # Import adapter-removed reads directly into QIIME2
                 fastq_path="$adapter_removed_path"
                 export fastq_path
