@@ -514,6 +514,75 @@ def _get_platform_from_ncbi(srr_id):
         return None
 
 
+def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_csv):
+    """
+    Append per-sample summary (raw reads + final reads) to a unified CSV.
+
+    Args:
+        dataset_id: BioProject ID
+        sra_file: Path to _sra.txt (Run<tab>SampleName)
+        raw_counts_file: Path to _raw_read_counts.tsv (Run<tab>SampleName<tab>RawReads)
+        final_table: Path to final-table.qza
+        output_csv: Path to the unified summary CSV
+    """
+    import tempfile
+    import subprocess
+    from biom import load_table
+
+    # 1. Read SRA mapping: Run → SampleName
+    sra_df = pd.read_csv(sra_file, sep='\t', header=None, names=['Run', 'SampleName'])
+
+    # 2. Read raw read counts
+    raw_df = pd.read_csv(raw_counts_file, sep='\t', header=None, names=['Run', 'SampleName', 'RawReads'])
+
+    # 3. Export final-table.qza and get per-sample total reads
+    final_reads = {}
+    with tempfile.TemporaryDirectory() as tmpdir:
+        subprocess.run([
+            'qiime', 'tools', 'export',
+            '--input-path', final_table,
+            '--output-path', tmpdir
+        ], check=True, capture_output=True)
+
+        biom_path = os.path.join(tmpdir, 'feature-table.biom')
+        table = load_table(biom_path)
+
+        for sample_id in table.ids(axis='sample'):
+            total = int(table.data(sample_id, axis='sample', dense=True).sum())
+            final_reads[sample_id] = total
+            # Handle .fastq suffix artifact from SE manifest
+            clean_id = sample_id.replace('.fastq', '')
+            if clean_id != sample_id:
+                final_reads[clean_id] = total
+
+    # 4. Build summary rows
+    rows = []
+    for _, row in sra_df.iterrows():
+        run_id = row['Run']
+        sample_name = row['SampleName']
+
+        raw_match = raw_df[raw_df['Run'] == run_id]
+        raw_read_count = int(raw_match['RawReads'].iloc[0]) if not raw_match.empty else 0
+
+        final_read_count = final_reads.get(sample_name, 0)
+
+        rows.append({
+            'BioProject': dataset_id,
+            'Run': run_id,
+            'SampleName': sample_name,
+            'RawReads': raw_read_count,
+            'FinalReads': final_read_count
+        })
+
+    result_df = pd.DataFrame(rows)
+
+    # 5. Append to unified CSV (write header only if file doesn't exist or is empty)
+    write_header = not os.path.exists(output_csv) or os.path.getsize(output_csv) == 0
+    result_df.to_csv(output_csv, mode='a', header=write_header, index=False)
+
+    print(f"✓ Summary appended for {dataset_id}: {len(rows)} samples")
+
+
 if __name__ == "__main__":
     import argparse
     
@@ -537,7 +606,8 @@ if __name__ == "__main__":
             "mk_manifest_SE",
             "mk_manifest_PE",
             "trim_pos_deblur",
-            "get_sequencing_platform"
+            "get_sequencing_platform",
+            "append_summary"
         ],
         help="The function to execute."
     )
@@ -549,6 +619,11 @@ if __name__ == "__main__":
     parser.add_argument("--OutputDir", help="Output directory for generated files")
     parser.add_argument("--srr_id", help="SRA accession number")
     parser.add_argument("--bioproject_id", help="BioProject ID (required for CNCB/CRR accessions)")
+    parser.add_argument("--dataset_id", help="Dataset/BioProject ID for summary")
+    parser.add_argument("--sra_file", help="Path to _sra.txt file")
+    parser.add_argument("--raw_counts", help="Path to raw read counts TSV")
+    parser.add_argument("--final_table", help="Path to final-table.qza")
+    parser.add_argument("--output_csv", help="Path to output summary CSV")
 
     args = parser.parse_args()
     
@@ -574,3 +649,6 @@ if __name__ == "__main__":
             print(platform)
         else:
             sys.exit(1)
+
+    elif args.function == "append_summary":
+        append_summary(args.dataset_id, args.sra_file, args.raw_counts, args.final_table, args.output_csv)

@@ -462,6 +462,38 @@ Amplicon_Common_FinalFilesCleaning() {
 
 
 
+Common_CountRawReads() {
+    # Count raw reads per sample from ori_fastq and save to TSV
+    # Args: $1 = dataset_path, $2 = sra_file_name
+    local base_dir="${1%/}/"
+    local acc_file="$2"
+    local fastq_path="${base_dir}ori_fastq/"
+    local dataset_name="${base_dir%/}"
+    dataset_name="${dataset_name##*/}"
+    local raw_counts_file="${base_dir}${dataset_name}_raw_read_counts.tsv"
+    : > "$raw_counts_file"
+
+    echo ">>> Counting raw reads per sample..."
+    while IFS=$'\t' read -r srr rename _; do
+        [[ -z "$srr" || -z "$rename" ]] && continue
+        local total_lines=0
+        for fq in "${fastq_path}${rename}"*.fastq*; do
+            [[ -f "$fq" ]] || continue
+            local lines
+            if [[ "$fq" == *.gz ]]; then
+                lines=$(zcat "$fq" | wc -l)
+            else
+                lines=$(wc -l < "$fq")
+            fi
+            total_lines=$((total_lines + lines))
+        done
+        local total_reads=$((total_lines / 4))
+        printf '%s\t%s\t%d\n' "$srr" "$rename" "$total_reads" >> "$raw_counts_file"
+    done < "${base_dir}${acc_file}"
+
+    echo "✓ Raw read counts saved to $raw_counts_file"
+}
+
 ################################################################################
 #                       ILLUMINA PLATFORM FUNCTIONS                            #
 ################################################################################
