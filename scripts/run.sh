@@ -169,6 +169,7 @@ echo "========================================="
 failed_log="${OUTPUT}/failed_datasets.log"
 success_log="${OUTPUT}/success_datasets.log"
 skipped_log="${OUTPUT}/skipped_datasets.log"
+summary_csv="${OUTPUT}/summary.csv"
 
 : > "$failed_log"
 : > "$success_log"
@@ -218,6 +219,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # ── Step A: Download ──
             echo ">>> Downloading SRA data..."
             Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
+
+            # Count raw reads before any processing
+            Common_CountRawReads "$dataset_path" "$sra_file_name"
 
             # Detect PE/SE after download
             line_count=$(wc -l < "${dataset_path}${sra_file_name}")
@@ -328,6 +332,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
             echo ">>> Downloading SRA data (454)..."
             Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
 
+            # Count raw reads before any processing
+            Common_CountRawReads "$dataset_path" "$sra_file_name"
+
             # 454 is always single-end
             sequence_type="single"
             echo "Sequence type: ${sequence_type^^}"
@@ -385,6 +392,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # ── Step A: Download with normal prefetch + fasterq-dump (same as 454) ──
             echo ">>> Downloading SRA data (Ion Torrent)..."
             Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
+
+            # Count raw reads before any processing
+            Common_CountRawReads "$dataset_path" "$sra_file_name"
 
             # Ion Torrent treated as single-end (same as 454)
             sequence_type="single"
@@ -473,6 +483,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
             echo ">>> Downloading SRA data..."
             Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
 
+            # Count raw reads before any processing
+            Common_CountRawReads "$dataset_path" "$sra_file_name"
+
             # PacBio is typically SE
             sequence_type="single"
             echo "Sequence type: ${sequence_type^^}"
@@ -556,6 +569,15 @@ else:
             echo "❌ Unknown platform: $platform"
             exit 1
         fi
+
+        # Generate summary CSV entry
+        echo ">>> Generating summary for $dataset_ID..."
+        python "${SCRIPTS}/py_16s.py" append_summary \
+            --dataset_id "$dataset_ID" \
+            --sra_file "${dataset_path}${sra_file_name}" \
+            --raw_counts "${dataset_path}${dataset_ID}_raw_read_counts.tsv" \
+            --final_table "${dataset_path}${dataset_ID}-final-table.qza" \
+            --output_csv "$summary_csv"
 
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SUCCESS - Platform: $platform" >> "$success_log"
 
