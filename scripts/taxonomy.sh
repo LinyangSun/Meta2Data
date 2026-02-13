@@ -1,3 +1,15 @@
+set -euo pipefail
+
+# Guard required environment variables
+if [[ -z "${OUTPUT:-}" ]]; then
+    echo "ERROR: \$OUTPUT is not set. taxonomy.sh must be called from ggCOMBO or AmpliconPIP." >&2
+    exit 1
+fi
+if [[ -z "${cpu:-}" ]]; then
+    echo "ERROR: \$cpu is not set. taxonomy.sh must be called from ggCOMBO or AmpliconPIP." >&2
+    exit 1
+fi
+
 ################################################################################
 #                          DATABASE RESOLUTION                                 #
 ################################################################################

@@ -28,9 +28,8 @@ find_scripts_dir() {
     return 1
 }
 
-SCRIPTS=$(find_scripts_dir)
-if [[ $? -ne 0 ]]; then
-    echo "❌ ERROR: Cannot find scripts directory"
+if ! SCRIPTS=$(find_scripts_dir); then
+    echo "ERROR: Cannot find scripts directory"
     exit 1
 fi
 
@@ -168,6 +167,12 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+
+# Validate thread count is a positive integer
+if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
+    echo "Error: --threads must be a positive integer, got '$THREADS'"
+    exit 1
+fi
 
 # Strip trailing slashes from user-provided paths
 METADATA="${METADATA%/}"

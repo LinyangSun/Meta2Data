@@ -28,8 +28,7 @@ find_scripts_dir() {
     return 1
 }
 
-SCRIPTS=$(find_scripts_dir)
-if [[ $? -ne 0 ]]; then
+if ! SCRIPTS=$(find_scripts_dir); then
     echo "ERROR: Cannot find scripts directory"
     exit 1
 fi
@@ -122,6 +121,12 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Validate thread count is a positive integer
+if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
+    echo "Error: --threads must be a positive integer, got '$THREADS'"
+    exit 1
+fi
+
 # Validate required parameters
 if [[ -z "$DB_DIR" ]]; then
     echo "Error: --db is required"
@@ -175,18 +180,31 @@ if [[ "$ENABLE_DL" == true ]]; then
         "2024.09.phylogeny.id.nwk.qza"
     )
 
+    # Validate a .qza file by checking it is a non-empty, valid zip archive
+    validate_qza() {
+        local file="$1"
+        [[ -f "$file" ]] && [[ -s "$file" ]] && unzip -tq "$file" >/dev/null 2>&1
+    }
+
     for fname in "${DL_FILES[@]}"; do
         target="${DB_DIR}/${fname}"
-        if [[ -f "$target" ]]; then
-            echo "Already exists: ${fname}, skipping"
+        if validate_qza "$target"; then
+            echo "Valid file exists: ${fname}, skipping download"
         else
+            [[ -f "$target" ]] && echo "Existing file is corrupt or incomplete, re-downloading: ${fname}"
+            rm -f "$target"
             echo "Downloading: ${fname}..."
             if ! wget -q --show-progress -O "$target" "${BASE_URL}${fname}"; then
                 echo "ERROR: Failed to download ${fname}"
                 rm -f "$target"
                 exit 1
             fi
-            echo "Downloaded: ${fname}"
+            if ! validate_qza "$target"; then
+                echo "ERROR: Downloaded file is corrupt: ${fname}"
+                rm -f "$target"
+                exit 1
+            fi
+            echo "Downloaded and verified: ${fname}"
         fi
     done
 
