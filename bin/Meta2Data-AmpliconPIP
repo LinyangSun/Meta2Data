@@ -53,11 +53,6 @@ Optional options:
                               Output defaults to current directory in test mode
     -h, --help                Show this help message
 
-GreenGenes2 taxonomy (inline, or use 'Meta2Data ggCOMBO' separately):
-    --gg2                     Enable GreenGenes2 taxonomy assignment after processing
-    --i-backbone FILE         Backbone tree file (required if --gg2 is enabled)
-    --i-reference-taxonomy FILE Reference taxonomy file (required if --gg2 is enabled)
-
 Metadata CSV file format:
     Required columns (customizable with --col-* options):
     - Bioproject          : BioProject accession (e.g., PRJNA123456)
@@ -99,10 +94,7 @@ EOF
 METADATA=""
 OUTPUT=""
 THREADS=4
-ENABLE_GG2=false
 TEST_MODE=false
-I_BACKBONE=""
-I_REFERENCE_TAXONOMY=""
 
 # Initialize column names as empty (no defaults)
 COL_BIOPROJECT=""
@@ -121,18 +113,6 @@ while [[ $# -gt 0 ]]; do
             ;;
         -t|--threads)
             THREADS="$2"
-            shift 2
-            ;;
-        --gg2)
-            ENABLE_GG2=true
-            shift
-            ;;
-        --i-backbone)
-            I_BACKBONE="$2"
-            shift 2
-            ;;
-        --i-reference-taxonomy)
-            I_REFERENCE_TAXONOMY="$2"
             shift 2
             ;;
         --test)
@@ -168,8 +148,6 @@ fi
 # Strip trailing slashes from user-provided paths
 METADATA="${METADATA%/}"
 OUTPUT="${OUTPUT%/}"
-I_BACKBONE="${I_BACKBONE%/}"
-I_REFERENCE_TAXONOMY="${I_REFERENCE_TAXONOMY%/}"
 
 # Handle test mode - set defaults for test mode
 if [[ "$TEST_MODE" == true ]]; then
@@ -229,37 +207,6 @@ if [[ -z "$COL_SRA" ]]; then
     exit 1
 fi
 
-# Validate GG2-specific parameters
-if [[ "$ENABLE_GG2" == true ]]; then
-    if [[ -z "$I_BACKBONE" ]]; then
-        echo "Error: --i-backbone is required when --gg2 is enabled"
-        show_help
-        exit 1
-    fi
-    
-    if [[ -z "$I_REFERENCE_TAXONOMY" ]]; then
-        echo "Error: --i-reference-taxonomy is required when --gg2 is enabled"
-        show_help
-        exit 1
-    fi
-    
-    # Check if backbone file exists
-    if [[ ! -f "$I_BACKBONE" ]]; then
-        echo "Error: Backbone file '$I_BACKBONE' not found"
-        exit 1
-    fi
-    
-    # Check if reference taxonomy file exists
-    if [[ ! -f "$I_REFERENCE_TAXONOMY" ]]; then
-        echo "Error: Reference taxonomy file '$I_REFERENCE_TAXONOMY' not found"
-        exit 1
-    fi
-    
-    # Convert to absolute paths
-    I_BACKBONE=$(cd "$(dirname "$I_BACKBONE")" && pwd)/$(basename "$I_BACKBONE")
-    I_REFERENCE_TAXONOMY=$(cd "$(dirname "$I_REFERENCE_TAXONOMY")" && pwd)/$(basename "$I_REFERENCE_TAXONOMY")
-fi
-
 # Check if metadata file exists
 if [[ ! -f "$METADATA" ]]; then
     echo "Error: Metadata file '$METADATA' not found"
@@ -306,11 +253,6 @@ echo "========================================="
 echo "Metadata:       $METADATA"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
-echo "GG2 Taxonomy:   $ENABLE_GG2"
-if [[ "$ENABLE_GG2" == true ]]; then
-    echo "Backbone:       $I_BACKBONE"
-    echo "Ref Taxonomy:   $I_REFERENCE_TAXONOMY"
-fi
 echo "BioProject Col: $COL_BIOPROJECT"
 echo "SRA Col:        $COL_SRA"
 echo "========================================="
@@ -346,35 +288,6 @@ echo "✓ Amplicon processing completed successfully"
 echo ""
 
 ################################################################################
-#                  TAXONOMY ASSIGNMENT (if enabled)                            #
-################################################################################
-
-if [[ "$ENABLE_GG2" == true ]]; then
-    echo "========================================="
-    echo "Running GreenGenes2 Taxonomy Assignment"
-    echo "Started: $(date)"
-    echo "========================================="
-    echo ""
-
-    # Export paths for taxonomy.sh (input and output are the same directory)
-    export INPUT_DIR="$OUTPUT"
-    export OUTPUT
-
-    # Call taxonomy.sh for GreenGenes2 annotation with required parameters
-    if ! bash "${SCRIPTS}/taxonomy.sh" \
-        --i-backbone "$I_BACKBONE" \
-        --i-reference-taxonomy "$I_REFERENCE_TAXONOMY"; then
-        echo "❌ ERROR: Taxonomy assignment failed"
-        echo "Check logs in: $OUTPUT"
-        exit 1
-    fi
-
-    echo ""
-    echo "✓ Taxonomy assignment completed successfully"
-    echo ""
-fi
-
-################################################################################
 #                             Final Summary                                    #
 ################################################################################
 
@@ -407,9 +320,5 @@ fi
 
 echo ""
 echo "Results saved in: $OUTPUT"
-
-if [[ "$ENABLE_GG2" == true ]]; then
-    echo "Merged results with taxonomy: ${OUTPUT}/final/merged/"
-fi
-
+echo "To assign taxonomy, run: Meta2Data ggCOMBO --db <gg2db> -i $OUTPUT"
 echo "========================================="

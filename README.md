@@ -190,16 +190,6 @@ Meta2Data AmpliconPIP \
     --col-sra "Run" \
     -t 8
 
-# Enable GreenGenes2 taxonomy assignment (requires backbone and taxonomy files)
-Meta2Data AmpliconPIP \
-    -m path/to/metadata.csv \
-    --col-bioproject "Bioproject" \
-    --col-sra "Run" \
-    -t 8 \
-    --gg2 \
-    --i-backbone /path/to/backbone.qza \
-    --i-reference-taxonomy /path/to/taxonomy.qza
-
 # Test mode with sample data (output to current directory)
 Meta2Data AmpliconPIP --test -t 8
 
@@ -232,7 +222,6 @@ The pipeline automatically:
    - **Illumina/Ion Torrent**: DADA2 denoising
    - **PacBio**: DADA2 with PacBio parameters
 5. **Generates** QIIME2 artifacts (`.qza` files)
-6. **Assigns** taxonomy (optional, with `--gg2`)
 
 #### Output Structure
 
@@ -244,8 +233,6 @@ The pipeline automatically:
 │   ├── ori_fastq/                     # Downloaded FASTQ files
 │   ├── <dataset_ID>-final-rep-seqs.qza       # Final sequences
 │   └── <dataset_ID>-final-table.qza          # Final feature table
-├── final/                             # (if --gg2 enabled)
-│   └── merged/                        # Merged results with taxonomy
 ├── failed_datasets.log
 ├── success_datasets.log
 └── skipped_datasets.log
@@ -359,11 +346,6 @@ Optional:
     --test                        Use test data (test/ampliconpiptest.csv)
                                   Output defaults to current directory
     -h, --help                    Show help
-
-GreenGenes2 Taxonomy Options:
-    --gg2                         Enable GreenGenes2 taxonomy assignment
-    --i-backbone FILE             Backbone tree file (required if --gg2 enabled)
-    --i-reference-taxonomy FILE   Reference taxonomy file (required if --gg2 enabled)
 ```
 
 ### ggCOMBO Options
