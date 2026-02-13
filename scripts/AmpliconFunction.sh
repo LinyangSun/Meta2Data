@@ -205,7 +205,30 @@ Common_SRADownloadToFastq_MultiSource() {
     done < "${base_dir}${acc_file}"
     rm -rf "$temp_dl_path"
 
-    # [Note: Subsequent vsearch merging and reporting logic should follow here]
+    # Orphan file cleanup: fasterq-dump --split-3 may produce 3 files per sample
+    # (prefix.fastq + prefix_1.fastq + prefix_2.fastq). The unpaired orphan
+    # reads (prefix.fastq) must be removed when paired files exist, otherwise
+    # downstream tools will misinterpret them as additional SE samples.
+    local orphan_count=0
+    for r1 in "${fastq_path}"*_1.fastq*; do
+        [[ -f "$r1" ]] || continue
+        local prefix="${r1%_1.fastq*}"
+        # Verify R2 also exists
+        local has_r2=false
+        for r2 in "${prefix}_2.fastq"*; do
+            [[ -f "$r2" ]] && has_r2=true && break
+        done
+        $has_r2 || continue
+        # Both R1 and R2 present — remove orphan (prefix.fastq / prefix.fastq.gz)
+        for orphan in "${prefix}.fastq" "${prefix}.fastq.gz"; do
+            if [[ -f "$orphan" ]]; then
+                echo "  Removing orphan file: $(basename "$orphan")"
+                rm -f "$orphan"
+                orphan_count=$((orphan_count + 1))
+            fi
+        done
+    done
+    [[ $orphan_count -gt 0 ]] && echo "  Cleaned up $orphan_count orphan file(s)"
 
 }
 
