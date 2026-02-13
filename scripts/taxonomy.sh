@@ -127,13 +127,9 @@ echo ""
 echo ">>> Step 2: Collecting dataset outputs..."
 
 all_folders=()
-for folder in "${OUTPUT}"/*/; do
+for folder in "${OUTPUT}"/PRJ*/; do
     [ -d "$folder" ] || continue
-    folder_base=$(basename "$folder")
-    # Match BioProject accessions (PRJ*) and CNCB/GSA accessions (CRA*)
-    if [[ "$folder_base" == PRJ* || "$folder_base" == CRA* ]]; then
-        all_folders+=("$folder")
-    fi
+    all_folders+=("$folder")
 done
 
 if [ ${#all_folders[@]} -eq 0 ]; then
