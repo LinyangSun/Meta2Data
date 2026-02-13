@@ -696,6 +696,19 @@ def detect_for_reads(reads, label, database):
     cdv_boundary = find_primer_boundary(states, min_len=10, max_len=30)
     print(f"  CDV boundary: {cdv_boundary} bp", file=sys.stderr)
 
+    # D density: fraction of D (Degenerate) positions in the CDV region.
+    # Real synthetic primers have ≤ 20% degenerate bases (max: 341F = 3/15).
+    # Biological 16S sequence shows higher D density due to inter-species
+    # variation.  If D density > 25%, the "primer" region is actually
+    # genomic sequence → primer was already removed upstream.
+    if cdv_boundary > 0:
+        d_count = sum(1 for s in states[:cdv_boundary] if s == 'D')
+        d_density = d_count / cdv_boundary
+        print(f"  D density: {d_count}/{cdv_boundary} = {d_density:.1%}",
+              file=sys.stderr)
+    else:
+        d_density = 0.0
+
     # Step 5: Build 30bp consensus, then match against primer database
     print(f"\n[Step 5] Database matching (sliding window) ...",
           file=sys.stderr)
@@ -724,8 +737,9 @@ def detect_for_reads(reads, label, database):
                       consensus=consensus, primer_name=primer_name,
                       message=f"Primer detected: {primer_name} "
                               f"(trim={primer_length}bp)")
-    elif cdv_boundary > 0:
-        # No database match → fall back to CDV boundary
+    elif cdv_boundary > 0 and d_density <= 0.25:
+        # No database match, but D density consistent with a real primer
+        # → fall back to CDV boundary
         print(f"  No database match, using CDV boundary: "
               f"{cdv_boundary}bp", file=sys.stderr)
         primer_length = cdv_boundary
@@ -734,6 +748,17 @@ def detect_for_reads(reads, label, database):
                       consensus=consensus, primer_name="unknown",
                       message=f"Primer detected: unknown "
                               f"(trim={primer_length}bp, CDV fallback)")
+    elif cdv_boundary > 0 and d_density > 0.25:
+        # No database match AND D density too high for a real primer.
+        # Real primers have ≤ 20% degenerate bases; this region looks like
+        # conserved 16S gene sequence → primer was already removed upstream.
+        print(f"  No database match; D density {d_density:.0%} > 25% "
+              f"→ not a primer (likely already trimmed)", file=sys.stderr)
+        primer_length = 0
+        result = dict(detected=False, primer_length=0, consensus="",
+                      primer_name="none",
+                      message=f"No primer detected "
+                              f"(D density {d_density:.0%} > 25%)")
     else:
         # Neither database nor CDV detected a primer
         primer_length = 0
