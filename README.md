@@ -10,7 +10,11 @@ Meta2Data is a comprehensive command-line tool for downloading, processing, and 
 - **Multi-Platform Support**: Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms(ONT not supported)
 - **Smart Primer Detection**: Automatic primer detection and trimming for amplicon data
 - **QIIME2 Integration**: Seamless integration with QIIME2 2024.10 for downstream analysis
-- **Taxonomy Assignment**: Optional GreenGenes2 taxonomy classification and phylogenetic tree generation
+- **Taxonomy Assignment**: GreenGenes2 taxonomy classification and phylogenetic tree generation
+
+## Notice
+
+If you are running the AmpliconPIP or ggCOMBO functions on a server, please ensure you allocate sufficient time for your task. The data download and taxonomy annotation steps can be very time-consuming.
 
 ## Installation
 
