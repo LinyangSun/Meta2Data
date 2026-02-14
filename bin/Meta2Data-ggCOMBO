@@ -37,41 +37,39 @@ show_help() {
     cat << EOF
 Usage: Meta2Data ggCOMBO [options]
 
-Merge amplicon datasets and assign taxonomy using GreenGenes2 database.
+Merge amplicon datasets and assign taxonomy.
 
 This command takes the output of AmpliconPIP (directories containing
 *-final-table.qza and *-final-rep-seqs.qza files) and performs:
   1. Merge all feature tables and representative sequences
   2. Taxonomy assignment via vsearch consensus classifier (no read loss)
-  3. GreenGenes2 backbone mapping for phylogenetic tree (optional, partial)
-  4. Phylogenetic tree filtering
+  3. Phylogenetic tree building via SEPP fragment insertion
+  4. Feature filtering by tree placement
 
 Required options:
-    --db DIR              Path to GreenGenes2 database directory
+    --db DIR              Path to database directory
                           Expected files inside:
-                            2024.09.backbone.full-length.fna.qza
-                            2024.09.backbone.tax.qza
-                            2024.09.taxonomy.asv.nwk.qza
-                            2024.09.phylogeny.id.nwk.qza
+                            2024.09.backbone.full-length.fna.qza  (GG2, for vsearch taxonomy)
+                            2024.09.backbone.tax.qza              (GG2, for vsearch taxonomy)
+                            sepp-refs-gg-13-8.qza                 (SEPP reference tree)
     -i, --input DIR       Input directory containing PRJ* dataset folders
                           (output of a previous AmpliconPIP run)
 
 Optional options:
     -o, --output DIR      Output directory for merged results (default: same as --input)
     -t, --threads int     Number of CPU threads (default: 4)
-    --dl                  Download GreenGenes2 database files to --db directory
-                          Source: https://ftp.microbio.me/greengenes_release/current/
+    --dl                  Download database files to --db directory
     -h, --help            Show this help message
 
 Example usage:
     # Basic: input and output in the same directory
-    Meta2Data ggCOMBO --db /path/to/gg2db -i /path/to/amplicon_output -t 8
+    Meta2Data ggCOMBO --db /path/to/db -i /path/to/amplicon_output -t 8
 
     # Separate output directory
-    Meta2Data ggCOMBO --db /path/to/gg2db -i /path/to/amplicon_output -o /path/to/results -t 8
+    Meta2Data ggCOMBO --db /path/to/db -i /path/to/amplicon_output -o /path/to/results -t 8
 
     # Download database first, then run
-    Meta2Data ggCOMBO --db /path/to/gg2db --dl -i /path/to/amplicon_output -t 8
+    Meta2Data ggCOMBO --db /path/to/db --dl -i /path/to/amplicon_output -t 8
 
 Output structure:
     <output_dir>/
@@ -79,11 +77,12 @@ Output structure:
         └── merged/
             ├── merged-table.qza                 # Merged feature table (complete)
             ├── merged-rep-seqs.qza              # Merged representative sequences
-            ├── merged-table-summary.qzv         # Pre-merge summary
+            ├── merged-table-summary.qzv         # Table summary
             ├── merged-taxonomy.qza              # Taxonomy (vsearch, all features)
-            ├── merged-table-gg2.qza             # GG2-mapped table (subset, for tree)
-            ├── merged-rep-seqs-gg2.qza          # GG2-mapped sequences (subset)
-            └── final-tree.qza                   # Filtered phylogenetic tree (optional)
+            ├── insertion-tree.qza               # SEPP phylogenetic tree
+            ├── insertion-placements.qza         # SEPP placement details
+            ├── merged-table-tree.qza            # Table filtered to tree-placed features
+            └── merged-table-no-tree.qza         # Features not placed in tree
 
 EOF
 }
@@ -177,27 +176,27 @@ fi
 # Fixed database file names
 BACKBONE="${DB_DIR}/2024.09.backbone.full-length.fna.qza"
 BACKBONE_TAX="${DB_DIR}/2024.09.backbone.tax.qza"
-TAXONOMY="${DB_DIR}/2024.09.taxonomy.asv.nwk.qza"
-PHYLO="${DB_DIR}/2024.09.phylogeny.id.nwk.qza"
+SEPP_REF="${DB_DIR}/sepp-refs-gg-13-8.qza"
 
 ################################################################################
 #                    DOWNLOAD DATABASE (if --dl enabled)                        #
 ################################################################################
 
 if [[ "$ENABLE_DL" == true ]]; then
-    BASE_URL="https://ftp.microbio.me/greengenes_release/current/"
+    GG2_URL="https://ftp.microbio.me/greengenes_release/current/"
+    SEPP_URL="https://data.qiime2.org/classifiers/sepp-ref-dbs/"
 
     echo "========================================="
-    echo "Downloading GreenGenes2 Database"
+    echo "Downloading Database Files"
     echo "Target: $DB_DIR"
     echo "========================================="
     echo ""
 
+    # Each entry: "filename|base_url"
     DL_FILES=(
-        "2024.09.backbone.full-length.fna.qza"
-        "2024.09.backbone.tax.qza"
-        "2024.09.taxonomy.asv.nwk.qza"
-        "2024.09.phylogeny.id.nwk.qza"
+        "2024.09.backbone.full-length.fna.qza|${GG2_URL}"
+        "2024.09.backbone.tax.qza|${GG2_URL}"
+        "sepp-refs-gg-13-8.qza|${SEPP_URL}"
     )
 
     # Validate a .qza file by checking it is a non-empty, valid zip archive
@@ -206,7 +205,9 @@ if [[ "$ENABLE_DL" == true ]]; then
         [[ -f "$file" ]] && [[ -s "$file" ]] && unzip -tq "$file" >/dev/null 2>&1
     }
 
-    for fname in "${DL_FILES[@]}"; do
+    for entry in "${DL_FILES[@]}"; do
+        fname="${entry%%|*}"
+        base_url="${entry##*|}"
         target="${DB_DIR}/${fname}"
         if validate_qza "$target"; then
             echo "Valid file exists: ${fname}, skipping download"
@@ -214,7 +215,7 @@ if [[ "$ENABLE_DL" == true ]]; then
             [[ -f "$target" ]] && echo "Existing file is corrupt or incomplete, re-downloading: ${fname}"
             rm -f "$target"
             echo "Downloading: ${fname}..."
-            if ! wget -q --show-progress -O "$target" "${BASE_URL}${fname}"; then
+            if ! wget -q --show-progress -O "$target" "${base_url}${fname}"; then
                 echo "ERROR: Failed to download ${fname}"
                 rm -f "$target"
                 exit 1
@@ -238,11 +239,11 @@ fi
 ################################################################################
 
 echo "========================================="
-echo "Validating GreenGenes2 Database"
+echo "Validating Database Files"
 echo "========================================="
 
 MISSING=false
-for f in "$BACKBONE" "$BACKBONE_TAX" "$TAXONOMY" "$PHYLO"; do
+for f in "$BACKBONE" "$BACKBONE_TAX" "$SEPP_REF"; do
     if [[ ! -f "$f" ]]; then
         echo "ERROR: Required file not found: $f"
         MISSING=true
@@ -268,8 +269,7 @@ echo "========================================="
 echo "Database:       $DB_DIR"
 echo "  Backbone:     $(basename "$BACKBONE")"
 echo "  Backbone Tax: $(basename "$BACKBONE_TAX")"
-echo "  Taxonomy:     $(basename "$TAXONOMY")"
-echo "  Phylogeny:    $(basename "$PHYLO")"
+echo "  SEPP Ref:     $(basename "$SEPP_REF")"
 echo "Input:          $INPUT_DIR"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
@@ -284,14 +284,13 @@ echo ""
 export DB_DIR
 export BACKBONE
 export BACKBONE_TAX
-export TAXONOMY
-export PHYLO
+export SEPP_REF
 export INPUT_DIR
 export OUTPUT
 export cpu=$THREADS
 
 echo "========================================="
-echo "Running GreenGenes2 Taxonomy Pipeline"
+echo "Running Taxonomy & Tree Pipeline"
 echo "Started: $(date)"
 echo "========================================="
 echo ""
