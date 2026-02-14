@@ -653,7 +653,7 @@ Amplicon_Illumina_DenosingDada2() {
 #                        LS454 PLATFORM FUNCTIONS                              #
 ################################################################################
 # Functions for 454 pyrosequencing data processing
-# 454 pipeline: QC (length filter) → Deduplication → Chimera removal → OTU clustering (97%)
+# 454 pipeline: QC (length filter) → Deduplication → Chimera removal → OTU clustering (97%) → Filter low-freq OTUs
 # Quality scores from fasterq-dump are unreliable for 454, so q-score filtering is disabled.
 
 Amplicon_LS454_QualityControlForQZA() {
@@ -692,22 +692,14 @@ Amplicon_LS454_Deduplication() {
     mkdir -p "$dedupicate_path"
 
     # Dereplicate: collapse identical sequences
+    # Note: Singleton removal is NOT done here. For 454 data with high error
+    # rates, removing singletons before OTU clustering discards reads that
+    # would otherwise cluster together. Low-frequency filtering is applied
+    # after OTU clustering instead (see Amplicon_LS454_FilterLowFreqOTUs).
     qiime vsearch dereplicate-sequences \
         --i-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --o-dereplicated-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
         --o-dereplicated-sequences "${dedupicate_path%/}/${dataset_name}-repseq.qza"
-
-    # Remove singletons (features appearing only once)
-    qiime feature-table filter-features \
-        --i-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
-        --p-min-frequency 2 \
-        --o-filtered-table "${dedupicate_path%/}/${dataset_name}-table-nosingle.qza"
-
-    # Sync sequences with filtered table
-    qiime feature-table filter-seqs \
-        --i-data "${dedupicate_path%/}/${dataset_name}-repseq.qza" \
-        --i-table "${dedupicate_path%/}/${dataset_name}-table-nosingle.qza" \
-        --o-filtered-data "${dedupicate_path%/}/${dataset_name}-repseq-nosingle.qza"
 }
 
 Amplicon_LS454_ChimerasRemoval() {
@@ -719,23 +711,24 @@ Amplicon_LS454_ChimerasRemoval() {
     local chimeras_path="${dataset_path%/}/temp/step_06_ChimerasRemoval/"
     mkdir -p "$chimeras_path"
 
-    # De novo chimera detection
+    # De novo chimera detection (using dereplicated sequences directly,
+    # without prior singleton removal)
     qiime vsearch uchime-denovo \
-        --i-sequences "${dedupicate_path%/}/${dataset_name}-repseq-nosingle.qza" \
-        --i-table "${dedupicate_path%/}/${dataset_name}-table-nosingle.qza" \
+        --i-sequences "${dedupicate_path%/}/${dataset_name}-repseq.qza" \
+        --i-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
         --o-chimeras "${chimeras_path%/}/${dataset_name}-chimeras.qza" \
         --o-nonchimeras "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
         --o-stats "${chimeras_path%/}/${dataset_name}-uchime-stats.qza"
 
     # Keep only non-chimeric features in the table
     qiime feature-table filter-features \
-        --i-table "${dedupicate_path%/}/${dataset_name}-table-nosingle.qza" \
+        --i-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
         --m-metadata-file "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
         --o-filtered-table "${chimeras_path%/}/${dataset_name}-table-nochimera.qza"
 
     # Filter sequences to non-chimeras
     qiime feature-table filter-seqs \
-        --i-data "${dedupicate_path%/}/${dataset_name}-repseq-nosingle.qza" \
+        --i-data "${dedupicate_path%/}/${dataset_name}-repseq.qza" \
         --m-metadata-file "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
         --o-filtered-data "${chimeras_path%/}/${dataset_name}-repseq-nochimera.qza"
 }
@@ -746,14 +739,38 @@ Amplicon_LS454_ClusterDenovo() {
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
     local chimeras_path="${dataset_path%/}/temp/step_06_ChimerasRemoval/"
+    local cluster_path="${dataset_path%/}/temp/step_07_cluster/"
+    mkdir -p "$cluster_path"
 
     # OTU clustering at 97% identity
     qiime vsearch cluster-features-de-novo \
         --i-table "${chimeras_path%/}/${dataset_name}-table-nochimera.qza" \
         --i-sequences "${chimeras_path%/}/${dataset_name}-repseq-nochimera.qza" \
         --p-perc-identity 0.97 \
-        --o-clustered-table "${dataset_path%/}/${dataset_name}-table-vsearch.qza" \
-        --o-clustered-sequences "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza"
+        --o-clustered-table "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
+        --o-clustered-sequences "${cluster_path%/}/${dataset_name}-repseq-clustered.qza"
+}
+
+Amplicon_LS454_FilterLowFreqOTUs() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local cluster_path="${dataset_path%/}/temp/step_07_cluster/"
+
+    # Remove singleton OTUs (total frequency < 2) AFTER clustering.
+    # At the OTU level, singletons are truly rare/spurious sequences rather
+    # than sequencing-error variants that failed to cluster.
+    qiime feature-table filter-features \
+        --i-table "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
+        --p-min-frequency 2 \
+        --o-filtered-table "${dataset_path%/}/${dataset_name}-table-vsearch.qza"
+
+    # Sync representative sequences with filtered OTU table
+    qiime feature-table filter-seqs \
+        --i-data "${cluster_path%/}/${dataset_name}-repseq-clustered.qza" \
+        --i-table "${dataset_path%/}/${dataset_name}-table-vsearch.qza" \
+        --o-filtered-data "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza"
 }
 
 ################################################################################

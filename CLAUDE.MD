@@ -61,7 +61,7 @@ Meta2Data AmpliconPIP -m data.csv -t 8 --col-bioproject "ProjectID" --col-platfo
 Workflow: SRA download → Quality control → Platform-specific processing → Qiime2 import → Cleanup
 
 **Platform-specific steps:**
-- **454**: Chimera removal, cluster denovo
+- **454**: Chimera removal, cluster denovo, post-clustering low-freq OTU filter
 - **Illumina**: Denoising with Deblur
 - **PacBio**: Denoising with DADA2
 
