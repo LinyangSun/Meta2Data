@@ -103,42 +103,6 @@ cd "$OUTPUT" || exit 1
 mkdir -p "${OUTPUT}/analysis/"
 
 ################################################################################
-#                          FIND REFERENCE FILE                                 #
-################################################################################
-
-# Find the 16S reference file in multiple possible locations
-find_reference_file() {
-    local ref_file="J01859.1.fna"
-    local search_paths=(
-        "${SCRIPT_DIR}/docs/${ref_file}"                    # Development/git repo
-        "/usr/local/share/Meta2Data/docs/${ref_file}"       # System install
-        "${HOME}/.local/share/Meta2Data/docs/${ref_file}"   # User install
-        "${CONDA_PREFIX}/share/Meta2Data/docs/${ref_file}"  # Conda install
-        "${PREFIX}/share/Meta2Data/docs/${ref_file}"        # Alternative prefix
-    )
-
-    for path in "${search_paths[@]}"; do
-        if [[ -f "$path" ]]; then
-            echo "$path"
-            return 0
-        fi
-    done
-
-    echo "ERROR: 16S reference file '${ref_file}' not found in any location:" >&2
-    for path in "${search_paths[@]}"; do
-        echo "  - $path" >&2
-    done
-    return 1
-}
-
-# Find and export reference file path
-if ! REF_16S_PATH=$(find_reference_file); then
-    echo "ERROR: Cannot find 16S reference sequence file"
-    exit 1
-fi
-echo "Using 16S reference: $REF_16S_PATH"
-
-################################################################################
 #                          PHASE 1: DATASET PREPARATION                        #
 ################################################################################
 
