@@ -330,8 +330,30 @@ for i in "${!Dataset_ID_sets[@]}"; do
             rm -rf "$ori_fastq_path"
             rm -rf "$adapter_removed_path"
 
-            # ── Step D: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% ──
-            fastq_path="$fastp_path"
+            # ── Step D: Adaptive tail trimming (data-driven N removal) ──
+            # Analyses per-position N frequency at 3' end, trims elevated-N
+            # tail, then computes P95 of remaining N counts for QC threshold.
+            adaptive_trim_path="${dataset_path}/temp/step_02b_adaptive_trim"
+            mkdir -p "$adaptive_trim_path"
+
+            echo ">>> Adaptive tail trimming..."
+            trim_result=$(python3 "${SCRIPTS}/py_16s.py" adaptive_tail_trim \
+                --input_dir "$fastp_path" \
+                --output_dir "$adaptive_trim_path" \
+                --max_sample_reads 10000)
+
+            trim_length=$(echo "$trim_result" | grep "^TRIM_LENGTH=" | cut -d= -f2)
+            max_ambiguous=$(echo "$trim_result" | grep "^MAX_AMBIGUOUS=" | cut -d= -f2)
+            export max_ambiguous
+
+            echo "  Trim length: ${trim_length} bp"
+            echo "  Max ambiguous (P95): ${max_ambiguous}"
+
+            # Clean up pre-trim FASTQ
+            rm -rf "$fastp_path"
+
+            # ── Step E: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% ──
+            fastq_path="$adaptive_trim_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
