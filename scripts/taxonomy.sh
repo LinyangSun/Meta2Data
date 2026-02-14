@@ -22,14 +22,16 @@ echo "========================================="
 echo "Resolving GreenGenes2 database..."
 echo "========================================="
 
-# If BACKBONE, TAXONOMY, PHYLO are already set (e.g. from ggCOMBO), use them directly
+# If BACKBONE, BACKBONE_TAX, TAXONOMY, PHYLO are already set (e.g. from ggCOMBO), use them directly
 if [[ -n "$BACKBONE" && -f "$BACKBONE" ]] && \
+   [[ -n "${BACKBONE_TAX:-}" && -f "${BACKBONE_TAX:-}" ]] && \
    [[ -n "$TAXONOMY" && -f "$TAXONOMY" ]] && \
    [[ -n "$PHYLO" && -f "$PHYLO" ]]; then
     echo "Using pre-configured database paths:"
-    echo "  Backbone:  $(basename "$BACKBONE")"
-    echo "  Taxonomy:  $(basename "$TAXONOMY")"
-    echo "  Phylogeny: $(basename "$PHYLO")"
+    echo "  Backbone:      $(basename "$BACKBONE")"
+    echo "  Backbone Tax:  $(basename "$BACKBONE_TAX")"
+    echo "  Taxonomy:      $(basename "$TAXONOMY")"
+    echo "  Phylogeny:     $(basename "$PHYLO")"
     echo ""
 else
     # Auto-detection fallback
@@ -87,18 +89,20 @@ else
 
     echo "Database found: $DB_DIR"
 
-    BACKBONE=$(find_db_file "backbone" "$DB_DIR")
+    BACKBONE=$(find_db_file "backbone.full-length" "$DB_DIR")
+    BACKBONE_TAX=$(find_db_file "backbone.tax" "$DB_DIR")
     TAXONOMY=$(find_db_file "taxonomy" "$DB_DIR")
     PHYLO=$(find_db_file "phylogeny" "$DB_DIR")
 
-    if [[ -z "$BACKBONE" ]] || [[ -z "$TAXONOMY" ]] || [[ -z "$PHYLO" ]]; then
+    if [[ -z "$BACKBONE" ]] || [[ -z "$BACKBONE_TAX" ]] || [[ -z "$TAXONOMY" ]] || [[ -z "$PHYLO" ]]; then
         echo "ERROR: Required database files not found in $DB_DIR"
         exit 1
     fi
 
-    echo "Backbone:  $(basename "$BACKBONE")"
-    echo "Taxonomy:  $(basename "$TAXONOMY")"
-    echo "Phylogeny: $(basename "$PHYLO")"
+    echo "Backbone:      $(basename "$BACKBONE")"
+    echo "Backbone Tax:  $(basename "$BACKBONE_TAX")"
+    echo "Taxonomy:      $(basename "$TAXONOMY")"
+    echo "Phylogeny:     $(basename "$PHYLO")"
     echo ""
 fi
 
@@ -223,64 +227,77 @@ else
 fi
 echo ""
 
-# GreenGenes2 annotation
-echo ">>> Step 7: Running GreenGenes2 annotation..."
+# Taxonomy assignment via vsearch consensus classifier
+# This replaces the previous GG2 non-v4-16s + taxonomy-from-table approach.
+# vsearch classifies ALL features without dropping any reads, regardless of
+# which variable region (V1-V9, full-length) the sequences come from.
+echo ">>> Step 7: Assigning taxonomy via vsearch consensus classifier..."
 echo "Using $cpu CPU threads"
+MERGED_TAXONOMY="${MERGED_DIR}/merged-taxonomy.qza"
+
+if ! qiime feature-classifier classify-consensus-vsearch \
+    --i-query "$MERGED_REP_SEQS" \
+    --i-reference-reads "${BACKBONE}" \
+    --i-reference-taxonomy "${BACKBONE_TAX}" \
+    --p-threads "$cpu" \
+    --p-perc-identity 0.8 \
+    --p-maxaccepts 3 \
+    --o-classification "$MERGED_TAXONOMY" --verbose; then
+    echo "❌ ERROR: Taxonomy assignment failed"
+    exit 1
+fi
+
+echo "✓ Taxonomy assigned (all features retained)"
+echo ""
+
+# GG2 backbone mapping — used ONLY for building the phylogenetic tree.
+# This step may drop features that cannot be placed on the GG2 backbone.
+# That is acceptable: the tree is only needed for UniFrac / phylogenetic
+# diversity analyses.  Taxonomy has already been assigned above.
+echo ">>> Step 8: Mapping to GG2 backbone for phylogenetic tree..."
 
 ANNOTATED_TABLE="${MERGED_DIR}/merged-table-gg2.qza"
 ANNOTATED_REP_SEQS="${MERGED_DIR}/merged-rep-seqs-gg2.qza"
+FILTERED_TREE="${MERGED_DIR}/final-tree.qza"
+GG2_TREE_OK=false
 
-if ! qiime greengenes2 non-v4-16s \
+if qiime greengenes2 non-v4-16s \
     --i-table "$MERGED_TABLE" \
     --i-sequences "$MERGED_REP_SEQS" \
     --p-threads "$cpu" \
     --i-backbone "${BACKBONE}" \
     --o-mapped-table "$ANNOTATED_TABLE" \
     --o-representatives "$ANNOTATED_REP_SEQS" --verbose; then
-    echo "❌ ERROR: GreenGenes2 annotation failed"
-    exit 1
-fi
 
-echo "✓ GreenGenes2 mapping completed"
-echo ""
+    echo "✓ GG2 backbone mapping completed"
 
-# Taxonomy assignment
-echo ">>> Step 8: Assigning taxonomy..."
-MERGED_TAXONOMY="${MERGED_DIR}/merged-taxonomy.qza"
-
-if ! qiime greengenes2 taxonomy-from-table \
-    --i-reference-taxonomy "${TAXONOMY}" \
-    --i-table "$ANNOTATED_TABLE" \
-    --o-classification "$MERGED_TAXONOMY" --verbose; then
-    echo "❌ ERROR: Taxonomy assignment failed"
-    exit 1
-fi
-
-echo "✓ Taxonomy assigned"
-echo ""
-
-# Generate annotated summary
-echo ">>> Step 9: Generating annotated table summary..."
-if qiime feature-table summarize \
-    --i-table "$ANNOTATED_TABLE" \
-    --o-visualization "${MERGED_DIR}/merged-table-gg2-summary.qzv" --verbose; then
-    echo "✓ Annotated summary generated"
+    # Filter phylogenetic tree to mapped features
+    echo ">>> Step 9: Filtering phylogenetic tree..."
+    if qiime phylogeny filter-tree \
+        --i-tree "$PHYLO" \
+        --i-table "$ANNOTATED_TABLE" \
+        --o-filtered-tree "$FILTERED_TREE" --verbose; then
+        GG2_TREE_OK=true
+        echo "✓ Phylogenetic tree filtered"
+    else
+        echo "⚠️  WARNING: Tree filtering failed. UniFrac analyses will not be available."
+    fi
 else
-    echo "⚠️  WARNING: Annotated summary generation failed"
+    echo "⚠️  WARNING: GG2 backbone mapping failed."
+    echo "   Taxonomy was already assigned via vsearch — no reads lost."
+    echo "   Only UniFrac / phylogenetic diversity analyses will be unavailable."
 fi
 echo ""
 
-# Filter tree
-echo ">>> Step 10: Filtering phylogenetic tree..."
-FILTERED_TREE="${MERGED_DIR}/final-tree.qza"
-
-if ! qiime phylogeny filter-tree \
-    --i-tree "$PHYLO" \
-    --i-table "$ANNOTATED_TABLE" \
-    --o-filtered-tree "$FILTERED_TREE" --verbose; then
-    echo "❌ ERROR: Tree filtering failed"
-    exit 1
+# Generate summary visualizations
+echo ">>> Step 10: Generating summary visualizations..."
+if [[ "$GG2_TREE_OK" == true ]]; then
+    if qiime feature-table summarize \
+        --i-table "$ANNOTATED_TABLE" \
+        --o-visualization "${MERGED_DIR}/merged-table-gg2-summary.qzv" --verbose; then
+        echo "✓ GG2-mapped table summary generated"
+    else
+        echo "⚠️  WARNING: GG2 summary generation failed"
+    fi
 fi
-
-echo "✓ Phylogenetic tree filtered"
 echo ""
