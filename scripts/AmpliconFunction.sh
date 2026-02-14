@@ -665,13 +665,18 @@ Amplicon_LS454_QualityControlForQZA() {
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
 
+    # Use adaptive max_ambiguous if set, otherwise default to 0
+    local p_max_ambiguous="${max_ambiguous:-0}"
+
     # 454 quality scores are unreliable (dummy values from fasterq-dump),
-    # so disable q-score filtering (--p-min-quality 0) and only apply:
+    # so disable q-score filtering (--p-min-quality 0) and apply:
     #   - length filtering (keep reads >= 85% of median length)
+    #   - ambiguous base filtering (--p-max-ambiguous from adaptive_tail_trim)
     qiime quality-filter q-score \
         --i-demux "${qza_path%/}/${dataset_name}.qza" \
         --p-min-quality 0 \
         --p-min-length-fraction 0.85 \
+        --p-max-ambiguous "$p_max_ambiguous" \
         --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
         --verbose

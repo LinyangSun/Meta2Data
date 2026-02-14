@@ -514,6 +514,162 @@ def _get_platform_from_ncbi(srr_id):
         return None
 
 
+def adaptive_tail_trim(input_dir, output_dir, max_sample_reads=10000):
+    """
+    Adaptive tail trimming for 454 reads: analyse → trim → compute max-ambiguous.
+
+    454 pyrosequencing reads accumulate N bases toward the 3' end due to
+    signal decay.  This function:
+      1. Scans per-position N frequency from the 3' end to decide how many
+         bases to trim (data-driven, not a fixed number).
+      2. Trims that many bases from every read and writes the results to
+         *output_dir*.
+      3. Counts remaining N bases per read after trimming and returns the
+         95th-percentile value for use as ``--p-max-ambiguous``.
+
+    Args:
+        input_dir:  Directory containing FASTQ files (gzipped or plain).
+        output_dir: Directory for trimmed FASTQ output.
+        max_sample_reads: Max reads to sample per file for statistics
+                          (0 = unlimited).
+
+    Returns:
+        dict with keys ``trim_length`` (int) and ``max_ambiguous`` (int).
+
+    Prints machine-readable lines to stdout:
+        TRIM_LENGTH=<int>
+        MAX_AMBIGUOUS=<int>
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    # ── Collect FASTQ paths ──────────────────────────────────────────────
+    fq_files = sorted(
+        glob.glob(os.path.join(input_dir, '*.fastq*'))
+    )
+    if not fq_files:
+        raise FileNotFoundError(f"No FASTQ files found in {input_dir}")
+
+    # ── Step 1: per-position N frequency from 3' end ─────────────────────
+    SCAN_WINDOW = 50          # positions from 3' end to examine
+    n_counts = np.zeros(SCAN_WINDOW, dtype=np.int64)   # N count at each pos
+    total_counts = np.zeros(SCAN_WINDOW, dtype=np.int64)  # reads covering pos
+
+    for fq in fq_files:
+        open_fn = gzip.open if fq.endswith('.gz') else open
+        sampled = 0
+        with open_fn(fq, 'rt') as fh:
+            while max_sample_reads == 0 or sampled < max_sample_reads:
+                header = fh.readline()
+                if not header:
+                    break
+                seq = fh.readline().rstrip('\n')
+                fh.readline()   # +
+                fh.readline()   # qual
+                sampled += 1
+                seq_len = len(seq)
+                limit = min(seq_len, SCAN_WINDOW)
+                for pos in range(limit):
+                    idx = seq_len - 1 - pos          # actual index in seq
+                    total_counts[pos] += 1
+                    if seq[idx] == 'N' or seq[idx] == 'n':
+                        n_counts[pos] += 1
+
+    # Compute N frequency at each position from 3' end
+    with np.errstate(divide='ignore', invalid='ignore'):
+        n_freq = np.where(total_counts > 0,
+                          n_counts / total_counts, 0.0)
+
+    # Background N frequency: average over positions 25-45 from 3' end
+    bg_start, bg_end = 25, 45
+    bg_positions = n_freq[bg_start:bg_end]
+    if len(bg_positions) > 0 and np.any(total_counts[bg_start:bg_end] > 0):
+        background = float(np.mean(bg_positions[total_counts[bg_start:bg_end] > 0]))
+    else:
+        background = 0.0
+
+    threshold = max(background * 3, 0.01)
+
+    # Scan from position 0 (3' end) inward
+    trim_length = 0
+    for pos in range(SCAN_WINDOW):
+        if n_freq[pos] > threshold:
+            trim_length = pos + 1
+        else:
+            break
+
+    # Cap at 30 to avoid over-trimming
+    trim_length = min(trim_length, 30)
+
+    print(f"  Tail N-frequency analysis (first 15 positions from 3' end):",
+          file=sys.stderr)
+    for p in range(min(15, SCAN_WINDOW)):
+        bar = '#' * int(n_freq[p] * 50)
+        print(f"    pos -{p+1:>2d}: {n_freq[p]*100:5.1f}%  {bar}",
+              file=sys.stderr)
+    print(f"  Background N freq (pos -26 to -45): {background*100:.2f}%",
+          file=sys.stderr)
+    print(f"  Threshold: {threshold*100:.2f}%", file=sys.stderr)
+    print(f"  → Trim length: {trim_length} bp", file=sys.stderr)
+
+    # ── Step 2: trim tails and write output ──────────────────────────────
+    n_per_read = []   # collect N counts for step 3
+
+    for fq in fq_files:
+        open_fn = gzip.open if fq.endswith('.gz') else open
+        out_name = os.path.basename(fq)
+        # Always write gzipped output
+        if not out_name.endswith('.gz'):
+            out_name += '.gz'
+        out_path = os.path.join(output_dir, out_name)
+
+        sampled_for_stats = 0
+        with open_fn(fq, 'rt') as fin, gzip.open(out_path, 'wt') as fout:
+            while True:
+                header = fin.readline()
+                if not header:
+                    break
+                seq = fin.readline().rstrip('\n')
+                plus = fin.readline()
+                qual = fin.readline().rstrip('\n')
+
+                if trim_length > 0 and len(seq) > trim_length:
+                    seq = seq[:-trim_length]
+                    qual = qual[:-trim_length]
+
+                fout.write(header)
+                fout.write(seq + '\n')
+                fout.write(plus)
+                fout.write(qual + '\n')
+
+                # Sample N counts for step 3
+                if max_sample_reads == 0 or sampled_for_stats < max_sample_reads:
+                    n_per_read.append(seq.upper().count('N'))
+                    sampled_for_stats += 1
+
+    # ── Step 3: P95 of per-read N count → max_ambiguous ──────────────────
+    if n_per_read:
+        p95 = int(np.percentile(n_per_read, 95))
+    else:
+        p95 = 0
+
+    max_ambiguous = max(p95, 0)
+
+    print(f"  Post-trim N distribution (sampled {len(n_per_read)} reads):",
+          file=sys.stderr)
+    n_counter = Counter(n_per_read)
+    for k in sorted(n_counter.keys())[:10]:
+        pct = n_counter[k] / len(n_per_read) * 100
+        print(f"    {k} Ns: {n_counter[k]:>7d} ({pct:.1f}%)", file=sys.stderr)
+    print(f"  P95 = {p95}  →  --p-max-ambiguous {max_ambiguous}",
+          file=sys.stderr)
+
+    # Machine-readable output on stdout
+    print(f"TRIM_LENGTH={trim_length}")
+    print(f"MAX_AMBIGUOUS={max_ambiguous}")
+
+    return {"trim_length": trim_length, "max_ambiguous": max_ambiguous}
+
+
 def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_csv):
     """
     Append per-sample summary (raw reads + final reads) to a unified CSV.
@@ -607,6 +763,7 @@ if __name__ == "__main__":
             "mk_manifest_PE",
             "trim_pos_deblur",
             "get_sequencing_platform",
+            "adaptive_tail_trim",
             "append_summary"
         ],
         help="The function to execute."
@@ -619,6 +776,10 @@ if __name__ == "__main__":
     parser.add_argument("--OutputDir", help="Output directory for generated files")
     parser.add_argument("--srr_id", help="SRA accession number")
     parser.add_argument("--bioproject_id", help="BioProject ID (required for CNCB/CRR accessions)")
+    parser.add_argument("--input_dir", help="Input directory (for adaptive_tail_trim)")
+    parser.add_argument("--output_dir", help="Output directory (for adaptive_tail_trim)")
+    parser.add_argument("--max_sample_reads", type=int, default=10000,
+                        help="Max reads to sample per file (default: 10000, 0=all)")
     parser.add_argument("--dataset_id", help="Dataset/BioProject ID for summary")
     parser.add_argument("--sra_file", help="Path to _sra.txt file")
     parser.add_argument("--raw_counts", help="Path to raw read counts TSV")
@@ -649,6 +810,9 @@ if __name__ == "__main__":
             print(platform)
         else:
             sys.exit(1)
+
+    elif args.function == "adaptive_tail_trim":
+        adaptive_tail_trim(args.input_dir, args.output_dir, args.max_sample_reads)
 
     elif args.function == "append_summary":
         append_summary(args.dataset_id, args.sra_file, args.raw_counts, args.final_table, args.output_csv)
