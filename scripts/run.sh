@@ -352,7 +352,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # Clean up pre-trim FASTQ
             rm -rf "$fastp_path"
 
-            # ── Step E: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% ──
+            # ── Step E: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% → Filter low-freq OTUs ──
             fastq_path="$adaptive_trim_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
@@ -361,6 +361,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             Amplicon_LS454_Deduplication
             Amplicon_LS454_ChimerasRemoval
             Amplicon_LS454_ClusterDenovo
+            Amplicon_LS454_FilterLowFreqOTUs
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "ION_TORRENT" ]]; then
