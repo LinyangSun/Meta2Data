@@ -243,7 +243,7 @@ if ! qiime feature-classifier classify-consensus-vsearch \
     --p-perc-identity 0.8 \
     --p-maxaccepts 3 \
     --o-classification "$MERGED_TAXONOMY" \
-    --o-search-results "${OUTPUT_DIR}/vsearch-hits.qza" --verbose; then
+    --o-search-results "${MERGED_DIR}/vsearch-hits.qza" --verbose; then
     echo "❌ ERROR: Taxonomy assignment failed"
     exit 1
 fi
