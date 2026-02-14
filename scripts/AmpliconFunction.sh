@@ -668,12 +668,10 @@ Amplicon_LS454_QualityControlForQZA() {
     # 454 quality scores are unreliable (dummy values from fasterq-dump),
     # so disable q-score filtering (--p-min-quality 0) and only apply:
     #   - length filtering (keep reads >= 85% of median length)
-    #   - ambiguous base removal (remove reads containing N)
     qiime quality-filter q-score \
         --i-demux "${qza_path%/}/${dataset_name}.qza" \
         --p-min-quality 0 \
         --p-min-length-fraction 0.85 \
-        --p-max-ambiguous 0 \
         --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
         --verbose
