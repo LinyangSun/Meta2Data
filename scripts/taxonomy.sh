@@ -19,19 +19,17 @@ fi
 ################################################################################
 
 echo "========================================="
-echo "Resolving GreenGenes2 database..."
+echo "Resolving database..."
 echo "========================================="
 
-# If BACKBONE, BACKBONE_TAX, TAXONOMY, PHYLO are already set (e.g. from ggCOMBO), use them directly
+# If BACKBONE, BACKBONE_TAX, SEPP_REF are already set (e.g. from ggCOMBO), use them directly
 if [[ -n "$BACKBONE" && -f "$BACKBONE" ]] && \
    [[ -n "${BACKBONE_TAX:-}" && -f "${BACKBONE_TAX:-}" ]] && \
-   [[ -n "$TAXONOMY" && -f "$TAXONOMY" ]] && \
-   [[ -n "$PHYLO" && -f "$PHYLO" ]]; then
+   [[ -n "$SEPP_REF" && -f "$SEPP_REF" ]]; then
     echo "Using pre-configured database paths:"
     echo "  Backbone:      $(basename "$BACKBONE")"
     echo "  Backbone Tax:  $(basename "$BACKBONE_TAX")"
-    echo "  Taxonomy:      $(basename "$TAXONOMY")"
-    echo "  Phylogeny:     $(basename "$PHYLO")"
+    echo "  SEPP Ref:      $(basename "$SEPP_REF")"
     echo ""
 else
     # Auto-detection fallback
@@ -76,7 +74,7 @@ else
     DB_DIR=$(find_database_dir)
 
     if [[ -z "$DB_DIR" ]]; then
-        echo "ERROR: GreenGenes2 database not found"
+        echo "ERROR: Database not found"
         echo ""
         echo "Searched locations:"
         echo "  - \$CONDA_PREFIX/share/qiime2/data/greengenes2"
@@ -91,18 +89,16 @@ else
 
     BACKBONE=$(find_db_file "backbone.full-length" "$DB_DIR")
     BACKBONE_TAX=$(find_db_file "backbone.tax" "$DB_DIR")
-    TAXONOMY=$(find_db_file "taxonomy" "$DB_DIR")
-    PHYLO=$(find_db_file "phylogeny" "$DB_DIR")
+    SEPP_REF=$(find_db_file "sepp-refs" "$DB_DIR")
 
-    if [[ -z "$BACKBONE" ]] || [[ -z "$BACKBONE_TAX" ]] || [[ -z "$TAXONOMY" ]] || [[ -z "$PHYLO" ]]; then
+    if [[ -z "$BACKBONE" ]] || [[ -z "$BACKBONE_TAX" ]] || [[ -z "$SEPP_REF" ]]; then
         echo "ERROR: Required database files not found in $DB_DIR"
         exit 1
     fi
 
     echo "Backbone:      $(basename "$BACKBONE")"
     echo "Backbone Tax:  $(basename "$BACKBONE_TAX")"
-    echo "Taxonomy:      $(basename "$TAXONOMY")"
-    echo "Phylogeny:     $(basename "$PHYLO")"
+    echo "SEPP Ref:      $(basename "$SEPP_REF")"
     echo ""
 fi
 
@@ -251,40 +247,40 @@ fi
 echo "✓ Taxonomy assigned (all features retained)"
 echo ""
 
-# GG2 backbone mapping — used ONLY for building the phylogenetic tree.
-# This step may drop features that cannot be placed on the GG2 backbone.
-# That is acceptable: the tree is only needed for UniFrac / phylogenetic
-# diversity analyses.  Taxonomy has already been assigned above.
-echo ">>> Step 8: Mapping to GG2 backbone for phylogenetic tree..."
+# SEPP fragment insertion — builds the phylogenetic tree by inserting query
+# sequences into a reference tree (e.g. Greengenes 13.8).  Unlike GG2
+# non-v4-16s this does NOT rename feature IDs, so the tree, table, and
+# taxonomy all share the same original ASV hashes.
+echo ">>> Step 8: Building phylogenetic tree via SEPP fragment insertion..."
 
-ANNOTATED_TABLE="${MERGED_DIR}/merged-table-gg2.qza"
-ANNOTATED_REP_SEQS="${MERGED_DIR}/merged-rep-seqs-gg2.qza"
-FILTERED_TREE="${MERGED_DIR}/final-tree.qza"
-GG2_TREE_OK=false
+INSERTION_TREE="${MERGED_DIR}/insertion-tree.qza"
+INSERTION_PLACEMENTS="${MERGED_DIR}/insertion-placements.qza"
+SEPP_TREE_OK=false
 
-if qiime greengenes2 non-v4-16s \
-    --i-table "$MERGED_TABLE" \
-    --i-sequences "$MERGED_REP_SEQS" \
+if qiime fragment-insertion sepp \
+    --i-representative-sequences "$MERGED_REP_SEQS" \
+    --i-reference-database "$SEPP_REF" \
     --p-threads "$cpu" \
-    --i-backbone "${BACKBONE}" \
-    --o-mapped-table "$ANNOTATED_TABLE" \
-    --o-representatives "$ANNOTATED_REP_SEQS" --verbose; then
+    --o-tree "$INSERTION_TREE" \
+    --o-placements "$INSERTION_PLACEMENTS" --verbose; then
 
-    echo "✓ GG2 backbone mapping completed"
+    SEPP_TREE_OK=true
+    echo "✓ SEPP fragment insertion completed"
 
-    # Filter phylogenetic tree to mapped features
-    echo ">>> Step 9: Filtering phylogenetic tree..."
-    if qiime phylogeny filter-tree \
-        --i-tree "$PHYLO" \
-        --i-table "$ANNOTATED_TABLE" \
-        --o-filtered-tree "$FILTERED_TREE" --verbose; then
-        GG2_TREE_OK=true
-        echo "✓ Phylogenetic tree filtered"
+    # Filter table to features that were placed in the tree.
+    # Features that could not be inserted are separated into a removed table.
+    echo ">>> Step 9: Filtering table to tree-placed features..."
+    if qiime fragment-insertion filter-features \
+        --i-table "$MERGED_TABLE" \
+        --i-tree "$INSERTION_TREE" \
+        --o-filtered-table "${MERGED_DIR}/merged-table-tree.qza" \
+        --o-removed-table "${MERGED_DIR}/merged-table-no-tree.qza" --verbose; then
+        echo "✓ Table filtered by tree placement"
     else
-        echo "⚠️  WARNING: Tree filtering failed. UniFrac analyses will not be available."
+        echo "⚠️  WARNING: Feature filtering by tree failed."
     fi
 else
-    echo "⚠️  WARNING: GG2 backbone mapping failed."
+    echo "⚠️  WARNING: SEPP fragment insertion failed."
     echo "   Taxonomy was already assigned via vsearch — no reads lost."
     echo "   Only UniFrac / phylogenetic diversity analyses will be unavailable."
 fi
@@ -292,13 +288,13 @@ echo ""
 
 # Generate summary visualizations
 echo ">>> Step 10: Generating summary visualizations..."
-if [[ "$GG2_TREE_OK" == true ]]; then
+if [[ "$SEPP_TREE_OK" == true ]]; then
     if qiime feature-table summarize \
-        --i-table "$ANNOTATED_TABLE" \
-        --o-visualization "${MERGED_DIR}/merged-table-gg2-summary.qzv" --verbose; then
-        echo "✓ GG2-mapped table summary generated"
+        --i-table "${MERGED_DIR}/merged-table-tree.qza" \
+        --o-visualization "${MERGED_DIR}/merged-table-tree-summary.qzv" --verbose; then
+        echo "✓ Tree-placed feature table summary generated"
     else
-        echo "⚠️  WARNING: GG2 summary generation failed"
+        echo "⚠️  WARNING: Tree-placed table summary generation failed"
     fi
 fi
 echo ""
