@@ -26,28 +26,164 @@ set -e
 #                         COMMON FUNCTIONS                                     #
 ################################################################################
 # Functions shared across all sequencing platforms
+
+Verify_Fastq_Integrity() {
+    # Verify that a FASTQ file is valid (line count divisible by 4, has content).
+    # Args: $1 = path to FASTQ file
+    # Returns: 0 if valid, 1 if invalid
+    local fq_file="$1"
+
+    if [[ ! -f "$fq_file" ]]; then
+        echo "  Integrity check: file not found: $fq_file" >&2
+        return 1
+    fi
+
+    local file_size
+    file_size=$(stat -c%s "$fq_file" 2>/dev/null || stat -f%z "$fq_file" 2>/dev/null)
+    if [[ "$file_size" -eq 0 ]]; then
+        echo "  Integrity check: empty file: $(basename "$fq_file")" >&2
+        return 1
+    fi
+
+    local line_count
+    if [[ "$fq_file" == *.gz ]]; then
+        line_count=$(zcat "$fq_file" 2>/dev/null | wc -l)
+    else
+        line_count=$(wc -l < "$fq_file")
+    fi
+
+    if [[ "$line_count" -eq 0 ]]; then
+        echo "  Integrity check: no lines in file: $(basename "$fq_file")" >&2
+        return 1
+    fi
+
+    if (( line_count % 4 != 0 )); then
+        echo "  Integrity check: line count ($line_count) not divisible by 4: $(basename "$fq_file")" >&2
+        return 1
+    fi
+
+    return 0
+}
+
+Download_From_ENA() {
+    # Download FASTQ file(s) directly from ENA (European Nucleotide Archive).
+    # ENA provides pre-converted FASTQ files, serving as a reliable fallback
+    # when NCBI prefetch fails.
+    #
+    # Args:
+    #   $1 = SRR/ERR/DRR accession
+    #   $2 = target directory for FASTQ files
+    #   $3 = rename prefix for output files
+    #
+    # Returns: 0 on success, 1 on failure
+    local srr="$1"
+    local target_dir="$2"
+    local rename_prefix="$3"
+    local max_retries=3
+
+    echo "  [ENA] Attempting ENA download for $srr..."
+
+    # ENA URL structure: first 6 chars of accession, then full accession
+    # e.g., SRR123456 -> /vol1/fastq/SRR123/006/SRR1234566/
+    local acc_prefix="${srr:0:6}"
+    local acc_len=${#srr}
+
+    # Build ENA directory path based on accession length
+    local ena_dir
+    if (( acc_len <= 9 )); then
+        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr}"
+    elif (( acc_len == 10 )); then
+        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/00${srr: -1}/${srr}"
+    elif (( acc_len == 11 )); then
+        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/0${srr: -2}/${srr}"
+    else
+        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
+    fi
+
+    # Try PE first (_1.fastq.gz and _2.fastq.gz), then SE (.fastq.gz)
+    local -a try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz" "${srr}.fastq.gz")
+    local downloaded_any=false
+
+    for fname in "${try_files[@]}"; do
+        local url="${ena_dir}/${fname}"
+        local out_file="${target_dir}/${fname}"
+        local success=false
+
+        for ((attempt=1; attempt<=max_retries; attempt++)); do
+            if wget -q --timeout=60 --tries=1 "$url" -O "$out_file" 2>/dev/null; then
+                # Verify the file is a valid gzip
+                if gzip -t "$out_file" 2>/dev/null; then
+                    success=true
+                    break
+                else
+                    rm -f "$out_file"
+                fi
+            else
+                rm -f "$out_file"
+            fi
+            local wait=$(( 5 * attempt ))
+            [[ $attempt -lt $max_retries ]] && sleep "$wait"
+        done
+
+        if [[ "$success" == true ]]; then
+            # Rename to match expected naming convention
+            local base_filename="${fname/${srr}/}"
+            mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
+            echo "  [ENA] ✓ Downloaded: ${fname} → ${rename_prefix}${base_filename}"
+            downloaded_any=true
+        else
+            # _2.fastq.gz missing is expected for SE data; .fastq.gz missing is OK if PE found
+            rm -f "$out_file" 2>/dev/null
+        fi
+    done
+
+    if [[ "$downloaded_any" == true ]]; then
+        # If we got both _1 and _2, remove the SE file (.fastq.gz) if it also downloaded
+        if [[ -f "${target_dir}/${rename_prefix}_1.fastq.gz" ]] && \
+           [[ -f "${target_dir}/${rename_prefix}_2.fastq.gz" ]]; then
+            rm -f "${target_dir}/${rename_prefix}.fastq.gz" 2>/dev/null
+        fi
+        return 0
+    fi
+
+    echo "  [ENA] ✗ ENA download failed for $srr" >&2
+    return 1
+}
+
 Download_CRR() {
     local crr=$1
     local target_dir=$2
     local rename_prefix=$3
-    local max_retries=3
+    local max_retries=5
 
     echo "[CNCB] Processing $crr"
 
-    # 1. Map CRR to parent CRA ID
-    local cra=$(wget -qO- --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search?searchTerm=${crr}" | grep -v "example" | grep -oe "CRA[0-9]\+" | uniq | head -n 1)
+    # 1. Map CRR to parent CRA ID (with retry)
+    local cra=""
+    for ((attempt=1; attempt<=3; attempt++)); do
+        cra=$(wget -qO- --timeout=30 --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search?searchTerm=${crr}" | grep -v "example" | grep -oe "CRA[0-9]\+" | uniq | head -n 1)
+        [[ -n "$cra" ]] && break
+        local wait=$(( 5 * attempt ))
+        echo "  CRA lookup retry $attempt/3 (wait ${wait}s)..." >&2
+        sleep "$wait"
+    done
 
     if [[ -z "$cra" ]]; then
         echo "Error: Could not map $crr to a CRA project." >&2
         return 1
     fi
 
-    # 2. Fetch project MD5 list and path prefix
+    # 2. Fetch project MD5 list and path prefix (with retry)
     local md5_file="${cra}_md5.txt"
     local path_prefix=""
-    path_prefix=$(wget -qO- --post-data="searchTerm=${cra}&totalDatas=1&downLoadCount=1" --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search/getRunInfoByCra" | grep -oe "gsa[0-9]\+/${cra}\|gsa/${cra}" | uniq | head -n 1)
+    for ((attempt=1; attempt<=3; attempt++)); do
+        path_prefix=$(wget -qO- --timeout=30 --post-data="searchTerm=${cra}&totalDatas=1&downLoadCount=1" --user-agent="Mozilla/5.0" "https://ngdc.cncb.ac.cn/gsa/search/getRunInfoByCra" | grep -oe "gsa[0-9]\+/${cra}\|gsa/${cra}" | uniq | head -n 1)
+        [[ -n "$path_prefix" ]] && break
+        sleep $(( 5 * attempt ))
+    done
+
     if [[ ! -s "$md5_file" ]]; then
-        wget -q "https://download.cncb.ac.cn/${path_prefix}/md5sum.txt" -O "$md5_file"
+        wget -q --timeout=30 "https://download.cncb.ac.cn/${path_prefix}/md5sum.txt" -O "$md5_file"
     fi
 
     # 3. Identify files belonging to the CRR accession
@@ -62,7 +198,7 @@ Download_CRR() {
 
         for ((i=1; i<=max_retries; i++)); do
             local wget_url="https://download.cncb.ac.cn/${path_prefix}/${crr}/${filename}"
-            if wget -q --user-agent="Mozilla/5.0" "$wget_url" -O "$filename"; then
+            if wget -q --timeout=120 --user-agent="Mozilla/5.0" "$wget_url" -O "$filename"; then
                 if [[ -f "$filename" ]]; then
                     local current_md5=$(md5sum "$filename" | awk '{print $1}')
                     if [[ "$current_md5" == "$expected_md5" ]]; then
@@ -79,8 +215,14 @@ Download_CRR() {
                         rm -f "$filename"
                     fi
                 fi
+            else
+                echo "  Download failed (attempt $i/$max_retries)..." >&2
+                rm -f "$filename"
             fi
-            [[ $i -lt $max_retries ]] && sleep 2
+            # Exponential backoff: 5, 10, 20, 40, 60 (capped)
+            local wait=$(( 5 * (1 << (i - 1)) ))
+            (( wait > 60 )) && wait=60
+            [[ $i -lt $max_retries ]] && sleep "$wait"
         done
 
         if [[ "$success" = false ]]; then
@@ -163,56 +305,91 @@ Common_SRADownloadToFastq_MultiSource() {
                 echo "  Retry $attempt/$max_attempts for $srr (wait ${wait}s)..." >&2
                 sleep "$wait"
             done
-            if [[ "$dl_ok" != true ]]; then
-                echo "Error: Download failed for $srr after $max_attempts attempts" >&2
-                return 1
+
+            if [[ "$dl_ok" == true ]]; then
+                # Extract downloaded SRA files to temp
+                local sra_files=()
+                while IFS= read -r -d '' file; do
+                    sra_files+=("$file")
+                done < <(find "$temp_dl_path/$srr" -type f \( -name "*.sra" -o -name "*.fastq*" \) -print0 2>/dev/null)
+
+                # Process each file
+                local convert_ok=true
+                for file in "${sra_files[@]}"; do
+                    local basename_file=$(basename "$file")
+                    local ext="${basename_file##*.}"
+
+                    if [[ "$ext" == "sra" ]]; then
+                        # Convert SRA to FASTQ with rename prefix
+                        local temp_outdir="${temp_dl_path}/fastq_${srr}"
+                        mkdir -p "$temp_outdir"
+
+                        if fasterq-dump --split-3 -q "$file" --outdir "$temp_outdir" > /dev/null 2>&1; then
+                            # Rename and move converted FASTQ files
+                            find "$temp_outdir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
+                            while IFS= read -r -d '' fq_file; do
+                                local fq_basename=$(basename "$fq_file")
+                                # Standardize to _1/_2 format first
+                                local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
+                                # Strip SRR/ERR/DRR ID from filename (keep separator)
+                                local base_filename=$(echo "$normalized" | sed "s/${srr}//")
+                                mv "$fq_file" "${fastq_path}/${rename}${base_filename}"
+                            done
+                            rm -rf "$temp_outdir"
+                        else
+                            echo "  Warning: fasterq-dump failed for $basename_file, will try ENA fallback" >&2
+                            convert_ok=false
+                        fi
+                        rm -f "$file"
+
+                    elif [[ "$ext" == "fastq" || "$basename_file" =~ \.fastq\.gz$ ]]; then
+                        # Already FASTQ, standardize and strip SRR/ERR/DRR ID
+                        # Standardize to _1/_2 format first
+                        local normalized=$(echo "$basename_file" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
+                        # Strip SRR/ERR/DRR ID from filename (keep separator)
+                        local base_filename=$(echo "$normalized" | sed "s/${srr}//")
+                        mv "$file" "${fastq_path}/${rename}${base_filename}"
+                    fi
+                done
+
+                rm -rf "${temp_dl_path:?}/$srr"
+
+                # If fasterq-dump conversion failed, fall through to ENA
+                if [[ "$convert_ok" == false ]]; then
+                    dl_ok=false
+                fi
             fi
 
-            # Extract downloaded SRA files to temp
-            local sra_files=()
-            while IFS= read -r -d '' file; do
-                sra_files+=("$file")
-            done < <(find "$temp_dl_path/$srr" -type f \( -name "*.sra" -o -name "*.fastq*" \) -print0 2>/dev/null)
+            # Fallback: download directly from ENA if prefetch/fasterq-dump failed
+            if [[ "$dl_ok" != true ]]; then
+                echo "  NCBI prefetch failed for $srr — trying ENA fallback..." >&2
+                if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
+                    echo "  ✓ ENA fallback succeeded for $srr"
+                else
+                    echo "Error: All download sources failed for $srr (NCBI + ENA)" >&2
+                    return 1
+                fi
+            fi
 
-            # Process each file
-            for file in "${sra_files[@]}"; do
-                local basename_file=$(basename "$file")
-                local ext="${basename_file##*.}"
-
-                if [[ "$ext" == "sra" ]]; then
-                    # Convert SRA to FASTQ with rename prefix
-                    local temp_outdir="${temp_dl_path}/fastq_${srr}"
-                    mkdir -p "$temp_outdir"
-
-                    if fasterq-dump --split-3 -q "$file" --outdir "$temp_outdir" > /dev/null 2>&1; then
-                        # Rename and move converted FASTQ files
-                        find "$temp_outdir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
-                        while IFS= read -r -d '' fq_file; do
-                            local fq_basename=$(basename "$fq_file")
-                            # Standardize to _1/_2 format first
-                            local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
-                            # Strip SRR/ERR/DRR ID from filename (keep separator)
-                            local base_filename=$(echo "$normalized" | sed "s/${srr}//")
-                            mv "$fq_file" "${fastq_path}/${rename}${base_filename}"
-                        done
-                        rm -rf "$temp_outdir"
-                    else
-                        echo "Error: fasterq-dump failed for $basename_file" >&2
-                        return 1
-                    fi
-                    rm -f "$file"
-
-                elif [[ "$ext" == "fastq" || "$basename_file" =~ \.fastq\.gz$ ]]; then
-                    # Already FASTQ, standardize and strip SRR/ERR/DRR ID
-                    # Standardize to _1/_2 format first
-                    local normalized=$(echo "$basename_file" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
-                    # Strip SRR/ERR/DRR ID from filename (keep separator)
-                    local base_filename=$(echo "$normalized" | sed "s/${srr}//")
-                    mv "$file" "${fastq_path}/${rename}${base_filename}"
+            # Verify FASTQ integrity for downloaded files
+            local verify_failed=false
+            for fq in "${fastq_path}/${rename}"*.fastq*; do
+                [[ -f "$fq" ]] || continue
+                if ! Verify_Fastq_Integrity "$fq"; then
+                    echo "  Warning: Removing invalid FASTQ: $(basename "$fq")" >&2
+                    rm -f "$fq"
+                    verify_failed=true
                 fi
             done
-
-            rm -rf "${temp_dl_path:?}/$srr"
+            if [[ "$verify_failed" == true ]]; then
+                # Check if any valid files remain
+                local remaining_files
+                remaining_files=$(find "$fastq_path" -name "${rename}*.fastq*" -type f 2>/dev/null | wc -l)
+                if [[ "$remaining_files" -eq 0 ]]; then
+                    echo "Error: No valid FASTQ files for $srr after integrity check" >&2
+                    return 1
+                fi
+            fi
         else
             echo "Warning: Unknown Accession format: $srr" >&2
         fi
@@ -320,58 +497,69 @@ Common_SRADownloadViaSFF() {
                 echo "  Retry $attempt/$max_attempts for $srr (wait ${wait}s)..." >&2
                 sleep "$wait"
             done
-            if [[ "$dl_ok" != true ]]; then
-                echo "Error: prefetch failed for $srr after $max_attempts attempts" >&2
-                return 1
-            fi
 
-            local sra_file
-            sra_file=$(find "$temp_dl_path/$srr" -name "*.sra" -type f 2>/dev/null | head -1)
+            local ncbi_converted=false
+            if [[ "$dl_ok" == true ]]; then
+                local sra_file
+                sra_file=$(find "$temp_dl_path/$srr" -name "*.sra" -type f 2>/dev/null | head -1)
 
-            # Step 2: Try sff-dump → sff2fastq (preserves quality)
-            local used_sff=false
-            if [[ -n "$sra_file" ]] && command -v sff-dump >/dev/null 2>&1 && command -v sff2fastq >/dev/null 2>&1; then
-                local sff_outdir="${temp_dl_path}/sff_${srr}"
-                mkdir -p "$sff_outdir"
+                # Step 2: Try sff-dump → sff2fastq (preserves quality)
+                local used_sff=false
+                if [[ -n "$sra_file" ]] && command -v sff-dump >/dev/null 2>&1 && command -v sff2fastq >/dev/null 2>&1; then
+                    local sff_outdir="${temp_dl_path}/sff_${srr}"
+                    mkdir -p "$sff_outdir"
 
-                if sff-dump --outdir "$sff_outdir" "$sra_file" 2>/dev/null; then
-                    for sff_file in "$sff_outdir"/*.sff; do
-                        [[ -f "$sff_file" ]] || continue
-                        sff2fastq "$sff_file" -o "${fastq_path}/${rename}.fastq"
-                        echo "  ✓ SFF→FASTQ: ${srr} → ${rename}.fastq (quality scores preserved)"
-                        used_sff=true
-                    done
-                else
-                    echo "  ⚠️ sff-dump failed (data may not be SFF format)"
-                fi
-                rm -rf "$sff_outdir"
-            fi
-
-            # Step 3: Fallback to fasterq-dump
-            if [[ "$used_sff" == false ]]; then
-                echo "  ↩️ Falling back to fasterq-dump..."
-                if [[ -n "$sra_file" ]]; then
-                    local temp_fq="${temp_dl_path}/fastq_${srr}"
-                    mkdir -p "$temp_fq"
-
-                    if fasterq-dump --split-3 -q "$sra_file" --outdir "$temp_fq" 2>/dev/null; then
-                        find "$temp_fq" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
-                        while IFS= read -r -d '' fq_file; do
-                            local fq_basename=$(basename "$fq_file")
-                            local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
-                            local base_filename=$(echo "$normalized" | sed "s/${srr}//")
-                            mv "$fq_file" "${fastq_path}/${rename}${base_filename}"
-                            echo "  ✓ fasterq-dump: ${srr} → ${rename}${base_filename} (quality may be missing)"
+                    if sff-dump --outdir "$sff_outdir" "$sra_file" 2>/dev/null; then
+                        for sff_file in "$sff_outdir"/*.sff; do
+                            [[ -f "$sff_file" ]] || continue
+                            sff2fastq "$sff_file" -o "${fastq_path}/${rename}.fastq"
+                            echo "  ✓ SFF→FASTQ: ${srr} → ${rename}.fastq (quality scores preserved)"
+                            used_sff=true
+                            ncbi_converted=true
                         done
                     else
-                        echo "Error: Both sff-dump and fasterq-dump failed for $srr" >&2
-                        return 1
+                        echo "  ⚠️ sff-dump failed (data may not be SFF format)"
                     fi
-                    rm -rf "$temp_fq"
+                    rm -rf "$sff_outdir"
                 fi
+
+                # Step 3: Fallback to fasterq-dump
+                if [[ "$used_sff" == false ]]; then
+                    echo "  Falling back to fasterq-dump..."
+                    if [[ -n "$sra_file" ]]; then
+                        local temp_fq="${temp_dl_path}/fastq_${srr}"
+                        mkdir -p "$temp_fq"
+
+                        if fasterq-dump --split-3 -q "$sra_file" --outdir "$temp_fq" 2>/dev/null; then
+                            find "$temp_fq" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
+                            while IFS= read -r -d '' fq_file; do
+                                local fq_basename=$(basename "$fq_file")
+                                local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
+                                local base_filename=$(echo "$normalized" | sed "s/${srr}//")
+                                mv "$fq_file" "${fastq_path}/${rename}${base_filename}"
+                                echo "  ✓ fasterq-dump: ${srr} → ${rename}${base_filename} (quality may be missing)"
+                            done
+                            ncbi_converted=true
+                        else
+                            echo "  Warning: Both sff-dump and fasterq-dump failed for $srr" >&2
+                        fi
+                        rm -rf "$temp_fq"
+                    fi
+                fi
+
+                rm -rf "${temp_dl_path:?}/$srr"
             fi
 
-            rm -rf "${temp_dl_path:?}/$srr"
+            # Step 4: ENA fallback if all NCBI methods failed
+            if [[ "$ncbi_converted" != true ]]; then
+                echo "  NCBI methods failed for $srr — trying ENA fallback..." >&2
+                if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
+                    echo "  ✓ ENA fallback succeeded for $srr"
+                else
+                    echo "Error: All download sources failed for $srr (NCBI + ENA)" >&2
+                    return 1
+                fi
+            fi
         else
             echo "Warning: Unknown accession format: $srr" >&2
         fi
