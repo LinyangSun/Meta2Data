@@ -294,7 +294,7 @@ Common_SRADownloadToFastq_MultiSource() {
             local attempt=0
             local dl_ok=false
             while (( attempt < max_attempts )); do
-                (( attempt++ ))
+                (( ++attempt ))
                 if prefetch -q -O "$temp_dl_path" "$srr" 2>/dev/null; then
                     dl_ok=true
                     break

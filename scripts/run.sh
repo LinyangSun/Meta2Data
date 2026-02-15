@@ -193,7 +193,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
         if [[ "$platform" == "ILLUMINA" ]]; then
             # ── Step A: Download ──
             echo ">>> Downloading SRA data..."
-            Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
+            if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
+                echo "Error: Download failed for dataset $dataset_ID" >&2
+                exit 1
+            fi
 
             # Count raw reads before any processing
             Common_CountRawReads "$dataset_path" "$sra_file_name"
@@ -295,7 +298,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
         elif [[ "$platform" == "LS454" ]]; then
             # ── Step A: Download with normal prefetch + fasterq-dump (same as Illumina) ──
             echo ">>> Downloading SRA data (454)..."
-            Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
+            if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
+                echo "Error: Download failed for dataset $dataset_ID" >&2
+                exit 1
+            fi
 
             # Count raw reads before any processing
             Common_CountRawReads "$dataset_path" "$sra_file_name"
@@ -369,7 +375,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
         elif [[ "$platform" == "ION_TORRENT" ]]; then
             # ── Step A: Download with normal prefetch + fasterq-dump (same as 454) ──
             echo ">>> Downloading SRA data (Ion Torrent)..."
-            Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
+            if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
+                echo "Error: Download failed for dataset $dataset_ID" >&2
+                exit 1
+            fi
 
             # Count raw reads before any processing
             Common_CountRawReads "$dataset_path" "$sra_file_name"
@@ -427,7 +436,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
             # ── Step A: Download ──
             echo ">>> Downloading SRA data..."
-            Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"
+            if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
+                echo "Error: Download failed for dataset $dataset_ID" >&2
+                exit 1
+            fi
 
             # Count raw reads before any processing
             Common_CountRawReads "$dataset_path" "$sra_file_name"
