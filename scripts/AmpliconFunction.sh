@@ -148,12 +148,25 @@ Common_SRADownloadToFastq_MultiSource() {
 
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
             echo "[NCBI] Processing $srr"
+            local max_attempts=15
             local attempt=0
-            # SRA Toolkit prefetch (Quiet mode)
-            until prefetch -q -O "$temp_dl_path" "$srr" > /dev/null 2>&1; do
-                (( attempt++ >= 10 )) && { echo "Error: Download failed for $srr" >&2; break; }
-                sleep 5
+            local dl_ok=false
+            while (( attempt < max_attempts )); do
+                (( attempt++ ))
+                if prefetch -q -O "$temp_dl_path" "$srr" 2>/dev/null; then
+                    dl_ok=true
+                    break
+                fi
+                # Exponential backoff: 10, 20, 40, 60, 60, ... (capped at 60s)
+                local wait=$(( 10 * (1 << (attempt - 1)) ))
+                (( wait > 60 )) && wait=60
+                echo "  Retry $attempt/$max_attempts for $srr (wait ${wait}s)..." >&2
+                sleep "$wait"
             done
+            if [[ "$dl_ok" != true ]]; then
+                echo "Error: Download failed for $srr after $max_attempts attempts" >&2
+                return 1
+            fi
 
             # Extract downloaded SRA files to temp
             local sra_files=()
@@ -185,6 +198,7 @@ Common_SRADownloadToFastq_MultiSource() {
                         rm -rf "$temp_outdir"
                     else
                         echo "Error: fasterq-dump failed for $basename_file" >&2
+                        return 1
                     fi
                     rm -f "$file"
 
@@ -292,11 +306,24 @@ Common_SRADownloadViaSFF() {
             echo "[NCBI/SFF] Processing $srr"
 
             # Step 1: prefetch .sra file
+            local max_attempts=15
             local attempt=0
-            until prefetch -q -O "$temp_dl_path" "$srr" > /dev/null 2>&1; do
-                (( attempt++ >= 10 )) && { echo "Error: prefetch failed for $srr" >&2; break; }
-                sleep 5
+            local dl_ok=false
+            while (( attempt < max_attempts )); do
+                (( attempt++ ))
+                if prefetch -q -O "$temp_dl_path" "$srr" 2>/dev/null; then
+                    dl_ok=true
+                    break
+                fi
+                local wait=$(( 10 * (1 << (attempt - 1)) ))
+                (( wait > 60 )) && wait=60
+                echo "  Retry $attempt/$max_attempts for $srr (wait ${wait}s)..." >&2
+                sleep "$wait"
             done
+            if [[ "$dl_ok" != true ]]; then
+                echo "Error: prefetch failed for $srr after $max_attempts attempts" >&2
+                return 1
+            fi
 
             local sra_file
             sra_file=$(find "$temp_dl_path/$srr" -name "*.sra" -type f 2>/dev/null | head -1)
@@ -338,6 +365,7 @@ Common_SRADownloadViaSFF() {
                         done
                     else
                         echo "Error: Both sff-dump and fasterq-dump failed for $srr" >&2
+                        return 1
                     fi
                     rm -rf "$temp_fq"
                 fi
