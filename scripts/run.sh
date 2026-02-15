@@ -164,8 +164,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
         continue
     fi
 
-    {
-        cd "$dataset_path" || exit 1
+    set +e
+    (
+        set -e
+        cd "$dataset_path"
 
         # 1. Dynamic Platform Detection (BEFORE downloading)
         echo ">>> Detecting sequencing platform..."
@@ -540,12 +542,34 @@ with open('${DOCS_DIR}/1492R.fas') as f:
 
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SUCCESS - Platform: $platform" >> "$success_log"
 
-    } || {
-        echo "❌ Pipeline failed for $dataset_ID"
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED - Platform: $platform" >> "$failed_log"
-    }
+    )
+    rc=$?
+    set -e
+    if [[ $rc -ne 0 ]]; then
+        echo "❌ Pipeline failed for $dataset_ID — skipping to next dataset"
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED" >> "$failed_log"
+    fi
 done
 
+################################################################################
+#                          FINAL SUMMARY                                       #
+################################################################################
+
+n_success=$(wc -l < "$success_log" 2>/dev/null || echo 0)
+n_failed=$(wc -l < "$failed_log" 2>/dev/null || echo 0)
+n_skipped=$(wc -l < "$skipped_log" 2>/dev/null || echo 0)
+
 echo "========================================="
-echo "ALL DONE. Check logs for summary."
+echo "ALL DONE"
 echo "========================================="
+echo "  Success:  $n_success"
+echo "  Failed:   $n_failed"
+echo "  Skipped:  $n_skipped"
+echo "========================================="
+
+if [[ "$n_failed" -gt 0 ]]; then
+    echo ""
+    echo "Failed datasets:"
+    cat "$failed_log"
+    echo ""
+fi
