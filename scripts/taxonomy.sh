@@ -23,9 +23,9 @@ echo "Resolving database..."
 echo "========================================="
 
 # If BACKBONE, BACKBONE_TAX, SEPP_REF are already set (e.g. from ggCOMBO), use them directly
-if [[ -n "$BACKBONE" && -f "$BACKBONE" ]] && \
+if [[ -n "${BACKBONE:-}" && -f "${BACKBONE:-}" ]] && \
    [[ -n "${BACKBONE_TAX:-}" && -f "${BACKBONE_TAX:-}" ]] && \
-   [[ -n "$SEPP_REF" && -f "$SEPP_REF" ]]; then
+   [[ -n "${SEPP_REF:-}" && -f "${SEPP_REF:-}" ]]; then
     echo "Using pre-configured database paths:"
     echo "  Backbone:      $(basename "$BACKBONE")"
     echo "  Backbone Tax:  $(basename "$BACKBONE_TAX")"
@@ -34,13 +34,13 @@ if [[ -n "$BACKBONE" && -f "$BACKBONE" ]] && \
 else
     # Auto-detection fallback
     find_database_dir() {
-        if [[ -n "$DB_DIR" && -d "$DB_DIR" ]]; then
+        if [[ -n "${DB_DIR:-}" && -d "${DB_DIR:-}" ]]; then
             echo "$DB_DIR"
             return 0
         fi
 
         local COMMON_PATHS=(
-            "$CONDA_PREFIX/share/qiime2/data/greengenes2"
+            "${CONDA_PREFIX:-}/share/qiime2/data/greengenes2"
             "$HOME/.qiime2/db/greengenes2"
             "/scratch/project_2009135/db/gg2"
             "/usr/local/share/qiime2/data/greengenes2"
