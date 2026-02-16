@@ -289,6 +289,12 @@ export INPUT_DIR
 export OUTPUT
 export cpu=$THREADS
 
+# Set TMPDIR to output directory to avoid /tmp space issues on HPC nodes.
+# QIIME2 extracts artifacts to $TMPDIR; /tmp is often too small on compute nodes.
+PIPELINE_TMPDIR="${OUTPUT}/.tmpdir"
+mkdir -p "$PIPELINE_TMPDIR"
+export TMPDIR="$PIPELINE_TMPDIR"
+
 echo "========================================="
 echo "Running Taxonomy & Tree Pipeline"
 echo "Started: $(date)"
@@ -296,10 +302,14 @@ echo "========================================="
 echo ""
 
 if ! bash "${SCRIPTS}/taxonomy.sh"; then
+    rm -rf "$PIPELINE_TMPDIR" 2>/dev/null || true
     echo "ERROR: Taxonomy pipeline failed"
     echo "Check logs in: $OUTPUT"
     exit 1
 fi
+
+# Clean up temporary directory
+rm -rf "$PIPELINE_TMPDIR" 2>/dev/null || true
 
 echo ""
 echo "Taxonomy pipeline completed successfully"
