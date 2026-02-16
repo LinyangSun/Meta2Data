@@ -100,6 +100,8 @@ Download_From_ENA() {
         ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
     fi
 
+    echo "  [ENA] Base URL: $ena_dir"
+
     # Try PE first (_1.fastq.gz and _2.fastq.gz), then SE (.fastq.gz)
     local -a try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz" "${srr}.fastq.gz")
     local downloaded_any=false
@@ -109,17 +111,32 @@ Download_From_ENA() {
         local out_file="${target_dir}/${fname}"
         local success=false
 
+        echo "  [ENA] Trying: $fname"
         for ((attempt=1; attempt<=max_retries; attempt++)); do
-            if wget -q --timeout=60 --tries=1 "$url" -O "$out_file" 2>/dev/null; then
+            local wget_err=""
+            if wget_err=$(wget --timeout=60 --tries=1 "$url" -O "$out_file" 2>&1); then
                 # Verify the file is a valid gzip
                 if gzip -t "$out_file" 2>/dev/null; then
+                    local dl_size
+                    dl_size=$(stat -c%s "$out_file" 2>/dev/null || stat -f%z "$out_file" 2>/dev/null || echo "?")
+                    echo "  [ENA] ✓ Downloaded $fname (${dl_size} bytes)"
                     success=true
                     break
                 else
-                    echo "  [ENA] Corrupt download for $fname, retrying..." >&2
+                    echo "  [ENA] Corrupt download for $fname (attempt $attempt/$max_retries)"
                     rm -f "$out_file"
                 fi
             else
+                # Extract HTTP status code from wget output
+                local http_code
+                http_code=$(echo "$wget_err" | grep -oP 'HTTP request sent.*\K[0-9]{3}' | tail -1)
+                if [[ -n "$http_code" ]]; then
+                    echo "  [ENA] ✗ $fname: HTTP $http_code (attempt $attempt/$max_retries)"
+                else
+                    local wget_reason
+                    wget_reason=$(echo "$wget_err" | tail -1)
+                    echo "  [ENA] ✗ $fname: $wget_reason (attempt $attempt/$max_retries)"
+                fi
                 rm -f "$out_file"
             fi
             # Exponential backoff: 5, 10, 20, 40, 60 (capped)
@@ -132,10 +149,9 @@ Download_From_ENA() {
             # Rename to match expected naming convention
             local base_filename="${fname/${srr}/}"
             mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
-            echo "  [ENA] ✓ Downloaded: ${fname} → ${rename_prefix}${base_filename}"
+            echo "  [ENA] → Renamed to: ${rename_prefix}${base_filename}"
             downloaded_any=true
         else
-            # _2.fastq.gz missing is expected for SE data; .fastq.gz missing is OK if PE found
             rm -f "$out_file" 2>/dev/null
         fi
     done
@@ -149,8 +165,7 @@ Download_From_ENA() {
         return 0
     fi
 
-    echo "  [ENA] ✗ ENA download failed for $srr" >&2
-    echo "  [ENA]   Note: ENA may not have FASTQ files for PacBio/454/Ion Torrent data." >&2
+    echo "  [ENA] ✗ ENA download failed for $srr — no FASTQ files available" >&2
     return 1
 }
 
@@ -278,14 +293,19 @@ Common_SRADownloadToFastq_MultiSource() {
         command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found (required for CNCB CRR downloads)." >&2; return 1; }
     fi
 
-    # Quick connectivity check — fail fast instead of waiting through 15 retries
+    # Quick connectivity check — fail fast instead of waiting through retries
     if [[ "$has_ncbi_accessions" == true ]]; then
+        echo "  Checking NCBI connectivity..."
         if ! wget -q --spider --timeout=10 "https://ftp.ncbi.nlm.nih.gov/" 2>/dev/null; then
-            echo "Warning: NCBI appears unreachable — will rely on ENA fallback" >&2
+            echo "  ⚠️  NCBI unreachable — will rely on ENA fallback"
+            echo "  Checking ENA connectivity..."
             if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
-                echo "Error: Both NCBI and ENA are unreachable. Check your network connection." >&2
+                echo "  ✗ Both NCBI and ENA are unreachable. Check your network connection." >&2
                 return 1
             fi
+            echo "  ✓ ENA reachable"
+        else
+            echo "  ✓ NCBI reachable"
         fi
     fi
 
@@ -311,16 +331,17 @@ Common_SRADownloadToFastq_MultiSource() {
             local prefetch_err=""
             while (( attempt < max_attempts )); do
                 (( ++attempt ))
-                prefetch_err=$(prefetch -O "$temp_dl_path" "$srr" 2>&1) && { dl_ok=true; break; }
-                # Show the actual error on first failure so the user knows what's wrong
-                if (( attempt == 1 )); then
-                    echo "  prefetch failed: ${prefetch_err##*$'\n'}" >&2
+                echo "  [prefetch] Attempt $attempt/$max_attempts for $srr..."
+                prefetch_err=$(prefetch -O "$temp_dl_path" "$srr" 2>&1) && { echo "  [prefetch] ✓ Success"; dl_ok=true; break; }
+                echo "  [prefetch] ✗ Failed (attempt $attempt/$max_attempts)"
+                echo "  [prefetch] Error: ${prefetch_err##*$'\n'}"
+                if (( attempt < max_attempts )); then
+                    # Exponential backoff: 10, 20, 40, 60, 60, ... (capped at 60s)
+                    local wait=$(( 10 * (1 << (attempt - 1)) ))
+                    (( wait > 60 )) && wait=60
+                    echo "  [prefetch] Waiting ${wait}s before retry..."
+                    sleep "$wait"
                 fi
-                # Exponential backoff: 10, 20, 40, 60, 60, ... (capped at 60s)
-                local wait=$(( 10 * (1 << (attempt - 1)) ))
-                (( wait > 60 )) && wait=60
-                echo "  Retry $attempt/$max_attempts for $srr (wait ${wait}s)..." >&2
-                sleep "$wait"
             done
 
             if [[ "$dl_ok" == true ]]; then
@@ -330,18 +351,29 @@ Common_SRADownloadToFastq_MultiSource() {
                     sra_files+=("$file")
                 done < <(find "$temp_dl_path/$srr" -type f \( -name "*.sra" -o -name "*.fastq*" \) -print0 2>/dev/null)
 
+                echo "  [prefetch] Found ${#sra_files[@]} file(s) to convert"
+
                 # Process each file
                 local convert_ok=true
                 for file in "${sra_files[@]}"; do
                     local basename_file=$(basename "$file")
                     local ext="${basename_file##*.}"
+                    local file_size
+                    file_size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file" 2>/dev/null || echo "?")
+                    echo "  [convert] Processing: $basename_file (${file_size} bytes)"
 
                     if [[ "$ext" == "sra" ]]; then
                         # Convert SRA to FASTQ with rename prefix
                         local temp_outdir="${temp_dl_path}/fastq_${srr}"
                         mkdir -p "$temp_outdir"
 
-                        if fasterq-dump --split-3 -q "$file" --outdir "$temp_outdir" > /dev/null 2>&1; then
+                        echo "  [fasterq-dump] Converting $basename_file to FASTQ..."
+                        local fqd_err=""
+                        if fqd_err=$(fasterq-dump --split-3 "$file" --outdir "$temp_outdir" 2>&1); then
+                            # List converted files
+                            local fq_count
+                            fq_count=$(find "$temp_outdir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) | wc -l)
+                            echo "  [fasterq-dump] ✓ Converted to $fq_count FASTQ file(s)"
                             # Rename and move converted FASTQ files
                             find "$temp_outdir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
                             while IFS= read -r -d '' fq_file; do
@@ -350,11 +382,13 @@ Common_SRADownloadToFastq_MultiSource() {
                                 local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
                                 # Strip SRR/ERR/DRR ID from filename (keep separator)
                                 local base_filename=$(echo "$normalized" | sed "s/${srr}//")
+                                echo "  [fasterq-dump] → ${rename}${base_filename}"
                                 mv "$fq_file" "${fastq_path}/${rename}${base_filename}"
                             done
                             rm -rf "$temp_outdir"
                         else
-                            echo "  Warning: fasterq-dump failed for $basename_file, will try ENA fallback" >&2
+                            echo "  [fasterq-dump] ✗ Failed for $basename_file"
+                            echo "  [fasterq-dump] Error: $fqd_err"
                             convert_ok=false
                         fi
                         rm -f "$file"
@@ -365,6 +399,7 @@ Common_SRADownloadToFastq_MultiSource() {
                         local normalized=$(echo "$basename_file" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
                         # Strip SRR/ERR/DRR ID from filename (keep separator)
                         local base_filename=$(echo "$normalized" | sed "s/${srr}//")
+                        echo "  [convert] Already FASTQ → ${rename}${base_filename}"
                         mv "$file" "${fastq_path}/${rename}${base_filename}"
                     fi
                 done
@@ -379,23 +414,28 @@ Common_SRADownloadToFastq_MultiSource() {
 
             # Fallback: download directly from ENA if prefetch/fasterq-dump failed
             if [[ "$dl_ok" != true ]]; then
-                echo "  NCBI prefetch failed for $srr — trying ENA fallback..." >&2
+                echo "  NCBI download failed for $srr after $max_attempts attempts — trying ENA fallback..."
                 if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
                     echo "  ✓ ENA fallback succeeded for $srr"
                 else
-                    echo "Error: All download sources failed for $srr (NCBI + ENA)" >&2
+                    echo "  ✗ All download sources failed for $srr (NCBI + ENA)" >&2
                     return 1
                 fi
             fi
 
             # Verify FASTQ integrity for downloaded files
+            echo "  [verify] Checking FASTQ integrity for $srr..."
             local verify_failed=false
             for fq in "${fastq_path}/${rename}"*.fastq*; do
                 [[ -f "$fq" ]] || continue
                 if ! Verify_Fastq_Integrity "$fq"; then
-                    echo "  Warning: Removing invalid FASTQ: $(basename "$fq")" >&2
+                    echo "  [verify] ✗ Invalid: $(basename "$fq") — removing"
                     rm -f "$fq"
                     verify_failed=true
+                else
+                    local fq_size
+                    fq_size=$(stat -c%s "$fq" 2>/dev/null || stat -f%z "$fq" 2>/dev/null || echo "?")
+                    echo "  [verify] ✓ OK: $(basename "$fq") (${fq_size} bytes)"
                 fi
             done
             if [[ "$verify_failed" == true ]]; then
@@ -403,9 +443,10 @@ Common_SRADownloadToFastq_MultiSource() {
                 local remaining_files
                 remaining_files=$(find "$fastq_path" -name "${rename}*.fastq*" -type f 2>/dev/null | wc -l)
                 if [[ "$remaining_files" -eq 0 ]]; then
-                    echo "Error: No valid FASTQ files for $srr after integrity check" >&2
+                    echo "  [verify] ✗ No valid FASTQ files remaining for $srr" >&2
                     return 1
                 fi
+                echo "  [verify] $remaining_files valid file(s) remaining after cleanup"
             fi
         else
             echo "Warning: Unknown Accession format: $srr" >&2
