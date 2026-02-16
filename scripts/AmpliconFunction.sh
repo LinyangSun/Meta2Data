@@ -304,7 +304,7 @@ Common_SRADownloadToFastq_MultiSource() {
 
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
             echo "[NCBI] Processing $srr"
-            local max_attempts=15
+            local max_attempts=3
             local attempt=0
             local dl_ok=false
             local prefetch_err=""
@@ -435,7 +435,10 @@ Common_SRADownloadToFastq_MultiSource() {
             fi
         done
     done
-    [[ $orphan_count -gt 0 ]] && echo "  Cleaned up $orphan_count orphan file(s)"
+    if [[ $orphan_count -gt 0 ]]; then
+        echo "  Cleaned up $orphan_count orphan file(s)"
+    fi
+    return 0
 
 }
 
