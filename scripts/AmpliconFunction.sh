@@ -79,7 +79,7 @@ Download_From_ENA() {
     local srr="$1"
     local target_dir="$2"
     local rename_prefix="$3"
-    local max_retries=3
+    local max_retries=5
 
     echo "  [ENA] Attempting ENA download for $srr..."
 
@@ -116,12 +116,15 @@ Download_From_ENA() {
                     success=true
                     break
                 else
+                    echo "  [ENA] Corrupt download for $fname, retrying..." >&2
                     rm -f "$out_file"
                 fi
             else
                 rm -f "$out_file"
             fi
-            local wait=$(( 5 * attempt ))
+            # Exponential backoff: 5, 10, 20, 40, 60 (capped)
+            local wait=$(( 5 * (1 << (attempt - 1)) ))
+            (( wait > 60 )) && wait=60
             [[ $attempt -lt $max_retries ]] && sleep "$wait"
         done
 
@@ -274,6 +277,17 @@ Common_SRADownloadToFastq_MultiSource() {
         command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found (required for CNCB CRR downloads)." >&2; return 1; }
     fi
 
+    # Quick connectivity check — fail fast instead of waiting through 15 retries
+    if [[ "$has_ncbi_accessions" == true ]]; then
+        if ! wget -q --spider --timeout=10 "https://ftp.ncbi.nlm.nih.gov/" 2>/dev/null; then
+            echo "Warning: NCBI appears unreachable — will rely on ENA fallback" >&2
+            if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
+                echo "Error: Both NCBI and ENA are unreachable. Check your network connection." >&2
+                return 1
+            fi
+        fi
+    fi
+
     # base_dir already declared above
     local fastq_path="${base_dir}/ori_fastq"
     local temp_dl_path="${base_dir}/temp1"
@@ -293,11 +307,13 @@ Common_SRADownloadToFastq_MultiSource() {
             local max_attempts=15
             local attempt=0
             local dl_ok=false
+            local prefetch_err=""
             while (( attempt < max_attempts )); do
                 (( ++attempt ))
-                if prefetch -q -O "$temp_dl_path" "$srr" 2>/dev/null; then
-                    dl_ok=true
-                    break
+                prefetch_err=$(prefetch -O "$temp_dl_path" "$srr" 2>&1) && { dl_ok=true; break; }
+                # Show the actual error on first failure so the user knows what's wrong
+                if (( attempt == 1 )); then
+                    echo "  prefetch failed: ${prefetch_err##*$'\n'}" >&2
                 fi
                 # Exponential backoff: 10, 20, 40, 60, 60, ... (capped at 60s)
                 local wait=$(( 10 * (1 << (attempt - 1)) ))
