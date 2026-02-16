@@ -21,7 +21,7 @@ if os.path.exists(test_csv):
     data_files.append(('share/Meta2Data/test', ['test/ampliconpiptest.csv']))
 
 # Docs directory (includes reference sequences and documentation)
-docs_files = glob.glob('docs/*')
+docs_files = glob.glob('docs/*.fas') + glob.glob('docs/*.json')
 if docs_files:
     data_files.append(('share/Meta2Data/docs', docs_files))
 
