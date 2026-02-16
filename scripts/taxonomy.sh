@@ -109,7 +109,6 @@ fi
 echo "========================================="
 echo "PHASE 3: Merge & Taxonomy Assignment"
 echo "Started: $(date)"
-echo "TMPDIR:  ${TMPDIR:-/tmp (default)}"
 echo "========================================="
 echo ""
 

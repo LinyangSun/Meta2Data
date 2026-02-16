@@ -65,10 +65,116 @@ Verify_Fastq_Integrity() {
     return 0
 }
 
+_ena_build_url() {
+    # Build the ENA FTP directory URL for a given accession.
+    # Args: $1 = SRR/ERR/DRR accession
+    # Prints the URL to stdout.
+    local srr="$1"
+    local acc_prefix="${srr:0:6}"
+    local acc_len=${#srr}
+
+    if (( acc_len <= 9 )); then
+        echo "https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr}"
+    elif (( acc_len == 10 )); then
+        echo "https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/00${srr: -1}/${srr}"
+    elif (( acc_len == 11 )); then
+        echo "https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/0${srr: -2}/${srr}"
+    else
+        echo "https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
+    fi
+}
+
+_download_fastq_files() {
+    # Generic helper: download FASTQ files for a given accession from a base URL.
+    # Tries PE files first (_1/_2), then SE.
+    #
+    # Args:
+    #   $1 = source label (e.g. "ENA", "ENA-mirror")
+    #   $2 = base URL (directory containing the FASTQ files)
+    #   $3 = SRR/ERR/DRR accession
+    #   $4 = target directory
+    #   $5 = rename prefix
+    #   $6 = max retries (optional, default 5)
+    #
+    # Returns: 0 if at least one FASTQ file was downloaded, 1 otherwise
+    local label="$1"
+    local base_url="$2"
+    local srr="$3"
+    local target_dir="$4"
+    local rename_prefix="$5"
+    local max_retries="${6:-5}"
+
+    local -a try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz" "${srr}.fastq.gz")
+    local downloaded_any=false
+
+    for fname in "${try_files[@]}"; do
+        local url="${base_url}/${fname}"
+        local out_file="${target_dir}/${fname}"
+        local success=false
+
+        echo "  [${label}] Trying: $fname"
+        for ((attempt=1; attempt<=max_retries; attempt++)); do
+            local wget_err=""
+            if wget_err=$(wget --timeout=60 --tries=1 "$url" -O "$out_file" 2>&1); then
+                # Verify the file is a valid gzip
+                if gzip -t "$out_file" 2>/dev/null; then
+                    local dl_size
+                    dl_size=$(stat -c%s "$out_file" 2>/dev/null || stat -f%z "$out_file" 2>/dev/null || echo "?")
+                    echo "  [${label}] ✓ Downloaded $fname (${dl_size} bytes)"
+                    success=true
+                    break
+                else
+                    echo "  [${label}] Corrupt download for $fname (attempt $attempt/$max_retries)"
+                    rm -f "$out_file"
+                fi
+            else
+                # Extract HTTP status code from wget output
+                local http_code
+                http_code=$(echo "$wget_err" | grep -oP 'HTTP request sent.*\K[0-9]{3}' | tail -1)
+                if [[ -n "$http_code" ]]; then
+                    echo "  [${label}] ✗ $fname: HTTP $http_code (attempt $attempt/$max_retries)"
+                    # 404 = file does not exist on this source, no point retrying
+                    [[ "$http_code" == "404" ]] && break
+                else
+                    local wget_reason
+                    wget_reason=$(echo "$wget_err" | tail -1)
+                    echo "  [${label}] ✗ $fname: $wget_reason (attempt $attempt/$max_retries)"
+                fi
+                rm -f "$out_file"
+            fi
+            # Exponential backoff: 5, 10, 20, 40, 60 (capped)
+            if (( attempt < max_retries )); then
+                local wait=$(( 5 * (1 << (attempt - 1)) ))
+                (( wait > 60 )) && wait=60
+                sleep "$wait"
+            fi
+        done
+
+        if [[ "$success" == true ]]; then
+            # Rename to match expected naming convention
+            local base_filename="${fname/${srr}/}"
+            mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
+            echo "  [${label}] → Renamed to: ${rename_prefix}${base_filename}"
+            downloaded_any=true
+        else
+            rm -f "$out_file" 2>/dev/null
+        fi
+    done
+
+    if [[ "$downloaded_any" == true ]]; then
+        # If we got both _1 and _2, remove the SE file if it also downloaded
+        if [[ -f "${target_dir}/${rename_prefix}_1.fastq.gz" ]] && \
+           [[ -f "${target_dir}/${rename_prefix}_2.fastq.gz" ]]; then
+            rm -f "${target_dir}/${rename_prefix}.fastq.gz" 2>/dev/null
+        fi
+        return 0
+    fi
+    return 1
+}
+
 Download_From_ENA() {
-    # Download FASTQ file(s) directly from ENA (European Nucleotide Archive).
-    # ENA provides pre-converted FASTQ files, serving as a reliable fallback
-    # when NCBI prefetch fails.
+    # Download FASTQ file(s) from ENA with multiple mirror fallback.
+    # Tries: (1) ENA FTP, (2) ENA API-resolved URLs, (3) NCBI S3 open-data bucket.
     #
     # Args:
     #   $1 = SRR/ERR/DRR accession
@@ -79,93 +185,81 @@ Download_From_ENA() {
     local srr="$1"
     local target_dir="$2"
     local rename_prefix="$3"
-    local max_retries=5
 
     echo "  [ENA] Attempting ENA download for $srr..."
 
-    # ENA URL structure: first 6 chars of accession, then full accession
-    # e.g., SRR123456 -> /vol1/fastq/SRR123/006/SRR1234566/
-    local acc_prefix="${srr:0:6}"
-    local acc_len=${#srr}
-
-    # Build ENA directory path based on accession length
+    # ── Source 1: ENA FTP (standard URL pattern) ──
     local ena_dir
-    if (( acc_len <= 9 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr}"
-    elif (( acc_len == 10 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/00${srr: -1}/${srr}"
-    elif (( acc_len == 11 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/0${srr: -2}/${srr}"
-    else
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
-    fi
-
+    ena_dir=$(_ena_build_url "$srr")
     echo "  [ENA] Base URL: $ena_dir"
 
-    # Try PE first (_1.fastq.gz and _2.fastq.gz), then SE (.fastq.gz)
-    local -a try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz" "${srr}.fastq.gz")
-    local downloaded_any=false
-
-    for fname in "${try_files[@]}"; do
-        local url="${ena_dir}/${fname}"
-        local out_file="${target_dir}/${fname}"
-        local success=false
-
-        echo "  [ENA] Trying: $fname"
-        for ((attempt=1; attempt<=max_retries; attempt++)); do
-            local wget_err=""
-            if wget_err=$(wget --timeout=60 --tries=1 "$url" -O "$out_file" 2>&1); then
-                # Verify the file is a valid gzip
-                if gzip -t "$out_file" 2>/dev/null; then
-                    local dl_size
-                    dl_size=$(stat -c%s "$out_file" 2>/dev/null || stat -f%z "$out_file" 2>/dev/null || echo "?")
-                    echo "  [ENA] ✓ Downloaded $fname (${dl_size} bytes)"
-                    success=true
-                    break
-                else
-                    echo "  [ENA] Corrupt download for $fname (attempt $attempt/$max_retries)"
-                    rm -f "$out_file"
-                fi
-            else
-                # Extract HTTP status code from wget output
-                local http_code
-                http_code=$(echo "$wget_err" | grep -oP 'HTTP request sent.*\K[0-9]{3}' | tail -1)
-                if [[ -n "$http_code" ]]; then
-                    echo "  [ENA] ✗ $fname: HTTP $http_code (attempt $attempt/$max_retries)"
-                else
-                    local wget_reason
-                    wget_reason=$(echo "$wget_err" | tail -1)
-                    echo "  [ENA] ✗ $fname: $wget_reason (attempt $attempt/$max_retries)"
-                fi
-                rm -f "$out_file"
-            fi
-            # Exponential backoff: 5, 10, 20, 40, 60 (capped)
-            local wait=$(( 5 * (1 << (attempt - 1)) ))
-            (( wait > 60 )) && wait=60
-            [[ $attempt -lt $max_retries ]] && sleep "$wait"
-        done
-
-        if [[ "$success" == true ]]; then
-            # Rename to match expected naming convention
-            local base_filename="${fname/${srr}/}"
-            mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
-            echo "  [ENA] → Renamed to: ${rename_prefix}${base_filename}"
-            downloaded_any=true
-        else
-            rm -f "$out_file" 2>/dev/null
-        fi
-    done
-
-    if [[ "$downloaded_any" == true ]]; then
-        # If we got both _1 and _2, remove the SE file (.fastq.gz) if it also downloaded
-        if [[ -f "${target_dir}/${rename_prefix}_1.fastq.gz" ]] && \
-           [[ -f "${target_dir}/${rename_prefix}_2.fastq.gz" ]]; then
-            rm -f "${target_dir}/${rename_prefix}.fastq.gz" 2>/dev/null
-        fi
+    if _download_fastq_files "ENA" "$ena_dir" "$srr" "$target_dir" "$rename_prefix" 5; then
         return 0
     fi
 
-    echo "  [ENA] ✗ ENA download failed for $srr — no FASTQ files available" >&2
+    # ── Source 2: ENA API — resolve actual FASTQ URLs from the ENA filereport ──
+    # The standard URL pattern may be wrong for some accessions; the API knows
+    # the real paths.
+    echo "  [ENA-API] Querying ENA filereport API for $srr..."
+    local api_urls=""
+    api_urls=$(wget -q --timeout=30 -O - \
+        "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=${srr}&result=read_run&fields=fastq_ftp&format=tsv" 2>/dev/null \
+        | tail -n +2 | cut -f2)
+
+    if [[ -n "$api_urls" ]]; then
+        local downloaded_any=false
+        # api_urls is a semicolon-separated list of FTP paths
+        IFS=';' read -ra ftp_paths <<< "$api_urls"
+        for ftp_path in "${ftp_paths[@]}"; do
+            [[ -z "$ftp_path" ]] && continue
+            local url="https://${ftp_path}"
+            local fname
+            fname=$(basename "$ftp_path")
+            local out_file="${target_dir}/${fname}"
+
+            echo "  [ENA-API] Trying: $url"
+            local wget_err=""
+            if wget_err=$(wget --timeout=60 --tries=3 "$url" -O "$out_file" 2>&1); then
+                if gzip -t "$out_file" 2>/dev/null; then
+                    local dl_size
+                    dl_size=$(stat -c%s "$out_file" 2>/dev/null || stat -f%z "$out_file" 2>/dev/null || echo "?")
+                    echo "  [ENA-API] ✓ Downloaded $fname (${dl_size} bytes)"
+                    # Rename: strip accession, keep _1/_2/.fastq.gz suffix
+                    local base_filename="${fname/${srr}/}"
+                    mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
+                    echo "  [ENA-API] → Renamed to: ${rename_prefix}${base_filename}"
+                    downloaded_any=true
+                else
+                    echo "  [ENA-API] Corrupt download: $fname"
+                    rm -f "$out_file"
+                fi
+            else
+                echo "  [ENA-API] ✗ Failed: $fname"
+                rm -f "$out_file"
+            fi
+        done
+        if [[ "$downloaded_any" == true ]]; then
+            # Deduplicate: remove SE if PE exists
+            if [[ -f "${target_dir}/${rename_prefix}_1.fastq.gz" ]] && \
+               [[ -f "${target_dir}/${rename_prefix}_2.fastq.gz" ]]; then
+                rm -f "${target_dir}/${rename_prefix}.fastq.gz" 2>/dev/null
+            fi
+            return 0
+        fi
+    else
+        echo "  [ENA-API] No FASTQ URLs returned by API"
+    fi
+
+    # ── Source 3: NCBI SRA public S3 bucket (open-data, no prefetch needed) ──
+    # This is a direct-download mirror hosted on AWS. It stores the original
+    # .sra files, but also exposes FASTQ via the lite format for some runs.
+    echo "  [NCBI-S3] Trying NCBI public S3 bucket for $srr..."
+    local s3_url="https://sra-pub-run-odp.s3.amazonaws.com/sra/${srr}/${srr}"
+    if _download_fastq_files "NCBI-S3" "$s3_url" "$srr" "$target_dir" "$rename_prefix" 3; then
+        return 0
+    fi
+
+    echo "  [ENA] ✗ All download sources exhausted for $srr (ENA FTP + ENA API + NCBI S3)" >&2
     return 1
 }
 
@@ -295,17 +389,29 @@ Common_SRADownloadToFastq_MultiSource() {
 
     # Quick connectivity check — fail fast instead of waiting through retries
     if [[ "$has_ncbi_accessions" == true ]]; then
-        echo "  Checking NCBI connectivity..."
-        if ! wget -q --spider --timeout=10 "https://ftp.ncbi.nlm.nih.gov/" 2>/dev/null; then
-            echo "  ⚠️  NCBI unreachable — will rely on ENA fallback"
-            echo "  Checking ENA connectivity..."
-            if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
-                echo "  ✗ Both NCBI and ENA are unreachable. Check your network connection." >&2
-                return 1
-            fi
-            echo "  ✓ ENA reachable"
-        else
+        local any_source_reachable=false
+        echo "  Checking download source connectivity..."
+        if wget -q --spider --timeout=10 "https://ftp.ncbi.nlm.nih.gov/" 2>/dev/null; then
             echo "  ✓ NCBI reachable"
+            any_source_reachable=true
+        else
+            echo "  ⚠️  NCBI unreachable"
+        fi
+        if wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
+            echo "  ✓ ENA reachable"
+            any_source_reachable=true
+        else
+            echo "  ⚠️  ENA unreachable"
+        fi
+        if wget -q --spider --timeout=10 "https://sra-pub-run-odp.s3.amazonaws.com/" 2>/dev/null; then
+            echo "  ✓ NCBI S3 reachable"
+            any_source_reachable=true
+        else
+            echo "  ⚠️  NCBI S3 unreachable"
+        fi
+        if [[ "$any_source_reachable" == false ]]; then
+            echo "  ✗ All download sources unreachable (NCBI + ENA + NCBI S3). Check your network connection." >&2
+            return 1
         fi
     fi
 
@@ -463,17 +569,17 @@ Common_SRADownloadToFastq_MultiSource() {
                 fi
             fi
 
-            # Fallback: download directly from ENA if prefetch/fasterq-dump failed
+            # Fallback: download from ENA / ENA API / NCBI S3 if prefetch failed
             if [[ "$dl_ok" != true ]]; then
                 if [[ "$ncbi_circuit_open" == true ]]; then
-                    echo "  NCBI skipped for $srr (circuit breaker open) — trying ENA..."
+                    echo "  NCBI skipped for $srr (circuit breaker open) — trying ENA fallback sources..."
                 else
-                    echo "  NCBI download failed for $srr after $max_attempts attempts — trying ENA fallback..."
+                    echo "  NCBI download failed for $srr after $max_attempts attempts — trying ENA fallback sources..."
                 fi
                 if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
-                    echo "  ✓ ENA fallback succeeded for $srr"
+                    echo "  ✓ Fallback download succeeded for $srr"
                 else
-                    echo "  ✗ All download sources failed for $srr (NCBI + ENA)" >&2
+                    echo "  ✗ All download sources failed for $srr (NCBI + ENA + ENA API + NCBI S3)" >&2
                     return 1
                 fi
             fi
