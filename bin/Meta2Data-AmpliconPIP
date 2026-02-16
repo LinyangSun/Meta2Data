@@ -263,9 +263,14 @@ export cpu=$THREADS
 
 # Set TMPDIR to output directory to avoid /tmp space issues on HPC nodes.
 # QIIME2 extracts artifacts to $TMPDIR; /tmp is often too small on compute nodes.
+# We also set TEMP/TMP (used by some libraries) and suppress the seaborn
+# FutureWarning about the deprecated pandas use_inf_as_na option.
 PIPELINE_TMPDIR="${OUTPUT}/.tmpdir"
 mkdir -p "$PIPELINE_TMPDIR"
 export TMPDIR="$PIPELINE_TMPDIR"
+export TEMP="$PIPELINE_TMPDIR"
+export TMP="$PIPELINE_TMPDIR"
+export PYTHONWARNINGS="ignore::FutureWarning"
 
 ################################################################################
 #                    AMPLICON PROCESSING PIPELINE                              #
