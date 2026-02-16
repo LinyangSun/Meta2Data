@@ -266,19 +266,18 @@ The `--input` directory must contain one or more `PRJ*` subdirectories (output o
 - `<dataset_ID>-final-table.qza` — feature table
 - `<dataset_ID>-final-rep-seqs.qza` — representative sequences
 
-The `--db` directory must contain three GreenGenes2 files:
-- `2024.09.backbone.full-length.fna.qza`
-- `2024.09.taxonomy.asv.nwk.qza`
-- `2024.09.phylogeny.id.nwk.qza`
+The `--db` directory must contain these files:
+- `2024.09.backbone.full-length.nb.sklearn-1.4.2.qza` (GG2 pre-trained Naive Bayes classifier)
+- `sepp-refs-gg-13-8.qza` (SEPP reference tree)
 
 Use `--dl` to download these automatically.
 
 #### Processing Pipeline
 
 1. **Merge** feature tables and representative sequences across all datasets
-2. **Map** to GreenGenes2 backbone (`greengenes2 non-v4-16s`)
-3. **Assign** taxonomy from GreenGenes2 reference
-4. **Filter** phylogenetic tree to matched features
+2. **Assign** taxonomy via pre-trained Naive Bayes classifier (sklearn)
+3. **Build** phylogenetic tree via SEPP fragment insertion
+4. **Filter** features by tree placement
 
 #### Output Structure
 
@@ -286,14 +285,14 @@ Use `--dl` to download these automatically.
 <output_dir>/
 └── final/
     └── merged/
-        ├── merged-table.qza               # Merged feature table
+        ├── merged-table.qza               # Merged feature table (complete)
         ├── merged-rep-seqs.qza            # Merged representative sequences
-        ├── merged-table-summary.qzv       # Pre-annotation summary
-        ├── merged-table-gg2.qza           # GG2-mapped feature table
-        ├── merged-rep-seqs-gg2.qza        # GG2-mapped sequences
-        ├── merged-taxonomy.qza            # Taxonomy classification
-        ├── merged-table-gg2-summary.qzv   # Post-annotation summary
-        └── final-tree.qza                # Filtered phylogenetic tree
+        ├── merged-table-summary.qzv       # Table summary
+        ├── merged-taxonomy.qza            # Taxonomy (sklearn NB classifier)
+        ├── insertion-tree.qza             # SEPP phylogenetic tree
+        ├── insertion-placements.qza       # SEPP placement details
+        ├── merged-table-tree.qza          # Table filtered to tree-placed features
+        └── merged-table-no-tree.qza       # Features not placed in tree
 ```
 
 

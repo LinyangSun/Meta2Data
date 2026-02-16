@@ -22,13 +22,11 @@ echo "========================================="
 echo "Resolving database..."
 echo "========================================="
 
-# If BACKBONE, BACKBONE_TAX, SEPP_REF are already set (e.g. from ggCOMBO), use them directly
-if [[ -n "${BACKBONE:-}" && -f "${BACKBONE:-}" ]] && \
-   [[ -n "${BACKBONE_TAX:-}" && -f "${BACKBONE_TAX:-}" ]] && \
+# If NB_CLASSIFIER, SEPP_REF are already set (e.g. from ggCOMBO), use them directly
+if [[ -n "${NB_CLASSIFIER:-}" && -f "${NB_CLASSIFIER:-}" ]] && \
    [[ -n "${SEPP_REF:-}" && -f "${SEPP_REF:-}" ]]; then
     echo "Using pre-configured database paths:"
-    echo "  Backbone:      $(basename "$BACKBONE")"
-    echo "  Backbone Tax:  $(basename "$BACKBONE_TAX")"
+    echo "  Classifier:    $(basename "$NB_CLASSIFIER")"
     echo "  SEPP Ref:      $(basename "$SEPP_REF")"
     echo ""
 else
@@ -87,17 +85,15 @@ else
 
     echo "Database found: $DB_DIR"
 
-    BACKBONE=$(find_db_file "backbone.full-length" "$DB_DIR")
-    BACKBONE_TAX=$(find_db_file "backbone.tax" "$DB_DIR")
+    NB_CLASSIFIER=$(find_db_file "backbone.full-length.nb" "$DB_DIR")
     SEPP_REF=$(find_db_file "sepp-refs" "$DB_DIR")
 
-    if [[ -z "$BACKBONE" ]] || [[ -z "$BACKBONE_TAX" ]] || [[ -z "$SEPP_REF" ]]; then
+    if [[ -z "$NB_CLASSIFIER" ]] || [[ -z "$SEPP_REF" ]]; then
         echo "ERROR: Required database files not found in $DB_DIR"
         exit 1
     fi
 
-    echo "Backbone:      $(basename "$BACKBONE")"
-    echo "Backbone Tax:  $(basename "$BACKBONE_TAX")"
+    echo "Classifier:    $(basename "$NB_CLASSIFIER")"
     echo "SEPP Ref:      $(basename "$SEPP_REF")"
     echo ""
 fi
@@ -224,28 +220,23 @@ else
 fi
 echo ""
 
-# Taxonomy assignment via vsearch consensus classifier
-# This replaces the previous GG2 non-v4-16s + taxonomy-from-table approach.
-# vsearch classifies ALL features without dropping any reads, regardless of
-# which variable region (V1-V9, full-length) the sequences come from.
-echo ">>> Step 7: Assigning taxonomy via vsearch consensus classifier..."
+# Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
+# Uses the GG2 full-length backbone classifier which has both reference
+# sequences and taxonomy built into the trained model.
+echo ">>> Step 7: Assigning taxonomy via pre-trained Naive Bayes classifier..."
 echo "Using $cpu CPU threads"
 MERGED_TAXONOMY="${MERGED_DIR}/merged-taxonomy.qza"
 
-if ! qiime feature-classifier classify-consensus-vsearch \
-    --i-query "$MERGED_REP_SEQS" \
-    --i-reference-reads "${BACKBONE}" \
-    --i-reference-taxonomy "${BACKBONE_TAX}" \
-    --p-threads "$cpu" \
-    --p-perc-identity 0.8 \
-    --p-maxaccepts 3 \
-    --o-classification "$MERGED_TAXONOMY" \
-    --o-search-results "${MERGED_DIR}/vsearch-hits.qza" --verbose; then
+if ! qiime feature-classifier classify-sklearn \
+    --i-classifier "${NB_CLASSIFIER}" \
+    --i-reads "$MERGED_REP_SEQS" \
+    --p-n-jobs "$cpu" \
+    --o-classification "$MERGED_TAXONOMY" --verbose; then
     echo "❌ ERROR: Taxonomy assignment failed"
     exit 1
 fi
 
-echo "✓ Taxonomy assigned (all features retained)"
+echo "✓ Taxonomy assigned via sklearn classifier"
 echo ""
 
 # SEPP fragment insertion — builds the phylogenetic tree by inserting query
@@ -282,7 +273,7 @@ if qiime fragment-insertion sepp \
     fi
 else
     echo "⚠️  WARNING: SEPP fragment insertion failed."
-    echo "   Taxonomy was already assigned via vsearch — no reads lost."
+    echo "   Taxonomy was already assigned via sklearn classifier — no reads lost."
     echo "   Only UniFrac / phylogenetic diversity analyses will be unavailable."
 fi
 echo ""
