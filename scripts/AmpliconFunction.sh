@@ -314,6 +314,15 @@ Common_SRADownloadToFastq_MultiSource() {
     local temp_dl_path="${base_dir}/temp1"
     mkdir -p "$fastq_path" "$temp_dl_path"
 
+    # ── Circuit Breaker for NCBI ──
+    # If NCBI fails consecutively, skip it for remaining samples and go
+    # straight to ENA, avoiding minutes of futile retries.
+    local ncbi_consecutive_failures=0
+    local ncbi_circuit_open=false
+    local NCBI_FAILURE_THRESHOLD=2      # trip after 2 consecutive failures
+    local NCBI_HALF_OPEN_INTERVAL=20    # re-probe NCBI every 20 samples
+    local ncbi_samples_since_trip=0     # counter for half-open probe
+
     # Phase 1: Data Acquisition
     while IFS=$'\t' read -r srr rename _; do
         [[ -z "$srr" || -z "$rename" ]] && continue
@@ -329,20 +338,62 @@ Common_SRADownloadToFastq_MultiSource() {
             local attempt=0
             local dl_ok=false
             local prefetch_err=""
-            while (( attempt < max_attempts )); do
-                (( ++attempt ))
-                echo "  [prefetch] Attempt $attempt/$max_attempts for $srr..."
-                prefetch_err=$(prefetch -O "$temp_dl_path" "$srr" 2>&1) && { echo "  [prefetch] ✓ Success"; dl_ok=true; break; }
-                echo "  [prefetch] ✗ Failed (attempt $attempt/$max_attempts)"
-                echo "  [prefetch] Error: ${prefetch_err##*$'\n'}"
-                if (( attempt < max_attempts )); then
-                    # Exponential backoff: 10, 20, 40, 60, 60, ... (capped at 60s)
-                    local wait=$(( 10 * (1 << (attempt - 1)) ))
-                    (( wait > 60 )) && wait=60
-                    echo "  [prefetch] Waiting ${wait}s before retry..."
-                    sleep "$wait"
+            local skip_ncbi=false
+
+            # ── Circuit Breaker: decide whether to try NCBI ──
+            if [[ "$ncbi_circuit_open" == true ]]; then
+                ncbi_samples_since_trip=$(( ncbi_samples_since_trip + 1 ))
+                if (( ncbi_samples_since_trip % NCBI_HALF_OPEN_INTERVAL == 0 )); then
+                    # Half-open probe: try NCBI once to see if it recovered
+                    echo "  [circuit-breaker] Half-open probe — testing NCBI with single attempt for $srr..."
+                    prefetch_err=$(prefetch -O "$temp_dl_path" "$srr" 2>&1) && {
+                        echo "  [circuit-breaker] ✓ NCBI recovered — closing circuit breaker"
+                        dl_ok=true
+                        ncbi_circuit_open=false
+                        ncbi_consecutive_failures=0
+                        ncbi_samples_since_trip=0
+                    }
+                    if [[ "$dl_ok" != true ]]; then
+                        echo "  [circuit-breaker] ✗ NCBI still down — circuit remains open"
+                    fi
+                    skip_ncbi=true  # already attempted, don't enter retry loop
+                else
+                    echo "  [circuit-breaker] NCBI circuit open — skipping NCBI, going directly to ENA"
+                    skip_ncbi=true
                 fi
-            done
+            fi
+
+            # ── Normal NCBI retry loop (only if circuit is closed) ──
+            if [[ "$skip_ncbi" == false ]]; then
+                while (( attempt < max_attempts )); do
+                    (( ++attempt ))
+                    echo "  [prefetch] Attempt $attempt/$max_attempts for $srr..."
+                    prefetch_err=$(prefetch -O "$temp_dl_path" "$srr" 2>&1) && { echo "  [prefetch] ✓ Success"; dl_ok=true; break; }
+                    echo "  [prefetch] ✗ Failed (attempt $attempt/$max_attempts)"
+                    echo "  [prefetch] Error: ${prefetch_err##*$'\n'}"
+                    if (( attempt < max_attempts )); then
+                        # Exponential backoff: 10, 20, 40, 60, 60, ... (capped at 60s)
+                        local wait=$(( 10 * (1 << (attempt - 1)) ))
+                        (( wait > 60 )) && wait=60
+                        echo "  [prefetch] Waiting ${wait}s before retry..."
+                        sleep "$wait"
+                    fi
+                done
+            fi
+
+            # ── Circuit Breaker: update state based on result ──
+            if [[ "$dl_ok" == true ]]; then
+                ncbi_consecutive_failures=0
+                # Circuit was already closed by half-open probe if applicable
+            else
+                ncbi_consecutive_failures=$(( ncbi_consecutive_failures + 1 ))
+                if (( ncbi_consecutive_failures >= NCBI_FAILURE_THRESHOLD )) && [[ "$ncbi_circuit_open" == false ]]; then
+                    ncbi_circuit_open=true
+                    ncbi_samples_since_trip=0
+                    echo "  [circuit-breaker] ⚠️  NCBI circuit breaker TRIPPED after $ncbi_consecutive_failures consecutive failures"
+                    echo "  [circuit-breaker] Remaining samples will use ENA directly (NCBI re-probed every $NCBI_HALF_OPEN_INTERVAL samples)"
+                fi
+            fi
 
             if [[ "$dl_ok" == true ]]; then
                 # Extract downloaded SRA files to temp
@@ -414,7 +465,11 @@ Common_SRADownloadToFastq_MultiSource() {
 
             # Fallback: download directly from ENA if prefetch/fasterq-dump failed
             if [[ "$dl_ok" != true ]]; then
-                echo "  NCBI download failed for $srr after $max_attempts attempts — trying ENA fallback..."
+                if [[ "$ncbi_circuit_open" == true ]]; then
+                    echo "  NCBI skipped for $srr (circuit breaker open) — trying ENA..."
+                else
+                    echo "  NCBI download failed for $srr after $max_attempts attempts — trying ENA fallback..."
+                fi
                 if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
                     echo "  ✓ ENA fallback succeeded for $srr"
                 else
