@@ -68,7 +68,7 @@ Verify_Fastq_Integrity() {
 Download_From_ENA() {
     # Download FASTQ file(s) directly from ENA (European Nucleotide Archive).
     # ENA provides pre-converted FASTQ files, serving as a reliable fallback
-    # when NCBI prefetch fails.
+    # when NCBI download fails.
     #
     # Args:
     #   $1 = SRR/ERR/DRR accession
@@ -102,8 +102,8 @@ Download_From_ENA() {
 
     echo "  [ENA] Base URL: $ena_dir"
 
-    # Try PE first (_1.fastq.gz and _2.fastq.gz), then SE (.fastq.gz)
-    local -a try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz" "${srr}.fastq.gz")
+    # Try PE first (_1/_2), then SE (.fastq.gz), then PacBio subreads
+    local -a try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz" "${srr}.fastq.gz" "${srr}_subreads.fastq.gz")
     local downloaded_any=false
 
     for fname in "${try_files[@]}"; do
@@ -148,6 +148,8 @@ Download_From_ENA() {
         if [[ "$success" == true ]]; then
             # Rename to match expected naming convention
             local base_filename="${fname/${srr}/}"
+            # Normalize _subreads.fastq.gz → .fastq.gz (treat as SE)
+            base_filename="${base_filename/_subreads.fastq/.fastq}"
             mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
             echo "  [ENA] → Renamed to: ${rename_prefix}${base_filename}"
             downloaded_any=true
@@ -157,7 +159,7 @@ Download_From_ENA() {
     done
 
     if [[ "$downloaded_any" == true ]]; then
-        # If we got both _1 and _2, remove the SE file (.fastq.gz) if it also downloaded
+        # If we got both _1 and _2, remove any SE files that also downloaded
         if [[ -f "${target_dir}/${rename_prefix}_1.fastq.gz" ]] && \
            [[ -f "${target_dir}/${rename_prefix}_2.fastq.gz" ]]; then
             rm -f "${target_dir}/${rename_prefix}.fastq.gz" 2>/dev/null
@@ -167,6 +169,118 @@ Download_From_ENA() {
 
     echo "  [ENA] ✗ ENA download failed for $srr — no FASTQ files available" >&2
     return 1
+}
+
+Download_From_NCBI() {
+    # Download FASTQ file(s) directly from NCBI SRA trace API using wget.
+    # This replaces prefetch+fasterq-dump which can fail due to TLS/certificate
+    # issues (mbedtls) on some HPC environments where wget (OpenSSL) works fine.
+    #
+    # The trace API returns gzip-compressed FASTQ. For paired-end data the reads
+    # are interleaved, so we deinterleave into _1/_2 files.
+    #
+    # Args:
+    #   $1 = SRR/ERR/DRR accession
+    #   $2 = target directory for FASTQ files
+    #   $3 = rename prefix for output files
+    #
+    # Returns: 0 on success, 1 on failure
+    local srr="$1"
+    local target_dir="$2"
+    local rename_prefix="$3"
+    local max_retries=5
+    local dl_url="https://trace.ncbi.nlm.nih.gov/Traces/sra-reads-be/fastq?acc=${srr}"
+    # Use a non-fastq extension so orphan cleanup won't match this temp file
+    local dl_file="${target_dir}/.ncbi_download_${srr}.tmp"
+
+    echo "  [NCBI] Attempting NCBI trace API download for $srr..."
+
+    # Download with retry and exponential backoff
+    local success=false
+    for ((attempt=1; attempt<=max_retries; attempt++)); do
+        local wget_err=""
+        if wget_err=$(wget --timeout=120 --tries=1 -q "$dl_url" -O "$dl_file" 2>&1); then
+            # Verify the file is valid gzip and has content
+            local dl_size
+            dl_size=$(stat -c%s "$dl_file" 2>/dev/null || stat -f%z "$dl_file" 2>/dev/null || echo "0")
+            if [[ "$dl_size" -gt 0 ]] && gzip -t "$dl_file" 2>/dev/null; then
+                echo "  [NCBI] ✓ Downloaded $srr (${dl_size} bytes)"
+                success=true
+                break
+            else
+                echo "  [NCBI] ✗ Corrupt or empty download (attempt $attempt/$max_retries)"
+                rm -f "$dl_file"
+            fi
+        else
+            local wget_reason
+            wget_reason=$(echo "$wget_err" | tail -1)
+            echo "  [NCBI] ✗ Download failed: $wget_reason (attempt $attempt/$max_retries)"
+            rm -f "$dl_file"
+        fi
+        # Exponential backoff: 5, 10, 20, 40, 60 (capped)
+        local wait=$(( 5 * (1 << (attempt - 1)) ))
+        (( wait > 60 )) && wait=60
+        [[ $attempt -lt $max_retries ]] && sleep "$wait"
+    done
+
+    if [[ "$success" != true ]]; then
+        echo "  [NCBI] ✗ NCBI trace API download failed for $srr after $max_retries attempts" >&2
+        rm -f "$dl_file"
+        return 1
+    fi
+
+    # Detect if paired-end interleaved: compare first two read headers.
+    # If they share the same base name (before /1 /2 or space), it's interleaved PE.
+    local header1 header2
+    header1=$(zcat "$dl_file" | head -1)
+    header2=$(zcat "$dl_file" | head -5 | tail -1)
+
+    # Extract base read name (strip everything from first space or / onward)
+    local base1 base2
+    base1=$(echo "$header1" | sed 's|[/ ].*||')
+    base2=$(echo "$header2" | sed 's|[/ ].*||')
+
+    if [[ "$base1" == "$base2" && -n "$base1" ]]; then
+        # PE interleaved — deinterleave into _1 and _2 files
+        echo "  [NCBI] Detected paired-end interleaved data — deinterleaving..."
+        local r1_out="${target_dir}/${rename_prefix}_1.fastq.gz"
+        local r2_out="${target_dir}/${rename_prefix}_2.fastq.gz"
+
+        # Two-pass deinterleave (reliable under set -e):
+        #   Lines 1-4 of every 8-line block → R1, lines 5-8 → R2
+        zcat "$dl_file" | awk 'NR%8>=1 && NR%8<=4' | gzip > "${r1_out}"
+        zcat "$dl_file" | awk 'NR%8>=5 || NR%8==0' | gzip > "${r2_out}"
+
+        # Verify both output files exist, have content, and equal read counts
+        local r1_size r2_size
+        r1_size=$(stat -c%s "$r1_out" 2>/dev/null || stat -f%z "$r1_out" 2>/dev/null || echo "0")
+        r2_size=$(stat -c%s "$r2_out" 2>/dev/null || stat -f%z "$r2_out" 2>/dev/null || echo "0")
+        if [[ "$r1_size" -le 20 || "$r2_size" -le 20 ]]; then
+            echo "  [NCBI] ✗ Deinterleaving produced empty files" >&2
+            rm -f "$r1_out" "$r2_out" "$dl_file"
+            return 1
+        fi
+
+        # Verify R1 and R2 have equal line counts (= equal read counts)
+        local r1_lines r2_lines
+        r1_lines=$(zcat "$r1_out" | wc -l)
+        r2_lines=$(zcat "$r2_out" | wc -l)
+        if [[ "$r1_lines" -ne "$r2_lines" ]]; then
+            echo "  [NCBI] ✗ PE read count mismatch: R1=${r1_lines} lines, R2=${r2_lines} lines" >&2
+            rm -f "$r1_out" "$r2_out" "$dl_file"
+            return 1
+        fi
+        local read_count=$(( r1_lines / 4 ))
+        echo "  [NCBI] ✓ Deinterleaved: ${rename_prefix}_1.fastq.gz (${r1_size}B), ${rename_prefix}_2.fastq.gz (${r2_size}B) — $read_count read pairs"
+    else
+        # SE data — rename directly
+        echo "  [NCBI] Detected single-end data"
+        mv "$dl_file" "${target_dir}/${rename_prefix}.fastq.gz"
+        echo "  [NCBI] → ${rename_prefix}.fastq.gz"
+    fi
+
+    rm -f "$dl_file"
+    return 0
 }
 
 Download_CRR() {
@@ -284,20 +398,15 @@ Common_SRADownloadToFastq_MultiSource() {
     done < "${base_dir}/${acc_file}"
 
     # Check dependencies based on what we'll download
-    if [[ "$has_ncbi_accessions" == true ]]; then
-        command -v prefetch >/dev/null 2>&1 || { echo "Error: 'prefetch' not found (required for NCBI SRR/ERR/DRR downloads)." >&2; return 1; }
-        command -v fasterq-dump >/dev/null 2>&1 || { echo "Error: 'fasterq-dump' not found (required for NCBI SRR/ERR/DRR downloads)." >&2; return 1; }
-    fi
-
-    if [[ "$has_cncb_accessions" == true ]]; then
-        command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found (required for CNCB CRR downloads)." >&2; return 1; }
+    if [[ "$has_ncbi_accessions" == true || "$has_cncb_accessions" == true ]]; then
+        command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found (required for data downloads)." >&2; return 1; }
     fi
 
     # Quick connectivity check — fail fast instead of waiting through retries
     if [[ "$has_ncbi_accessions" == true ]]; then
         echo "  Checking NCBI connectivity..."
-        if ! wget -q --spider --timeout=10 "https://ftp.ncbi.nlm.nih.gov/" 2>/dev/null; then
-            echo "  ⚠️  NCBI unreachable — will rely on ENA fallback"
+        if ! wget -q --spider --timeout=10 "https://trace.ncbi.nlm.nih.gov/" 2>/dev/null; then
+            echo "  ⚠️  NCBI trace API unreachable — will rely on ENA fallback"
             echo "  Checking ENA connectivity..."
             if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
                 echo "  ✗ Both NCBI and ENA are unreachable. Check your network connection." >&2
@@ -311,8 +420,7 @@ Common_SRADownloadToFastq_MultiSource() {
 
     # base_dir already declared above
     local fastq_path="${base_dir}/ori_fastq"
-    local temp_dl_path="${base_dir}/temp1"
-    mkdir -p "$fastq_path" "$temp_dl_path"
+    mkdir -p "$fastq_path"
 
     # ── Circuit Breaker for NCBI ──
     # If NCBI fails consecutively, skip it for remaining samples and go
@@ -334,10 +442,7 @@ Common_SRADownloadToFastq_MultiSource() {
 
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
             echo "[NCBI] Processing $srr"
-            local max_attempts=3
-            local attempt=0
             local dl_ok=false
-            local prefetch_err=""
             local skip_ncbi=false
 
             # ── Circuit Breaker: decide whether to try NCBI ──
@@ -345,46 +450,33 @@ Common_SRADownloadToFastq_MultiSource() {
                 ncbi_samples_since_trip=$(( ncbi_samples_since_trip + 1 ))
                 if (( ncbi_samples_since_trip % NCBI_HALF_OPEN_INTERVAL == 0 )); then
                     # Half-open probe: try NCBI once to see if it recovered
-                    echo "  [circuit-breaker] Half-open probe — testing NCBI with single attempt for $srr..."
-                    prefetch_err=$(prefetch -O "$temp_dl_path" "$srr" 2>&1) && {
+                    echo "  [circuit-breaker] Half-open probe — testing NCBI for $srr..."
+                    if Download_From_NCBI "$srr" "$fastq_path" "$rename"; then
                         echo "  [circuit-breaker] ✓ NCBI recovered — closing circuit breaker"
                         dl_ok=true
                         ncbi_circuit_open=false
                         ncbi_consecutive_failures=0
                         ncbi_samples_since_trip=0
-                    }
-                    if [[ "$dl_ok" != true ]]; then
+                    else
                         echo "  [circuit-breaker] ✗ NCBI still down — circuit remains open"
                     fi
-                    skip_ncbi=true  # already attempted, don't enter retry loop
+                    skip_ncbi=true  # already attempted
                 else
                     echo "  [circuit-breaker] NCBI circuit open — skipping NCBI, going directly to ENA"
                     skip_ncbi=true
                 fi
             fi
 
-            # ── Normal NCBI retry loop (only if circuit is closed) ──
+            # ── Normal NCBI download (only if circuit is closed) ──
             if [[ "$skip_ncbi" == false ]]; then
-                while (( attempt < max_attempts )); do
-                    (( ++attempt ))
-                    echo "  [prefetch] Attempt $attempt/$max_attempts for $srr..."
-                    prefetch_err=$(prefetch -O "$temp_dl_path" "$srr" 2>&1) && { echo "  [prefetch] ✓ Success"; dl_ok=true; break; }
-                    echo "  [prefetch] ✗ Failed (attempt $attempt/$max_attempts)"
-                    echo "  [prefetch] Error: ${prefetch_err##*$'\n'}"
-                    if (( attempt < max_attempts )); then
-                        # Exponential backoff: 10, 20, 40, 60, 60, ... (capped at 60s)
-                        local wait=$(( 10 * (1 << (attempt - 1)) ))
-                        (( wait > 60 )) && wait=60
-                        echo "  [prefetch] Waiting ${wait}s before retry..."
-                        sleep "$wait"
-                    fi
-                done
+                if Download_From_NCBI "$srr" "$fastq_path" "$rename"; then
+                    dl_ok=true
+                fi
             fi
 
             # ── Circuit Breaker: update state based on result ──
             if [[ "$dl_ok" == true ]]; then
                 ncbi_consecutive_failures=0
-                # Circuit was already closed by half-open probe if applicable
             else
                 ncbi_consecutive_failures=$(( ncbi_consecutive_failures + 1 ))
                 if (( ncbi_consecutive_failures >= NCBI_FAILURE_THRESHOLD )) && [[ "$ncbi_circuit_open" == false ]]; then
@@ -395,80 +487,12 @@ Common_SRADownloadToFastq_MultiSource() {
                 fi
             fi
 
-            if [[ "$dl_ok" == true ]]; then
-                # Extract downloaded SRA files to temp
-                local sra_files=()
-                while IFS= read -r -d '' file; do
-                    sra_files+=("$file")
-                done < <(find "$temp_dl_path/$srr" -type f \( -name "*.sra" -o -name "*.fastq*" \) -print0 2>/dev/null)
-
-                echo "  [prefetch] Found ${#sra_files[@]} file(s) to convert"
-
-                # Process each file
-                local convert_ok=true
-                for file in "${sra_files[@]}"; do
-                    local basename_file=$(basename "$file")
-                    local ext="${basename_file##*.}"
-                    local file_size
-                    file_size=$(stat -c%s "$file" 2>/dev/null || stat -f%z "$file" 2>/dev/null || echo "?")
-                    echo "  [convert] Processing: $basename_file (${file_size} bytes)"
-
-                    if [[ "$ext" == "sra" ]]; then
-                        # Convert SRA to FASTQ with rename prefix
-                        local temp_outdir="${temp_dl_path}/fastq_${srr}"
-                        mkdir -p "$temp_outdir"
-
-                        echo "  [fasterq-dump] Converting $basename_file to FASTQ..."
-                        local fqd_err=""
-                        if fqd_err=$(fasterq-dump --split-3 "$file" --outdir "$temp_outdir" 2>&1); then
-                            # List converted files
-                            local fq_count
-                            fq_count=$(find "$temp_outdir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) | wc -l)
-                            echo "  [fasterq-dump] ✓ Converted to $fq_count FASTQ file(s)"
-                            # Rename and move converted FASTQ files
-                            find "$temp_outdir" -type f \( -name "*.fastq" -o -name "*.fastq.gz" \) -print0 |
-                            while IFS= read -r -d '' fq_file; do
-                                local fq_basename=$(basename "$fq_file")
-                                # Standardize to _1/_2 format first
-                                local normalized=$(echo "$fq_basename" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
-                                # Strip SRR/ERR/DRR ID from filename (keep separator)
-                                local base_filename=$(echo "$normalized" | sed "s/${srr}//")
-                                echo "  [fasterq-dump] → ${rename}${base_filename}"
-                                mv "$fq_file" "${fastq_path}/${rename}${base_filename}"
-                            done
-                            rm -rf "$temp_outdir"
-                        else
-                            echo "  [fasterq-dump] ✗ Failed for $basename_file"
-                            echo "  [fasterq-dump] Error: $fqd_err"
-                            convert_ok=false
-                        fi
-                        rm -f "$file"
-
-                    elif [[ "$ext" == "fastq" || "$basename_file" =~ \.fastq\.gz$ ]]; then
-                        # Already FASTQ, standardize and strip SRR/ERR/DRR ID
-                        # Standardize to _1/_2 format first
-                        local normalized=$(echo "$basename_file" | sed -E 's/_[rR]?1([._])/_1\1/; s/_[rR]?2([._])/_2\1/')
-                        # Strip SRR/ERR/DRR ID from filename (keep separator)
-                        local base_filename=$(echo "$normalized" | sed "s/${srr}//")
-                        echo "  [convert] Already FASTQ → ${rename}${base_filename}"
-                        mv "$file" "${fastq_path}/${rename}${base_filename}"
-                    fi
-                done
-
-                rm -rf "${temp_dl_path:?}/$srr"
-
-                # If fasterq-dump conversion failed, fall through to ENA
-                if [[ "$convert_ok" == false ]]; then
-                    dl_ok=false
-                fi
-            fi
-
-            # Fallback: download directly from ENA if prefetch/fasterq-dump failed
+            # Fallback: download directly from ENA if NCBI failed
             if [[ "$dl_ok" != true ]]; then
                 if [[ "$ncbi_circuit_open" == true ]]; then
                     echo "  NCBI skipped for $srr (circuit breaker open) — trying ENA..."
                 else
-                    echo "  NCBI download failed for $srr after $max_attempts attempts — trying ENA fallback..."
+                    echo "  NCBI download failed for $srr — trying ENA fallback..."
                 fi
                 if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
                     echo "  ✓ ENA fallback succeeded for $srr"
@@ -507,12 +531,10 @@ Common_SRADownloadToFastq_MultiSource() {
             echo "Warning: Unknown Accession format: $srr" >&2
         fi
     done < "${base_dir}/${acc_file}"
-    rm -rf "$temp_dl_path"
 
-    # Orphan file cleanup: fasterq-dump --split-3 may produce 3 files per sample
-    # (prefix.fastq + prefix_1.fastq + prefix_2.fastq). The unpaired orphan
-    # reads (prefix.fastq) must be removed when paired files exist, otherwise
-    # downstream tools will misinterpret them as additional SE samples.
+    # Orphan file cleanup: some download sources may produce an extra unpaired
+    # reads file (prefix.fastq.gz) alongside paired files (_1/_2). Remove the
+    # orphan when both paired files exist, to avoid downstream misinterpretation.
     local orphan_count=0
     for r1 in "${fastq_path}/"*_1.fastq*; do
         [[ -f "$r1" ]] || continue
