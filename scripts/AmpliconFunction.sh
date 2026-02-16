@@ -150,6 +150,7 @@ Download_From_ENA() {
     fi
 
     echo "  [ENA] ✗ ENA download failed for $srr" >&2
+    echo "  [ENA]   Note: ENA may not have FASTQ files for PacBio/454/Ion Torrent data." >&2
     return 1
 }
 
