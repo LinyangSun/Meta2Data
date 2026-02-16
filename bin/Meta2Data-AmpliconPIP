@@ -261,11 +261,21 @@ echo ""
 # Export environment variables
 export cpu=$THREADS
 
-# Set TMPDIR to output directory to avoid /tmp space issues on HPC nodes.
-# QIIME2 extracts artifacts to $TMPDIR; /tmp is often too small on compute nodes.
+# Redirect ALL temporary-file paths to the output directory so that the
+# pipeline never touches the small /tmp on HPC compute nodes.
+#   TMPDIR / TEMP / TMP  – Python tempfile, C runtime, Java, etc.
+#   QIIME2_CACHE          – QIIME2's own artifact cache (the actual source
+#                           of the "No space left on device" error).
+#   PYTHONWARNINGS        – suppress the seaborn/pandas FutureWarning about
+#                           the deprecated use_inf_as_na option.
 PIPELINE_TMPDIR="${OUTPUT}/.tmpdir"
 mkdir -p "$PIPELINE_TMPDIR"
 export TMPDIR="$PIPELINE_TMPDIR"
+export TEMP="$PIPELINE_TMPDIR"
+export TMP="$PIPELINE_TMPDIR"
+export QIIME2_CACHE="${PIPELINE_TMPDIR}/qiime2-cache"
+mkdir -p "$QIIME2_CACHE"
+export PYTHONWARNINGS="ignore::FutureWarning"
 
 ################################################################################
 #                    AMPLICON PROCESSING PIPELINE                              #
