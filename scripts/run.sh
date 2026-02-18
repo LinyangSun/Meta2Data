@@ -201,10 +201,10 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # Count raw reads before any processing
             Common_CountRawReads "$dataset_path" "$sra_file_name"
 
-            # Detect PE/SE after download
-            line_count=$(wc -l < "${dataset_path}/${sra_file_name}")
-            file_count=$(find "$ori_fastq_path" -type f 2>/dev/null | wc -l)
-            if [ $((line_count * 2)) -eq $file_count ]; then
+            # Detect PE/SE after download (check for _1/_2 paired files)
+            r1_count=$(find "$ori_fastq_path" -type f -name '*_1.fastq*' 2>/dev/null | wc -l)
+            r2_count=$(find "$ori_fastq_path" -type f -name '*_2.fastq*' 2>/dev/null | wc -l)
+            if [ "$r1_count" -gt 0 ] && [ "$r1_count" -eq "$r2_count" ]; then
                 sequence_type="paired"
             else
                 sequence_type="single"
@@ -286,7 +286,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             rm -rf "$ori_fastq_path"
             rm -rf "$adapter_removed_path"
 
-            # Run Illumina pipeline (dada2 denoise-paired for PE, denoise-pyro for SE)
+            # Run Illumina pipeline (dada2 denoise-paired for PE, denoise-single for SE)
             fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2

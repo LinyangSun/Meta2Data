@@ -822,7 +822,7 @@ Amplicon_Illumina_DenosingDada2() {
             --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
             --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
     else
-        # ── SINGLE-END: use dada2 denoise-pyro ──
+        # ── SINGLE-END ──
         local need_compute=true
         [[ -n "$start_in" && -n "$end_in" ]] && need_compute=false
 
@@ -849,13 +849,25 @@ Amplicon_Illumina_DenosingDada2() {
         local end="${end_in:-$final_end}"
         echo "$start $end" > "${qf_trim_pos_path%/}/Trim_position.txt"
 
-        qiime dada2 denoise-pyro \
-            --i-demultiplexed-seqs "$qza_file" \
-            --p-trunc-len "$end" \
-            --p-trim-left "$start" \
-            --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
-            --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
-            --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+        if [[ "${platform:-}" == "ION_TORRENT" ]]; then
+            # Ion Torrent: homopolymer-aware error model (denoise-pyro)
+            qiime dada2 denoise-pyro \
+                --i-demultiplexed-seqs "$qza_file" \
+                --p-trunc-len "$end" \
+                --p-trim-left "$start" \
+                --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
+                --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
+                --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+        else
+            # Illumina: substitution error model (denoise-single)
+            qiime dada2 denoise-single \
+                --i-demultiplexed-seqs "$qza_file" \
+                --p-trunc-len "$end" \
+                --p-trim-left "$start" \
+                --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
+                --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
+                --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+        fi
     fi
 }
 ################################################################################
