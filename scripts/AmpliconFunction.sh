@@ -650,10 +650,14 @@ Amplicon_Common_FinalFilesCleaning() {
             find "$denoising_vis" -type f -name 'stats.csv' -exec cp {} "${dataset_path%/}/${dataset_name}-DenoisingStats.csv" \;
         fi
         
-        # Clean up non-QIIME2 directories; keep tmp/ for debugging QIIME2 intermediates
+        # Remove temporary directories but keep dataset_path itself
+        find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
+
+        # Remove unwanted logs
+        rm -f "${dataset_path%/}/"{denoising.log,fastp.html,fastp.json}
+
         rm -rf "${dataset_path%/}/ori_fastq" 2>/dev/null || true
         rm -rf "${dataset_path%/}/working_fastq" 2>/dev/null || true
-        rm -f "${dataset_path%/}/"{denoising.log,fastp.html,fastp.json}
 
         return 0
 
@@ -661,9 +665,7 @@ Amplicon_Common_FinalFilesCleaning() {
     elif [ -f "${dataset_path%/}/${dataset_name}-table-vsearch.qza" ]; then
         mv "${dataset_path%/}/${dataset_name}-table-vsearch.qza" "${dataset_path%/}/${dataset_name}-final-table.qza"
         mv "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza" "${dataset_path%/}/${dataset_name}-final-rep-seqs.qza"
-        # Clean up non-QIIME2 directories; keep tmp/ for debugging
-        rm -rf "${dataset_path%/}/ori_fastq" 2>/dev/null || true
-        rm -rf "${dataset_path%/}/working_fastq" 2>/dev/null || true
+        find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
         
         return 0
         

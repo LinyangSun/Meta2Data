@@ -294,14 +294,11 @@ if ! bash "${SCRIPTS}/run.sh" \
     -t "$THREADS" \
     --col-bioproject "$COL_BIOPROJECT" \
     --col-sra "$COL_SRA"; then
-    rm -rf "$PIPELINE_TMPDIR" 2>/dev/null || true
     echo "❌ ERROR: Amplicon processing pipeline failed"
     echo "Check logs in: $OUTPUT"
+    echo "QIIME2 tmpdir preserved for debugging: $PIPELINE_TMPDIR"
     exit 1
 fi
-
-# Clean up temporary directory
-rm -rf "$PIPELINE_TMPDIR" 2>/dev/null || true
 
 echo ""
 echo "✓ Amplicon processing completed successfully"
