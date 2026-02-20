@@ -110,14 +110,17 @@ echo "========================================="
 echo "Pre-flight: Checking QIIME2 availability"
 echo "========================================="
 
-# Verify QIIME2 can load its plugin manager (catches numpy incompatibility,
-# missing plugins, and other environment issues before we spend time downloading).
-if ! qiime info > /dev/null 2>&1; then
+# Use "qiime tools import --help" instead of "qiime info" for the pre-flight
+# check. "qiime info" tries to write a vendored parallel_config file, which
+# fails on read-only HPC container filesystems (e.g., Tykky on Puhti) with
+# OSError: [Errno 30] Read-only file system. "tools import --help" exercises
+# the same plugin loading path without triggering that config write.
+if ! qiime tools import --help > /dev/null 2>&1; then
     echo ""
     echo "❌ QIIME2 PRE-FLIGHT FAILED"
     echo ""
     # Capture the actual error for diagnostics
-    qiime_err=$(qiime info 2>&1 || true)
+    qiime_err=$(qiime tools import --help 2>&1 || true)
     if echo "$qiime_err" | grep -q "numpy"; then
         echo "ROOT CAUSE: NumPy version incompatibility."
         echo "  The installed NumPy $(python3 -c 'import numpy; print(numpy.__version__)' 2>/dev/null || echo '(unknown)') is incompatible"
@@ -125,6 +128,12 @@ if ! qiime info > /dev/null 2>&1; then
         echo ""
         echo "FIX: Downgrade NumPy in your conda environment:"
         echo "  conda install 'numpy<2' or pip install 'numpy<2'"
+    elif echo "$qiime_err" | grep -q "Read-only file system"; then
+        echo "ROOT CAUSE: Read-only filesystem prevents QIIME2 config writes."
+        echo "  QIIME2 is trying to write to: $(echo "$qiime_err" | grep -oP "(?<=Read-only file system: ').*(?=')" || echo '(unknown path)')"
+        echo ""
+        echo "FIX: Set a writable QIIME2 config path before running the pipeline:"
+        echo "  export QIIME2_CONFIG=\$HOME/.qiime2_config.toml"
     else
         echo "QIIME2 failed to initialize. Error output:"
         echo "$qiime_err" | head -20
