@@ -5,10 +5,16 @@ import subprocess
 import os
 import glob
 import gzip
+import socket
 from collections import Counter
 import pandas as pd
 import numpy as np
 from Bio import SeqIO
+
+# Force IPv4 — some environments lack IPv6 support, causing NCBI/CNCB API
+# calls to fail with "Address family not supported by protocol".
+_orig_getaddrinfo = socket.getaddrinfo
+socket.getaddrinfo = lambda *a, **kw: _orig_getaddrinfo(*a, **{**kw, 'family': socket.AF_INET})
 
 
 def check_and_install(module, module2):
@@ -323,16 +329,41 @@ def _get_platform_from_cncb(crr_id, bioproject_id=None):
 
     BASE_URL = "https://ngdc.cncb.ac.cn/gsa"
     HEADERS = {"User-Agent": "Mozilla/5.0"}
-    _orig = _force_ipv4()
+
+    # Strategy 1: Try querying by run ID directly with getRunInfoByCra endpoint
+    print(f"  Attempting CNCB query with run ID: {crr_id}", file=sys.stderr)
 
     try:
-        # Strategy 1: Try querying by run ID directly with getRunInfoByCra endpoint
-        print(f"  Attempting CNCB query with run ID: {crr_id}", file=sys.stderr)
+        # Try updated getRunInfoByCra endpoint with CRR ID
+        url = f"{BASE_URL}/search/getRunInfoByCra"
+        data = f'searchTerm=%26quot%3B{crr_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+
+        resp = requests.post(
+            url,
+            data=data,
+            headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+            timeout=30
+        )
+        resp.raise_for_status()
+
+        csv_content = resp.text
+        if csv_content.count('\n') >= 2:
+            # Successfully got data with run ID
+            print(f"  ✓ getRunInfoByCra with CRR ID successful", file=sys.stderr)
+            platform = _parse_cncb_platform_response(csv_content, crr_id)
+            if platform:
+                return platform
+    except Exception as e:
+        print(f"  getRunInfoByCra with CRR failed: {str(e)}", file=sys.stderr)
+
+    # Strategy 2: If BioProject ID provided, try querying with it
+    if bioproject_id:
+        print(f"  Attempting CNCB query with BioProject: {bioproject_id}", file=sys.stderr)
 
         try:
-            # Try updated getRunInfoByCra endpoint with CRR ID
+            # Try with BioProject using getRunInfoByCra
             url = f"{BASE_URL}/search/getRunInfoByCra"
-            data = f'searchTerm=%26quot%3B{crr_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+            data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
 
             resp = requests.post(
                 url,
@@ -344,69 +375,39 @@ def _get_platform_from_cncb(crr_id, bioproject_id=None):
 
             csv_content = resp.text
             if csv_content.count('\n') >= 2:
-                # Successfully got data with run ID
-                print(f"  ✓ getRunInfoByCra with CRR ID successful", file=sys.stderr)
+                print(f"  ✓ getRunInfoByCra with BioProject successful", file=sys.stderr)
                 platform = _parse_cncb_platform_response(csv_content, crr_id)
                 if platform:
                     return platform
         except Exception as e:
-            print(f"  getRunInfoByCra with CRR failed: {str(e)}", file=sys.stderr)
+            print(f"  getRunInfoByCra with BioProject failed: {str(e)}", file=sys.stderr)
 
-        # Strategy 2: If BioProject ID provided, try querying with it
-        if bioproject_id:
-            print(f"  Attempting CNCB query with BioProject: {bioproject_id}", file=sys.stderr)
+        # Strategy 3: Fallback to old getRunInfo endpoint with BioProject
+        print(f"  Trying legacy getRunInfo endpoint with BioProject", file=sys.stderr)
 
-            try:
-                # Try with BioProject using getRunInfoByCra
-                url = f"{BASE_URL}/search/getRunInfoByCra"
-                data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+        try:
+            url = f"{BASE_URL}/search/getRunInfo"
+            data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
 
-                resp = requests.post(
-                    url,
-                    data=data,
-                    headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
-                    timeout=30
-                )
-                resp.raise_for_status()
+            resp = requests.post(
+                url,
+                data=data,
+                headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+                timeout=30
+            )
+            resp.raise_for_status()
 
-                csv_content = resp.text
-                if csv_content.count('\n') >= 2:
-                    print(f"  ✓ getRunInfoByCra with BioProject successful", file=sys.stderr)
-                    platform = _parse_cncb_platform_response(csv_content, crr_id)
-                    if platform:
-                        return platform
-            except Exception as e:
-                print(f"  getRunInfoByCra with BioProject failed: {str(e)}", file=sys.stderr)
+            csv_content = resp.text
+            if csv_content.count('\n') >= 2:
+                print(f"  ✓ Legacy getRunInfo successful", file=sys.stderr)
+                platform = _parse_cncb_platform_response(csv_content, crr_id)
+                if platform:
+                    return platform
+        except Exception as e:
+            print(f"  Legacy getRunInfo failed: {str(e)}", file=sys.stderr)
 
-            # Strategy 3: Fallback to old getRunInfo endpoint with BioProject
-            print(f"  Trying legacy getRunInfo endpoint with BioProject", file=sys.stderr)
-
-            try:
-                url = f"{BASE_URL}/search/getRunInfo"
-                data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
-
-                resp = requests.post(
-                    url,
-                    data=data,
-                    headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
-                    timeout=30
-                )
-                resp.raise_for_status()
-
-                csv_content = resp.text
-                if csv_content.count('\n') >= 2:
-                    print(f"  ✓ Legacy getRunInfo successful", file=sys.stderr)
-                    platform = _parse_cncb_platform_response(csv_content, crr_id)
-                    if platform:
-                        return platform
-            except Exception as e:
-                print(f"  Legacy getRunInfo failed: {str(e)}", file=sys.stderr)
-
-        print(f"Warning: All CNCB query strategies failed for {crr_id}", file=sys.stderr)
-        return None
-
-    finally:
-        _restore_getaddrinfo(_orig)
+    print(f"Warning: All CNCB query strategies failed for {crr_id}", file=sys.stderr)
+    return None
 
 
 def _parse_cncb_platform_response(csv_content, target_run_id=None):
@@ -475,23 +476,6 @@ def _parse_cncb_platform_response(csv_content, target_run_id=None):
         return None
 
 
-def _force_ipv4():
-    """Force socket to use IPv4 only (avoid IPv6 errors in restricted environments)."""
-    import socket
-    _orig = socket.getaddrinfo
-    def _ipv4_getaddrinfo(*args, **kwargs):
-        kwargs['family'] = socket.AF_INET
-        return _orig(*args, **kwargs)
-    socket.getaddrinfo = _ipv4_getaddrinfo
-    return _orig
-
-
-def _restore_getaddrinfo(orig):
-    """Restore original getaddrinfo after forcing IPv4."""
-    import socket
-    socket.getaddrinfo = orig
-
-
 def _get_platform_from_ncbi(srr_id):
     """
     Get sequencing platform from NCBI for SRR/ERR/DRR accession
@@ -506,7 +490,6 @@ def _get_platform_from_ncbi(srr_id):
     import xml.etree.ElementTree as ET
 
     Entrez.email = "your_email@example.com"
-    _orig = _force_ipv4()
 
     try:
         search_handle = Entrez.esearch(db="sra", term=srr_id)
@@ -535,9 +518,6 @@ def _get_platform_from_ncbi(srr_id):
     except Exception as e:
         print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
         return None
-
-    finally:
-        _restore_getaddrinfo(_orig)
 
 
 def adaptive_tail_trim(input_dir, output_dir, max_sample_reads=10000):
