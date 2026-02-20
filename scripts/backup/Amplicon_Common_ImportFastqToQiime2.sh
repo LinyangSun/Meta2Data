@@ -3,7 +3,7 @@ Amplicon_Common_ImportFastqToQiime2() {
     set -u
     cd "$dataset_path" || { echo "❌ Cannot access dataset path: $dataset_path"; exit 1; }
 
-    local temp_path="${dataset_path%/}/temp/"
+    local temp_path="${dataset_path%/}/tmp/"
     local temp_file_path="${temp_path}temp_file/"
     local qza_path="${temp_path}step_03_qza_import/"
     mkdir -p "$temp_file_path" "$qza_path"

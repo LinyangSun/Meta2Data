@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 Amplicon_Common_FinalFilesCleaning() {
     dataset_path="${dataset_path%/}/"
-    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    local deblur_path="${dataset_path%/}/temp/step_05_denoise/deblur/"
-    local qf_vis_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/"
-    local qf_view_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_view/"
-    local qf_trim_pos_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
-    local qc_vis="${dataset_path%/}/temp/temp_file/qc_vis/"
-    local denosing_vis="${dataset_path%/}/temp/temp_file/denosing_vis/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    local deblur_path="${dataset_path%/}/tmp/step_05_denoise/deblur/"
+    local qf_vis_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/"
+    local qf_view_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_view/"
+    local qf_trim_pos_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_trim_pos/"
+    local qc_vis="${dataset_path%/}/tmp/temp_file/qc_vis/"
+    local denosing_vis="${dataset_path%/}/tmp/temp_file/denosing_vis/"
     
     cd "$dataset_path" || { echo "Error: dataset_path not found"; return 1; }
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
-    quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    deblur_path="${dataset_path%/}/temp/step_05_denoise/deblur/"
-    qf_trim_pos_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
-    qc_vis="${dataset_path%/}/temp/temp_file/qc_vis/"
-    denosing_vis="${dataset_path%/}/temp/temp_file/denosing_vis/"
+    quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    deblur_path="${dataset_path%/}/tmp/step_05_denoise/deblur/"
+    qf_trim_pos_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_trim_pos/"
+    qc_vis="${dataset_path%/}/tmp/temp_file/qc_vis/"
+    denosing_vis="${dataset_path%/}/tmp/temp_file/denosing_vis/"
     mkdir -p "$qc_vis" "$denosing_vis"
     
     # Check for Deblur output
