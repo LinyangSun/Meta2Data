@@ -146,6 +146,50 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_d
         out_df.to_csv(out_file, sep='\t', header=None, index=None)
 
 
+def subset_meta_for_test(file_path, Bioproject, SRA_Number, output_dir=None, n=2):
+    """
+    Subset metadata for test mode: keep only the first N SRA entries per BioProject.
+
+    Args:
+        file_path: Path to metadata CSV
+        Bioproject: Column name for BioProject ID
+        SRA_Number: Column name for SRA/Run accession
+        output_dir: (Optional) Directory to write output file. If not provided, uses input file directory
+        n: Number of SRA entries to keep per BioProject (default: 2)
+
+    Returns:
+        Path to the subset CSV file
+    """
+    if output_dir:
+        directory_path = output_dir
+    else:
+        directory_path = os.path.dirname(os.path.abspath(file_path))
+
+    df = pd.read_csv(file_path)
+
+    if Bioproject not in df.columns:
+        print(f"Error: Column '{Bioproject}' not found in {file_path}", file=sys.stderr)
+        print(f"Available columns: {', '.join(df.columns)}", file=sys.stderr)
+        sys.exit(1)
+    if SRA_Number not in df.columns:
+        print(f"Error: Column '{SRA_Number}' not found in {file_path}", file=sys.stderr)
+        print(f"Available columns: {', '.join(df.columns)}", file=sys.stderr)
+        sys.exit(1)
+
+    # Keep first N SRA entries per BioProject
+    subset = df.groupby(Bioproject, sort=False).head(n)
+
+    out_path = os.path.join(directory_path, "test_subset_meta.csv")
+    subset.to_csv(out_path, index=False)
+
+    total_bioprojects = subset[Bioproject].nunique()
+    total_sras = len(subset)
+    print(f"Test subset created: {total_bioprojects} BioProjects, {total_sras} SRA entries", file=sys.stderr)
+    print(f"Subset file: {out_path}", file=sys.stderr)
+
+    return out_path
+
+
 def mk_manifest_SE(file_path):
     """Generate single-end manifest file"""
     df = pd.read_csv(file_path, sep='\t', header=None)
@@ -759,6 +803,7 @@ if __name__ == "__main__":
         choices=[
             "GenerateSRAsFile",
             "GenerateDatasetsIDsFile",
+            "subset_meta_for_test",
             "mk_manifest_SE",
             "mk_manifest_PE",
             "trim_pos_deblur",
@@ -803,6 +848,10 @@ if __name__ == "__main__":
 
     elif args.function == "GenerateSRAsFile":
         GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample, args.OutputDir)
+
+    elif args.function == "subset_meta_for_test":
+        result = subset_meta_for_test(args.FilePath, args.Bioproject, args.SRA_Number, args.OutputDir)
+        print(result)
 
     elif args.function == "get_sequencing_platform":
         platform = get_sequencing_platform(args.srr_id, args.bioproject_id)
