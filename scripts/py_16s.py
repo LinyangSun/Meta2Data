@@ -5,16 +5,10 @@ import subprocess
 import os
 import glob
 import gzip
-import socket
 from collections import Counter
 import pandas as pd
 import numpy as np
 from Bio import SeqIO
-
-# Force IPv4 — some environments lack IPv6 support, causing NCBI/CNCB API
-# calls to fail with "Address family not supported by protocol".
-_orig_getaddrinfo = socket.getaddrinfo
-socket.getaddrinfo = lambda *a, **kw: _orig_getaddrinfo(*a, **{**kw, 'family': socket.AF_INET})
 
 
 def check_and_install(module, module2):
