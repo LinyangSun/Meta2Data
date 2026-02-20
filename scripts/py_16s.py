@@ -5,28 +5,10 @@ import subprocess
 import os
 import glob
 import gzip
-import socket
-import re
 from collections import Counter
 import pandas as pd
 import numpy as np
 from Bio import SeqIO
-
-# Force IPv4 — some environments lack IPv6 support, causing NCBI/CNCB API
-# calls to fail with "Address family not supported by protocol".
-_orig_getaddrinfo = socket.getaddrinfo
-
-def _forced_ipv4_getaddrinfo(*args, **kwargs):
-    # getaddrinfo(host, port, family=0, type=0, proto=0, flags=0)
-    # family is the 3rd positional arg (index 2). If passed positionally,
-    # we must override it in place rather than adding a duplicate kwarg.
-    if len(args) >= 3:
-        args = args[:2] + (socket.AF_INET,) + args[3:]
-    else:
-        kwargs['family'] = socket.AF_INET
-    return _orig_getaddrinfo(*args, **kwargs)
-
-socket.getaddrinfo = _forced_ipv4_getaddrinfo
 
 
 def check_and_install(module, module2):
@@ -40,16 +22,6 @@ def check_and_install(module, module2):
             stderr=subprocess.DEVNULL
         )
         __import__(module)
-
-
-# Valid BioProject accession pattern: PRJ + 1-2 uppercase letters + digits
-# Covers NCBI (PRJNA, PRJEB, PRJDB) and CNCB (PRJCA) accessions
-_BIOPROJECT_RE = re.compile(r'^PRJ[A-Z]{1,2}\d+$')
-
-
-def _is_valid_bioproject(value):
-    """Return True if value looks like a valid BioProject accession."""
-    return bool(_BIOPROJECT_RE.match(str(value).strip()))
 
 
 def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None, output_dir=None):
@@ -85,16 +57,6 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None,
             .str.replace('\n', '', regex=True)
             .str.replace('\t', '', regex=True)
         )
-
-    # Filter out invalid BioProject IDs (e.g. coordinates, 'nan', or other non-accession values)
-    valid_mask = df[Bioproject].apply(_is_valid_bioproject)
-    n_invalid = (~valid_mask).sum()
-    if n_invalid > 0:
-        invalid_vals = df.loc[~valid_mask, Bioproject].unique()
-        print(f"Warning: Skipping {n_invalid} rows with invalid BioProject IDs: "
-              f"{', '.join(str(v) for v in invalid_vals[:5])}"
-              f"{'...' if len(invalid_vals) > 5 else ''}", file=sys.stderr)
-        df = df[valid_mask]
 
     # If platform column is provided and exists, include it (backward compatibility)
     if Data_SequencingPlatform and Data_SequencingPlatform in df.columns:
@@ -159,9 +121,6 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_d
                 .str.replace('\t', '', regex=True)
             )
 
-    # Filter out invalid BioProject IDs
-    df = df[df[Bioproject].apply(_is_valid_bioproject)]
-
     # Create rename column: use Biosample if available, otherwise use SRA_Number
     if Biosample and Biosample in df.columns:
         df["rename"] = df[Bioproject] + '_' + df[Biosample]
@@ -216,16 +175,6 @@ def subset_meta_for_test(file_path, Bioproject, SRA_Number, output_dir=None, n=2
         print(f"Error: Column '{SRA_Number}' not found in {file_path}", file=sys.stderr)
         print(f"Available columns: {', '.join(df.columns)}", file=sys.stderr)
         sys.exit(1)
-
-    # Filter out invalid BioProject IDs (e.g. coordinates or other non-accession values)
-    valid_mask = df[Bioproject].astype(str).apply(_is_valid_bioproject)
-    n_invalid = (~valid_mask).sum()
-    if n_invalid > 0:
-        invalid_vals = df.loc[~valid_mask, Bioproject].unique()
-        print(f"Warning: Skipping {n_invalid} rows with invalid BioProject IDs: "
-              f"{', '.join(str(v) for v in invalid_vals[:5])}"
-              f"{'...' if len(invalid_vals) > 5 else ''}", file=sys.stderr)
-        df = df[valid_mask]
 
     # Keep first N SRA entries per BioProject
     subset = df.groupby(Bioproject, sort=False).head(n)
