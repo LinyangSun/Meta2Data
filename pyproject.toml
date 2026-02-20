@@ -18,7 +18,7 @@ dependencies = [
     "pandas",
     "openpyxl",
     "requests",
-    "numpy",
+    "numpy==1.26.4",
     "biom-format",
 ]
 
