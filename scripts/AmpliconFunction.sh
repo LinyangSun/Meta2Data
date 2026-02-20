@@ -563,7 +563,7 @@ Common_SRADownloadToFastq_MultiSource() {
 
 Amplicon_Common_MakeManifestFileForQiime2() {
     cd "${dataset_path%/}" || { echo "ERROR: Cannot access dataset path: $dataset_path"; exit 1; }
-    local temp_file_path="${dataset_path%/}/temp/temp_file"
+    local temp_file_path="${dataset_path%/}/tmp/temp_file"
     mkdir -p "$temp_file_path"
     local _dp="${dataset_path%/}"
     dataset_name="${_dp##*/}"
@@ -578,7 +578,7 @@ Amplicon_Common_ImportFastqToQiime2() {
     set -u
     cd "$dataset_path" || { echo "❌ Cannot access dataset path: $dataset_path"; exit 1; }
 
-    local temp_path="${dataset_path%/}/temp/"
+    local temp_path="${dataset_path%/}/tmp/"
     local temp_file_path="${temp_path}temp_file/"
     local qza_path="${temp_path}step_03_qza_import/"
     mkdir -p "$temp_file_path" "$qza_path"
@@ -608,22 +608,22 @@ Amplicon_Common_ImportFastqToQiime2() {
 }
 Amplicon_Common_FinalFilesCleaning() {
     dataset_path="${dataset_path%/}/"
-    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    local denoising_path="${dataset_path%/}/temp/step_05_denoise/"
-    local qf_vis_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/"
-    local qf_view_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_view/"
-    local qf_trim_pos_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
-    local qc_vis="${dataset_path%/}/temp/temp_file/qc_vis/"
-    local denoising_vis="${dataset_path%/}/temp/temp_file/denoising_vis/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    local denoising_path="${dataset_path%/}/tmp/step_05_denoise/"
+    local qf_vis_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/"
+    local qf_view_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_view/"
+    local qf_trim_pos_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_trim_pos/"
+    local qc_vis="${dataset_path%/}/tmp/temp_file/qc_vis/"
+    local denoising_vis="${dataset_path%/}/tmp/temp_file/denoising_vis/"
     
     cd "$dataset_path" || { echo "Error: dataset_path not found"; return 1; }
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
-    quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    denoising_path="${dataset_path%/}/temp/step_05_denoise/"
-    qf_trim_pos_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
-    qc_vis="${dataset_path%/}/temp/temp_file/qc_vis/"
-    denoising_vis="${dataset_path%/}/temp/temp_file/denoising_vis/"
+    quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    denoising_path="${dataset_path%/}/tmp/step_05_denoise/"
+    qf_trim_pos_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_trim_pos/"
+    qc_vis="${dataset_path%/}/tmp/temp_file/qc_vis/"
+    denoising_vis="${dataset_path%/}/tmp/temp_file/denoising_vis/"
     mkdir -p "$qc_vis" "$denoising_vis"
     
     # Check for denoising output
@@ -652,15 +652,15 @@ Amplicon_Common_FinalFilesCleaning() {
         
         # Remove temporary directories but keep dataset_path itself
         find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
-        
+
         # Remove unwanted logs
         rm -f "${dataset_path%/}/"{denoising.log,fastp.html,fastp.json}
 
         rm -rf "${dataset_path%/}/ori_fastq" 2>/dev/null || true
         rm -rf "${dataset_path%/}/working_fastq" 2>/dev/null || true
-        
+
         return 0
-        
+
     # Check for vsearch output (454 pipeline)
     elif [ -f "${dataset_path%/}/${dataset_name}-table-vsearch.qza" ]; then
         mv "${dataset_path%/}/${dataset_name}-table-vsearch.qza" "${dataset_path%/}/${dataset_name}-final-table.qza"
@@ -721,9 +721,9 @@ Common_CountRawReads() {
 Amplicon_Illumina_QualityControlForQZA(){
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
-    local qza_path="${dataset_path%/}/temp/step_03_qza_import/"
-    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    local qf_vis_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/"
+    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    local qf_vis_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/"
     mkdir -p "$quality_filter_path" "$qf_vis_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
@@ -753,11 +753,11 @@ Amplicon_Illumina_DenosingDada2() {
     cd "$dataset_path"
     # Paths
     local base="${dataset_path%/}"
-    local quality_filter_path="${base%/}/temp/step_04_qza_import_QualityFilter/"
-    local denoising_path="${base%/}/temp/step_05_denoise/"
-    local qf_vis_path="${base%/}/temp/temp_file/QualityFilter_vis/"
-    local qf_view_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_view/"
-    local qf_trim_pos_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
+    local quality_filter_path="${base%/}/tmp/step_04_qza_import_QualityFilter/"
+    local denoising_path="${base%/}/tmp/step_05_denoise/"
+    local qf_vis_path="${base%/}/tmp/temp_file/QualityFilter_vis/"
+    local qf_view_path="${base%/}/tmp/temp_file/QualityFilter_vis/qf_view/"
+    local qf_trim_pos_path="${base%/}/tmp/temp_file/QualityFilter_vis/qf_trim_pos/"
     mkdir -p "$denoising_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
     local dataset_name="${base##*/}"
 
@@ -880,8 +880,8 @@ Amplicon_Illumina_DenosingDada2() {
 Amplicon_LS454_QualityControlForQZA() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
-    local qza_path="${dataset_path%/}/temp/step_03_qza_import/"
-    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
+    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
     mkdir -p "$quality_filter_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
@@ -908,8 +908,8 @@ Amplicon_LS454_Deduplication() {
     cd "$dataset_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
-    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    local dedupicate_path="${dataset_path%/}/temp/step_05_dedupicate/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    local dedupicate_path="${dataset_path%/}/tmp/step_05_dedupicate/"
     mkdir -p "$dedupicate_path"
 
     # Dereplicate: collapse identical sequences
@@ -928,8 +928,8 @@ Amplicon_LS454_ChimerasRemoval() {
     cd "$dataset_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
-    local dedupicate_path="${dataset_path%/}/temp/step_05_dedupicate/"
-    local chimeras_path="${dataset_path%/}/temp/step_06_ChimerasRemoval/"
+    local dedupicate_path="${dataset_path%/}/tmp/step_05_dedupicate/"
+    local chimeras_path="${dataset_path%/}/tmp/step_06_ChimerasRemoval/"
     mkdir -p "$chimeras_path"
 
     # De novo chimera detection (using dereplicated sequences directly,
@@ -959,8 +959,8 @@ Amplicon_LS454_ClusterDenovo() {
     cd "$dataset_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
-    local chimeras_path="${dataset_path%/}/temp/step_06_ChimerasRemoval/"
-    local cluster_path="${dataset_path%/}/temp/step_07_cluster/"
+    local chimeras_path="${dataset_path%/}/tmp/step_06_ChimerasRemoval/"
+    local cluster_path="${dataset_path%/}/tmp/step_07_cluster/"
     mkdir -p "$cluster_path"
 
     # OTU clustering at 97% identity
@@ -977,7 +977,7 @@ Amplicon_LS454_FilterLowFreqOTUs() {
     cd "$dataset_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
-    local cluster_path="${dataset_path%/}/temp/step_07_cluster/"
+    local cluster_path="${dataset_path%/}/tmp/step_07_cluster/"
 
     # Remove singleton OTUs (total frequency < 2) AFTER clustering.
     # At the OTU level, singletons are truly rare/spurious sequences rather
@@ -1004,8 +1004,8 @@ Amplicon_LS454_FilterLowFreqOTUs() {
 Amplicon_IonTorrent_QualityControlForQZA() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
-    local qza_path="${dataset_path%/}/temp/step_03_qza_import/"
-    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
+    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
     mkdir -p "$quality_filter_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
@@ -1033,9 +1033,9 @@ Amplicon_IonTorrent_QualityControlForQZA() {
 Amplicon_Pacbio_QualityControlForQZA() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
-    local qza_path="${dataset_path%/}/temp/step_03_qza_import/"
-    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    local qf_vis_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/"
+    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    local qf_vis_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/"
     mkdir -p "$quality_filter_path" "$qf_vis_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
@@ -1050,8 +1050,8 @@ Amplicon_Pacbio_DenosingDada2() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
     local base="${dataset_path%/}"
-    local quality_filter_path="${base}/temp/step_04_qza_import_QualityFilter/"
-    local denoising_path="${base}/temp/step_05_denoise/"
+    local quality_filter_path="${base}/tmp/step_04_qza_import_QualityFilter/"
+    local denoising_path="${base}/tmp/step_05_denoise/"
     mkdir -p "$denoising_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
@@ -1094,7 +1094,7 @@ Amplicon_Pacbio_ExtractReads() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
     local base="${dataset_path%/}"
-    local denoising_path="${base}/temp/step_05_denoise"
+    local denoising_path="${base}/tmp/step_05_denoise"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
 

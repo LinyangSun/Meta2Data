@@ -17,11 +17,11 @@ Amplicon_Illumina_DenosingDeblur() {
     cd "$dataset_path"
     # Paths
     local base="${dataset_path%/}"
-    local quality_filter_path="${base%/}/temp/step_04_qza_import_QualityFilter/"
-    local deblur_path="${base%/}/temp/step_05_denoise/deblur/"
-    local qf_vis_path="${base%/}/temp/temp_file/QualityFilter_vis/"
-    local qf_view_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_view/"
-    local qf_trim_pos_path="${base%/}/temp/temp_file/QualityFilter_vis/qf_trim_pos/"
+    local quality_filter_path="${base%/}/tmp/step_04_qza_import_QualityFilter/"
+    local deblur_path="${base%/}/tmp/step_05_denoise/deblur/"
+    local qf_vis_path="${base%/}/tmp/temp_file/QualityFilter_vis/"
+    local qf_view_path="${base%/}/tmp/temp_file/QualityFilter_vis/qf_view/"
+    local qf_trim_pos_path="${base%/}/tmp/temp_file/QualityFilter_vis/qf_trim_pos/"
     mkdir -p "$deblur_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
     local dataset_name="${base##*/}"
     # Decide if we need to compute positions

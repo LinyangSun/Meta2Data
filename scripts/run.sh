@@ -213,7 +213,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp ──
-            adapter_removed_path="${dataset_path}/temp/step_01_adapter_removed"
+            adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
 
             if [[ "$sequence_type" == "paired" ]]; then
@@ -272,7 +272,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             fi
 
             # ── Step B: Entropy-based primer detection & trimming ──
-            fastp_path="${dataset_path}/temp/step_02_fastp"
+            fastp_path="${dataset_path}/tmp/step_02_fastp"
             mkdir -p "$fastp_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
@@ -310,7 +310,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
-            adapter_removed_path="${dataset_path}/temp/step_01_adapter_removed"
+            adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
 
             for fq in "${ori_fastq_path}/"*.fastq*; do
@@ -325,7 +325,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             done
 
             # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
-            fastp_path="${dataset_path}/temp/step_02_fastp"
+            fastp_path="${dataset_path}/tmp/step_02_fastp"
             mkdir -p "$fastp_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
@@ -341,7 +341,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             # ── Step D: Adaptive tail trimming (data-driven N removal) ──
             # Analyses per-position N frequency at 3' end, trims elevated-N
             # tail, then computes P95 of remaining N counts for QC threshold.
-            adaptive_trim_path="${dataset_path}/temp/step_02b_adaptive_trim"
+            adaptive_trim_path="${dataset_path}/tmp/step_02b_adaptive_trim"
             mkdir -p "$adaptive_trim_path"
 
             echo ">>> Adaptive tail trimming..."
@@ -387,7 +387,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp (SE mode) ──
-            adapter_removed_path="${dataset_path}/temp/step_01_adapter_removed"
+            adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
 
             for fq in "${ori_fastq_path}/"*.fastq*; do
@@ -402,7 +402,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             done
 
             # ── Step C: Entropy-based primer detection & trimming (same as Illumina) ──
-            fastp_path="${dataset_path}/temp/step_02_fastp"
+            fastp_path="${dataset_path}/tmp/step_02_fastp"
             mkdir -p "$fastp_path"
 
             python3 "${SCRIPTS}/entropy_primer_detect.py" \
@@ -448,7 +448,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             export sequence_type
 
             # ── Step B: Remove sequencing adapters with fastp ──
-            adapter_removed_path="${dataset_path}/temp/step_01_adapter_removed"
+            adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
 
             for fq in "${ori_fastq_path}/"*.fastq*; do

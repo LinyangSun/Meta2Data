@@ -2,9 +2,9 @@
 Amplicon_Illumina_QualityControlForQZA(){
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
-    local qza_path="${dataset_path%/}/temp/step_03_qza_import/"
-    local quality_filter_path="${dataset_path%/}/temp/step_04_qza_import_QualityFilter/"
-    local qf_vis_path="${dataset_path%/}/temp/temp_file/QualityFilter_vis/"
+    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    local qf_vis_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/"
     mkdir -p "$quality_filter_path" "$qf_vis_path"
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"

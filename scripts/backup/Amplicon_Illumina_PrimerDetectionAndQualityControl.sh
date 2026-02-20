@@ -4,8 +4,8 @@ Amplicon_Illumina_PrimerDetectionAndQualityControl() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
     local fastq_path="${dataset_path%/}/ori_fastq/"
-    local fastp_path="${dataset_path%/}/temp/step_02_fastp/"
-    local temp_file_path="${dataset_path%/}/temp/temp_file/"
+    local fastp_path="${dataset_path%/}/tmp/step_02_fastp/"
+    local temp_file_path="${dataset_path%/}/tmp/temp_file/"
     mkdir -p "$temp_file_path" "$fastp_path"
 
     echo "start fastq2fastp"

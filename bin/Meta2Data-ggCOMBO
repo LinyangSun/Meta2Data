@@ -308,14 +308,11 @@ echo "========================================="
 echo ""
 
 if ! bash "${SCRIPTS}/taxonomy.sh"; then
-    rm -rf "$PIPELINE_TMPDIR" 2>/dev/null || true
     echo "ERROR: Taxonomy pipeline failed"
     echo "Check logs in: $OUTPUT"
+    echo "QIIME2 tmpdir preserved for debugging: $PIPELINE_TMPDIR"
     exit 1
 fi
-
-# Clean up temporary directory
-rm -rf "$PIPELINE_TMPDIR" 2>/dev/null || true
 
 echo ""
 echo "Taxonomy pipeline completed successfully"
