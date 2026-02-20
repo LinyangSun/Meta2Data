@@ -49,7 +49,9 @@ Optional options:
                               Default: current directory in --test mode
                                        metadata file directory in normal mode
     -t, --threads int         Number of CPU threads (default: 4)
-    --test                    Use test metadata file (test/ampliconpiptest.csv)
+    --test                    Run in test mode.
+                              If -m is provided: subset metadata (2 SRA per BioProject)
+                              If -m is omitted:  use built-in test file
                               Output defaults to current directory in test mode
     -h, --help                Show this help message
 
@@ -64,8 +66,11 @@ Example CSV:
     PRJNA12345,SRR123457
 
 Example usage:
-    # Test mode
+    # Test mode (built-in test data)
     Meta2Data AmpliconPIP --test -t 8
+
+    # Test mode (with user metadata: 2 SRA per BioProject)
+    Meta2Data AmpliconPIP --test -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
 
     # Basic usage
     Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
@@ -151,41 +156,87 @@ OUTPUT="${OUTPUT%/}"
 
 # Handle test mode - set defaults for test mode
 if [[ "$TEST_MODE" == true ]]; then
-    # Search for test file in multiple possible locations
-    TEST_FILE="ampliconpiptest.csv"
-    METADATA=""
+    if [[ -n "$METADATA" ]]; then
+        # --test with user-provided metadata file:
+        # Subset to first 2 SRA entries per BioProject
+        echo "Test mode enabled with user metadata: $METADATA"
 
-    # Search paths (in order of preference)
-    SEARCH_PATHS=(
-        "${SCRIPT_DIR}/test/${TEST_FILE}"                    # Development/git repo
-        "/usr/local/share/Meta2Data/test/${TEST_FILE}"       # System install
-        "${HOME}/.local/share/Meta2Data/test/${TEST_FILE}"   # User install
-        "${CONDA_PREFIX}/share/Meta2Data/test/${TEST_FILE}"  # Conda install
-        "${PREFIX}/share/Meta2Data/test/${TEST_FILE}"        # Alternative prefix
-    )
-
-    for path in "${SEARCH_PATHS[@]}"; do
-        if [[ -f "$path" ]]; then
-            METADATA="$path"
-            break
+        # Require column names when user provides their own metadata
+        if [[ -z "$COL_BIOPROJECT" ]]; then
+            echo "Error: --col-bioproject is required when using --test with -m"
+            show_help
+            exit 1
         fi
-    done
+        if [[ -z "$COL_SRA" ]]; then
+            echo "Error: --col-sra is required when using --test with -m"
+            show_help
+            exit 1
+        fi
 
-    if [[ -z "$METADATA" ]]; then
-        echo "Error: Test metadata file not found in any of these locations:"
+        # Check that the metadata file exists before subsetting
+        if [[ ! -f "$METADATA" ]]; then
+            echo "Error: Metadata file '$METADATA' not found"
+            exit 1
+        fi
+
+        # Determine output dir for the subset file
+        if [[ -n "$OUTPUT" ]]; then
+            mkdir -p "$OUTPUT"
+            SUBSET_DIR="$OUTPUT"
+        else
+            SUBSET_DIR=$(pwd)
+        fi
+
+        # Create subset: 2 SRA entries per BioProject
+        SUBSET_META=$(python3 "${SCRIPTS}/py_16s.py" subset_meta_for_test \
+            --FilePath "$METADATA" \
+            --Bioproject "$COL_BIOPROJECT" \
+            --SRA_Number "$COL_SRA" \
+            --OutputDir "$SUBSET_DIR" | tail -1)
+
+        if [[ ! -f "$SUBSET_META" ]]; then
+            echo "Error: Failed to create test subset metadata file"
+            exit 1
+        fi
+
+        METADATA="$SUBSET_META"
+        echo "Test mode: Using subset metadata $METADATA"
+    else
+        # --test without -m: use built-in test file
+        TEST_FILE="ampliconpiptest.csv"
+
+        # Search paths (in order of preference)
+        SEARCH_PATHS=(
+            "${SCRIPT_DIR}/test/${TEST_FILE}"                    # Development/git repo
+            "/usr/local/share/Meta2Data/test/${TEST_FILE}"       # System install
+            "${HOME}/.local/share/Meta2Data/test/${TEST_FILE}"   # User install
+            "${CONDA_PREFIX}/share/Meta2Data/test/${TEST_FILE}"  # Conda install
+            "${PREFIX}/share/Meta2Data/test/${TEST_FILE}"        # Alternative prefix
+        )
+
         for path in "${SEARCH_PATHS[@]}"; do
-            echo "  - $path"
+            if [[ -f "$path" ]]; then
+                METADATA="$path"
+                break
+            fi
         done
-        echo ""
-        echo "Hint: The test file may not be included in pip installations."
-        echo "      Use -m /path/to/your/metadata.csv instead of --test"
-        exit 1
-    fi
 
-    # Set default column names for test mode
-    COL_BIOPROJECT="Bioproject"
-    COL_SRA="Run"
-    echo "Test mode enabled: Using $METADATA"
+        if [[ -z "$METADATA" ]]; then
+            echo "Error: Test metadata file not found in any of these locations:"
+            for path in "${SEARCH_PATHS[@]}"; do
+                echo "  - $path"
+            done
+            echo ""
+            echo "Hint: The test file may not be included in pip installations."
+            echo "      Use -m /path/to/your/metadata.csv instead of --test"
+            exit 1
+        fi
+
+        # Set default column names for built-in test mode
+        COL_BIOPROJECT="Bioproject"
+        COL_SRA="Run"
+        echo "Test mode enabled: Using $METADATA"
+    fi
 fi
 
 # Validate required parameters

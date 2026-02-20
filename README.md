@@ -182,11 +182,18 @@ Meta2Data AmpliconPIP \
     --col-sra "Run" \
     -t 8
 
-# Test mode with sample data (output to current directory)
+# Test mode with built-in sample data (output to current directory)
 Meta2Data AmpliconPIP --test -t 8
 
-# Test mode with custom output directory
+# Test mode with built-in data and custom output directory
 Meta2Data AmpliconPIP --test -o /path/to/output/ -t 8
+
+# Test mode with user metadata (subsets to 2 SRA per BioProject)
+Meta2Data AmpliconPIP --test \
+    -m metadata.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -t 8
 ```
 
 
@@ -333,7 +340,9 @@ Optional:
                                   Default: current directory in --test mode
                                            metadata file directory in normal mode
     -t, --threads INT             CPU threads (default: 4)
-    --test                        Use test data (test/ampliconpiptest.csv)
+    --test                        Run in test mode
+                                  Without -m: use built-in test data
+                                  With -m: subset metadata (2 SRA per BioProject)
                                   Output defaults to current directory
     -h, --help                    Show help
 ```
