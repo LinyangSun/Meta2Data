@@ -103,6 +103,39 @@ cd "$OUTPUT" || exit 1
 mkdir -p "${OUTPUT}/analysis/"
 
 ################################################################################
+#                     PRE-FLIGHT: QIIME2 SANITY CHECK                          #
+################################################################################
+
+echo "========================================="
+echo "Pre-flight: Checking QIIME2 availability"
+echo "========================================="
+
+# Verify QIIME2 can load its plugin manager (catches numpy incompatibility,
+# missing plugins, and other environment issues before we spend time downloading).
+if ! qiime info > /dev/null 2>&1; then
+    echo ""
+    echo "❌ QIIME2 PRE-FLIGHT FAILED"
+    echo ""
+    # Capture the actual error for diagnostics
+    qiime_err=$(qiime info 2>&1 || true)
+    if echo "$qiime_err" | grep -q "numpy"; then
+        echo "ROOT CAUSE: NumPy version incompatibility."
+        echo "  The installed NumPy $(python3 -c 'import numpy; print(numpy.__version__)' 2>/dev/null || echo '(unknown)') is incompatible"
+        echo "  with compiled extensions (skbio, etc.) that require NumPy 1.x."
+        echo ""
+        echo "FIX: Downgrade NumPy in your conda environment:"
+        echo "  conda install 'numpy<2' or pip install 'numpy<2'"
+    else
+        echo "QIIME2 failed to initialize. Error output:"
+        echo "$qiime_err" | head -20
+    fi
+    echo ""
+    echo "Aborting pipeline — all datasets would fail at the QIIME2 import step."
+    exit 1
+fi
+echo "✓ QIIME2 is functional"
+
+################################################################################
 #                          PHASE 1: DATASET PREPARATION                        #
 ################################################################################
 
@@ -163,6 +196,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - ALREADY_DONE" >> "$skipped_log"
         continue
     fi
+
+    # Capture stderr from the subshell so we can log meaningful error messages
+    dataset_errlog="${dataset_path}/${dataset_ID}_pipeline.err"
 
     set +e
     (
@@ -554,12 +590,30 @@ with open('${DOCS_DIR}/1492R.fas') as f:
 
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SUCCESS - Platform: $platform" >> "$success_log"
 
-    )
+    ) 2> >(tee "$dataset_errlog" >&2)
     rc=$?
     set -e
     if [[ $rc -ne 0 ]]; then
+        # Extract a meaningful error reason from the captured stderr
+        err_reason=""
+        if [[ -f "$dataset_errlog" ]]; then
+            if grep -q "numpy" "$dataset_errlog" 2>/dev/null; then
+                err_reason="NumPy version incompatibility (QIIME2 environment broken)"
+            elif grep -q "Download failed\|All download sources failed" "$dataset_errlog" 2>/dev/null; then
+                err_reason="Data download failed"
+            elif grep -q "No FASTQ files" "$dataset_errlog" 2>/dev/null; then
+                err_reason="No FASTQ files produced"
+            else
+                # Use last non-empty stderr line as reason
+                err_reason=$(grep -v '^$' "$dataset_errlog" 2>/dev/null | tail -1 | head -c 200)
+            fi
+        fi
         echo "❌ Pipeline failed for $dataset_ID — skipping to next dataset"
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED" >> "$failed_log"
+        [[ -n "$err_reason" ]] && echo "   Reason: $err_reason"
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED - ${err_reason:-unknown}" >> "$failed_log"
+    else
+        # Clean up error log on success
+        rm -f "$dataset_errlog"
     fi
 done
 
