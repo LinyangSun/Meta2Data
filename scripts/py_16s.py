@@ -714,6 +714,166 @@ def adaptive_tail_trim(input_dir, output_dir, max_sample_reads=10000):
     return {"trim_length": trim_length, "max_ambiguous": max_ambiguous}
 
 
+def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
+    """
+    Check quality score diversity in FASTQ files to determine if DADA2 is viable.
+
+    DADA2 requires diverse quality scores to learn its error model. Binned or
+    dummy quality scores (e.g., from NCBI fasterq-dump) have too few distinct
+    values, causing DADA2 to fail or produce unreliable results.
+
+    Checks up to n_samples FASTQ files, reading n_reads from each. Counts the
+    number of unique Phred quality ASCII characters across all sampled reads.
+
+    Threshold: >= 10 unique quality values → "normal" (DADA2 viable)
+               <  10 unique quality values → "degraded" (use VSEARCH instead)
+
+    Args:
+        fastq_dir: Directory containing FASTQ files
+        n_samples: Number of files to sample (default: 3)
+        n_reads: Number of reads per file to sample (default: 1000)
+
+    Prints machine-readable lines to stdout:
+        QUALITY_STATUS=normal|degraded
+        UNIQUE_QUALS=<int>
+    """
+    fq_files = sorted(glob.glob(os.path.join(fastq_dir, '*.fastq*')))
+    if not fq_files:
+        print("WARNING: No FASTQ files found, assuming degraded", file=sys.stderr)
+        print("QUALITY_STATUS=degraded")
+        print("UNIQUE_QUALS=0")
+        return "degraded"
+
+    sample_files = fq_files[:n_samples]
+    all_qual_chars = set()
+
+    for fq in sample_files:
+        open_fn = gzip.open if fq.endswith('.gz') else open
+        count = 0
+        with open_fn(fq, 'rt') as fh:
+            while count < n_reads:
+                header = fh.readline()
+                if not header:
+                    break
+                fh.readline()          # sequence
+                fh.readline()          # +
+                qual = fh.readline().strip()
+                count += 1
+                all_qual_chars.update(qual)
+
+    n_unique = len(all_qual_chars)
+    threshold = 10
+    status = "normal" if n_unique >= threshold else "degraded"
+
+    print(f"  Quality diversity: {n_unique} unique Q values from "
+          f"{len(sample_files)} files x {n_reads} reads", file=sys.stderr)
+    print(f"  Unique Q chars: {sorted(all_qual_chars)}", file=sys.stderr)
+    print(f"  Status: {status} (threshold >= {threshold})", file=sys.stderr)
+
+    print(f"QUALITY_STATUS={status}")
+    print(f"UNIQUE_QUALS={n_unique}")
+    return status
+
+
+def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, trim_tail=30,
+                                max_n=1, sequence_type="single"):
+    """
+    Preprocess FASTQ files for the degraded quality score pipeline.
+
+    When quality scores are binned/unreliable (DADA2 cannot learn error model),
+    this function applies simple deterministic preprocessing:
+      1. Trim first trim_front bp and last trim_tail bp from each read
+      2. Discard reads with N count > max_n
+      3. For PE data: use only forward (R1) reads to avoid merge Q value issues
+
+    Args:
+        input_dir: Directory with FASTQ files (after adapter removal + primer trimming)
+        output_dir: Output directory for preprocessed files
+        trim_front: Bases to trim from 5' end (default: 15)
+        trim_tail: Bases to trim from 3' end (default: 30)
+        max_n: Maximum N bases allowed per read; reads exceeding this are discarded (default: 1)
+        sequence_type: "paired" or "single"
+
+    Prints machine-readable lines to stdout:
+        TOTAL_IN=<int>
+        TOTAL_OUT=<int>
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    fq_files = sorted(glob.glob(os.path.join(input_dir, '*.fastq*')))
+    if not fq_files:
+        raise FileNotFoundError(f"No FASTQ files found in {input_dir}")
+
+    # For PE: only process R1 files (forward reads only)
+    if sequence_type == "paired":
+        r1_files = [f for f in fq_files if '_1.fastq' in f or '_R1' in f]
+        if not r1_files:
+            print("  WARNING: No R1 files found for PE, using all files", file=sys.stderr)
+            r1_files = fq_files
+        process_files = r1_files
+        print(f"  PE mode: using forward reads only ({len(r1_files)} R1 files)", file=sys.stderr)
+    else:
+        process_files = fq_files
+        print(f"  SE mode: processing {len(process_files)} files", file=sys.stderr)
+
+    total_in = 0
+    total_out = 0
+    total_short = 0
+    total_n_filtered = 0
+
+    for fq in process_files:
+        open_fn = gzip.open if fq.endswith('.gz') else open
+        out_name = os.path.basename(fq)
+        # For PE R1 files, rename to remove _1 suffix (now treated as SE)
+        if sequence_type == "paired":
+            out_name = out_name.replace('_1.fastq', '.fastq').replace('_R1', '')
+        if not out_name.endswith('.gz'):
+            out_name += '.gz'
+        out_path = os.path.join(output_dir, out_name)
+
+        file_in = 0
+        file_out = 0
+
+        with open_fn(fq, 'rt') as fin, gzip.open(out_path, 'wt') as fout:
+            while True:
+                header = fin.readline()
+                if not header:
+                    break
+                seq = fin.readline().rstrip('\n')
+                plus = fin.readline()
+                qual = fin.readline().rstrip('\n')
+                file_in += 1
+
+                # Trim front and tail
+                if len(seq) <= trim_front + trim_tail:
+                    total_short += 1
+                    continue
+                seq_trimmed = seq[trim_front:-trim_tail] if trim_tail > 0 else seq[trim_front:]
+                qual_trimmed = qual[trim_front:-trim_tail] if trim_tail > 0 else qual[trim_front:]
+
+                # N filter
+                n_count = seq_trimmed.upper().count('N')
+                if n_count > max_n:
+                    total_n_filtered += 1
+                    continue
+
+                fout.write(header)
+                fout.write(seq_trimmed + '\n')
+                fout.write(plus)
+                fout.write(qual_trimmed + '\n')
+                file_out += 1
+
+        total_in += file_in
+        total_out += file_out
+        print(f"  {os.path.basename(fq)}: {file_in} -> {file_out} reads", file=sys.stderr)
+
+    print(f"\n  Summary: {total_in} reads in, {total_out} out", file=sys.stderr)
+    print(f"  Filtered: {total_short} too short, {total_n_filtered} N>{max_n}", file=sys.stderr)
+
+    print(f"TOTAL_IN={total_in}")
+    print(f"TOTAL_OUT={total_out}")
+
+
 def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_csv):
     """
     Append per-sample summary (raw reads + final reads) to a unified CSV.
@@ -809,6 +969,8 @@ if __name__ == "__main__":
             "trim_pos_deblur",
             "get_sequencing_platform",
             "adaptive_tail_trim",
+            "check_quality_diversity",
+            "degraded_quality_preprocess",
             "append_summary"
         ],
         help="The function to execute."
@@ -830,6 +992,18 @@ if __name__ == "__main__":
     parser.add_argument("--raw_counts", help="Path to raw read counts TSV")
     parser.add_argument("--final_table", help="Path to final-table.qza")
     parser.add_argument("--output_csv", help="Path to output summary CSV")
+    parser.add_argument("--n_samples", type=int, default=3,
+                        help="Number of files to sample for quality check (default: 3)")
+    parser.add_argument("--n_reads", type=int, default=1000,
+                        help="Number of reads per file to sample (default: 1000)")
+    parser.add_argument("--trim_front", type=int, default=15,
+                        help="Bases to trim from 5' end (default: 15)")
+    parser.add_argument("--trim_tail", type=int, default=30,
+                        help="Bases to trim from 3' end (default: 30)")
+    parser.add_argument("--max_n", type=int, default=1,
+                        help="Max N bases allowed per read (default: 1)")
+    parser.add_argument("--sequence_type", default="single",
+                        help="Sequence type: 'paired' or 'single' (default: single)")
 
     args = parser.parse_args()
     
@@ -862,6 +1036,14 @@ if __name__ == "__main__":
 
     elif args.function == "adaptive_tail_trim":
         adaptive_tail_trim(args.input_dir, args.output_dir, args.max_sample_reads)
+
+    elif args.function == "check_quality_diversity":
+        check_quality_diversity(args.input_dir, args.n_samples, args.n_reads)
+
+    elif args.function == "degraded_quality_preprocess":
+        degraded_quality_preprocess(args.input_dir, args.output_dir,
+                                    args.trim_front, args.trim_tail,
+                                    args.max_n, args.sequence_type)
 
     elif args.function == "append_summary":
         append_summary(args.dataset_id, args.sra_file, args.raw_counts, args.final_table, args.output_csv)

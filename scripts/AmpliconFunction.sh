@@ -102,11 +102,20 @@ Download_From_ENA() {
 
     echo "  [ENA] Base URL: $ena_dir"
 
-    # Try PE first (_1/_2), then SE (.fastq.gz), then PacBio subreads
+    # Try PE first (_1/_2), then SE (.fastq.gz), then PacBio subreads.
+    # Once PE pair is found, skip remaining file types.
+    # HTTP 404 means the file doesn't exist — skip immediately without retry.
     local -a try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz" "${srr}.fastq.gz" "${srr}_subreads.fastq.gz")
     local downloaded_any=false
+    local got_r1=false
+    local got_r2=false
 
     for fname in "${try_files[@]}"; do
+        # If we already have both PE files, skip SE and subreads
+        if [[ "$got_r1" == true && "$got_r2" == true ]]; then
+            break
+        fi
+
         local url="${ena_dir}/${fname}"
         local out_file="${target_dir}/${fname}"
         local success=false
@@ -131,6 +140,12 @@ Download_From_ENA() {
                 local http_code
                 http_code=$(echo "$wget_err" | grep -oP 'HTTP request sent.*\K[0-9]{3}' | tail -1)
                 if [[ -n "$http_code" ]]; then
+                    # 404 = file doesn't exist on ENA, no point retrying
+                    if [[ "$http_code" == "404" ]]; then
+                        echo "  [ENA] ✗ $fname: not found (HTTP 404)"
+                        rm -f "$out_file"
+                        break
+                    fi
                     echo "  [ENA] ✗ $fname: HTTP $http_code (attempt $attempt/$max_retries)"
                 else
                     local wget_reason
@@ -153,17 +168,15 @@ Download_From_ENA() {
             mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
             echo "  [ENA] → Renamed to: ${rename_prefix}${base_filename}"
             downloaded_any=true
+            # Track PE pair status
+            [[ "$fname" == "${srr}_1.fastq.gz" ]] && got_r1=true
+            [[ "$fname" == "${srr}_2.fastq.gz" ]] && got_r2=true
         else
             rm -f "$out_file" 2>/dev/null
         fi
     done
 
     if [[ "$downloaded_any" == true ]]; then
-        # If we got both _1 and _2, remove any SE files that also downloaded
-        if [[ -f "${target_dir}/${rename_prefix}_1.fastq.gz" ]] && \
-           [[ -f "${target_dir}/${rename_prefix}_2.fastq.gz" ]]; then
-            rm -f "${target_dir}/${rename_prefix}.fastq.gz" 2>/dev/null
-        fi
         return 0
     fi
 
@@ -843,6 +856,35 @@ Amplicon_IonTorrent_QualityControlForQZA() {
         --p-min-quality 0 \
         --p-min-length-fraction 0.85 \
         --p-max-ambiguous 0 \
+        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
+        --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
+        --verbose
+}
+
+################################################################################
+#                    DEGRADED QUALITY SCORE FUNCTIONS                          #
+################################################################################
+# Functions for data with binned/unreliable quality scores.
+# When DADA2 cannot learn an error model (too few unique Q values),
+# this VSEARCH-based pipeline is used instead.
+# Reuses LS454 dereplicate/chimera/cluster functions downstream.
+
+Amplicon_DegradedQ_QualityControlForQZA() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    mkdir -p "$quality_filter_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+
+    # Quality scores are unreliable (binned/dummy), so skip q-score filtering.
+    # N bases already filtered upstream (max_n=1). Apply length filter only.
+    qiime quality-filter q-score \
+        --i-demux "${qza_path%/}/${dataset_name}.qza" \
+        --p-min-quality 0 \
+        --p-min-length-fraction 0.85 \
+        --p-max-ambiguous 1 \
         --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
         --verbose

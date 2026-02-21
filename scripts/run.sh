@@ -212,6 +212,13 @@ for i in "${!Dataset_ID_sets[@]}"; do
             echo "Sequence type: ${sequence_type^^}"
             export sequence_type
 
+            # ── Quality Score Diversity Check (first 3 samples) ──
+            echo ">>> Checking quality score diversity..."
+            quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
+                --input_dir "$ori_fastq_path" --n_samples 3 --n_reads 1000)
+            quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
+            echo "Quality status: $quality_status"
+
             # ── Step B: Remove sequencing adapters with fastp ──
             adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
             mkdir -p "$adapter_removed_path"
@@ -286,14 +293,47 @@ for i in "${!Dataset_ID_sets[@]}"; do
             rm -rf "$ori_fastq_path"
             rm -rf "$adapter_removed_path"
 
-            # Run Illumina pipeline (dada2 denoise-paired for PE, denoise-single for SE)
-            fastq_path="$fastp_path"
-            export fastq_path
-            Amplicon_Common_MakeManifestFileForQiime2
-            Amplicon_Common_ImportFastqToQiime2
-            Amplicon_Illumina_QualityControlForQZA
-            Amplicon_Illumina_DenosingDada2
-            Amplicon_Common_FinalFilesCleaning
+            if [[ "$quality_status" == "degraded" ]]; then
+                # ── Degraded Quality Branch: VSEARCH pipeline ──
+                # Quality scores are binned/unreliable → DADA2 cannot learn error model
+                echo ">>> DEGRADED quality scores. Using VSEARCH pipeline..."
+
+                # Fixed trim (15bp front, 30bp tail) + N filter (>1 → discard)
+                # PE → forward reads only (avoid merge Q value issues)
+                degraded_path="${dataset_path}/tmp/step_02c_degraded_preprocess"
+                mkdir -p "$degraded_path"
+                python3 "${SCRIPTS}/py_16s.py" degraded_quality_preprocess \
+                    --input_dir "$fastp_path" \
+                    --output_dir "$degraded_path" \
+                    --trim_front 15 --trim_tail 30 \
+                    --max_n 1 \
+                    --sequence_type "$sequence_type"
+
+                rm -rf "$fastp_path"
+
+                # Force SE mode (PE already extracted forward reads only)
+                sequence_type="single"
+                fastq_path="$degraded_path"
+                export fastq_path sequence_type
+
+                Amplicon_Common_MakeManifestFileForQiime2
+                Amplicon_Common_ImportFastqToQiime2
+                Amplicon_DegradedQ_QualityControlForQZA
+                Amplicon_LS454_Deduplication
+                Amplicon_LS454_ChimerasRemoval
+                Amplicon_LS454_ClusterDenovo
+                Amplicon_LS454_FilterLowFreqOTUs
+                Amplicon_Common_FinalFilesCleaning
+            else
+                # ── Normal Branch: DADA2 pipeline ──
+                fastq_path="$fastp_path"
+                export fastq_path
+                Amplicon_Common_MakeManifestFileForQiime2
+                Amplicon_Common_ImportFastqToQiime2
+                Amplicon_Illumina_QualityControlForQZA
+                Amplicon_Illumina_DenosingDada2
+                Amplicon_Common_FinalFilesCleaning
+            fi
 
         elif [[ "$platform" == "LS454" ]]; then
             # ── Step A: Download with normal prefetch + fasterq-dump (same as Illumina) ──
