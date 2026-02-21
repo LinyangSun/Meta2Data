@@ -171,118 +171,6 @@ Download_From_ENA() {
     return 1
 }
 
-Download_From_NCBI() {
-    # Download FASTQ file(s) directly from NCBI SRA trace API using wget.
-    # This replaces prefetch+fasterq-dump which can fail due to TLS/certificate
-    # issues (mbedtls) on some HPC environments where wget (OpenSSL) works fine.
-    #
-    # The trace API returns gzip-compressed FASTQ. For paired-end data the reads
-    # are interleaved, so we deinterleave into _1/_2 files.
-    #
-    # Args:
-    #   $1 = SRR/ERR/DRR accession
-    #   $2 = target directory for FASTQ files
-    #   $3 = rename prefix for output files
-    #
-    # Returns: 0 on success, 1 on failure
-    local srr="$1"
-    local target_dir="$2"
-    local rename_prefix="$3"
-    local max_retries=5
-    local dl_url="https://trace.ncbi.nlm.nih.gov/Traces/sra-reads-be/fastq?acc=${srr}"
-    # Use a non-fastq extension so orphan cleanup won't match this temp file
-    local dl_file="${target_dir}/.ncbi_download_${srr}.tmp"
-
-    echo "  [NCBI] Attempting NCBI trace API download for $srr..."
-
-    # Download with retry and exponential backoff
-    local success=false
-    for ((attempt=1; attempt<=max_retries; attempt++)); do
-        local wget_err=""
-        if wget_err=$(wget --timeout=120 --tries=1 -q "$dl_url" -O "$dl_file" 2>&1); then
-            # Verify the file is valid gzip and has content
-            local dl_size
-            dl_size=$(stat -c%s "$dl_file" 2>/dev/null || stat -f%z "$dl_file" 2>/dev/null || echo "0")
-            if [[ "$dl_size" -gt 0 ]] && gzip -t "$dl_file" 2>/dev/null; then
-                echo "  [NCBI] ✓ Downloaded $srr (${dl_size} bytes)"
-                success=true
-                break
-            else
-                echo "  [NCBI] ✗ Corrupt or empty download (attempt $attempt/$max_retries)"
-                rm -f "$dl_file"
-            fi
-        else
-            local wget_reason
-            wget_reason=$(echo "$wget_err" | tail -1)
-            echo "  [NCBI] ✗ Download failed: $wget_reason (attempt $attempt/$max_retries)"
-            rm -f "$dl_file"
-        fi
-        # Exponential backoff: 5, 10, 20, 40, 60 (capped)
-        local wait=$(( 5 * (1 << (attempt - 1)) ))
-        (( wait > 60 )) && wait=60
-        [[ $attempt -lt $max_retries ]] && sleep "$wait"
-    done
-
-    if [[ "$success" != true ]]; then
-        echo "  [NCBI] ✗ NCBI trace API download failed for $srr after $max_retries attempts" >&2
-        rm -f "$dl_file"
-        return 1
-    fi
-
-    # Detect if paired-end interleaved: compare first two read headers.
-    # If they share the same base name (before /1 /2 or space), it's interleaved PE.
-    local header1 header2
-    header1=$(zcat "$dl_file" | head -1)
-    header2=$(zcat "$dl_file" | head -5 | tail -1)
-
-    # Extract base read name (strip everything from first space or / onward)
-    local base1 base2
-    base1=$(echo "$header1" | sed 's|[/ ].*||')
-    base2=$(echo "$header2" | sed 's|[/ ].*||')
-
-    if [[ "$base1" == "$base2" && -n "$base1" ]]; then
-        # PE interleaved — deinterleave into _1 and _2 files
-        echo "  [NCBI] Detected paired-end interleaved data — deinterleaving..."
-        local r1_out="${target_dir}/${rename_prefix}_1.fastq.gz"
-        local r2_out="${target_dir}/${rename_prefix}_2.fastq.gz"
-
-        # Two-pass deinterleave (reliable under set -e):
-        #   Lines 1-4 of every 8-line block → R1, lines 5-8 → R2
-        zcat "$dl_file" | awk 'NR%8>=1 && NR%8<=4' | gzip > "${r1_out}"
-        zcat "$dl_file" | awk 'NR%8>=5 || NR%8==0' | gzip > "${r2_out}"
-
-        # Verify both output files exist, have content, and equal read counts
-        local r1_size r2_size
-        r1_size=$(stat -c%s "$r1_out" 2>/dev/null || stat -f%z "$r1_out" 2>/dev/null || echo "0")
-        r2_size=$(stat -c%s "$r2_out" 2>/dev/null || stat -f%z "$r2_out" 2>/dev/null || echo "0")
-        if [[ "$r1_size" -le 20 || "$r2_size" -le 20 ]]; then
-            echo "  [NCBI] ✗ Deinterleaving produced empty files" >&2
-            rm -f "$r1_out" "$r2_out" "$dl_file"
-            return 1
-        fi
-
-        # Verify R1 and R2 have equal line counts (= equal read counts)
-        local r1_lines r2_lines
-        r1_lines=$(zcat "$r1_out" | wc -l)
-        r2_lines=$(zcat "$r2_out" | wc -l)
-        if [[ "$r1_lines" -ne "$r2_lines" ]]; then
-            echo "  [NCBI] ✗ PE read count mismatch: R1=${r1_lines} lines, R2=${r2_lines} lines" >&2
-            rm -f "$r1_out" "$r2_out" "$dl_file"
-            return 1
-        fi
-        local read_count=$(( r1_lines / 4 ))
-        echo "  [NCBI] ✓ Deinterleaved: ${rename_prefix}_1.fastq.gz (${r1_size}B), ${rename_prefix}_2.fastq.gz (${r2_size}B) — $read_count read pairs"
-    else
-        # SE data — rename directly
-        echo "  [NCBI] Detected single-end data"
-        mv "$dl_file" "${target_dir}/${rename_prefix}.fastq.gz"
-        echo "  [NCBI] → ${rename_prefix}.fastq.gz"
-    fi
-
-    rm -f "$dl_file"
-    return 0
-}
-
 Download_CRR() {
     local crr=$1
     local target_dir=$2
@@ -403,46 +291,25 @@ Common_SRADownloadToFastq_MultiSource() {
     fi
 
     # Quick connectivity check — fail fast instead of waiting through retries
-    # ENA is preferred (provides original quality scores needed by DADA2),
-    # NCBI trace API is the fallback.
+    # ENA is used exclusively because it provides FASTQ files with original
+    # quality scores (critical for DADA2 error learning). The NCBI trace API
+    # returns simplified/binned quality scores that break DADA2.
     if [[ "$has_ncbi_accessions" == true ]]; then
         echo "  Checking ENA connectivity..."
         if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
-            echo "  ⚠️  ENA unreachable — will rely on NCBI trace API"
-            echo "  Checking NCBI connectivity..."
-            if ! wget -q --spider --timeout=10 "https://trace.ncbi.nlm.nih.gov/" 2>/dev/null; then
-                echo "  ✗ Both ENA and NCBI are unreachable. Check your network connection." >&2
-                return 1
-            fi
-            echo "  ✓ NCBI reachable"
-        else
-            echo "  ✓ ENA reachable"
+            echo "  ✗ ENA is unreachable. Check your network connection." >&2
+            return 1
         fi
+        echo "  ✓ ENA reachable"
     fi
 
     # base_dir already declared above
     local fastq_path="${base_dir}/ori_fastq"
     mkdir -p "$fastq_path"
 
-    # ── Dual Circuit Breakers ──
-    # ENA is the primary download source because it provides FASTQ files with
-    # original quality scores (critical for DADA2 error learning). The NCBI
-    # trace API is the fallback but returns simplified/binned quality scores.
-    # If one source fails consecutively, we skip it and go to the other,
-    # avoiding minutes of futile retries.
-    local ena_consecutive_failures=0
-    local ena_circuit_open=false
-    local ENA_FAILURE_THRESHOLD=3       # trip after 3 consecutive failures
-    local ENA_HALF_OPEN_INTERVAL=15     # re-probe ENA every 15 samples
-    local ena_samples_since_trip=0
-
-    local ncbi_consecutive_failures=0
-    local ncbi_circuit_open=false
-    local NCBI_FAILURE_THRESHOLD=2      # trip after 2 consecutive failures
-    local NCBI_HALF_OPEN_INTERVAL=20    # re-probe NCBI every 20 samples
-    local ncbi_samples_since_trip=0
-
     # Phase 1: Data Acquisition
+    # ENA is used exclusively — it provides FASTQ with original quality scores
+    # and separate R1/R2 files (no deinterleaving needed).
     while IFS=$'\t' read -r srr rename _; do
         [[ -z "$srr" || -z "$rename" ]] && continue
 
@@ -452,105 +319,11 @@ Common_SRADownloadToFastq_MultiSource() {
             Download_CRR "$srr" "$fastq_path" "$rename"
 
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
-            echo "[ENA/NCBI] Processing $srr"
-            local dl_ok=false
-            local skip_ena=false
-            local skip_ncbi=false
+            echo "[ENA] Processing $srr"
 
-            # ── ENA Circuit Breaker: decide whether to try ENA ──
-            if [[ "$ena_circuit_open" == true ]]; then
-                ena_samples_since_trip=$(( ena_samples_since_trip + 1 ))
-                if (( ena_samples_since_trip % ENA_HALF_OPEN_INTERVAL == 0 )); then
-                    echo "  [circuit-breaker] Half-open probe — testing ENA for $srr..."
-                    if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
-                        echo "  [circuit-breaker] ✓ ENA recovered — closing circuit breaker"
-                        dl_ok=true
-                        ena_circuit_open=false
-                        ena_consecutive_failures=0
-                        ena_samples_since_trip=0
-                    else
-                        echo "  [circuit-breaker] ✗ ENA still down — circuit remains open"
-                    fi
-                    skip_ena=true  # already attempted
-                else
-                    echo "  [circuit-breaker] ENA circuit open — skipping to NCBI"
-                    skip_ena=true
-                fi
-            fi
-
-            # ── Primary: try ENA first (original quality scores) ──
-            if [[ "$skip_ena" == false && "$dl_ok" != true ]]; then
-                if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
-                    dl_ok=true
-                fi
-            fi
-
-            # ── ENA Circuit Breaker: update state ──
-            if [[ "$skip_ena" == false ]]; then
-                if [[ "$dl_ok" == true ]]; then
-                    ena_consecutive_failures=0
-                else
-                    ena_consecutive_failures=$(( ena_consecutive_failures + 1 ))
-                    if (( ena_consecutive_failures >= ENA_FAILURE_THRESHOLD )) && [[ "$ena_circuit_open" == false ]]; then
-                        ena_circuit_open=true
-                        ena_samples_since_trip=0
-                        echo "  [circuit-breaker] ⚠️  ENA circuit breaker TRIPPED after $ena_consecutive_failures consecutive failures"
-                        echo "  [circuit-breaker] Remaining samples will try NCBI first (ENA re-probed every $ENA_HALF_OPEN_INTERVAL samples)"
-                    fi
-                fi
-            fi
-
-            # ── Fallback: try NCBI trace API if ENA failed ──
-            if [[ "$dl_ok" != true ]]; then
-                # NCBI Circuit Breaker: decide whether to try NCBI
-                if [[ "$ncbi_circuit_open" == true ]]; then
-                    ncbi_samples_since_trip=$(( ncbi_samples_since_trip + 1 ))
-                    if (( ncbi_samples_since_trip % NCBI_HALF_OPEN_INTERVAL == 0 )); then
-                        echo "  [circuit-breaker] Half-open probe — testing NCBI for $srr..."
-                        if Download_From_NCBI "$srr" "$fastq_path" "$rename"; then
-                            echo "  [circuit-breaker] ✓ NCBI recovered — closing circuit breaker"
-                            dl_ok=true
-                            ncbi_circuit_open=false
-                            ncbi_consecutive_failures=0
-                            ncbi_samples_since_trip=0
-                        else
-                            echo "  [circuit-breaker] ✗ NCBI still down — circuit remains open"
-                        fi
-                        skip_ncbi=true
-                    else
-                        echo "  [circuit-breaker] NCBI circuit open — skipping NCBI"
-                        skip_ncbi=true
-                    fi
-                fi
-
-                if [[ "$skip_ncbi" == false && "$dl_ok" != true ]]; then
-                    echo "  ENA failed for $srr — trying NCBI trace API fallback..."
-                    if Download_From_NCBI "$srr" "$fastq_path" "$rename"; then
-                        echo "  [NCBI] ✓ NCBI fallback succeeded for $srr"
-                        dl_ok=true
-                    fi
-                fi
-
-                # NCBI Circuit Breaker: update state
-                if [[ "$skip_ncbi" == false ]]; then
-                    if [[ "$dl_ok" == true ]]; then
-                        ncbi_consecutive_failures=0
-                    else
-                        ncbi_consecutive_failures=$(( ncbi_consecutive_failures + 1 ))
-                        if (( ncbi_consecutive_failures >= NCBI_FAILURE_THRESHOLD )) && [[ "$ncbi_circuit_open" == false ]]; then
-                            ncbi_circuit_open=true
-                            ncbi_samples_since_trip=0
-                            echo "  [circuit-breaker] ⚠️  NCBI circuit breaker TRIPPED after $ncbi_consecutive_failures consecutive failures"
-                            echo "  [circuit-breaker] NCBI re-probed every $NCBI_HALF_OPEN_INTERVAL samples"
-                        fi
-                    fi
-                fi
-
-                # Both sources failed
-                if [[ "$dl_ok" != true ]]; then
-                    echo "  ✗ All download sources failed for $srr (ENA + NCBI)" >&2
-                    return 1
-                fi
+            if ! Download_From_ENA "$srr" "$fastq_path" "$rename"; then
+                echo "  ✗ ENA download failed for $srr" >&2
+                return 1
             fi
 
             # Verify FASTQ integrity for downloaded files
