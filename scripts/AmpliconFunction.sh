@@ -535,6 +535,29 @@ Common_CountRawReads() {
     done < "${base_dir}/${acc_file}"
 }
 
+Count_Feature_Table_Reads() {
+    # Count total reads in a QIIME2 feature table.
+    # Args: $1 = path to feature-table.qza
+    # Prints: total read count (integer)
+    local table_qza="$1"
+    python3 -c "
+import tempfile, subprocess, os, sys
+from biom import load_table
+table_path = sys.argv[1]
+with tempfile.TemporaryDirectory() as tmpdir:
+    subprocess.run(['qiime', 'tools', 'export', '--input-path', table_path, '--output-path', tmpdir], check=True, capture_output=True)
+    table = load_table(os.path.join(tmpdir, 'feature-table.biom'))
+    print(int(sum(table.sum(axis='sample'))))
+" "$table_qza"
+}
+
+Count_Raw_Reads_Total() {
+    # Count total raw reads from raw_read_counts.tsv
+    # Args: $1 = path to raw_read_counts.tsv
+    # Prints: total raw read count (integer)
+    awk '{sum+=$3} END{print sum+0}' "$1"
+}
+
 ################################################################################
 #                       ILLUMINA PLATFORM FUNCTIONS                            #
 ################################################################################
@@ -577,7 +600,6 @@ Amplicon_Illumina_DenosingDada2() {
     cd "$dataset_path"
     # Paths
     local base="${dataset_path%/}"
-    local quality_filter_path="${base%/}/tmp/step_04_qza_import_QualityFilter/"
     local denoising_path="${base%/}/tmp/step_05_denoise/"
     local qf_vis_path="${base%/}/tmp/temp_file/QualityFilter_vis/"
     local qf_view_path="${base%/}/tmp/temp_file/QualityFilter_vis/qf_view/"
@@ -585,7 +607,18 @@ Amplicon_Illumina_DenosingDada2() {
     mkdir -p "$denoising_path" "$qf_view_path" "$qf_trim_pos_path" "$qf_vis_path"
     local dataset_name="${base##*/}"
 
-    local qza_file="${quality_filter_path%/}/${dataset_name}_QualityFilter.qza"
+    # Auto-detect input: use quality-filtered data if available (454, Ion Torrent),
+    # otherwise use imported data directly. Illumina skips quality-filter to let
+    # DADA2 handle quality via its error model, avoiding redundant double-filtering.
+    local qza_file=""
+    local qf_file="${base%/}/tmp/step_04_qza_import_QualityFilter/${dataset_name}_QualityFilter.qza"
+    local import_file="${base%/}/tmp/step_03_qza_import/${dataset_name}.qza"
+
+    if [[ -f "$qf_file" ]]; then
+        qza_file="$qf_file"
+    else
+        qza_file="$import_file"
+    fi
 
     # Detect if data is paired-end or single-end
     local qza_type

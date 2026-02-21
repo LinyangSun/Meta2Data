@@ -142,11 +142,13 @@ echo "========================================="
 failed_log="${OUTPUT}/failed_datasets.log"
 success_log="${OUTPUT}/success_datasets.log"
 skipped_log="${OUTPUT}/skipped_datasets.log"
+low_quality_log="${OUTPUT}/low_quality_datasets.log"
 summary_csv="${OUTPUT}/summary.csv"
 
 : > "$failed_log"
 : > "$success_log"
 : > "$skipped_log"
+: > "$low_quality_log"
 
 for i in "${!Dataset_ID_sets[@]}"; do
     dataset_ID="${Dataset_ID_sets[$i]}"
@@ -287,12 +289,76 @@ for i in "${!Dataset_ID_sets[@]}"; do
             rm -rf "$adapter_removed_path"
 
             # Run Illumina pipeline (dada2 denoise-paired for PE, denoise-single for SE)
+            # Note: Quality-filter is skipped for Illumina — DADA2's error model
+            # handles quality directly, avoiding redundant double-filtering that
+            # causes excessive read loss.
             fastq_path="$fastp_path"
             export fastq_path
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
-            Amplicon_Illumina_QualityControlForQZA
             Amplicon_Illumina_DenosingDada2
+
+            # PE fallback: if retention < 50%, retry with forward reads only (SE mode)
+            if [[ "$sequence_type" == "paired" ]]; then
+                denoised_table="${dataset_path}/tmp/step_05_denoise/${dataset_ID}-table-denoising.qza"
+                raw_counts_file="${dataset_path}/${dataset_ID}_raw_read_counts.tsv"
+
+                if [[ -f "$denoised_table" ]]; then
+                    final_reads=$(Count_Feature_Table_Reads "$denoised_table")
+                    raw_reads=$(Count_Raw_Reads_Total "$raw_counts_file")
+
+                    if [[ "$raw_reads" -gt 0 ]]; then
+                        retention_pct=$(python3 -c "print(f'{$final_reads / $raw_reads * 100:.1f}')")
+                        echo "  PE retention: ${retention_pct}% (${final_reads}/${raw_reads})"
+
+                        if python3 -c "import sys; sys.exit(0 if $final_reads / $raw_reads < 0.5 else 1)"; then
+                            echo "  ⚠️ PE retention < 50%. Falling back to SE (forward reads only)..."
+
+                            # Clean up PE denoise outputs
+                            rm -rf "${dataset_path}/tmp/step_05_denoise/"
+                            rm -rf "${dataset_path}/tmp/temp_file/QualityFilter_vis/"
+
+                            # Create SE manifest from forward reads, preserving PE sample names
+                            temp_file_path="${dataset_path}/tmp/temp_file"
+                            mkdir -p "$temp_file_path"
+                            python3 -c "
+import os, glob, sys
+manifest_path = sys.argv[1]
+fastq_dir = sys.argv[2]
+with open(manifest_path, 'w') as f:
+    f.write('sample-id\tabsolute-filepath\n')
+    for fq in sorted(glob.glob(os.path.join(fastq_dir, '*_1.fastq*'))):
+        basename = os.path.basename(fq)
+        sample = basename.rsplit('_', 1)[0]
+        f.write(f'{sample}\t{fq}\n')
+" "${temp_file_path}/${dataset_ID}_manifest.tsv" "$fastq_path"
+
+                            # Re-import as SE
+                            sequence_type="single"
+                            export sequence_type
+                            rm -f "${dataset_path}/tmp/step_03_qza_import/${dataset_ID}.qza"
+                            Amplicon_Common_ImportFastqToQiime2
+
+                            # Re-run DADA2 as SE (denoise-single)
+                            Amplicon_Illumina_DenosingDada2
+
+                            # Check SE retention
+                            denoised_table_se="${dataset_path}/tmp/step_05_denoise/${dataset_ID}-table-denoising.qza"
+                            if [[ -f "$denoised_table_se" ]]; then
+                                final_reads_se=$(Count_Feature_Table_Reads "$denoised_table_se")
+                                retention_se=$(python3 -c "print(f'{$final_reads_se / $raw_reads * 100:.1f}')")
+                                echo "  SE retention: ${retention_se}% (${final_reads_se}/${raw_reads})"
+
+                                if python3 -c "import sys; sys.exit(0 if $final_reads_se / $raw_reads < 0.5 else 1)"; then
+                                    echo "  ⚠️ WARNING: SE retention still < 50%. This dataset may have low-quality data."
+                                    echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - LOW_QUALITY - PE: ${retention_pct}%, SE: ${retention_se}%" >> "$low_quality_log"
+                                fi
+                            fi
+                        fi
+                    fi
+                fi
+            fi
+
             Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "LS454" ]]; then
@@ -570,18 +636,27 @@ done
 n_success=$(wc -l < "$success_log" 2>/dev/null || echo 0)
 n_failed=$(wc -l < "$failed_log" 2>/dev/null || echo 0)
 n_skipped=$(wc -l < "$skipped_log" 2>/dev/null || echo 0)
+n_low_quality=$(wc -l < "$low_quality_log" 2>/dev/null || echo 0)
 
 echo "========================================="
 echo "ALL DONE"
 echo "========================================="
-echo "  Success:  $n_success"
-echo "  Failed:   $n_failed"
-echo "  Skipped:  $n_skipped"
+echo "  Success:      $n_success"
+echo "  Failed:       $n_failed"
+echo "  Skipped:      $n_skipped"
+echo "  Low quality:  $n_low_quality"
 echo "========================================="
 
 if [[ "$n_failed" -gt 0 ]]; then
     echo ""
     echo "Failed datasets:"
     cat "$failed_log"
+    echo ""
+fi
+
+if [[ "$n_low_quality" -gt 0 ]]; then
+    echo ""
+    echo "Low quality datasets (retention < 50% after PE+SE fallback):"
+    cat "$low_quality_log"
     echo ""
 fi
