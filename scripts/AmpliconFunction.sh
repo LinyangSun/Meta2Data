@@ -403,18 +403,20 @@ Common_SRADownloadToFastq_MultiSource() {
     fi
 
     # Quick connectivity check — fail fast instead of waiting through retries
+    # ENA is preferred (provides original quality scores needed by DADA2),
+    # NCBI trace API is the fallback.
     if [[ "$has_ncbi_accessions" == true ]]; then
-        echo "  Checking NCBI connectivity..."
-        if ! wget -q --spider --timeout=10 "https://trace.ncbi.nlm.nih.gov/" 2>/dev/null; then
-            echo "  ⚠️  NCBI trace API unreachable — will rely on ENA fallback"
-            echo "  Checking ENA connectivity..."
-            if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
-                echo "  ✗ Both NCBI and ENA are unreachable. Check your network connection." >&2
+        echo "  Checking ENA connectivity..."
+        if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
+            echo "  ⚠️  ENA unreachable — will rely on NCBI trace API"
+            echo "  Checking NCBI connectivity..."
+            if ! wget -q --spider --timeout=10 "https://trace.ncbi.nlm.nih.gov/" 2>/dev/null; then
+                echo "  ✗ Both ENA and NCBI are unreachable. Check your network connection." >&2
                 return 1
             fi
-            echo "  ✓ ENA reachable"
-        else
             echo "  ✓ NCBI reachable"
+        else
+            echo "  ✓ ENA reachable"
         fi
     fi
 
@@ -422,14 +424,23 @@ Common_SRADownloadToFastq_MultiSource() {
     local fastq_path="${base_dir}/ori_fastq"
     mkdir -p "$fastq_path"
 
-    # ── Circuit Breaker for NCBI ──
-    # If NCBI fails consecutively, skip it for remaining samples and go
-    # straight to ENA, avoiding minutes of futile retries.
+    # ── Dual Circuit Breakers ──
+    # ENA is the primary download source because it provides FASTQ files with
+    # original quality scores (critical for DADA2 error learning). The NCBI
+    # trace API is the fallback but returns simplified/binned quality scores.
+    # If one source fails consecutively, we skip it and go to the other,
+    # avoiding minutes of futile retries.
+    local ena_consecutive_failures=0
+    local ena_circuit_open=false
+    local ENA_FAILURE_THRESHOLD=3       # trip after 3 consecutive failures
+    local ENA_HALF_OPEN_INTERVAL=15     # re-probe ENA every 15 samples
+    local ena_samples_since_trip=0
+
     local ncbi_consecutive_failures=0
     local ncbi_circuit_open=false
     local NCBI_FAILURE_THRESHOLD=2      # trip after 2 consecutive failures
     local NCBI_HALF_OPEN_INTERVAL=20    # re-probe NCBI every 20 samples
-    local ncbi_samples_since_trip=0     # counter for half-open probe
+    local ncbi_samples_since_trip=0
 
     # Phase 1: Data Acquisition
     while IFS=$'\t' read -r srr rename _; do
@@ -441,63 +452,103 @@ Common_SRADownloadToFastq_MultiSource() {
             Download_CRR "$srr" "$fastq_path" "$rename"
 
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
-            echo "[NCBI] Processing $srr"
+            echo "[ENA/NCBI] Processing $srr"
             local dl_ok=false
+            local skip_ena=false
             local skip_ncbi=false
 
-            # ── Circuit Breaker: decide whether to try NCBI ──
-            if [[ "$ncbi_circuit_open" == true ]]; then
-                ncbi_samples_since_trip=$(( ncbi_samples_since_trip + 1 ))
-                if (( ncbi_samples_since_trip % NCBI_HALF_OPEN_INTERVAL == 0 )); then
-                    # Half-open probe: try NCBI once to see if it recovered
-                    echo "  [circuit-breaker] Half-open probe — testing NCBI for $srr..."
-                    if Download_From_NCBI "$srr" "$fastq_path" "$rename"; then
-                        echo "  [circuit-breaker] ✓ NCBI recovered — closing circuit breaker"
+            # ── ENA Circuit Breaker: decide whether to try ENA ──
+            if [[ "$ena_circuit_open" == true ]]; then
+                ena_samples_since_trip=$(( ena_samples_since_trip + 1 ))
+                if (( ena_samples_since_trip % ENA_HALF_OPEN_INTERVAL == 0 )); then
+                    echo "  [circuit-breaker] Half-open probe — testing ENA for $srr..."
+                    if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
+                        echo "  [circuit-breaker] ✓ ENA recovered — closing circuit breaker"
                         dl_ok=true
-                        ncbi_circuit_open=false
-                        ncbi_consecutive_failures=0
-                        ncbi_samples_since_trip=0
+                        ena_circuit_open=false
+                        ena_consecutive_failures=0
+                        ena_samples_since_trip=0
                     else
-                        echo "  [circuit-breaker] ✗ NCBI still down — circuit remains open"
+                        echo "  [circuit-breaker] ✗ ENA still down — circuit remains open"
                     fi
-                    skip_ncbi=true  # already attempted
+                    skip_ena=true  # already attempted
                 else
-                    echo "  [circuit-breaker] NCBI circuit open — skipping NCBI, going directly to ENA"
-                    skip_ncbi=true
+                    echo "  [circuit-breaker] ENA circuit open — skipping to NCBI"
+                    skip_ena=true
                 fi
             fi
 
-            # ── Normal NCBI download (only if circuit is closed) ──
-            if [[ "$skip_ncbi" == false ]]; then
-                if Download_From_NCBI "$srr" "$fastq_path" "$rename"; then
+            # ── Primary: try ENA first (original quality scores) ──
+            if [[ "$skip_ena" == false && "$dl_ok" != true ]]; then
+                if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
                     dl_ok=true
                 fi
             fi
 
-            # ── Circuit Breaker: update state based on result ──
-            if [[ "$dl_ok" == true ]]; then
-                ncbi_consecutive_failures=0
-            else
-                ncbi_consecutive_failures=$(( ncbi_consecutive_failures + 1 ))
-                if (( ncbi_consecutive_failures >= NCBI_FAILURE_THRESHOLD )) && [[ "$ncbi_circuit_open" == false ]]; then
-                    ncbi_circuit_open=true
-                    ncbi_samples_since_trip=0
-                    echo "  [circuit-breaker] ⚠️  NCBI circuit breaker TRIPPED after $ncbi_consecutive_failures consecutive failures"
-                    echo "  [circuit-breaker] Remaining samples will use ENA directly (NCBI re-probed every $NCBI_HALF_OPEN_INTERVAL samples)"
+            # ── ENA Circuit Breaker: update state ──
+            if [[ "$skip_ena" == false ]]; then
+                if [[ "$dl_ok" == true ]]; then
+                    ena_consecutive_failures=0
+                else
+                    ena_consecutive_failures=$(( ena_consecutive_failures + 1 ))
+                    if (( ena_consecutive_failures >= ENA_FAILURE_THRESHOLD )) && [[ "$ena_circuit_open" == false ]]; then
+                        ena_circuit_open=true
+                        ena_samples_since_trip=0
+                        echo "  [circuit-breaker] ⚠️  ENA circuit breaker TRIPPED after $ena_consecutive_failures consecutive failures"
+                        echo "  [circuit-breaker] Remaining samples will try NCBI first (ENA re-probed every $ENA_HALF_OPEN_INTERVAL samples)"
+                    fi
                 fi
             fi
 
-            # Fallback: download directly from ENA if NCBI failed
+            # ── Fallback: try NCBI trace API if ENA failed ──
             if [[ "$dl_ok" != true ]]; then
+                # NCBI Circuit Breaker: decide whether to try NCBI
                 if [[ "$ncbi_circuit_open" == true ]]; then
-                    echo "  NCBI skipped for $srr (circuit breaker open) — trying ENA..."
-                else
-                    echo "  NCBI download failed for $srr — trying ENA fallback..."
+                    ncbi_samples_since_trip=$(( ncbi_samples_since_trip + 1 ))
+                    if (( ncbi_samples_since_trip % NCBI_HALF_OPEN_INTERVAL == 0 )); then
+                        echo "  [circuit-breaker] Half-open probe — testing NCBI for $srr..."
+                        if Download_From_NCBI "$srr" "$fastq_path" "$rename"; then
+                            echo "  [circuit-breaker] ✓ NCBI recovered — closing circuit breaker"
+                            dl_ok=true
+                            ncbi_circuit_open=false
+                            ncbi_consecutive_failures=0
+                            ncbi_samples_since_trip=0
+                        else
+                            echo "  [circuit-breaker] ✗ NCBI still down — circuit remains open"
+                        fi
+                        skip_ncbi=true
+                    else
+                        echo "  [circuit-breaker] NCBI circuit open — skipping NCBI"
+                        skip_ncbi=true
+                    fi
                 fi
-                if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
-                    echo "  ✓ ENA fallback succeeded for $srr"
-                else
-                    echo "  ✗ All download sources failed for $srr (NCBI + ENA)" >&2
+
+                if [[ "$skip_ncbi" == false && "$dl_ok" != true ]]; then
+                    echo "  ENA failed for $srr — trying NCBI trace API fallback..."
+                    if Download_From_NCBI "$srr" "$fastq_path" "$rename"; then
+                        echo "  [NCBI] ✓ NCBI fallback succeeded for $srr"
+                        dl_ok=true
+                    fi
+                fi
+
+                # NCBI Circuit Breaker: update state
+                if [[ "$skip_ncbi" == false ]]; then
+                    if [[ "$dl_ok" == true ]]; then
+                        ncbi_consecutive_failures=0
+                    else
+                        ncbi_consecutive_failures=$(( ncbi_consecutive_failures + 1 ))
+                        if (( ncbi_consecutive_failures >= NCBI_FAILURE_THRESHOLD )) && [[ "$ncbi_circuit_open" == false ]]; then
+                            ncbi_circuit_open=true
+                            ncbi_samples_since_trip=0
+                            echo "  [circuit-breaker] ⚠️  NCBI circuit breaker TRIPPED after $ncbi_consecutive_failures consecutive failures"
+                            echo "  [circuit-breaker] NCBI re-probed every $NCBI_HALF_OPEN_INTERVAL samples"
+                        fi
+                    fi
+                fi
+
+                # Both sources failed
+                if [[ "$dl_ok" != true ]]; then
+                    echo "  ✗ All download sources failed for $srr (ENA + NCBI)" >&2
                     return 1
                 fi
             fi
