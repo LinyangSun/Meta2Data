@@ -862,6 +862,35 @@ Amplicon_IonTorrent_QualityControlForQZA() {
 }
 
 ################################################################################
+#                    DEGRADED QUALITY SCORE FUNCTIONS                          #
+################################################################################
+# Functions for data with binned/unreliable quality scores.
+# When DADA2 cannot learn an error model (too few unique Q values),
+# this VSEARCH-based pipeline is used instead.
+# Reuses LS454 dereplicate/chimera/cluster functions downstream.
+
+Amplicon_DegradedQ_QualityControlForQZA() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
+    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
+    mkdir -p "$quality_filter_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+
+    # Quality scores are unreliable (binned/dummy), so skip q-score filtering.
+    # N bases already filtered upstream (max_n=1). Apply length filter only.
+    qiime quality-filter q-score \
+        --i-demux "${qza_path%/}/${dataset_name}.qza" \
+        --p-min-quality 0 \
+        --p-min-length-fraction 0.85 \
+        --p-max-ambiguous 1 \
+        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
+        --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
+        --verbose
+}
+
+################################################################################
 #                        PACBIO PLATFORM FUNCTIONS                             #
 ################################################################################
 # Functions for PacBio HiFi/CCS long-read sequencing data processing
