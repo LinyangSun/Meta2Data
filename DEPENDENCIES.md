@@ -1,10 +1,8 @@
 # Meta2Data Dependencies
 
-This document provides a comprehensive list of all dependencies required to run the full Meta2Data workflow.
+This document lists all dependencies **actually called** in the current Meta2Data workflow. Only tools and libraries that are invoked during execution are included — packages that exist in `env.yml` but are never called by the active codebase are omitted.
 
 ## Quick Start
-
-The recommended way to install all dependencies is via Conda:
 
 ```bash
 conda env create -f env.yml
@@ -18,157 +16,101 @@ pip install -e .
 
 | Package | Version | Purpose |
 |---|---|---|
-| biopython | >= 1.84 | NCBI Entrez API access, sequence parsing |
+| biopython | >= 1.84 | NCBI Entrez API access (`Bio.Entrez`), sequence parsing |
 | pandas | >= 2.2.2 | Metadata manipulation and CSV/Excel handling |
 | openpyxl | >= 0.0 | Excel file read/write support |
-| requests | >= 2.32.3 | HTTP requests (CNCB/GSA API, ENA) |
+| requests | >= 2.32.3 | HTTP requests (CNCB/GSA API) |
 | numpy | == 1.26.4 | Numerical computation |
 | biom-format | >= 2.1.15 | BIOM feature table format support |
 
 ## Bioinformatics Tools
 
+### Direct CLI Calls
+
+These tools are invoked directly as shell commands in the active scripts:
+
+| Tool | Called In | Purpose |
+|---|---|---|
+| **fastp** | `run.sh` | Adapter removal and quality control for FASTQ files |
+| **wget** | `AmpliconFunction.sh` | Downloading FASTQ from ENA and CNCB |
+| **gzip** | `AmpliconFunction.sh` | Verifying download integrity (`gzip -t`) |
+
 ### QIIME2 2024.10 (Amplicon Distribution)
 
-Core workflow orchestration framework. The following plugins are required:
+Core workflow orchestration framework. The following plugins are **actually invoked** in the active codebase:
 
-| Plugin | Purpose |
-|---|---|
-| q2-demux | Demultiplexing |
-| q2-dada2 | DADA2 denoising |
-| q2-deblur | Deblur denoising |
-| q2-cutadapt | Primer trimming |
-| q2-quality-filter | Quality filtering |
-| q2-feature-table | Feature table operations |
-| q2-feature-classifier | Taxonomy classification |
-| q2-alignment | Sequence alignment (MAFFT) |
-| q2-phylogeny | Phylogenetic tree building |
-| q2-fragment-insertion | SEPP fragment insertion |
-| q2-diversity / q2-diversity-lib | Alpha/beta diversity |
-| q2-taxa | Taxonomy visualization |
-| q2-vsearch | Clustering and chimera detection |
-| q2-composition | Compositional data analysis |
-| q2-emperor | 3D PCoA visualization |
-| q2-longitudinal | Longitudinal analysis |
-| q2-metadata | Metadata handling |
-| q2-quality-control | Quality control |
-| q2-sample-classifier | Machine learning classifiers |
-| q2-stats | Statistical tests |
-| q2-vizard | Visualization |
-| q2cli | QIIME2 command-line interface |
-| q2templates / q2galaxy | Template and Galaxy support |
-
-### Sequence Quality Control & Processing
-
-| Tool | Version | Purpose |
+| Plugin | Called In | Invocation |
 |---|---|---|
-| fastp | any | Adapter removal and quality control |
-| cutadapt | >= 4.9 | Primer trimming |
-| vsearch | >= 2.22.1 | Clustering, chimera detection, dereplication |
-| SeqKit | any | Sequence manipulation toolkit |
+| q2cli | `AmpliconFunction.sh`, `taxonomy.sh` | `qiime tools import`, `qiime tools export` |
+| q2-demux | `AmpliconFunction.sh` | `qiime demux summarize` |
+| q2-dada2 | `AmpliconFunction.sh` | `qiime dada2 denoise-paired`, `denoise-single`, `denoise-pyro`, `denoise-ccs` |
+| q2-quality-filter | `AmpliconFunction.sh` | `qiime quality-filter q-score` |
+| q2-feature-table | `AmpliconFunction.sh`, `taxonomy.sh` | `qiime feature-table merge`, `merge-seqs`, `filter-features`, `filter-seqs`, `summarize` |
+| q2-feature-classifier | `AmpliconFunction.sh`, `taxonomy.sh` | `qiime feature-classifier classify-sklearn`, `extract-reads` |
+| q2-fragment-insertion | `taxonomy.sh` | `qiime fragment-insertion sepp`, `filter-features` |
+| q2-vsearch | `AmpliconFunction.sh` | `qiime vsearch dereplicate-sequences`, `uchime-denovo`, `cluster-features-de-novo` |
 
-### Sequence Alignment & Taxonomy
+**Note:** Tools like vsearch, cutadapt, MAFFT, SEPP, DADA2 (R), and sklearn are called **indirectly** through the QIIME2 plugins above — they are runtime dependencies of QIIME2, not invoked directly by Meta2Data scripts.
 
-| Tool | Version | Purpose |
-|---|---|---|
-| BLAST | >= 2.16.0 | Sequence alignment / similarity search |
-| MAFFT | >= 7.526 | Multiple sequence alignment |
-| MUSCLE | >= 3.8.1551 | Sequence alignment |
-| ClustalW | >= 2.1 | Multiple sequence alignment |
+### NOT Called (present in env.yml but unused by active code)
 
-### Phylogenetic Tree Building
+The following tools are included in `env.yml` (as QIIME2 distribution dependencies) but are **not invoked** by any active Meta2Data script — they only appear in comments, backup files, or are never referenced:
 
-| Tool | Version | Purpose |
-|---|---|---|
-| FastTree | >= 2.1.11 | Fast phylogenetic tree inference |
-| RAxML | >= 8.2.13 | Maximum likelihood phylogenetics |
-| IQ-TREE | >= 2.3.6 | Phylogenetic tree building |
-| SEPP | >= 4.5.5 | Fragment insertion phylogenetic placement |
-
-### Data Download & SRA Processing
-
-| Tool | Version | Purpose |
-|---|---|---|
-| sra-tools | any | NCBI SRA data download (fasterq-dump, prefetch) |
-| entrez-direct | >= 22.4 | NCBI Entrez command-line utilities (esearch, efetch) |
-
-### Other Bioinformatics Tools
-
-| Tool | Version | Purpose |
-|---|---|---|
-| Bowtie2 | >= 2.5.4 | Sequence alignment |
-| SAMtools | >= 1.21 | BAM/SAM file processing |
-| HMMER | >= 3.4 | HMM protein/nucleotide sequence analysis |
-| SortMeRNA | >= 2.0 | rRNA sequence filtering |
-| Deblur | >= 1.1.1 | Denoising algorithm |
-| UniFrac | >= 1.3 | Phylogenetic distance metrics |
+- ~~sra-tools~~ (prefetch, fasterq-dump) — data download now uses wget + ENA/CNCB
+- ~~entrez-direct~~ (esearch/efetch CLI) — NCBI access uses Bio.Entrez Python API
+- ~~SeqKit~~ — only in backup scripts
+- ~~BLAST~~ (blastn/blastp direct calls) — only in backup scripts
+- ~~MUSCLE~~, ~~ClustalW~~ — never referenced
+- ~~FastTree~~, ~~RAxML~~, ~~IQ-TREE~~ — never directly called
+- ~~Bowtie2~~, ~~SAMtools~~, ~~HMMER~~, ~~SortMeRNA~~ — never referenced
+- ~~jq~~, ~~pigz~~ — never referenced
 
 ## R / Bioconductor (via Conda)
 
-| Package | Version | Purpose |
-|---|---|---|
-| r-base | >= 4.3.3 | R runtime |
-| bioconductor-dada2 | >= 1.30.0 | DADA2 denoising engine |
-| bioconductor-phyloseq | >= 1.46.0 | Microbiome data analysis |
-| bioconductor-decipher | >= 2.30.0 | Sequence alignment |
-| bioconductor-decontam | >= 1.22.0 | Contamination removal |
-| bioconductor-ancombc | >= 2.4.0 | Differential abundance analysis |
-| bioconductor-mia | >= 1.10.0 | Microbiome analysis |
-| bioconductor-biostrings | >= 2.70.1 | Biological sequence classes |
+R and Bioconductor packages are **runtime dependencies of QIIME2 plugins** (especially q2-dada2). They are not called directly by Meta2Data scripts but are required for DADA2 denoising to function:
 
-See `env.yml` for the full list of ~200+ R/Bioconductor packages included.
+| Package | Version | Required By |
+|---|---|---|
+| r-base | >= 4.3.3 | q2-dada2 |
+| bioconductor-dada2 | >= 1.30.0 | q2-dada2 denoising engine |
 
 ## System Libraries
 
-| Library | Version | Purpose |
-|---|---|---|
-| libffi | >= 3.4.2 | Foreign function interface |
-| libcurl | >= 8.8.0 | URL retrieval |
-| libxml2 | >= 2.12.7 | XML parsing |
-| libxslt | >= 1.1.39 | XSLT processing |
-| zlib | >= 1.2.13 | Compression |
-| bzip2 | >= 1.0.8 | Compression |
-| HDF5 | >= 1.14.3 | Hierarchical data format |
-| OpenSSL | >= 3.3.2 | Cryptography / SSL |
-| SQLite | >= 3.46.0 | Lightweight database |
+These are transitive dependencies required by Python packages and QIIME2:
 
-## System Utilities
-
-| Tool | Purpose |
+| Library | Purpose |
 |---|---|
-| GCC / GFortran / Make | Build toolchain |
-| wget / curl | File and data download |
-| git | Version control |
-| jq | JSON query processor |
-| pigz / pbzip2 | Parallel compression |
-| sed / Perl | Text processing |
+| zlib | Compression (gzip operations) |
+| OpenSSL | HTTPS connections (wget, requests) |
+
+Other system libraries (libffi, libxml2, HDF5, etc.) are pulled in automatically by Conda as transitive dependencies.
 
 ## External Databases & APIs
 
 ### Databases (downloaded at runtime)
 
-| Database | File | Purpose |
+| Database | File | Required By |
 |---|---|---|
-| GreenGenes2 (GG2) | `2024.09.backbone.full-length.nb.sklearn-1.4.2.qza` | Pre-trained Naive Bayes taxonomy classifier |
-| GG2 SEPP reference | `sepp-refs-gg-13-8.qza` | SEPP reference tree for fragment insertion |
+| GreenGenes2 (GG2) | `2024.09.backbone.full-length.nb.sklearn-1.4.2.qza` | `taxonomy.sh` — Naive Bayes taxonomy classifier |
+| GG2 SEPP reference | `sepp-refs-gg-13-8.qza` | `taxonomy.sh` — SEPP fragment insertion tree |
 
 Use `Meta2Data ggCOMBO --dl` to download these automatically.
 
-### External APIs
+### External APIs (accessed via Python)
 
-| API | Purpose |
-|---|---|
-| NCBI Entrez | BioProject/BioSample metadata retrieval |
-| CNCB/GSA (ngdc.cncb.ac.cn) | Chinese sequence data retrieval |
-| ENA (European Nucleotide Archive) | Fallback FASTQ download |
-| NCBI SRA FTP | SRA file download |
+| API | Accessed Via | Purpose |
+|---|---|---|
+| NCBI Entrez | Bio.Entrez (biopython) | BioProject/BioSample metadata retrieval |
+| CNCB/GSA | requests + wget | Chinese sequence data retrieval |
+| ENA (European Nucleotide Archive) | wget | FASTQ file download |
 
 ## Dependencies by Subcommand
 
 | Subcommand | Key Dependencies |
 |---|---|
-| **MetaDL** | biopython, requests, pandas, openpyxl, NCBI Entrez API, CNCB API |
-| **AmpliconPIP** | QIIME2 full suite, fastp, cutadapt, vsearch, sra-tools, entrez-direct, SeqKit, DADA2/Deblur |
-| **ggCOMBO** | QIIME2, q2-feature-classifier, q2-fragment-insertion, SEPP, GreenGenes2 database |
+| **MetaDL** | biopython (Bio.Entrez), requests, pandas, openpyxl |
+| **AmpliconPIP** | fastp, wget, QIIME2 (q2-dada2, q2-vsearch, q2-quality-filter, q2-demux, q2-feature-table, q2-feature-classifier) |
+| **ggCOMBO** | QIIME2 (q2-feature-table, q2-feature-classifier, q2-fragment-insertion), GreenGenes2 database, wget |
 
 ## System Requirements
 
