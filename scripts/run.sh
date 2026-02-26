@@ -300,14 +300,14 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # Quality scores are binned/unreliable → DADA2 cannot learn error model
                 echo ">>> DEGRADED quality scores. Using VSEARCH pipeline..."
 
-                # Fixed trim (15bp front, 30bp tail) + N filter (>1 → discard)
-                # PE → forward reads only (avoid merge Q value issues)
+                # Trim 15bp from 5' end + truncate to fixed length (auto-detect)
+                # + N filter (>1 → discard). PE → forward reads only.
                 degraded_path="${dataset_path}/tmp/step_02c_degraded_preprocess"
                 mkdir -p "$degraded_path"
                 python3 "${SCRIPTS}/py_16s.py" degraded_quality_preprocess \
                     --input_dir "$fastp_path" \
                     --output_dir "$degraded_path" \
-                    --trim_front 15 --trim_tail 30 \
+                    --trim_front 15 --truncate_length 0 \
                     --max_n 1 \
                     --sequence_type "$sequence_type"
 
@@ -318,12 +318,19 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 fastq_path="$degraded_path"
                 export fastq_path sequence_type
 
+                # ── QIIME2: import + QC + dereplicate ──
                 Amplicon_Common_MakeManifestFileForQiime2
                 Amplicon_Common_ImportFastqToQiime2
                 Amplicon_DegradedQ_QualityControlForQZA
                 Amplicon_LS454_Deduplication
-                Amplicon_LS454_ChimerasRemoval
-                Amplicon_LS454_ClusterDenovo
+
+                # ── Native vsearch: denoise + build OTU table ──
+                Amplicon_DegradedQ_ExportForVsearch
+                Amplicon_DegradedQ_VsearchDenoise
+                Amplicon_DegradedQ_MapReadsToZotus
+                Amplicon_DegradedQ_ImportResults
+
+                # ── QIIME2: filter + cleanup ──
                 Amplicon_LS454_FilterLowFreqOTUs
                 Amplicon_Common_FinalFilesCleaning
             else

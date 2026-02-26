@@ -775,26 +775,33 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
     return status
 
 
-def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, trim_tail=30,
+def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_length=0,
                                 max_n=1, sequence_type="single"):
     """
     Preprocess FASTQ files for the degraded quality score pipeline.
 
     When quality scores are binned/unreliable (DADA2 cannot learn error model),
     this function applies simple deterministic preprocessing:
-      1. Trim first trim_front bp and last trim_tail bp from each read
-      2. Discard reads with N count > max_n
-      3. For PE data: use only forward (R1) reads to avoid merge Q value issues
+      1. Trim first trim_front bp from each read
+      2. Truncate to a fixed length (all output reads are identical length)
+      3. Discard reads with N count > max_n
+      4. For PE data: use only forward (R1) reads to avoid merge Q value issues
+
+    Fixed-length truncation (instead of trim_tail) ensures uniform read lengths,
+    which improves dereplicate efficiency (identical sequences collapse better)
+    and avoids length-dependent artifacts in OTU clustering.
 
     Args:
         input_dir: Directory with FASTQ files (after adapter removal + primer trimming)
         output_dir: Output directory for preprocessed files
         trim_front: Bases to trim from 5' end (default: 15)
-        trim_tail: Bases to trim from 3' end (default: 30)
+        truncate_length: Fixed length to keep after trim_front (0=auto-detect
+                         using 10th percentile of read lengths)
         max_n: Maximum N bases allowed per read; reads exceeding this are discarded (default: 1)
         sequence_type: "paired" or "single"
 
     Prints machine-readable lines to stdout:
+        TRUNCATE_LENGTH=<int>
         TOTAL_IN=<int>
         TOTAL_OUT=<int>
     """
@@ -815,6 +822,41 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, trim_tail=
     else:
         process_files = fq_files
         print(f"  SE mode: processing {len(process_files)} files", file=sys.stderr)
+
+    # Auto-detect truncation length if not specified
+    if truncate_length <= 0:
+        print("  Auto-detecting truncation length...", file=sys.stderr)
+        sampled_lengths = []
+        sample_files = process_files[:min(5, len(process_files))]
+        for fq in sample_files:
+            open_fn = gzip.open if fq.endswith('.gz') else open
+            count = 0
+            with open_fn(fq, 'rt') as fin:
+                while count < 2000:
+                    header = fin.readline()
+                    if not header:
+                        break
+                    seq = fin.readline().rstrip('\n')
+                    _ = fin.readline()  # +
+                    _ = fin.readline()  # qual
+                    # Length after trim_front
+                    remaining = len(seq) - trim_front
+                    if remaining > 0:
+                        sampled_lengths.append(remaining)
+                    count += 1
+
+        if not sampled_lengths:
+            raise ValueError("No reads found for truncation length detection")
+
+        # Use 10th percentile: keeps ~90% of reads
+        truncate_length = int(np.percentile(sampled_lengths, 10))
+        if truncate_length < 50:
+            print(f"  WARNING: Auto-detected truncation length is very short ({truncate_length}bp)",
+                  file=sys.stderr)
+        print(f"  Auto-detected truncation length: {truncate_length}bp "
+              f"(10th percentile of {len(sampled_lengths)} sampled reads)", file=sys.stderr)
+    else:
+        print(f"  Using specified truncation length: {truncate_length}bp", file=sys.stderr)
 
     total_in = 0
     total_out = 0
@@ -844,12 +886,14 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, trim_tail=
                 qual = fin.readline().rstrip('\n')
                 file_in += 1
 
-                # Trim front and tail
-                if len(seq) <= trim_front + trim_tail:
+                # Trim front, then truncate to fixed length
+                seq_after_front = seq[trim_front:]
+                qual_after_front = qual[trim_front:]
+                if len(seq_after_front) < truncate_length:
                     total_short += 1
                     continue
-                seq_trimmed = seq[trim_front:-trim_tail] if trim_tail > 0 else seq[trim_front:]
-                qual_trimmed = qual[trim_front:-trim_tail] if trim_tail > 0 else qual[trim_front:]
+                seq_trimmed = seq_after_front[:truncate_length]
+                qual_trimmed = qual_after_front[:truncate_length]
 
                 # N filter
                 n_count = seq_trimmed.upper().count('N')
@@ -868,10 +912,274 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, trim_tail=
         print(f"  {os.path.basename(fq)}: {file_in} -> {file_out} reads", file=sys.stderr)
 
     print(f"\n  Summary: {total_in} reads in, {total_out} out", file=sys.stderr)
-    print(f"  Filtered: {total_short} too short, {total_n_filtered} N>{max_n}", file=sys.stderr)
+    print(f"  Filtered: {total_short} too short (<{truncate_length}bp after trim), "
+          f"{total_n_filtered} N>{max_n}", file=sys.stderr)
 
+    print(f"TRUNCATE_LENGTH={truncate_length}")
     print(f"TOTAL_IN={total_in}")
     print(f"TOTAL_OUT={total_out}")
+
+
+def export_derep_for_vsearch(repseq_qza, table_qza, output_fasta):
+    """
+    Export QIIME2 dereplicated artifacts to a size-annotated FASTA for vsearch.
+
+    Reads the rep-seqs.qza (FASTA) and table.qza (BIOM feature table),
+    annotates each sequence header with its total abundance (;size=N),
+    and sorts by abundance descending (required by vsearch --cluster_size).
+
+    Args:
+        repseq_qza: Path to dereplicated rep-seqs .qza
+        table_qza: Path to dereplicated table .qza
+        output_fasta: Output path for size-annotated FASTA
+
+    Prints machine-readable lines to stdout:
+        EXPORT_FEATURES=<int>
+        EXPORT_TOTAL_ABUNDANCE=<int>
+    """
+    import tempfile
+    from biom import load_table
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        seq_dir = os.path.join(tmpdir, 'seqs')
+        tbl_dir = os.path.join(tmpdir, 'table')
+
+        # Export both .qza artifacts
+        subprocess.run([
+            'qiime', 'tools', 'export',
+            '--input-path', repseq_qza, '--output-path', seq_dir
+        ], check=True, capture_output=True)
+
+        subprocess.run([
+            'qiime', 'tools', 'export',
+            '--input-path', table_qza, '--output-path', tbl_dir
+        ], check=True, capture_output=True)
+
+        # Read BIOM table → per-feature total abundance
+        biom_path = os.path.join(tbl_dir, 'feature-table.biom')
+        table = load_table(biom_path)
+        feature_abundances = {}
+        for fid in table.ids(axis='observation'):
+            total = int(table.data(fid, axis='observation', dense=True).sum())
+            feature_abundances[fid] = total
+
+        # Read FASTA sequences
+        fasta_path = os.path.join(seq_dir, 'dna-sequences.fasta')
+        sequences = []
+        for record in SeqIO.parse(fasta_path, 'fasta'):
+            sequences.append((str(record.id), str(record.seq)))
+
+        # Validate: FASTA IDs == BIOM feature IDs
+        fasta_ids = set(sid for sid, _ in sequences)
+        biom_ids = set(feature_abundances.keys())
+        if fasta_ids != biom_ids:
+            only_fasta = fasta_ids - biom_ids
+            only_biom = biom_ids - fasta_ids
+            raise ValueError(
+                f"Feature ID mismatch between rep-seqs and table.\n"
+                f"  In FASTA only ({len(only_fasta)}): {list(only_fasta)[:5]}\n"
+                f"  In BIOM only ({len(only_biom)}): {list(only_biom)[:5]}"
+            )
+
+        # Sort by abundance descending (vsearch --cluster_size expects this)
+        sequences.sort(key=lambda x: feature_abundances[x[0]], reverse=True)
+
+        # Write size-annotated FASTA
+        total_abundance = 0
+        with open(output_fasta, 'w') as fout:
+            for sid, seq in sequences:
+                size = feature_abundances[sid]
+                total_abundance += size
+                fout.write(f">{sid};size={size}\n{seq}\n")
+
+    print(f"  Exported {len(sequences)} features, total abundance {total_abundance}",
+          file=sys.stderr)
+    print(f"EXPORT_FEATURES={len(sequences)}")
+    print(f"EXPORT_TOTAL_ABUNDANCE={total_abundance}")
+
+
+def relabel_reads_for_mapping(manifest_path, output_fasta):
+    """
+    Merge all samples' preprocessed reads into a single FASTA with sample labels.
+
+    Reads the QIIME2 manifest file to get authoritative sample-id → filepath
+    mappings, converts each sample's FASTQ to FASTA with headers:
+        >sample_id;read_1
+        >sample_id;read_2
+        ...
+
+    This combined FASTA is used by vsearch --usearch_global to build the OTU table.
+
+    Args:
+        manifest_path: Path to QIIME2 manifest TSV (sample-id, absolute-filepath)
+        output_fasta: Output path for combined labeled FASTA
+
+    Prints machine-readable lines to stdout:
+        RELABEL_SAMPLES=<int>
+        RELABEL_TOTAL_READS=<int>
+    """
+    manifest = pd.read_csv(manifest_path, sep='\t')
+
+    total_reads = 0
+    n_samples = 0
+
+    with open(output_fasta, 'w') as fout:
+        for _, row in manifest.iterrows():
+            sample_id = str(row['sample-id'])
+            filepath = str(row['absolute-filepath'])
+            n_samples += 1
+
+            open_fn = gzip.open if filepath.endswith('.gz') else open
+            read_num = 0
+            with open_fn(filepath, 'rt') as fin:
+                while True:
+                    header = fin.readline()
+                    if not header:
+                        break
+                    seq = fin.readline().rstrip('\n')
+                    _ = fin.readline()  # +
+                    _ = fin.readline()  # qual
+                    read_num += 1
+                    fout.write(f">{sample_id};read_{read_num}\n{seq}\n")
+
+            total_reads += read_num
+            print(f"  {sample_id}: {read_num} reads", file=sys.stderr)
+
+    print(f"\n  Total: {n_samples} samples, {total_reads} reads", file=sys.stderr)
+    print(f"RELABEL_SAMPLES={n_samples}")
+    print(f"RELABEL_TOTAL_READS={total_reads}")
+
+
+def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
+                              output_table_qza, output_repseq_qza):
+    """
+    Import vsearch results (ZOTU FASTA + OTU table) back into QIIME2 artifacts.
+
+    Steps:
+      1. Strip ;size= annotations from ZOTU FASTA
+      2. Validate feature ID consistency (OTU table IDs subset of FASTA IDs)
+      3. Validate sample name consistency (OTU table samples subset of manifest)
+      4. Convert OTU table TSV → BIOM V2.1 (HDF5)
+      5. Import BIOM → FeatureTable[Frequency] .qza
+      6. Import FASTA → FeatureData[Sequence] .qza
+
+    Args:
+        zotu_fasta: Path to ZOTU FASTA (may contain ;size= annotations)
+        otu_table_tsv: Path to vsearch --otutabout TSV
+        manifest_path: Path to QIIME2 manifest TSV
+        output_table_qza: Output path for feature table .qza
+        output_repseq_qza: Output path for rep-seqs .qza
+
+    Prints machine-readable lines to stdout:
+        IMPORT_FEATURES=<int>
+        IMPORT_SAMPLES=<int>
+        IMPORT_TOTAL_READS=<int>
+    """
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # 1. Strip ;size= from ZOTU FASTA
+        clean_fasta = os.path.join(tmpdir, 'zotus_clean.fasta')
+        n_features = 0
+        fasta_ids = set()
+        with open(zotu_fasta, 'r') as fin, open(clean_fasta, 'w') as fout:
+            for line in fin:
+                if line.startswith('>'):
+                    # Remove ;size=N and anything after it
+                    header = line.rstrip('\n')
+                    seq_id = header[1:].split(';')[0]
+                    fasta_ids.add(seq_id)
+                    fout.write(f">{seq_id}\n")
+                    n_features += 1
+                else:
+                    fout.write(line)
+
+        # Verify no ;size= remains
+        with open(clean_fasta, 'r') as f:
+            for line in f:
+                if line.startswith('>') and ';size=' in line:
+                    raise ValueError(f"Residual ;size= in cleaned FASTA: {line.rstrip()}")
+
+        print(f"  Cleaned FASTA: {n_features} ZOTUs", file=sys.stderr)
+
+        # 2. Read OTU table TSV to validate
+        table_feature_ids = set()
+        table_sample_ids = set()
+        total_reads = 0
+        with open(otu_table_tsv, 'r') as f:
+            header_line = None
+            for line in f:
+                if line.startswith('#'):
+                    continue
+                if header_line is None:
+                    header_line = line.rstrip('\n').split('\t')
+                    table_sample_ids = set(header_line[1:])
+                    continue
+                parts = line.rstrip('\n').split('\t')
+                # Feature ID may contain ;size= from vsearch output
+                feature_id = parts[0].split(';')[0]
+                table_feature_ids.add(feature_id)
+                total_reads += sum(int(float(x)) for x in parts[1:] if x)
+
+        # 3. Validate feature IDs: table features must be in FASTA
+        missing_features = table_feature_ids - fasta_ids
+        if missing_features:
+            raise ValueError(
+                f"OTU table has {len(missing_features)} features not in ZOTU FASTA: "
+                f"{list(missing_features)[:5]}"
+            )
+
+        # 4. Validate sample names against manifest
+        manifest = pd.read_csv(manifest_path, sep='\t')
+        manifest_samples = set(manifest['sample-id'].astype(str))
+        unknown_samples = table_sample_ids - manifest_samples
+        if unknown_samples:
+            print(f"  WARNING: {len(unknown_samples)} samples in OTU table not in manifest: "
+                  f"{list(unknown_samples)[:5]}", file=sys.stderr)
+
+        print(f"  OTU table: {len(table_feature_ids)} features, "
+              f"{len(table_sample_ids)} samples, {total_reads} total reads", file=sys.stderr)
+
+        # 5. Convert TSV → BIOM V2.1 (HDF5)
+        biom_path = os.path.join(tmpdir, 'otu_table.biom')
+        subprocess.run([
+            'biom', 'convert',
+            '-i', otu_table_tsv,
+            '-o', biom_path,
+            '--table-type', 'OTU table',
+            '--to-hdf5'
+        ], check=True, capture_output=True)
+
+        # Validate BIOM
+        result = subprocess.run(
+            ['biom', 'validate-table', '-i', biom_path],
+            capture_output=True, text=True
+        )
+        if result.returncode != 0:
+            raise ValueError(f"BIOM validation failed: {result.stderr}")
+        print(f"  BIOM validation passed", file=sys.stderr)
+
+        # 6. Import into QIIME2
+        subprocess.run([
+            'qiime', 'tools', 'import',
+            '--input-path', biom_path,
+            '--type', 'FeatureTable[Frequency]',
+            '--input-format', 'BIOMV210Format',
+            '--output-path', output_table_qza
+        ], check=True, capture_output=True)
+
+        subprocess.run([
+            'qiime', 'tools', 'import',
+            '--input-path', clean_fasta,
+            '--type', 'FeatureData[Sequence]',
+            '--output-path', output_repseq_qza
+        ], check=True, capture_output=True)
+
+    print(f"  Imported to QIIME2: {output_table_qza}", file=sys.stderr)
+    print(f"  Imported to QIIME2: {output_repseq_qza}", file=sys.stderr)
+    print(f"IMPORT_FEATURES={len(table_feature_ids)}")
+    print(f"IMPORT_SAMPLES={len(table_sample_ids)}")
+    print(f"IMPORT_TOTAL_READS={total_reads}")
 
 
 def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_csv):
@@ -971,6 +1279,9 @@ if __name__ == "__main__":
             "adaptive_tail_trim",
             "check_quality_diversity",
             "degraded_quality_preprocess",
+            "export_derep_for_vsearch",
+            "relabel_reads_for_mapping",
+            "import_vsearch_to_qiime2",
             "append_summary"
         ],
         help="The function to execute."
@@ -1000,10 +1311,21 @@ if __name__ == "__main__":
                         help="Bases to trim from 5' end (default: 15)")
     parser.add_argument("--trim_tail", type=int, default=30,
                         help="Bases to trim from 3' end (default: 30)")
+    parser.add_argument("--truncate_length", type=int, default=0,
+                        help="Fixed truncation length after trim_front (0=auto-detect)")
     parser.add_argument("--max_n", type=int, default=1,
                         help="Max N bases allowed per read (default: 1)")
     parser.add_argument("--sequence_type", default="single",
                         help="Sequence type: 'paired' or 'single' (default: single)")
+    # Arguments for vsearch pipeline functions
+    parser.add_argument("--repseq_qza", help="Path to rep-seqs .qza (for export_derep_for_vsearch)")
+    parser.add_argument("--table_qza", help="Path to table .qza (for export_derep_for_vsearch)")
+    parser.add_argument("--output_fasta", help="Output FASTA path")
+    parser.add_argument("--manifest_path", help="Path to QIIME2 manifest TSV")
+    parser.add_argument("--zotu_fasta", help="Path to ZOTU FASTA (for import_vsearch_to_qiime2)")
+    parser.add_argument("--otu_table_tsv", help="Path to vsearch OTU table TSV")
+    parser.add_argument("--output_table_qza", help="Output table .qza path")
+    parser.add_argument("--output_repseq_qza", help="Output rep-seqs .qza path")
 
     args = parser.parse_args()
     
@@ -1042,8 +1364,19 @@ if __name__ == "__main__":
 
     elif args.function == "degraded_quality_preprocess":
         degraded_quality_preprocess(args.input_dir, args.output_dir,
-                                    args.trim_front, args.trim_tail,
+                                    args.trim_front, args.truncate_length,
                                     args.max_n, args.sequence_type)
+
+    elif args.function == "export_derep_for_vsearch":
+        export_derep_for_vsearch(args.repseq_qza, args.table_qza, args.output_fasta)
+
+    elif args.function == "relabel_reads_for_mapping":
+        relabel_reads_for_mapping(args.manifest_path, args.output_fasta)
+
+    elif args.function == "import_vsearch_to_qiime2":
+        import_vsearch_to_qiime2(args.zotu_fasta, args.otu_table_tsv,
+                                  args.manifest_path,
+                                  args.output_table_qza, args.output_repseq_qza)
 
     elif args.function == "append_summary":
         append_summary(args.dataset_id, args.sra_file, args.raw_counts, args.final_table, args.output_csv)

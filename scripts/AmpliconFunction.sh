@@ -923,6 +923,98 @@ Amplicon_DegradedQ_QualityControlForQZA() {
         --verbose
 }
 
+# ── Degraded Quality: VSEARCH CLI pipeline ──────────────────────────────────
+# These functions export QIIME2 artifacts → run vsearch natively → import back.
+# Pipeline: ExportForVsearch → VsearchDenoise → MapReadsToZotus → ImportResults
+
+Amplicon_DegradedQ_ExportForVsearch() {
+    # Export QIIME2 dereplicated artifacts to size-annotated FASTA for vsearch.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local dedupicate_path="${dataset_path%/}/tmp/step_05_dedupicate/"
+    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
+    mkdir -p "$vsearch_path"
+
+    echo ">>> Exporting dereplicated data for vsearch CLI pipeline..."
+    python3 "${SCRIPTS}/py_16s.py" export_derep_for_vsearch \
+        --repseq_qza "${dedupicate_path%/}/${dataset_name}-repseq.qza" \
+        --table_qza  "${dedupicate_path%/}/${dataset_name}-table.qza" \
+        --output_fasta "${vsearch_path%/}/derep_sized.fasta"
+}
+
+Amplicon_DegradedQ_VsearchDenoise() {
+    # Run native vsearch denoising: 99% pre-cluster → UNOISE3 → uchime3.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
+    local threads="${THREADS:-4}"
+
+    echo ">>> Step B: 99% pre-clustering..."
+    vsearch --cluster_size "${vsearch_path%/}/derep_sized.fasta" \
+        --id 0.99 \
+        --centroids "${vsearch_path%/}/preclust_99.fasta" \
+        --sizein --sizeout \
+        --threads "$threads"
+
+    echo ">>> Step C: UNOISE3 denoising (minsize=2)..."
+    vsearch --cluster_unoise "${vsearch_path%/}/preclust_99.fasta" \
+        --centroids "${vsearch_path%/}/zotus.fasta" \
+        --sizein --sizeout \
+        --minsize 2
+
+    echo ">>> Chimera removal (uchime3_denovo)..."
+    vsearch --uchime3_denovo "${vsearch_path%/}/zotus.fasta" \
+        --nonchimeras "${vsearch_path%/}/zotus_nochim.fasta" \
+        --sizein --sizeout
+}
+
+Amplicon_DegradedQ_MapReadsToZotus() {
+    # Map all preprocessed reads back to ZOTUs to build the OTU table.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
+    local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
+    local threads="${THREADS:-4}"
+
+    echo ">>> Relabeling reads with sample IDs..."
+    python3 "${SCRIPTS}/py_16s.py" relabel_reads_for_mapping \
+        --manifest_path "$manifest" \
+        --output_fasta "${vsearch_path%/}/all_reads_labeled.fasta"
+
+    echo ">>> Mapping reads to ZOTUs (97% identity)..."
+    vsearch --usearch_global "${vsearch_path%/}/all_reads_labeled.fasta" \
+        --db "${vsearch_path%/}/zotus_nochim.fasta" \
+        --id 0.97 \
+        --otutabout "${vsearch_path%/}/otu_table.tsv" \
+        --sizein \
+        --threads "$threads"
+}
+
+Amplicon_DegradedQ_ImportResults() {
+    # Import vsearch results back into QIIME2 artifacts.
+    # Output paths are aligned with Amplicon_LS454_FilterLowFreqOTUs expectations.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
+    local cluster_path="${dataset_path%/}/tmp/step_07_cluster/"
+    local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
+    mkdir -p "$cluster_path"
+
+    echo ">>> Importing vsearch results into QIIME2..."
+    python3 "${SCRIPTS}/py_16s.py" import_vsearch_to_qiime2 \
+        --zotu_fasta    "${vsearch_path%/}/zotus_nochim.fasta" \
+        --otu_table_tsv "${vsearch_path%/}/otu_table.tsv" \
+        --manifest_path "$manifest" \
+        --output_table_qza  "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
+        --output_repseq_qza "${cluster_path%/}/${dataset_name}-repseq-clustered.qza"
+}
+
 ################################################################################
 #                        PACBIO PLATFORM FUNCTIONS                             #
 ################################################################################
