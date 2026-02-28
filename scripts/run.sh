@@ -25,9 +25,10 @@ Required options:
     -o, --output DIR           Output base directory
 
 Optional options:
-    -t, --threads INT          Number of CPU threads per dataset (default: 4)
-    --max-parallel INT         Number of datasets to process in parallel (default: 1)
-                               Tip: set threads × max-parallel ≤ total CPU cores
+    -t, --threads INT          Total CPU threads available (default: 4)
+                               Automatically split across parallel datasets:
+                               per-dataset threads = threads ÷ max-parallel
+    --max-parallel INT         Number of datasets to process in parallel (default: 2)
     --col-bioproject NAME      Column for BioProject/Dataset ID (default: 'Data-Bioproject')
     --col-sra NAME             Column for SRA accession (default: 'Data-SRA')
     -h, --help                 Show this help message
@@ -42,7 +43,7 @@ EOF
 METADATA=""
 OUTPUT=""
 THREADS=4
-MAX_PARALLEL=1
+MAX_PARALLEL=2
 COL_BIOPROJECT="Data-Bioproject"
 COL_SRA="Data-SRA"
 
@@ -99,7 +100,13 @@ if [[ -z "$OUTPUT" ]]; then
     OUTPUT=$(dirname "$METADATA")
 fi
 
-export cpu=$THREADS
+# Compute per-dataset thread count: total threads ÷ max parallel datasets
+THREADS_PER_DATASET=$(( THREADS / MAX_PARALLEL ))
+if [[ "$THREADS_PER_DATASET" -lt 1 ]]; then
+    THREADS_PER_DATASET=1
+fi
+export THREADS_PER_DATASET
+export cpu=$THREADS_PER_DATASET
 
 # Source function library (AmpliconFunction.sh contains all processing functions)
 if [[ -f "${SCRIPTS}/AmpliconFunction.sh" ]]; then
@@ -160,9 +167,7 @@ summary_csv="${OUTPUT}/summary.csv"
 : > "$skipped_log"
 : > "$low_quality_log"
 
-if [[ "$MAX_PARALLEL" -gt 1 ]]; then
-    echo "Parallel mode: up to $MAX_PARALLEL datasets concurrently (${THREADS} threads each)"
-fi
+echo "Threads: $THREADS total, $MAX_PARALLEL parallel datasets, $THREADS_PER_DATASET threads per dataset"
 
 running_jobs=0
 
@@ -332,7 +337,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                     --trim_front 15 --truncate_length 0 \
                     --max_n 1 \
                     --sequence_type "$sequence_type" \
-                    --threads "$THREADS"
+                    --threads "$THREADS_PER_DATASET"
 
                 rm -rf "$fastp_path"
 

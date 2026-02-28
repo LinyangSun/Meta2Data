@@ -931,7 +931,7 @@ Amplicon_DegradedQ_DirectDerep() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
     local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
-    local threads="${THREADS:-4}"
+    local threads="${THREADS_PER_DATASET:-4}"
     mkdir -p "$vsearch_path"
 
     echo ">>> Direct dereplication via vsearch (bypassing QIIME2)..."
@@ -967,7 +967,7 @@ Amplicon_DegradedQ_VsearchDenoise() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
     local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
-    local threads="${THREADS:-4}"
+    local threads="${THREADS_PER_DATASET:-4}"
 
     echo ">>> Step B: 99% pre-clustering..."
     vsearch --cluster_size "${vsearch_path%/}/derep_sized.fasta" \
@@ -996,7 +996,7 @@ Amplicon_DegradedQ_MapReadsToZotus() {
     dataset_name="${trimmed_path##*/}"
     local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
     local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
-    local threads="${THREADS:-4}"
+    local threads="${THREADS_PER_DATASET:-4}"
 
     echo ">>> Relabeling reads with sample IDs..."
     python3 "${SCRIPTS}/py_16s.py" relabel_reads_for_mapping \

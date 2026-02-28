@@ -48,9 +48,10 @@ Optional options:
     -o, --output DIR          Output base directory
                               Default: current directory in --test mode
                                        metadata file directory in normal mode
-    -t, --threads int         Number of CPU threads per dataset (default: 4)
-    --max-parallel int        Number of datasets to process in parallel (default: 1)
-                              Tip: set threads × max-parallel ≤ total CPU cores
+    -t, --threads int         Total CPU threads available (default: 4)
+                              Automatically split across parallel datasets:
+                              per-dataset threads = threads ÷ max-parallel
+    --max-parallel int        Number of datasets to process in parallel (default: 2)
     --test                    Run in test mode.
                               If -m is provided: subset metadata (2 SRA per BioProject)
                               If -m is omitted:  use built-in test file
@@ -101,7 +102,7 @@ EOF
 METADATA=""
 OUTPUT=""
 THREADS=4
-MAX_PARALLEL=1
+MAX_PARALLEL=2
 TEST_MODE=false
 
 # Initialize column names as empty (no defaults)
