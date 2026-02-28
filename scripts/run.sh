@@ -25,7 +25,9 @@ Required options:
     -o, --output DIR           Output base directory
 
 Optional options:
-    -t, --threads INT          Number of CPU threads (default: 4)
+    -t, --threads INT          Number of CPU threads per dataset (default: 4)
+    --max-parallel INT         Number of datasets to process in parallel (default: 1)
+                               Tip: set threads × max-parallel ≤ total CPU cores
     --col-bioproject NAME      Column for BioProject/Dataset ID (default: 'Data-Bioproject')
     --col-sra NAME             Column for SRA accession (default: 'Data-SRA')
     -h, --help                 Show this help message
@@ -40,6 +42,7 @@ EOF
 METADATA=""
 OUTPUT=""
 THREADS=4
+MAX_PARALLEL=1
 COL_BIOPROJECT="Data-Bioproject"
 COL_SRA="Data-SRA"
 
@@ -52,6 +55,7 @@ while [[ $# -gt 0 ]]; do
         -m|--metadata) METADATA="$2"; shift 2 ;;
         -o|--output) OUTPUT="$2"; shift 2 ;;
         -t|--threads) THREADS="$2"; shift 2 ;;
+        --max-parallel) MAX_PARALLEL="$2"; shift 2 ;;
         --col-bioproject) COL_BIOPROJECT="$2"; shift 2 ;;
         --col-sra) COL_SRA="$2"; shift 2 ;;
         -h|--help) show_help; exit 0 ;;
@@ -62,6 +66,12 @@ done
 # Validate thread count is a positive integer
 if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
     echo "Error: --threads must be a positive integer, got '$THREADS'"
+    exit 1
+fi
+
+# Validate max-parallel count
+if ! [[ "$MAX_PARALLEL" =~ ^[1-9][0-9]*$ ]]; then
+    echo "Error: --max-parallel must be a positive integer, got '$MAX_PARALLEL'"
     exit 1
 fi
 
@@ -150,15 +160,21 @@ summary_csv="${OUTPUT}/summary.csv"
 : > "$skipped_log"
 : > "$low_quality_log"
 
+if [[ "$MAX_PARALLEL" -gt 1 ]]; then
+    echo "Parallel mode: up to $MAX_PARALLEL datasets concurrently (${THREADS} threads each)"
+fi
+
+running_jobs=0
+
 for i in "${!Dataset_ID_sets[@]}"; do
     dataset_ID="${Dataset_ID_sets[$i]}"
     dataset_path="${OUTPUT}/${dataset_ID}"
     sra_file_name="${dataset_ID}_sra.txt"
-    platform="Unknown" 
+    platform="Unknown"
 
     echo "----------------------------------------"
     echo "Dataset $((i+1))/${#Dataset_ID_sets[@]}: $dataset_ID"
-    
+
     # Check if already processed
     if [ -f "${dataset_path}/${dataset_ID}-final-rep-seqs.qza" ]; then
         echo "✓ Already processed. Skipping."
@@ -166,7 +182,13 @@ for i in "${!Dataset_ID_sets[@]}"; do
         continue
     fi
 
-    set +e
+    # Wait for a slot if running at max parallel capacity
+    if [[ "$MAX_PARALLEL" -gt 1 ]] && [[ "$running_jobs" -ge "$MAX_PARALLEL" ]]; then
+        wait -n 2>/dev/null || true
+        running_jobs=$((running_jobs - 1))
+    fi
+
+    _process_one_dataset() {
     (
         set -e
         cd "$dataset_path"
@@ -309,7 +331,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
                     --output_dir "$degraded_path" \
                     --trim_front 15 --truncate_length 0 \
                     --max_n 1 \
-                    --sequence_type "$sequence_type"
+                    --sequence_type "$sequence_type" \
+                    --threads "$THREADS"
 
                 rm -rf "$fastp_path"
 
@@ -318,14 +341,13 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 fastq_path="$degraded_path"
                 export fastq_path sequence_type
 
-                # ── QIIME2: import + QC + dereplicate ──
+                # ── Manifest (needed for relabel_reads_for_mapping + import) ──
                 Amplicon_Common_MakeManifestFileForQiime2
-                Amplicon_Common_ImportFastqToQiime2
-                Amplicon_DegradedQ_QualityControlForQZA
-                Amplicon_LS454_Deduplication
 
-                # ── Native vsearch: denoise + build OTU table ──
-                Amplicon_DegradedQ_ExportForVsearch
+                # ── Direct vsearch pipeline (bypasses QIIME2 intermediate steps) ──
+                # Replaces: ImportFastq → QualityControl → Deduplication → ExportForVsearch
+                # Quality/length/N filtering already done in degraded_quality_preprocess
+                Amplicon_DegradedQ_DirectDerep
                 Amplicon_DegradedQ_VsearchDenoise
                 Amplicon_DegradedQ_MapReadsToZotus
                 Amplicon_DegradedQ_ImportResults
@@ -668,13 +690,28 @@ with open('${DOCS_DIR}/1492R.fas') as f:
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SUCCESS - Platform: $platform" >> "$success_log"
 
     )
-    rc=$?
-    set -e
-    if [[ $rc -ne 0 ]]; then
+    local _rc=$?
+    if [[ $_rc -ne 0 ]]; then
         echo "❌ Pipeline failed for $dataset_ID — skipping to next dataset"
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED" >> "$failed_log"
     fi
+    }
+
+    set +e
+    if [[ "$MAX_PARALLEL" -gt 1 ]]; then
+        _process_one_dataset &
+        running_jobs=$((running_jobs + 1))
+    else
+        _process_one_dataset
+    fi
+    set -e
 done
+
+# Wait for all remaining background jobs (parallel mode)
+if [[ "$MAX_PARALLEL" -gt 1 ]]; then
+    echo ">>> Waiting for remaining background datasets to finish..."
+    wait
+fi
 
 ################################################################################
 #                          FINAL SUMMARY                                       #

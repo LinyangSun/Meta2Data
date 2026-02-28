@@ -6,6 +6,7 @@ import os
 import glob
 import gzip
 from collections import Counter
+from concurrent.futures import ProcessPoolExecutor
 import pandas as pd
 import numpy as np
 from Bio import SeqIO
@@ -775,8 +776,56 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
     return status
 
 
+def _process_single_fastq(args):
+    """Worker function for parallel FASTQ preprocessing (must be top-level for pickling)."""
+    fq, output_dir, trim_front, truncate_length, max_n, is_paired = args
+    open_fn = gzip.open if fq.endswith('.gz') else open
+    out_name = os.path.basename(fq)
+    if is_paired:
+        out_name = out_name.replace('_1.fastq', '.fastq').replace('_R1', '')
+    if not out_name.endswith('.gz'):
+        out_name += '.gz'
+    out_path = os.path.join(output_dir, out_name)
+
+    file_in = 0
+    file_out = 0
+    file_short = 0
+    file_n_filtered = 0
+
+    with open_fn(fq, 'rt') as fin, gzip.open(out_path, 'wt') as fout:
+        while True:
+            header = fin.readline()
+            if not header:
+                break
+            seq = fin.readline().rstrip('\n')
+            plus = fin.readline()
+            qual = fin.readline().rstrip('\n')
+            file_in += 1
+
+            seq_after_front = seq[trim_front:]
+            qual_after_front = qual[trim_front:]
+            if len(seq_after_front) < truncate_length:
+                file_short += 1
+                continue
+            seq_trimmed = seq_after_front[:truncate_length]
+            qual_trimmed = qual_after_front[:truncate_length]
+
+            n_count = seq_trimmed.upper().count('N')
+            if n_count > max_n:
+                file_n_filtered += 1
+                continue
+
+            fout.write(header)
+            fout.write(seq_trimmed + '\n')
+            fout.write(plus)
+            fout.write(qual_trimmed + '\n')
+            file_out += 1
+
+    return os.path.basename(fq), file_in, file_out, file_short, file_n_filtered
+
+
 def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_length=0,
-                                max_n=1, sequence_type="single"):
+                                max_n=1, sequence_type="single", threads=4):
     """
     Preprocess FASTQ files for the degraded quality score pipeline.
 
@@ -787,9 +836,7 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
       3. Discard reads with N count > max_n
       4. For PE data: use only forward (R1) reads to avoid merge Q value issues
 
-    Fixed-length truncation (instead of trim_tail) ensures uniform read lengths,
-    which improves dereplicate efficiency (identical sequences collapse better)
-    and avoids length-dependent artifacts in OTU clustering.
+    Files are processed in parallel using multiple workers.
 
     Args:
         input_dir: Directory with FASTQ files (after adapter removal + primer trimming)
@@ -799,6 +846,7 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
                          using 10th percentile of read lengths)
         max_n: Maximum N bases allowed per read; reads exceeding this are discarded (default: 1)
         sequence_type: "paired" or "single"
+        threads: Number of parallel workers (default: 4)
 
     Prints machine-readable lines to stdout:
         TRUNCATE_LENGTH=<int>
@@ -839,7 +887,6 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
                     seq = fin.readline().rstrip('\n')
                     _ = fin.readline()  # +
                     _ = fin.readline()  # qual
-                    # Length after trim_front
                     remaining = len(seq) - trim_front
                     if remaining > 0:
                         sampled_lengths.append(remaining)
@@ -848,7 +895,6 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
         if not sampled_lengths:
             raise ValueError("No reads found for truncation length detection")
 
-        # Use 10th percentile: keeps ~90% of reads
         truncate_length = int(np.percentile(sampled_lengths, 10))
         if truncate_length < 50:
             print(f"  WARNING: Auto-detected truncation length is very short ({truncate_length}bp)",
@@ -858,58 +904,38 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
     else:
         print(f"  Using specified truncation length: {truncate_length}bp", file=sys.stderr)
 
+    # Process files in parallel
+    is_paired = (sequence_type == "paired")
+    worker_args = [
+        (fq, output_dir, trim_front, truncate_length, max_n, is_paired)
+        for fq in process_files
+    ]
+
+    n_workers = min(len(process_files), max(1, threads))
     total_in = 0
     total_out = 0
     total_short = 0
     total_n_filtered = 0
 
-    for fq in process_files:
-        open_fn = gzip.open if fq.endswith('.gz') else open
-        out_name = os.path.basename(fq)
-        # For PE R1 files, rename to remove _1 suffix (now treated as SE)
-        if sequence_type == "paired":
-            out_name = out_name.replace('_1.fastq', '.fastq').replace('_R1', '')
-        if not out_name.endswith('.gz'):
-            out_name += '.gz'
-        out_path = os.path.join(output_dir, out_name)
-
-        file_in = 0
-        file_out = 0
-
-        with open_fn(fq, 'rt') as fin, gzip.open(out_path, 'wt') as fout:
-            while True:
-                header = fin.readline()
-                if not header:
-                    break
-                seq = fin.readline().rstrip('\n')
-                plus = fin.readline()
-                qual = fin.readline().rstrip('\n')
-                file_in += 1
-
-                # Trim front, then truncate to fixed length
-                seq_after_front = seq[trim_front:]
-                qual_after_front = qual[trim_front:]
-                if len(seq_after_front) < truncate_length:
-                    total_short += 1
-                    continue
-                seq_trimmed = seq_after_front[:truncate_length]
-                qual_trimmed = qual_after_front[:truncate_length]
-
-                # N filter
-                n_count = seq_trimmed.upper().count('N')
-                if n_count > max_n:
-                    total_n_filtered += 1
-                    continue
-
-                fout.write(header)
-                fout.write(seq_trimmed + '\n')
-                fout.write(plus)
-                fout.write(qual_trimmed + '\n')
-                file_out += 1
-
-        total_in += file_in
-        total_out += file_out
-        print(f"  {os.path.basename(fq)}: {file_in} -> {file_out} reads", file=sys.stderr)
+    if n_workers > 1:
+        print(f"  Processing {len(process_files)} files with {n_workers} parallel workers",
+              file=sys.stderr)
+        with ProcessPoolExecutor(max_workers=n_workers) as executor:
+            for fname, f_in, f_out, f_short, f_nfilt in executor.map(
+                    _process_single_fastq, worker_args):
+                total_in += f_in
+                total_out += f_out
+                total_short += f_short
+                total_n_filtered += f_nfilt
+                print(f"  {fname}: {f_in} -> {f_out} reads", file=sys.stderr)
+    else:
+        for args in worker_args:
+            fname, f_in, f_out, f_short, f_nfilt = _process_single_fastq(args)
+            total_in += f_in
+            total_out += f_out
+            total_short += f_short
+            total_n_filtered += f_nfilt
+            print(f"  {fname}: {f_in} -> {f_out} reads", file=sys.stderr)
 
     print(f"\n  Summary: {total_in} reads in, {total_out} out", file=sys.stderr)
     print(f"  Filtered: {total_short} too short (<{truncate_length}bp after trim), "
@@ -918,6 +944,87 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
     print(f"TRUNCATE_LENGTH={truncate_length}")
     print(f"TOTAL_IN={total_in}")
     print(f"TOTAL_OUT={total_out}")
+
+
+def derep_fastq_for_vsearch(input_dir, output_fasta, threads=4):
+    """
+    Dereplicate preprocessed FASTQ files directly using vsearch CLI.
+
+    Bypasses QIIME2 entirely: reads all preprocessed FASTQs, converts to FASTA,
+    runs vsearch --derep_fulllength, and outputs size-annotated FASTA sorted by
+    abundance (ready for vsearch --cluster_size).
+
+    This replaces the previous 4-step QIIME2 round-trip:
+      ImportFastqToQiime2 → QualityControlForQZA → LS454_Deduplication → ExportForVsearch
+
+    Args:
+        input_dir: Directory with preprocessed FASTQ files (from degraded_quality_preprocess)
+        output_fasta: Output path for size-annotated dereplicated FASTA
+        threads: Number of threads for vsearch (default: 4)
+
+    Prints machine-readable lines to stdout:
+        DEREP_INPUT_READS=<int>
+        DEREP_UNIQUE_SEQS=<int>
+    """
+    import tempfile
+
+    fq_files = sorted(glob.glob(os.path.join(input_dir, '*.fastq*')))
+    if not fq_files:
+        raise FileNotFoundError(f"No FASTQ files found in {input_dir}")
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # Step 1: Convert all FASTQ → single FASTA (vsearch needs FASTA input)
+        combined_fasta = os.path.join(tmpdir, 'all_reads.fasta')
+        total_reads = 0
+        with open(combined_fasta, 'w') as fout:
+            for fq in fq_files:
+                open_fn = gzip.open if fq.endswith('.gz') else open
+                with open_fn(fq, 'rt') as fin:
+                    while True:
+                        header = fin.readline()
+                        if not header:
+                            break
+                        seq = fin.readline().rstrip('\n')
+                        _ = fin.readline()  # +
+                        _ = fin.readline()  # qual
+                        total_reads += 1
+                        fout.write(f">{header[1:]}{seq}\n")
+
+        print(f"  Combined {total_reads} reads from {len(fq_files)} files", file=sys.stderr)
+
+        # Step 2: vsearch --derep_fulllength
+        derep_fasta = os.path.join(tmpdir, 'derep.fasta')
+        cmd = [
+            'vsearch', '--derep_fulllength', combined_fasta,
+            '--output', derep_fasta,
+            '--sizein', '--sizeout',
+            '--minuniquesize', '1',
+            '--threads', str(threads)
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode != 0:
+            raise RuntimeError(f"vsearch derep_fulllength failed:\n{result.stderr}")
+
+        # Step 3: Sort by abundance descending (required by vsearch --cluster_size)
+        cmd_sort = [
+            'vsearch', '--sortbysize', derep_fasta,
+            '--output', output_fasta,
+            '--sizein', '--sizeout'
+        ]
+        result_sort = subprocess.run(cmd_sort, capture_output=True, text=True)
+        if result_sort.returncode != 0:
+            raise RuntimeError(f"vsearch sortbysize failed:\n{result_sort.stderr}")
+
+        # Count unique sequences in output
+        n_unique = 0
+        with open(output_fasta, 'r') as f:
+            for line in f:
+                if line.startswith('>'):
+                    n_unique += 1
+
+    print(f"  Dereplicated: {total_reads} reads → {n_unique} unique sequences", file=sys.stderr)
+    print(f"DEREP_INPUT_READS={total_reads}")
+    print(f"DEREP_UNIQUE_SEQS={n_unique}")
 
 
 def export_derep_for_vsearch(repseq_qza, table_qza, output_fasta):
@@ -998,7 +1105,25 @@ def export_derep_for_vsearch(repseq_qza, table_qza, output_fasta):
     print(f"EXPORT_TOTAL_ABUNDANCE={total_abundance}")
 
 
-def relabel_reads_for_mapping(manifest_path, output_fasta):
+def _relabel_single_sample(args):
+    """Worker function for parallel sample relabeling (must be top-level for pickling)."""
+    sample_id, filepath, output_path = args
+    open_fn = gzip.open if filepath.endswith('.gz') else open
+    read_num = 0
+    with open_fn(filepath, 'rt') as fin, open(output_path, 'w') as fout:
+        while True:
+            header = fin.readline()
+            if not header:
+                break
+            seq = fin.readline().rstrip('\n')
+            _ = fin.readline()  # +
+            _ = fin.readline()  # qual
+            read_num += 1
+            fout.write(f">{sample_id};read_{read_num}\n{seq}\n")
+    return sample_id, read_num
+
+
+def relabel_reads_for_mapping(manifest_path, output_fasta, threads=4):
     """
     Merge all samples' preprocessed reads into a single FASTA with sample labels.
 
@@ -1008,42 +1133,60 @@ def relabel_reads_for_mapping(manifest_path, output_fasta):
         >sample_id;read_2
         ...
 
+    Samples are processed in parallel, then concatenated in order.
+
     This combined FASTA is used by vsearch --usearch_global to build the OTU table.
 
     Args:
         manifest_path: Path to QIIME2 manifest TSV (sample-id, absolute-filepath)
         output_fasta: Output path for combined labeled FASTA
+        threads: Number of parallel workers (default: 4)
 
     Prints machine-readable lines to stdout:
         RELABEL_SAMPLES=<int>
         RELABEL_TOTAL_READS=<int>
     """
+    import tempfile
+
     manifest = pd.read_csv(manifest_path, sep='\t')
+    n_samples = len(manifest)
+    n_workers = min(n_samples, max(1, threads))
 
-    total_reads = 0
-    n_samples = 0
-
-    with open(output_fasta, 'w') as fout:
-        for _, row in manifest.iterrows():
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # Build worker args: each sample writes to a temp file
+        worker_args = []
+        tmp_paths = []
+        for idx, row in manifest.iterrows():
             sample_id = str(row['sample-id'])
             filepath = str(row['absolute-filepath'])
-            n_samples += 1
+            tmp_path = os.path.join(tmpdir, f"sample_{idx}.fasta")
+            tmp_paths.append(tmp_path)
+            worker_args.append((sample_id, filepath, tmp_path))
 
-            open_fn = gzip.open if filepath.endswith('.gz') else open
-            read_num = 0
-            with open_fn(filepath, 'rt') as fin:
-                while True:
-                    header = fin.readline()
-                    if not header:
-                        break
-                    seq = fin.readline().rstrip('\n')
-                    _ = fin.readline()  # +
-                    _ = fin.readline()  # qual
-                    read_num += 1
-                    fout.write(f">{sample_id};read_{read_num}\n{seq}\n")
+        # Process samples in parallel
+        total_reads = 0
+        if n_workers > 1:
+            print(f"  Relabeling {n_samples} samples with {n_workers} parallel workers",
+                  file=sys.stderr)
+            with ProcessPoolExecutor(max_workers=n_workers) as executor:
+                for sample_id, read_num in executor.map(_relabel_single_sample, worker_args):
+                    total_reads += read_num
+                    print(f"  {sample_id}: {read_num} reads", file=sys.stderr)
+        else:
+            for args in worker_args:
+                sample_id, read_num = _relabel_single_sample(args)
+                total_reads += read_num
+                print(f"  {sample_id}: {read_num} reads", file=sys.stderr)
 
-            total_reads += read_num
-            print(f"  {sample_id}: {read_num} reads", file=sys.stderr)
+        # Concatenate temp files in manifest order
+        with open(output_fasta, 'wb') as fout:
+            for tmp_path in tmp_paths:
+                with open(tmp_path, 'rb') as fin:
+                    while True:
+                        chunk = fin.read(1024 * 1024)  # 1MB chunks
+                        if not chunk:
+                            break
+                        fout.write(chunk)
 
     print(f"\n  Total: {n_samples} samples, {total_reads} reads", file=sys.stderr)
     print(f"RELABEL_SAMPLES={n_samples}")
@@ -1245,8 +1388,14 @@ def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_cs
     result_df = pd.DataFrame(rows)
 
     # 5. Append to unified CSV (write header only if file doesn't exist or is empty)
-    write_header = not os.path.exists(output_csv) or os.path.getsize(output_csv) == 0
-    result_df.to_csv(output_csv, mode='a', header=write_header, index=False)
+    # Use file lock to prevent interleaving when datasets run in parallel
+    import fcntl
+    lock_path = output_csv + '.lock'
+    with open(lock_path, 'w') as lockf:
+        fcntl.flock(lockf, fcntl.LOCK_EX)
+        write_header = not os.path.exists(output_csv) or os.path.getsize(output_csv) == 0
+        result_df.to_csv(output_csv, mode='a', header=write_header, index=False)
+        fcntl.flock(lockf, fcntl.LOCK_UN)
 
     print(f"✓ Summary appended for {dataset_id}: {len(rows)} samples")
 
@@ -1279,6 +1428,7 @@ if __name__ == "__main__":
             "adaptive_tail_trim",
             "check_quality_diversity",
             "degraded_quality_preprocess",
+            "derep_fastq_for_vsearch",
             "export_derep_for_vsearch",
             "relabel_reads_for_mapping",
             "import_vsearch_to_qiime2",
@@ -1317,6 +1467,8 @@ if __name__ == "__main__":
                         help="Max N bases allowed per read (default: 1)")
     parser.add_argument("--sequence_type", default="single",
                         help="Sequence type: 'paired' or 'single' (default: single)")
+    parser.add_argument("--threads", type=int, default=4,
+                        help="Number of threads for parallel operations (default: 4)")
     # Arguments for vsearch pipeline functions
     parser.add_argument("--repseq_qza", help="Path to rep-seqs .qza (for export_derep_for_vsearch)")
     parser.add_argument("--table_qza", help="Path to table .qza (for export_derep_for_vsearch)")
@@ -1365,13 +1517,17 @@ if __name__ == "__main__":
     elif args.function == "degraded_quality_preprocess":
         degraded_quality_preprocess(args.input_dir, args.output_dir,
                                     args.trim_front, args.truncate_length,
-                                    args.max_n, args.sequence_type)
+                                    args.max_n, args.sequence_type,
+                                    args.threads)
+
+    elif args.function == "derep_fastq_for_vsearch":
+        derep_fastq_for_vsearch(args.input_dir, args.output_fasta, args.threads)
 
     elif args.function == "export_derep_for_vsearch":
         export_derep_for_vsearch(args.repseq_qza, args.table_qza, args.output_fasta)
 
     elif args.function == "relabel_reads_for_mapping":
-        relabel_reads_for_mapping(args.manifest_path, args.output_fasta)
+        relabel_reads_for_mapping(args.manifest_path, args.output_fasta, args.threads)
 
     elif args.function == "import_vsearch_to_qiime2":
         import_vsearch_to_qiime2(args.zotu_fasta, args.otu_table_tsv,

@@ -923,6 +923,24 @@ Amplicon_DegradedQ_QualityControlForQZA() {
         --verbose
 }
 
+# ── Degraded Quality: Direct VSEARCH derep (bypasses QIIME2) ────────────────
+# Replaces: ImportFastqToQiime2 + QualityControlForQZA + LS454_Deduplication + ExportForVsearch
+# Reads preprocessed FASTQ directly → vsearch --derep_fulllength → size-annotated FASTA
+
+Amplicon_DegradedQ_DirectDerep() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
+    local threads="${THREADS:-4}"
+    mkdir -p "$vsearch_path"
+
+    echo ">>> Direct dereplication via vsearch (bypassing QIIME2)..."
+    python3 "${SCRIPTS}/py_16s.py" derep_fastq_for_vsearch \
+        --input_dir "$fastq_path" \
+        --output_fasta "${vsearch_path%/}/derep_sized.fasta" \
+        --threads "$threads"
+}
+
 # ── Degraded Quality: VSEARCH CLI pipeline ──────────────────────────────────
 # These functions export QIIME2 artifacts → run vsearch natively → import back.
 # Pipeline: ExportForVsearch → VsearchDenoise → MapReadsToZotus → ImportResults
@@ -983,7 +1001,8 @@ Amplicon_DegradedQ_MapReadsToZotus() {
     echo ">>> Relabeling reads with sample IDs..."
     python3 "${SCRIPTS}/py_16s.py" relabel_reads_for_mapping \
         --manifest_path "$manifest" \
-        --output_fasta "${vsearch_path%/}/all_reads_labeled.fasta"
+        --output_fasta "${vsearch_path%/}/all_reads_labeled.fasta" \
+        --threads "$threads"
 
     echo ">>> Mapping reads to ZOTUs (97% identity)..."
     vsearch --usearch_global "${vsearch_path%/}/all_reads_labeled.fasta" \
