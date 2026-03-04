@@ -113,6 +113,7 @@ fi
 
 cd "$OUTPUT" || exit 1
 mkdir -p "${OUTPUT}/analysis/"
+mkdir -p "${OUTPUT}/logs"
 
 ################################################################################
 #                          PHASE 1: DATASET PREPARATION                        #
@@ -165,15 +166,19 @@ summary_csv="${OUTPUT}/summary.csv"
 echo "Threads: $THREADS total, $MAX_PARALLEL parallel datasets, $THREADS_PER_DATASET threads per dataset"
 
 running_jobs=0
+exec 3>&1   # save console stdout for milestone messages during parallel mode
+_pipeline_start=$(date +%s)
 
 for i in "${!Dataset_ID_sets[@]}"; do
     dataset_ID="${Dataset_ID_sets[$i]}"
     dataset_path="${OUTPUT}/${dataset_ID}"
     sra_file_name="${dataset_ID}_sra.txt"
+    log_file="${OUTPUT}/logs/${dataset_ID}.log"
     platform="Unknown"
 
     echo "----------------------------------------"
     echo "Dataset $((i+1))/${#Dataset_ID_sets[@]}: $dataset_ID"
+    echo "  Log: logs/${dataset_ID}.log"
 
     # Check if already processed
     if [ -f "${dataset_path}/${dataset_ID}-final-rep-seqs.qza" ]; then
@@ -189,6 +194,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
     fi
 
     _process_one_dataset() {
+    local _ds_start=$(date +%s)
     (
         set -e
         cd "$dataset_path"
@@ -208,6 +214,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         fi
 
         echo "Detected platform: $platform"
+        echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [1/3] Platform: $platform" >&3
 
         # 2. Platform-specific pipeline (download + processing)
         export dataset_path
@@ -229,6 +236,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                [[ "$n_fastp_fq" -eq "$n_srr" || "$n_fastp_fq" -eq $(( n_srr * 2 )) ]]; then
                 # fastp data is intact — resume from here
                 echo ">>> Resuming: found $n_fastp_fq fastp files for $n_srr SRR accessions"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Resuming from checkpoint" >&3
 
                 # Clean up all downstream intermediate directories
                 rm -rf "${dataset_path}/tmp/step_02c_degraded_preprocess"
@@ -274,6 +282,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
                 # ── Step A: Download ──
                 echo ">>> Downloading SRA data..."
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
                 if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
@@ -369,6 +378,9 @@ for i in "${!Dataset_ID_sets[@]}"; do
             fi
 
             # ── From here: same flow regardless of resume or fresh run ──
+            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
+            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
+            _proc_start=$_now
 
             if [[ "$quality_status" == "degraded" ]]; then
                 # ── Degraded Quality Branch: VSEARCH pipeline ──
@@ -496,6 +508,7 @@ with open(manifest_path, 'w') as f:
             if [[ "$n_fastp_fq" -gt 0 ]] && [[ "$n_fastp_fq" -eq "$n_srr" ]]; then
                 # 454 is always SE, so n_fastp_fq == n_srr
                 echo ">>> Resuming: found $n_fastp_fq fastp files for $n_srr SRR accessions"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Resuming from checkpoint" >&3
 
                 # Clean up downstream directories
                 rm -rf "${dataset_path}/tmp/step_02b_adaptive_trim"
@@ -513,6 +526,7 @@ with open(manifest_path, 'w') as f:
                 fi
 
                 echo ">>> Downloading SRA data (454)..."
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
                 if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
@@ -548,6 +562,10 @@ with open(manifest_path, 'w') as f:
 
             sequence_type="single"
             export sequence_type
+
+            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
+            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
+            _proc_start=$_now
 
             # ── Step D: Adaptive tail trimming (data-driven N removal) ──
             # Analyses per-position N frequency at 3' end, trims elevated-N
@@ -595,6 +613,7 @@ with open(manifest_path, 'w') as f:
 
             if [[ "$n_fastp_fq" -gt 0 ]] && [[ "$n_fastp_fq" -eq "$n_srr" ]]; then
                 echo ">>> Resuming: found $n_fastp_fq fastp files for $n_srr SRR accessions"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Resuming from checkpoint" >&3
                 rm -rf "${dataset_path}/tmp/step_03_qza_import"
                 rm -rf "${dataset_path}/tmp/step_04_qza_import_QualityFilter"
                 rm -rf "${dataset_path}/tmp/step_05_denoise"
@@ -607,6 +626,7 @@ with open(manifest_path, 'w') as f:
                 fi
 
                 echo ">>> Downloading SRA data (Ion Torrent)..."
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
                 if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
@@ -643,6 +663,10 @@ with open(manifest_path, 'w') as f:
             sequence_type="single"
             export sequence_type
 
+            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
+            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
+            _proc_start=$_now
+
             # ── Step D: QIIME2 Import → Quality filter → DADA2 denoise-pyro ──
             # Ion Torrent signal instability in the first ~10bp is handled by
             # DADA2 denoise-pyro --p-trim-left 10 (passed via -s 10).
@@ -674,6 +698,7 @@ with open(manifest_path, 'w') as f:
 
             if [[ "$n_adapter_fq" -gt 0 ]] && [[ "$n_adapter_fq" -eq "$n_srr" ]]; then
                 echo ">>> Resuming: found $n_adapter_fq adapter-removed files for $n_srr SRR accessions"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Resuming from checkpoint" >&3
                 rm -rf "${dataset_path}/tmp/step_03_qza_import"
                 rm -rf "${dataset_path}/tmp/step_04_qza_import_QualityFilter"
                 rm -rf "${dataset_path}/tmp/step_05_denoise"
@@ -686,6 +711,7 @@ with open(manifest_path, 'w') as f:
                 fi
 
                 echo ">>> Downloading SRA data..."
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
                 if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
@@ -710,6 +736,10 @@ with open(manifest_path, 'w') as f:
 
             sequence_type="single"
             export sequence_type
+
+            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
+            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
+            _proc_start=$_now
 
             # ── Step B2: Read length check on first sample ──
             # Sample the first 1000 reads from the first FASTQ file to
@@ -802,18 +832,24 @@ with open('${DOCS_DIR}/1492R.fas') as f:
 
     )
     local _rc=$?
+    local _ds_end=$(date +%s)
+    local _total=$(( _ds_end - _ds_start ))
+    local _total_fmt="$(( _total / 60 ))m$(( _total % 60 ))s"
     if [[ $_rc -ne 0 ]]; then
         echo "❌ Pipeline failed for $dataset_ID — skipping to next dataset"
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED" >> "$failed_log"
+        echo "[$(date '+%H:%M:%S')] [${dataset_ID}] FAILED (${_total_fmt}) - see logs/${dataset_ID}.log" >&3
+    else
+        echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SUCCESS (${_total_fmt})" >&3
     fi
     }
 
     set +e
     if [[ "$MAX_PARALLEL" -gt 1 ]]; then
-        _process_one_dataset &
+        _process_one_dataset >> "$log_file" 2>&1 &
         running_jobs=$((running_jobs + 1))
     else
-        _process_one_dataset
+        _process_one_dataset 2>&1 | tee "$log_file"
     fi
     set -e
 done
@@ -832,9 +868,13 @@ n_success=$(wc -l < "$success_log" 2>/dev/null || echo 0)
 n_failed=$(wc -l < "$failed_log" 2>/dev/null || echo 0)
 n_skipped=$(wc -l < "$skipped_log" 2>/dev/null || echo 0)
 n_low_quality=$(wc -l < "$low_quality_log" 2>/dev/null || echo 0)
+_pipeline_end=$(date +%s)
+_pipeline_elapsed=$(( _pipeline_end - _pipeline_start ))
+_pipeline_min=$(( _pipeline_elapsed / 60 ))
+_pipeline_sec=$(( _pipeline_elapsed % 60 ))
 
 echo "========================================="
-echo "ALL DONE"
+echo "ALL DONE  (total: ${_pipeline_min}m${_pipeline_sec}s)"
 echo "========================================="
 echo "  Success:      $n_success"
 echo "  Failed:       $n_failed"
@@ -855,3 +895,5 @@ if [[ "$n_low_quality" -gt 0 ]]; then
     cat "$low_quality_log"
     echo ""
 fi
+
+echo "Logs: ${OUTPUT}/logs/"
