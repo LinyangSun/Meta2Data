@@ -238,8 +238,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 echo ">>> Resuming: found $n_fastp_fq fastp files for $n_srr SRR accessions"
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Resuming from checkpoint" >&3
 
-                # Clean up all downstream intermediate directories
-                rm -rf "${dataset_path}/tmp/step_02c_degraded_preprocess"
+                # Clean up downstream intermediate directories (keep step_02c as checkpoint)
                 rm -rf "${dataset_path}/tmp/step_03_qza_import"
                 rm -rf "${dataset_path}/tmp/step_04_qza_import_QualityFilter"
                 rm -rf "${dataset_path}/tmp/step_05_dedupicate"
@@ -249,10 +248,11 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 rm -rf "${dataset_path}/tmp/step_07_cluster"
                 rm -rf "${dataset_path}/tmp/temp_file"
 
-                # Detect PE/SE from fastp files
+                # Detect PE/SE from fastp files (tolerate minor mismatches)
                 r1_fastp=$(find "$fastp_path" -type f -name '*_1.fastq*' 2>/dev/null | wc -l)
                 r2_fastp=$(find "$fastp_path" -type f -name '*_2.fastq*' 2>/dev/null | wc -l)
-                if [ "$r1_fastp" -gt 0 ] && [ "$r1_fastp" -eq "$r2_fastp" ]; then
+                if [ "$r1_fastp" -gt 0 ] && [ "$r2_fastp" -gt 0 ] && \
+                   [ "$r2_fastp" -ge $(( r1_fastp * 9 / 10 )) ]; then
                     sequence_type="paired"
                 else
                     sequence_type="single"
@@ -292,10 +292,30 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 Common_CountRawReads "$dataset_path" "$sra_file_name"
 
                 # Detect PE/SE after download (check for _1/_2 paired files)
-                r1_count=$(find "$ori_fastq_path" -type f -name '*_1.fastq*' 2>/dev/null | wc -l)
-                r2_count=$(find "$ori_fastq_path" -type f -name '*_2.fastq*' 2>/dev/null | wc -l)
-                if [ "$r1_count" -gt 0 ] && [ "$r1_count" -eq "$r2_count" ]; then
+                # Tolerates missing R2 files (e.g. corrupt downloads) by checking
+                # if majority of R1 files have a matching R2, and removing unpaired files.
+                r1_count=$(find "$ori_fastq_path" -type f \( -name '*_1.fastq*' -o -name '*_R1*.fastq*' \) 2>/dev/null | wc -l)
+                r2_count=$(find "$ori_fastq_path" -type f \( -name '*_2.fastq*' -o -name '*_R2*.fastq*' \) 2>/dev/null | wc -l)
+                if [ "$r1_count" -gt 0 ] && [ "$r2_count" -gt 0 ] && \
+                   [ "$r2_count" -ge $(( r1_count * 9 / 10 )) ]; then
                     sequence_type="paired"
+                    # Remove unpaired files (R1 without matching R2 or vice versa)
+                    for r1 in "${ori_fastq_path}/"*_1.fastq*; do
+                        [[ -f "$r1" ]] || continue
+                        r2="${r1/_1.fastq/_2.fastq}"
+                        if [[ ! -f "$r2" ]]; then
+                            echo "  Removing unpaired: $(basename "$r1")"
+                            rm -f "$r1"
+                        fi
+                    done
+                    for r1 in "${ori_fastq_path}/"*_R1*.fastq*; do
+                        [[ -f "$r1" ]] || continue
+                        r2="${r1/_R1/_R2}"
+                        if [[ ! -f "$r2" ]]; then
+                            echo "  Removing unpaired: $(basename "$r1")"
+                            rm -f "$r1"
+                        fi
+                    done
                 else
                     sequence_type="single"
                 fi
@@ -328,6 +348,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                               --detect_adapter_for_pe \
                               --disable_quality_filtering \
                               --disable_length_filtering \
+                              --quiet \
                               -w "$cpu" \
                               -j "${adapter_removed_path}/fastp.json" \
                               -h "${adapter_removed_path}/fastp.html"
@@ -344,6 +365,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                                   --detect_adapter_for_pe \
                                   --disable_quality_filtering \
                                   --disable_length_filtering \
+                                  --quiet \
                                   -w "$cpu" \
                                   -j "${adapter_removed_path}/fastp.json" \
                                   -h "${adapter_removed_path}/fastp.html"
@@ -356,6 +378,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                               -o "${adapter_removed_path}/$(basename "$fq")" \
                               --disable_quality_filtering \
                               --disable_length_filtering \
+                              --quiet \
                               -w "$cpu" \
                               -j "${adapter_removed_path}/fastp.json" \
                               -h "${adapter_removed_path}/fastp.html"
@@ -387,19 +410,35 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # Quality scores are binned/unreliable → DADA2 cannot learn error model
                 echo ">>> DEGRADED quality scores. Using VSEARCH pipeline..."
 
-                # Trim 15bp from 5' end + truncate to fixed length (auto-detect)
-                # + N filter (>1 → discard). PE → forward reads only.
                 degraded_path="${dataset_path}/tmp/step_02c_degraded_preprocess"
-                mkdir -p "$degraded_path"
-                python3 "${SCRIPTS}/py_16s.py" degraded_quality_preprocess \
-                    --input_dir "$fastp_path" \
-                    --output_dir "$degraded_path" \
-                    --trim_front 15 --truncate_length 0 \
-                    --max_n 1 --min_length 50 \
-                    --sequence_type "$sequence_type" \
-                    --threads "$THREADS_PER_DATASET"
 
-                rm -rf "$fastp_path"
+                # ── Resume checkpoint: check if degraded preprocess is already done ──
+                n_degraded_fq=0
+                if [[ -d "$degraded_path" ]]; then
+                    n_degraded_fq=$(find "$degraded_path" -type f -name '*.fastq*' | wc -l)
+                fi
+
+                if [[ "$n_degraded_fq" -gt 0 ]] && [[ "$n_degraded_fq" -eq "$n_srr" ]]; then
+                    # Degraded preprocess already done — resume from manifest
+                    echo ">>> Resuming: found $n_degraded_fq degraded-preprocessed files for $n_srr SRR accessions"
+                    # Clean only downstream directories
+                    rm -rf "${dataset_path}/tmp/step_06_vsearch_cli"
+                    rm -rf "${dataset_path}/tmp/step_07_cluster"
+                    rm -rf "${dataset_path}/tmp/temp_file"
+                else
+                    # Run degraded preprocess from fastp data
+                    # Trim 15bp from 5' end + truncate to fixed length (auto-detect)
+                    # + N filter (>1 → discard). PE → forward reads only.
+                    rm -rf "$degraded_path"
+                    mkdir -p "$degraded_path"
+                    python3 "${SCRIPTS}/py_16s.py" degraded_quality_preprocess \
+                        --input_dir "$fastp_path" \
+                        --output_dir "$degraded_path" \
+                        --trim_front 15 --truncate_length 0 \
+                        --max_n 1 --min_length 50 \
+                        --sequence_type "$sequence_type" \
+                        --threads "$THREADS_PER_DATASET"
+                fi
 
                 # Force SE mode (PE already extracted forward reads only)
                 sequence_type="single"
@@ -544,6 +583,7 @@ with open(manifest_path, 'w') as f:
                           -o "${adapter_removed_path}/$(basename "$fq")" \
                           --disable_quality_filtering \
                           --disable_length_filtering \
+                          --quiet \
                           -w "$cpu" \
                           -j "${adapter_removed_path}/fastp.json" \
                           -h "${adapter_removed_path}/fastp.html"
@@ -645,6 +685,7 @@ with open(manifest_path, 'w') as f:
                           -o "${adapter_removed_path}/$(basename "$fq")" \
                           --disable_quality_filtering \
                           --disable_length_filtering \
+                          --quiet \
                           -w "$cpu" \
                           -j "${adapter_removed_path}/fastp.json" \
                           -h "${adapter_removed_path}/fastp.html"
@@ -729,6 +770,7 @@ with open(manifest_path, 'w') as f:
                           -o "${adapter_removed_path}/$(basename "$fq")" \
                           --disable_quality_filtering \
                           --disable_length_filtering \
+                          --quiet \
                           -w "$cpu" \
                           -j "${adapter_removed_path}/fastp.json" \
                           -h "${adapter_removed_path}/fastp.html"

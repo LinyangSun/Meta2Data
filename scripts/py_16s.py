@@ -1221,7 +1221,7 @@ def _relabel_single_sample(args):
             _ = fin.readline()  # +
             _ = fin.readline()  # qual
             read_num += 1
-            fout.write(f">{sample_id};read_{read_num}\n{seq}\n")
+            fout.write(f">{sample_id}_{read_num};sample={sample_id};\n{seq}\n")
     return sample_id, read_num
 
 
@@ -1411,14 +1411,14 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
             '--type', 'FeatureTable[Frequency]',
             '--input-format', 'BIOMV210Format',
             '--output-path', output_table_qza
-        ], check=True, capture_output=True)
+        ], check=True)
 
         subprocess.run([
             'qiime', 'tools', 'import',
             '--input-path', clean_fasta,
             '--type', 'FeatureData[Sequence]',
             '--output-path', output_repseq_qza
-        ], check=True, capture_output=True)
+        ], check=True)
 
     print(f"  Imported to QIIME2: {output_table_qza}", file=sys.stderr)
     print(f"  Imported to QIIME2: {output_repseq_qza}", file=sys.stderr)

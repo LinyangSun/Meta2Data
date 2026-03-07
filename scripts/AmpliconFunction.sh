@@ -1005,8 +1005,13 @@ Amplicon_DegradedQ_VsearchDenoise() {
     local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
     local threads="${THREADS_PER_DATASET:-4}"
 
-    echo ">>> Step B: 99% pre-clustering..."
-    vsearch --cluster_size "${vsearch_path%/}/derep_sized.fasta" \
+    echo ">>> Step B1: Filtering singletons (minsize=2)..."
+    vsearch --sortbysize "${vsearch_path%/}/derep_sized.fasta" \
+        --output "${vsearch_path%/}/derep_minsize2.fasta" \
+        --minsize 2
+
+    echo ">>> Step B2: 99% pre-clustering..."
+    vsearch --cluster_size "${vsearch_path%/}/derep_minsize2.fasta" \
         --id 0.99 \
         --centroids "${vsearch_path%/}/preclust_99.fasta" \
         --sizein --sizeout \
