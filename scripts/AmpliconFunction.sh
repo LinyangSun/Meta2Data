@@ -65,6 +65,17 @@ Verify_Fastq_Integrity() {
     return 0
 }
 
+Common_SanitizeFastq() {
+    # Remove FASTQ records with sequence shorter than 50bp.
+    # For PE: drops both reads if either is too short.
+    # Uses $fastq_path and $sequence_type from the calling scope.
+    echo ">>> Sanitizing FASTQ files (removing reads < 50bp)..."
+    python3 "${SCRIPTS}/py_16s.py" sanitize_fastq \
+        --input_dir "$fastq_path" \
+        --min_length 50 \
+        --sequence_type "$sequence_type"
+}
+
 Download_From_ENA() {
     # Download FASTQ file(s) directly from ENA (European Nucleotide Archive).
     # ENA provides pre-converted FASTQ files with original quality scores

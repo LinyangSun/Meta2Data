@@ -395,7 +395,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                     --input_dir "$fastp_path" \
                     --output_dir "$degraded_path" \
                     --trim_front 15 --truncate_length 0 \
-                    --max_n 1 \
+                    --max_n 1 --min_length 50 \
                     --sequence_type "$sequence_type" \
                     --threads "$THREADS_PER_DATASET"
 
@@ -427,6 +427,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # causes excessive read loss.
                 fastq_path="$fastp_path"
                 export fastq_path
+                Common_SanitizeFastq
                 Amplicon_Common_MakeManifestFileForQiime2
                 Amplicon_Common_ImportFastqToQiime2
                 Amplicon_Illumina_DenosingDada2
@@ -592,6 +593,7 @@ with open(manifest_path, 'w') as f:
             # ── Step E: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% → Filter low-freq OTUs ──
             fastq_path="$adaptive_trim_path"
             export fastq_path
+            Common_SanitizeFastq
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
             Amplicon_LS454_QualityControlForQZA
@@ -673,6 +675,7 @@ with open(manifest_path, 'w') as f:
             # trunc-len is computed automatically from QC visualization.
             fastq_path="$fastp_path"
             export fastq_path
+            Common_SanitizeFastq
             Amplicon_Common_MakeManifestFileForQiime2
             Amplicon_Common_ImportFastqToQiime2
             Amplicon_IonTorrent_QualityControlForQZA
@@ -795,6 +798,7 @@ with open('${DOCS_DIR}/1492R.fas') as f:
                 # Import adapter-removed reads directly into QIIME2
                 fastq_path="$adapter_removed_path"
                 export fastq_path
+                Common_SanitizeFastq
                 Amplicon_Common_MakeManifestFileForQiime2
                 Amplicon_Common_ImportFastqToQiime2
                 Amplicon_Pacbio_QualityControlForQZA

@@ -778,7 +778,7 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
 
 def _process_single_fastq(args):
     """Worker function for parallel FASTQ preprocessing (must be top-level for pickling)."""
-    fq, output_dir, trim_front, truncate_length, max_n, is_paired = args
+    fq, output_dir, trim_front, truncate_length, max_n, min_length, is_paired = args
     open_fn = gzip.open if fq.endswith('.gz') else open
     out_name = os.path.basename(fq)
     if is_paired:
@@ -804,7 +804,7 @@ def _process_single_fastq(args):
 
             seq_after_front = seq[trim_front:]
             qual_after_front = qual[trim_front:]
-            if len(seq_after_front) < truncate_length:
+            if len(seq_after_front) < max(truncate_length, min_length):
                 file_short += 1
                 continue
             seq_trimmed = seq_after_front[:truncate_length]
@@ -824,8 +824,108 @@ def _process_single_fastq(args):
     return os.path.basename(fq), file_in, file_out, file_short, file_n_filtered
 
 
+def sanitize_fastq(input_dir, min_length=50, sequence_type="single"):
+    """
+    Remove FASTQ records with actual sequence shorter than min_length.
+
+    For PE data, reads R1/R2 in lockstep and drops both if either is too short.
+    Files are overwritten in-place. Handles .fastq and .fastq.gz.
+
+    Args:
+        input_dir: Directory containing FASTQ files
+        min_length: Minimum sequence length to keep (default: 50)
+        sequence_type: "paired" or "single"
+    """
+    total_in = 0
+    total_removed = 0
+
+    if sequence_type == "paired":
+        # Find R1/R2 pairs
+        all_files = sorted(glob.glob(os.path.join(input_dir, '*.fastq*')))
+        r1_files = [f for f in all_files if '_1.fastq' in f or '_R1' in f]
+
+        for r1 in r1_files:
+            r2 = r1.replace('_1.fastq', '_2.fastq').replace('_R1', '_R2')
+            if not os.path.exists(r2):
+                print(f"  WARNING: No R2 found for {os.path.basename(r1)}, skipping pair",
+                      file=sys.stderr)
+                continue
+
+            open_r1 = gzip.open if r1.endswith('.gz') else open
+            open_r2 = gzip.open if r2.endswith('.gz') else open
+
+            kept_r1 = []
+            kept_r2 = []
+            file_in = 0
+            file_removed = 0
+
+            with open_r1(r1, 'rt') as f1, open_r2(r2, 'rt') as f2:
+                while True:
+                    h1, s1, p1, q1 = f1.readline(), f1.readline(), f1.readline(), f1.readline()
+                    h2, s2, p2, q2 = f2.readline(), f2.readline(), f2.readline(), f2.readline()
+                    if not h1 or not h2:
+                        break
+                    file_in += 1
+                    seq1 = s1.rstrip('\n')
+                    seq2 = s2.rstrip('\n')
+                    if len(seq1) < min_length or len(seq2) < min_length:
+                        file_removed += 1
+                        continue
+                    kept_r1.extend([h1, s1, p1, q1])
+                    kept_r2.extend([h2, s2, p2, q2])
+
+            # Write back
+            write_r1 = gzip.open if r1.endswith('.gz') else open
+            write_r2 = gzip.open if r2.endswith('.gz') else open
+            with write_r1(r1, 'wt') as f1:
+                f1.writelines(kept_r1)
+            with write_r2(r2, 'wt') as f2:
+                f2.writelines(kept_r2)
+
+            total_in += file_in
+            total_removed += file_removed
+            if file_removed > 0:
+                print(f"  {os.path.basename(r1)}: {file_in} pairs, removed {file_removed}",
+                      file=sys.stderr)
+    else:
+        fq_files = sorted(glob.glob(os.path.join(input_dir, '*.fastq*')))
+        for fq in fq_files:
+            open_fn = gzip.open if fq.endswith('.gz') else open
+            kept = []
+            file_in = 0
+            file_removed = 0
+
+            with open_fn(fq, 'rt') as fin:
+                while True:
+                    h, s, p, q = fin.readline(), fin.readline(), fin.readline(), fin.readline()
+                    if not h:
+                        break
+                    file_in += 1
+                    if len(s.rstrip('\n')) < min_length:
+                        file_removed += 1
+                        continue
+                    kept.extend([h, s, p, q])
+
+            write_fn = gzip.open if fq.endswith('.gz') else open
+            with write_fn(fq, 'wt') as fout:
+                fout.writelines(kept)
+
+            total_in += file_in
+            total_removed += file_removed
+            if file_removed > 0:
+                print(f"  {os.path.basename(fq)}: {file_in} reads, removed {file_removed}",
+                      file=sys.stderr)
+
+    total_out = total_in - total_removed
+    print(f"  Sanitize summary: {total_in} in, {total_out} kept, {total_removed} removed (<{min_length}bp)",
+          file=sys.stderr)
+    print(f"TOTAL_IN={total_in}")
+    print(f"TOTAL_OUT={total_out}")
+    print(f"REMOVED={total_removed}")
+
+
 def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_length=0,
-                                max_n=1, sequence_type="single", threads=4):
+                                max_n=1, min_length=50, sequence_type="single", threads=4):
     """
     Preprocess FASTQ files for the degraded quality score pipeline.
 
@@ -834,7 +934,8 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
       1. Trim first trim_front bp from each read
       2. Truncate to a fixed length (all output reads are identical length)
       3. Discard reads with N count > max_n
-      4. For PE data: use only forward (R1) reads to avoid merge Q value issues
+      4. Discard reads with sequence < min_length after trimming
+      5. For PE data: use only forward (R1) reads to avoid merge Q value issues
 
     Files are processed in parallel using multiple workers.
 
@@ -845,6 +946,7 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
         truncate_length: Fixed length to keep after trim_front (0=auto-detect
                          using 10th percentile of read lengths)
         max_n: Maximum N bases allowed per read; reads exceeding this are discarded (default: 1)
+        min_length: Minimum sequence length after trimming; shorter reads are discarded (default: 50)
         sequence_type: "paired" or "single"
         threads: Number of parallel workers (default: 4)
 
@@ -907,7 +1009,7 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
     # Process files in parallel
     is_paired = (sequence_type == "paired")
     worker_args = [
-        (fq, output_dir, trim_front, truncate_length, max_n, is_paired)
+        (fq, output_dir, trim_front, truncate_length, max_n, min_length, is_paired)
         for fq in process_files
     ]
 
@@ -1427,6 +1529,7 @@ if __name__ == "__main__":
             "get_sequencing_platform",
             "adaptive_tail_trim",
             "check_quality_diversity",
+            "sanitize_fastq",
             "degraded_quality_preprocess",
             "derep_fastq_for_vsearch",
             "export_derep_for_vsearch",
@@ -1465,6 +1568,8 @@ if __name__ == "__main__":
                         help="Fixed truncation length after trim_front (0=auto-detect)")
     parser.add_argument("--max_n", type=int, default=1,
                         help="Max N bases allowed per read (default: 1)")
+    parser.add_argument("--min_length", type=int, default=50,
+                        help="Min sequence length to keep (default: 50)")
     parser.add_argument("--sequence_type", default="single",
                         help="Sequence type: 'paired' or 'single' (default: single)")
     parser.add_argument("--threads", type=int, default=4,
@@ -1514,11 +1619,14 @@ if __name__ == "__main__":
     elif args.function == "check_quality_diversity":
         check_quality_diversity(args.input_dir, args.n_samples, args.n_reads)
 
+    elif args.function == "sanitize_fastq":
+        sanitize_fastq(args.input_dir, args.min_length, args.sequence_type)
+
     elif args.function == "degraded_quality_preprocess":
         degraded_quality_preprocess(args.input_dir, args.output_dir,
                                     args.trim_front, args.truncate_length,
-                                    args.max_n, args.sequence_type,
-                                    args.threads)
+                                    args.max_n, args.min_length,
+                                    args.sequence_type, args.threads)
 
     elif args.function == "derep_fastq_for_vsearch":
         derep_fastq_for_vsearch(args.input_dir, args.output_fasta, args.threads)
