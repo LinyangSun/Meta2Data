@@ -3,7 +3,7 @@ set -e
 
 # Find scripts directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SCRIPTS="${SCRIPT_DIR}/scripts/MetaDL"
+SCRIPTS="${SCRIPT_DIR}/scripts"
 
 show_help() {
     cat << EOF
