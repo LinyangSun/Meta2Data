@@ -69,7 +69,7 @@ STATUS_INVALID_FORMAT = 'invalid_format'
 
 # Load column renaming dictionary
 COLUMN_RENAME_DICT = None
-COLUMN_RENAME_JSON_PATH = Path(__file__).parent.parent.parent / "docs" / "NCBI_Biosample.json"
+COLUMN_RENAME_JSON_PATH = Path(__file__).parent.parent / "docs" / "NCBI_Biosample.json"
 
 def load_column_rename_dict():
     """Load column renaming dictionary from JSON file"""
@@ -1410,7 +1410,7 @@ def generate_status_report(bioproject_ids, state_manager, output_dir):
 # Final Merge
 # ============================================================================
 
-def merge_all_results(results, output_dir):
+def merge_all_results(results, output_dir, tmp_dir=None):
     """Merge all processed DataFrames into final output (按行合并)
 
     NOTE: This function reads ALL .processed.csv files from disk instead of
@@ -1422,9 +1422,10 @@ def merge_all_results(results, output_dir):
     print('='*70)
 
     output_path = Path(output_dir)
+    scan_path = Path(tmp_dir) if tmp_dir else output_path
 
     # Read ALL .processed.csv files from disk (not just from results list)
-    processed_files = sorted(output_path.glob('*.processed.csv'))
+    processed_files = sorted(scan_path.glob('*.processed.csv'))
 
     if not processed_files:
         print("  No .processed.csv files found in output directory")
@@ -1568,7 +1569,7 @@ def run_unified_pipeline_v4(input_folder, output_folder, email, api_key=None, ma
     status_df = generate_status_report(all_input_ids, state_manager, output_path)
 
     print("\n[Step 4] Final merge...")
-    final_df = merge_all_results(results, output_path)
+    final_df = merge_all_results(results, output_path, tmp_dir=tmp_path)
 
     print("\n" + "="*70)
     print("PIPELINE V4.2 COMPLETE")
