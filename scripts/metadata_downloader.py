@@ -1016,6 +1016,126 @@ def download_sra_runinfo(bioproject_id, output_dir, email, api_key=None):
         return None
 
 
+def get_sra_ids_from_biosample_ids(biosample_accessions, email, api_key=None):
+    """Link BioSample accessions to SRA UIDs via esearch + elink."""
+    Entrez.email = email
+    if api_key:
+        Entrez.api_key = api_key
+
+    sra_uids = []
+    batch_size = 200
+
+    for i in range(0, len(biosample_accessions), batch_size):
+        batch = biosample_accessions[i:i+batch_size]
+
+        def _fetch(b=batch):
+            query = " OR ".join(b)
+            search_handle = Entrez.esearch(db="biosample", term=query, retmax=10000)
+            search_results = Entrez.read(search_handle)
+            search_handle.close()
+            bs_uids = search_results["IdList"]
+            if not bs_uids:
+                return []
+            link_handle = Entrez.elink(dbfrom="biosample", db="sra", id=bs_uids, retmax=10000)
+            link_results = Entrez.read(link_handle)
+            link_handle.close()
+            ids = []
+            for linkset in link_results:
+                for linksetdb in linkset.get("LinkSetDb", []):
+                    for link in linksetdb.get("Link", []):
+                        ids.append(link["Id"])
+            return ids
+
+        try:
+            sra_uids.extend(retry_wrapper(_fetch))
+        except Exception:
+            pass
+
+        if len(biosample_accessions) > batch_size:
+            time.sleep(DEFAULT_REQUEST_DELAY)
+
+    return list(dict.fromkeys(sra_uids))
+
+
+def download_sra_runinfo_by_sra_ids(group_id, sra_uids, output_dir, email, api_key=None):
+    """Download SRA RunInfo given a list of SRA UIDs directly."""
+    if not sra_uids:
+        return None
+
+    Entrez.email = email
+    if api_key:
+        Entrez.api_key = api_key
+
+    def _fetch():
+        batch_size = 500
+        all_data = []
+        for i in range(0, len(sra_uids), batch_size):
+            batch = sra_uids[i:i+batch_size]
+            fetch_handle = Entrez.efetch(
+                db="sra",
+                id=",".join(batch),
+                rettype="runinfo",
+                retmode="text"
+            )
+            data = fetch_handle.read()
+            fetch_handle.close()
+            if isinstance(data, bytes):
+                data = data.decode('utf-8')
+            if i == 0:
+                all_data.append(data)
+            else:
+                lines = data.split('\n')
+                all_data.append('\n'.join(lines[1:]))
+            if len(sra_uids) > batch_size:
+                time.sleep(DEFAULT_REQUEST_DELAY)
+        combined_data = '\n'.join(all_data)
+        output_file = output_dir / f"{group_id}_sra_runinfo.csv"
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.write(combined_data)
+        return output_file
+
+    try:
+        return retry_wrapper(_fetch)
+    except Exception:
+        return None
+
+
+def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir, email, api_key=None):
+    """Download and merge metadata starting directly from BioSample IDs."""
+    GROUP_ID = "BIOSAMPLE_INPUT"
+    biosample_df = pd.DataFrame()
+    sra_df = pd.DataFrame()
+
+    try:
+        biosample_file = download_biosample_data(GROUP_ID, biosample_accessions,
+                                                  output_dir, email, api_key)
+        if biosample_file:
+            biosample_df = parse_biosample_file(biosample_file)
+    except Exception:
+        pass
+
+    time.sleep(DEFAULT_REQUEST_DELAY)
+
+    try:
+        sra_uids = get_sra_ids_from_biosample_ids(biosample_accessions, email, api_key)
+        if sra_uids:
+            sra_file = download_sra_runinfo_by_sra_ids(GROUP_ID, sra_uids,
+                                                        output_dir, email, api_key)
+            if sra_file:
+                sra_df = pd.read_csv(sra_file)
+    except Exception:
+        pass
+
+    if biosample_df.empty and sra_df.empty:
+        return None
+
+    merged_df = merge_ncbi_data_single(biosample_df, sra_df)
+    merged_df = clean_and_standardize_columns(merged_df)
+    merged_df = apply_column_rename_from_dict(merged_df)
+    merged_df = apply_camelcase_normalization(merged_df)
+    return merged_df
+
+
 # ============================================================================
 # BioSample Parser
 # ============================================================================
@@ -1385,20 +1505,23 @@ def run_unified_pipeline_v4(input_folder, output_folder, email, api_key=None, ma
     # Load column rename dictionary
     load_column_rename_dict()
 
-    print("\n[Step 1] Reading BioProject IDs...")
-    bioproject_ids = read_bioproject_ids(input_folder)
+    print("\n[Step 1] Reading input IDs...")
+    all_input_ids = read_bioproject_ids(input_folder)
 
-    if not bioproject_ids:
-        print("ERROR: No BioProject IDs found")
+    if not all_input_ids:
+        print("ERROR: No IDs found in input files")
         return None
 
-    cncb_ids = [p for p in bioproject_ids if re.match(r'^PRJC[A-Z]\d+$', p)]
-    ncbi_ids = [p for p in bioproject_ids if re.match(r'^PRJ[EDN][A-Z]\d+$', p)]
-    other_ids = [p for p in bioproject_ids if p not in cncb_ids and p not in ncbi_ids]
+    biosample_ids = [p for p in all_input_ids if re.match(r'^SAM[CEDN][A-Z]?\d+$', p)]
+    cncb_ids      = [p for p in all_input_ids if re.match(r'^PRJC[A-Z]\d+$', p)]
+    ncbi_ids      = [p for p in all_input_ids if re.match(r'^PRJ[EDN][A-Z]\d+$', p)]
+    other_ids     = [p for p in all_input_ids
+                     if p not in biosample_ids and p not in cncb_ids and p not in ncbi_ids]
 
-    print(f"\nTotal BioProjects: {len(bioproject_ids)}")
-    print(f"  CNCB (PRJC*): {len(cncb_ids)}")
-    print(f"  NCBI (PRJ[EDN]*): {len(ncbi_ids)}")
+    print(f"\nTotal input IDs: {len(all_input_ids)}")
+    print(f"  BioSample (SAM*):   {len(biosample_ids)}")
+    print(f"  CNCB (PRJC*):       {len(cncb_ids)}")
+    print(f"  NCBI (PRJ[EDN]*):   {len(ncbi_ids)}")
     if other_ids:
         print(f"  Unknown format: {len(other_ids)}")
         for oid in other_ids:
@@ -1409,21 +1532,37 @@ def run_unified_pipeline_v4(input_folder, output_folder, email, api_key=None, ma
     print(f"  Completed: {stats['completed']}")
     print(f"  Failed: {stats['failed']}")
 
+    biosample_results = []
+    if biosample_ids:
+        print(f"\n[Step 1b] Processing {len(biosample_ids)} BioSample IDs...")
+        bs_df = download_ncbi_metadata_from_biosamples(
+            biosample_ids, output_path, email, api_key
+        )
+        if bs_df is not None and not bs_df.empty and validate_run_data(bs_df):
+            bs_df['Source_Database'] = 'NCBI'
+            csv_path = output_path / "BIOSAMPLE_INPUT.processed.csv"
+            bs_df.to_csv(csv_path, index=False, encoding='utf-8')
+            biosample_results.append({'bioproject_id': 'BIOSAMPLE_INPUT',
+                                       'df': bs_df, 'source': 'NCBI'})
+            print(f"  ✓ BioSample metadata saved: {len(bs_df)} records")
+        else:
+            print("  ✗ No valid data retrieved from BioSample IDs")
+
     print("\n[Step 2] Processing BioProjects...")
 
-    valid_ids = cncb_ids + ncbi_ids
+    bioproject_ids = cncb_ids + ncbi_ids
 
     results = parallel_process_bioprojects(
-        valid_ids,
+        bioproject_ids,
         output_path,
         email,
         api_key,
         max_workers,
         state_manager
-    )
+    ) + biosample_results
 
     print("\n[Step 3] Generating status report...")
-    status_df = generate_status_report(bioproject_ids, state_manager, output_path)
+    status_df = generate_status_report(all_input_ids, state_manager, output_path)
 
     print("\n[Step 4] Final merge...")
     final_df = merge_all_results(results, output_path)
@@ -1431,9 +1570,9 @@ def run_unified_pipeline_v4(input_folder, output_folder, email, api_key=None, ma
     print("\n" + "="*70)
     print("PIPELINE V4.2 COMPLETE")
     print("="*70)
-    print(f"Total BioProjects: {len(bioproject_ids)}")
+    print(f"Total input IDs: {len(all_input_ids)}")
     print(f"  - With valid Run data: {len(results)}")
-    print(f"  - No data/No Run info: {len(bioproject_ids) - len(results)}")
+    print(f"  - No data/No Run info: {len(all_input_ids) - len(results)}")
     print(f"\nOutput files:")
     print(f"  - status.tsv: {len(status_df)} records")
     print(f"  - all_metadata_merged.csv: {len(final_df)} records")
@@ -1441,7 +1580,7 @@ def run_unified_pipeline_v4(input_folder, output_folder, email, api_key=None, ma
     print("="*70 + "\n")
 
     return {
-        'bioproject_ids': bioproject_ids,
+        'bioproject_ids': all_input_ids,
         'results': results,
         'final_df': final_df,
         'status_df': status_df
