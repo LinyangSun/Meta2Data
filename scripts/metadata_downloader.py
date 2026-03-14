@@ -88,8 +88,9 @@ def load_column_rename_dict():
     return COLUMN_RENAME_DICT
 
 
-def setup_entrez(email, api_key=None):
-    Entrez.email = email
+def setup_entrez(api_key=None):
+    """Set up Entrez with auto-generated email. Call once at pipeline start."""
+    Entrez.email = generate_fake_email()
     if api_key:
         Entrez.api_key = api_key
 
@@ -157,7 +158,9 @@ def read_input_ids(folder_path):
 
 def remove_empty_columns(df):
     """Remove columns where all values are empty/NaN."""
-    return df.dropna(axis=1, how='all').loc[:, (df.astype(str).str.strip().replace('', pd.NA) != 'nan').any()]
+    df = df.dropna(axis=1, how='all')
+    mask = df.astype(str).apply(lambda col: col.str.strip()).replace('', pd.NA).ne('nan').any()
+    return df.loc[:, mask]
 
 
 def remove_duplicate_columns(df):
@@ -388,8 +391,8 @@ class StateManager:
 # ============================================================================
 
 class BioProjectDownloader:
-    def __init__(self, email):
-        Entrez.email = email
+    def __init__(self):
+        Entrez.email = generate_fake_email()
         self.cncb_base_url = "https://ngdc.cncb.ac.cn"
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -688,9 +691,8 @@ def download_cncb_metadata(accession, output_dir):
 # NCBI Download
 # ============================================================================
 
-def get_biosamples_from_bioproject(bioproject_id, email, api_key=None):
+def get_biosamples_from_bioproject(bioproject_id):
     """Fetch BioSample UIDs linked to a BioProject."""
-    setup_entrez(email, api_key)
 
     def _fetch():
         search_handle = Entrez.esearch(db="bioproject", term=bioproject_id, retmax=1)
@@ -717,12 +719,10 @@ def get_biosamples_from_bioproject(bioproject_id, email, api_key=None):
         return []
 
 
-def download_biosample_data(group_id, biosample_ids, output_dir, email, api_key=None):
+def download_biosample_data(group_id, biosample_ids, output_dir):
     """Download BioSample metadata text."""
     if not biosample_ids:
         return None
-
-    setup_entrez(email, api_key)
 
     def _fetch():
         all_data = []
@@ -745,12 +745,10 @@ def download_biosample_data(group_id, biosample_ids, output_dir, email, api_key=
         return None
 
 
-def _fetch_sra_runinfo(sra_ids, group_id, output_dir, email, api_key=None):
+def _fetch_sra_runinfo(sra_ids, group_id, output_dir):
     """Fetch SRA RunInfo CSV from a list of SRA UIDs. Shared by both flows."""
     if not sra_ids:
         return None
-
-    setup_entrez(email, api_key)
 
     def _fetch():
         all_data = []
@@ -781,9 +779,8 @@ def _fetch_sra_runinfo(sra_ids, group_id, output_dir, email, api_key=None):
         return None
 
 
-def download_sra_runinfo(bioproject_id, output_dir, email, api_key=None):
+def download_sra_runinfo(bioproject_id, output_dir):
     """Search SRA by BioProject, then fetch RunInfo."""
-    setup_entrez(email, api_key)
 
     def _search():
         handle = Entrez.esearch(db="sra", term=f"{bioproject_id}[BioProject]", retmax=10000)
@@ -796,12 +793,11 @@ def download_sra_runinfo(bioproject_id, output_dir, email, api_key=None):
     except Exception:
         return None
 
-    return _fetch_sra_runinfo(sra_ids, bioproject_id, output_dir, email, api_key)
+    return _fetch_sra_runinfo(sra_ids, bioproject_id, output_dir)
 
 
-def get_sra_ids_from_biosample_ids(biosample_accessions, email, api_key=None):
+def get_sra_ids_from_biosample_ids(biosample_accessions):
     """Link BioSample accessions -> SRA UIDs via esearch + elink."""
-    setup_entrez(email, api_key)
 
     sra_uids = []
     batch_size = 200
@@ -899,8 +895,7 @@ def merge_ncbi_data_single(biosample_df, sra_df):
     return pd.concat([sra_df, biosample_df], axis=1)
 
 
-def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, email, api_key,
-                              sra_fetch_fn):
+def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, sra_fetch_fn):
     """Shared logic: download BioSample + SRA, merge, standardize.
 
     sra_fetch_fn: callable that returns SRA RunInfo file path.
@@ -910,7 +905,7 @@ def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, email, api_key
 
     try:
         biosample_file = download_biosample_data(group_id, biosample_ids,
-                                                  output_dir, email, api_key)
+                                                  output_dir)
         if biosample_file:
             biosample_df = parse_biosample_file(biosample_file)
     except Exception:
@@ -931,25 +926,25 @@ def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, email, api_key
     return standardize_columns(merge_ncbi_data_single(biosample_df, sra_df))
 
 
-def download_ncbi_metadata(bioproject_id, output_dir, email, api_key=None):
+def download_ncbi_metadata(bioproject_id, output_dir):
     """Download NCBI metadata for a BioProject."""
-    biosample_ids = get_biosamples_from_bioproject(bioproject_id, email, api_key)
+    biosample_ids = get_biosamples_from_bioproject(bioproject_id)
     return _download_and_merge_ncbi(
-        bioproject_id, biosample_ids, output_dir, email, api_key,
-        sra_fetch_fn=lambda: download_sra_runinfo(bioproject_id, output_dir, email, api_key)
+        bioproject_id, biosample_ids, output_dir,
+        sra_fetch_fn=lambda: download_sra_runinfo(bioproject_id, output_dir)
     )
 
 
-def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir, email, api_key=None):
+def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
     """Download NCBI metadata starting from BioSample IDs."""
     GROUP_ID = "BIOSAMPLE_INPUT"
 
     def _sra_fetch():
-        sra_uids = get_sra_ids_from_biosample_ids(biosample_accessions, email, api_key)
-        return _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir, email, api_key)
+        sra_uids = get_sra_ids_from_biosample_ids(biosample_accessions)
+        return _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
 
     return _download_and_merge_ncbi(
-        GROUP_ID, biosample_accessions, output_dir, email, api_key,
+        GROUP_ID, biosample_accessions, output_dir,
         sra_fetch_fn=_sra_fetch
     )
 
@@ -958,8 +953,7 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir, ema
 # Single Project Processing
 # ============================================================================
 
-def process_single_bioproject(bioproject_id, output_dir, email, api_key,
-                               state_manager):
+def process_single_bioproject(bioproject_id, output_dir, state_manager):
     """Process a single BioProject (NCBI or CNCB)."""
     print(f"\n{'─'*50}")
     print(f"Processing: {bioproject_id}")
@@ -979,7 +973,7 @@ def process_single_bioproject(bioproject_id, output_dir, email, api_key,
         df = download_cncb_metadata(bioproject_id, output_dir)
     elif ID_PATTERNS['ncbi'].match(bioproject_id):
         source = 'NCBI'
-        df = download_ncbi_metadata(bioproject_id, output_dir, email, api_key)
+        df = download_ncbi_metadata(bioproject_id, output_dir)
     else:
         print(f"  Unknown format: {bioproject_id}")
         state_manager.mark_failed(bioproject_id, "Unknown format", 'validation')
@@ -1004,8 +998,8 @@ def process_single_bioproject(bioproject_id, output_dir, email, api_key,
     return {'bioproject_id': bioproject_id, 'df': df, 'source': source}
 
 
-def parallel_process_bioprojects(bioproject_list, output_dir, email, api_key,
-                                  max_workers, state_manager):
+def parallel_process_bioprojects(bioproject_list, output_dir, max_workers,
+                                  state_manager):
     """Process multiple BioProjects in parallel."""
     print(f"\n{'='*70}")
     print(f"Processing {len(bioproject_list)} BioProjects (workers: {max_workers})")
@@ -1015,7 +1009,7 @@ def parallel_process_bioprojects(bioproject_list, output_dir, email, api_key,
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
             executor.submit(process_single_bioproject, bid, output_dir,
-                            email, api_key, state_manager): bid
+                            state_manager): bid
             for bid in bioproject_list
         }
         for future in as_completed(futures):
@@ -1105,7 +1099,7 @@ def merge_all_results(results, output_dir, tmp_dir=None):
 # Main Pipeline
 # ============================================================================
 
-def run_unified_pipeline(input_folder, output_folder, email, api_key=None, max_workers=None):
+def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=None):
     """Execute unified metadata download pipeline."""
     output_path = Path(output_folder)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -1115,6 +1109,8 @@ def run_unified_pipeline(input_folder, output_folder, email, api_key=None, max_w
 
     state_manager = StateManager(tmp_path)
 
+    setup_entrez(api_key)
+
     if max_workers is None:
         max_workers = 8 if api_key else DEFAULT_MAX_WORKERS
 
@@ -1123,7 +1119,6 @@ def run_unified_pipeline(input_folder, output_folder, email, api_key=None, max_w
     print("="*70)
     print(f"Input:       {input_folder}")
     print(f"Output:      {output_folder}")
-    print(f"Email:       {email}")
     print(f"API Key:     {'Yes' if api_key else 'No'}")
     print(f"Max Workers: {max_workers}")
     print("="*70)
@@ -1156,7 +1151,7 @@ def run_unified_pipeline(input_folder, output_folder, email, api_key=None, max_w
     if groups['biosample']:
         print(f"\n[Step 1b] Processing {len(groups['biosample'])} BioSample IDs...")
         bs_df = download_ncbi_metadata_from_biosamples(
-            groups['biosample'], tmp_path, email, api_key
+            groups['biosample'], tmp_path
         )
         if bs_df is not None and not bs_df.empty and validate_run_data(bs_df):
             bs_df['Source_Database'] = 'NCBI'
@@ -1173,7 +1168,7 @@ def run_unified_pipeline(input_folder, output_folder, email, api_key=None, max_w
     bioproject_ids = groups['cncb'] + groups['ncbi']
 
     results = parallel_process_bioprojects(
-        bioproject_ids, tmp_path, email, api_key, max_workers, state_manager
+        bioproject_ids, tmp_path, max_workers, state_manager
     ) + biosample_results
 
     # Step 3: Status report
@@ -1226,18 +1221,12 @@ def main():
                         help='Optional search terms')
     parser.add_argument('-i', '--input', default=None,
                         help='Input directory with ID txt files')
-    parser.add_argument('-e', '--email', default=None,
-                        help='Email for NCBI (auto-generated if not provided)')
     parser.add_argument('-k', '--api-key', default=None,
                         help='NCBI API key')
     parser.add_argument('-w', '--max-workers', type=int, default=None,
                         help='Max parallel workers')
 
     args = parser.parse_args()
-
-    if args.email is None:
-        args.email = generate_fake_email()
-        print(f"Using auto-generated email: {args.email}")
 
     if args.keywords:
         if not args.field or not args.organism:
@@ -1253,7 +1242,7 @@ def main():
         print("===========================\n")
 
         try:
-            downloader = BioProjectDownloader(args.email)
+            downloader = BioProjectDownloader()
             search_results = downloader.search_and_download_batch(
                 field=args.field, organism=args.organism, opt=args.opt,
                 output_dir=Path(args.output), databases=["ncbi", "cncb"], delay=1.0
@@ -1267,7 +1256,7 @@ def main():
             bioproject_input_folder = search_results['dirs']['results']
             result = run_unified_pipeline(
                 str(bioproject_input_folder), args.output,
-                args.email, args.api_key, args.max_workers
+                args.api_key, args.max_workers
             )
             sys.exit(0 if result else 1)
 
@@ -1296,7 +1285,7 @@ def main():
 
         try:
             result = run_unified_pipeline(
-                args.input, args.output, args.email, args.api_key, args.max_workers
+                args.input, args.output, args.api_key, args.max_workers
             )
             sys.exit(0 if result else 1)
 
