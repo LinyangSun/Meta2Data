@@ -833,17 +833,40 @@ def get_sra_ids_from_biosample_ids(biosample_accessions):
     return list(dict.fromkeys(sra_uids))
 
 
+def _verify_biosample_uid(uid):
+    """Return the accession that a BioSample UID actually belongs to."""
+    def _do(u=uid):
+        handle = Entrez.esummary(db="biosample", id=u)
+        summary = Entrez.read(handle)
+        handle.close()
+        doc_summaries = summary.get('DocumentSummarySet', {}).get('DocumentSummary', [])
+        if doc_summaries:
+            return doc_summaries[0].get('Accession', '')
+        return ''
+    return retry_wrapper(_do)
+
+
 def _build_biosample_uid_map(biosample_accessions):
     """Map each BioSample accession to its NCBI UID via esearch.
+
+    Uses eSearch with [Accession] first, then verifies via eSummary.
+    If the [Accession] search returns a wrong match (common for DDBJ
+    accessions like SAMD*), falls back to a plain-text search which
+    uses NCBI's broader resolver.
 
     Returns:
         uid_to_original: dict mapping UID string -> original accession
         all_uids: list of all UIDs (preserving order)
+        not_found: list of accessions that could not be resolved
     """
     uid_to_original = {}
     all_uids = []
+    not_found = []
 
     for acc in biosample_accessions:
+        resolved_uid = None
+
+        # Strategy 1: eSearch with [Accession] field qualifier
         def _search(a=acc):
             handle = Entrez.esearch(db="biosample", term=f"{a}[Accession]", retmax=1)
             results = Entrez.read(handle)
@@ -852,15 +875,44 @@ def _build_biosample_uid_map(biosample_accessions):
 
         try:
             uids = retry_wrapper(_search)
-            for uid in uids:
-                uid_to_original[uid] = acc
-                all_uids.append(uid)
+            if uids:
+                time.sleep(DEFAULT_REQUEST_DELAY)
+                returned_acc = _verify_biosample_uid(uids[0])
+                if returned_acc == acc:
+                    resolved_uid = uids[0]
         except Exception:
             pass
 
+        # Strategy 2: plain-text search (fallback for DDBJ/EBI accessions)
+        # NCBI's general search resolves cross-database accessions correctly
+        if resolved_uid is None:
+            def _search_plain(a=acc):
+                handle = Entrez.esearch(db="biosample", term=a, retmax=5)
+                results = Entrez.read(handle)
+                handle.close()
+                return results["IdList"]
+
+            try:
+                time.sleep(DEFAULT_REQUEST_DELAY)
+                uids = retry_wrapper(_search_plain)
+                for candidate_uid in (uids or []):
+                    time.sleep(DEFAULT_REQUEST_DELAY)
+                    returned_acc = _verify_biosample_uid(candidate_uid)
+                    if returned_acc == acc:
+                        resolved_uid = candidate_uid
+                        break
+            except Exception:
+                pass
+
+        if resolved_uid is not None:
+            uid_to_original[resolved_uid] = acc
+            all_uids.append(resolved_uid)
+        else:
+            not_found.append(acc)
+
         time.sleep(DEFAULT_REQUEST_DELAY)
 
-    return uid_to_original, all_uids
+    return uid_to_original, all_uids, not_found
 
 
 def _get_sra_uids_from_biosample_uids(biosample_uids):
@@ -1001,44 +1053,61 @@ def download_ncbi_metadata(bioproject_id, output_dir):
 def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
     """Download NCBI metadata starting from BioSample IDs.
 
-    Uses UID-based mapping to preserve original accessions when NCBI
-    cross-references them (e.g., SAMD -> SAMN).
+    Validates that NCBI returns the correct BioSample for each query.
+    Rejects cross-referenced accessions (e.g., queried SAMD00518144
+    but NCBI returned SAMN00518144).
     """
     GROUP_ID = "BIOSAMPLE_INPUT"
 
-    # 1. Build UID -> original accession mapping
+    # 1. Build UID -> original accession mapping (with validation)
     print("  Building BioSample UID mapping...")
-    uid_to_original, all_uids = _build_biosample_uid_map(biosample_accessions)
+    uid_to_original, all_uids, not_found = _build_biosample_uid_map(biosample_accessions)
+
+    if not_found:
+        print(f"  WARNING: {len(not_found)} BioSample IDs could not be resolved:")
+        for acc in not_found[:10]:
+            print(f"    {acc}")
+        if len(not_found) > 10:
+            print(f"    ... and {len(not_found) - 10} more")
+
     if not all_uids:
-        print("  No BioSample UIDs found")
+        print("  No verified BioSample UIDs found")
         return None
 
-    # 2. Download and parse BioSample metadata
+    print(f"  Verified {len(all_uids)} BioSample UIDs")
+
+    # 2. Download and parse BioSample metadata using verified UIDs
+    #    (pass UIDs, not accessions, to avoid NCBI cross-referencing)
     biosample_df = pd.DataFrame()
     try:
-        biosample_file = download_biosample_data(GROUP_ID, biosample_accessions,
-                                                  output_dir)
+        biosample_file = download_biosample_data(GROUP_ID, all_uids, output_dir)
         if biosample_file:
             biosample_df = parse_biosample_file(biosample_file)
     except Exception:
         pass
 
-    # 3. Build ncbi_accession -> original_accession map via UID
+    # 3. Build ncbi_accession -> original_accession map from parsed data
+    #    (before overwriting BioSample column)
+    #    The efetch returns NCBI's canonical accession in the BioSample column,
+    #    but SRA RunInfo also uses that canonical accession. We need this map
+    #    to restore original accessions in SRA data later.
     ncbi_to_original = {}
     if not biosample_df.empty and '_biosample_uid' in biosample_df.columns:
         for _, row in biosample_df.iterrows():
             uid = str(row.get('_biosample_uid', ''))
             ncbi_acc = str(row.get('BioSample', ''))
             if uid in uid_to_original and ncbi_acc:
-                ncbi_to_original[ncbi_acc] = uid_to_original[uid]
+                orig_acc = uid_to_original[uid]
+                if ncbi_acc != orig_acc:
+                    ncbi_to_original[ncbi_acc] = orig_acc
 
-        # Restore BioSample in biosample_df
+        # Restore original accessions in biosample_df
         biosample_df['BioSample'] = biosample_df['_biosample_uid'].astype(str).map(
             uid_to_original
         ).fillna(biosample_df['BioSample'])
         biosample_df.drop(columns=['_biosample_uid'], inplace=True)
 
-    # 4. Download SRA RunInfo (reuse UIDs, skip redundant esearch)
+    # 4. Download SRA RunInfo (reuse verified UIDs)
     sra_df = pd.DataFrame()
     time.sleep(DEFAULT_REQUEST_DELAY)
     try:
@@ -1049,7 +1118,7 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
     except Exception:
         pass
 
-    # 5. Restore BioSample in SRA data using the ncbi -> original map
+    # 5. Restore original accessions in SRA data
     if not sra_df.empty and 'BioSample' in sra_df.columns and ncbi_to_original:
         sra_df['BioSample'] = sra_df['BioSample'].map(
             lambda val: ncbi_to_original.get(str(val), val)
