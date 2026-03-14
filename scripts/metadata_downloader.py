@@ -833,6 +833,65 @@ def get_sra_ids_from_biosample_ids(biosample_accessions):
     return list(dict.fromkeys(sra_uids))
 
 
+def _build_biosample_uid_map(biosample_accessions):
+    """Map each BioSample accession to its NCBI UID via esearch.
+
+    Returns:
+        uid_to_original: dict mapping UID string -> original accession
+        all_uids: list of all UIDs (preserving order)
+    """
+    uid_to_original = {}
+    all_uids = []
+
+    for acc in biosample_accessions:
+        def _search(a=acc):
+            handle = Entrez.esearch(db="biosample", term=f"{a}[Accession]", retmax=1)
+            results = Entrez.read(handle)
+            handle.close()
+            return results["IdList"]
+
+        try:
+            uids = retry_wrapper(_search)
+            for uid in uids:
+                uid_to_original[uid] = acc
+                all_uids.append(uid)
+        except Exception:
+            pass
+
+        time.sleep(DEFAULT_REQUEST_DELAY)
+
+    return uid_to_original, all_uids
+
+
+def _get_sra_uids_from_biosample_uids(biosample_uids):
+    """Link BioSample UIDs -> SRA UIDs via elink (no esearch needed)."""
+    sra_uids = []
+    batch_size = 200
+
+    for i in range(0, len(biosample_uids), batch_size):
+        batch = biosample_uids[i:i + batch_size]
+
+        def _link(b=batch):
+            link_handle = Entrez.elink(dbfrom="biosample", db="sra",
+                                       id=b, retmax=10000)
+            link_results = Entrez.read(link_handle)
+            link_handle.close()
+            return [link["Id"]
+                    for linkset in link_results
+                    for linksetdb in linkset.get("LinkSetDb", [])
+                    for link in linksetdb.get("Link", [])]
+
+        try:
+            sra_uids.extend(retry_wrapper(_link))
+        except Exception:
+            pass
+
+        if len(biosample_uids) > batch_size:
+            time.sleep(DEFAULT_REQUEST_DELAY)
+
+    return list(dict.fromkeys(sra_uids))
+
+
 # ============================================================================
 # BioSample Parser
 # ============================================================================
@@ -854,6 +913,10 @@ def parse_biosample_file(file_path):
             continue
 
         data = {}
+        uid_match = re.match(r'(\d+):\s+', block)
+        if uid_match:
+            data['_biosample_uid'] = uid_match.group(1)
+
         match = re.search(r'Accession:\s+(\S+)', block)
         if match:
             data['BioSample'] = match.group(1)
@@ -936,40 +999,67 @@ def download_ncbi_metadata(bioproject_id, output_dir):
 
 
 def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
-    """Download NCBI metadata starting from BioSample IDs."""
+    """Download NCBI metadata starting from BioSample IDs.
+
+    Uses UID-based mapping to preserve original accessions when NCBI
+    cross-references them (e.g., SAMD -> SAMN).
+    """
     GROUP_ID = "BIOSAMPLE_INPUT"
 
-    def _sra_fetch():
-        sra_uids = get_sra_ids_from_biosample_ids(biosample_accessions)
-        return _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
+    # 1. Build UID -> original accession mapping
+    print("  Building BioSample UID mapping...")
+    uid_to_original, all_uids = _build_biosample_uid_map(biosample_accessions)
+    if not all_uids:
+        print("  No BioSample UIDs found")
+        return None
 
-    result = _download_and_merge_ncbi(
-        GROUP_ID, biosample_accessions, output_dir,
-        sra_fetch_fn=_sra_fetch
-    )
+    # 2. Download and parse BioSample metadata
+    biosample_df = pd.DataFrame()
+    try:
+        biosample_file = download_biosample_data(GROUP_ID, biosample_accessions,
+                                                  output_dir)
+        if biosample_file:
+            biosample_df = parse_biosample_file(biosample_file)
+    except Exception:
+        pass
 
-    # Restore original input BioSample IDs if NCBI cross-referenced them
-    # (e.g., SAMD00518144 -> SAMN00518144)
-    if result is not None and not result.empty and 'BioSample' in result.columns:
-        original_set = set(biosample_accessions)
-        # Build mapping: numeric suffix -> original accession
-        suffix_to_original = {}
-        for acc in biosample_accessions:
-            m = re.match(r'SAM[A-Z]*(\d+)$', acc)
-            if m:
-                suffix_to_original[m.group(1)] = acc
+    # 3. Build ncbi_accession -> original_accession map via UID
+    ncbi_to_original = {}
+    if not biosample_df.empty and '_biosample_uid' in biosample_df.columns:
+        for _, row in biosample_df.iterrows():
+            uid = str(row.get('_biosample_uid', ''))
+            ncbi_acc = str(row.get('BioSample', ''))
+            if uid in uid_to_original and ncbi_acc:
+                ncbi_to_original[ncbi_acc] = uid_to_original[uid]
 
-        def _restore(val):
-            if val in original_set:
-                return val
-            m = re.match(r'SAM[A-Z]*(\d+)$', str(val))
-            if m and m.group(1) in suffix_to_original:
-                return suffix_to_original[m.group(1)]
-            return val
+        # Restore BioSample in biosample_df
+        biosample_df['BioSample'] = biosample_df['_biosample_uid'].astype(str).map(
+            uid_to_original
+        ).fillna(biosample_df['BioSample'])
+        biosample_df.drop(columns=['_biosample_uid'], inplace=True)
 
-        result['BioSample'] = result['BioSample'].map(_restore)
+    # 4. Download SRA RunInfo (reuse UIDs, skip redundant esearch)
+    sra_df = pd.DataFrame()
+    time.sleep(DEFAULT_REQUEST_DELAY)
+    try:
+        sra_uids = _get_sra_uids_from_biosample_uids(all_uids)
+        sra_file = _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
+        if sra_file:
+            sra_df = pd.read_csv(sra_file)
+    except Exception:
+        pass
 
-    return result
+    # 5. Restore BioSample in SRA data using the ncbi -> original map
+    if not sra_df.empty and 'BioSample' in sra_df.columns and ncbi_to_original:
+        sra_df['BioSample'] = sra_df['BioSample'].map(
+            lambda val: ncbi_to_original.get(str(val), val)
+        )
+
+    # 6. Merge and standardize
+    if biosample_df.empty and sra_df.empty:
+        return None
+
+    return standardize_columns(merge_ncbi_data_single(biosample_df, sra_df))
 
 
 # ============================================================================
