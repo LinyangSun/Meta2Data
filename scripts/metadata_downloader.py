@@ -695,7 +695,7 @@ def get_biosamples_from_bioproject(bioproject_id):
     """Fetch BioSample UIDs linked to a BioProject."""
 
     def _fetch():
-        search_handle = Entrez.esearch(db="bioproject", term=bioproject_id, retmax=1)
+        search_handle = Entrez.esearch(db="bioproject", term=f"{bioproject_id}[Accession]", retmax=1)
         search_results = Entrez.read(search_handle)
         search_handle.close()
 
@@ -806,7 +806,7 @@ def get_sra_ids_from_biosample_ids(biosample_accessions):
         batch = biosample_accessions[i:i + batch_size]
 
         def _fetch(b=batch):
-            query = " OR ".join(b)
+            query = " OR ".join(f"{acc}[Accession]" for acc in b)
             handle = Entrez.esearch(db="biosample", term=query, retmax=10000)
             results = Entrez.read(handle)
             handle.close()
@@ -943,10 +943,33 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
         sra_uids = get_sra_ids_from_biosample_ids(biosample_accessions)
         return _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
 
-    return _download_and_merge_ncbi(
+    result = _download_and_merge_ncbi(
         GROUP_ID, biosample_accessions, output_dir,
         sra_fetch_fn=_sra_fetch
     )
+
+    # Restore original input BioSample IDs if NCBI cross-referenced them
+    # (e.g., SAMD00518144 -> SAMN00518144)
+    if result is not None and not result.empty and 'BioSample' in result.columns:
+        original_set = set(biosample_accessions)
+        # Build mapping: numeric suffix -> original accession
+        suffix_to_original = {}
+        for acc in biosample_accessions:
+            m = re.match(r'SAM[A-Z]*(\d+)$', acc)
+            if m:
+                suffix_to_original[m.group(1)] = acc
+
+        def _restore(val):
+            if val in original_set:
+                return val
+            m = re.match(r'SAM[A-Z]*(\d+)$', str(val))
+            if m and m.group(1) in suffix_to_original:
+                return suffix_to_original[m.group(1)]
+            return val
+
+        result['BioSample'] = result['BioSample'].map(_restore)
+
+    return result
 
 
 # ============================================================================
@@ -988,6 +1011,11 @@ def process_single_bioproject(bioproject_id, output_dir, state_manager):
         print(f"  No valid Run information")
         state_manager.mark_failed(bioproject_id, "No Run info", 'no_run')
         return None
+
+    # Preserve the user's original BioProject ID (NCBI may cross-reference
+    # e.g., PRJEB -> PRJNA, PRJDB -> PRJNA)
+    if 'BioProject' in df.columns:
+        df['BioProject'] = bioproject_id
 
     df['Source_Database'] = source
     csv_path = output_dir / f"{bioproject_id}.processed.csv"
