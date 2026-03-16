@@ -1337,7 +1337,7 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
                     fout.write(f">{seq_id}\n")
                     n_features += 1
                 else:
-                    fout.write(line)
+                    fout.write(line.upper())
 
         # Verify no ;size= remains
         with open(clean_fasta, 'r') as f:
