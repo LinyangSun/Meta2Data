@@ -112,7 +112,6 @@ else
 fi
 
 cd "$OUTPUT" || exit 1
-mkdir -p "${OUTPUT}/analysis/"
 mkdir -p "${OUTPUT}/logs"
 
 ################################################################################
