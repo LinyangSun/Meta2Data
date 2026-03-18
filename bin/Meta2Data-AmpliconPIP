@@ -101,7 +101,7 @@ EOF
 # Default parameters
 METADATA=""
 OUTPUT=""
-THREADS=4
+THREADS=12
 MAX_PARALLEL=2
 TEST_MODE=false
 
