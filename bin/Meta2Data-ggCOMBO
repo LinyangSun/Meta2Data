@@ -58,6 +58,10 @@ Optional options:
     -o, --output DIR      Output directory for merged results (default: same as --input)
     -t, --threads int     Number of CPU threads (default: 4)
     --dl                  Download database files to --db directory
+    --gsrdb               Use GSRDB (Gut-Specific Reference Database) classifier
+                          instead of GreenGenes2 for taxonomy assignment.
+                          Tree building still uses GG2 SEPP reference.
+                          Default: off (use GreenGenes2)
     -h, --help            Show this help message
 
 Example usage:
@@ -89,6 +93,7 @@ EOF
 # Default parameters
 DB_DIR=""
 ENABLE_DL=false
+USE_GSRDB=false
 INPUT_DIR=""
 OUTPUT=""
 THREADS=4
@@ -102,6 +107,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --dl)
             ENABLE_DL=true
+            shift
+            ;;
+        --gsrdb)
+            USE_GSRDB=true
             shift
             ;;
         -i|--input)
@@ -172,29 +181,46 @@ else
     OUTPUT=$(cd "$OUTPUT" && pwd)
 fi
 
-# Fixed database file names
-NB_CLASSIFIER="${DB_DIR}/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza"
+# Database file names (conditional on --gsrdb)
 SEPP_REF="${DB_DIR}/sepp-refs-gg-13-8.qza"
+if [[ "$USE_GSRDB" == true ]]; then
+    NB_CLASSIFIER="${DB_DIR}/classifier_GSR-DB_full-16S.qza"
+else
+    NB_CLASSIFIER="${DB_DIR}/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza"
+fi
 
 ################################################################################
 #                    DOWNLOAD DATABASE (if --dl enabled)                        #
 ################################################################################
 
 if [[ "$ENABLE_DL" == true ]]; then
-    NB_CLASSIFIER_URL="https://data.qiime2.org/classifiers/sklearn-1.4.2/greengenes2/"
     SEPP_URL="https://data.qiime2.org/classifiers/sepp-ref-dbs/"
 
     echo "========================================="
     echo "Downloading Database Files"
     echo "Target: $DB_DIR"
+    if [[ "$USE_GSRDB" == true ]]; then
+        echo "Classifier: GSRDB (Gut-Specific Reference Database)"
+    else
+        echo "Classifier: GreenGenes2"
+    fi
     echo "========================================="
     echo ""
 
     # Each entry: "filename|base_url"
-    DL_FILES=(
-        "2024.09.backbone.full-length.nb.sklearn-1.4.2.qza|${NB_CLASSIFIER_URL}"
-        "sepp-refs-gg-13-8.qza|${SEPP_URL}"
-    )
+    if [[ "$USE_GSRDB" == true ]]; then
+        NB_CLASSIFIER_URL="https://manichanh.vhir.org/gsrdb/"
+        DL_FILES=(
+            "classifier_GSR-DB_full-16S.qza|${NB_CLASSIFIER_URL}"
+            "sepp-refs-gg-13-8.qza|${SEPP_URL}"
+        )
+    else
+        NB_CLASSIFIER_URL="https://data.qiime2.org/classifiers/sklearn-1.4.2/greengenes2/"
+        DL_FILES=(
+            "2024.09.backbone.full-length.nb.sklearn-1.4.2.qza|${NB_CLASSIFIER_URL}"
+            "sepp-refs-gg-13-8.qza|${SEPP_URL}"
+        )
+    fi
 
     # Validate a .qza file by checking it is a non-empty, valid zip archive
     validate_qza() {
@@ -263,7 +289,8 @@ echo ""
 echo "========================================="
 echo "Meta2Data ggCOMBO"
 echo "========================================="
-echo "Database:       $DB_DIR"
+echo "Database Dir:   $DB_DIR"
+echo "Taxonomy DB:    $(if [[ "$USE_GSRDB" == true ]]; then echo "GSRDB"; else echo "GreenGenes2"; fi)"
 echo "  Classifier:   $(basename "$NB_CLASSIFIER")"
 echo "  SEPP Ref:     $(basename "$SEPP_REF")"
 echo "Input:          $INPUT_DIR"
