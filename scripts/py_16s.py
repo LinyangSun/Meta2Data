@@ -1337,7 +1337,7 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
                     fout.write(f">{seq_id}\n")
                     n_features += 1
                 else:
-                    fout.write(line)
+                    fout.write(line.upper())
 
         # Verify no ;size= remains
         with open(clean_fasta, 'r') as f:
@@ -1354,11 +1354,19 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
         with open(otu_table_tsv, 'r') as f:
             header_line = None
             for line in f:
-                if line.startswith('#'):
-                    continue
                 if header_line is None:
+                    # vsearch --otutabout header starts with '#OTU ID'
+                    if line.startswith('#OTU ID') or line.startswith('#OTU\t'):
+                        header_line = line.rstrip('\n').split('\t')
+                        table_sample_ids = set(header_line[1:])
+                        continue
+                    if line.startswith('#'):
+                        continue
+                    # Header without '#' prefix
                     header_line = line.rstrip('\n').split('\t')
                     table_sample_ids = set(header_line[1:])
+                    continue
+                if line.startswith('#'):
                     continue
                 parts = line.rstrip('\n').split('\t')
                 # Feature ID may contain ;size= from vsearch output
