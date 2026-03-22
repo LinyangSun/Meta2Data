@@ -528,64 +528,74 @@ def _parse_cncb_platform_response(csv_content, target_run_id=None):
         return None
 
 
-def _get_platform_from_ncbi(srr_id, max_retries=5, initial_delay=2.0):
+_NCBI_LOCK_FILE = "/tmp/meta2data_ncbi.lock"
+_NCBI_MIN_INTERVAL = 1.0  # seconds between Entrez calls (NCBI limit: 3 req/s without API key)
+
+
+def _get_platform_from_ncbi(srr_id):
     """
-    Get sequencing platform from NCBI for SRR/ERR/DRR accession
+    Get sequencing platform from NCBI for SRR/ERR/DRR accession.
+    Uses a file lock to enforce a minimum interval between calls across
+    parallel processes, avoiding HTTP 429 from NCBI Entrez.
 
     Args:
         srr_id: NCBI SRA accession (SRR/ERR/DRR)
-        max_retries: Maximum number of retry attempts for rate limit errors
-        initial_delay: Initial delay in seconds for exponential backoff
 
     Returns:
         Platform name or None
     """
+    import fcntl
     from Bio import Entrez
     import xml.etree.ElementTree as ET
-    import urllib.error
 
     Entrez.email = "your_email@example.com"
 
-    for attempt in range(max_retries):
-        try:
-            search_handle = Entrez.esearch(db="sra", term=srr_id)
-            search_results = Entrez.read(search_handle)
-            search_handle.close()
+    try:
+        lock_fh = open(_NCBI_LOCK_FILE, "a+")
+        fcntl.flock(lock_fh, fcntl.LOCK_EX)
 
-            if not search_results['IdList']:
-                print(f"Warning: No results found for {srr_id}", file=sys.stderr)
-                return None
+        # Enforce minimum interval between calls
+        lock_fh.seek(0)
+        content = lock_fh.read().strip()
+        if content:
+            elapsed = time.time() - float(content)
+            if elapsed < _NCBI_MIN_INTERVAL:
+                time.sleep(_NCBI_MIN_INTERVAL - elapsed)
 
-            uid = search_results['IdList'][0]
+        # Record call timestamp before releasing so next process waits correctly
+        lock_fh.seek(0)
+        lock_fh.truncate()
+        lock_fh.write(str(time.time()))
+        lock_fh.flush()
+        fcntl.flock(lock_fh, fcntl.LOCK_UN)
+        lock_fh.close()
 
-            fetch_handle = Entrez.efetch(db="sra", id=uid, retmode="xml")
-            xml_data = fetch_handle.read()
-            fetch_handle.close()
+        search_handle = Entrez.esearch(db="sra", term=srr_id)
+        search_results = Entrez.read(search_handle)
+        search_handle.close()
 
-            root = ET.fromstring(xml_data)
-            platform = root.find('.//PLATFORM')
-
-            if platform is not None and len(platform) > 0:
-                return platform[0].tag
-
-            print(f"Warning: Platform not found in metadata for {srr_id}", file=sys.stderr)
+        if not search_results['IdList']:
+            print(f"Warning: No results found for {srr_id}", file=sys.stderr)
             return None
 
-        except urllib.error.HTTPError as e:
-            if e.code == 429:
-                delay = initial_delay * (2 ** attempt)
-                print(f"Warning: Rate limit hit for {srr_id} (attempt {attempt + 1}/{max_retries}). "
-                      f"Retrying in {delay:.1f}s...", file=sys.stderr)
-                time.sleep(delay)
-            else:
-                print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
-                return None
-        except Exception as e:
-            print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
-            return None
+        uid = search_results['IdList'][0]
 
-    print(f"Warning: Failed to retrieve platform for {srr_id} after {max_retries} attempts (rate limit)", file=sys.stderr)
-    return None
+        fetch_handle = Entrez.efetch(db="sra", id=uid, retmode="xml")
+        xml_data = fetch_handle.read()
+        fetch_handle.close()
+
+        root = ET.fromstring(xml_data)
+        platform = root.find('.//PLATFORM')
+
+        if platform is not None and len(platform) > 0:
+            return platform[0].tag
+
+        print(f"Warning: Platform not found in metadata for {srr_id}", file=sys.stderr)
+        return None
+
+    except Exception as e:
+        print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
+        return None
 
 
 def adaptive_tail_trim(input_dir, output_dir, max_sample_reads=10000):
