@@ -98,15 +98,16 @@ Download_From_ENA() {
     local acc_prefix="${srr:0:6}"
     local acc_len=${#srr}
 
-    local ena_dir
+    # Path only (no protocol) — protocol is selected per-attempt below
+    local ena_path
     if (( acc_len <= 9 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr}"
+        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr}"
     elif (( acc_len == 10 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/00${srr: -1}/${srr}"
+        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/00${srr: -1}/${srr}"
     elif (( acc_len == 11 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/0${srr: -2}/${srr}"
+        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/0${srr: -2}/${srr}"
     else
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
+        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
     fi
 
     # Determine which file patterns to try based on detected layout.
@@ -130,32 +131,49 @@ Download_From_ENA() {
             break
         fi
 
-        local url="${ena_dir}/${fname}"
         local out_file="${target_dir}/${fname}"
         local success=false
 
-        for ((attempt=1; attempt<=max_retries; attempt++)); do
-            local wget_err=""
-            if wget_err=$(wget --timeout=60 --tries=1 "$url" -O "$out_file" 2>&1); then
-                if gzip -t "$out_file" 2>/dev/null; then
-                    success=true
-                    break
+        # Try https:// first; fall back to ftp:// if https fails with a non-404 error.
+        # 404 means the file does not exist — no point trying another protocol.
+        for proto in "https" "ftp"; do
+            [[ "$success" == true ]] && break
+
+            local url="${proto}://${ena_path}/${fname}"
+
+            for ((attempt=1; attempt<=max_retries; attempt++)); do
+                local wget_err=""
+                if wget_err=$(wget --timeout=60 --tries=1 "$url" -O "$out_file" 2>&1); then
+                    if gzip -t "$out_file" 2>/dev/null; then
+                        success=true
+                        break
+                    else
+                        echo "  [ENA] Corrupt download for $fname via $proto (attempt $attempt/$max_retries)" >&2
+                        rm -f "$out_file"
+                    fi
                 else
-                    echo "  [ENA] Corrupt download for $fname (attempt $attempt/$max_retries)" >&2
+                    # Detect "file not found" for both HTTP (404) and FTP ("No such file" / 550)
+                    local _not_found=false
+                    local http_code
+                    http_code=$(echo "$wget_err" | grep -oP 'HTTP request sent.*\K[0-9]{3}' | tail -1)
+                    [[ "$http_code" == "404" ]] && _not_found=true
+                    echo "$wget_err" | grep -qi 'No such file\|550 ' && _not_found=true
+
                     rm -f "$out_file"
+                    if [[ "$_not_found" == true ]]; then
+                        # File does not exist — skip remaining protocols and retries for this fname
+                        break 2
+                    fi
                 fi
-            else
-                local http_code
-                http_code=$(echo "$wget_err" | grep -oP 'HTTP request sent.*\K[0-9]{3}' | tail -1)
-                if [[ -n "$http_code" && "$http_code" == "404" ]]; then
-                    rm -f "$out_file"
-                    break
-                fi
-                rm -f "$out_file"
+                local wait=$(( 5 * (1 << (attempt - 1)) ))
+                (( wait > 60 )) && wait=60
+                [[ $attempt -lt $max_retries ]] && sleep "$wait"
+            done
+
+            # If https exhausted all retries without a 404, log and try ftp
+            if [[ "$success" == false && "$proto" == "https" ]]; then
+                echo "  [ENA] HTTPS failed for $fname, retrying via FTP..." >&2
             fi
-            local wait=$(( 5 * (1 << (attempt - 1)) ))
-            (( wait > 60 )) && wait=60
-            [[ $attempt -lt $max_retries ]] && sleep "$wait"
         done
 
         if [[ "$success" == true ]]; then
