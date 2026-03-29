@@ -87,7 +87,7 @@ Download_From_ENA() {
     #   $3 = rename prefix for output files
     #
     # Output (silent on success): only prints errors/warnings to stderr.
-    # Sets _ena_layout on first successful download for subsequent calls.
+    # Sets _ena_layout and _ena_protocol on first successful download for subsequent calls.
     # Returns: 0 on success, 1 on failure
     local srr="$1"
     local target_dir="$2"
@@ -98,16 +98,27 @@ Download_From_ENA() {
     local acc_prefix="${srr:0:6}"
     local acc_len=${#srr}
 
-    local ena_dir
-    if (( acc_len <= 9 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr}"
-    elif (( acc_len == 10 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/00${srr: -1}/${srr}"
-    elif (( acc_len == 11 )); then
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/0${srr: -2}/${srr}"
+    # Determine protocol(s) to try: use cached protocol if detected, otherwise try both
+    local -a protocols
+    if [[ -n "$_ena_protocol" ]]; then
+        protocols=("$_ena_protocol")
     else
-        ena_dir="https://ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
+        protocols=("https" "ftp")
     fi
+
+    local ena_path
+    if (( acc_len <= 9 )); then
+        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr}"
+    elif (( acc_len == 10 )); then
+        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/00${srr: -1}/${srr}"
+    elif (( acc_len == 11 )); then
+        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/0${srr: -2}/${srr}"
+    else
+        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
+    fi
+
+  for proto in "${protocols[@]}"; do
+    local ena_dir="${proto}://${ena_path}"
 
     # Determine which file patterns to try based on detected layout.
     local -a try_files
@@ -171,6 +182,9 @@ Download_From_ENA() {
     done
 
     if [[ "$downloaded_any" == true ]]; then
+        if [[ -z "$_ena_protocol" ]]; then
+            _ena_protocol="$proto"
+        fi
         if [[ -z "$_ena_layout" ]]; then
             if [[ "$got_r1" == true ]]; then
                 _ena_layout="paired"
@@ -183,7 +197,9 @@ Download_From_ENA() {
         return 0
     fi
 
-    echo "  [ENA] Failed: $srr (no FASTQ files available after $max_retries retries)" >&2
+  done  # end protocol loop
+
+    echo "  [ENA] Failed: $srr (no FASTQ files available via https/ftp)" >&2
     return 1
 }
 
@@ -309,7 +325,8 @@ Common_SRADownloadToFastq_MultiSource() {
 
     # Connectivity check
     if [[ "$has_ncbi_accessions" == true ]]; then
-        if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
+        if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null \
+        && ! wget -q --spider --timeout=10 "ftp://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
             echo "  ENA is unreachable. Check your network connection." >&2
             return 1
         fi
