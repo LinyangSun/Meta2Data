@@ -77,73 +77,47 @@ Common_SanitizeFastq() {
 }
 
 Download_From_ENA() {
-    # Download FASTQ file(s) directly from ENA (European Nucleotide Archive).
-    # ENA provides pre-converted FASTQ files with original quality scores
-    # (critical for DADA2 error learning).
+    # Download FASTQ file(s) from ENA using pre-fetched URL map.
+    # Requires _ena_url_map file (set by Common_SRADownloadToFastq_MultiSource).
     #
     # Args:
     #   $1 = SRR/ERR/DRR accession
     #   $2 = target directory for FASTQ files
     #   $3 = rename prefix for output files
     #
-    # Output (silent on success): only prints errors/warnings to stderr.
-    # Sets _ena_layout and _ena_protocol on first successful download for subsequent calls.
     # Returns: 0 on success, 1 on failure
     local srr="$1"
     local target_dir="$2"
     local rename_prefix="$3"
     local max_retries=5
 
-    # ENA URL structure: first 6 chars of accession, then full accession
-    local acc_prefix="${srr:0:6}"
-    local acc_len=${#srr}
+    # Look up exact URLs from the filereport map
+    local url_line
+    url_line=$(awk -v acc="$srr" '$1 == acc {print $2}' "$_ena_url_map")
 
-    # Determine protocol(s) to try: use cached protocol if detected, otherwise try both
-    local -a protocols
-    if [[ -n "$_ena_protocol" ]]; then
-        protocols=("$_ena_protocol")
-    else
-        protocols=("https" "ftp")
+    if [[ -z "$url_line" ]]; then
+        echo "  [ENA] No filereport entry for $srr" >&2
+        return 1
     fi
 
-    local ena_path
-    if (( acc_len <= 9 )); then
-        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr}"
-    elif (( acc_len == 10 )); then
-        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/00${srr: -1}/${srr}"
-    elif (( acc_len == 11 )); then
-        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/0${srr: -2}/${srr}"
-    else
-        ena_path="ftp.sra.ebi.ac.uk/vol1/fastq/${acc_prefix}/${srr: -3}/${srr}"
-    fi
-
-  for proto in "${protocols[@]}"; do
-    local ena_dir="${proto}://${ena_path}"
-
-    # Determine which file patterns to try based on detected layout.
-    local -a try_files
-    if [[ -n "$_ena_layout" ]]; then
-        case "$_ena_layout" in
-            paired)   try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz") ;;
-            single)   try_files=("${srr}.fastq.gz") ;;
-            subreads) try_files=("${srr}_subreads.fastq.gz") ;;
-        esac
-    else
-        try_files=("${srr}_1.fastq.gz" "${srr}_2.fastq.gz" "${srr}.fastq.gz" "${srr}_subreads.fastq.gz")
-    fi
-
+    # url_line is semicolon-separated list of FTP paths from ENA
     local downloaded_any=false
-    local got_r1=false
-    local got_r2=false
 
-    for fname in "${try_files[@]}"; do
-        if [[ "$got_r1" == true && "$got_r2" == true ]]; then
-            break
-        fi
-
-        local url="${ena_dir}/${fname}"
+    IFS=';' read -ra urls <<< "$url_line"
+    for ftp_path in "${urls[@]}"; do
+        [[ -z "$ftp_path" ]] && continue
+        local fname
+        fname=$(basename "$ftp_path")
+        local url="ftp://${ftp_path}"
         local out_file="${target_dir}/${fname}"
         local success=false
+
+        # Prefer paired files; skip single .fastq.gz if we already have _1 + _2
+        if [[ "$fname" == "${srr}.fastq.gz" ]]; then
+            if [[ -f "${target_dir}/${rename_prefix}_1.fastq.gz" && -f "${target_dir}/${rename_prefix}_2.fastq.gz" ]]; then
+                continue
+            fi
+        fi
 
         for ((attempt=1; attempt<=max_retries; attempt++)); do
             local wget_err=""
@@ -156,12 +130,6 @@ Download_From_ENA() {
                     rm -f "$out_file"
                 fi
             else
-                local http_code
-                http_code=$(echo "$wget_err" | grep -oP 'HTTP request sent.*\K[0-9]{3}' | tail -1)
-                if [[ -n "$http_code" && "$http_code" == "404" ]]; then
-                    rm -f "$out_file"
-                    break
-                fi
                 rm -f "$out_file"
             fi
             local wait=$(( 5 * (1 << (attempt - 1)) ))
@@ -174,32 +142,16 @@ Download_From_ENA() {
             base_filename="${base_filename/_subreads.fastq/.fastq}"
             mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
             downloaded_any=true
-            [[ "$fname" == "${srr}_1.fastq.gz" ]] && got_r1=true
-            [[ "$fname" == "${srr}_2.fastq.gz" ]] && got_r2=true
         else
             rm -f "$out_file" 2>/dev/null
         fi
     done
 
     if [[ "$downloaded_any" == true ]]; then
-        if [[ -z "$_ena_protocol" ]]; then
-            _ena_protocol="$proto"
-        fi
-        if [[ -z "$_ena_layout" ]]; then
-            if [[ "$got_r1" == true ]]; then
-                _ena_layout="paired"
-            elif [[ "$fname" == "${srr}_subreads.fastq.gz" ]]; then
-                _ena_layout="subreads"
-            else
-                _ena_layout="single"
-            fi
-        fi
         return 0
     fi
 
-  done  # end protocol loop
-
-    echo "  [ENA] Failed: $srr (no FASTQ files available via https/ftp)" >&2
+    echo "  [ENA] Failed: $srr (download failed for all URLs)" >&2
     return 1
 }
 
@@ -287,18 +239,19 @@ Download_CRR() {
 
 
 Common_SRADownloadToFastq_MultiSource() {
-    local dir_path="" acc_file=""
+    local dir_path="" acc_file="" bioproject=""
     OPTIND=1
-    while getopts ":d:a:" opt; do
+    while getopts ":d:a:b:" opt; do
         case $opt in
             d) dir_path=$OPTARG ;;
             a) acc_file=$OPTARG ;;
+            b) bioproject=$OPTARG ;;
             ?) echo "Unknown Parameter: -$OPTARG" >&2; return 1 ;;
         esac
     done
 
     if [[ -z "$dir_path" || -z "$acc_file" ]]; then
-        echo "Usage: Common_SRADownloadToFastq_MultiSource -d <dir> -a <accession_tsv>" >&2
+        echo "Usage: Common_SRADownloadToFastq_MultiSource -d <dir> -a <accession_tsv> [-b <bioproject>]" >&2
         return 1
     fi
 
@@ -325,9 +278,8 @@ Common_SRADownloadToFastq_MultiSource() {
 
     # Connectivity check
     if [[ "$has_ncbi_accessions" == true ]]; then
-        if ! wget -q --spider --timeout=10 "https://ftp.sra.ebi.ac.uk/" 2>/dev/null \
-        && ! wget -q --spider --timeout=10 "ftp://ftp.sra.ebi.ac.uk/" 2>/dev/null; then
-            echo "  ENA is unreachable. Check your network connection." >&2
+        if ! wget -q --spider --timeout=10 "https://www.ebi.ac.uk/ena/portal/api/" 2>/dev/null; then
+            echo "  ENA API is unreachable. Check your network connection." >&2
             return 1
         fi
     fi
@@ -343,8 +295,25 @@ Common_SRADownloadToFastq_MultiSource() {
     local fastq_path="${base_dir}/ori_fastq"
     mkdir -p "$fastq_path"
 
-    # Layout detection: probe file type on first SRR, reuse for all subsequent.
-    local _ena_layout=""
+    # Fetch ENA filereport to get exact download URLs for NCBI accessions
+    local _ena_url_map="${base_dir}/.ena_url_map.tsv"
+    if [[ "$has_ncbi_accessions" == true && -n "$bioproject" ]]; then
+        echo "  [ENA] Fetching filereport for ${bioproject}..."
+        local filereport_url="https://www.ebi.ac.uk/ena/portal/api/filereport?accession=${bioproject}&result=read_run&fields=run_accession,fastq_ftp&format=tsv"
+        if wget -q --timeout=30 "$filereport_url" -O "${_ena_url_map}.raw" 2>/dev/null; then
+            # Extract run_accession and fastq_ftp columns, skip header
+            awk -F'\t' 'NR>1 && $1!="" && $2!="" {print $1"\t"$2}' "${_ena_url_map}.raw" > "$_ena_url_map"
+            rm -f "${_ena_url_map}.raw"
+            local map_count
+            map_count=$(wc -l < "$_ena_url_map" | tr -d ' ')
+            echo "  [ENA] Got URLs for ${map_count} runs"
+        else
+            echo "  [ENA] Warning: Filereport query failed, will skip ENA downloads" >&2
+            : > "$_ena_url_map"
+        fi
+    else
+        : > "$_ena_url_map"
+    fi
 
     # Download all accessions, tracking progress
     local dl_success=0
@@ -430,12 +399,9 @@ Common_SRADownloadToFastq_MultiSource() {
     local total_size
     total_size=$(du -sh "$fastq_path" 2>/dev/null | cut -f1 | tr -d ' ')
 
-    # Detect layout label
-    local layout_label="${_ena_layout:-unknown}"
-
     # Print summary
     if [[ "$dl_failed" -eq 0 ]]; then
-        echo "  [${source_label}] Downloaded ${dl_success}/${total_accessions} | Layout: ${layout_label} | ${total_files} files (${total_size})"
+        echo "  [${source_label}] Downloaded ${dl_success}/${total_accessions} | ${total_files} files (${total_size})"
     else
         echo "  [${source_label}] Downloaded ${dl_success}/${total_accessions} | ${dl_failed} FAILED | ${total_files} files (${total_size})"
         for acc in "${failed_accessions[@]}"; do
@@ -448,6 +414,7 @@ Common_SRADownloadToFastq_MultiSource() {
         echo "  Cleaned up $orphan_count orphan file(s)"
     fi
 
+    rm -f "$_ena_url_map"
     return 0
 }
 

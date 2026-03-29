@@ -338,7 +338,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # ── Step A: Download ──
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
+                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
                 fi
@@ -346,34 +346,86 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # Count raw reads before any processing
                 Common_CountRawReads "$dataset_path" "$sra_file_name"
 
-                # Detect PE/SE after download (check for _1/_2 paired files)
-                # Tolerates missing R2 files (e.g. corrupt downloads) by checking
-                # if majority of R1 files have a matching R2, and removing unpaired files.
-                r1_count=$(find "$ori_fastq_path" -type f \( -name '*_1.fastq*' -o -name '*_R1*.fastq*' \) 2>/dev/null | wc -l)
-                r2_count=$(find "$ori_fastq_path" -type f \( -name '*_2.fastq*' -o -name '*_R2*.fastq*' \) 2>/dev/null | wc -l)
-                if [ "$r1_count" -gt 0 ] && [ "$r2_count" -gt 0 ] && \
-                   [ "$r2_count" -ge $(( r1_count * 9 / 10 )) ]; then
+                # Per-sample layout detection: classify each sample as PE or SE
+                local n_pe=0 n_se=0
+                local -a pe_samples=() se_samples=()
+
+                # Collect unique sample prefixes (strip _1/_2/_R1/_R2 and extension)
+                for fq in "${ori_fastq_path}/"*.fastq*; do
+                    [[ -f "$fq" ]] || continue
+                    local bname
+                    bname=$(basename "$fq")
+                    # Skip R2/_2 files (will be found via R1/_1)
+                    [[ "$bname" =~ _2\.fastq || "$bname" =~ _R2 ]] && continue
+
+                    if [[ "$bname" =~ _1\.fastq ]]; then
+                        local r2="${fq/_1.fastq/_2.fastq}"
+                        if [[ -f "$r2" ]]; then
+                            n_pe=$((n_pe + 1))
+                            pe_samples+=("$fq")
+                        else
+                            echo "  Removing unpaired: $bname" >&2
+                            rm -f "$fq"
+                        fi
+                    elif [[ "$bname" =~ _R1 ]]; then
+                        local r2="${fq/_R1/_R2}"
+                        if [[ -f "$r2" ]]; then
+                            n_pe=$((n_pe + 1))
+                            pe_samples+=("$fq")
+                        else
+                            echo "  Removing unpaired: $bname" >&2
+                            rm -f "$fq"
+                        fi
+                    else
+                        # Single-end file (no _1/_2 or _R1/_R2 suffix)
+                        n_se=$((n_se + 1))
+                        se_samples+=("$fq")
+                    fi
+                done
+
+                # Determine majority layout
+                if [[ "$n_pe" -ge "$n_se" ]]; then
                     sequence_type="paired"
-                    # Remove unpaired files (R1 without matching R2 or vice versa)
-                    for r1 in "${ori_fastq_path}/"*_1.fastq*; do
-                        [[ -f "$r1" ]] || continue
-                        r2="${r1/_1.fastq/_2.fastq}"
-                        if [[ ! -f "$r2" ]]; then
-                            echo "  Removing unpaired: $(basename "$r1")"
-                            rm -f "$r1"
-                        fi
-                    done
-                    for r1 in "${ori_fastq_path}/"*_R1*.fastq*; do
-                        [[ -f "$r1" ]] || continue
-                        r2="${r1/_R1/_R2}"
-                        if [[ ! -f "$r2" ]]; then
-                            echo "  Removing unpaired: $(basename "$r1")"
-                            rm -f "$r1"
-                        fi
-                    done
                 else
                     sequence_type="single"
                 fi
+
+                echo "  Layout: ${n_pe} PE + ${n_se} SE samples → majority ${sequence_type^^}"
+
+                # Handle minority samples
+                if [[ "$sequence_type" == "single" && "$n_pe" -gt 0 ]]; then
+                    echo "  Merging ${n_pe} PE minority samples to SE..."
+                    for r1 in "${pe_samples[@]}"; do
+                        local r2
+                        if [[ "$r1" =~ _1\.fastq ]]; then
+                            r2="${r1/_1.fastq/_2.fastq}"
+                        else
+                            r2="${r1/_R1/_R2}"
+                        fi
+                        local merged_base="${r1%_[1R]*.*}"
+                        local merged_tmp="${merged_base}_merged.fastq"
+                        local merged_out="${merged_base}.fastq.gz"
+                        # Use vsearch to merge PE reads
+                        if vsearch --fastq_mergepairs "$r1" --reverse "$r2" \
+                                   --fastqout "$merged_tmp" \
+                                   --threads "$cpu" --quiet 2>/dev/null \
+                           && [[ -s "$merged_tmp" ]]; then
+                            gzip -c "$merged_tmp" > "$merged_out"
+                            rm -f "$merged_tmp" "$r1" "$r2"
+                            echo "    Merged: $(basename "$r1") → $(basename "$merged_out")"
+                        else
+                            echo "    Warning: merge failed for $(basename "$r1"), skipping sample" >&2
+                            rm -f "$r1" "$r2" "$merged_tmp" "$merged_out"
+                        fi
+                    done
+                elif [[ "$sequence_type" == "paired" && "$n_se" -gt 0 ]]; then
+                    echo "  Warning: skipping ${n_se} SE-only samples (incompatible with PE pipeline):"
+                    for se_fq in "${se_samples[@]}"; do
+                        echo "    Skipped: $(basename "$se_fq")" >&2
+                        rm -f "$se_fq"
+                    done
+                fi
+
                 echo "Sequence type: ${sequence_type^^}"
                 export sequence_type
 
@@ -619,7 +671,7 @@ with open(manifest_path, 'w') as f:
 
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
+                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
                 fi
@@ -720,7 +772,7 @@ with open(manifest_path, 'w') as f:
 
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
+                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
                 fi
@@ -806,7 +858,7 @@ with open(manifest_path, 'w') as f:
 
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}"; then
+                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
                 fi
