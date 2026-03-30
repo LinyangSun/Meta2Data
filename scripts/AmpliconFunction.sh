@@ -375,6 +375,25 @@ Common_SRADownloadToFastq_MultiSource() {
         fi
     done < "${base_dir}/${acc_file}"
 
+    # Retry failed accessions after a cooldown period
+    if [[ ${#failed_accessions[@]} -gt 0 ]]; then
+        echo "  [${source_label}] Retrying ${#failed_accessions[@]} failed sample(s) in 120s..."
+        sleep 120
+        local -a still_failed=()
+        for failed_srr in "${failed_accessions[@]}"; do
+            local failed_rename
+            failed_rename=$(awk -F'\t' -v acc="$failed_srr" '$1 == acc {print $2}' "${base_dir}/${acc_file}")
+            if [[ -n "$failed_rename" ]] && Download_From_ENA "$failed_srr" "$fastq_path" "$failed_rename"; then
+                echo "  [${source_label}] Retry OK: $failed_srr"
+                dl_success=$((dl_success + 1))
+                dl_failed=$((dl_failed - 1))
+            else
+                still_failed+=("$failed_srr")
+            fi
+        done
+        failed_accessions=("${still_failed[@]}")
+    fi
+
     # Orphan file cleanup (silent unless orphans found)
     local orphan_count=0
     for r1 in "${fastq_path}/"*_1.fastq*; do
