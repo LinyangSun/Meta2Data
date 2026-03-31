@@ -4,6 +4,7 @@ include CHANGELOG-BIOPROJECT.md
 include env.yml
 recursive-include bin *
 recursive-include scripts *.py *.sh
+recursive-exclude scripts/backup *
 recursive-include docs *
 include test/*.csv
 global-exclude test/*.fastq.gz

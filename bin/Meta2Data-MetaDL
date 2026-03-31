@@ -3,7 +3,20 @@ set -e
 
 # Find scripts directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SCRIPTS="${SCRIPT_DIR}/scripts"
+
+# Search for scripts directory in multiple possible locations
+if [[ -d "${SCRIPT_DIR}/scripts" ]]; then
+    SCRIPTS="${SCRIPT_DIR}/scripts"
+elif [[ -d "${SCRIPT_DIR}/share/Meta2Data/scripts" ]]; then
+    SCRIPTS="${SCRIPT_DIR}/share/Meta2Data/scripts"
+elif [[ -d "${HOME}/.local/share/Meta2Data/scripts" ]]; then
+    SCRIPTS="${HOME}/.local/share/Meta2Data/scripts"
+elif [[ -d "${CONDA_PREFIX}/share/Meta2Data/scripts" ]]; then
+    SCRIPTS="${CONDA_PREFIX}/share/Meta2Data/scripts"
+else
+    echo "ERROR: Scripts directory not found" >&2
+    exit 1
+fi
 
 show_help() {
     cat << EOF

@@ -8,8 +8,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 find_scripts_dir() {
     local search_paths=(
         "${SCRIPT_DIR}/scripts"                          # Development/git repo
+        "${SCRIPT_DIR}/share/Meta2Data/scripts"          # pip install --target
         "/usr/local/share/Meta2Data/scripts"             # System install
-        "${HOME}/.local/share/Meta2Data/scripts"         # User install
+        "${HOME}/.local/share/Meta2Data/scripts"         # User install (pip install --user)
         "${CONDA_PREFIX}/share/Meta2Data/scripts"        # Conda install
         "${PREFIX}/share/Meta2Data/scripts"              # Alternative prefix
     )

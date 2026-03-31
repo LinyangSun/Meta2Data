@@ -18,32 +18,49 @@ If you are running the AmpliconPIP or ggCOMBO functions on a server, please ensu
 
 ## Installation
 
-### Option 1: Conda Environment (Recommended)
+### Step 1: Create Conda Environment
 
 Copy the **env.yml** to your device.
-The env.yml includes all dependencies (QIIME2, vsearch, fastp, git, pip, sra-tools, seqkit, etc.), but not Meta2Data.
+The env.yml includes all dependencies (QIIME2, vsearch, fastp, git, pip, sra-tools, seqkit, etc.), but not Meta2Data itself.
 
 ```bash
-# Create environment from env.yml
 conda env create -f env.yml
-
 conda activate env
-
 ```
 
-After creating an environment with env.yml, activate it and clone Meta2Data to your local folder.
+### Step 2: Install Meta2Data
 
-**Note**: It is not recommended to install Meta2Data into the conda environment, because the pipeline may need to be updated in the future.
+#### Option A: Install to a custom directory (Recommended for HPC / read-only conda)
+
+If your conda environment is read-only (e.g., TYKKY containers on HPC), install to a writable directory:
 
 ```bash
-# Install from GitHub
-cd path/to/Meta2Data
+pip install --no-deps --target /path/to/Meta2Data \
+    git+https://github.com/LinyangSun/Meta2Data.git@main
 
-pip install git+https://github.com/LinyangSun/Meta2Data.git@main
+export PATH="/path/to/Meta2Data/bin:$PATH"
+```
 
-# Or install from local repository
-pip install -e .
-export PATH="path/to/Meta2Data/bin:$PATH"
+`--no-deps` skips dependency installation since all required packages are already provided by the conda environment.
+
+#### Option B: Install into conda environment
+
+```bash
+pip install --no-deps git+https://github.com/LinyangSun/Meta2Data.git@main
+```
+
+#### Option C: Development install (local clone)
+
+```bash
+git clone https://github.com/LinyangSun/Meta2Data.git
+cd Meta2Data
+pip install --no-deps -e .
+```
+
+#### Verify installation
+
+```bash
+Meta2Data --help
 ```
 
 ## Requirements

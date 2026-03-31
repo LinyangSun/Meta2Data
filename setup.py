@@ -21,13 +21,16 @@ if os.path.exists(test_csv):
     data_files.append(('share/Meta2Data/test', ['test/ampliconpiptest.csv']))
 
 # Docs directory (includes reference sequences and documentation)
-docs_files = glob.glob('docs/*.fas') + glob.glob('docs/*.json')
+docs_files = glob.glob(os.path.join(here, 'docs', '*.fas')) + glob.glob(os.path.join(here, 'docs', '*.json'))
 if docs_files:
+    # Convert to relative paths for setuptools
+    docs_files = [os.path.relpath(f, here) for f in docs_files]
     data_files.append(('share/Meta2Data/docs', docs_files))
 
-# Scripts directory (includes AmpliconFunction.sh, py_16s.py, run.sh, taxonomy.sh)
-scripts_files = glob.glob('scripts/*.sh') + glob.glob('scripts/*.py')
+# Scripts directory (top-level only, excludes backup/)
+scripts_files = glob.glob(os.path.join(here, 'scripts', '*.sh')) + glob.glob(os.path.join(here, 'scripts', '*.py'))
 if scripts_files:
+    scripts_files = [os.path.relpath(f, here) for f in scripts_files]
     data_files.append(('share/Meta2Data/scripts', scripts_files))
 
 setup(

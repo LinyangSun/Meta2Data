@@ -11,14 +11,19 @@ requires-python = ">=3.10"
 authors = [
     {name = "Meta2Data Contributors"}
 ]
-# Most dependencies are provided by the conda environment (QIIME2, etc.)
-# Only include essential Python packages here
-dependencies = [
+# Meta2Data runs inside a QIIME2 conda environment which already provides
+# all required Python packages. Declaring no mandatory dependencies avoids
+# pip overwriting conda-managed versions (especially with --target installs).
+dependencies = []
+
+[project.optional-dependencies]
+# Use `pip install Meta2Data[full]` for standalone installs outside QIIME2
+full = [
     "biopython",
     "pandas",
     "openpyxl",
     "requests",
-    "numpy==1.26.4",
+    "numpy>=1.26,<2",
     "biom-format",
 ]
 
