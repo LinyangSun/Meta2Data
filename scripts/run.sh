@@ -314,6 +314,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 fi
                 echo "Sequence type: ${sequence_type^^}"
                 export sequence_type
+                original_sequence_type="$sequence_type"
 
                 # Read cached quality status or re-check
                 if [[ -f "$quality_cache" ]]; then
@@ -428,6 +429,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
 
                 echo "Sequence type: ${sequence_type^^}"
                 export sequence_type
+                original_sequence_type="$sequence_type"
 
                 # ── Quality Score Diversity Check (first 3 samples) ──
                 echo ">>> Checking quality score diversity..."
@@ -722,6 +724,7 @@ with open(manifest_path, 'w') as f:
 
             sequence_type="single"
             export sequence_type
+            original_sequence_type="$sequence_type"
 
             _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
             echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
@@ -823,6 +826,7 @@ with open(manifest_path, 'w') as f:
 
             sequence_type="single"
             export sequence_type
+            original_sequence_type="$sequence_type"
 
             _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
             echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
@@ -898,6 +902,7 @@ with open(manifest_path, 'w') as f:
 
             sequence_type="single"
             export sequence_type
+            original_sequence_type="$sequence_type"
 
             _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
             echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
@@ -989,7 +994,8 @@ with open('${DOCS_DIR}/1492R.fas') as f:
             --sra_file "${dataset_path}/${sra_file_name}" \
             --raw_counts "${dataset_path}/${dataset_ID}_raw_read_counts.tsv" \
             --final_table "${dataset_path}/${dataset_ID}-final-table.qza" \
-            --output_csv "$summary_csv"
+            --output_csv "$summary_csv" \
+            --sequence_type "$original_sequence_type"
 
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SUCCESS - Platform: $platform" >> "$success_log"
 

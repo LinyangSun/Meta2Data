@@ -1528,7 +1528,7 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
     print(f"IMPORT_TOTAL_READS={total_reads}")
 
 
-def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_csv):
+def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_csv, sequence_type="single"):
     """
     Append per-sample summary (raw reads + final reads) to a unified CSV.
 
@@ -1538,6 +1538,7 @@ def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_cs
         raw_counts_file: Path to _raw_read_counts.tsv (Run<tab>SampleName<tab>RawReads)
         final_table: Path to final-table.qza
         output_csv: Path to the unified summary CSV
+        sequence_type: Original sequence type ('paired' or 'single')
     """
     import tempfile
     import subprocess
@@ -1577,6 +1578,9 @@ def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_cs
 
         raw_match = raw_df[raw_df['Run'] == run_id]
         raw_read_count = int(raw_match['RawReads'].iloc[0]) if not raw_match.empty else 0
+        # For PE data, raw_read_counts.tsv has R1+R2 total; divide by 2 for per-sample pair count
+        if sequence_type == "paired" and raw_read_count > 0:
+            raw_read_count = raw_read_count // 2
 
         final_read_count = final_reads.get(sample_name, 0)
 
@@ -1749,4 +1753,4 @@ if __name__ == "__main__":
                                   args.output_table_qza, args.output_repseq_qza)
 
     elif args.function == "append_summary":
-        append_summary(args.dataset_id, args.sra_file, args.raw_counts, args.final_table, args.output_csv)
+        append_summary(args.dataset_id, args.sra_file, args.raw_counts, args.final_table, args.output_csv, args.sequence_type)
