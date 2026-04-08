@@ -222,52 +222,58 @@ fi
 echo "✓ Taxonomy assigned via sklearn classifier (${DB_LABEL})"
 echo ""
 
-# SEPP fragment insertion — builds the phylogenetic tree by inserting query
-# sequences into the GG2 reference tree (always GG2, regardless of --db-type).
-# Uses oriented sequences as input.
-echo ">>> Step 10: Building phylogenetic tree via SEPP fragment insertion..."
-
-INSERTION_TREE="${MERGED_DIR}/insertion-tree-${DB_LABEL}.qza"
-INSERTION_PLACEMENTS="${MERGED_DIR}/insertion-placements-${DB_LABEL}.qza"
 SEPP_TREE_OK=false
 
-if qiime fragment-insertion sepp \
-    --i-representative-sequences "$ORIENTED_REP_SEQS" \
-    --i-reference-database "$SEPP_REF" \
-    --p-threads "$cpu" \
-    --o-tree "$INSERTION_TREE" \
-    --o-placements "$INSERTION_PLACEMENTS" --verbose; then
-
-    SEPP_TREE_OK=true
-    echo "✓ SEPP fragment insertion completed"
-
-    # Filter oriented table to features that were placed in the tree.
-    echo ">>> Step 11: Filtering table to tree-placed features..."
-    if qiime fragment-insertion filter-features \
-        --i-table "$ORIENTED_TABLE" \
-        --i-tree "$INSERTION_TREE" \
-        --o-filtered-table "${MERGED_DIR}/merged-table-tree-${DB_LABEL}.qza" \
-        --o-removed-table "${MERGED_DIR}/merged-table-no-tree-${DB_LABEL}.qza" --verbose; then
-        echo "✓ Table filtered by tree placement"
-    else
-        echo "⚠️  WARNING: Feature filtering by tree failed."
-    fi
+if [[ "${SKIP_TREE:-false}" == true ]]; then
+    echo ">>> Step 10: Skipping SEPP tree building (--skip-tree)"
+    echo ""
 else
-    echo "⚠️  WARNING: SEPP fragment insertion failed."
-    echo "   Taxonomy was already assigned via sklearn classifier — no reads lost."
-    echo "   Only UniFrac / phylogenetic diversity analyses will be unavailable."
-fi
-echo ""
+    # SEPP fragment insertion — builds the phylogenetic tree by inserting query
+    # sequences into the GG2 reference tree (always GG2, regardless of --db-type).
+    # Uses oriented sequences as input.
+    echo ">>> Step 10: Building phylogenetic tree via SEPP fragment insertion..."
 
-# Generate summary visualizations
-echo ">>> Step 12: Generating summary visualizations..."
-if [[ "$SEPP_TREE_OK" == true ]]; then
-    if qiime feature-table summarize \
-        --i-table "${MERGED_DIR}/merged-table-tree-${DB_LABEL}.qza" \
-        --o-visualization "${MERGED_DIR}/merged-table-tree-${DB_LABEL}-summary.qzv" --verbose; then
-        echo "✓ Tree-placed feature table summary generated"
+    INSERTION_TREE="${MERGED_DIR}/insertion-tree-${DB_LABEL}.qza"
+    INSERTION_PLACEMENTS="${MERGED_DIR}/insertion-placements-${DB_LABEL}.qza"
+
+    if qiime fragment-insertion sepp \
+        --i-representative-sequences "$ORIENTED_REP_SEQS" \
+        --i-reference-database "$SEPP_REF" \
+        --p-threads "$cpu" \
+        --o-tree "$INSERTION_TREE" \
+        --o-placements "$INSERTION_PLACEMENTS" --verbose; then
+
+        SEPP_TREE_OK=true
+        echo "✓ SEPP fragment insertion completed"
+
+        # Filter oriented table to features that were placed in the tree.
+        echo ">>> Step 11: Filtering table to tree-placed features..."
+        if qiime fragment-insertion filter-features \
+            --i-table "$ORIENTED_TABLE" \
+            --i-tree "$INSERTION_TREE" \
+            --o-filtered-table "${MERGED_DIR}/merged-table-tree-${DB_LABEL}.qza" \
+            --o-removed-table "${MERGED_DIR}/merged-table-no-tree-${DB_LABEL}.qza" --verbose; then
+            echo "✓ Table filtered by tree placement"
+        else
+            echo "⚠️  WARNING: Feature filtering by tree failed."
+        fi
     else
-        echo "⚠️  WARNING: Tree-placed table summary generation failed"
+        echo "⚠️  WARNING: SEPP fragment insertion failed."
+        echo "   Taxonomy was already assigned via sklearn classifier — no reads lost."
+        echo "   Only UniFrac / phylogenetic diversity analyses will be unavailable."
     fi
+    echo ""
+
+    # Generate summary visualizations
+    echo ">>> Step 12: Generating summary visualizations..."
+    if [[ "$SEPP_TREE_OK" == true ]]; then
+        if qiime feature-table summarize \
+            --i-table "${MERGED_DIR}/merged-table-tree-${DB_LABEL}.qza" \
+            --o-visualization "${MERGED_DIR}/merged-table-tree-${DB_LABEL}-summary.qzv" --verbose; then
+            echo "✓ Tree-placed feature table summary generated"
+        else
+            echo "⚠️  WARNING: Tree-placed table summary generation failed"
+        fi
+    fi
+    echo ""
 fi
-echo ""

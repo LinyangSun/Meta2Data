@@ -67,6 +67,9 @@ Optional options:
     -o, --output DIR      Output directory for merged results (default: same as --input)
     -t, --threads int     Number of CPU threads (default: 4)
     --confidence FLOAT    Confidence threshold for sklearn classifier (default: 0.7)
+    --skip-tree           Skip SEPP phylogenetic tree building. Set this to avoid
+                          redundant tree generation when running multiple taxonomy
+                          annotations with different databases in parallel.
     --dl                  Download database files to --db directory before running
     -h, --help            Show this help message
 
@@ -123,6 +126,7 @@ INPUT_DIR=""
 OUTPUT=""
 THREADS=4
 CONFIDENCE=0.7
+SKIP_TREE=false
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -142,6 +146,10 @@ while [[ $# -gt 0 ]]; do
         --confidence)
             CONFIDENCE="$2"
             shift 2
+            ;;
+        --skip-tree)
+            SKIP_TREE=true
+            shift
             ;;
         -i|--input)
             INPUT_DIR="$2"
@@ -401,6 +409,7 @@ echo "  Ref Seqs:     $(basename "$REF_SEQS")"
 echo "  Ref Tax:      $(basename "$REF_TAX")"
 echo "  SEPP Ref:     $(basename "$SEPP_REF")"
 echo "Confidence:     $CONFIDENCE"
+echo "Skip Tree:      $SKIP_TREE"
 echo "Input:          $INPUT_DIR"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
@@ -419,6 +428,7 @@ export REF_SEQS
 export REF_TAX
 export SEPP_REF
 export CONFIDENCE
+export SKIP_TREE
 export INPUT_DIR
 export OUTPUT
 export cpu=$THREADS
