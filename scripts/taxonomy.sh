@@ -22,27 +22,26 @@ echo "========================================="
 echo "Resolving database..."
 echo "========================================="
 
-# NB_CLASSIFIER and SEPP_REF must be set by the caller (ggCOMBO)
-if [[ -z "${NB_CLASSIFIER:-}" || ! -f "${NB_CLASSIFIER:-}" ]]; then
-    echo "ERROR: NB_CLASSIFIER is not set or file not found: ${NB_CLASSIFIER:-<unset>}" >&2
-    echo "taxonomy.sh must be called from ggCOMBO with --db specified." >&2
-    exit 1
-fi
-if [[ -z "${SEPP_REF:-}" || ! -f "${SEPP_REF:-}" ]]; then
-    echo "ERROR: SEPP_REF is not set or file not found: ${SEPP_REF:-<unset>}" >&2
-    echo "taxonomy.sh must be called from ggCOMBO with --db specified." >&2
-    exit 1
-fi
-
-if [[ -z "${DB_LABEL:-}" ]]; then
-    echo "ERROR: DB_LABEL is not set (expected 'gg2' or 'gsrdb')." >&2
-    exit 1
-fi
+# Required environment variables from ggCOMBO
+for var in NB_CLASSIFIER REF_SEQS SEPP_REF DB_LABEL CONFIDENCE; do
+    if [[ -z "${!var:-}" ]]; then
+        echo "ERROR: \$$var is not set. taxonomy.sh must be called from ggCOMBO." >&2
+        exit 1
+    fi
+done
+for var in NB_CLASSIFIER REF_SEQS SEPP_REF; do
+    if [[ ! -f "${!var}" ]]; then
+        echo "ERROR: File not found for \$$var: ${!var}" >&2
+        exit 1
+    fi
+done
 
 echo "Using database paths:"
 echo "  Classifier:    $(basename "$NB_CLASSIFIER")"
+echo "  Ref Seqs:      $(basename "$REF_SEQS")"
 echo "  SEPP Ref:      $(basename "$SEPP_REF")"
 echo "  DB label:      ${DB_LABEL}"
+echo "  Confidence:    ${CONFIDENCE}"
 echo ""
 
 ################################################################################
@@ -169,17 +168,52 @@ else
 fi
 echo ""
 
+# Orient sequences against database reference sequences.
+# This corrects reverse-complement sequences so all reads face the same
+# direction before taxonomy assignment and tree building.
+echo ">>> Step 7: Orienting sequences against reference..."
+ORIENTED_REP_SEQS="${MERGED_DIR}/oriented-rep-seqs-${DB_LABEL}.qza"
+UNMATCHED_REP_SEQS="${MERGED_DIR}/unmatched-rep-seqs-${DB_LABEL}.qza"
+
+if ! qiime rescript orient-seqs \
+    --i-sequences "$MERGED_REP_SEQS" \
+    --i-reference-sequences "$REF_SEQS" \
+    --p-threads "$cpu" \
+    --o-oriented-seqs "$ORIENTED_REP_SEQS" \
+    --o-unmatched-seqs "$UNMATCHED_REP_SEQS" --verbose; then
+    echo "❌ ERROR: Sequence orientation failed"
+    exit 1
+fi
+
+echo "✓ Sequences oriented"
+echo ""
+
+# Filter merged table to keep only features present in oriented sequences
+echo ">>> Step 8: Filtering table to oriented features..."
+ORIENTED_TABLE="${MERGED_DIR}/merged-table-oriented-${DB_LABEL}.qza"
+
+if ! qiime feature-table filter-features \
+    --i-table "$MERGED_TABLE" \
+    --m-metadata-file "$ORIENTED_REP_SEQS" \
+    --o-filtered-table "$ORIENTED_TABLE" --verbose; then
+    echo "❌ ERROR: Table filtering by oriented sequences failed"
+    exit 1
+fi
+
+echo "✓ Table filtered to oriented features"
+echo ""
+
 # Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
-# Uses the GG2 full-length backbone classifier which has both reference
-# sequences and taxonomy built into the trained model.
-echo ">>> Step 7: Assigning taxonomy via pre-trained Naive Bayes classifier..."
-echo "Using $cpu CPU threads"
+# Uses the oriented sequences as input.
+echo ">>> Step 9: Assigning taxonomy via pre-trained Naive Bayes classifier..."
+echo "Using $cpu CPU threads, confidence=${CONFIDENCE}"
 MERGED_TAXONOMY="${MERGED_DIR}/merged-taxonomy-${DB_LABEL}.qza"
 
 if ! qiime feature-classifier classify-sklearn \
     --i-classifier "${NB_CLASSIFIER}" \
-    --i-reads "$MERGED_REP_SEQS" \
+    --i-reads "$ORIENTED_REP_SEQS" \
     --p-n-jobs "$cpu" \
+    --p-confidence "$CONFIDENCE" \
     --o-classification "$MERGED_TAXONOMY" --verbose; then
     echo "❌ ERROR: Taxonomy assignment failed"
     exit 1
@@ -189,17 +223,16 @@ echo "✓ Taxonomy assigned via sklearn classifier (${DB_LABEL})"
 echo ""
 
 # SEPP fragment insertion — builds the phylogenetic tree by inserting query
-# sequences into a reference tree (e.g. Greengenes 13.8).  Unlike GG2
-# non-v4-16s this does NOT rename feature IDs, so the tree, table, and
-# taxonomy all share the same original ASV hashes.
-echo ">>> Step 8: Building phylogenetic tree via SEPP fragment insertion..."
+# sequences into the GG2 reference tree (always GG2, regardless of --db-type).
+# Uses oriented sequences as input.
+echo ">>> Step 10: Building phylogenetic tree via SEPP fragment insertion..."
 
 INSERTION_TREE="${MERGED_DIR}/insertion-tree-${DB_LABEL}.qza"
 INSERTION_PLACEMENTS="${MERGED_DIR}/insertion-placements-${DB_LABEL}.qza"
 SEPP_TREE_OK=false
 
 if qiime fragment-insertion sepp \
-    --i-representative-sequences "$MERGED_REP_SEQS" \
+    --i-representative-sequences "$ORIENTED_REP_SEQS" \
     --i-reference-database "$SEPP_REF" \
     --p-threads "$cpu" \
     --o-tree "$INSERTION_TREE" \
@@ -208,11 +241,10 @@ if qiime fragment-insertion sepp \
     SEPP_TREE_OK=true
     echo "✓ SEPP fragment insertion completed"
 
-    # Filter table to features that were placed in the tree.
-    # Features that could not be inserted are separated into a removed table.
-    echo ">>> Step 9: Filtering table to tree-placed features..."
+    # Filter oriented table to features that were placed in the tree.
+    echo ">>> Step 11: Filtering table to tree-placed features..."
     if qiime fragment-insertion filter-features \
-        --i-table "$MERGED_TABLE" \
+        --i-table "$ORIENTED_TABLE" \
         --i-tree "$INSERTION_TREE" \
         --o-filtered-table "${MERGED_DIR}/merged-table-tree-${DB_LABEL}.qza" \
         --o-removed-table "${MERGED_DIR}/merged-table-no-tree-${DB_LABEL}.qza" --verbose; then
@@ -228,7 +260,7 @@ fi
 echo ""
 
 # Generate summary visualizations
-echo ">>> Step 10: Generating summary visualizations..."
+echo ">>> Step 12: Generating summary visualizations..."
 if [[ "$SEPP_TREE_OK" == true ]]; then
     if qiime feature-table summarize \
         --i-table "${MERGED_DIR}/merged-table-tree-${DB_LABEL}.qza" \

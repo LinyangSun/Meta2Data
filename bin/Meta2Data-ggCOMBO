@@ -38,50 +38,74 @@ show_help() {
     cat << EOF
 Usage: Meta2Data ggCOMBO [options]
 
-Merge amplicon datasets and assign taxonomy.
+Merge amplicon datasets, orient sequences, assign taxonomy, and build
+a phylogenetic tree.
 
 This command takes the output of AmpliconPIP (directories containing
 *-final-table.qza and *-final-rep-seqs.qza files) and performs:
   1. Merge all feature tables and representative sequences
-  2. Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
-  3. Phylogenetic tree building via SEPP fragment insertion
-  4. Feature filtering by tree placement
+  2. Orient sequences against database reference sequences
+  3. Filter feature table to oriented sequences only
+  4. Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
+  5. Phylogenetic tree building via SEPP fragment insertion (always GG2)
+  6. Feature filtering by tree placement
 
 Required options:
-    --db DIR              Path to database directory
-                          Expected files inside:
-                            2024.09.backbone.full-length.nb.sklearn-1.4.2.qza  (GG2, pre-trained NB classifier)
-                            sepp-refs-gg-13-8.qza                              (SEPP reference tree)
+    --db DIR              Path to database directory (files are stored here;
+                          use --dl to download them automatically)
+    --db-type TYPE        Taxonomy database to use. One of:
+                            greengenes  - GreenGenes2 2024.09 (default)
+                            silva       - SILVA 138.99
+                            gsr         - GSR-DB (Gut-Specific Reference DB)
+                          This determines which classifier, reference sequences,
+                          and taxonomy are downloaded/used. SEPP tree building
+                          always uses the GG2 reference regardless of this setting.
     -i, --input DIR       Input directory containing PRJ* dataset folders
                           (output of a previous AmpliconPIP run)
 
 Optional options:
     -o, --output DIR      Output directory for merged results (default: same as --input)
     -t, --threads int     Number of CPU threads (default: 4)
-    --dl                  Download database files to --db directory
-    --gsrdb               Use GSRDB (Gut-Specific Reference Database) classifier
-                          instead of GreenGenes2 for taxonomy assignment.
-                          Tree building still uses GG2 SEPP reference.
-                          Default: off (use GreenGenes2)
+    --confidence FLOAT    Confidence threshold for sklearn classifier (default: 0.7)
+    --dl                  Download database files to --db directory before running
     -h, --help            Show this help message
 
+Database files per --db-type (downloaded with --dl):
+    greengenes:
+      2024.09.backbone.full-length.nb.qza       (NB classifier)
+      2024.09.backbone.full-length.fna.qza       (reference sequences)
+      2024.09.backbone.tax.qza                   (reference taxonomy)
+    silva:
+      silva-138-99-nb-classifier.qza             (NB classifier)
+      silva-138-99-seqs.qza                      (reference sequences)
+      silva-138-99-tax.qza                       (reference taxonomy)
+    gsr:
+      classifier_GSR-DB_full-16S.qza             (NB classifier)
+      GSR-DB_full-16S_filt_seqs.qza              (reference sequences)
+      GSR-DB_full-16S_filt_taxa.qza              (reference taxonomy)
+    All types also require:
+      sepp-refs-gg-13-8.qza                      (SEPP reference tree, always GG2)
+
 Example usage:
-    # Basic: input and output in the same directory
-    Meta2Data ggCOMBO --db /path/to/db -i /path/to/amplicon_output -t 8
+    # GreenGenes2 (default)
+    Meta2Data ggCOMBO --db /path/to/db --db-type greengenes -i /path/to/output -t 8
 
-    # Separate output directory
-    Meta2Data ggCOMBO --db /path/to/db -i /path/to/amplicon_output -o /path/to/results -t 8
+    # SILVA with auto-download
+    Meta2Data ggCOMBO --db /path/to/db --db-type silva --dl -i /path/to/output -t 8
 
-    # Download database first, then run
-    Meta2Data ggCOMBO --db /path/to/db --dl -i /path/to/amplicon_output -t 8
+    # GSR-DB with custom confidence
+    Meta2Data ggCOMBO --db /path/to/db --db-type gsr --dl --confidence 0.5 -i /path/to/output
 
-Output structure (DB_LABEL = gg2 or gsrdb):
+Output structure (DB_LABEL = gg2, silva, or gsr):
     <output_dir>/
     └── final/
         └── merged/
-            ├── merged-table.qza                          # Merged feature table (complete)
+            ├── merged-table.qza                          # Merged feature table (all features)
             ├── merged-rep-seqs.qza                       # Merged representative sequences
             ├── merged-table-summary.qzv                  # Table summary
+            ├── oriented-rep-seqs-<DB_LABEL>.qza          # Oriented representative sequences
+            ├── unmatched-rep-seqs-<DB_LABEL>.qza         # Sequences that could not be oriented
+            ├── merged-table-oriented-<DB_LABEL>.qza      # Table filtered to oriented features
             ├── merged-taxonomy-<DB_LABEL>.qza            # Taxonomy (sklearn NB classifier)
             ├── insertion-tree-<DB_LABEL>.qza             # SEPP phylogenetic tree
             ├── insertion-placements-<DB_LABEL>.qza       # SEPP placement details
@@ -93,11 +117,12 @@ EOF
 
 # Default parameters
 DB_DIR=""
+DB_TYPE="greengenes"
 ENABLE_DL=false
-USE_GSRDB=false
 INPUT_DIR=""
 OUTPUT=""
 THREADS=4
+CONFIDENCE=0.7
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -106,13 +131,17 @@ while [[ $# -gt 0 ]]; do
             DB_DIR="$2"
             shift 2
             ;;
+        --db-type)
+            DB_TYPE="$2"
+            shift 2
+            ;;
         --dl)
             ENABLE_DL=true
             shift
             ;;
-        --gsrdb)
-            USE_GSRDB=true
-            shift
+        --confidence)
+            CONFIDENCE="$2"
+            shift 2
             ;;
         -i|--input)
             INPUT_DIR="$2"
@@ -141,6 +170,22 @@ done
 # Validate thread count is a positive integer
 if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
     echo "Error: --threads must be a positive integer, got '$THREADS'"
+    exit 1
+fi
+
+# Validate --db-type
+case "$DB_TYPE" in
+    greengenes|silva|gsr) ;;
+    *)
+        echo "Error: --db-type must be one of: greengenes, silva, gsr (got '$DB_TYPE')"
+        exit 1
+        ;;
+esac
+
+# Validate --confidence is a valid float between 0 and 1
+if ! [[ "$CONFIDENCE" =~ ^[0-9]*\.?[0-9]+$ ]] || \
+   awk "BEGIN{exit !($CONFIDENCE < 0 || $CONFIDENCE > 1)}" 2>/dev/null; then
+    echo "Error: --confidence must be a number between 0 and 1, got '$CONFIDENCE'"
     exit 1
 fi
 
@@ -182,13 +227,29 @@ else
     OUTPUT=$(cd "$OUTPUT" && pwd)
 fi
 
-# Database file names (conditional on --gsrdb)
+# Database file names per --db-type
 SEPP_REF="${DB_DIR}/sepp-refs-gg-13-8.qza"
-if [[ "$USE_GSRDB" == true ]]; then
-    NB_CLASSIFIER="${DB_DIR}/classifier_GSR-DB_full-16S.qza"
-else
-    NB_CLASSIFIER="${DB_DIR}/2024.09.backbone.full-length.nb.sklearn-1.4.2.qza"
-fi
+
+case "$DB_TYPE" in
+    greengenes)
+        DB_LABEL="gg2"
+        NB_CLASSIFIER="${DB_DIR}/2024.09.backbone.full-length.nb.qza"
+        REF_SEQS="${DB_DIR}/2024.09.backbone.full-length.fna.qza"
+        REF_TAX="${DB_DIR}/2024.09.backbone.tax.qza"
+        ;;
+    silva)
+        DB_LABEL="silva"
+        NB_CLASSIFIER="${DB_DIR}/silva-138-99-nb-classifier.qza"
+        REF_SEQS="${DB_DIR}/silva-138-99-seqs.qza"
+        REF_TAX="${DB_DIR}/silva-138-99-tax.qza"
+        ;;
+    gsr)
+        DB_LABEL="gsr"
+        NB_CLASSIFIER="${DB_DIR}/classifier_GSR-DB_full-16S.qza"
+        REF_SEQS="${DB_DIR}/GSR-DB_full-16S_filt_seqs.qza"
+        REF_TAX="${DB_DIR}/GSR-DB_full-16S_filt_taxa.qza"
+        ;;
+esac
 
 ################################################################################
 #                    DOWNLOAD DATABASE (if --dl enabled)                        #
@@ -199,29 +260,10 @@ if [[ "$ENABLE_DL" == true ]]; then
 
     echo "========================================="
     echo "Downloading Database Files"
-    echo "Target: $DB_DIR"
-    if [[ "$USE_GSRDB" == true ]]; then
-        echo "Classifier: GSRDB (Gut-Specific Reference Database)"
-    else
-        echo "Classifier: GreenGenes2"
-    fi
+    echo "Target:  $DB_DIR"
+    echo "DB type: $DB_TYPE ($DB_LABEL)"
     echo "========================================="
     echo ""
-
-    # Each entry: "filename|base_url"
-    if [[ "$USE_GSRDB" == true ]]; then
-        NB_CLASSIFIER_URL="https://manichanh.vhir.org/gsrdb/"
-        DL_FILES=(
-            "classifier_GSR-DB_full-16S.qza|${NB_CLASSIFIER_URL}"
-            "sepp-refs-gg-13-8.qza|${SEPP_URL}"
-        )
-    else
-        NB_CLASSIFIER_URL="https://data.qiime2.org/classifiers/sklearn-1.4.2/greengenes2/"
-        DL_FILES=(
-            "2024.09.backbone.full-length.nb.sklearn-1.4.2.qza|${NB_CLASSIFIER_URL}"
-            "sepp-refs-gg-13-8.qza|${SEPP_URL}"
-        )
-    fi
 
     # Validate a .qza file by checking it is a non-empty, valid zip archive
     validate_qza() {
@@ -229,9 +271,43 @@ if [[ "$ENABLE_DL" == true ]]; then
         [[ -f "$file" ]] && [[ -s "$file" ]] && unzip -tq "$file" >/dev/null 2>&1
     }
 
+    # Each entry: "filename|base_url|wget_extra_flags"
+    # wget_extra_flags is optional (e.g. --no-check-certificate for GG2 FTP)
+    case "$DB_TYPE" in
+        greengenes)
+            GG2_BASE="http://ftp.microbio.me/greengenes_release/2024.09/"
+            DL_FILES=(
+                "2024.09.backbone.full-length.nb.qza|${GG2_BASE}|--no-check-certificate"
+                "2024.09.backbone.full-length.fna.qza|${GG2_BASE}|--no-check-certificate"
+                "2024.09.backbone.tax.qza|${GG2_BASE}|--no-check-certificate"
+                "sepp-refs-gg-13-8.qza|${SEPP_URL}|"
+            )
+            ;;
+        silva)
+            SILVA_COMMON="https://data.qiime2.org/2024.10/common/"
+            SILVA_CLS="https://data.qiime2.org/classifiers/sklearn-1.4.2/silva/"
+            DL_FILES=(
+                "silva-138-99-nb-classifier.qza|${SILVA_CLS}|"
+                "silva-138-99-seqs.qza|${SILVA_COMMON}|"
+                "silva-138-99-tax.qza|${SILVA_COMMON}|"
+                "sepp-refs-gg-13-8.qza|${SEPP_URL}|"
+            )
+            ;;
+        gsr)
+            GSR_BASE="https://manichanh.vhir.org/gsrdb/"
+            DL_FILES=(
+                "classifier_GSR-DB_full-16S.qza|${GSR_BASE}|"
+                "sepp-refs-gg-13-8.qza|${SEPP_URL}|"
+            )
+            # GSR ref seqs and taxonomy come from a tarball
+            GSR_TARBALL="GSR-DB_full-16S.tar.gz"
+            GSR_TARBALL_PATH="${DB_DIR}/${GSR_TARBALL}"
+            ;;
+    esac
+
+    # Download regular .qza files
     for entry in "${DL_FILES[@]}"; do
-        fname="${entry%%|*}"
-        base_url="${entry##*|}"
+        IFS='|' read -r fname base_url extra_flags <<< "$entry"
         target="${DB_DIR}/${fname}"
         if validate_qza "$target"; then
             echo "Valid file exists: ${fname}, skipping download"
@@ -239,7 +315,8 @@ if [[ "$ENABLE_DL" == true ]]; then
             [[ -f "$target" ]] && echo "Existing file is corrupt or incomplete, re-downloading: ${fname}"
             rm -f "$target"
             echo "Downloading: ${fname}..."
-            if ! wget -q --show-progress -O "$target" "${base_url}${fname}"; then
+            # shellcheck disable=SC2086
+            if ! wget -q --show-progress ${extra_flags} -O "$target" "${base_url}${fname}"; then
                 echo "ERROR: Failed to download ${fname}"
                 rm -f "$target"
                 exit 1
@@ -252,6 +329,33 @@ if [[ "$ENABLE_DL" == true ]]; then
             echo "Downloaded and verified: ${fname}"
         fi
     done
+
+    # GSR-DB: download and extract tarball for ref seqs + taxonomy
+    if [[ "$DB_TYPE" == "gsr" ]]; then
+        if validate_qza "$REF_SEQS" && validate_qza "$REF_TAX"; then
+            echo "Valid GSR-DB ref files exist, skipping tarball download"
+        else
+            echo "Downloading: ${GSR_TARBALL}..."
+            rm -f "$GSR_TARBALL_PATH"
+            if ! wget -q --show-progress -O "$GSR_TARBALL_PATH" "${GSR_BASE}${GSR_TARBALL}"; then
+                echo "ERROR: Failed to download ${GSR_TARBALL}"
+                rm -f "$GSR_TARBALL_PATH"
+                exit 1
+            fi
+            echo "Extracting: ${GSR_TARBALL}..."
+            if ! tar -xzf "$GSR_TARBALL_PATH" -C "$DB_DIR"; then
+                echo "ERROR: Failed to extract ${GSR_TARBALL}"
+                exit 1
+            fi
+            rm -f "$GSR_TARBALL_PATH"
+            if ! validate_qza "$REF_SEQS" || ! validate_qza "$REF_TAX"; then
+                echo "ERROR: Extracted GSR-DB files are missing or corrupt"
+                echo "  Expected: $(basename "$REF_SEQS") and $(basename "$REF_TAX")"
+                exit 1
+            fi
+            echo "Downloaded and extracted GSR-DB reference files"
+        fi
+    fi
 
     echo ""
     echo "Database download complete."
@@ -267,7 +371,7 @@ echo "Validating Database Files"
 echo "========================================="
 
 MISSING=false
-for f in "$NB_CLASSIFIER" "$SEPP_REF"; do
+for f in "$NB_CLASSIFIER" "$REF_SEQS" "$REF_TAX" "$SEPP_REF"; do
     if [[ ! -f "$f" ]]; then
         echo "ERROR: Required file not found: $f"
         MISSING=true
@@ -291,9 +395,12 @@ echo "========================================="
 echo "Meta2Data ggCOMBO"
 echo "========================================="
 echo "Database Dir:   $DB_DIR"
-echo "Taxonomy DB:    $(if [[ "$USE_GSRDB" == true ]]; then echo "GSRDB"; else echo "GreenGenes2"; fi)"
+echo "Database Type:  $DB_TYPE ($DB_LABEL)"
 echo "  Classifier:   $(basename "$NB_CLASSIFIER")"
+echo "  Ref Seqs:     $(basename "$REF_SEQS")"
+echo "  Ref Tax:      $(basename "$REF_TAX")"
 echo "  SEPP Ref:     $(basename "$SEPP_REF")"
+echo "Confidence:     $CONFIDENCE"
 echo "Input:          $INPUT_DIR"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
@@ -306,16 +413,15 @@ echo ""
 
 # Export environment variables for taxonomy.sh
 export DB_DIR
+export DB_LABEL
 export NB_CLASSIFIER
+export REF_SEQS
+export REF_TAX
 export SEPP_REF
+export CONFIDENCE
 export INPUT_DIR
 export OUTPUT
 export cpu=$THREADS
-if [[ "$USE_GSRDB" == true ]]; then
-    export DB_LABEL="gsrdb"
-else
-    export DB_LABEL="gg2"
-fi
 
 # Redirect ALL temporary-file paths to the output directory so that the
 # pipeline never touches the small /tmp on HPC compute nodes.
