@@ -75,80 +75,46 @@ Meta2Data --help
 
 Meta2Data provides several subcommands for different stages of the workflow:
 
-### Overview
-
 ```bash
 Meta2Data <command> [options]
 
 Available commands:
-    MetaDL         Enhanced metadata download with parallel processing (NCBI + CNCB)
-    AmpliconPIP    Download and process 16S amplicon sequencing data (ITS and 18S not included)
-    ggCOMBO        Merge AmpliconPIP results and assign taxonomy via GreenGenes2
+    MetaDL         Search keywords combination in NCBI and CNCB. Download and preclean metadata.
+    AmpliconPIP    Download and process amplicon sequencing data based on user provided metadata.
+    ggCOMBO        Merge amplicon datasets and assign taxonomy using GreenGenes2, SILVA, or GSR-DB.
     ShortreadsPIP  (In development)
 ```
 
-### 1. MetaDL: Enhanced Metadata Download
+---
 
-Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability. Also includes basic column combination and format standardization.
+### MetaDL: Metadata Download
 
-**Two modes available:**
+Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability.
 
-#### Mode 1: BioProject ID Input
+**Two modes:**
 
-In this mode, the user may already have a list of BioProject IDs. The BioProject IDs can be split across multiple files, but must be stored under the same directory. This directory should only contain BioProject ID files. Each file should have one column and be tab-separated. See the example under example/MetaDL/bioprojectID.txt.
+| Mode | Required Options | Description |
+|------|-----------------|-------------|
+| BioProject ID Input | `-i`, `-o` | Provide a directory of BioProject ID files |
+| Keyword Search | `-o`, `--keywords`, `--field`, `--organism` | Search NCBI by keywords |
 
-```bash
-# Basic usage
-Meta2Data MetaDL \
-    -i bioproject_ids/ \
-    -o metadata_output/
-
-# With NCBI API key (faster, 8 parallel workers)
-Meta2Data MetaDL \
-    -i bioproject_ids/ \
-    -o metadata_output/ \
-    -k YOUR_NCBI_API_KEY
 ```
+Required:
+    -o, --output DIR              Output directory
 
-**Input format**: Directory containing `.txt` files with one BioProject ID per line
-- Supports: PRJNA*, PRJEB*, PRJDB*, PRJCA*, etc.
+BioProject Input Mode:
+    -i, --input DIR               Directory with BioProject ID txt files
 
-#### Mode 2: Keyword Search
+Keyword Search Mode:
+    --keywords                    Enable keyword search mode
+    --field "term1" "term2"       Search field terms
+    --organism "term1" ...        Organism terms
+    --opt "term1" ...             Optional additional terms
 
-```bash
-# Search by keywords
-Meta2Data MetaDL \
-    -o metadata_output/ \
-    --keywords \
-    --field "16S rRNA" \
-    --organism "gut microbiome"
-
-# With optional terms
-Meta2Data MetaDL \
-    -o metadata_output/ \
-    --keywords \
-    --field "metagenome" \
-    --organism "soil" \
-    --opt "Illumina"
-
-# or use a set of keywords
-field=("Bacteria" "Microbiome" "Microbes" "Metagenomics" "Metabarcoding")
-organism=("bee" "apis" "bombus")
-opt=("Amplicon" "16s" "skin" "gut")
-
-Meta2Data MetaDL \
-    -o metadata_output/ \
-    --keywords \
-    --field "${field[@]}" \
-    --organism "${organism[@]}"
-
-# With optional terms
-Meta2Data MetaDL \
-    -o metadata_output/ \
-    --keywords \
-    --field "${field[@]}" \
-    --organism "${organism[@]}" \
-    --opt "${opt[@]}"
+Optional:
+    -k, --api-key KEY             NCBI API key (enables 8 parallel workers)
+    -w, --max-workers NUM         Max parallel workers (default: 8 with key, 3 without)
+    -h, --help                    Show help
 ```
 
 **Output files:**
@@ -158,174 +124,11 @@ Meta2Data MetaDL \
 - `logs/metadl_v2_*.log` - Detailed execution log
 - `checkpoints/download_state.json` - Resume state for interrupted runs
 
-### 2. AmpliconPIP: Amplicon Data Processing
+---
+
+### AmpliconPIP: Amplicon Data Processing
 
 Download SRA data and process amplicon sequencing data with provided metadata.
-
-#### Basic Usage
-
-```bash
-# Basic processing (with standard column names)
-Meta2Data AmpliconPIP \
-    -m path/to/metadata.csv \
-    --col-bioproject "Bioproject" \
-    --col-sra "Run" \
-    -t 8
-
-# Or specify output directory
-Meta2Data AmpliconPIP \
-    -m path/to/metadata.csv \
-    -o /output/path/ \
-    --col-bioproject "Bioproject" \
-    --col-sra "Run" \
-    -t 8
-
-# Test mode with built-in sample data (output to current directory)
-Meta2Data AmpliconPIP --test -t 8
-
-# Test mode with built-in data and custom output directory
-Meta2Data AmpliconPIP --test -o /path/to/output/ -t 8
-
-# Test mode with user metadata (subsets to 2 SRA per BioProject)
-Meta2Data AmpliconPIP --test \
-    -m metadata.csv \
-    --col-bioproject Bioproject \
-    --col-sra Run \
-    -t 8
-```
-
-
-#### Metadata CSV Format
-
-**Required columns** (customizable with `--col-*` options):
-- `Bioproject` - BioProject accession (e.g., PRJNA123456)
-- `Run` - SRA run accession (e.g., SRR123456)
-
-**Example CSV:**
-```csv
-Bioproject,Run
-PRJNA12345,SRR123456
-PRJNA12345,SRR123457
-PRJNA67890,SRR234567
-```
-
-#### Processing Pipeline
-
-The pipeline automatically:
-1. **Downloads** SRA data (via Aspera/FTP)
-2. **Detects** sequencing platform (Illumina, PacBio, Ion Torrent, 454)
-               sequencing type (single / pair-end)
-3. **Identifies** and trims primers
-4. **Processes** data using platform-specific methods:
-   - **Illumina/Ion Torrent**: DADA2 denoising
-   - **PacBio**: DADA2 with PacBio parameters
-5. **Generates** QIIME2 artifacts (`.qza` files)
-
-#### Output Structure
-
-```
-<output_dir>/
-├── datasets_ID.txt                    # Generated dataset list
-├── <dataset_ID>/                      # One directory per dataset
-│   ├── <dataset_ID>_sra.txt          # SRA accession list
-│   ├── ori_fastq/                     # Downloaded FASTQ files
-│   ├── <dataset_ID>-final-rep-seqs.qza       # Final sequences
-│   └── <dataset_ID>-final-table.qza          # Final feature table
-├── failed_datasets.log
-├── success_datasets.log
-├── skipped_datasets.log
-└── summary.csv                       # sequencing depth for raw reads / final data
-```
-
-### 3. ggCOMBO: Merge & Taxonomy Assignment
-
-Merge multiple AmpliconPIP dataset outputs and assign taxonomy using the GreenGenes2 database. Can be run independently from AmpliconPIP.
-
-#### Basic Usage
-
-```bash
-# Input and output in the same directory
-Meta2Data ggCOMBO \
-    --db /path/to/gg2db \
-    -i /path/to/amplicon_output \
-    -t 8
-
-# Separate output directory
-Meta2Data ggCOMBO \
-    --db /path/to/gg2db \
-    -i /path/to/amplicon_output \
-    -o /path/to/results \
-    -t 8
-
-# if not download database, use this
-Meta2Data ggCOMBO \
-    --db /path/to/gg2db \
-    --dl \
-    -i /path/to/amplicon_output \
-    -t 8
-```
-
-#### Input
-
-The `--input` directory must contain one or more `PRJ*` subdirectories (output of AmpliconPIP), each with:
-- `<dataset_ID>-final-table.qza` — feature table
-- `<dataset_ID>-final-rep-seqs.qza` — representative sequences
-
-The `--db` directory must contain these files:
-- `2024.09.backbone.full-length.nb.sklearn-1.4.2.qza` (GG2 pre-trained Naive Bayes classifier)
-- `sepp-refs-gg-13-8.qza` (SEPP reference tree)
-
-Use `--dl` to download these automatically.
-
-#### Processing Pipeline
-
-1. **Merge** feature tables and representative sequences across all datasets
-2. **Assign** taxonomy via pre-trained Naive Bayes classifier (sklearn)
-3. **Build** phylogenetic tree via SEPP fragment insertion
-4. **Filter** features by tree placement
-
-#### Output Structure
-
-```
-<output_dir>/
-└── final/
-    └── merged/
-        ├── merged-table.qza               # Merged feature table (complete)
-        ├── merged-rep-seqs.qza            # Merged representative sequences
-        ├── merged-table-summary.qzv       # Table summary
-        ├── merged-taxonomy.qza            # Taxonomy (sklearn NB classifier)
-        ├── insertion-tree.qza             # SEPP phylogenetic tree
-        ├── insertion-placements.qza       # SEPP placement details
-        ├── merged-table-tree.qza          # Table filtered to tree-placed features
-        └── merged-table-no-tree.qza       # Features not placed in tree
-```
-
-
-## Command-Line Options
-
-### MetaDL Options
-
-```
-Required:
-    -o, --output DIR              Output directory
-
-Mode 1: BioProject Input
-    -i, --input DIR               Directory with BioProject ID txt files
-
-Mode 2: Keyword Search
-    --keywords                    Enable keyword search mode
-    --field "term1" "term2"       Search field terms
-    --organism "term1" ...        Organism terms
-    --opt "term1" ...             Optional additional terms
-
-Optional:
-    -e, --email EMAIL             Email (auto-generated if not provided)
-    -k, --api-key KEY             NCBI API key (enables 8 workers)
-    -w, --max-workers NUM         Max parallel workers (default: 3 or 8)
-    -h, --help                    Show help
-```
-
-### AmpliconPIP Options
 
 ```
 Required (unless --test is used):
@@ -335,47 +138,115 @@ Required (unless --test is used):
 
 Optional:
     -o, --output DIR              Output directory
-                                  Default: current directory in --test mode
-                                           metadata file directory in normal mode
-    -t, --threads INT             CPU threads (default: 4)
+                                  Default: current directory (--test) / metadata dir (normal)
+    -t, --threads INT             Total CPU threads (default: 4)
+                                  Auto-split: per-dataset threads = threads / max-parallel
+    --max-parallel INT            Datasets to process in parallel (default: 2)
     --test                        Run in test mode
                                   Without -m: use built-in test data
                                   With -m: subset metadata (2 SRA per BioProject)
-                                  Output defaults to current directory
     -h, --help                    Show help
 ```
 
-### ggCOMBO Options
+**Metadata CSV format** (column names customizable via `--col-*`):
+```csv
+Bioproject,Run
+PRJNA12345,SRR123456
+PRJNA12345,SRR123457
+PRJNA67890,SRR234567
+```
+
+**Processing pipeline:**
+1. Download SRA data (via Aspera/FTP)
+2. Detect sequencing platform (Illumina, PacBio, Ion Torrent, 454) and layout (single/paired-end)
+3. Identify and trim primers
+4. Platform-specific processing (DADA2 denoising for Illumina/Ion Torrent/PacBio)
+5. Generate QIIME2 artifacts (`.qza` files)
+
+**Output structure:**
+```
+<output_dir>/
+├── datasets_ID.txt                    # Generated dataset list
+├── <dataset_ID>/                      # One directory per dataset
+│   ├── <dataset_ID>_sra.txt          # SRA accession list
+│   ├── ori_fastq/                     # Downloaded FASTQ files
+│   ├── <dataset_ID>-final-rep-seqs.qza
+│   └── <dataset_ID>-final-table.qza
+├── failed_datasets.log
+├── success_datasets.log
+├── skipped_datasets.log
+└── summary.csv                        # Sequencing depth for raw reads / final data
+```
+
+---
+
+### ggCOMBO: Merge & Taxonomy Assignment
+
+Merge multiple AmpliconPIP dataset outputs, assign taxonomy, and build a phylogenetic tree. Supports three taxonomy databases.
 
 ```
 Required:
-    --db DIR                      Path to GreenGenes2 database directory
+    --db DIR                      Path to database directory
     -i, --input DIR               Input directory containing PRJ* dataset folders
                                   (output of a previous AmpliconPIP run)
 
 Optional:
-    -o, --output DIR              Output directory for merged results
-                                  (default: same as --input)
+    --db-type TYPE                Taxonomy database (default: greengenes)
+                                    greengenes - GreenGenes2 2024.09
+                                    silva      - SILVA 138.99
+                                    gsr        - GSR-DB (Gut-Specific Reference DB)
+    -o, --output DIR              Output directory (default: same as --input)
     -t, --threads INT             CPU threads (default: 4)
-    --dl                          Download GreenGenes2 database files to --db directory
+    --confidence FLOAT            Classifier confidence threshold (default: 0.7)
+    --skip-tree                   Skip SEPP phylogenetic tree building
+    --dl                          Download database files to --db directory
     -h, --help                    Show help
 ```
 
+**Processing pipeline:**
+1. Merge feature tables and representative sequences across all datasets
+2. Orient sequences against database reference sequences
+3. Filter feature table to oriented sequences only
+4. Assign taxonomy via pre-trained Naive Bayes classifier
+5. Build phylogenetic tree via SEPP fragment insertion (always GG2 reference)
+6. Filter features by tree placement
+
+**Output structure** (`DB_LABEL` = gg2, silva, or gsr):
+```
+<output_dir>/
+└── final/
+    └── merged/
+        ├── merged-table.qza                          # Merged feature table
+        ├── merged-rep-seqs.qza                       # Merged representative sequences
+        ├── merged-table-summary.qzv                  # Table summary
+        ├── oriented-rep-seqs-<DB_LABEL>.qza          # Oriented sequences
+        ├── merged-table-oriented-<DB_LABEL>.qza      # Table filtered to oriented features
+        ├── merged-taxonomy-<DB_LABEL>.qza            # Taxonomy classification
+        ├── insertion-tree-<DB_LABEL>.qza             # SEPP phylogenetic tree
+        ├── merged-table-tree-<DB_LABEL>.qza          # Table filtered to tree-placed features
+        └── merged-table-no-tree-<DB_LABEL>.qza       # Features not placed in tree
+```
+
+---
+
 ## Examples
 
-### Complete Workflow
+### Case 1: Complete Workflow — From Keyword Search to Taxonomy
+
+Search NCBI for gut microbiome 16S studies, download & process data, then assign taxonomy.
 
 ```bash
-# 1. Activate environment
 conda activate Meta2Data
 
-# 2. Download metadata
+# Step 1: Search and download metadata by keywords
 Meta2Data MetaDL \
-    -i bioproject_list/ \
     -o metadata/ \
-    -k YOUR_API_KEY
+    --keywords \
+    --field "16S rRNA" "amplicon" \
+    --organism "gut microbiome" \
+    --opt "Illumina"
 
-# 3. Process amplicon data
+# Step 2: Process amplicon data
 Meta2Data AmpliconPIP \
     -m metadata/all_metadata_merged.csv \
     --col-bioproject Bioproject \
@@ -383,15 +254,168 @@ Meta2Data AmpliconPIP \
     -o results/ \
     -t 16
 
-# 4. Merge and assign taxonomy with GreenGenes2
+# Step 3: Merge and assign taxonomy (GreenGenes2, auto-download database)
 Meta2Data ggCOMBO \
-    --db /path/to/gg2db \
+    --db ~/databases/gg2 \
     --dl \
     -i results/ \
     -t 16
+```
 
-# 5. Check results
-ls results/final/merged/
+### Case 2: Complete Workflow — From BioProject IDs to Taxonomy
+
+You already have a list of BioProject IDs and want to process them end-to-end.
+
+```bash
+conda activate Meta2Data
+
+# Step 1: Download metadata from a folder of BioProject ID files
+Meta2Data MetaDL \
+    -i bioproject_ids/ \
+    -o metadata/ \
+    -k YOUR_NCBI_API_KEY
+
+# Step 2: Process amplicon data with 4 parallel datasets
+Meta2Data AmpliconPIP \
+    -m metadata/all_metadata_merged.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -o results/ \
+    -t 32 --max-parallel 4
+
+# Step 3: Assign taxonomy with SILVA database
+Meta2Data ggCOMBO \
+    --db ~/databases/silva \
+    --db-type silva \
+    --dl \
+    -i results/ \
+    -t 16
+```
+
+### Case 3: Process Amplicon Data Only (Metadata Already Prepared)
+
+Skip the MetaDL step when you already have a metadata CSV file ready.
+
+```bash
+conda activate Meta2Data
+
+# Custom column names matching your CSV headers
+Meta2Data AmpliconPIP \
+    -m my_samples.csv \
+    --col-bioproject "ProjectID" \
+    --col-sra "SRA_Accession" \
+    -o amplicon_output/ \
+    -t 8
+```
+
+### Case 4: Test Mode — Quick Validation
+
+Verify the pipeline works before running on your full dataset.
+
+```bash
+conda activate Meta2Data
+
+# Use built-in test data (fastest way to verify installation)
+Meta2Data AmpliconPIP --test -t 8
+
+# Or test with your own metadata (subsets to 2 SRA per BioProject)
+Meta2Data AmpliconPIP --test \
+    -m my_large_metadata.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -o test_output/ \
+    -t 8
+```
+
+### Case 5: Taxonomy Assignment Only (AmpliconPIP Already Complete)
+
+Run ggCOMBO independently on existing AmpliconPIP results, e.g., to compare databases.
+
+```bash
+conda activate Meta2Data
+
+# GreenGenes2 (default)
+Meta2Data ggCOMBO \
+    --db ~/databases/gg2 \
+    --db-type greengenes \
+    --dl \
+    -i amplicon_output/ \
+    -o results_gg2/ \
+    -t 16
+
+# SILVA 138.99
+Meta2Data ggCOMBO \
+    --db ~/databases/silva \
+    --db-type silva \
+    --dl \
+    -i amplicon_output/ \
+    -o results_silva/ \
+    -t 16
+
+# GSR-DB (gut-specific, with lower confidence threshold)
+Meta2Data ggCOMBO \
+    --db ~/databases/gsr \
+    --db-type gsr \
+    --dl \
+    --confidence 0.5 \
+    -i amplicon_output/ \
+    -o results_gsr/ \
+    -t 16
+```
+
+### Case 6: Keyword Search with Multiple Terms
+
+Search with broad keyword sets covering multiple organisms and fields.
+
+```bash
+conda activate Meta2Data
+
+# Define keyword arrays
+field=("Bacteria" "Microbiome" "Metagenomics" "Metabarcoding")
+organism=("bee" "apis" "bombus")
+opt=("Amplicon" "16s" "gut")
+
+Meta2Data MetaDL \
+    -o bee_metadata/ \
+    --keywords \
+    --field "${field[@]}" \
+    --organism "${organism[@]}" \
+    --opt "${opt[@]}" \
+    -k YOUR_NCBI_API_KEY
+```
+
+### Case 7: HPC / Server Usage Tips
+
+For long-running jobs on HPC systems, ensure sufficient time allocation.
+
+```bash
+conda activate Meta2Data
+
+# Large-scale processing: increase threads and parallelism
+Meta2Data AmpliconPIP \
+    -m metadata/all_metadata_merged.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -o /scratch/results/ \
+    -t 64 --max-parallel 8
+
+# Skip tree building when comparing multiple databases in parallel
+Meta2Data ggCOMBO \
+    --db ~/databases/silva \
+    --db-type silva \
+    --skip-tree \
+    -i /scratch/results/ \
+    -o /scratch/results_silva/ \
+    -t 16 &
+
+Meta2Data ggCOMBO \
+    --db ~/databases/gg2 \
+    --db-type greengenes \
+    -i /scratch/results/ \
+    -o /scratch/results_gg2/ \
+    -t 16 &
+
+wait
 ```
 
 
