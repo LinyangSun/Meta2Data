@@ -198,7 +198,6 @@ Optional:
     -o, --output DIR              Output directory (default: same as --input)
     -t, --threads INT             CPU threads (default: 4)
     --confidence FLOAT            Classifier confidence threshold (default: 0.7)
-    --skip-tree                   Skip SEPP phylogenetic tree building
     --dl                          Download database files to --db directory
     -h, --help                    Show help
 ```
@@ -216,15 +215,16 @@ Optional:
 <output_dir>/
 └── final/
     └── merged/
-        ├── merged-table.qza                          # Merged feature table
-        ├── merged-rep-seqs.qza                       # Merged representative sequences
-        ├── merged-table-summary.qzv                  # Table summary
-        ├── oriented-rep-seqs-<DB_LABEL>.qza          # Oriented sequences
-        ├── merged-table-oriented-<DB_LABEL>.qza      # Table filtered to oriented features
-        ├── merged-taxonomy-<DB_LABEL>.qza            # Taxonomy classification
-        ├── insertion-tree-<DB_LABEL>.qza             # SEPP phylogenetic tree
-        ├── merged-table-tree-<DB_LABEL>.qza          # Table filtered to tree-placed features
-        └── merged-table-no-tree-<DB_LABEL>.qza       # Features not placed in tree
+        ├── merged-table.qza                 # Merged feature table (shared)
+        ├── merged-rep-seqs.qza              # Merged representative sequences (shared)
+        ├── merged-table-summary.qzv         # Table summary (shared)
+        └── <DB_LABEL>/                      # Database-specific subfolder
+            ├── oriented-rep-seqs.qza        # Oriented representative sequences
+            ├── merged-table-oriented.qza    # Table filtered to oriented features
+            ├── merged-taxonomy.qza          # Taxonomy classification
+            ├── insertion-tree.qza           # SEPP phylogenetic tree
+            ├── merged-table-tree.qza        # Table filtered to tree-placed features
+            └── merged-table-no-tree.qza     # Features not placed in tree
 ```
 
 ---
@@ -399,23 +399,21 @@ Meta2Data AmpliconPIP \
     -o /scratch/results/ \
     -t 64 --max-parallel 8
 
-# Skip tree building when comparing multiple databases in parallel
-Meta2Data ggCOMBO \
-    --db ~/databases/silva \
-    --db-type silva \
-    --skip-tree \
-    -i /scratch/results/ \
-    -o /scratch/results_silva/ \
-    -t 16 &
-
+# Run multiple taxonomy databases sequentially
 Meta2Data ggCOMBO \
     --db ~/databases/gg2 \
     --db-type greengenes \
+    --dl \
     -i /scratch/results/ \
-    -o /scratch/results_gg2/ \
-    -t 16 &
+    -t 16
 
-wait
+Meta2Data ggCOMBO \
+    --db ~/databases/silva \
+    --db-type silva \
+    --dl \
+    -i /scratch/results/ \
+    -t 16
+# Results in /scratch/results/final/merged/gg2/ and .../silva/
 ```
 
 
