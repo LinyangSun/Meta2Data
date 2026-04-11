@@ -34,12 +34,13 @@ if ! SCRIPTS=$(find_scripts_dir); then
     exit 1
 fi
 
-VENDOR_BIN="$(dirname "$SCRIPTS")/vendor/bin"
-[[ -d "$VENDOR_BIN" ]] && export PATH="${VENDOR_BIN}:${PATH}"
-
 # shellcheck disable=SC1091
 source "${SCRIPTS}/check_dependencies.sh"
+meta2data_ensure_vendor_binaries || exit 1
 meta2data_ensure_python_deps || exit 1
+
+VENDOR_BIN="$(dirname "$SCRIPTS")/vendor/bin"
+[[ -d "$VENDOR_BIN" ]] && export PATH="${VENDOR_BIN}:${PATH}"
 
 show_help() {
     cat << EOF

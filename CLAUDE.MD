@@ -82,21 +82,25 @@ git clone https://github.com/LinyangSun/Meta2Data.git
 echo 'export PATH="'"$PWD"'/Meta2Data/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-# 2. (AmpliconPIP / ggCOMBO only) Download vsearch + fastp into vendor/bin.
-cd Meta2Data
-bash scripts/install_binaries.sh
-
-# 3. (AmpliconPIP / ggCOMBO only) Install and activate QIIME2 2024.10
+# 2. (AmpliconPIP / ggCOMBO only) Install and activate QIIME2 2024.10
 #    amplicon following QIIME2's official instructions.
 conda activate qiime2-amplicon-2024.10
 ```
 
-`install_binaries.sh` pulls prebuilt Linux static binaries from upstream
-releases (no compilation, no conda), drops them into `<repo>/vendor/bin/`,
-and is idempotent. Meta2Data entry scripts auto-prepend `<repo>/vendor/bin`
-to `PATH` at startup, so users never touch their shell config for those
-two binaries. See `bash scripts/install_binaries.sh --help` for `--prefix`
-and `--force` overrides.
+That's it. `vsearch` + `fastp` + Python packages all auto-install on the
+first subcommand run (see below).
+
+**Native binaries (vsearch / fastp) are auto-installed at runtime.**
+`Meta2Data-AmpliconPIP` and `Meta2Data-ggCOMBO` source
+`scripts/check_dependencies.sh` and call `meta2data_ensure_vendor_binaries`
+before doing any work. If `<repo>/vendor/bin/vsearch` or
+`<repo>/vendor/bin/fastp` is missing, it invokes
+`scripts/install_binaries.sh`, which pulls prebuilt Linux static binaries
+from upstream releases (no compilation, no conda). The installer is
+idempotent. `MetaDL` does **not** call this helper because it does not
+need these binaries. Users who prefer to install eagerly can still run
+`bash scripts/install_binaries.sh` manually — see its `--help` for
+`--prefix` and `--force` overrides.
 
 **Python packages are auto-installed at runtime.** Every Meta2Data entry
 script (`Meta2Data-MetaDL`, `Meta2Data-AmpliconPIP`, `Meta2Data-ggCOMBO`)
@@ -104,8 +108,11 @@ sources `scripts/check_dependencies.sh` and calls
 `meta2data_ensure_python_deps` before doing any work. That helper probes
 the active `python3` for `biopython`, `pandas`, `numpy`, and `requests`,
 and runs `python3 -m pip install` for anything missing — so packages
-always land in whichever Python env the user currently has on PATH. Set
-`META2DATA_SKIP_DEP_CHECK=1` to bypass this behavior.
+always land in whichever Python env the user currently has on PATH.
+
+Both auto-install helpers honor `META2DATA_SKIP_DEP_CHECK=1` for users
+who manage their environment by hand (HPC login nodes with read-only
+prefixes, offline machines, etc.).
 
 **Software used at runtime:**
 - QIIME2 2024.10 amplicon distribution — **only needed for `AmpliconPIP` /

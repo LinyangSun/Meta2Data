@@ -10,6 +10,12 @@
 # entry script at startup: it checks the Python packages Meta2Data needs,
 # and auto-installs any missing ones into the active python3 environment
 # via `python3 -m pip install`. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
+#
+# meta2data_ensure_vendor_binaries is the parallel helper for vsearch and
+# fastp. AmpliconPIP / ggCOMBO entry scripts call it at startup; if the
+# binaries are missing from <repo>/vendor/bin it auto-invokes
+# scripts/install_binaries.sh. MetaDL does not need these binaries and
+# does not call this helper. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
 
 # Required non-QIIME2 binaries that install_binaries.sh provisions.
 _M2D_VENDOR_BINARIES=(
@@ -238,6 +244,51 @@ meta2data_ensure_python_deps() {
         echo "       This can happen on read-only environments or when pip is" >&2
         echo "       unavailable. Install them manually with:" >&2
         echo "         python3 -m pip install ${missing[*]}" >&2
+        echo "       Or set META2DATA_SKIP_DEP_CHECK=1 to bypass this check." >&2
+        return 1
+    fi
+    echo "[deps] OK"
+    return 0
+}
+
+# -----------------------------------------------------------------------------
+# Lightweight vendor-binary ensure helper
+# -----------------------------------------------------------------------------
+# Auto-installs vsearch / fastp into <repo>/vendor/bin via
+# scripts/install_binaries.sh if either binary is missing. Called at startup
+# by AmpliconPIP / ggCOMBO entry scripts only — MetaDL does not need these.
+#
+# install_binaries.sh is already idempotent (version-checked via need_install),
+# so a redundant call is near-free; we still guard with a pre-check so users
+# who have the binaries don't see the installer banner every run.
+
+_M2D_REQUIRED_VENDOR_BINS=(vsearch fastp)
+
+meta2data_ensure_vendor_binaries() {
+    [[ "${META2DATA_SKIP_DEP_CHECK:-}" == "1" ]] && return 0
+
+    # BASH_SOURCE[0] here is check_dependencies.sh itself, which lives in
+    # <repo>/scripts/, so <repo> is one level up.
+    local scripts_dir repo_root vendor_bin
+    scripts_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    repo_root="$(dirname "$scripts_dir")"
+    vendor_bin="${repo_root}/vendor/bin"
+
+    local missing=()
+    local b
+    for b in "${_M2D_REQUIRED_VENDOR_BINS[@]}"; do
+        [[ -x "${vendor_bin}/${b}" ]] || missing+=("$b")
+    done
+
+    [[ ${#missing[@]} -eq 0 ]] && return 0
+
+    echo "[deps] Missing native binaries in ${vendor_bin}: ${missing[*]}"
+    echo "[deps] Running ${repo_root}/scripts/install_binaries.sh..."
+    if ! bash "${repo_root}/scripts/install_binaries.sh"; then
+        echo "" >&2
+        echo "Error: failed to install native binaries: ${missing[*]}" >&2
+        echo "       Try installing them manually with:" >&2
+        echo "         bash ${repo_root}/scripts/install_binaries.sh" >&2
         echo "       Or set META2DATA_SKIP_DEP_CHECK=1 to bypass this check." >&2
         return 1
     fi

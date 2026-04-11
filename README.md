@@ -40,22 +40,31 @@ source ~/.bashrc
 > which is exactly what you want, and Meta2Data's own commands remain
 > resolvable via the persistent `$HOME/Meta2Data/bin` entry.
 
-### Step 2: Download vsearch and fastp (only for AmpliconPIP / ggCOMBO)
+### Step 2: Download vsearch and fastp (automatic on first run)
 
-`scripts/install_binaries.sh` downloads prebuilt Linux static binaries for
-`vsearch 2.30.0` and `fastp 0.24.0` directly from their upstream release
-pages (no compilation, no extra conda packages) and drops them into
-`<repo>/vendor/bin/`, which Meta2Data entry scripts auto-prepend to `PATH`
-at runtime:
+`AmpliconPIP` and `ggCOMBO` need two native binaries that QIIME2 does not
+ship: `vsearch 2.30.0` and `fastp 0.24.0`. **You do not need to download
+them manually** — on the first `AmpliconPIP` or `ggCOMBO` invocation,
+Meta2Data detects they are missing and auto-runs
+`scripts/install_binaries.sh`, which fetches prebuilt Linux static binaries
+from upstream release pages (no compilation, no extra conda packages) into
+`<repo>/vendor/bin/`. Subsequent runs find them in place and skip the
+download.
+
+If you prefer to download them eagerly (e.g., to verify the first run
+works without an extra network round-trip, or because the target machine
+is offline later), you can run the installer yourself:
 
 ```bash
 cd Meta2Data
-bash scripts/install_binaries.sh
+bash scripts/install_binaries.sh     # optional — otherwise runs automatically
 ```
 
 The script is idempotent — re-run it anytime without side effects. If you
-only intend to use `MetaDL`, you can skip this step entirely. Use
-`bash scripts/install_binaries.sh --help` for `--prefix` and `--force`.
+only intend to use `MetaDL`, you can skip this step entirely (MetaDL does
+not need vsearch or fastp). Use `bash scripts/install_binaries.sh --help`
+for `--prefix` and `--force`. Set `META2DATA_SKIP_DEP_CHECK=1` to disable
+the automatic check on subcommand startup.
 
 ### Step 3: Install QIIME2 (only for AmpliconPIP / ggCOMBO)
 
