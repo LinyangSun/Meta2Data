@@ -34,34 +34,28 @@ conda activate qiime2-amplicon-2024.10
 See https://docs.qiime2.org/2024.10/install/ for the current recommended
 procedure.
 
-### Step 2: Install Meta2Data
+### Step 2: Install Meta2Data and native binaries
 
-Clone the repo and install in editable mode. The only Python dependency
-Meta2Data pulls on top of QIIME2 is `biopython` (safe pure-Python install):
-
-```bash
-git clone https://github.com/LinyangSun/Meta2Data.git
-cd Meta2Data
-pip install -e .
-```
-
-### Step 3: Install the two native binaries QIIME2 does not ship
-
+Clone the repo, install in editable mode, then download the two native
+binaries QIIME2 does not ship. The only Python dependency Meta2Data pulls
+on top of QIIME2 is `biopython` (safe pure-Python install).
 `scripts/install_binaries.sh` downloads prebuilt Linux static binaries for
 `vsearch 2.30.0` and `fastp 0.24.0` directly from their upstream release
 pages (no compilation, no extra conda packages) and drops them into
 `<repo>/vendor/bin/`:
 
 ```bash
-bash scripts/install_binaries.sh
+git clone https://github.com/LinyangSun/Meta2Data.git
+cd Meta2Data
+pip install -e . && bash scripts/install_binaries.sh
 ```
 
-The script is idempotent — re-run it anytime without side effects. Meta2Data
-entry scripts automatically prepend `<repo>/vendor/bin` to `PATH` at startup,
-so you never have to edit your shell config. Use
+The binary installer is idempotent — re-run it anytime without side effects.
+Meta2Data entry scripts automatically prepend `<repo>/vendor/bin` to `PATH`
+at startup, so you never have to edit your shell config. Use
 `bash scripts/install_binaries.sh --help` for `--prefix` and `--force`.
 
-### Step 4: Verify installation
+### Step 3: Verify installation
 
 Run the built-in dependency check (part of `--test` mode — see [Case 4](#case-4-test-mode--quick-validation)):
 
