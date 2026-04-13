@@ -242,7 +242,7 @@ Meta2Data MetaDL \
     -o metadata/ 
 ```
 
-### Case 3: Process Amplicon Data Only (Metadata Already Prepared)
+### Case 2: Process Amplicon Data Only (Metadata Already Prepared)
 
 Skip the MetaDL step when you already have a metadata CSV file ready.
 
@@ -258,36 +258,7 @@ Meta2Data AmpliconPIP \
     -t 8
 ```
 
-### Case 4: Test Mode — Quick Validation
-
-Verify the pipeline works before running on your full dataset. Every
-`AmpliconPIP --test` invocation starts with a **pre-flight dependency
-check** that inspects vendor binaries (`vsearch`, `fastp`), system
-utilities, QIIME2 plugins, and Python packages, and aborts with a per-layer
-report and exact install commands if anything is missing. Fix the missing
-items and re-run — the check itself is idempotent and costs ~1 second.
-
-```bash
-conda activate qiime2-amplicon-2024.10
-
-# Use built-in test data (fastest way to verify installation).
-# The dependency check runs first; if everything is satisfied you'll see
-# `[check] All dependencies satisfied.` before the test pipeline starts.
-Meta2Data AmpliconPIP --test -t 8
-
-# Or test with your own metadata (subsets to 2 SRA per BioProject)
-Meta2Data AmpliconPIP --test \
-    -m path/to/your/metafile/metadata.csv \
-    --col-bioproject Bioproject \
-    --col-sra Run \
-    -o test_output/ \
-    -t 8
-
-# Run the dependency check alone, without launching the pipeline.
-bash scripts/check_dependencies.sh
-```
-
-### Case 5: Taxonomy Assignment Only (AmpliconPIP Already Complete)
+### Case 3: Taxonomy Assignment Only (AmpliconPIP Already Complete)
 
 Run ggCOMBO independently on existing AmpliconPIP results, e.g., to compare databases.
 
@@ -321,6 +292,39 @@ Meta2Data ggCOMBO \
     -i amplicon_output/ \
     -t 16
 ```
+
+
+
+### Case 4: Test Mode — Quick Validation
+
+Verify the pipeline works before running on your full dataset. Every
+`AmpliconPIP --test` invocation starts with a **pre-flight dependency
+check** that inspects vendor binaries (`vsearch`, `fastp`), system
+utilities, QIIME2 plugins, and Python packages, and aborts with a per-layer
+report and exact install commands if anything is missing. Fix the missing
+items and re-run — the check itself is idempotent and costs ~1 second.
+
+```bash
+conda activate qiime2-amplicon-2024.10
+
+# Use built-in test data (fastest way to verify installation).
+# The dependency check runs first; if everything is satisfied you'll see
+# `[check] All dependencies satisfied.` before the test pipeline starts.
+Meta2Data AmpliconPIP --test -t 8
+
+# Or test with your own metadata (subsets to 2 SRA per BioProject)
+Meta2Data AmpliconPIP --test \
+    -m path/to/your/metafile/metadata.csv \
+    --col-bioproject Bioproject \
+    --col-sra Run \
+    -o test_output/ \
+    -t 8
+
+# Run the dependency check alone, without launching the pipeline.
+bash scripts/check_dependencies.sh
+```
+
+
 
 > **Note on `--db-type gsr`** — GSR-DB's upstream ships a pre-trained
 > classifier pickled against an older scikit-learn and cannot be trusted with
