@@ -476,8 +476,10 @@ class BioProjectDownloader:
             time.sleep(0.5)
             return output_file
         except Exception as e:
-            print(f"  NCBI error: {e}")
-            return None
+            print(f"\n  ERROR: NCBI server issue — {e}")
+            print(f"  The NCBI E-utilities backend is currently unavailable.")
+            print(f"  Please try again later.")
+            sys.exit(1)
 
     def _download_from_cncb(self, query, output_dir, file_format="tsv"):
         try:
