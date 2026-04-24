@@ -29,6 +29,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import quote
 from itertools import product
 import hashlib
+from difflib import SequenceMatcher
 
 # ============================================================================
 # Configuration
@@ -54,6 +55,14 @@ ID_PATTERNS = {
 }
 
 PRIORITY_COLUMNS = ['Run', 'BioProject', 'BioSample', 'Experiment']
+
+CORE_COLUMNS = [
+    'Run', 'BioSample', 'Experiment', 'Bioproject', 'Center', 'ReleaseDate',
+    'FileType', 'FileName', 'FileSize', 'DownloadPath', 'Title',
+    'LibraryStrategy', 'LibrarySelection', 'LibrarySource', 'LibraryLayout',
+    'InsertSize', 'Platform', 'Platform.1', 'SampleType', 'HostTaxonomyId',
+    'ScientificName', 'Submission',
+]
 
 STATUS_HAS_DATA = 'has_data'
 STATUS_NO_DATA = 'no_data'
@@ -1237,6 +1246,101 @@ def generate_status_report(all_ids, state_manager, output_dir):
     return status_df
 
 
+# ============================================================================
+# Post-merge Processing
+# ============================================================================
+
+def get_cncb_columns(df):
+    """Get columns between Submission and Source_Database (CNCB-origin columns)."""
+    cols = list(df.columns)
+    try:
+        start = cols.index('Submission') + 1
+        end = cols.index('Source_Database')
+        return cols[start:end] if start < end else []
+    except ValueError:
+        return []
+
+
+def deduplicate_cncb_columns(df):
+    """Clear CNCB cell values that duplicate core column values in the same row."""
+    cncb_cols = get_cncb_columns(df)
+    if not cncb_cols:
+        return df
+    core_cols = [c for c in CORE_COLUMNS if c in df.columns]
+    cleared = 0
+    for cncb_col in cncb_cols:
+        for idx in df.index:
+            val = df.loc[idx, cncb_col]
+            if pd.isna(val):
+                continue
+            val_str = str(val).strip()
+            for core_col in core_cols:
+                core_val = df.loc[idx, core_col]
+                if pd.notna(core_val) and str(core_val).strip() == val_str:
+                    df.loc[idx, cncb_col] = None
+                    cleared += 1
+                    break
+    print(f"  CNCB dedup: cleared {cleared} duplicate cells")
+    return df
+
+
+def sort_columns_by_prefix_group(columns):
+    """Sort columns by CamelCase prefix groups, alphabetically within and between groups."""
+    if len(columns) <= 1:
+        return list(columns)
+
+    def get_prefix(name):
+        parts = re.split(r'(?<=[a-z])(?=[A-Z])|[\s_\-\.]+', name)
+        return parts[0].lower() if parts else name.lower()
+
+    groups = {}
+    for col in columns:
+        prefix = get_prefix(col)
+        groups.setdefault(prefix, []).append(col)
+
+    misc = []
+    real_groups = {}
+    for prefix, cols in groups.items():
+        if len(cols) == 1:
+            misc.append(cols[0])
+        else:
+            real_groups[prefix] = sorted(cols)
+
+    result = []
+    for prefix in sorted(real_groups.keys()):
+        result.extend(real_groups[prefix])
+
+    result.extend(sorted(misc))
+    return result
+
+
+def generate_column_description(df, output_dir):
+    """Generate column_description.tsv with metadata about each column."""
+    cncb_cols = get_cncb_columns(df)
+    rows = []
+    for col in df.columns:
+        non_empty = df[col].notna().sum()
+        fill_rate = f"{non_empty / len(df) * 100:.1f}%"
+        if 'Bioproject' in df.columns:
+            num_datasets = df.loc[df[col].notna(), 'Bioproject'].nunique()
+        else:
+            num_datasets = '-'
+        top = df[col].dropna().astype(str).value_counts().head(5)
+        top_str = '; '.join(f"{v}({c})" for v, c in top.items())
+        if col in CORE_COLUMNS:
+            col_type = 'core'
+        elif col in cncb_cols:
+            col_type = 'cncb'
+        else:
+            col_type = 'rare'
+        rows.append([col, col_type, non_empty, fill_rate, num_datasets, top_str])
+    desc_df = pd.DataFrame(rows, columns=[
+        'ColumnName', 'Type', 'NonEmptyCount', 'FillRate', 'NumDatasets', 'TopValues'])
+    desc_file = Path(output_dir) / 'column_description.tsv'
+    desc_df.to_csv(desc_file, sep='\t', index=False)
+    print(f"  Column description: {desc_file}")
+
+
 def merge_all_results(results, output_dir, tmp_dir=None):
     """Merge all .processed.csv files into final output."""
     print(f"\n{'='*70}")
@@ -1267,15 +1371,41 @@ def merge_all_results(results, output_dir, tmp_dir=None):
 
     final_df = pd.concat(all_dfs, axis=0, ignore_index=True, sort=False)
 
-    # Reorder: priority columns first
-    first_cols = [c for c in PRIORITY_COLUMNS if c in final_df.columns]
-    other_cols = [c for c in final_df.columns if c not in PRIORITY_COLUMNS]
-    final_df = final_df[first_cols + other_cols]
+    # a. Separate records without Run info
+    if 'Run' in final_df.columns:
+        no_run_mask = final_df['Run'].isna() | (final_df['Run'].astype(str).str.strip() == '')
+        if no_run_mask.any():
+            no_run_df = final_df[no_run_mask]
+            no_run_file = Path(output_dir) / "RecordWithoutRUNinfo.csv"
+            no_run_df.to_csv(no_run_file, index=False, encoding='utf-8-sig')
+            print(f"  Separated {len(no_run_df)} records without Run → {no_run_file.name}")
+            final_df = final_df[~no_run_mask].reset_index(drop=True)
 
+    # b. CNCB column deduplication
+    final_df = deduplicate_cncb_columns(final_df)
+
+    # c. Remove empty columns
+    cols_before = len(final_df.columns)
+    final_df = final_df.dropna(axis=1, how='all')
+    removed = cols_before - len(final_df.columns)
+    if removed:
+        print(f"  Removed {removed} empty columns")
+
+    # d. Reorder: core columns first, rare columns sorted by prefix group
+    core_cols = [c for c in CORE_COLUMNS if c in final_df.columns]
+    rare_cols = [c for c in final_df.columns if c not in CORE_COLUMNS]
+    rare_cols = sort_columns_by_prefix_group(rare_cols)
+    final_df = final_df[core_cols + rare_cols]
+
+    # e. Generate column description
+    generate_column_description(final_df, output_dir)
+
+    # f. Output
     final_file = Path(output_dir) / "all_metadata_merged.csv"
     final_df.to_csv(final_file, index=False, encoding='utf-8-sig')
 
     print(f"  Total records: {len(final_df)}")
+    print(f"  Total columns: {len(final_df.columns)} ({len(core_cols)} core + {len(rare_cols)} rare)")
     print(f"  Output: {final_file}")
     print('='*70)
 
