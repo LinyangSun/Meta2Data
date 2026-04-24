@@ -57,7 +57,7 @@ ID_PATTERNS = {
 PRIORITY_COLUMNS = ['Run', 'BioProject', 'BioSample', 'Experiment']
 
 CORE_COLUMNS = [
-    'Run', 'BioSample', 'Experiment', 'Bioproject', 'Center', 'ReleaseDate',
+    'Run', 'BioSample', 'Experiment', 'BioProject', 'Center', 'ReleaseDate',
     'FileType', 'FileName', 'FileSize', 'DownloadPath', 'Title',
     'LibraryStrategy', 'LibrarySelection', 'LibrarySource', 'LibraryLayout',
     'InsertSize', 'Platform', 'Platform.1', 'SampleType', 'HostTaxonomyId',
@@ -1262,24 +1262,22 @@ def get_cncb_columns(df):
 
 
 def deduplicate_cncb_columns(df):
-    """Clear CNCB cell values that duplicate core column values in the same row."""
+    """Clear CNCB cell values that duplicate core column values in the same row (vectorized)."""
     cncb_cols = get_cncb_columns(df)
     if not cncb_cols:
         return df
     core_cols = [c for c in CORE_COLUMNS if c in df.columns]
     cleared = 0
     for cncb_col in cncb_cols:
-        for idx in df.index:
-            val = df.loc[idx, cncb_col]
-            if pd.isna(val):
-                continue
-            val_str = str(val).strip()
-            for core_col in core_cols:
-                core_val = df.loc[idx, core_col]
-                if pd.notna(core_val) and str(core_val).strip() == val_str:
-                    df.loc[idx, cncb_col] = None
-                    cleared += 1
-                    break
+        cncb_str = df[cncb_col].astype(str).str.strip()
+        cncb_notna = df[cncb_col].notna()
+        match_mask = pd.Series(False, index=df.index)
+        for core_col in core_cols:
+            core_str = df[core_col].astype(str).str.strip()
+            core_notna = df[core_col].notna()
+            match_mask = match_mask | (cncb_notna & core_notna & (cncb_str == core_str))
+        cleared += match_mask.sum()
+        df.loc[match_mask, cncb_col] = None
     print(f"  CNCB dedup: cleared {cleared} duplicate cells")
     return df
 
@@ -1314,22 +1312,24 @@ def sort_columns_by_prefix_group(columns):
     return result
 
 
-def generate_column_description(df, output_dir):
+def generate_column_description(df, output_dir, cncb_col_names=None):
     """Generate column_description.tsv with metadata about each column."""
-    cncb_cols = get_cncb_columns(df)
+    if cncb_col_names is None:
+        cncb_col_names = []
     rows = []
+    bp_col = 'BioProject' if 'BioProject' in df.columns else None
     for col in df.columns:
         non_empty = df[col].notna().sum()
         fill_rate = f"{non_empty / len(df) * 100:.1f}%"
-        if 'Bioproject' in df.columns:
-            num_datasets = df.loc[df[col].notna(), 'Bioproject'].nunique()
+        if bp_col:
+            num_datasets = df.loc[df[col].notna(), bp_col].nunique()
         else:
             num_datasets = '-'
         top = df[col].dropna().astype(str).value_counts().head(5)
         top_str = '; '.join(f"{v}({c})" for v, c in top.items())
         if col in CORE_COLUMNS:
             col_type = 'core'
-        elif col in cncb_cols:
+        elif col in cncb_col_names:
             col_type = 'cncb'
         else:
             col_type = 'rare'
@@ -1382,6 +1382,7 @@ def merge_all_results(results, output_dir, tmp_dir=None):
             final_df = final_df[~no_run_mask].reset_index(drop=True)
 
     # b. CNCB column deduplication
+    cncb_col_names = get_cncb_columns(final_df)
     final_df = deduplicate_cncb_columns(final_df)
 
     # c. Remove empty columns
@@ -1390,6 +1391,7 @@ def merge_all_results(results, output_dir, tmp_dir=None):
     removed = cols_before - len(final_df.columns)
     if removed:
         print(f"  Removed {removed} empty columns")
+    cncb_col_names = [c for c in cncb_col_names if c in final_df.columns]
 
     # d. Reorder: core columns first, rare columns sorted by prefix group
     core_cols = [c for c in CORE_COLUMNS if c in final_df.columns]
@@ -1398,7 +1400,7 @@ def merge_all_results(results, output_dir, tmp_dir=None):
     final_df = final_df[core_cols + rare_cols]
 
     # e. Generate column description
-    generate_column_description(final_df, output_dir)
+    generate_column_description(final_df, output_dir, cncb_col_names)
 
     # f. Output
     final_file = Path(output_dir) / "all_metadata_merged.csv"
