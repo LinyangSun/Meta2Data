@@ -121,42 +121,42 @@ def retry_wrapper(func, max_retries=DEFAULT_RETRY_ATTEMPTS, retry_delay=DEFAULT_
 # ============================================================================
 
 def fetch_ncbi_description(bioproject_id):
-    """Fetch title+description from NCBI for PRJNA/PRJEB/PRJDB."""
-    try:
-        resp = requests.get(
-            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
-            params={"db": "bioproject", "term": bioproject_id, "retmode": "json"},
-            timeout=30,
-        )
-        resp.raise_for_status()
-        id_list = resp.json().get("esearchresult", {}).get("idlist", [])
+    """Fetch title+description from NCBI for PRJNA/PRJEB/PRJDB using Entrez."""
+    from xml.etree import ElementTree as ET
+
+    def _fetch():
+        search_handle = Entrez.esearch(db="bioproject", term=bioproject_id, retmax=1)
+        search_results = Entrez.read(search_handle)
+        search_handle.close()
+
+        id_list = search_results.get("IdList", [])
         if not id_list:
             return None
 
-        resp = requests.get(
-            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
-            params={"db": "bioproject", "id": id_list[0], "retmode": "xml"},
-            timeout=30,
-        )
-        resp.raise_for_status()
-        from xml.etree import ElementTree as ET
-        root = ET.fromstring(resp.text)
+        time.sleep(DEFAULT_REQUEST_DELAY)
 
-        description = None
+        fetch_handle = Entrez.efetch(db="bioproject", id=id_list[0], retmode="xml")
+        xml_data = fetch_handle.read()
+        fetch_handle.close()
+        if isinstance(xml_data, bytes):
+            xml_data = xml_data.decode('utf-8')
+
+        root = ET.fromstring(xml_data)
+
         for xp in [".//ProjectDescr/Description", ".//Project/ProjectDescr/Description"]:
             el = root.find(xp)
             if el is not None and el.text:
-                description = el.text.strip()
-                break
+                return el.text.strip()
 
-        if not description:
-            for xp in [".//ProjectDescr/Title", ".//Project/ProjectDescr/Title"]:
-                el = root.find(xp)
-                if el is not None and el.text:
-                    description = el.text.strip()
-                    break
+        for xp in [".//ProjectDescr/Title", ".//Project/ProjectDescr/Title"]:
+            el = root.find(xp)
+            if el is not None and el.text:
+                return el.text.strip()
 
-        return description
+        return None
+
+    try:
+        return retry_wrapper(_fetch)
     except Exception as e:
         print(f"  [NCBI description ERROR] {bioproject_id}: {e}")
         return None
@@ -228,6 +228,7 @@ def fetch_bioproject_description(bioproject_id):
         desc = fetch_cncb_description(bioproject_id)
     else:
         desc = fetch_ncbi_description(bioproject_id)
+        time.sleep(DEFAULT_REQUEST_DELAY)
     if desc:
         print(f"  Description: {desc[:80]}{'...' if len(desc) > 80 else ''}")
     else:
@@ -1391,7 +1392,8 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
 # Single Project Processing
 # ============================================================================
 
-def process_single_bioproject(bioproject_id, output_dir, state_manager):
+def process_single_bioproject(bioproject_id, output_dir, state_manager,
+                              description_cache=None):
     """Process a single BioProject (NCBI or CNCB)."""
     print(f"\n{'─'*50}")
     print(f"Processing: {bioproject_id}")
@@ -1432,8 +1434,11 @@ def process_single_bioproject(bioproject_id, output_dir, state_manager):
     if 'BioProject' in df.columns:
         df['BioProject'] = bioproject_id
 
-    # Fetch BioProject description
-    description = fetch_bioproject_description(bioproject_id)
+    # Use pre-fetched description from cache, or fetch if not cached
+    if description_cache and bioproject_id in description_cache:
+        description = description_cache[bioproject_id]
+    else:
+        description = fetch_bioproject_description(bioproject_id)
     df['Description'] = description if description else ''
 
     df['Source_Database'] = source
@@ -1446,7 +1451,7 @@ def process_single_bioproject(bioproject_id, output_dir, state_manager):
 
 
 def parallel_process_bioprojects(bioproject_list, output_dir, max_workers,
-                                  state_manager):
+                                  state_manager, description_cache=None):
     """Process multiple BioProjects in parallel."""
     print(f"\n{'='*70}")
     print(f"Processing {len(bioproject_list)} BioProjects (workers: {max_workers})")
@@ -1456,7 +1461,7 @@ def parallel_process_bioprojects(bioproject_list, output_dir, max_workers,
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {
             executor.submit(process_single_bioproject, bid, output_dir,
-                            state_manager): bid
+                            state_manager, description_cache): bid
             for bid in bioproject_list
         }
         for future in as_completed(futures):
@@ -1757,12 +1762,19 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
             for bid in groups['biosample']:
                 state_manager.mark_status(bid, STATUS_NO_DATA)
 
-    # Step 2: Process BioProjects
-    print("\n[Step 2] Processing BioProjects...")
+    # Step 2a: Pre-fetch all BioProject descriptions (serial, to respect rate limits)
     bioproject_ids = groups['cncb'] + groups['ncbi']
+    print(f"\n[Step 2a] Fetching descriptions for {len(bioproject_ids)} BioProjects...")
+    description_cache = {}
+    for bp_id in bioproject_ids:
+        description_cache[bp_id] = fetch_bioproject_description(bp_id) or ''
+    print(f"  Descriptions fetched: {sum(1 for v in description_cache.values() if v)}/{len(bioproject_ids)}")
+
+    # Step 2b: Process BioProjects
+    print("\n[Step 2b] Processing BioProjects...")
 
     results = parallel_process_bioprojects(
-        bioproject_ids, tmp_path, max_workers, state_manager
+        bioproject_ids, tmp_path, max_workers, state_manager, description_cache
     ) + biosample_results
 
     # Step 3: Status report
