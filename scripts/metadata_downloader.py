@@ -54,10 +54,10 @@ ID_PATTERNS = {
     'ncbi': re.compile(r'^PRJ[EDN][A-Z]\d+$'),
 }
 
-PRIORITY_COLUMNS = ['Run', 'BioProject', 'Description', 'BioSample', 'Experiment']
+PRIORITY_COLUMNS = ['Run', 'BioProject', 'Description', 'DesignDescription', 'BioSample', 'Experiment']
 
 CORE_COLUMNS = [
-    'Run', 'BioProject', 'Description', 'BioSample', 'Experiment', 'Center', 'ReleaseDate',
+    'Run', 'BioProject', 'Description', 'DesignDescription', 'BioSample', 'Experiment', 'Center', 'ReleaseDate',
     'FileType', 'FileName', 'FileSize', 'DownloadPath', 'Title',
     'LibraryStrategy', 'LibrarySelection', 'LibrarySource', 'LibraryLayout',
     'InsertSize', 'Platform', 'Platform.1', 'SampleType', 'HostTaxonomyId',
@@ -420,11 +420,30 @@ def apply_camelcase_normalization(df):
     return df
 
 
+DESIGN_DESCRIPTION_ALIASES = [
+    'LibraryConstruction/ExperimentalDesign',
+    'LibraryConstructionExperimentalDesign',
+    'Experiment_LibraryConstruction/ExperimentalDesign',
+    'ExperimentalDesign',
+    'Experimental_Design',
+    'Design_Description',
+]
+
+
 def standardize_columns(df):
     """Apply all three column standardization steps."""
     df = clean_and_standardize_columns(df)
     df = apply_column_rename_from_dict(df)
     df = apply_camelcase_normalization(df)
+
+    # Rename CNCB design column to DesignDescription
+    if 'DesignDescription' not in df.columns:
+        for alias in DESIGN_DESCRIPTION_ALIASES:
+            if alias in df.columns:
+                df = df.rename(columns={alias: 'DesignDescription'})
+                print(f"  Renamed '{alias}' → 'DesignDescription'")
+                break
+
     return df
 
 
@@ -785,14 +804,50 @@ def download_cncb_metadata(accession, output_dir):
                 temp_xlsx.write_bytes(resp.content)
                 xlsx = pd.ExcelFile(temp_xlsx)
 
-                sheet_dfs = []
+                sheets = {}
                 for sheet in xlsx.sheet_names:
                     sdf = pd.read_excel(xlsx, sheet_name=sheet)
-                    sdf.columns = [f"{sheet}_{col}" for col in sdf.columns]
-                    sheet_dfs.append(sdf)
+                    sheets[sheet] = sdf
 
-                if sheet_dfs:
+                # Merge sheets via foreign keys: Run -> Experiment -> Sample
+                cra_merged = None
+                if 'Run' in sheets and 'Experiment' in sheets:
+                    run_df = sheets['Run']
+                    exp_df = sheets['Experiment']
+                    # Run.Experiment accession -> Experiment.Accession
+                    if 'Experiment accession' in run_df.columns and 'Accession' in exp_df.columns:
+                        exp_df = exp_df.rename(columns={'Accession': 'Experiment_Accession'})
+                        exp_df.columns = [f"Experiment_{c}" if c != 'Experiment_Accession' else c
+                                          for c in exp_df.columns]
+                        cra_merged = run_df.merge(exp_df, left_on='Experiment accession',
+                                                  right_on='Experiment_Accession', how='left')
+                    else:
+                        cra_merged = run_df
+
+                    if 'Sample' in sheets:
+                        sam_df = sheets['Sample']
+                        if 'Accession' in sam_df.columns:
+                            sam_df = sam_df.rename(columns={'Accession': 'Sample_Accession'})
+                            sam_df.columns = [f"Sample_{c}" if c != 'Sample_Accession' else c
+                                              for c in sam_df.columns]
+                            # Find BioSample accession column in merged data
+                            bs_col = None
+                            for candidate in ['Experiment_BioSample accession', 'BioSample accession']:
+                                if candidate in cra_merged.columns:
+                                    bs_col = candidate
+                                    break
+                            if bs_col:
+                                cra_merged = cra_merged.merge(sam_df, left_on=bs_col,
+                                                              right_on='Sample_Accession', how='left')
+                elif sheets:
+                    # Fallback: concat with prefix if sheet structure is unexpected
+                    sheet_dfs = []
+                    for sheet, sdf in sheets.items():
+                        sdf.columns = [f"{sheet}_{col}" for col in sdf.columns]
+                        sheet_dfs.append(sdf)
                     cra_merged = pd.concat(sheet_dfs, axis=1)
+
+                if cra_merged is not None:
                     all_excel_dfs.append(cra_merged)
                     print(f"    {cra}: {len(cra_merged)} rows, {len(cra_merged.columns)} columns")
 
@@ -800,15 +855,25 @@ def download_cncb_metadata(accession, output_dir):
             except Exception as e:
                 print(f"    {cra} failed: {e}")
 
-    # Merge CSV + Excel
+    # Merge CSV + Excel via Run accession
     if all_excel_dfs:
         excel_combined = pd.concat(all_excel_dfs, axis=0, ignore_index=True) \
             if len(all_excel_dfs) > 1 else all_excel_dfs[0]
 
-        if len(csv_df) == len(excel_combined):
+        # Find the Run accession column in Excel data
+        excel_run_col = None
+        for candidate in ['Accession', 'Run_Accession']:
+            if candidate in excel_combined.columns:
+                excel_run_col = candidate
+                break
+
+        if excel_run_col and 'Run' in csv_df.columns:
+            final_df = csv_df.merge(excel_combined, left_on='Run',
+                                    right_on=excel_run_col, how='left')
+        elif len(csv_df) == len(excel_combined):
             final_df = pd.concat([csv_df, excel_combined], axis=1)
         else:
-            print(f"  Row count mismatch (CSV: {len(csv_df)}, Excel: {len(excel_combined)}), using CSV only")
+            print(f"  Row count mismatch and no key found, using CSV only")
             final_df = csv_df
     else:
         final_df = csv_df
@@ -874,10 +939,57 @@ def download_biosample_data(group_id, biosample_ids, output_dir):
         return None
 
 
-def _fetch_sra_runinfo(sra_ids, group_id, output_dir):
-    """Fetch SRA RunInfo CSV from a list of SRA UIDs. Shared by both flows."""
+def _fetch_sra_design(sra_ids):
+    """Fetch DesignDescription from SRA full XML using the same UIDs."""
     if not sra_ids:
-        return None
+        return {}
+
+    from xml.etree import ElementTree as ET
+    design_map = {}  # Experiment accession -> DesignDescription
+
+    def _fetch():
+        for i in range(0, len(sra_ids), BATCH_SIZE):
+            batch = sra_ids[i:i + BATCH_SIZE]
+            handle = Entrez.efetch(db="sra", id=",".join(batch),
+                                   rettype="full", retmode="xml")
+            data = handle.read()
+            handle.close()
+            if isinstance(data, bytes):
+                data = data.decode('utf-8')
+
+            try:
+                root = ET.fromstring(f"<root>{data}</root>")
+                for pkg in root.findall('.//EXPERIMENT_PACKAGE'):
+                    exp = pkg.find('.//EXPERIMENT')
+                    if exp is None:
+                        continue
+                    exp_acc = exp.get('accession', '')
+                    desc_el = exp.find('.//DESIGN/DESIGN_DESCRIPTION')
+                    if exp_acc and desc_el is not None and desc_el.text:
+                        design_map[exp_acc] = desc_el.text.strip()
+            except ET.ParseError:
+                pass
+
+            if len(sra_ids) > BATCH_SIZE:
+                time.sleep(DEFAULT_REQUEST_DELAY)
+        return design_map
+
+    try:
+        return retry_wrapper(_fetch)
+    except Exception:
+        return {}
+
+
+def _fetch_sra_runinfo(sra_ids, group_id, output_dir):
+    """Fetch SRA RunInfo CSV + DesignDescription from a list of SRA UIDs."""
+    if not sra_ids:
+        return None, {}
+
+    design_map = _fetch_sra_design(sra_ids)
+    if design_map:
+        print(f"  SRA DesignDescription: fetched for {len(design_map)} experiments")
+
+    time.sleep(DEFAULT_REQUEST_DELAY)
 
     def _fetch():
         all_data = []
@@ -903,9 +1015,9 @@ def _fetch_sra_runinfo(sra_ids, group_id, output_dir):
         return output_file
 
     try:
-        return retry_wrapper(_fetch)
+        return retry_wrapper(_fetch), design_map
     except Exception:
-        return None
+        return None, design_map
 
 
 def download_sra_runinfo(bioproject_id, output_dir):
@@ -920,7 +1032,7 @@ def download_sra_runinfo(bioproject_id, output_dir):
     try:
         sra_ids = retry_wrapper(_search)
     except Exception:
-        return None
+        return None, {}
 
     return _fetch_sra_runinfo(sra_ids, bioproject_id, output_dir)
 
@@ -1142,10 +1254,11 @@ def merge_ncbi_data_single(biosample_df, sra_df):
 def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, sra_fetch_fn):
     """Shared logic: download BioSample + SRA, merge, standardize.
 
-    sra_fetch_fn: callable that returns SRA RunInfo file path.
+    sra_fetch_fn: callable that returns (sra_file_path, design_map) tuple.
     """
     biosample_df = pd.DataFrame()
     sra_df = pd.DataFrame()
+    design_map = {}
 
     try:
         biosample_file = download_biosample_data(group_id, biosample_ids,
@@ -1158,7 +1271,7 @@ def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, sra_fetch_fn):
     time.sleep(DEFAULT_REQUEST_DELAY)
 
     try:
-        sra_file = sra_fetch_fn()
+        sra_file, design_map = sra_fetch_fn()
         if sra_file:
             sra_df = pd.read_csv(sra_file)
     except Exception:
@@ -1167,7 +1280,15 @@ def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, sra_fetch_fn):
     if biosample_df.empty and sra_df.empty:
         return None
 
-    return standardize_columns(merge_ncbi_data_single(biosample_df, sra_df))
+    merged = merge_ncbi_data_single(biosample_df, sra_df)
+
+    # Add DesignDescription from SRA XML
+    if design_map and 'Experiment' in merged.columns:
+        merged['DesignDescription'] = merged['Experiment'].map(design_map).fillna('')
+    elif design_map:
+        merged['DesignDescription'] = ''
+
+    return standardize_columns(merged)
 
 
 def download_ncbi_metadata(bioproject_id, output_dir):
@@ -1235,12 +1356,13 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
         ).fillna(biosample_df['BioSample'])
         biosample_df.drop(columns=['_biosample_uid'], inplace=True)
 
-    # 4. Download SRA RunInfo (reuse verified UIDs)
+    # 4. Download SRA RunInfo + DesignDescription (reuse verified UIDs)
     sra_df = pd.DataFrame()
+    design_map = {}
     time.sleep(DEFAULT_REQUEST_DELAY)
     try:
         sra_uids = _get_sra_uids_from_biosample_uids(all_uids)
-        sra_file = _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
+        sra_file, design_map = _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
         if sra_file:
             sra_df = pd.read_csv(sra_file)
     except Exception:
@@ -1256,7 +1378,13 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
     if biosample_df.empty and sra_df.empty:
         return None
 
-    return standardize_columns(merge_ncbi_data_single(biosample_df, sra_df))
+    merged = merge_ncbi_data_single(biosample_df, sra_df)
+
+    # Add DesignDescription from SRA XML
+    if design_map and 'Experiment' in merged.columns:
+        merged['DesignDescription'] = merged['Experiment'].map(design_map).fillna('')
+
+    return standardize_columns(merged)
 
 
 # ============================================================================
