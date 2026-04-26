@@ -11,7 +11,7 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 
 ## Features
 
-- **Metadata Download and Pre-clean**: (MetaDL module) Search, download, and pre-clean metadata from NCBI and CNCB databases by keywords or provided BioProject ID.
+- **Metadata Download and Pre-clean**: (MetaDL module) Search, download, and pre-clean metadata from NCBI and CNCB databases by keywords, BioProject ID, or BioSample ID. Auto-fetches BioProject descriptions and standardizes column names.
 - **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms (ONT not supported).
 - **Smart Primer Detection**: (AmpliconPIP module) Automatic primer detection and trimming for amplicon data (no need provide primer detail).
 - **QIIME2 Integration**: (AmpliconPIP module) Integration with QIIME2 2024.10 for downstream analysis.
@@ -75,21 +75,21 @@ Available commands:
 
 ### MetaDL: Metadata Download
 
-Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability.
+Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability. Automatically fetches BioProject descriptions and standardizes column names (CamelCase normalization, synonym merging via dictionary).
 
-**Two modes:**
+**Three modes:**
 
 | Mode | Required Options | Description |
 |------|-----------------|-------------|
-| BioProject ID Input | `-i`, `-o` | Provide a directory of BioProject ID files |
-| Keyword Search | `-o`, `--keywords`, `--field`, `--organism` | Search NCBI by keywords |
+| ID Input | `-i`, `-o` | Provide a directory of txt files containing BioProject IDs (PRJ*) and/or BioSample IDs (SAM*) — they can be mixed |
+| Keyword Search | `-o`, `--keywords`, `--field`, `--organism` | Search NCBI + CNCB by keywords, then download metadata for matched BioProjects |
 
 ```
 Required:
     -o, --output DIR              Output directory
 
-BioProject Input Mode:
-    -i, --input DIR               Directory with BioProject ID txt files
+ID Input Mode:
+    -i, --input DIR               Directory with ID txt files (BioProject and/or BioSample)
 
 Keyword Search Mode:
     --keywords                    Enable keyword search mode
@@ -103,12 +103,35 @@ Optional:
     -h, --help                    Show help
 ```
 
+**Output columns:** `Run, BioProject, Description, BioSample, ...` (core columns first, then rare columns grouped alphabetically)
+
 **Output files:**
-- `all_metadata_merged.csv` - Final merged dataset (NCBI + CNCB)
-- `ncbi_merged_*.csv` - NCBI, EBI & DDBJ metadata
-- `cncb_combined.csv` - CNCB metadata
-- `logs/metadl_v2_*.log` - Detailed execution log
-- `checkpoints/download_state.json` - Resume state for interrupted runs
+- `all_metadata_merged.csv` — Final merged dataset with auto-fetched BioProject descriptions
+- `status.tsv` — Processing status for each input ID (`has_data` / `no_data` / `no_run_info` / `download_error`)
+- `column_description.tsv` — Column metadata (fill rate, top values, type)
+- `RecordWithoutRUNinfo.csv` — Records without SRA Run info (if any)
+- `tmp/checkpoints/download_state.json` — Resume state for interrupted runs
+
+> **Tip 1 — AI-assisted metadata screening**
+>
+> MetaDL automatically fetches a `Description` column for every BioProject, which summarizes each study's purpose, target organism, and experimental design. This makes the merged CSV well-suited for AI-based screening. Upload the CSV to any AI tool with a Team/collaborative workspace (Claude Team, ChatGPT Team, Gemini, etc.) and ask it to filter based on your criteria. For example:
+>
+> *"Here is my metadata CSV. Based on the Description and other columns, keep only gut microbiome samples from healthy human adults sequenced on Illumina with paired-end 16S V3-V4 amplicons. Filter the data and give me the result."*
+
+> **Tip 2 — Broader keyword search with genus-level terms**
+>
+> Keyword search results depend heavily on how authors annotate their BioProjects. To maximize coverage for a taxonomic group of interest, don't rely solely on high-level terms (e.g., "bee"). Instead, collect genus names from a published phylogeny or species tree for your clade, and include them as `--organism` terms. For example:
+>
+> ```bash
+> # Instead of just "bee", also search by genus names from the Apoidea phylogeny
+> Meta2Data MetaDL \
+>     -o metadata/ \
+>     --keywords \
+>     --field "16S rRNA" "amplicon" \
+>     --organism "bee" "Apis" "Bombus" "Megachile" "Osmia" "Andrena" "Halictus"
+> ```
+>
+> This catches studies that only mention a genus in their BioProject metadata and would otherwise be missed.
 
 ---
 
