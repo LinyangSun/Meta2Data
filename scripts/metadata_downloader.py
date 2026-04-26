@@ -54,10 +54,10 @@ ID_PATTERNS = {
     'ncbi': re.compile(r'^PRJ[EDN][A-Z]\d+$'),
 }
 
-PRIORITY_COLUMNS = ['Run', 'BioProject', 'BioSample', 'Experiment']
+PRIORITY_COLUMNS = ['Run', 'BioProject', 'Description', 'BioSample', 'Experiment']
 
 CORE_COLUMNS = [
-    'Run', 'BioSample', 'Experiment', 'BioProject', 'Center', 'ReleaseDate',
+    'Run', 'BioProject', 'Description', 'BioSample', 'Experiment', 'Center', 'ReleaseDate',
     'FileType', 'FileName', 'FileSize', 'DownloadPath', 'Title',
     'LibraryStrategy', 'LibrarySelection', 'LibrarySource', 'LibraryLayout',
     'InsertSize', 'Platform', 'Platform.1', 'SampleType', 'HostTaxonomyId',
@@ -114,6 +114,125 @@ def retry_wrapper(func, max_retries=DEFAULT_RETRY_ATTEMPTS, retry_delay=DEFAULT_
             if attempt < max_retries - 1:
                 time.sleep(retry_delay * (2 ** attempt))
     raise last_error
+
+
+# ============================================================================
+# BioProject Description Fetching
+# ============================================================================
+
+def fetch_ncbi_description(bioproject_id):
+    """Fetch title+description from NCBI for PRJNA/PRJEB/PRJDB."""
+    try:
+        resp = requests.get(
+            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+            params={"db": "bioproject", "term": bioproject_id, "retmode": "json"},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        id_list = resp.json().get("esearchresult", {}).get("idlist", [])
+        if not id_list:
+            return None
+
+        resp = requests.get(
+            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi",
+            params={"db": "bioproject", "id": id_list[0], "retmode": "xml"},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        from xml.etree import ElementTree as ET
+        root = ET.fromstring(resp.text)
+
+        description = None
+        for xp in [".//ProjectDescr/Description", ".//Project/ProjectDescr/Description"]:
+            el = root.find(xp)
+            if el is not None and el.text:
+                description = el.text.strip()
+                break
+
+        if not description:
+            for xp in [".//ProjectDescr/Title", ".//Project/ProjectDescr/Title"]:
+                el = root.find(xp)
+                if el is not None and el.text:
+                    description = el.text.strip()
+                    break
+
+        return description
+    except Exception as e:
+        print(f"  [NCBI description ERROR] {bioproject_id}: {e}")
+        return None
+
+
+def fetch_cncb_description(bioproject_id):
+    """Fetch description from CNCB for PRJCA."""
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; Meta2Data/1.0)"}
+
+    # Method 1: GWH API
+    try:
+        resp = requests.get(
+            f"https://ngdc.cncb.ac.cn/gwh/api/public/bioProject/{bioproject_id}",
+            headers=headers, timeout=30,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("message") == "SUCCESS":
+                desc = (data.get("description") or "").strip()
+                if desc:
+                    return desc
+                title = (data.get("title") or "").strip()
+                if title:
+                    return title
+    except Exception:
+        pass
+
+    # Method 2: Browse page scraping
+    try:
+        resp = requests.get(
+            f"https://ngdc.cncb.ac.cn/bioproject/browse/{bioproject_id}",
+            headers={**headers, "Accept-Language": "en-US,en;q=0.9"},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        html = resp.text
+
+        for pat in [
+            r'描述信息\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
+            r'Description\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
+        ]:
+            m = re.search(pat, html, re.DOTALL | re.IGNORECASE)
+            if m:
+                txt = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+                txt = re.sub(r"\s+", " ", txt)
+                if len(txt) > 5:
+                    return txt
+
+        for pat in [
+            r'项目标题\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
+            r'Title\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
+        ]:
+            m = re.search(pat, html, re.DOTALL | re.IGNORECASE)
+            if m:
+                txt = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+                txt = re.sub(r"\s+", " ", txt)
+                if len(txt) > 2:
+                    return txt
+    except Exception as e:
+        print(f"  [CNCB description ERROR] {bioproject_id}: {e}")
+
+    return None
+
+
+def fetch_bioproject_description(bioproject_id):
+    """Fetch description for a BioProject, routing to NCBI or CNCB."""
+    bp = bioproject_id.strip().upper()
+    if bp.startswith("PRJCA"):
+        desc = fetch_cncb_description(bioproject_id)
+    else:
+        desc = fetch_ncbi_description(bioproject_id)
+    if desc:
+        print(f"  Description: {desc[:80]}{'...' if len(desc) > 80 else ''}")
+    else:
+        print(f"  Description: [not found]")
+    return desc
 
 
 def classify_ids(id_list):
@@ -1185,6 +1304,10 @@ def process_single_bioproject(bioproject_id, output_dir, state_manager):
     if 'BioProject' in df.columns:
         df['BioProject'] = bioproject_id
 
+    # Fetch BioProject description
+    description = fetch_bioproject_description(bioproject_id)
+    df['Description'] = description if description else ''
+
     df['Source_Database'] = source
     csv_path = output_dir / f"{bioproject_id}.processed.csv"
     df.to_csv(csv_path, index=False, encoding='utf-8')
@@ -1473,6 +1596,18 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
             groups['biosample'], tmp_path
         )
         if bs_df is not None and not bs_df.empty and validate_run_data(bs_df):
+            # Fetch descriptions for each unique BioProject found in BioSample data
+            if 'BioProject' in bs_df.columns:
+                unique_bps = bs_df['BioProject'].dropna().astype(str).unique()
+                bp_desc_map = {}
+                for bp in unique_bps:
+                    if bp and bp.startswith('PRJ'):
+                        bp_desc_map[bp] = fetch_bioproject_description(bp) or ''
+                        time.sleep(DEFAULT_REQUEST_DELAY)
+                bs_df['Description'] = bs_df['BioProject'].astype(str).map(bp_desc_map).fillna('')
+            else:
+                bs_df['Description'] = ''
+
             bs_df['Source_Database'] = 'NCBI'
             csv_path = tmp_path / "BIOSAMPLE_INPUT.processed.csv"
             bs_df.to_csv(csv_path, index=False, encoding='utf-8')
