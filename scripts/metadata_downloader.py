@@ -43,8 +43,8 @@ BATCH_SIZE = 500
 
 UNIFIED_PATTERNS = {
     'Run': re.compile(r'^[CEDS]RR\d+$'),
-    'BioProject': re.compile(r'^PRJ[CEDN][A-Z]\d+$'),
-    'BioSample': re.compile(r'^SAM[CEDN][A-Z]?\d+$'),
+    'Bioproject': re.compile(r'^PRJ[CEDN][A-Z]\d+$'),
+    'Biosample': re.compile(r'^SAM[CEDN][A-Z]?\d+$'),
     'Experiment': re.compile(r'^[CEDS]RX\d+$'),
 }
 
@@ -54,11 +54,11 @@ ID_PATTERNS = {
     'ncbi': re.compile(r'^PRJ[EDN][A-Z]\d+$'),
 }
 
-PRIORITY_COLUMNS = ['Run', 'BioProject', 'Description', 'DesignDescription', 'BioSample', 'Experiment']
+PRIORITY_COLUMNS = ['Run', 'Bioproject', 'Description', 'DesignDescription', 'Biosample', 'Experiment']
 
 CORE_COLUMNS = [
-    'Run', 'BioProject', 'Description', 'DesignDescription', 'BioSample', 'Experiment', 'Center', 'ReleaseDate',
-    'FileType', 'FileName', 'FileSize', 'DownloadPath', 'Title',
+    'Run', 'Bioproject', 'Description', 'DesignDescription', 'Biosample', 'Experiment', 'Center', 'ReleaseDate',
+    'FileType', 'FileName', 'SizeMb', 'Title',
     'LibraryStrategy', 'LibrarySelection', 'LibrarySource', 'LibraryLayout',
     'InsertSize', 'Platform', 'Platform.1', 'SampleType', 'HostTaxonomyId',
     'ScientificName', 'Submission',
@@ -444,6 +444,11 @@ def standardize_columns(df):
                 df = df.rename(columns={alias: 'DesignDescription'})
                 print(f"  Renamed '{alias}' → 'DesignDescription'")
                 break
+
+    # Re-apply priority column ordering after all renames
+    first_cols = [c for c in PRIORITY_COLUMNS if c in df.columns]
+    other_cols = [c for c in df.columns if c not in PRIORITY_COLUMNS]
+    df = df[first_cols + other_cols]
 
     return df
 
@@ -1213,7 +1218,7 @@ def parse_biosample_file(file_path):
 
         match = re.search(r'Accession:\s+(\S+)', block)
         if match:
-            data['BioSample'] = match.group(1)
+            data['Biosample'] = match.group(1)
 
         for key, pattern in [('Sample_Name', r'Identifiers:.*?Label:\s+(\S+)'),
                              ('Organism', r'Organism:\s+(.+?)(?:\n|$)')]:
@@ -1245,8 +1250,8 @@ def merge_ncbi_data_single(biosample_df, sra_df):
     if sra_df.empty:
         return biosample_df
 
-    if 'BioSample' in sra_df.columns and 'BioSample' in biosample_df.columns:
-        return sra_df.merge(biosample_df, on='BioSample', how='outer',
+    if 'Biosample' in sra_df.columns and 'Biosample' in biosample_df.columns:
+        return sra_df.merge(biosample_df, on='Biosample', how='outer',
                             suffixes=('', '_biosample'))
 
     return pd.concat([sra_df, biosample_df], axis=1)
@@ -1345,16 +1350,16 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
     if not biosample_df.empty and '_biosample_uid' in biosample_df.columns:
         for _, row in biosample_df.iterrows():
             uid = str(row.get('_biosample_uid', ''))
-            ncbi_acc = str(row.get('BioSample', ''))
+            ncbi_acc = str(row.get('Biosample', ''))
             if uid in uid_to_original and ncbi_acc:
                 orig_acc = uid_to_original[uid]
                 if ncbi_acc != orig_acc:
                     ncbi_to_original[ncbi_acc] = orig_acc
 
         # Restore original accessions in biosample_df
-        biosample_df['BioSample'] = biosample_df['_biosample_uid'].astype(str).map(
+        biosample_df['Biosample'] = biosample_df['_biosample_uid'].astype(str).map(
             uid_to_original
-        ).fillna(biosample_df['BioSample'])
+        ).fillna(biosample_df['Biosample'])
         biosample_df.drop(columns=['_biosample_uid'], inplace=True)
 
     # 4. Download SRA RunInfo + DesignDescription (reuse verified UIDs)
@@ -1370,8 +1375,8 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
         pass
 
     # 5. Restore original accessions in SRA data
-    if not sra_df.empty and 'BioSample' in sra_df.columns and ncbi_to_original:
-        sra_df['BioSample'] = sra_df['BioSample'].map(
+    if not sra_df.empty and 'Biosample' in sra_df.columns and ncbi_to_original:
+        sra_df['Biosample'] = sra_df['Biosample'].map(
             lambda val: ncbi_to_original.get(str(val), val)
         )
 
@@ -1431,12 +1436,16 @@ def process_single_bioproject(bioproject_id, output_dir, state_manager,
 
     # Preserve the user's original BioProject ID (NCBI may cross-reference
     # e.g., PRJEB -> PRJNA, PRJDB -> PRJNA)
-    if 'BioProject' in df.columns:
-        df['BioProject'] = bioproject_id
+    if 'Bioproject' in df.columns:
+        df['Bioproject'] = bioproject_id
 
-    # Use pre-fetched description from cache, or fetch if not cached
+    # Use pre-fetched description from cache (avoid fetching during parallel processing
+    # to prevent NCBI 429 rate limit errors)
     if description_cache and bioproject_id in description_cache:
         description = description_cache[bioproject_id]
+    elif description_cache is not None:
+        # Cache exists but ID missing — skip fetch to avoid 429 in parallel context
+        description = None
     else:
         description = fetch_bioproject_description(bioproject_id)
     df['Description'] = description if description else ''
@@ -1573,7 +1582,7 @@ def generate_column_description(df, output_dir, cncb_col_names=None):
     if cncb_col_names is None:
         cncb_col_names = []
     rows = []
-    bp_col = 'BioProject' if 'BioProject' in df.columns else None
+    bp_col = 'Bioproject' if 'Bioproject' in df.columns else None
     for col in df.columns:
         non_empty = df[col].notna().sum()
         fill_rate = f"{non_empty / len(df) * 100:.1f}%"
@@ -1637,11 +1646,19 @@ def merge_all_results(results, output_dir, tmp_dir=None):
             print(f"  Separated {len(no_run_df)} records without Run → {no_run_file.name}")
             final_df = final_df[~no_run_mask].reset_index(drop=True)
 
-    # b. CNCB column deduplication
+    # b. Drop download/file path columns (not useful for analysis)
+    DROP_COLUMNS = ['DownloadPath', 'DownloadReadFile1', 'DownloadReadFile2',
+                    'ReadFilename1', 'ReadFilename2']
+    to_drop = [c for c in DROP_COLUMNS if c in final_df.columns]
+    if to_drop:
+        final_df = final_df.drop(columns=to_drop)
+        print(f"  Dropped {len(to_drop)} download/path columns: {', '.join(to_drop)}")
+
+    # c. CNCB column deduplication
     cncb_col_names = get_cncb_columns(final_df)
     final_df = deduplicate_cncb_columns(final_df)
 
-    # c. Remove empty columns
+    # d. Remove empty columns
     cols_before = len(final_df.columns)
     final_df = final_df.dropna(axis=1, how='all')
     removed = cols_before - len(final_df.columns)
@@ -1649,16 +1666,89 @@ def merge_all_results(results, output_dir, tmp_dir=None):
         print(f"  Removed {removed} empty columns")
     cncb_col_names = [c for c in cncb_col_names if c in final_df.columns]
 
-    # d. Reorder: core columns first, rare columns sorted by prefix group
+    # e. Merge LatLon into lat/lon columns
+    if 'LatLon' in final_df.columns:
+        def _parse_latlon(val):
+            """Parse 'lat_val N/S lon_val E/W' into (lat, lon) floats."""
+            s = str(val).strip()
+            if not s or s.lower() in ('nan', 'none', '', 'missing', 'unknown',
+                                       'not applicable', 'not collected'):
+                return None, None
+            # Remove degree symbols, commas; normalize whitespace
+            s = s.replace('°', ' ').replace(',', ' ')
+            m = re.findall(r'([\d.]+)\s*([NSEWnsew])', s)
+            if len(m) != 2:
+                return None, None
+            lat_val, lon_val = None, None
+            for num_str, direction in m:
+                try:
+                    num = float(num_str)
+                except ValueError:
+                    continue
+                d = direction.upper()
+                if d in ('N', 'S'):
+                    lat_val = num if d == 'N' else -num
+                elif d in ('E', 'W'):
+                    lon_val = num if d == 'E' else -num
+            return lat_val, lon_val
+
+        parsed = final_df['LatLon'].apply(_parse_latlon)
+        lat_vals = parsed.apply(lambda x: x[0])
+        lon_vals = parsed.apply(lambda x: x[1])
+
+        if 'lat' not in final_df.columns:
+            final_df['lat'] = lat_vals
+        else:
+            fill_mask = final_df['lat'].isna() & lat_vals.notna()
+            final_df.loc[fill_mask, 'lat'] = lat_vals[fill_mask]
+
+        if 'lon' not in final_df.columns:
+            final_df['lon'] = lon_vals
+        else:
+            fill_mask = final_df['lon'].isna() & lon_vals.notna()
+            final_df.loc[fill_mask, 'lon'] = lon_vals[fill_mask]
+
+        converted = lat_vals.notna().sum()
+        print(f"  LatLon → lat/lon: converted {converted} values")
+        final_df = final_df.drop(columns=['LatLon'])
+
+    # f. Merge FileSize into SizeMb (FileSize is bytes, SizeMb is megabytes)
+    if 'FileSize' in final_df.columns:
+        def _filesize_to_mb(val):
+            """Convert FileSize (bytes, possibly 'num|num') to MB as integer."""
+            s = str(val).strip()
+            if not s or s.lower() in ('nan', 'none', ''):
+                return None
+            try:
+                if '|' in s:
+                    parts = [int(p.strip()) for p in s.split('|') if p.strip()]
+                    return round(sum(parts) / 1_048_576)
+                else:
+                    return round(int(s) / 1_048_576)
+            except (ValueError, ZeroDivisionError):
+                return None
+
+        converted = final_df['FileSize'].apply(_filesize_to_mb)
+        if 'SizeMb' not in final_df.columns:
+            final_df['SizeMb'] = converted
+        else:
+            # Fill SizeMb where it's missing but FileSize has data
+            fill_mask = final_df['SizeMb'].isna() & converted.notna()
+            final_df.loc[fill_mask, 'SizeMb'] = converted[fill_mask]
+        filled = converted.notna().sum()
+        print(f"  FileSize → SizeMb: converted {filled} values")
+        final_df = final_df.drop(columns=['FileSize'])
+
+    # g. Reorder: core columns first, rare columns sorted by prefix group
     core_cols = [c for c in CORE_COLUMNS if c in final_df.columns]
     rare_cols = [c for c in final_df.columns if c not in CORE_COLUMNS]
     rare_cols = sort_columns_by_prefix_group(rare_cols)
     final_df = final_df[core_cols + rare_cols]
 
-    # e. Generate column description
+    # h. Generate column description
     generate_column_description(final_df, output_dir, cncb_col_names)
 
-    # f. Output
+    # i. Output
     final_file = Path(output_dir) / "all_metadata_merged.csv"
     final_df.to_csv(final_file, index=False, encoding='utf-8-sig')
 
@@ -1730,14 +1820,14 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
         )
         if bs_df is not None and not bs_df.empty and validate_run_data(bs_df):
             # Fetch descriptions for each unique BioProject found in BioSample data
-            if 'BioProject' in bs_df.columns:
-                unique_bps = bs_df['BioProject'].dropna().astype(str).unique()
+            if 'Bioproject' in bs_df.columns:
+                unique_bps = bs_df['Bioproject'].dropna().astype(str).unique()
                 bp_desc_map = {}
                 for bp in unique_bps:
                     if bp and bp.startswith('PRJ'):
                         bp_desc_map[bp] = fetch_bioproject_description(bp) or ''
                         time.sleep(DEFAULT_REQUEST_DELAY)
-                bs_df['Description'] = bs_df['BioProject'].astype(str).map(bp_desc_map).fillna('')
+                bs_df['Description'] = bs_df['Bioproject'].astype(str).map(bp_desc_map).fillna('')
             else:
                 bs_df['Description'] = ''
 
@@ -1750,8 +1840,8 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
 
             # Mark individual BioSample IDs in state manager
             found_ids = set()
-            if 'BioSample' in bs_df.columns:
-                found_ids = set(bs_df['BioSample'].dropna().astype(str))
+            if 'Biosample' in bs_df.columns:
+                found_ids = set(bs_df['Biosample'].dropna().astype(str))
             for bid in groups['biosample']:
                 if bid in found_ids:
                     state_manager.mark_status(bid, STATUS_HAS_DATA)
