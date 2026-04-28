@@ -128,22 +128,23 @@ Internal / resume:
 
 > **Tip 2 — Broader keyword search with genus-level terms**
 >
-> Keyword search results depend heavily on how authors annotate their BioProjects. To maximize coverage for a taxonomic group of interest, don't rely solely on high-level terms (e.g., "bee"). Instead, collect genus names from a published phylogeny or species tree for your clade, and include them as `--organism` terms. For example:
+> Keyword search results depend heavily on how authors annotate their BioProjects. To maximize coverage for a taxonomic group of interest, don't rely solely on high-level terms (e.g., "bee"). Instead, collect genus names from a published phylogeny or species tree for your clade (for example from tree of life), and include them as `--organism` terms. For example:
 >
 > ```bash
 > # Instead of just "bee", also search by genus names from the Apoidea phylogeny
+> organism=("bee" "Apis" "Bombus" "Megachile" "Osmia" "Andrena" "Halictus")
 > Meta2Data MetaDL \
 >     -o metadata/ \
 >     --keywords \
 >     --field "16S rRNA" "amplicon" \
->     --organism "bee" "Apis" "Bombus" "Megachile" "Osmia" "Andrena" "Halictus"
+>     --organism "${organism[@]}"
 > ```
 >
 > This catches studies that only mention a genus in their BioProject metadata and would otherwise be missed.
 
 > **Tip 3 — Quick column labeling with `column_description.tsv`**
 >
-> Download `column_description.tsv` and open it in Excel. Add a new column (e.g., `Label`) and tag each row as `keep`, `drop`, or `rename` based on the fill rate and top values. This gives you a quick overview of all available columns and makes subsequent data cleaning much faster — you can filter by your labels to decide which columns to retain before any downstream analysis.
+> Download `column_description.tsv` and open it in Excel. Add a new column (e.g., `Label`) and tag each row as `keep`, `drop`, or `body part` ... based on the fill rate and top values. This gives you a quick overview of all available columns and makes subsequent data cleaning much faster — you can filter by your labels to decide which columns to retain before any downstream analysis.
 
 ---
 
