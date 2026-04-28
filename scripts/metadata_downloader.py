@@ -846,12 +846,11 @@ def download_cncb_metadata(accession, output_dir):
                                 cra_merged = cra_merged.merge(sam_df, left_on=bs_col,
                                                               right_on='Sample_Accession', how='left')
                 elif sheets:
-                    # Fallback: concat with prefix if sheet structure is unexpected
-                    sheet_dfs = []
-                    for sheet, sdf in sheets.items():
-                        sdf.columns = [f"{sheet}_{col}" for col in sdf.columns]
-                        sheet_dfs.append(sdf)
-                    cra_merged = pd.concat(sheet_dfs, axis=1)
+                    # Unexpected sheet structure — use the largest sheet only
+                    # (axis=1 concat by position would cause row misalignment)
+                    largest_name = max(sheets, key=lambda k: len(sheets[k]))
+                    cra_merged = sheets[largest_name]
+                    print(f"    {cra}: unexpected sheet structure, using '{largest_name}' sheet only")
 
                 if cra_merged is not None:
                     all_excel_dfs.append(cra_merged)
@@ -876,10 +875,8 @@ def download_cncb_metadata(accession, output_dir):
         if excel_run_col and 'Run' in csv_df.columns:
             final_df = csv_df.merge(excel_combined, left_on='Run',
                                     right_on=excel_run_col, how='left')
-        elif len(csv_df) == len(excel_combined):
-            final_df = pd.concat([csv_df, excel_combined], axis=1)
         else:
-            print(f"  Row count mismatch and no key found, using CSV only")
+            print(f"  Warning: No shared Run key between CSV and Excel data, using CSV only")
             final_df = csv_df
     else:
         final_df = csv_df
@@ -1242,7 +1239,7 @@ def parse_biosample_file(file_path):
 # ============================================================================
 
 def merge_ncbi_data_single(biosample_df, sra_df):
-    """Merge BioSample and SRA data."""
+    """Merge BioSample attributes onto SRA RunInfo. SRA (Run-level) is the primary table."""
     if biosample_df.empty and sra_df.empty:
         return pd.DataFrame()
     if biosample_df.empty:
@@ -1250,11 +1247,22 @@ def merge_ncbi_data_single(biosample_df, sra_df):
     if sra_df.empty:
         return biosample_df
 
+    # SRA is always the left table (Run-level granularity).
+    # BioSample attributes are joined via Biosample key.
     if 'Biosample' in sra_df.columns and 'Biosample' in biosample_df.columns:
-        return sra_df.merge(biosample_df, on='Biosample', how='outer',
+        return sra_df.merge(biosample_df, on='Biosample', how='left',
                             suffixes=('', '_biosample'))
 
-    return pd.concat([sra_df, biosample_df], axis=1)
+    # Fallback: try Run as key
+    if 'Run' in sra_df.columns and 'Run' in biosample_df.columns:
+        print(f"  Warning: No shared 'Biosample' column, merging on 'Run' instead")
+        return sra_df.merge(biosample_df, on='Run', how='left',
+                            suffixes=('', '_biosample'))
+
+    # No shared key — cannot safely merge by position.
+    print(f"  Warning: No shared key between SRA ({list(sra_df.columns)[:5]}) "
+          f"and BioSample ({list(biosample_df.columns)[:5]}). Using SRA data only.")
+    return sra_df
 
 
 def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, sra_fetch_fn):
