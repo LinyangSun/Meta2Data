@@ -103,13 +103,21 @@ Optional:
     -h, --help                    Show help
 ```
 
-**Output columns:** `Run, BioProject, Description, BioSample, ...` (core columns first, then rare columns grouped alphabetically)
+**Output columns:** `Run, Bioproject, Description, DesignDescription, Biosample, Experiment, ...` (core columns first, then rare columns grouped alphabetically)
 
 **Output files:**
-- `all_metadata_merged.csv` — Final merged dataset with auto-fetched BioProject descriptions
+
+Main outputs:
+- `all_metadata_merged.csv` — Final merged dataset with auto-fetched BioProject descriptions and SRA experiment design descriptions. Column names are standardized (CamelCase normalization + synonym merging via dictionary).
 - `status.tsv` — Processing status for each input ID (`has_data` / `no_data` / `no_run_info` / `download_error`)
-- `column_description.tsv` — Column metadata (fill rate, top values, type)
-- `RecordWithoutRUNinfo.csv` — Records without SRA Run info (if any)
+- `column_description.tsv` — Per-column statistics: fill rate, number of datasets covered, top 5 values, and column type (`core` / `cncb` / `rare`)
+- `RecordWithoutRUNinfo.csv` — Records without SRA Run info (only generated when such records exist)
+
+Keyword search mode only:
+- `searched_keywords/combined_results.csv` — BioProject IDs matched by keyword search
+- `searched_keywords/search_summary.txt` — Query summary
+
+Internal / resume:
 - `tmp/checkpoints/download_state.json` — Resume state for interrupted runs
 
 > **Tip 1 — AI-assisted metadata screening**
@@ -132,6 +140,10 @@ Optional:
 > ```
 >
 > This catches studies that only mention a genus in their BioProject metadata and would otherwise be missed.
+
+> **Tip 3 — Quick column labeling with `column_description.tsv`**
+>
+> Download `column_description.tsv` and open it in Excel. Add a new column (e.g., `Label`) and tag each row as `keep`, `drop`, or `rename` based on the fill rate and top values. This gives you a quick overview of all available columns and makes subsequent data cleaning much faster — you can filter by your labels to decide which columns to retain before any downstream analysis.
 
 ---
 
