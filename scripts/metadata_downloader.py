@@ -1288,6 +1288,7 @@ def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, sra_fetch_fn):
         sra_file, design_map = sra_fetch_fn()
         if sra_file:
             sra_df = pd.read_csv(sra_file)
+            sra_df.rename(columns={'BioSample': 'Biosample', 'BioProject': 'Bioproject'}, inplace=True)
     except Exception:
         pass
 
@@ -1379,6 +1380,7 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
         sra_file, design_map = _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
         if sra_file:
             sra_df = pd.read_csv(sra_file)
+            sra_df.rename(columns={'BioSample': 'Biosample', 'BioProject': 'Bioproject'}, inplace=True)
     except Exception:
         pass
 
