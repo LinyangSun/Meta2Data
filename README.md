@@ -124,7 +124,7 @@ Internal / resume:
 >
 > MetaDL automatically fetches a `Description` column for every BioProject, which summarizes each study's purpose, target organism, and experimental design. This makes the merged CSV well-suited for AI-based screening. Upload the CSV to any AI tool with a Team/collaborative workspace (Claude Team, ChatGPT Team, Gemini, etc.) and ask it to filter based on your criteria. For example:
 >
-> *"Here is my metadata CSV. Based on the Description and other columns, keep only gut microbiome samples from healthy human adults sequenced on Illumina with 16S amplicons. Filter the data and give me the result. You need to use 3 workers to screen the full data independently, and a leader to give a final decision. Then output with xxx xxx xxx files. Ask me anything unclear to you before starting."*
+> *"Here is my metadata CSV. Based on the Description and other columns, keep only gut microbiome samples from healthy human adults sequenced on Illumina with 16S amplicons. I do not want include any datasets that have illness. You need to label each item as include exclude and NotSure. You need to assign 3 workers to screen the full datasets independently, and a leader to give a final decision. Then output with xxx xxx xxx files. Ask me anything unclear to you before starting."*
 
 > **Tip 2 — Broader keyword search with genus-level terms**
 >
