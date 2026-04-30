@@ -262,38 +262,33 @@ meta2data_ensure_python_deps() {
 # so a redundant call is near-free; we still guard with a pre-check so users
 # who have the binaries don't see the installer banner every run.
 
-_M2D_REQUIRED_VENDOR_BINS=(vsearch fastp)
-
 meta2data_ensure_vendor_binaries() {
     [[ "${META2DATA_SKIP_DEP_CHECK:-}" == "1" ]] && return 0
 
-    # BASH_SOURCE[0] here is check_dependencies.sh itself, which lives in
-    # <repo>/scripts/, so <repo> is one level up.
     local scripts_dir repo_root vendor_bin
     scripts_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     repo_root="$(dirname "$scripts_dir")"
     vendor_bin="${repo_root}/vendor/bin"
 
+    # Prepend vendor/bin to PATH so command -v can find binaries there too.
+    [[ -d "$vendor_bin" ]] && export PATH="${vendor_bin}:${PATH}"
+
     local missing=()
     local b
-    for b in "${_M2D_REQUIRED_VENDOR_BINS[@]}"; do
-        [[ -x "${vendor_bin}/${b}" ]] || missing+=("$b")
+    for b in "${_M2D_VENDOR_BINARIES[@]}"; do
+        command -v "$b" >/dev/null 2>&1 || missing+=("$b")
     done
 
     [[ ${#missing[@]} -eq 0 ]] && return 0
 
-    echo "[deps] Missing native binaries in ${vendor_bin}: ${missing[*]}"
-    echo "[deps] Running ${repo_root}/scripts/install_binaries.sh..."
-    if ! bash "${repo_root}/scripts/install_binaries.sh"; then
-        echo "" >&2
-        echo "Error: failed to install native binaries: ${missing[*]}" >&2
-        echo "       Try installing them manually with:" >&2
-        echo "         bash ${repo_root}/scripts/install_binaries.sh" >&2
-        echo "       Or set META2DATA_SKIP_DEP_CHECK=1 to bypass this check." >&2
-        return 1
-    fi
-    echo "[deps] OK"
-    return 0
+    echo "" >&2
+    echo "Error: missing required binaries: ${missing[*]}" >&2
+    echo "       Install them via one of:" >&2
+    echo "         - conda install -c bioconda ${missing[*]}" >&2
+    echo "         - module load ${missing[*]}" >&2
+    echo "         - bash ${repo_root}/scripts/install_binaries.sh  (needs internet)" >&2
+    echo "       Or set META2DATA_SKIP_DEP_CHECK=1 to bypass this check." >&2
+    return 1
 }
 
 # When executed directly, run the check and exit with its status.
