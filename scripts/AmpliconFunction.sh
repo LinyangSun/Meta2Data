@@ -725,42 +725,48 @@ Amplicon_Illumina_DenosingDada2() {
             --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
     else
         # ── SINGLE-END ──
-        local need_compute=true
-        [[ -n "$start_in" && -n "$end_in" ]] && need_compute=false
-
-        local final_start="" final_end=""
-
-        if $need_compute; then
-            qiime demux summarize \
-                --i-data "$qza_file" \
-                --o-visualization "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv"
-            unzip -q -o "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv" -d "$qf_view_path"
-            find "$qf_view_path" -type f -name 'forward-seven-number-summaries.tsv' -exec cp -f {} "${qf_trim_pos_path%/}/" \;
-            rm -rf "$qf_view_path"
-            local tsv_path="${qf_trim_pos_path%/}/forward-seven-number-summaries.tsv"
-            if [[ ! -s "$tsv_path" ]]; then
-                echo "ERROR: Expected TSV not found: $tsv_path" >&2
-                return 1
-            fi
-            local trim_pos_result
-            trim_pos_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$tsv_path")"
-            IFS=',' read -r final_start final_end <<< "$trim_pos_result"
-        fi
-
-        local start="${start_in:-$final_start}"
-        local end="${end_in:-$final_end}"
-        echo "$start $end" > "${qf_trim_pos_path%/}/Trim_position.txt"
-
         if [[ "${platform:-}" == "ION_TORRENT" ]]; then
-            # Ion Torrent: homopolymer-aware error model (denoise-pyro)
+            # Ion Torrent: variable-length reads → skip trim_pos_deblur.
+            # denoise-pyro handles quality internally via --p-trunc-q and --p-max-ee.
+            # trunc-len 0 = no fixed truncation (appropriate for variable-length data).
+            local start="${start_in:-0}"
+            echo "$start 0" > "${qf_trim_pos_path%/}/Trim_position.txt"
+
             qiime dada2 denoise-pyro \
                 --i-demultiplexed-seqs "$qza_file" \
-                --p-trunc-len "$end" \
+                --p-trunc-len 0 \
                 --p-trim-left "$start" \
                 --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
                 --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
                 --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
         else
+            # Illumina: compute trim positions from QC visualization
+            local need_compute=true
+            [[ -n "$start_in" && -n "$end_in" ]] && need_compute=false
+
+            local final_start="" final_end=""
+
+            if $need_compute; then
+                qiime demux summarize \
+                    --i-data "$qza_file" \
+                    --o-visualization "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv"
+                unzip -q -o "${qf_vis_path%/}/${dataset_name}_import_cutadapt_QualityFilter.qzv" -d "$qf_view_path"
+                find "$qf_view_path" -type f -name 'forward-seven-number-summaries.tsv' -exec cp -f {} "${qf_trim_pos_path%/}/" \;
+                rm -rf "$qf_view_path"
+                local tsv_path="${qf_trim_pos_path%/}/forward-seven-number-summaries.tsv"
+                if [[ ! -s "$tsv_path" ]]; then
+                    echo "ERROR: Expected TSV not found: $tsv_path" >&2
+                    return 1
+                fi
+                local trim_pos_result
+                trim_pos_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$tsv_path")"
+                IFS=',' read -r final_start final_end <<< "$trim_pos_result"
+            fi
+
+            local start="${start_in:-$final_start}"
+            local end="${end_in:-$final_end}"
+            echo "$start $end" > "${qf_trim_pos_path%/}/Trim_position.txt"
+
             # Illumina: substitution error model (denoise-single)
             qiime dada2 denoise-single \
                 --i-demultiplexed-seqs "$qza_file" \

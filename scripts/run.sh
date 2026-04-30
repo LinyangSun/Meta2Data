@@ -834,7 +834,7 @@ with open(manifest_path, 'w') as f:
             echo "⚠️ OXFORD_NANOPORE platform is not supported for amplicon analysis."
             echo "   Skipping dataset: $dataset_ID"
             echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - Platform: $platform (not supported)" >> "$failed_log"
-            continue
+            exit 0
 
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
             adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
@@ -955,7 +955,7 @@ with open('${DOCS_DIR}/1492R.fas') as f:
                 echo "   This pipeline currently only supports full-length 16S PacBio CCS reads."
                 echo "   Skipping dataset: $dataset_ID"
                 echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - PacBio reads too short (ratio > 1400bp: ${long_read_ratio})" >> "$failed_log"
-                continue
+                exit 0
             fi
 
         else
