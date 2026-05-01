@@ -784,20 +784,26 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
     """
     Check quality score diversity in FASTQ files to determine if DADA2 is viable.
 
-    DADA2 requires diverse quality scores to learn its error model. Binned or
-    dummy quality scores (e.g., from NCBI fasterq-dump) have too few distinct
-    values, causing DADA2 to fail or produce unreliable results.
+    DADA2 requires diverse quality scores to learn its error model. Dummy
+    quality scores (e.g., from NCBI/ENA when original scores were discarded
+    during archival) have a single uniform value per read, causing DADA2's
+    filterAndTrim to reject all reads (maxEE exceeded) or its error model
+    to fail.
 
-    Checks up to n_samples FASTQ files, reading n_reads from each. Counts the
-    number of unique Phred quality ASCII characters across all sampled reads.
+    Strategy: read 1 read from 1 file and check within-read quality diversity.
+    Within a BioProject all samples share the same submission, so quality
+    score format is uniform across the dataset. A single read is sufficient:
+      - Real scores (even heavily binned, e.g., NovaSeq 4-bin) always vary
+        across positions within a read.
+      - Dummy/placeholder scores are identical at every position.
 
-    Threshold: > 1 unique quality value  → "normal" (DADA2 viable)
-               == 1 unique quality value  → "degraded" (dummy scores, use VSEARCH instead)
+    Threshold: > 1 unique Q char within a read → "normal" (DADA2 viable)
+               == 1 unique Q char within a read → "degraded" (dummy, use VSEARCH)
 
     Args:
         fastq_dir: Directory containing FASTQ files
-        n_samples: Number of files to sample (default: 3)
-        n_reads: Number of reads per file to sample (default: 1000)
+        n_samples: Not used (kept for CLI compatibility)
+        n_reads: Not used (kept for CLI compatibility)
 
     Prints machine-readable lines to stdout:
         QUALITY_STATUS=normal|degraded
@@ -810,30 +816,27 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
         print("UNIQUE_QUALS=0")
         return "degraded"
 
-    sample_files = fq_files[:n_samples]
-    all_qual_chars = set()
+    fq = fq_files[0]
+    open_fn = gzip.open if fq.endswith('.gz') else open
+    with open_fn(fq, 'rt') as fh:
+        fh.readline()          # header
+        fh.readline()          # sequence
+        fh.readline()          # +
+        qual = fh.readline().strip()
 
-    for fq in sample_files:
-        open_fn = gzip.open if fq.endswith('.gz') else open
-        count = 0
-        with open_fn(fq, 'rt') as fh:
-            while count < n_reads:
-                header = fh.readline()
-                if not header:
-                    break
-                fh.readline()          # sequence
-                fh.readline()          # +
-                qual = fh.readline().strip()
-                count += 1
-                all_qual_chars.update(qual)
+    if not qual:
+        print("WARNING: Empty quality line, assuming degraded", file=sys.stderr)
+        print("QUALITY_STATUS=degraded")
+        print("UNIQUE_QUALS=0")
+        return "degraded"
 
-    n_unique = len(all_qual_chars)
+    n_unique = len(set(qual))
     status = "degraded" if n_unique <= 1 else "normal"
 
-    print(f"  Quality diversity: {n_unique} unique Q values from "
-          f"{len(sample_files)} files x {n_reads} reads", file=sys.stderr)
-    print(f"  Unique Q chars: {sorted(all_qual_chars)}", file=sys.stderr)
-    print(f"  Status: {status} (degraded = only 1 unique Q value)", file=sys.stderr)
+    print(f"  Quality check: {n_unique} unique Q chars in first read of {os.path.basename(fq)}",
+          file=sys.stderr)
+    print(f"  Unique Q chars: {sorted(set(qual))}", file=sys.stderr)
+    print(f"  Status: {status}", file=sys.stderr)
 
     print(f"QUALITY_STATUS={status}")
     print(f"UNIQUE_QUALS={n_unique}")
