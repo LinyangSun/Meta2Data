@@ -973,10 +973,64 @@ Amplicon_DegradedQ_DirectDerep() {
     mkdir -p "$vsearch_path"
 
     echo ">>> Direct dereplication via vsearch (bypassing QIIME2)..."
-    python3 "${SCRIPTS}/py_16s.py" derep_fastq_for_vsearch \
+    local _derep_stdout
+    _derep_stdout=$(python3 "${SCRIPTS}/py_16s.py" derep_fastq_for_vsearch \
         --input_dir "$fastq_path" \
         --output_fasta "${vsearch_path%/}/derep_sized.fasta" \
-        --threads "$threads"
+        --threads "$threads")
+    local _derep_rc=$?
+    echo "$_derep_stdout"
+    [[ $_derep_rc -ne 0 ]] && return $_derep_rc
+
+    DEREP_INPUT_READS=$(printf '%s\n' "$_derep_stdout" | awk -F= '/^DEREP_INPUT_READS=/{print $2; exit}')
+    DEREP_UNIQUE_SEQS=$(printf '%s\n' "$_derep_stdout" | awk -F= '/^DEREP_UNIQUE_SEQS=/{print $2; exit}')
+    export DEREP_INPUT_READS DEREP_UNIQUE_SEQS
+}
+
+# ── Degraded Quality: Abundance sanity check ────────────────────────────────
+# Detects datasets that lack the abundance signal de novo ASV/OTU calling
+# requires. Trigger: single-sample dataset where ≥95% of reads are singletons
+# after dereplication. In that regime, UNOISE3/VSEARCH minsize=2 wipes the
+# data to zero (every read looks unique because of sequencing error), and there
+# are no other samples to provide cross-sample replication. Any downstream
+# table would be statistically meaningless, so abort early.
+#
+# Returns 0 if data is OK to process, 99 if dataset should be skipped.
+Amplicon_DegradedQ_AbundanceSanityCheck() {
+    local n_samples="${1:-0}"
+    local input_reads="${DEREP_INPUT_READS:-0}"
+    local unique_seqs="${DEREP_UNIQUE_SEQS:-0}"
+
+    [[ "$input_reads" -le 0 ]] && return 0
+
+    # parts-per-1000 to avoid floating-point in bash
+    local ratio_ppt
+    ratio_ppt=$(python3 -c "print(int(${unique_seqs} * 1000 / ${input_reads}))")
+
+    if [[ "$n_samples" -eq 1 ]] && [[ "$ratio_ppt" -gt 950 ]]; then
+        local ratio_pct
+        ratio_pct=$(python3 -c "print(f'{${unique_seqs}/${input_reads}*100:.2f}')")
+        echo ""
+        echo "============================================================"
+        echo "UNTRUSTWORTHY DATA DETECTED — aborting analysis"
+        echo "============================================================"
+        echo "  Samples in dataset:   1"
+        echo "  Input reads:          ${input_reads}"
+        echo "  Unique sequences:     ${unique_seqs}"
+        echo "  Unique ratio:         ${ratio_pct}%"
+        echo ""
+        echo "  Reason: single-sample dataset where >=95% of reads are singletons."
+        echo "  De novo ASV/OTU calling needs duplicate reads to separate signal"
+        echo "  from sequencing error; with no abundance signal, UNOISE3 has"
+        echo "  nothing to denoise, and there is no cross-sample replication to"
+        echo "  fall back on. Any downstream taxonomy table would be"
+        echo "  statistically meaningless."
+        echo ""
+        echo "  Skipping this dataset and moving to the next BioProject."
+        echo "============================================================"
+        return 99
+    fi
+    return 0
 }
 
 # ── Degraded Quality: VSEARCH CLI pipeline ──────────────────────────────────
