@@ -236,6 +236,92 @@ Download_CRR() {
 }
 
 
+Download_From_NCBI() {
+    # Download FASTQ file(s) from NCBI SRA via sra-toolkit (prefetch + fasterq-dump).
+    # Used as a fallback when ENA has not mirrored the run's data yet.
+    # NCBI imposes per-IP rate limits; callers should not parallelize this.
+    #
+    # Args:
+    #   $1 = SRR/ERR/DRR accession
+    #   $2 = target directory for FASTQ files
+    #   $3 = rename prefix for output files
+    #
+    # Returns: 0 on success, 1 on failure
+    local srr="$1"
+    local target_dir="$2"
+    local rename_prefix="$3"
+    local max_retries=5
+    local tmp_dir="${target_dir}/.ncbi_tmp_${srr}"
+
+    # Cushion to ease NCBI per-IP rate limits between sequential accessions.
+    sleep 1
+
+    rm -rf "$tmp_dir"
+    mkdir -p "$tmp_dir"
+
+    local success=false
+    local attempt
+    for ((attempt=1; attempt<=max_retries; attempt++)); do
+        local prefetch_err=""
+        if prefetch_err=$(prefetch --max-size u --output-directory "$tmp_dir" "$srr" 2>&1); then
+            local sra_file="${tmp_dir}/${srr}/${srr}.sra"
+            [[ ! -f "$sra_file" ]] && sra_file="${tmp_dir}/${srr}.sra"
+
+            local dump_err=""
+            if [[ -f "$sra_file" ]] && dump_err=$(fasterq-dump --split-files --skip-technical --threads 2 -O "$tmp_dir" "$sra_file" 2>&1); then
+                success=true
+                break
+            elif dump_err=$(fasterq-dump --split-files --skip-technical --threads 2 -O "$tmp_dir" "$srr" 2>&1); then
+                success=true
+                break
+            else
+                echo "  [NCBI] fasterq-dump failed for $srr (attempt $attempt/$max_retries)" >&2
+            fi
+        else
+            # Treat rate-limit / network errors uniformly with backoff.
+            echo "  [NCBI] prefetch failed for $srr (attempt $attempt/$max_retries)" >&2
+        fi
+
+        local wait=$(( 10 * (1 << (attempt - 1)) ))
+        (( wait > 300 )) && wait=300
+        [[ $attempt -lt $max_retries ]] && sleep "$wait"
+    done
+
+    if ! $success; then
+        rm -rf "$tmp_dir"
+        echo "  [NCBI] Failed: $srr after $max_retries attempts" >&2
+        return 1
+    fi
+
+    # Move + gzip + rename FASTQ outputs. fasterq-dump emits ${srr}.fastq for SE
+    # or ${srr}_1.fastq / ${srr}_2.fastq for PE.
+    local downloaded_any=false
+    shopt -s nullglob
+    for fq in "${tmp_dir}/${srr}"*.fastq; do
+        [[ -f "$fq" ]] || continue
+        local fname
+        fname=$(basename "$fq")
+        local stem="${fname%.fastq}"
+        local suffix="${stem#${srr}}"
+        local out_path="${target_dir}/${rename_prefix}${suffix}.fastq.gz"
+        if gzip -c "$fq" > "$out_path"; then
+            downloaded_any=true
+        else
+            rm -f "$out_path"
+        fi
+        rm -f "$fq"
+    done
+    shopt -u nullglob
+
+    rm -rf "$tmp_dir"
+
+    if ! $downloaded_any; then
+        echo "  [NCBI] Failed: $srr (no FASTQ output produced)" >&2
+        return 1
+    fi
+    return 0
+}
+
 Common_SRADownloadToFastq_MultiSource() {
     local dir_path="" acc_file="" bioproject=""
     OPTIND=1
@@ -313,6 +399,38 @@ Common_SRADownloadToFastq_MultiSource() {
         : > "$_ena_url_map"
     fi
 
+    # Detect ENA mirroring gap: any input [EDS]RR accession lacking a populated
+    # fastq_ftp URL in ENA's filereport. ENA stores the metadata record before
+    # mirroring the actual reads from NCBI SRA, so a run can exist on NCBI with
+    # full data while ENA reports read_count=0 and empty FTP fields.
+    # When this happens, we cannot recover by retrying ENA — switch the entire
+    # dataset to NCBI SRA Toolkit and discard any partial ENA downloads to keep
+    # the dataset's source uniform.
+    local ncbi_fallback_mode=false
+    if [[ "$has_ncbi_accessions" == true ]]; then
+        local ena_gap_count=0
+        while IFS=$'\t' read -r srr _; do
+            [[ -z "$srr" ]] && continue
+            [[ ! "$srr" =~ ^[EDS]RR ]] && continue
+            if ! awk -v acc="$srr" '$1 == acc && $2 != "" {found=1; exit} END{exit !found}' "$_ena_url_map" 2>/dev/null; then
+                ena_gap_count=$((ena_gap_count + 1))
+            fi
+        done < "${base_dir}/${acc_file}"
+
+        if (( ena_gap_count > 0 )); then
+            if ! command -v prefetch >/dev/null 2>&1 || ! command -v fasterq-dump >/dev/null 2>&1; then
+                echo "  [ENA] ${ena_gap_count} accession(s) lack mirrored FASTQ in ENA, but NCBI SRA Toolkit (prefetch, fasterq-dump) is not available." >&2
+                echo "  [ENA] Install sra-toolkit to enable NCBI fallback for unmirrored runs." >&2
+                return 1
+            fi
+            echo "  [ENA] ${ena_gap_count} accession(s) lack mirrored FASTQ in ENA — switching dataset to NCBI SRA Toolkit"
+            # Wipe any partial ENA downloads so the dataset has a single source.
+            find "$fastq_path" -mindepth 1 -delete 2>/dev/null || true
+            ncbi_fallback_mode=true
+            source_label="NCBI"
+        fi
+    fi
+
     # Download all accessions, tracking progress
     local dl_success=0
     local dl_failed=0
@@ -332,7 +450,13 @@ Common_SRADownloadToFastq_MultiSource() {
             fi
 
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
-            if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
+            local _dl_ok=false
+            if $ncbi_fallback_mode; then
+                Download_From_NCBI "$srr" "$fastq_path" "$rename" && _dl_ok=true
+            else
+                Download_From_ENA "$srr" "$fastq_path" "$rename" && _dl_ok=true
+            fi
+            if $_dl_ok; then
                 # Silent integrity check — only report failures
                 local verify_failed=false
                 for fq in "${fastq_path}/${rename}"*.fastq*; do
@@ -381,7 +505,15 @@ Common_SRADownloadToFastq_MultiSource() {
         for failed_srr in "${failed_accessions[@]}"; do
             local failed_rename
             failed_rename=$(awk -F'\t' -v acc="$failed_srr" '$1 == acc {print $2}' "${base_dir}/${acc_file}")
-            if [[ -n "$failed_rename" ]] && Download_From_ENA "$failed_srr" "$fastq_path" "$failed_rename"; then
+            local retry_ok=false
+            if [[ -n "$failed_rename" ]]; then
+                if $ncbi_fallback_mode; then
+                    Download_From_NCBI "$failed_srr" "$fastq_path" "$failed_rename" && retry_ok=true
+                else
+                    Download_From_ENA "$failed_srr" "$fastq_path" "$failed_rename" && retry_ok=true
+                fi
+            fi
+            if $retry_ok; then
                 echo "  [${source_label}] Retry OK: $failed_srr"
                 dl_success=$((dl_success + 1))
                 dl_failed=$((dl_failed - 1))
