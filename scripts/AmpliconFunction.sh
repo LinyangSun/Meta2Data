@@ -236,6 +236,100 @@ Download_CRR() {
 }
 
 
+Download_From_NCBI() {
+    # Download FASTQ file(s) from NCBI SRA via sra-toolkit (prefetch + fasterq-dump).
+    # Used as a fallback when ENA has not mirrored the run's data yet.
+    # NCBI imposes per-IP rate limits; callers should not parallelize this.
+    #
+    # Args:
+    #   $1 = SRR/ERR/DRR accession
+    #   $2 = target directory for FASTQ files
+    #   $3 = rename prefix for output files
+    #
+    # Returns: 0 on success, 1 on failure
+    local srr="$1"
+    local target_dir="$2"
+    local rename_prefix="$3"
+    local max_retries=5
+
+    # Place the SRA workdir alongside the dataset's tmp/, never inside
+    # ori_fastq (downstream tooling globs ori_fastq for *.fastq*).
+    local tmp_root
+    tmp_root="$(dirname "$target_dir")/tmp/sra_dl"
+    mkdir -p "$tmp_root"
+    local tmp_dir
+    tmp_dir=$(mktemp -d "${tmp_root}/${srr}.XXXXXX") || {
+        echo "  [NCBI] Failed to create tmp dir for $srr" >&2
+        return 1
+    }
+
+    # Cushion to ease NCBI per-IP rate limits between sequential accessions.
+    # NCBI without an API key allows 3 req/s; 0.3s stays under that.
+    sleep 0.3
+
+    local success=false
+    local attempt
+    for ((attempt=1; attempt<=max_retries; attempt++)); do
+        if prefetch --max-size u --output-directory "$tmp_dir" "$srr" >/dev/null 2>&1; then
+            # Resolve the .sra path (prefetch layout: <tmp>/<srr>/<srr>.sra).
+            local sra_file="${tmp_dir}/${srr}/${srr}.sra"
+            [[ -f "$sra_file" ]] || sra_file="${tmp_dir}/${srr}.sra"
+            # Pass the file path if we found it, else let fasterq-dump resolve.
+            local dump_target="$srr"
+            [[ -f "$sra_file" ]] && dump_target="$sra_file"
+
+            if fasterq-dump --split-files --skip-technical --threads 2 \
+                            -O "$tmp_dir" "$dump_target" >/dev/null 2>&1; then
+                success=true
+                break
+            fi
+            echo "  [NCBI] fasterq-dump failed for $srr (attempt $attempt/$max_retries)" >&2
+        else
+            echo "  [NCBI] prefetch failed for $srr (attempt $attempt/$max_retries)" >&2
+        fi
+
+        local wait=$(( 5 * (1 << (attempt - 1)) ))
+        (( wait > 60 )) && wait=60
+        [[ $attempt -lt $max_retries ]] && sleep "$wait"
+    done
+
+    if ! $success; then
+        rm -rf "$tmp_dir"
+        echo "  [NCBI] Failed: $srr after $max_retries attempts" >&2
+        return 1
+    fi
+
+    # Move + gzip + rename FASTQ outputs. fasterq-dump emits ${srr}.fastq (SE),
+    # ${srr}_1.fastq + ${srr}_2.fastq (PE), or ${srr}_subreads.fastq (PacBio).
+    local downloaded_any=false
+    shopt -s nullglob
+    for fq in "${tmp_dir}/${srr}"*.fastq; do
+        [[ -f "$fq" ]] || continue
+        local fname
+        fname=$(basename "$fq")
+        local stem="${fname%.fastq}"
+        local suffix="${stem#${srr}}"
+        # Match Download_From_ENA: PacBio _subreads is folded into the base name.
+        suffix="${suffix/_subreads/}"
+        local out_path="${target_dir}/${rename_prefix}${suffix}.fastq.gz"
+        if gzip -c "$fq" > "$out_path"; then
+            downloaded_any=true
+        else
+            rm -f "$out_path"
+        fi
+        rm -f "$fq"
+    done
+    shopt -u nullglob
+
+    rm -rf "$tmp_dir"
+
+    if ! $downloaded_any; then
+        echo "  [NCBI] Failed: $srr (no FASTQ output produced)" >&2
+        return 1
+    fi
+    return 0
+}
+
 Common_SRADownloadToFastq_MultiSource() {
     local dir_path="" acc_file="" bioproject=""
     OPTIND=1
@@ -274,11 +368,13 @@ Common_SRADownloadToFastq_MultiSource() {
         command -v wget >/dev/null 2>&1 || { echo "Error: 'wget' not found (required for data downloads)." >&2; return 1; }
     fi
 
-    # Connectivity check
+    # ENA reachability is informational: if ENA is down we can still serve
+    # NCBI accessions via the SRA-Toolkit fallback below.
+    local ena_reachable=true
     if [[ "$has_ncbi_accessions" == true ]]; then
         if ! wget -q --spider --timeout=10 "https://www.ebi.ac.uk/ena/portal/api/" 2>/dev/null; then
-            echo "  ENA API is unreachable. Check your network connection." >&2
-            return 1
+            ena_reachable=false
+            echo "  [ENA] API unreachable; will route NCBI accessions through SRA Toolkit." >&2
         fi
     fi
 
@@ -293,9 +389,11 @@ Common_SRADownloadToFastq_MultiSource() {
     local fastq_path="${base_dir}/ori_fastq"
     mkdir -p "$fastq_path"
 
-    # Fetch ENA filereport to get exact download URLs for NCBI accessions
+    # Fetch ENA filereport to get exact download URLs for NCBI accessions.
+    # Skipped when ENA is unreachable — gap detection below will see an empty
+    # map and route the whole dataset through the NCBI SRA Toolkit.
     local _ena_url_map="${base_dir}/.ena_url_map.tsv"
-    if [[ "$has_ncbi_accessions" == true && -n "$bioproject" ]]; then
+    if [[ "$has_ncbi_accessions" == true && "$ena_reachable" == true && -n "$bioproject" ]]; then
         echo "  [ENA] Fetching filereport for ${bioproject}..."
         local filereport_url="https://www.ebi.ac.uk/ena/portal/api/filereport?accession=${bioproject}&result=read_run&fields=run_accession,fastq_ftp&format=tsv"
         if wget -q --timeout=30 "$filereport_url" -O "${_ena_url_map}.raw" 2>/dev/null; then
@@ -306,11 +404,49 @@ Common_SRADownloadToFastq_MultiSource() {
             map_count=$(wc -l < "$_ena_url_map" | tr -d ' ')
             echo "  [ENA] Got URLs for ${map_count} runs"
         else
-            echo "  [ENA] Warning: Filereport query failed, will skip ENA downloads" >&2
+            echo "  [ENA] Filereport query failed; falling back to NCBI SRA Toolkit." >&2
             : > "$_ena_url_map"
         fi
     else
         : > "$_ena_url_map"
+    fi
+
+    # Detect ENA mirroring gap: any input [EDS]RR accession lacking a populated
+    # fastq_ftp URL in ENA's filereport. ENA stores the metadata record before
+    # mirroring the actual reads from NCBI SRA, so a run can exist on NCBI with
+    # full data while ENA reports read_count=0 and empty FTP fields.
+    # When this happens, we cannot recover by retrying ENA — switch the entire
+    # dataset to NCBI SRA Toolkit and discard any partial ENA downloads to keep
+    # the dataset's source uniform.
+    local ncbi_fallback_mode=false
+    if [[ "$has_ncbi_accessions" == true ]]; then
+        local ena_gap_count=0
+        while IFS=$'\t' read -r srr _; do
+            [[ -z "$srr" ]] && continue
+            [[ ! "$srr" =~ ^[EDS]RR ]] && continue
+            if ! awk -v acc="$srr" '$1 == acc && $2 != "" {found=1; exit} END{exit !found}' "$_ena_url_map" 2>/dev/null; then
+                ena_gap_count=$((ena_gap_count + 1))
+            fi
+        done < "${base_dir}/${acc_file}"
+
+        if (( ena_gap_count > 0 )); then
+            if ! command -v prefetch >/dev/null 2>&1 || ! command -v fasterq-dump >/dev/null 2>&1; then
+                echo "  [ENA] ${ena_gap_count} accession(s) lack mirrored FASTQ in ENA, but NCBI SRA Toolkit (prefetch, fasterq-dump) is not available." >&2
+                echo "  [ENA] Install sra-toolkit to enable NCBI fallback for unmirrored runs." >&2
+                return 1
+            fi
+            # Fail fast if NCBI is unreachable rather than burning hours on
+            # 5 backoff retries per accession before discovering the network is down.
+            if ! wget -q --spider --timeout=10 "https://trace.ncbi.nlm.nih.gov/" 2>/dev/null; then
+                echo "  [ENA] ${ena_gap_count} accession(s) need NCBI fallback, but trace.ncbi.nlm.nih.gov is unreachable." >&2
+                return 1
+            fi
+            echo "  [ENA] ${ena_gap_count} accession(s) lack mirrored FASTQ in ENA — switching dataset to NCBI SRA Toolkit"
+            # Wipe any partial ENA downloads so the dataset has a single source.
+            find "$fastq_path" -mindepth 1 -delete 2>/dev/null || true
+            ncbi_fallback_mode=true
+            source_label="NCBI"
+        fi
     fi
 
     # Download all accessions, tracking progress
@@ -332,10 +468,26 @@ Common_SRADownloadToFastq_MultiSource() {
             fi
 
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
-            if Download_From_ENA "$srr" "$fastq_path" "$rename"; then
-                # Silent integrity check — only report failures
+            local _dl_ok=false
+            if $ncbi_fallback_mode; then
+                Download_From_NCBI "$srr" "$fastq_path" "$rename" && _dl_ok=true
+            else
+                Download_From_ENA "$srr" "$fastq_path" "$rename" && _dl_ok=true
+            fi
+            if $_dl_ok; then
+                # Silent integrity check — only report failures.
+                # Enumerate exact suffixes to avoid prefix collisions
+                # (e.g. rename="MNB_04" matching files of "MNB_04317").
+                local _candidate_files=(
+                    "${fastq_path}/${rename}.fastq"
+                    "${fastq_path}/${rename}.fastq.gz"
+                    "${fastq_path}/${rename}_1.fastq"
+                    "${fastq_path}/${rename}_1.fastq.gz"
+                    "${fastq_path}/${rename}_2.fastq"
+                    "${fastq_path}/${rename}_2.fastq.gz"
+                )
                 local verify_failed=false
-                for fq in "${fastq_path}/${rename}"*.fastq*; do
+                for fq in "${_candidate_files[@]}"; do
                     [[ -f "$fq" ]] || continue
                     if ! Verify_Fastq_Integrity "$fq"; then
                         echo "  [verify] Invalid: $(basename "$fq") — removing" >&2
@@ -344,8 +496,10 @@ Common_SRADownloadToFastq_MultiSource() {
                     fi
                 done
                 if [[ "$verify_failed" == true ]]; then
-                    local remaining_files
-                    remaining_files=$(find "$fastq_path" -name "${rename}*.fastq*" -type f 2>/dev/null | wc -l)
+                    local remaining_files=0
+                    for fq in "${_candidate_files[@]}"; do
+                        [[ -f "$fq" ]] && remaining_files=$((remaining_files + 1))
+                    done
                     if [[ "$remaining_files" -eq 0 ]]; then
                         echo "  [verify] No valid files remaining for $srr" >&2
                         dl_failed=$((dl_failed + 1))
@@ -373,15 +527,27 @@ Common_SRADownloadToFastq_MultiSource() {
         fi
     done < "${base_dir}/${acc_file}"
 
-    # Retry failed accessions after a cooldown period
+    # Retry failed accessions after a cooldown period.
+    # ENA's FTP enforces a per-host connection limit so we wait 120s; NCBI's
+    # SRA endpoints don't, so 30s is enough when running in NCBI fallback mode.
     if [[ ${#failed_accessions[@]} -gt 0 ]]; then
-        echo "  [${source_label}] Retrying ${#failed_accessions[@]} failed sample(s) in 120s..."
-        sleep 120
+        local cooldown=120
+        $ncbi_fallback_mode && cooldown=30
+        echo "  [${source_label}] Retrying ${#failed_accessions[@]} failed sample(s) in ${cooldown}s..."
+        sleep "$cooldown"
         local -a still_failed=()
         for failed_srr in "${failed_accessions[@]}"; do
             local failed_rename
             failed_rename=$(awk -F'\t' -v acc="$failed_srr" '$1 == acc {print $2}' "${base_dir}/${acc_file}")
-            if [[ -n "$failed_rename" ]] && Download_From_ENA "$failed_srr" "$fastq_path" "$failed_rename"; then
+            local retry_ok=false
+            if [[ -n "$failed_rename" ]]; then
+                if $ncbi_fallback_mode; then
+                    Download_From_NCBI "$failed_srr" "$fastq_path" "$failed_rename" && retry_ok=true
+                else
+                    Download_From_ENA "$failed_srr" "$fastq_path" "$failed_rename" && retry_ok=true
+                fi
+            fi
+            if $retry_ok; then
                 echo "  [${source_label}] Retry OK: $failed_srr"
                 dl_success=$((dl_success + 1))
                 dl_failed=$((dl_failed - 1))
