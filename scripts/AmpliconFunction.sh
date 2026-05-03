@@ -313,43 +313,6 @@ Common_SRADownloadToFastq_MultiSource() {
         : > "$_ena_url_map"
     fi
 
-    # Some accessions in the input TSV may be absent from the bioproject-level
-    # filereport (curated subsets, recent runs not yet rolled into the project
-    # report, cross-project re-analysis, etc.). For any such accession, query
-    # the ENA filereport per-accession (batched) so we don't drop them.
-    if [[ "$has_ncbi_accessions" == true ]]; then
-        local -a missing_accs=()
-        while IFS=$'\t' read -r srr _; do
-            [[ -z "$srr" ]] && continue
-            [[ ! "$srr" =~ ^[EDS]RR ]] && continue
-            if ! awk -v acc="$srr" '$1 == acc {found=1; exit} END{exit !found}' "$_ena_url_map" 2>/dev/null; then
-                missing_accs+=("$srr")
-            fi
-        done < "${base_dir}/${acc_file}"
-
-        if [[ ${#missing_accs[@]} -gt 0 ]]; then
-            echo "  [ENA] Querying filereport for ${#missing_accs[@]} accession(s) missing from project report..."
-            local chunk_size=50
-            local total_missing=${#missing_accs[@]}
-            local recovered=0
-            local idx=0
-            while [[ $idx -lt $total_missing ]]; do
-                local chunk_arr=("${missing_accs[@]:idx:chunk_size}")
-                local joined
-                joined=$(IFS=','; printf '%s' "${chunk_arr[*]}")
-                local extra_url="https://www.ebi.ac.uk/ena/portal/api/filereport?accession=${joined}&result=read_run&fields=run_accession,fastq_ftp&format=tsv"
-                if wget -q --timeout=60 "$extra_url" -O "${_ena_url_map}.extra" 2>/dev/null; then
-                    local added
-                    added=$(awk -F'\t' 'NR>1 && $1!="" && $2!="" {print $1"\t"$2}' "${_ena_url_map}.extra" | tee -a "$_ena_url_map" | wc -l | tr -d ' ')
-                    recovered=$((recovered + added))
-                fi
-                rm -f "${_ena_url_map}.extra"
-                idx=$((idx + chunk_size))
-            done
-            echo "  [ENA] Recovered URLs for ${recovered}/${total_missing} missing accession(s)"
-        fi
-    fi
-
     # Download all accessions, tracking progress
     local dl_success=0
     local dl_failed=0
