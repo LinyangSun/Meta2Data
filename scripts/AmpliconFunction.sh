@@ -254,7 +254,8 @@ Download_From_NCBI() {
     local tmp_dir="${target_dir}/.ncbi_tmp_${srr}"
 
     # Cushion to ease NCBI per-IP rate limits between sequential accessions.
-    sleep 1
+    # NCBI without an API key allows 3 req/s; 0.3s stays under that.
+    sleep 0.3
 
     rm -rf "$tmp_dir"
     mkdir -p "$tmp_dir"
@@ -282,8 +283,8 @@ Download_From_NCBI() {
             echo "  [NCBI] prefetch failed for $srr (attempt $attempt/$max_retries)" >&2
         fi
 
-        local wait=$(( 10 * (1 << (attempt - 1)) ))
-        (( wait > 300 )) && wait=300
+        local wait=$(( 5 * (1 << (attempt - 1)) ))
+        (( wait > 60 )) && wait=60
         [[ $attempt -lt $max_retries ]] && sleep "$wait"
     done
 
@@ -497,10 +498,14 @@ Common_SRADownloadToFastq_MultiSource() {
         fi
     done < "${base_dir}/${acc_file}"
 
-    # Retry failed accessions after a cooldown period
+    # Retry failed accessions after a cooldown period.
+    # ENA's FTP enforces a per-host connection limit so we wait 120s; NCBI's
+    # SRA endpoints don't, so 30s is enough when running in NCBI fallback mode.
     if [[ ${#failed_accessions[@]} -gt 0 ]]; then
-        echo "  [${source_label}] Retrying ${#failed_accessions[@]} failed sample(s) in 120s..."
-        sleep 120
+        local cooldown=120
+        $ncbi_fallback_mode && cooldown=30
+        echo "  [${source_label}] Retrying ${#failed_accessions[@]} failed sample(s) in ${cooldown}s..."
+        sleep "$cooldown"
         local -a still_failed=()
         for failed_srr in "${failed_accessions[@]}"; do
             local failed_rename
