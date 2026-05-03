@@ -561,6 +561,25 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # Replaces: ImportFastq → QualityControl → Deduplication → ExportForVsearch
                 # Quality/length/N filtering already done in degraded_quality_preprocess
                 Amplicon_DegradedQ_DirectDerep
+
+                # ── Sanity check: abort early on untrustworthy single-sample data ──
+                # Single sample + ~100% singleton reads = no abundance signal for
+                # UNOISE3 and no cross-sample replication. Skip rather than produce
+                # an empty/misleading downstream table.
+                if ! Amplicon_DegradedQ_AbundanceSanityCheck "$n_srr"; then
+                    untrust_marker="${dataset_path}/${dataset_ID}-UNTRUSTABLE.txt"
+                    {
+                        echo "Dataset:           ${dataset_ID}"
+                        echo "Reason:            single sample with >=95% singleton reads"
+                        echo "Samples:           ${n_srr}"
+                        echo "Input reads:       ${DEREP_INPUT_READS}"
+                        echo "Unique sequences:  ${DEREP_UNIQUE_SEQS}"
+                        echo "Detected at:      $(date '+%Y-%m-%d %H:%M:%S')"
+                    } > "$untrust_marker"
+                    echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - UNTRUSTABLE - 1 sample, ${DEREP_UNIQUE_SEQS}/${DEREP_INPUT_READS} unique" >> "$low_quality_log"
+                    exit 99
+                fi
+
                 Amplicon_DegradedQ_VsearchDenoise
                 Amplicon_DegradedQ_MapReadsToZotus
                 Amplicon_DegradedQ_ImportResults
@@ -980,7 +999,11 @@ with open('${DOCS_DIR}/1492R.fas') as f:
     local _ds_end=$(date +%s)
     local _total=$(( _ds_end - _ds_start ))
     local _total_fmt="$(( _total / 60 ))m$(( _total % 60 ))s"
-    if [[ $_rc -ne 0 ]]; then
+    if [[ $_rc -eq 99 ]]; then
+        # Untrustworthy data — already logged to $low_quality_log inside subshell
+        echo "⚠ Skipped $dataset_ID — untrustworthy data (see ${dataset_ID}-UNTRUSTABLE.txt)"
+        echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED-UNTRUSTABLE (${_total_fmt})" >&3
+    elif [[ $_rc -ne 0 ]]; then
         echo "❌ Pipeline failed for $dataset_ID — skipping to next dataset"
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED" >> "$failed_log"
         echo "[$(date '+%H:%M:%S')] [${dataset_ID}] FAILED (${_total_fmt}) - see logs/${dataset_ID}.log" >&3
@@ -1036,7 +1059,7 @@ fi
 
 if [[ "$n_low_quality" -gt 0 ]]; then
     echo ""
-    echo "Low quality datasets (retention < 50% after PE+SE fallback):"
+    echo "Low quality datasets (low retention or untrustworthy single-sample data):"
     cat "$low_quality_log"
     echo ""
 fi
