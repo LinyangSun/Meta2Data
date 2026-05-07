@@ -784,21 +784,20 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
     """
     Check quality score diversity in FASTQ files to determine if DADA2 is viable.
 
-    DADA2 requires diverse quality scores to learn its error model. Dummy
-    quality scores (e.g., from NCBI/ENA when original scores were discarded
-    during archival) have a single uniform value per read, causing DADA2's
-    filterAndTrim to reject all reads (maxEE exceeded) or its error model
-    to fail.
+    DADA2's learnErrors fits a regression of error rate against Q score and
+    needs several distinct Q anchors to converge. Heavily binned data (e.g.,
+    NovaSeq 2-bin: only Q3 and Q30) produces a degenerate error matrix and
+    crashes with "Error matrix is NULL". Truly dummy/placeholder scores (1
+    unique Q char) fail the same way.
 
-    Strategy: read 1 read from 1 file and check within-read quality diversity.
-    Within a BioProject all samples share the same submission, so quality
-    score format is uniform across the dataset. A single read is sufficient:
-      - Real scores (even heavily binned, e.g., NovaSeq 4-bin) always vary
-        across positions within a read.
-      - Dummy/placeholder scores are identical at every position.
+    Threshold:
+      < 5 unique Q chars across scanned reads → "degraded" (use VSEARCH)
+      ≥ 5 unique Q chars                       → "normal" (DADA2 viable)
 
-    Threshold: > 1 unique Q char within a read → "normal" (DADA2 viable)
-               == 1 unique Q char within a read → "degraded" (dummy, use VSEARCH)
+    Strategy: scan reads from all files, accumulating the union of Q chars.
+    Early-exit once we cross the EARLY_EXIT threshold (well above the cutoff)
+    so normal data finishes in milliseconds. Binned data reads everything but
+    saturates quickly and avoids a later DADA2 crash.
 
     Args:
         fastq_dir: Directory containing FASTQ files
@@ -809,6 +808,9 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
         QUALITY_STATUS=normal|degraded
         UNIQUE_QUALS=<int>
     """
+    DEGRADED_CUTOFF = 5      # < 5 unique Q chars → degraded
+    EARLY_EXIT = 10          # ≥ 10 unique Q chars → certainly normal, stop scanning
+
     fq_files = sorted(glob.glob(os.path.join(fastq_dir, '*.fastq*')))
     if not fq_files:
         print("WARNING: No FASTQ files found, assuming degraded", file=sys.stderr)
@@ -816,27 +818,41 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
         print("UNIQUE_QUALS=0")
         return "degraded"
 
-    fq = fq_files[0]
-    open_fn = gzip.open if fq.endswith('.gz') else open
-    with open_fn(fq, 'rt') as fh:
-        fh.readline()          # header
-        fh.readline()          # sequence
-        fh.readline()          # +
-        qual = fh.readline().strip()
+    qual_chars = set()
+    files_scanned = 0
+    reads_scanned = 0
+    early_exit = False
 
-    if not qual:
-        print("WARNING: Empty quality line, assuming degraded", file=sys.stderr)
+    for fq in fq_files:
+        files_scanned += 1
+        open_fn = gzip.open if fq.endswith('.gz') else open
+        with open_fn(fq, 'rt') as fh:
+            for i, line in enumerate(fh):
+                if i % 4 == 3:                    # qual line
+                    qual_chars.update(line.rstrip())
+                    reads_scanned += 1
+                    if len(qual_chars) >= EARLY_EXIT:
+                        early_exit = True
+                        break
+        if early_exit:
+            break
+
+    n_unique = len(qual_chars)
+
+    if n_unique == 0:
+        print("WARNING: No quality data found, assuming degraded", file=sys.stderr)
         print("QUALITY_STATUS=degraded")
         print("UNIQUE_QUALS=0")
         return "degraded"
 
-    n_unique = len(set(qual))
-    status = "degraded" if n_unique <= 1 else "normal"
+    status = "degraded" if n_unique < DEGRADED_CUTOFF else "normal"
 
-    print(f"  Quality check: {n_unique} unique Q chars in first read of {os.path.basename(fq)}",
+    scope = "early-exit" if early_exit else "full scan"
+    print(f"  Quality check: {n_unique} unique Q chars across "
+          f"{files_scanned} file(s), {reads_scanned} reads ({scope})",
           file=sys.stderr)
-    print(f"  Unique Q chars: {sorted(set(qual))}", file=sys.stderr)
-    print(f"  Status: {status}", file=sys.stderr)
+    print(f"  Unique Q chars: {sorted(qual_chars)}", file=sys.stderr)
+    print(f"  Status: {status} (cutoff: <{DEGRADED_CUTOFF})", file=sys.stderr)
 
     print(f"QUALITY_STATUS={status}")
     print(f"UNIQUE_QUALS={n_unique}")
