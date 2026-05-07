@@ -254,13 +254,20 @@ meta2data_ensure_python_deps() {
 # -----------------------------------------------------------------------------
 # Lightweight vendor-binary ensure helper
 # -----------------------------------------------------------------------------
-# Auto-installs vsearch / fastp into <repo>/vendor/bin via
-# scripts/install_binaries.sh if either binary is missing. Called at startup
-# by AmpliconPIP / ggCOMBO entry scripts only — MetaDL does not need these.
+# Prepends <repo>/vendor/bin to PATH (if it exists) and verifies that the
+# required vendor binaries (vsearch, fastp) are reachable via PATH. Called at
+# startup by AmpliconPIP / ggCOMBO entry scripts — MetaDL does not need these.
 #
-# install_binaries.sh is already idempotent (version-checked via need_install),
-# so a redundant call is near-free; we still guard with a pre-check so users
-# who have the binaries don't see the installer banner every run.
+# Does NOT install anything. If a binary is missing, prints an actionable
+# error and returns 1; users must run scripts/install_binaries.sh themselves
+# or install the binaries via conda / module load.
+#
+# Caveat: this only checks for *presence*, not version. A wrong-version
+# binary already in PATH (e.g., a glibc-incompatible vsearch 2.22+ from a
+# stale install) passes this check silently and may crash deeper in the
+# pipeline. The pinned version in install_binaries.sh is the source of
+# truth — re-run that script with --force to refresh vendor/bin when the
+# pin changes.
 
 meta2data_ensure_vendor_binaries() {
     [[ "${META2DATA_SKIP_DEP_CHECK:-}" == "1" ]] && return 0
