@@ -4,8 +4,17 @@
 # and dropped into <repo>/vendor/bin alongside the pipeline source.
 set -euo pipefail
 
-VSEARCH_VERSION="2.30.0"
+VSEARCH_VERSION="2.21.1"
 FASTP_VERSION="0.24.0"
+
+# Note on vsearch version: 2.21.1 is the last release built against an older
+# glibc and runs on RHEL 7 / RHEL 8 HPC nodes (glibc 2.17 / 2.28). Versions
+# 2.22+ link against GLIBC_2.29 symbols and crash mid-pipeline on those
+# hosts with "version `GLIBC_2.29' not found (required by vsearch)" — only
+# triggered by some subcommands due to lazy symbol binding, so failures
+# look intermittent. All vsearch features used by the pipeline
+# (--derep_fulllength, --cluster_size, --cluster_unoise, --uchime3_denovo,
+# --usearch_global, --fastq_mergepairs) are available in 2.21.1.
 
 SCRIPT_SELF_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_SELF_DIR")"
