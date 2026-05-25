@@ -50,6 +50,7 @@ UNIFIED_PATTERNS = {
 
 ID_PATTERNS = {
     'biosample': re.compile(r'^SAM[CEDN][A-Z]?\d+$'),
+    'sra': re.compile(r'^[CEDS]R[RSXP]\d+$'),
     'cncb': re.compile(r'^PRJC[A-Z]\d+$'),
     'ncbi': re.compile(r'^PRJ[EDN][A-Z]\d+$'),
 }
@@ -238,7 +239,7 @@ def fetch_bioproject_description(bioproject_id):
 
 def classify_ids(id_list):
     """Classify input IDs into biosample, cncb, ncbi, and unknown groups."""
-    result = {'biosample': [], 'cncb': [], 'ncbi': [], 'unknown': []}
+    result = {'biosample': [], 'sra': [], 'cncb': [], 'ncbi': [], 'unknown': []}
     for item in id_list:
         matched = False
         for key, pattern in ID_PATTERNS.items():
@@ -326,7 +327,7 @@ def clean_and_standardize_columns(df, source_prefix=None):
             continue
 
         col_values = df[col].astype(str).str.strip().unique()
-        col_values = [v for v in col_values if v and v.lower() not in ['nan', 'none', '']]
+        col_values = [v for v in col_values if v and str(v).lower() not in ['nan', 'none', '']]
 
         for standard_name, pattern in UNIFIED_PATTERNS.items():
             if col_values and all(pattern.match(str(v)) for v in col_values):
@@ -1403,6 +1404,88 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
     return standardize_columns(merged)
 
 
+def download_ncbi_metadata_from_sra_accessions(sra_accessions, output_dir):
+    """Download NCBI metadata starting from SRA accessions (SRR/ERR/DRR/SRX/ERX/DRX/SRP/ERP/DRP etc).
+
+    Resolves accessions to SRA UIDs via esearch, fetches RunInfo + BioSample,
+    then merges into a single standardized DataFrame.
+    """
+    GROUP_ID = "SRA_INPUT"
+
+    # 1. Resolve SRA accessions -> SRA UIDs via esearch
+    print("  Resolving SRA accessions to UIDs...")
+    sra_uids = []
+    batch_size = 200
+    for i in range(0, len(sra_accessions), batch_size):
+        batch = sra_accessions[i:i + batch_size]
+
+        def _search(b=batch):
+            query = " OR ".join(f"{acc}[Accession]" for acc in b)
+            handle = Entrez.esearch(db="sra", term=query, retmax=10000)
+            results = Entrez.read(handle)
+            handle.close()
+            return results["IdList"]
+
+        try:
+            sra_uids.extend(retry_wrapper(_search))
+        except Exception:
+            pass
+
+        if len(sra_accessions) > batch_size:
+            time.sleep(DEFAULT_REQUEST_DELAY)
+
+    sra_uids = list(dict.fromkeys(sra_uids))  # deduplicate preserving order
+
+    if not sra_uids:
+        print("  No SRA UIDs resolved")
+        return None
+
+    print(f"  Resolved {len(sra_uids)} SRA UIDs from {len(sra_accessions)} accessions")
+
+    # 2. Fetch SRA RunInfo + DesignDescription
+    sra_df = pd.DataFrame()
+    design_map = {}
+    time.sleep(DEFAULT_REQUEST_DELAY)
+    try:
+        sra_file, design_map = _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
+        if sra_file:
+            sra_df = pd.read_csv(sra_file)
+            sra_df.rename(columns={'BioSample': 'Biosample', 'BioProject': 'Bioproject'}, inplace=True)
+    except Exception:
+        pass
+
+    if sra_df.empty:
+        return None
+
+    # 3. Fetch BioSample metadata for all unique BioSample accessions in SRA data
+    biosample_df = pd.DataFrame()
+    if 'Biosample' in sra_df.columns:
+        bs_accs = sra_df['Biosample'].dropna().astype(str).unique().tolist()
+        bs_accs = [a for a in bs_accs if a and ID_PATTERNS['biosample'].match(a)]
+        if bs_accs:
+            print(f"  Fetching BioSample metadata for {len(bs_accs)} samples...")
+            try:
+                query = " OR ".join(f"{acc}[Accession]" for acc in bs_accs[:500])
+                handle = Entrez.esearch(db="biosample", term=query, retmax=10000)
+                results = Entrez.read(handle)
+                handle.close()
+                bs_uids = results["IdList"]
+                if bs_uids:
+                    bs_file = download_biosample_data(GROUP_ID, bs_uids, output_dir)
+                    if bs_file:
+                        biosample_df = parse_biosample_file(bs_file)
+            except Exception:
+                pass
+
+    # 4. Merge and standardize
+    merged = merge_ncbi_data_single(biosample_df, sra_df)
+
+    if design_map and 'Experiment' in merged.columns:
+        merged['DesignDescription'] = merged['Experiment'].map(design_map).fillna('')
+
+    return standardize_columns(merged)
+
+
 # ============================================================================
 # Single Project Processing
 # ============================================================================
@@ -1811,6 +1894,7 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
 
     print(f"\nTotal input IDs: {len(all_input_ids)}")
     print(f"  BioSample (SAM*):   {len(groups['biosample'])}")
+    print(f"  SRA ([CEDS]R*):     {len(groups['sra'])}")
     print(f"  CNCB (PRJC*):       {len(groups['cncb'])}")
     print(f"  NCBI (PRJ[EDN]*):   {len(groups['ncbi'])}")
     if groups['unknown']:
@@ -1862,6 +1946,47 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
             for bid in groups['biosample']:
                 state_manager.mark_status(bid, STATUS_NO_DATA)
 
+    # Step 1c: Process SRA accessions
+    sra_results = []
+    if groups['sra']:
+        print(f"\n[Step 1c] Processing {len(groups['sra'])} SRA accessions...")
+        sra_df = download_ncbi_metadata_from_sra_accessions(
+            groups['sra'], tmp_path
+        )
+        if sra_df is not None and not sra_df.empty and validate_run_data(sra_df):
+            if 'Bioproject' in sra_df.columns:
+                unique_bps = sra_df['Bioproject'].dropna().astype(str).unique()
+                bp_desc_map = {}
+                for bp in unique_bps:
+                    if bp and bp.startswith('PRJ'):
+                        bp_desc_map[bp] = fetch_bioproject_description(bp) or ''
+                        time.sleep(DEFAULT_REQUEST_DELAY)
+                sra_df['Description'] = sra_df['Bioproject'].astype(str).map(bp_desc_map).fillna('')
+            else:
+                sra_df['Description'] = ''
+
+            sra_df['Source_Database'] = 'NCBI'
+            csv_path = tmp_path / "SRA_INPUT.processed.csv"
+            sra_df.to_csv(csv_path, index=False, encoding='utf-8')
+            sra_results.append({'bioproject_id': 'SRA_INPUT',
+                                'df': sra_df, 'source': 'NCBI'})
+            print(f"  SRA metadata saved: {len(sra_df)} records")
+
+            # Mark individual SRA IDs in state manager
+            found_ids = set()
+            for col in ['Run', 'Experiment', 'Study']:
+                if col in sra_df.columns:
+                    found_ids.update(sra_df[col].dropna().astype(str))
+            for sid in groups['sra']:
+                if sid in found_ids:
+                    state_manager.mark_status(sid, STATUS_HAS_DATA)
+                else:
+                    state_manager.mark_status(sid, STATUS_NO_DATA)
+        else:
+            print("  No valid data retrieved from SRA accessions")
+            for sid in groups['sra']:
+                state_manager.mark_status(sid, STATUS_NO_DATA)
+
     # Step 2a: Pre-fetch all BioProject descriptions (serial, to respect rate limits)
     bioproject_ids = groups['cncb'] + groups['ncbi']
     print(f"\n[Step 2a] Fetching descriptions for {len(bioproject_ids)} BioProjects...")
@@ -1875,7 +2000,7 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
 
     results = parallel_process_bioprojects(
         bioproject_ids, tmp_path, max_workers, state_manager, description_cache
-    ) + biosample_results
+    ) + biosample_results + sra_results
 
     # Step 3: Status report
     print("\n[Step 3] Generating status report...")
