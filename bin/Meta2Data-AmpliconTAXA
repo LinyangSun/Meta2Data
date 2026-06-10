@@ -41,90 +41,86 @@ meta2data_ensure_python_deps || exit 1
 
 show_help() {
     cat << EOF
-Usage: Meta2Data ggCOMBO [options]
+Usage: Meta2Data AmpliconTAXA (--asv | --otu) [options]
 
-Merge amplicon datasets, orient sequences, assign taxonomy, and build
-a phylogenetic tree.
+Merge amplicon datasets, orient sequences against GreenGenes2, assign
+taxonomy, and build a phylogenetic tree.
 
-This command takes the output of AmpliconPIP (directories containing
-*-final-table.qza and *-final-rep-seqs.qza files) and performs:
-  1. Merge all feature tables and representative sequences
-  2. Orient sequences against database reference sequences
-  3. Filter feature table to oriented sequences only
-  4. Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
-  5. Phylogenetic tree building via SEPP fragment insertion (always GG2)
-  6. Feature filtering by tree placement
+This command takes the output of AmpliconPIP (PRJ* folders containing
+<id>-<mode>-final-table.qza and <id>-<mode>-final-rep-seqs.qza files) and,
+depending on the mode, performs:
+
+  --otu  (vsearch 97% OTUs)
+    1. Merge feature tables and representative sequences
+    2. Orient sequences against GreenGenes2 backbone (drop unmatched)
+    3. Filter feature table to oriented sequences
+    4. Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
+    5. Phylogenetic tree via SEPP fragment insertion (GG2 reference)
+    6. Filter feature table AND representative sequences to tree-placed features
+
+  --asv  (DADA2 single-base ASVs, single amplicon region assumed)
+    1. Merge feature tables and representative sequences
+    2. Orient sequences against GreenGenes2 backbone (drop unmatched)
+    3. Filter feature table to oriented sequences
+    4. Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
+    5. De novo phylogenetic tree (mafft + mask + fasttree)
+
+Orientation always uses the GreenGenes2 backbone regardless of --db-type;
+only taxonomy assignment depends on --db-type. SEPP tree building (otu) always
+uses the GG2 reference. Re-running with a different --db-type reuses every
+database-independent step and only recomputes the taxonomy artifact.
+
+Mode is required and mutually exclusive: pass exactly one of --asv / --otu.
+ASV and OTU outputs must not be mixed in one run (incompatible feature
+definitions); each PRJ* folder is collected by its mode token.
 
 Required options:
+    --asv | --otu         Feature mode (mutually exclusive, required). Must match
+                          the AmpliconPIP run that produced the input.
     --db DIR              Path to database directory (files are stored here;
                           use --dl to download them automatically)
-    --db-type TYPE        Taxonomy database to use. One of:
-                            greengenes  - GreenGenes2 2024.09 (default)
-                            silva       - SILVA 138.99
-                            gsr         - GSR-DB (Gut-Specific Reference DB)
-                          This determines which classifier, reference sequences,
-                          and taxonomy are downloaded/used. SEPP tree building
-                          always uses the GG2 reference regardless of this setting.
     -i, --input DIR       Input directory containing PRJ* dataset folders
                           (output of a previous AmpliconPIP run)
 
 Optional options:
+    --db-type TYPE        Taxonomy database for classification. One of:
+                            greengenes  - GreenGenes2 2024.09 (default)
+                            silva       - SILVA 138.99
     -o, --output DIR      Output directory for merged results (default: same as --input)
     -t, --threads int     Number of CPU threads (default: 4)
     --confidence FLOAT    Confidence threshold for sklearn classifier (default: 0.7)
     --dl                  Download database files to --db directory before running
     -h, --help            Show this help message
 
-Database files per --db-type (downloaded with --dl):
-    greengenes:
-      2024.09.backbone.full-length.nb.qza       (NB classifier)
-      2024.09.backbone.full-length.fna.qza       (reference sequences)
-      2024.09.backbone.tax.qza                   (reference taxonomy)
-    silva:
-      silva-138-99-nb-classifier.qza             (NB classifier)
-      silva-138-99-seqs.qza                      (reference sequences)
-      silva-138-99-tax.qza                       (reference taxonomy)
-    gsr:
-      GSR-DB_full-16S_filt_seqs.qza              (reference sequences)
-      GSR-DB_full-16S_filt_taxa.qza              (reference taxonomy)
-      classifier_GSR-DB_full-16S.qza             (NB classifier, trained
-                                                 locally on first --dl run
-                                                 against the current sklearn;
-                                                 ~15-40 min one-time cost)
-    All types also require:
-      sepp-refs-gg-13-8.qza                      (SEPP reference tree, always GG2)
+Database files (downloaded with --dl):
+    Always (used for orientation, regardless of --db-type):
+      2024.09.backbone.full-length.fna.qza       (GG2 reference sequences)
+    Per --db-type (used for taxonomy):
+      greengenes: 2024.09.backbone.full-length.nb.qza   (GG2 NB classifier)
+      silva:      silva-138-99-nb-classifier.qza         (SILVA NB classifier)
+    --otu only (used for SEPP tree):
+      sepp-refs-gg-13-8.qza                       (SEPP reference tree, GG2)
 
 Example usage:
-    # GreenGenes2 (default)
-    Meta2Data ggCOMBO --db /path/to/db --db-type greengenes -i /path/to/output -t 8
+    # OTU mode, GreenGenes2 (default), auto-download
+    Meta2Data AmpliconTAXA --otu --db /path/to/db --dl -i /path/to/output -t 8
 
-    # SILVA with auto-download
-    Meta2Data ggCOMBO --db /path/to/db --db-type silva --dl -i /path/to/output -t 8
+    # ASV mode, SILVA classification
+    Meta2Data AmpliconTAXA --asv --db /path/to/db --db-type silva --dl -i /path/to/output -t 8
 
-    # GSR-DB with custom confidence
-    Meta2Data ggCOMBO --db /path/to/db --db-type gsr --dl --confidence 0.5 -i /path/to/output
-
-Output structure (DB_LABEL = gg2, silva, or gsr):
-    <output_dir>/
-    └── final/
-        └── merged/
-            ├── merged-table.qza                 # Merged feature table (shared)
-            ├── merged-rep-seqs.qza              # Merged representative sequences (shared)
-            ├── merged-table-summary.qzv         # Table summary (shared)
-            └── <DB_LABEL>/                      # Database-specific subfolder
-                ├── oriented-rep-seqs.qza        # Oriented representative sequences
-                ├── unmatched-rep-seqs.qza       # Sequences that could not be oriented
-                ├── merged-table-oriented.qza    # Table filtered to oriented features
-                ├── merged-taxonomy.qza          # Taxonomy (sklearn NB classifier)
-                ├── insertion-tree.qza           # SEPP phylogenetic tree
-                ├── insertion-placements.qza     # SEPP placement details
-                ├── merged-table-tree.qza        # Table filtered to tree-placed features
-                └── merged-table-no-tree.qza     # Features not placed in tree
+Output structure (MODE = asv | otu; DB = gg2 | silva):
+    <output_dir>/final-<MODE>/
+    ├── ... final products (in main dir) ...
+    │       otu: treeFilteredTable.qza, treeFilteredRepSeqs.qza, seppTree.qza
+    │       asv: orientedTable.qza, orientedRepSeqs.qza, denovoRootedTree.qza
+    │       both: <DB>Taxonomy.qza        (e.g. gg2Taxonomy.qza / silvaTaxonomy.qza)
+    └── tmp/                              # intermediates + diagnostics (safe to delete)
 
 EOF
 }
 
 # Default parameters
+MODE=""
 DB_DIR=""
 DB_TYPE="greengenes"
 ENABLE_DL=false
@@ -136,6 +132,22 @@ CONFIDENCE=0.7
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
+        --asv)
+            if [[ -n "$MODE" && "$MODE" != "asv" ]]; then
+                echo "Error: --asv and --otu are mutually exclusive"
+                exit 1
+            fi
+            MODE="asv"
+            shift
+            ;;
+        --otu)
+            if [[ -n "$MODE" && "$MODE" != "otu" ]]; then
+                echo "Error: --asv and --otu are mutually exclusive"
+                exit 1
+            fi
+            MODE="otu"
+            shift
+            ;;
         --db)
             DB_DIR="$2"
             shift 2
@@ -176,6 +188,13 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Validate mode (required, mutually exclusive)
+if [[ -z "$MODE" ]]; then
+    echo "Error: feature mode is required - pass exactly one of --asv / --otu"
+    show_help
+    exit 1
+fi
+
 # Validate thread count is a positive integer
 if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
     echo "Error: --threads must be a positive integer, got '$THREADS'"
@@ -184,9 +203,9 @@ fi
 
 # Validate --db-type
 case "$DB_TYPE" in
-    greengenes|silva|gsr) ;;
+    greengenes|silva) ;;
     *)
-        echo "Error: --db-type must be one of: greengenes, silva, gsr (got '$DB_TYPE')"
+        echo "Error: --db-type must be one of: greengenes, silva (got '$DB_TYPE')"
         exit 1
         ;;
 esac
@@ -236,27 +255,22 @@ else
     OUTPUT=$(cd "$OUTPUT" && pwd)
 fi
 
-# Database file names per --db-type
+# Database file names.
+#   ORIENT_REF : reference sequences for orientation. Always the GG2 backbone,
+#                regardless of --db-type (only taxonomy depends on --db-type).
+#   NB_CLASSIFIER : pre-trained Naive Bayes classifier for --db-type.
+#   SEPP_REF   : SEPP reference tree (GG2). Only needed for --otu.
+ORIENT_REF="${DB_DIR}/2024.09.backbone.full-length.fna.qza"
 SEPP_REF="${DB_DIR}/sepp-refs-gg-13-8.qza"
 
 case "$DB_TYPE" in
     greengenes)
         DB_LABEL="gg2"
         NB_CLASSIFIER="${DB_DIR}/2024.09.backbone.full-length.nb.qza"
-        REF_SEQS="${DB_DIR}/2024.09.backbone.full-length.fna.qza"
-        REF_TAX="${DB_DIR}/2024.09.backbone.tax.qza"
         ;;
     silva)
         DB_LABEL="silva"
         NB_CLASSIFIER="${DB_DIR}/silva-138-99-nb-classifier.qza"
-        REF_SEQS="${DB_DIR}/silva-138-99-seqs.qza"
-        REF_TAX="${DB_DIR}/silva-138-99-tax.qza"
-        ;;
-    gsr)
-        DB_LABEL="gsr"
-        NB_CLASSIFIER="${DB_DIR}/classifier_GSR-DB_full-16S.qza"
-        REF_SEQS="${DB_DIR}/GSR-DB_full-16S_filt_seqs.qza"
-        REF_TAX="${DB_DIR}/GSR-DB_full-16S_filt_taxa.qza"
         ;;
 esac
 
@@ -265,11 +279,14 @@ esac
 ################################################################################
 
 if [[ "$ENABLE_DL" == true ]]; then
+    GG2_BASE="http://ftp.microbio.me/greengenes_release/2024.09/"
+    SILVA_CLS="https://data.qiime2.org/classifiers/sklearn-1.4.2/silva/"
     SEPP_URL="https://data.qiime2.org/classifiers/sepp-ref-dbs/"
 
     echo "========================================="
     echo "Downloading Database Files"
     echo "Target:  $DB_DIR"
+    echo "Mode:    $MODE"
     echo "DB type: $DB_TYPE ($DB_LABEL)"
     echo "========================================="
     echo ""
@@ -281,42 +298,23 @@ if [[ "$ENABLE_DL" == true ]]; then
     }
 
     # Each entry: "filename|base_url|wget_extra_flags"
-    # wget_extra_flags is optional (e.g. --no-check-certificate for GG2 FTP)
+    DL_FILES=()
+    # Orientation reference: always the GG2 backbone sequences
+    DL_FILES+=("2024.09.backbone.full-length.fna.qza|${GG2_BASE}|--no-check-certificate")
+    # Taxonomy classifier: per --db-type
     case "$DB_TYPE" in
         greengenes)
-            GG2_BASE="http://ftp.microbio.me/greengenes_release/2024.09/"
-            DL_FILES=(
-                "2024.09.backbone.full-length.nb.qza|${GG2_BASE}|--no-check-certificate"
-                "2024.09.backbone.full-length.fna.qza|${GG2_BASE}|--no-check-certificate"
-                "2024.09.backbone.tax.qza|${GG2_BASE}|--no-check-certificate"
-                "sepp-refs-gg-13-8.qza|${SEPP_URL}|"
-            )
+            DL_FILES+=("2024.09.backbone.full-length.nb.qza|${GG2_BASE}|--no-check-certificate")
             ;;
         silva)
-            SILVA_COMMON="https://data.qiime2.org/2024.10/common/"
-            SILVA_CLS="https://data.qiime2.org/classifiers/sklearn-1.4.2/silva/"
-            DL_FILES=(
-                "silva-138-99-nb-classifier.qza|${SILVA_CLS}|"
-                "silva-138-99-seqs.qza|${SILVA_COMMON}|"
-                "silva-138-99-tax.qza|${SILVA_COMMON}|"
-                "sepp-refs-gg-13-8.qza|${SEPP_URL}|"
-            )
-            ;;
-        gsr)
-            GSR_BASE="https://manichanh.vhir.org/gsrdb/"
-            # GSR-DB's upstream classifier is pickled against an older sklearn
-            # and is not reliable with QIIME2 2024.10's sklearn 1.4.2. We only
-            # download the raw reference tarball (seqs + taxa) and train a
-            # fresh Naive Bayes classifier locally after extraction.
-            DL_FILES=(
-                "sepp-refs-gg-13-8.qza|${SEPP_URL}|"
-            )
-            GSR_TARBALL="GSR-DB_full-16S.tar.gz"
-            GSR_TARBALL_PATH="${DB_DIR}/${GSR_TARBALL}"
+            DL_FILES+=("silva-138-99-nb-classifier.qza|${SILVA_CLS}|")
             ;;
     esac
+    # SEPP reference: only for --otu (--asv builds a de novo tree)
+    if [[ "$MODE" == "otu" ]]; then
+        DL_FILES+=("sepp-refs-gg-13-8.qza|${SEPP_URL}|")
+    fi
 
-    # Download regular .qza files
     for entry in "${DL_FILES[@]}"; do
         IFS='|' read -r fname base_url extra_flags <<< "$entry"
         target="${DB_DIR}/${fname}"
@@ -341,63 +339,6 @@ if [[ "$ENABLE_DL" == true ]]; then
         fi
     done
 
-    # GSR-DB: download and extract tarball for ref seqs + taxonomy
-    if [[ "$DB_TYPE" == "gsr" ]]; then
-        if validate_qza "$REF_SEQS" && validate_qza "$REF_TAX"; then
-            echo "Valid GSR-DB ref files exist, skipping tarball download"
-        else
-            echo "Downloading: ${GSR_TARBALL}..."
-            rm -f "$GSR_TARBALL_PATH"
-            if ! wget -q --show-progress -O "$GSR_TARBALL_PATH" "${GSR_BASE}${GSR_TARBALL}"; then
-                echo "ERROR: Failed to download ${GSR_TARBALL}"
-                rm -f "$GSR_TARBALL_PATH"
-                exit 1
-            fi
-            echo "Extracting: ${GSR_TARBALL}..."
-            if ! tar -xzf "$GSR_TARBALL_PATH" -C "$DB_DIR"; then
-                echo "ERROR: Failed to extract ${GSR_TARBALL}"
-                exit 1
-            fi
-            rm -f "$GSR_TARBALL_PATH"
-            if ! validate_qza "$REF_SEQS" || ! validate_qza "$REF_TAX"; then
-                echo "ERROR: Extracted GSR-DB files are missing or corrupt"
-                echo "  Expected: $(basename "$REF_SEQS") and $(basename "$REF_TAX")"
-                exit 1
-            fi
-            echo "Downloaded and extracted GSR-DB reference files"
-        fi
-
-        # Train the Naive Bayes classifier locally against the currently
-        # installed sklearn version. GSR-DB's upstream pre-trained classifier
-        # was pickled against an older sklearn and is not reliable here.
-        # One-time cost; subsequent runs reuse the validated artifact.
-        if validate_qza "$NB_CLASSIFIER"; then
-            echo "Valid GSR classifier exists, skipping training: $(basename "$NB_CLASSIFIER")"
-        else
-            [[ -f "$NB_CLASSIFIER" ]] && echo "Existing classifier is invalid, retraining"
-            rm -f "$NB_CLASSIFIER"
-            echo ""
-            echo "Training GSR-DB Naive Bayes classifier locally."
-            echo "This is a one-time step (~15-40 min, peak RAM ~20 GB)."
-            echo ""
-            if ! qiime feature-classifier fit-classifier-naive-bayes \
-                --i-reference-reads "$REF_SEQS" \
-                --i-reference-taxonomy "$REF_TAX" \
-                --o-classifier "$NB_CLASSIFIER" \
-                --verbose; then
-                echo "ERROR: GSR classifier training failed"
-                rm -f "$NB_CLASSIFIER"
-                exit 1
-            fi
-            if ! validate_qza "$NB_CLASSIFIER"; then
-                echo "ERROR: Trained classifier is corrupt: $(basename "$NB_CLASSIFIER")"
-                rm -f "$NB_CLASSIFIER"
-                exit 1
-            fi
-            echo "GSR classifier trained and saved: $(basename "$NB_CLASSIFIER")"
-        fi
-    fi
-
     echo ""
     echo "Database download complete."
     echo ""
@@ -411,8 +352,14 @@ echo "========================================="
 echo "Validating Database Files"
 echo "========================================="
 
+# Mode-aware: orientation ref + classifier always; SEPP ref only for --otu.
+NEEDED_FILES=("$ORIENT_REF" "$NB_CLASSIFIER")
+if [[ "$MODE" == "otu" ]]; then
+    NEEDED_FILES+=("$SEPP_REF")
+fi
+
 MISSING=false
-for f in "$NB_CLASSIFIER" "$REF_SEQS" "$REF_TAX" "$SEPP_REF"; do
+for f in "${NEEDED_FILES[@]}"; do
     if [[ ! -f "$f" ]]; then
         echo "ERROR: Required file not found: $f"
         MISSING=true
@@ -433,14 +380,16 @@ echo ""
 ################################################################################
 
 echo "========================================="
-echo "Meta2Data ggCOMBO"
+echo "Meta2Data AmpliconTAXA"
 echo "========================================="
+echo "Mode:           $MODE"
 echo "Database Dir:   $DB_DIR"
 echo "Database Type:  $DB_TYPE ($DB_LABEL)"
+echo "  Orient Ref:   $(basename "$ORIENT_REF")  (GG2, always)"
 echo "  Classifier:   $(basename "$NB_CLASSIFIER")"
-echo "  Ref Seqs:     $(basename "$REF_SEQS")"
-echo "  Ref Tax:      $(basename "$REF_TAX")"
-echo "  SEPP Ref:     $(basename "$SEPP_REF")"
+if [[ "$MODE" == "otu" ]]; then
+    echo "  SEPP Ref:     $(basename "$SEPP_REF")"
+fi
 echo "Confidence:     $CONFIDENCE"
 echo "Input:          $INPUT_DIR"
 echo "Output:         $OUTPUT"
@@ -453,11 +402,10 @@ echo ""
 ################################################################################
 
 # Export environment variables for taxonomy.sh
-export DB_DIR
+export MODE
 export DB_LABEL
 export NB_CLASSIFIER
-export REF_SEQS
-export REF_TAX
+export ORIENT_REF
 export SEPP_REF
 export CONFIDENCE
 export INPUT_DIR
@@ -466,11 +414,6 @@ export cpu=$THREADS
 
 # Redirect ALL temporary-file paths to the output directory so that the
 # pipeline never touches the small /tmp on HPC compute nodes.
-#   TMPDIR / TEMP / TMP  – Python tempfile, C runtime, Java, etc.
-#   QIIME2_CACHE          – QIIME2's own artifact cache (the actual source
-#                           of the "No space left on device" error).
-#   PYTHONWARNINGS        – suppress the seaborn/pandas FutureWarning about
-#                           the deprecated use_inf_as_na option.
 PIPELINE_TMPDIR="${OUTPUT}/.tmpdir"
 mkdir -p "$PIPELINE_TMPDIR"
 export TMPDIR="$PIPELINE_TMPDIR"
@@ -503,9 +446,9 @@ echo ""
 ################################################################################
 
 echo "========================================="
-echo "ggCOMBO COMPLETE"
+echo "AmpliconTAXA COMPLETE"
 echo "Finished: $(date)"
 echo "========================================="
 echo ""
-echo "Results saved in: ${OUTPUT}/final/merged/"
+echo "Results saved in: ${OUTPUT}/final-${MODE}/"
 echo "========================================="

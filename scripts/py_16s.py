@@ -84,6 +84,56 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None,
     return datasets
 
 
+def _normalize_platform(raw):
+    """Map a free-text platform string (from user metadata) to the canonical
+    platform name the pipeline dispatches on. Returns None if unrecognized
+    (caller should then fall back to API detection)."""
+    s = str(raw).strip().upper()
+    if not s or s in ("NAN", "NONE", "NA"):
+        return None
+    if "ILLUMINA" in s:
+        return "ILLUMINA"
+    if "NANOPORE" in s or "OXFORD" in s or s == "ONT":
+        return "OXFORD_NANOPORE"
+    if "PACBIO" in s or "SMRT" in s:
+        return "PACBIO_SMRT"
+    if "ION" in s:                       # Ion Torrent (e.g. "Ion Torrent S5 XL")
+        return "ION_TORRENT"
+    if "454" in s or "LS454" in s:
+        return "LS454"
+    return None
+
+
+def build_platform_cache_from_csv(file_path, Bioproject, SequencingPlatform):
+    """Build a dataset_id<TAB>PLATFORM cache directly from the user metadata CSV's
+    platform column, so platform detection needs no NCBI API call (avoids 429).
+
+    Prints '<bioproject>\\t<CANONICAL_PLATFORM>' for each BioProject whose platform
+    value maps to a known canonical name. BioProjects with missing/unrecognized
+    platform values are omitted (the caller queries the API for those).
+    The BioProject id is whitespace-stripped to match GenerateDatasetsIDsFile.
+    """
+    df = pd.read_csv(file_path)
+    if Bioproject not in df.columns or SequencingPlatform not in df.columns:
+        return
+    df = df[[Bioproject, SequencingPlatform]].dropna(subset=[Bioproject])
+    df[Bioproject] = (
+        df[Bioproject].astype(str)
+        .str.replace(' ', '', regex=True)
+        .str.replace('\n', '', regex=True)
+        .str.replace('\t', '', regex=True)
+    )
+    seen = set()
+    for _, row in df.iterrows():
+        bp = row[Bioproject]
+        if bp in seen:
+            continue
+        plat = _normalize_platform(row[SequencingPlatform])
+        if plat:
+            print(f"{bp}\t{plat}")
+            seen.add(bp)
+
+
 def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_dir=None):
     """
     Generate SRA files for each bioproject
@@ -192,6 +242,13 @@ def mk_manifest_SE(file_path):
         basenames = os.path.basename(row[0])
         path = os.path.dirname(row[0])
         sample = basenames.split('.fastq')[0]
+        # SE reads downloaded as "<bioproject>_<run>_1.fastq" carry a read-pair
+        # suffix (e.g. ONT). Strip a trailing "_1" so the sample-id matches the
+        # "<bioproject>_<run>" name used by Common_CountRawReads / append_summary;
+        # otherwise the OTU-table sample (with _1) never matches the summary's
+        # SampleName (without _1) and FinalReads is mis-reported as 0.
+        if sample.endswith('_1'):
+            sample = sample[:-2]
         df1.loc[i, 'sample-id'] = sample
         df1.loc[i, 'absolute-filepath'] = os.path.join(path, basenames)
 
@@ -508,6 +565,24 @@ def _parse_cncb_platform_response(csv_content, target_run_id=None):
         return None
 
 
+def _configure_entrez():
+    """Configure Biopython Entrez for polite, rate-limit-tolerant NCBI access.
+
+    - NCBI_API_KEY (env): raises the rate limit from 3 to 10 requests/s.
+    - NCBI_EMAIL (env):   identifies the caller to NCBI (recommended).
+    - max_tries/sleep_between_tries: Biopython's built-in retry on transient
+      HTTP errors (complements the explicit 429 backoff in callers).
+    """
+    import os
+    from Bio import Entrez
+    Entrez.email = os.environ.get("NCBI_EMAIL", "your_email@example.com")
+    _key = os.environ.get("NCBI_API_KEY")
+    if _key:
+        Entrez.api_key = _key
+    Entrez.max_tries = 4
+    Entrez.sleep_between_tries = 15
+
+
 def _get_platform_from_ncbi(srr_id):
     """
     Get sequencing platform from NCBI for SRR/ERR/DRR accession
@@ -518,38 +593,55 @@ def _get_platform_from_ncbi(srr_id):
     Returns:
         Platform name or None
     """
+    import os, time
     from Bio import Entrez
     import xml.etree.ElementTree as ET
+    from urllib.error import HTTPError
 
-    Entrez.email = "your_email@example.com"
+    _configure_entrez()
 
-    try:
-        search_handle = Entrez.esearch(db="sra", term=srr_id)
-        search_results = Entrez.read(search_handle)
-        search_handle.close()
+    # NCBI rate-limits to 3 req/s without an API key (10 with one). Under
+    # parallel datasets this fallback can hit HTTP 429; retry with exponential
+    # backoff + jitter instead of failing the whole dataset.
+    max_retries = 5
+    for attempt in range(max_retries):
+        try:
+            search_handle = Entrez.esearch(db="sra", term=srr_id)
+            search_results = Entrez.read(search_handle)
+            search_handle.close()
 
-        if not search_results['IdList']:
-            print(f"Warning: No results found for {srr_id}", file=sys.stderr)
+            if not search_results['IdList']:
+                print(f"Warning: No results found for {srr_id}", file=sys.stderr)
+                return None
+
+            uid = search_results['IdList'][0]
+
+            fetch_handle = Entrez.efetch(db="sra", id=uid, retmode="xml")
+            xml_data = fetch_handle.read()
+            fetch_handle.close()
+
+            root = ET.fromstring(xml_data)
+            platform = root.find('.//PLATFORM')
+
+            if platform is not None and len(platform) > 0:
+                return platform[0].tag
+
+            print(f"Warning: Platform not found in metadata for {srr_id}", file=sys.stderr)
             return None
 
-        uid = search_results['IdList'][0]
-
-        fetch_handle = Entrez.efetch(db="sra", id=uid, retmode="xml")
-        xml_data = fetch_handle.read()
-        fetch_handle.close()
-
-        root = ET.fromstring(xml_data)
-        platform = root.find('.//PLATFORM')
-
-        if platform is not None and len(platform) > 0:
-            return platform[0].tag
-
-        print(f"Warning: Platform not found in metadata for {srr_id}", file=sys.stderr)
-        return None
-
-    except Exception as e:
-        print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
-        return None
+        except HTTPError as e:
+            if e.code == 429 and attempt < max_retries - 1:
+                wait = 3 * (2 ** attempt) + (hash(srr_id) % 5)   # 3-8, 6-11, 12-17, ... s (jittered)
+                print(f"Warning: 429 for {srr_id}, retrying in {wait}s "
+                      f"(attempt {attempt + 1}/{max_retries})", file=sys.stderr)
+                time.sleep(wait)
+                continue
+            print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
+            return None
+        except Exception as e:
+            print(f"Warning: Failed to retrieve platform for {srr_id}: {str(e)}", file=sys.stderr)
+            return None
+    return None
 
 
 def batch_get_sequencing_platforms(pairs_file):
@@ -566,7 +658,7 @@ def batch_get_sequencing_platforms(pairs_file):
     import xml.etree.ElementTree as ET
     import time
 
-    Entrez.email = "your_email@example.com"
+    _configure_entrez()
 
     ncbi_pairs = []   # [(dataset_id, srr_id), ...]
     cncb_pairs = []   # [(dataset_id, srr_id, bioproject_id), ...]
@@ -626,6 +718,94 @@ def batch_get_sequencing_platforms(pairs_file):
             print(f"Warning: No platform found for {srr} ({ds_id})", file=sys.stderr)
         if len(cncb_pairs) > 1:
             time.sleep(2)
+
+
+def detect_length_window(input_dir, tolerance=0.15, floor=200, max_sample_reads=10000):
+    """
+    Auto-detect the amplicon length window for ONT reads via peak finding.
+
+    Amplicon data (16S/ITS/18S, any platform) has a sharp read-length peak at
+    the target amplicon size. This samples reads, builds a length histogram,
+    locates the dominant peak (mode), and returns a window around it:
+        [peak*(1-tolerance), peak*(1+tolerance)]   with a hard lower floor.
+
+    This replaces ONT-AmpSeq's manually-set 1200-1600bp window so the pipeline
+    stays fully automatic and adapts to whatever amplicon a dataset contains.
+
+    Args:
+        input_dir:        Directory with FASTQ files (gzipped or plain).
+        tolerance:        Fractional half-width around the peak (0.15 = +/-15%).
+        floor:            Hard minimum for the lower bound (bp); guards against
+                          short junk reads dragging the window to zero.
+        max_sample_reads: Max reads to sample per file (0 = unlimited).
+
+    Prints machine-readable lines to stdout:
+        LENGTH_LO=<int>
+        LENGTH_HI=<int>
+        PEAK=<int>
+        PEAK_STATUS=<strong|weak>
+    """
+    fq_files = sorted(glob.glob(os.path.join(input_dir, '*.fastq*')))
+    if not fq_files:
+        raise FileNotFoundError(f"No FASTQ files found in {input_dir}")
+
+    BIN = 50  # histogram bin width (bp)
+    lengths = []
+    for fq in fq_files:
+        open_fn = gzip.open if fq.endswith('.gz') else open
+        sampled = 0
+        with open_fn(fq, 'rt') as fh:
+            while max_sample_reads == 0 or sampled < max_sample_reads:
+                header = fh.readline()
+                if not header:
+                    break
+                seq = fh.readline().rstrip('\n')
+                fh.readline()  # +
+                fh.readline()  # qual
+                if not seq:
+                    continue
+                lengths.append(len(seq))
+                sampled += 1
+
+    if not lengths:
+        raise ValueError("No reads found for length window detection")
+
+    arr = np.asarray(lengths, dtype=np.int64)
+    max_len = int(arr.max())
+    hist = np.bincount(arr // BIN, minlength=max(1, max_len // BIN + 1))
+    peak_bin = int(hist.argmax())
+    peak = int(peak_bin * BIN + BIN // 2)  # bin midpoint
+
+    # Peak-dominance check: fraction of reads within the peak bin +/- 1 bin.
+    near = int(hist[max(0, peak_bin - 1):peak_bin + 2].sum())
+    frac = near / len(arr)
+    if frac >= 0.25:
+        status = "strong"
+        center = peak
+    else:
+        # Weak / multi-modal length distribution: fall back to the median for a
+        # robust center rather than trusting a marginal histogram peak.
+        status = "weak"
+        center = int(np.median(arr))
+
+    lo = int(round(center * (1.0 - tolerance)))
+    hi = int(round(center * (1.0 + tolerance)))
+    lo = max(lo, int(floor))
+    if hi <= lo:
+        hi = lo + BIN
+
+    print(f"  Sampled {len(arr)} reads from {len(fq_files)} file(s)", file=sys.stderr)
+    print(f"  Lengths: min={int(arr.min())} median={int(np.median(arr))} "
+          f"max={max_len}", file=sys.stderr)
+    print(f"  Dominant peak ~{peak}bp ({frac * 100:.0f}% of reads near peak, "
+          f"{status})", file=sys.stderr)
+    print(f"  Window: {lo}-{hi}bp (center {center}, tolerance +/-"
+          f"{tolerance * 100:.0f}%, floor {floor})", file=sys.stderr)
+    print(f"LENGTH_LO={lo}")
+    print(f"LENGTH_HI={hi}")
+    print(f"PEAK={peak}")
+    print(f"PEAK_STATUS={status}")
+    return {"length_lo": lo, "length_hi": hi, "peak": peak, "status": status}
 
 
 def adaptive_tail_trim(input_dir, output_dir, max_sample_reads=10000):
@@ -805,18 +985,18 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
         n_reads: Not used (kept for CLI compatibility)
 
     Prints machine-readable lines to stdout:
-        QUALITY_STATUS=normal|degraded
+        QUALITY_STATUS=normal|degraded_binned
         UNIQUE_QUALS=<int>
     """
-    DEGRADED_CUTOFF = 5      # < 5 unique Q chars → degraded
+    DEGRADED_CUTOFF = 5      # < 5 unique Q chars → degraded_binned (compressed/binned Q)
     EARLY_EXIT = 10          # ≥ 10 unique Q chars → certainly normal, stop scanning
 
     fq_files = sorted(glob.glob(os.path.join(fastq_dir, '*.fastq*')))
     if not fq_files:
         print("WARNING: No FASTQ files found, assuming degraded", file=sys.stderr)
-        print("QUALITY_STATUS=degraded")
+        print("QUALITY_STATUS=degraded_binned")
         print("UNIQUE_QUALS=0")
-        return "degraded"
+        return "degraded_binned"
 
     qual_chars = set()
     files_scanned = 0
@@ -841,11 +1021,11 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
 
     if n_unique == 0:
         print("WARNING: No quality data found, assuming degraded", file=sys.stderr)
-        print("QUALITY_STATUS=degraded")
+        print("QUALITY_STATUS=degraded_binned")
         print("UNIQUE_QUALS=0")
-        return "degraded"
+        return "degraded_binned"
 
-    status = "degraded" if n_unique < DEGRADED_CUTOFF else "normal"
+    status = "degraded_binned" if n_unique < DEGRADED_CUTOFF else "normal"
 
     scope = "early-exit" if early_exit else "full scan"
     print(f"  Quality check: {n_unique} unique Q chars across "
@@ -1611,6 +1791,7 @@ if __name__ == "__main__":
         choices=[
             "GenerateSRAsFile",
             "GenerateDatasetsIDsFile",
+            "build_platform_cache_from_csv",
             "subset_meta_for_test",
             "mk_manifest_SE",
             "mk_manifest_PE",
@@ -1618,6 +1799,7 @@ if __name__ == "__main__":
             "get_sequencing_platform",
             "batch_get_sequencing_platforms",
             "adaptive_tail_trim",
+            "detect_length_window",
             "check_quality_diversity",
             "sanitize_fastq",
             "degraded_quality_preprocess",
@@ -1642,6 +1824,10 @@ if __name__ == "__main__":
     parser.add_argument("--output_dir", help="Output directory (for adaptive_tail_trim)")
     parser.add_argument("--max_sample_reads", type=int, default=10000,
                         help="Max reads to sample per file (default: 10000, 0=all)")
+    parser.add_argument("--tolerance", type=float, default=0.15,
+                        help="Length-window half-width fraction around peak (default: 0.15)")
+    parser.add_argument("--floor", type=int, default=200,
+                        help="Hard minimum for the lower length bound in bp (default: 200)")
     parser.add_argument("--dataset_id", help="Dataset/BioProject ID for summary")
     parser.add_argument("--sra_file", help="Path to _sra.txt file")
     parser.add_argument("--raw_counts", help="Path to raw read counts TSV")
@@ -1691,6 +1877,9 @@ if __name__ == "__main__":
     elif args.function == "GenerateSRAsFile":
         GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample, args.OutputDir)
 
+    elif args.function == "build_platform_cache_from_csv":
+        build_platform_cache_from_csv(args.FilePath, args.Bioproject, args.SequencingPlatform)
+
     elif args.function == "subset_meta_for_test":
         result = subset_meta_for_test(args.FilePath, args.Bioproject, args.SRA_Number, args.OutputDir)
         print(result)
@@ -1707,6 +1896,10 @@ if __name__ == "__main__":
 
     elif args.function == "adaptive_tail_trim":
         adaptive_tail_trim(args.input_dir, args.output_dir, args.max_sample_reads)
+
+    elif args.function == "detect_length_window":
+        detect_length_window(args.input_dir, args.tolerance, args.floor,
+                             args.max_sample_reads)
 
     elif args.function == "check_quality_diversity":
         check_quality_diversity(args.input_dir, args.n_samples, args.n_reads)

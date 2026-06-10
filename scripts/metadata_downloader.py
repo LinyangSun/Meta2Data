@@ -1857,6 +1857,213 @@ def merge_all_results(results, output_dir, tmp_dir=None):
 # Main Pipeline
 # ============================================================================
 
+# ============================================================================
+# BioProject-level AI-summary table  (bioproject_absdesc.tsv)
+# One row per BioProject: project Title + Description + linked article abstract.
+# Produced so users can feed compact text to an AI for dataset screening,
+# instead of the wide run-level all_metadata_merged.csv.
+# ============================================================================
+
+def fetch_pubmed_info(pmid):
+    """Fetch {article_title, abstract, doi, pmcid} for a PubMed ID (best-effort)."""
+    from xml.etree import ElementTree as ET
+    if not pmid:
+        return {}
+
+    def _fetch():
+        h = Entrez.efetch(db="pubmed", id=str(pmid), retmode="xml")
+        xml = h.read(); h.close()
+        if isinstance(xml, bytes):
+            xml = xml.decode("utf-8", "replace")
+        root = ET.fromstring(xml)
+        title_el = root.find(".//Article/ArticleTitle")
+        title = "".join(title_el.itertext()).strip() if title_el is not None else ""
+        # Abstract: join (possibly Labeled, multi-section) AbstractText elements
+        parts = []
+        for a in root.findall(".//Article/Abstract/AbstractText"):
+            txt = "".join(a.itertext()).strip()
+            if not txt:
+                continue
+            lab = a.get("Label")
+            parts.append(f"{lab}: {txt}" if lab else txt)
+        abstract = " ".join(parts).strip()
+        # Article-level DOI = first doi in the article's own ArticleIdList
+        # (a deep .//ArticleId search would also catch reference-list DOIs).
+        doi = ""
+        for aid in root.findall("./PubmedArticle/PubmedData/ArticleIdList/ArticleId"):
+            if aid.get("IdType") == "doi" and aid.text:
+                doi = aid.text.strip()
+                break
+        return {"article_title": title, "abstract": abstract, "doi": doi}
+
+    try:
+        info = retry_wrapper(_fetch) or {}
+    except Exception as e:
+        print(f"  [PubMed ERROR] {pmid}: {e}")
+        info = {}
+
+    # PMC id (OA only; usually empty) — separate elink, best-effort
+    info.setdefault("pmcid", "")
+    def _pmc():
+        h = Entrez.elink(dbfrom="pubmed", db="pmc", id=str(pmid))
+        rec = Entrez.read(h); h.close()
+        ids = []
+        for ls in rec:
+            for db in ls.get("LinkSetDb", []):
+                ids += [l["Id"] for l in db.get("Link", [])]
+        return ("PMC" + ids[0]) if ids else ""
+    try:
+        info["pmcid"] = retry_wrapper(_pmc) or ""
+    except Exception:
+        pass
+    time.sleep(DEFAULT_REQUEST_DELAY)
+    return info
+
+
+def fetch_ncbi_bioproject_record(bp_id):
+    """Fetch {title, description, pmids, dois, uid} from the BioProject XML
+    (one efetch; PMIDs from <Publication> are tier-1 of the association)."""
+    from xml.etree import ElementTree as ET
+
+    def _fetch():
+        h = Entrez.esearch(db="bioproject", term=bp_id, retmax=1)
+        r = Entrez.read(h); h.close()
+        ids = r.get("IdList", [])
+        if not ids:
+            return {}
+        time.sleep(DEFAULT_REQUEST_DELAY)
+        h = Entrez.efetch(db="bioproject", id=ids[0], retmode="xml")
+        xml = h.read(); h.close()
+        if isinstance(xml, bytes):
+            xml = xml.decode("utf-8", "replace")
+        root = ET.fromstring(xml)
+        title = ""
+        for xp in [".//ProjectDescr/Title", ".//Project/ProjectDescr/Title"]:
+            el = root.find(xp)
+            if el is not None and el.text:
+                title = el.text.strip(); break
+        desc = ""
+        for xp in [".//ProjectDescr/Description", ".//Project/ProjectDescr/Description"]:
+            el = root.find(xp)
+            if el is not None and el.text:
+                desc = el.text.strip(); break
+        pmids, dois = [], []
+        for pub in root.findall(".//Publication"):
+            pid = (pub.get("id") or "").strip()
+            if not pid:
+                continue
+            if pid.isdigit():
+                pmids.append(pid)
+            else:
+                dois.append(pid)
+        return {"title": title, "description": desc,
+                "pmids": pmids, "dois": dois, "uid": ids[0]}
+
+    try:
+        return retry_wrapper(_fetch) or {}
+    except Exception as e:
+        print(f"  [BioProject ERROR] {bp_id}: {e}")
+        return {}
+
+
+def associate_pmids_ncbi(bp_id, rec):
+    """3-tier BioProject->PMID association. Returns (pmids, source_label):
+      1. <Publication> in the BioProject XML  (most authoritative)
+      2. elink bioproject -> pubmed
+      3. esearch pubmed term=<bp_id>          (loose; 0/1/many)
+    """
+    pmids = [p for p in rec.get("pmids", []) if p]
+    if pmids:
+        return pmids, "bioproject_xml"
+
+    uid = rec.get("uid")
+    if uid:
+        def _elink():
+            h = Entrez.elink(dbfrom="bioproject", db="pubmed", id=str(uid))
+            r = Entrez.read(h); h.close()
+            out = []
+            for ls in r:
+                for db in ls.get("LinkSetDb", []):
+                    out += [l["Id"] for l in db.get("Link", [])]
+            return out
+        try:
+            got = retry_wrapper(_elink) or []
+            time.sleep(DEFAULT_REQUEST_DELAY)
+            if got:
+                return got, "elink_pubmed"
+        except Exception:
+            pass
+
+    def _esearch():
+        h = Entrez.esearch(db="pubmed", term=bp_id, retmax=5)
+        r = Entrez.read(h); h.close()
+        return r.get("IdList", [])
+    try:
+        got = retry_wrapper(_esearch) or []
+        time.sleep(DEFAULT_REQUEST_DELAY)
+        if got:
+            return got, "esearch_pubmed"
+    except Exception:
+        pass
+    return [], ""
+
+
+def build_bioproject_absdesc(bioproject_ids, output_path, max_abstracts=2):
+    """Write bioproject_absdesc.tsv: one row per BioProject with project
+    Title + Description + the abstract(s) of associated article(s)."""
+    import csv as _csv
+    cols = ["Bioproject", "Title", "Description", "PMID", "PMC", "DOI",
+            "ArticleTitle", "ArticleAbstract", "PubSource"]
+    bps = [b for b in dict.fromkeys(str(x).strip() for x in bioproject_ids) if b and b.upper().startswith("PRJ")]
+    print(f"\n[absdesc] Building bioproject_absdesc.tsv for {len(bps)} BioProjects...")
+
+    rows = []
+    for bp in bps:
+        if bp.upper().startswith("PRJCA"):
+            # CNCB: GWH gives a description; reference/publication field is not
+            # exposed by the public API, so leave the article fields empty.
+            rows.append({"Bioproject": bp, "Title": "",
+                         "Description": fetch_cncb_description(bp) or "",
+                         "PMID": "", "PMC": "", "DOI": "", "ArticleTitle": "",
+                         "ArticleAbstract": "", "PubSource": "PRJCA-na"})
+            continue
+        rec = fetch_ncbi_bioproject_record(bp)
+        pmids, src = associate_pmids_ncbi(bp, rec)
+        titles, abstracts, pmcs = [], [], []
+        dois = list(rec.get("dois", []))
+        for pmid in pmids[:max_abstracts]:   # cap abstracts to avoid cell explosion
+            info = fetch_pubmed_info(pmid)
+            if info.get("article_title"):
+                titles.append(info["article_title"])
+            if info.get("abstract"):
+                abstracts.append(info["abstract"])
+            if info.get("pmcid"):
+                pmcs.append(info["pmcid"])
+            if info.get("doi"):
+                dois.append(info["doi"])
+        rows.append({
+            "Bioproject": bp,
+            "Title": rec.get("title", ""),
+            "Description": rec.get("description", ""),
+            "PMID": ";".join(pmids),
+            "PMC": ";".join(pmcs),
+            "DOI": ";".join(dict.fromkeys(d for d in dois if d)),
+            "ArticleTitle": " || ".join(titles),
+            "ArticleAbstract": " || ".join(abstracts),
+            "PubSource": src,
+        })
+
+    out = Path(output_path) / "bioproject_absdesc.tsv"
+    with open(out, "w", newline="", encoding="utf-8") as f:
+        w = _csv.DictWriter(f, fieldnames=cols, delimiter="\t")
+        w.writeheader()
+        for r in rows:
+            w.writerow(r)
+    n_abs = sum(1 for r in rows if r["ArticleAbstract"])
+    print(f"  bioproject_absdesc.tsv: {len(rows)} BioProjects, {n_abs} with article abstract  -> {out}")
+    return out
+
+
 def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=None):
     """Execute unified metadata download pipeline."""
     output_path = Path(output_folder)
@@ -2009,6 +2216,18 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
     # Step 4: Final merge
     print("\n[Step 4] Final merge...")
     final_df = merge_all_results(results, output_path, tmp_dir=tmp_path)
+
+    # Step 4b: BioProject-level AI-summary table (bioproject_absdesc.tsv).
+    # Covers every BioProject in the merged output (direct inputs + those
+    # resolved via BioSample/SRA). Always produced; failures are non-fatal.
+    if final_df is not None and not final_df.empty and 'Bioproject' in final_df.columns:
+        _absdesc_bps = final_df['Bioproject'].dropna().astype(str).unique().tolist()
+    else:
+        _absdesc_bps = bioproject_ids
+    try:
+        build_bioproject_absdesc(_absdesc_bps, output_path)
+    except Exception as e:
+        print(f"  Warning: bioproject_absdesc.tsv generation failed: {e}")
 
     # Summary
     print("\n" + "="*70)

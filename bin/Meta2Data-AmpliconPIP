@@ -49,6 +49,18 @@ Options:
     -m, --metadata FILE       Input metadata CSV file (required; unless --test is used)
     --col-bioproject Chr     Column name for BioProject in metadata (required; unless --test is used)
     --col-sra Chr            Column name for SRA accession in metadata (required; unless --test is used)
+    --col-platform Chr        (Optional) Column name for sequencing platform in metadata.
+                              If given, platform is read from the metadata instead of
+                              queried from NCBI — avoids Entrez 429 rate-limiting.
+                              Recognized values (case-insensitive, substring): Illumina,
+                              454, Ion Torrent, PacBio, Nanopore/ONT. Unrecognized or
+                              missing values fall back to the NCBI/CNCB API.
+    --asv | --otu             Denoising mode (REQUIRED: specify exactly one; no default).
+                              --asv : DADA2 only, single-base ASV resolution.
+                                      Platforms Illumina / Ion Torrent / PacBio CCS;
+                                      454, ONT and degraded/binned quality are skipped.
+                              --otu : vsearch only, 97% genus-level OTU.
+                                      All 5 platforms; robust on mixed / degraded data.
 
 Optional options:
     -o, --output DIR          Output base directory
@@ -87,16 +99,22 @@ Example usage:
     # Custom output directory
     Meta2Data AmpliconPIP -m metadata.csv -o /output/ --col-bioproject Bioproject --col-sra Run -t 8
 
+    # ASV mode (DADA2) — explicit mode is required
+    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --asv -t 8
+
+    # OTU mode (vsearch 97%, genus level)
+    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --otu -t 8
+
     # Then assign taxonomy separately (recommended)
-    Meta2Data ggCOMBO --db /path/to/gg2db -i /output/ -t 8
+    Meta2Data AmpliconTAXA --db /path/to/gg2db -i /output/ -t 8
 
 Output structure:
     <output_dir>/
     ├── datasets_ID.txt              # Generated dataset list
     ├── <dataset_ID>/                # One directory per dataset
     │   ├── <dataset_ID>_sra.txt     # SRA accession list
-    │   ├── <dataset_ID>-final-rep-seqs.qza  # Final sequences
-    │   └── <dataset_ID>-final-table.qza     # Final feature table
+    │   ├── <dataset_ID>-<mode>-final-rep-seqs.qza  # Final sequences (mode=asv|otu)
+    │   └── <dataset_ID>-<mode>-final-table.qza     # Final feature table
     ├── failed_datasets.log
     ├── success_datasets.log
     └── skipped_datasets.log
@@ -109,15 +127,33 @@ OUTPUT=""
 THREADS=12
 MAX_PARALLEL=2
 TEST_MODE=false
+MODE=""
 
 COL_BIOPROJECT=""
 COL_SRA=""
+COL_PLATFORM=""
 
 while [[ $# -gt 0 ]]; do
     case $1 in
         -m|--metadata)
             METADATA="$2"
             shift 2
+            ;;
+        --asv)
+            if [[ -n "$MODE" ]]; then
+                echo "Error: --asv and --otu are mutually exclusive; specify exactly one"
+                exit 1
+            fi
+            MODE="asv"
+            shift
+            ;;
+        --otu)
+            if [[ -n "$MODE" ]]; then
+                echo "Error: --asv and --otu are mutually exclusive; specify exactly one"
+                exit 1
+            fi
+            MODE="otu"
+            shift
             ;;
         -o|--output)
             OUTPUT="$2"
@@ -141,6 +177,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --col-sra)
             COL_SRA="$2"
+            shift 2
+            ;;
+        --col-platform)
+            COL_PLATFORM="$2"
             shift 2
             ;;
         -h|--help)
@@ -274,6 +314,15 @@ if [[ -z "$COL_SRA" ]]; then
     exit 1
 fi
 
+# Denoising mode is mandatory: exactly one of --asv / --otu, no default.
+# (Replaces the old auto-mix-by-platform behaviour, which silently mixed
+#  ASV and OTU results within a run and was a hidden batch-effect risk.)
+if [[ -z "$MODE" ]]; then
+    echo "Error: a denoising mode is required — specify exactly one of --asv or --otu"
+    show_help
+    exit 1
+fi
+
 # Check if metadata file exists
 if [[ ! -f "$METADATA" ]]; then
     echo "Error: Metadata file '$METADATA' not found"
@@ -318,6 +367,7 @@ echo "========================================="
 echo "Metadata:       $METADATA"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
+echo "Mode:           $MODE"
 echo "BioProject Col: $COL_BIOPROJECT"
 echo "SRA Col:        $COL_SRA"
 echo "========================================="
@@ -358,7 +408,9 @@ if ! bash "${SCRIPTS}/run.sh" \
     -t "$THREADS" \
     --max-parallel "$MAX_PARALLEL" \
     --col-bioproject "$COL_BIOPROJECT" \
-    --col-sra "$COL_SRA"; then
+    --col-sra "$COL_SRA" \
+    --col-platform "$COL_PLATFORM" \
+    --mode "$MODE"; then
     echo "❌ ERROR: Amplicon processing pipeline failed"
     echo "Check logs in: $OUTPUT"
     echo "QIIME2 tmpdir preserved for debugging: $PIPELINE_TMPDIR"
@@ -402,5 +454,5 @@ fi
 
 echo ""
 echo "Results saved in: $OUTPUT"
-echo "To assign taxonomy, run: Meta2Data ggCOMBO --db <gg2db> -i $OUTPUT"
+echo "To assign taxonomy, run: Meta2Data AmpliconTAXA --db <gg2db> -i $OUTPUT"
 echo "========================================="
