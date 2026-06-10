@@ -27,7 +27,7 @@ meta2data_ensure_python_deps || exit 1
 
 show_help() {
     cat << EOF
-Usage: Meta2Data MetaDL-v2 [options]
+Usage: Meta2Data MetaDL [options]
 
 Enhanced metadata download pipeline with parallel processing and checkpoints.
 Downloads metadata from both NCBI and CNCB/GSA for ALL BioProjects.
@@ -94,25 +94,25 @@ Output Files:
 Examples:
 
     # Mode 1: BioProject ID input (basic)
-    Meta2Data MetaDL-v2 \\
+    Meta2Data MetaDL \\
         -i bioproject_ids/ \\
         -o metadata_output/
 
     # Mode 1: With NCBI API key (faster)
-    Meta2Data MetaDL-v2 \\
+    Meta2Data MetaDL \\
         -i bioproject_ids/ \\
         -o metadata_output/ \\
         -k YOUR_NCBI_API_KEY
 
     # Mode 2: Keyword search
-    Meta2Data MetaDL-v2 \\
+    Meta2Data MetaDL \\
         -o metadata_output/ \\
         --keywords \\
         --field "16S rRNA" "amplicon" \\
         --organism "gut microbiome" "soil bacteria"
 
     # Mode 2: Keyword search with optional terms
-    Meta2Data MetaDL-v2 \\
+    Meta2Data MetaDL \\
         -o metadata_output/ \\
         --keywords \\
         --field "metagenome" \\

@@ -87,11 +87,11 @@ Example CSV:
     PRJNA12345,SRR123457
 
 Example usage:
-    # Test mode (built-in test data)
-    Meta2Data AmpliconPIP --test -t 8
+    # Test mode (built-in test data) — a denoising mode is still required
+    Meta2Data AmpliconPIP --test --otu -t 8
 
     # Test mode (with user metadata: 2 SRA per BioProject)
-    Meta2Data AmpliconPIP --test -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
+    Meta2Data AmpliconPIP --test --otu -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
 
     # Basic usage
     Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
@@ -105,8 +105,8 @@ Example usage:
     # OTU mode (vsearch 97%, genus level)
     Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --otu -t 8
 
-    # Then assign taxonomy separately (recommended)
-    Meta2Data AmpliconTAXA --db /path/to/gg2db -i /output/ -t 8
+    # Then assign taxonomy separately (recommended) — mode must match the PIP run
+    Meta2Data AmpliconTAXA --otu --db /path/to/gg2db -i /output/ -t 8
 
 Output structure:
     <output_dir>/
@@ -454,5 +454,5 @@ fi
 
 echo ""
 echo "Results saved in: $OUTPUT"
-echo "To assign taxonomy, run: Meta2Data AmpliconTAXA --db <gg2db> -i $OUTPUT"
+echo "To assign taxonomy, run: Meta2Data AmpliconTAXA --$MODE --db <gg2db> -i $OUTPUT"
 echo "========================================="
