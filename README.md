@@ -12,10 +12,11 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 ## Features
 
 - **Metadata Download and Pre-clean**: (MetaDL module) Search, download, and pre-clean metadata from NCBI and CNCB databases by keywords, BioProject ID, or BioSample ID. Auto-fetches BioProject descriptions and standardizes column names.
-- **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms (ONT not supported).
+- **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, 454, and Oxford Nanopore (ONT) sequencing platforms. The platform can also be read directly from a metadata column (`--col-platform`) to avoid NCBI Entrez rate-limiting.
+- **ASV / OTU Dual Mode**: (AmpliconPIP module) Choose the denoising strategy with a required `--asv` / `--otu` flag. `--asv` runs DADA2 for single-base ASV resolution (Illumina / Ion Torrent / PacBio CCS); `--otu` runs vsearch for 97% genus-level OTUs and is robust on all 5 platforms, including degraded / binned-quality and ONT data.
 - **Smart Primer Detection**: (AmpliconPIP module) Automatic primer detection and trimming for amplicon data (no need provide primer detail).
 - **QIIME2 Integration**: (AmpliconPIP module) Integration with QIIME2 2024.10 for downstream analysis.
-- **Taxonomy Assignment**: (AmpliconTAXA module) Taxonomy classification (GreenGenes2 and SILVA supported) and phylogenetic tree generation, in ASV or OTU mode.
+- **Taxonomy Assignment**: (AmpliconTAXA module) Taxonomy classification (GreenGenes2 and SILVA supported) and phylogenetic tree generation, in ASV or OTU mode (must match the mode used in AmpliconPIP).
 - **OS**: Only for linux.
 - **Others**: Parallel task supported for AmpliconPIP.
 
@@ -157,8 +158,20 @@ Required (unless --test is used):
     -m, --metadata FILE           Input metadata CSV file
     --col-bioproject NAME         Column name for BioProject in CSV
     --col-sra NAME                Column name for SRA accession in CSV
+    --asv | --otu                 Denoising mode (REQUIRED: specify exactly one; no default)
+                                  --asv : DADA2, single-base ASV resolution.
+                                          Platforms Illumina / Ion Torrent / PacBio CCS;
+                                          454, ONT and degraded/binned quality are skipped.
+                                  --otu : vsearch, 97% genus-level OTU.
+                                          All 5 platforms; robust on mixed / degraded data.
 
 Optional:
+    --col-platform NAME           Column name for sequencing platform in CSV.
+                                  If given, the platform is read from the metadata instead of
+                                  queried from NCBI — avoids Entrez 429 rate-limiting.
+                                  Recognized values (case-insensitive, substring): Illumina,
+                                  454, Ion Torrent, PacBio, Nanopore/ONT. Unrecognized or
+                                  missing values fall back to the NCBI/CNCB API.
     -o, --output DIR              Output directory
                                   Default: current directory (--test) / metadata dir (normal)
     -t, --threads INT             Total CPU threads (default: 4)
@@ -170,6 +183,8 @@ Optional:
     -h, --help                    Show help
 ```
 
+> **Note:** A denoising mode (`--asv` or `--otu`) is mandatory and the two are mutually exclusive — there is no default. This replaces the previous auto-mix-by-platform behaviour, which silently combined ASV and OTU results within a single run (a hidden batch-effect risk). The mode you choose here **must** match the `--asv` / `--otu` mode you later pass to AmpliconTAXA.
+
 **Metadata CSV format** (column names customizable via `--col-*`):
 ```csv
 Bioproject,Run
@@ -180,25 +195,27 @@ PRJNA67890,SRR234567
 
 **Processing pipeline:**
 1. Download SRA data (via Aspera/FTP)
-2. Detect sequencing platform (Illumina, PacBio, Ion Torrent, 454) and layout (single/paired-end)
+2. Detect sequencing platform (Illumina, PacBio, Ion Torrent, 454, ONT) and layout (single/paired-end) — or read it from `--col-platform`
 3. Quality control
 4. Identify and trim primers
-5. Platform-specific processing (DADA2 denoising for Illumina/Ion Torrent/PacBio, Vsearch for 454)
+5. Mode-specific denoising:
+   - `--asv`: DADA2 (Illumina / Ion Torrent / PacBio CCS); 454, ONT and degraded/binned-quality data are skipped
+   - `--otu`: vsearch 97% OTU clustering (all 5 platforms, robust on degraded/binned-quality and ONT data)
 6. Generate QIIME2 artifacts (`.qza` files)
 
-**Output structure:**
+**Output structure** (`<mode>` = `asv` | `otu`):
 ```
 <output_dir>/
-├── datasets_ID.txt                    # Generated dataset list
-├── <dataset_ID>/                      # One directory per dataset
-│   ├── <dataset_ID>_sra.txt          # SRA accession list
-│   ├── ori_fastq/                     # Downloaded FASTQ files
-│   ├── <dataset_ID>-final-rep-seqs.qza
-│   └── <dataset_ID>-final-table.qza
+├── datasets_ID.txt                            # Generated dataset list
+├── <dataset_ID>/                              # One directory per dataset
+│   ├── <dataset_ID>_sra.txt                  # SRA accession list
+│   ├── ori_fastq/                             # Downloaded FASTQ files
+│   ├── <dataset_ID>-<mode>-final-rep-seqs.qza
+│   └── <dataset_ID>-<mode>-final-table.qza
 ├── failed_datasets.log
 ├── success_datasets.log
 ├── skipped_datasets.log
-└── summary.csv                        # Sequencing depth for raw reads / final data
+└── summary.csv                                # Sequencing depth for raw reads / final data
 ```
 
 ---
@@ -296,6 +313,18 @@ Meta2Data AmpliconPIP \
     -m my_samples.csv \ # your metadata.csv
     --col-bioproject "ProjectID" \ # column name for bioproject
     --col-sra "SRA_Accession" \ # column name for sra run (the sra normally start with SRR, ERR, DRR OR CRR)
+    --otu \ # denoising mode is REQUIRED: --asv (DADA2) or --otu (vsearch 97%)
+    -o amplicon_output/ \
+    -t 8
+
+# Optional: read the platform from a metadata column instead of querying NCBI
+# (avoids Entrez 429 rate-limiting on large runs)
+Meta2Data AmpliconPIP \
+    -m my_samples.csv \
+    --col-bioproject "ProjectID" \
+    --col-sra "SRA_Accession" \
+    --col-platform "Platform" \
+    --otu \
     -o amplicon_output/ \
     -t 8
 ```
@@ -348,13 +377,15 @@ conda activate qiime2-amplicon-2024.10
 # Use built-in test data (fastest way to verify installation).
 # The dependency check runs first; if everything is satisfied you'll see
 # `[check] All dependencies satisfied.` before the test pipeline starts.
-Meta2Data AmpliconPIP --test -t 8
+# A denoising mode is still required, even in test mode.
+Meta2Data AmpliconPIP --test --otu -t 8
 
 # Or test with your own metadata (subsets to 2 SRA per BioProject)
 Meta2Data AmpliconPIP --test \
     -m path/to/your/metafile/metadata.csv \
     --col-bioproject Bioproject \
     --col-sra Run \
+    --otu \
     -o test_output/ \
     -t 8
 
