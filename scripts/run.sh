@@ -46,6 +46,8 @@ THREADS=4
 MAX_PARALLEL=2
 COL_BIOPROJECT="Data-Bioproject"
 COL_SRA="Data-SRA"
+COL_PLATFORM=""
+MODE=""
 
 ################################################################################
 #                          ARGUMENT PARSING                                    #
@@ -59,6 +61,8 @@ while [[ $# -gt 0 ]]; do
         --max-parallel) MAX_PARALLEL="$2"; shift 2 ;;
         --col-bioproject) COL_BIOPROJECT="$2"; shift 2 ;;
         --col-sra) COL_SRA="$2"; shift 2 ;;
+        --col-platform) COL_PLATFORM="$2"; shift 2 ;;
+        --mode) MODE="$2"; shift 2 ;;
         -h|--help) show_help; exit 0 ;;
         *) echo "Error: Unknown option '$1'"; show_help; exit 1 ;;
     esac
@@ -75,6 +79,15 @@ if ! [[ "$MAX_PARALLEL" =~ ^[1-9][0-9]*$ ]]; then
     echo "Error: --max-parallel must be a positive integer, got '$MAX_PARALLEL'"
     exit 1
 fi
+
+# Validate denoising mode (mandatory; normally enforced by the bin wrapper,
+# re-checked here so run.sh is safe to call directly). asv = DADA2 only,
+# otu = vsearch only — no default, no auto-mix.
+case "$MODE" in
+    asv|otu) ;;
+    *) echo "Error: --mode must be 'asv' or 'otu', got '$MODE'"; exit 1 ;;
+esac
+export MODE
 
 # Strip trailing slashes from paths
 METADATA="${METADATA%/}"
@@ -167,14 +180,31 @@ echo "========================================="
 
 export PLATFORM_CACHE_FILE="${OUTPUT}/.platform_cache.txt"
 _pairs_file="${OUTPUT}/.platform_query_pairs.txt"
+: > "$PLATFORM_CACHE_FILE"
 : > "$_pairs_file"
 
-# Collect dataset_id<TAB>first_srr[<TAB>bioproject_id] for each unprocessed dataset
+# Step 1: if the user gave a platform column, populate the cache straight from
+# the metadata — no NCBI API call (sidesteps Entrez 429 rate-limiting entirely).
+if [[ -n "$COL_PLATFORM" ]]; then
+    echo "  Using platform column '${COL_PLATFORM}' from metadata (no API query)..."
+    python "${SCRIPTS}/py_16s.py" build_platform_cache_from_csv \
+        --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" \
+        --SequencingPlatform "$COL_PLATFORM" >> "$PLATFORM_CACHE_FILE" 2>/dev/null || true
+    echo "  Got $(wc -l < "$PLATFORM_CACHE_FILE" | tr -d ' ') platform(s) from metadata"
+fi
+
+# Step 2: collect dataset_id<TAB>first_srr[<TAB>bioproject_id] for datasets that
+# still lack a platform (not processed, and not already resolved from the CSV).
 for _ds_id in "${Dataset_ID_sets[@]}"; do
     _ds_path="${OUTPUT}/${_ds_id}"
 
-    # Skip already processed
-    [[ -f "${_ds_path}/${_ds_id}-final-rep-seqs.qza" ]] && continue
+    # Skip already processed (mode-specific: an asv run does not block a later otu run)
+    [[ -f "${_ds_path}/${_ds_id}-${MODE}-final-rep-seqs.qza" ]] && continue
+
+    # Skip if already resolved from the metadata platform column
+    if awk -v id="$_ds_id" '$1==id{f=1} END{exit !f}' "$PLATFORM_CACHE_FILE"; then
+        continue
+    fi
 
     _sra_file="${_ds_path}/${_ds_id}_sra.txt"
     if [[ ! -f "$_sra_file" ]]; then
@@ -191,13 +221,12 @@ for _ds_id in "${Dataset_ID_sets[@]}"; do
     fi
 done
 
-# Single Python call: batch Entrez for NCBI, serial for CNCB
-: > "$PLATFORM_CACHE_FILE"
+# Single Python call for the remainder: batch Entrez for NCBI, serial for CNCB
 if [[ -s "$_pairs_file" ]]; then
     _n_queries=$(wc -l < "$_pairs_file" | tr -d ' ')
-    echo "  Querying platforms for ${_n_queries} datasets..."
-    python "${SCRIPTS}/py_16s.py" batch_get_sequencing_platforms --pairs_file "$_pairs_file" > "$PLATFORM_CACHE_FILE"
-    echo "  Resolved $(wc -l < "$PLATFORM_CACHE_FILE" | tr -d ' ')/${_n_queries} datasets"
+    echo "  Querying NCBI/CNCB for ${_n_queries} dataset(s) without a metadata platform..."
+    python "${SCRIPTS}/py_16s.py" batch_get_sequencing_platforms --pairs_file "$_pairs_file" >> "$PLATFORM_CACHE_FILE"
+    echo "  Platform cache now has $(wc -l < "$PLATFORM_CACHE_FILE" | tr -d ' ') entries"
 fi
 
 rm -f "$_pairs_file"
@@ -240,8 +269,8 @@ for i in "${!Dataset_ID_sets[@]}"; do
     echo "Dataset $((i+1))/${#Dataset_ID_sets[@]}: $dataset_ID"
     echo "  Log: logs/${dataset_ID}.log"
 
-    # Check if already processed
-    if [ -f "${dataset_path}/${dataset_ID}-final-rep-seqs.qza" ]; then
+    # Check if already processed (mode-specific name)
+    if [ -f "${dataset_path}/${dataset_ID}-${MODE}-final-rep-seqs.qza" ]; then
         echo "✓ Already processed. Skipping."
         echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - ALREADY_DONE" >> "$skipped_log"
         continue
@@ -331,6 +360,18 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # Read cached quality status or re-check
                 if [[ -f "$quality_cache" ]]; then
                     quality_status=$(cat "$quality_cache")
+                    # Migrate pre-A3b cache value ("degraded" -> "degraded_binned").
+                    [[ "$quality_status" == "degraded" ]] && quality_status="degraded_binned"
+                    # Re-test if the cached token is stale/invalid (the only valid
+                    # tokens are normal | degraded_binned). Prevents a stale value
+                    # from mis-routing the asv skip / otu preprocess branches.
+                    if [[ "$quality_status" != "normal" && "$quality_status" != "degraded_binned" ]]; then
+                        echo ">>> Quality cache stale/invalid ('$quality_status'); re-testing..."
+                        quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
+                            --input_dir "$fastp_path" --n_samples 3 --n_reads 1000)
+                        quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
+                    fi
+                    echo "$quality_status" > "$quality_cache"
                     echo "Quality status (cached): $quality_status"
                 else
                     echo ">>> Checking quality score diversity..."
@@ -351,9 +392,59 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # ── Step A: Download ──
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
-                    echo "Error: Download failed for dataset $dataset_ID" >&2
-                    exit 1
+                if [[ "$MODE" == "asv" ]]; then
+                    # ── Early quality probe (asv only) ──
+                    # asv skips degraded/binned-quality data. Quality (Q-score
+                    # binning) is a dataset-wide property, so probe the first 2
+                    # samples first; if binned, skip BEFORE downloading the rest
+                    # (avoids fetching a large dataset just to drop it). Probe
+                    # goes to a separate dir; on proceed it is folded into
+                    # ori_fastq AFTER the rest downloads (so a NCBI-fallback wipe
+                    # in the rest download can't clobber it).
+                    probe_base="${dataset_path}/tmp/quality_probe"
+                    rm -rf "$probe_base"; mkdir -p "$probe_base"
+                    head -n 2 "${dataset_path}/${sra_file_name}" > "${probe_base}/probe_sra.txt"
+                    if ! Common_SRADownloadToFastq_MultiSource -d "$probe_base" -a "probe_sra.txt" -b "$dataset_ID"; then
+                        echo "Error: probe download failed for dataset $dataset_ID" >&2
+                        exit 1
+                    fi
+                    echo ">>> Checking quality score diversity (early probe, first 2 samples)..."
+                    quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
+                        --input_dir "${probe_base}/ori_fastq" --n_samples 2 --n_reads 1000)
+                    quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
+                    echo "$quality_status" > "$quality_cache"
+                    echo "Quality status (early probe): $quality_status"
+
+                    if [[ "$quality_status" == "degraded_binned" ]]; then
+                        echo ">>> SKIP: degraded/binned quality is incompatible with --asv (DADA2)."
+                        echo ">>>       Skipped before downloading the rest of the dataset."
+                        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - asv mode, quality=degraded_binned (early probe)" >> "$skipped_log"
+                        echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (asv + degraded_binned, early)" >&3
+                        rm -rf "$probe_base"
+                        exit 0
+                    fi
+
+                    # Normal quality → download the remaining samples (lines 3..N)
+                    tail -n +3 "${dataset_path}/${sra_file_name}" > "${dataset_path}/.rest_sra.txt"
+                    if [[ -s "${dataset_path}/.rest_sra.txt" ]]; then
+                        if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a ".rest_sra.txt" -b "$dataset_ID"; then
+                            echo "Error: Download failed for dataset $dataset_ID" >&2
+                            exit 1
+                        fi
+                    fi
+                    # Fold the probe samples into ori_fastq (after the rest download)
+                    mkdir -p "$ori_fastq_path"
+                    if compgen -G "${probe_base}/ori_fastq/*" > /dev/null 2>&1; then
+                        mv "${probe_base}/ori_fastq/"* "$ori_fastq_path/"
+                    fi
+                    rm -rf "$probe_base" "${dataset_path}/.rest_sra.txt"
+                else
+                    # otu mode: no early skip (quality only selects maxee vs
+                    # truncation later), so download everything up front.
+                    if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
+                        echo "Error: Download failed for dataset $dataset_ID" >&2
+                        exit 1
+                    fi
                 fi
 
                 # Count raw reads before any processing
@@ -444,12 +535,16 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 original_sequence_type="$sequence_type"
 
                 # ── Quality Score Diversity Check (first 3 samples) ──
-                echo ">>> Checking quality score diversity..."
-                quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
-                    --input_dir "$ori_fastq_path" --n_samples 3 --n_reads 1000)
-                quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
-                echo "$quality_status" > "$quality_cache"
-                echo "Quality status: $quality_status"
+                # asv already determined quality from the early probe above; only
+                # otu needs it here (to pick maxee vs truncation preprocess).
+                if [[ "$MODE" != "asv" ]]; then
+                    echo ">>> Checking quality score diversity..."
+                    quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
+                        --input_dir "$ori_fastq_path" --n_samples 3 --n_reads 1000)
+                    quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
+                    echo "$quality_status" > "$quality_cache"
+                    echo "Quality status: $quality_status"
+                fi
 
                 # ── Step B: Remove sequencing adapters with fastp ──
                 adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
@@ -514,79 +609,25 @@ for i in "${!Dataset_ID_sets[@]}"; do
             echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
             _proc_start=$_now
 
-            if [[ "$quality_status" == "degraded" ]]; then
-                # ── Degraded Quality Branch: VSEARCH pipeline ──
-                # Quality scores are binned/unreliable → DADA2 cannot learn error model
-                echo ">>> DEGRADED quality scores. Using VSEARCH pipeline..."
-
-                degraded_path="${dataset_path}/tmp/step_02c_degraded_preprocess"
-
-                # ── Resume checkpoint: check if degraded preprocess is already done ──
-                n_degraded_fq=0
-                if [[ -d "$degraded_path" ]]; then
-                    n_degraded_fq=$(find "$degraded_path" -type f -name '*.fastq*' | wc -l)
-                fi
-
-                if [[ "$n_degraded_fq" -gt 0 ]] && [[ "$n_degraded_fq" -eq "$n_srr" ]]; then
-                    # Degraded preprocess already done — resume from manifest
-                    echo ">>> Resuming: found $n_degraded_fq degraded-preprocessed files for $n_srr SRR accessions"
-                    # Clean only downstream directories
-                    rm -rf "${dataset_path}/tmp/step_06_vsearch_cli"
-                    rm -rf "${dataset_path}/tmp/step_07_cluster"
-                    rm -rf "${dataset_path}/tmp/temp_file"
-                else
-                    # Run degraded preprocess from fastp data
-                    # Trim 15bp from 5' end + truncate to fixed length (auto-detect)
-                    # + N filter (>1 → discard). PE → forward reads only.
-                    rm -rf "$degraded_path"
-                    mkdir -p "$degraded_path"
-                    python3 "${SCRIPTS}/py_16s.py" degraded_quality_preprocess \
-                        --input_dir "$fastp_path" \
-                        --output_dir "$degraded_path" \
-                        --trim_front 15 --truncate_length 0 \
-                        --max_n 1 --min_length 50 \
-                        --sequence_type "$sequence_type" \
-                        --threads "$THREADS_PER_DATASET"
-                fi
-
-                # Force SE mode (PE already extracted forward reads only)
-                sequence_type="single"
-                fastq_path="$degraded_path"
-                export fastq_path sequence_type
-
-                # ── Manifest (needed for relabel_reads_for_mapping + import) ──
-                Amplicon_Common_MakeManifestFileForQiime2
-
-                # ── Direct vsearch pipeline (bypasses QIIME2 intermediate steps) ──
-                # Replaces: ImportFastq → QualityControl → Deduplication → ExportForVsearch
-                # Quality/length/N filtering already done in degraded_quality_preprocess
-                Amplicon_DegradedQ_DirectDerep
-
-                # ── Sanity check: abort early on untrustworthy single-sample data ──
-                # Single sample + ~100% singleton reads = no abundance signal for
-                # UNOISE3 and no cross-sample replication. Skip rather than produce
-                # an empty/misleading downstream table.
-                if ! Amplicon_DegradedQ_AbundanceSanityCheck "$n_srr"; then
-                    untrust_marker="${dataset_path}/${dataset_ID}-UNTRUSTABLE.txt"
-                    {
-                        echo "Dataset:           ${dataset_ID}"
-                        echo "Reason:            single sample with >=95% singleton reads"
-                        echo "Samples:           ${n_srr}"
-                        echo "Input reads:       ${DEREP_INPUT_READS}"
-                        echo "Unique sequences:  ${DEREP_UNIQUE_SEQS}"
-                        echo "Detected at:      $(date '+%Y-%m-%d %H:%M:%S')"
-                    } > "$untrust_marker"
-                    echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - UNTRUSTABLE - 1 sample, ${DEREP_UNIQUE_SEQS}/${DEREP_INPUT_READS} unique" >> "$low_quality_log"
-                    exit 99
-                fi
-
-                Amplicon_DegradedQ_VsearchDenoise
-                Amplicon_DegradedQ_MapReadsToZotus
-                Amplicon_DegradedQ_ImportResults
-
-                # ── QIIME2: filter + cleanup ──
-                Amplicon_LS454_FilterLowFreqOTUs
-                Amplicon_Common_FinalFilesCleaning
+            if [[ "$MODE" == "otu" ]]; then
+                # ── OTU mode: merge+maxee (normal) / forward-only truncation
+                #    (binned) preprocess, then the shared pooled vsearch chain. ──
+                Amplicon_Illumina_OTU_Preprocess
+                OTU_STRAND="plus"; export OTU_STRAND   # Illumina short reads: plus only
+                Amplicon_OTU_RunPooledChain
+            elif [[ "$quality_status" == "degraded_binned" ]]; then
+                # ── asv mode: degraded/binned quality is incompatible with DADA2 ──
+                # DADA2's error model needs reliable per-base quality scores; binned
+                # quality (NovaSeq/HiSeq Q-score compression, re-uploaded data) breaks
+                # it. Per the OTU/ASV split contract, --asv NEVER reroutes to vsearch —
+                # such datasets are skipped here and belong to --otu instead.
+                # (The previous vsearch orchestration for this case is preserved in
+                #  AmpliconPIP_OTU_ASV_changelist.md Appendix A for the OTU back-end.)
+                echo ">>> SKIP: degraded/binned quality is incompatible with --asv (DADA2)."
+                echo ">>>       Use --otu for this dataset (vsearch handles binned quality)."
+                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - asv mode, quality=degraded_binned" >> "$skipped_log"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (asv + degraded_binned)" >&3
+                exit 0
             else
                 # ── Normal Branch: DADA2 pipeline ──
                 # Quality-filter is skipped for Illumina — DADA2's error model
@@ -670,8 +711,8 @@ with open(manifest_path, 'w') as f:
                     # Copy final outputs but preserve intermediate files for debugging
                     local _denoise="${dataset_path}/tmp/step_05_denoise"
                     if [[ -f "${_denoise}/${dataset_ID}-table-denoising.qza" ]]; then
-                        cp "${_denoise}/${dataset_ID}-rep-seqs-denoising.qza" "${dataset_path}/${dataset_ID}-final-rep-seqs.qza"
-                        cp "${_denoise}/${dataset_ID}-table-denoising.qza" "${dataset_path}/${dataset_ID}-final-table.qza"
+                        cp "${_denoise}/${dataset_ID}-rep-seqs-denoising.qza" "${dataset_path}/${dataset_ID}-${MODE}-final-rep-seqs.qza"
+                        cp "${_denoise}/${dataset_ID}-table-denoising.qza" "${dataset_path}/${dataset_ID}-${MODE}-final-table.qza"
                     fi
                     echo "  [LOW_QUALITY] Intermediate files preserved in: ${dataset_path}/tmp/"
                 else
@@ -680,6 +721,13 @@ with open(manifest_path, 'w') as f:
             fi
 
         elif [[ "$platform" == "LS454" ]]; then
+            if [[ "$MODE" == "asv" ]]; then
+                # 454 has no DADA2 method → cannot produce ASVs. Skip (belongs to --otu).
+                echo ">>> SKIP: LS454 (454) has no DADA2 method → not supported in --asv. Use --otu."
+                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - asv mode, platform=LS454" >> "$skipped_log"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (asv: 454 unsupported)" >&3
+                exit 0
+            fi
             fastp_path="${dataset_path}/tmp/step_02_fastp"
             n_srr=$(wc -l < "${sra_file_name}" | tr -d ' ')
 
@@ -765,18 +813,19 @@ with open(manifest_path, 'w') as f:
             # Clean up pre-trim FASTQ
             rm -rf "$fastp_path"
 
-            # ── Step E: QIIME2 Import → Length filter → Dedup → Chimera → OTU 97% → Filter low-freq OTUs ──
+            # ── OTU back-end (unified pooled vsearch chain) ──
+            # 454 is OTU-only (no DADA2 method). §4.x (user-accepted) behaviour
+            # change: the old QIIME2 dedup→chimera→cluster path is replaced by the
+            # shared UNOISE3 → cluster_fast 97% → map-back chain. Abundance now
+            # comes from read map-back (not cluster size), with added UNOISE3
+            # denoising. NOTE for review: the old LS454_QualityControlForQZA
+            # q-score/length filter is dropped; adaptive_tail_trim handles the
+            # 3' N-tail but there is no explicit quality (maxee) filter for 454.
             fastq_path="$adaptive_trim_path"
             export fastq_path
-            Common_SanitizeFastq
-            Amplicon_Common_MakeManifestFileForQiime2
-            Amplicon_Common_ImportFastqToQiime2
-            Amplicon_LS454_QualityControlForQZA
-            Amplicon_LS454_Deduplication
-            Amplicon_LS454_ChimerasRemoval
-            Amplicon_LS454_ClusterDenovo
-            Amplicon_LS454_FilterLowFreqOTUs
-            Amplicon_Common_FinalFilesCleaning
+            sequence_type="single"; export sequence_type
+            OTU_STRAND="plus"; export OTU_STRAND
+            Amplicon_OTU_RunPooledChain
 
         elif [[ "$platform" == "ION_TORRENT" ]]; then
             fastp_path="${dataset_path}/tmp/step_02_fastp"
@@ -836,24 +885,128 @@ with open(manifest_path, 'w') as f:
             echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
             _proc_start=$_now
 
-            # ── Step D: QIIME2 Import → Quality filter → DADA2 denoise-pyro ──
-            # Ion Torrent signal instability in the first ~10bp is handled by
-            # DADA2 denoise-pyro --p-trim-left 10 (passed via -s 10).
-            # trunc-len is computed automatically from QC visualization.
-            fastq_path="$fastp_path"
-            export fastq_path
-            Common_SanitizeFastq
-            Amplicon_Common_MakeManifestFileForQiime2
-            Amplicon_Common_ImportFastqToQiime2
-            Amplicon_IonTorrent_QualityControlForQZA
-            Amplicon_Illumina_DenosingDada2 -s 10
-            Amplicon_Common_FinalFilesCleaning
+            if [[ "$MODE" == "otu" ]]; then
+                # ── OTU: strip 5' 10bp + maxee → shared pooled vsearch chain ──
+                Amplicon_IonTorrent_OTU_Preprocess
+                OTU_STRAND="plus"; export OTU_STRAND
+                Amplicon_OTU_RunPooledChain
+            else
+                # ── ASV: QIIME2 Import → Quality filter → DADA2 denoise-pyro ──
+                # Ion Torrent signal instability in the first ~10bp is handled by
+                # DADA2 denoise-pyro --p-trim-left 10 (passed via -s 10).
+                # trunc-len is computed automatically from QC visualization.
+                fastq_path="$fastp_path"
+                export fastq_path
+                Common_SanitizeFastq
+                Amplicon_Common_MakeManifestFileForQiime2
+                Amplicon_Common_ImportFastqToQiime2
+                Amplicon_IonTorrent_QualityControlForQZA
+                Amplicon_Illumina_DenosingDada2 -s 10
+                Amplicon_Common_FinalFilesCleaning
+            fi
 
         elif [[ "$platform" == "OXFORD_NANOPORE" ]]; then
-            echo "⚠️ OXFORD_NANOPORE platform is not supported for amplicon analysis."
-            echo "   Skipping dataset: $dataset_ID"
-            echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - Platform: $platform (not supported)" >> "$failed_log"
-            exit 0
+            if [[ "$MODE" == "asv" ]]; then
+                # Single-base ASV resolution is conceptually invalid for ONT
+                # (~5-10% error + indels): true sequences explode into a cloud of
+                # spurious variants. Skip in --asv; ONT belongs to --otu.
+                echo ">>> SKIP: ONT single-base ASV is invalid (5-10% error+indels) → not supported in --asv. Use --otu."
+                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - asv mode, platform=OXFORD_NANOPORE" >> "$skipped_log"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (asv: ONT unsupported)" >&3
+                exit 0
+            fi
+            # ── Oxford Nanopore: long-read amplicon (faithful ONT-AmpSeq port) ──
+            # Lazy dependency check: only ONT datasets need these long-read
+            # tools, so non-ONT runs are never gated on them.
+            ont_missing=()
+            for _t in chopper minimap2 racon vsearch; do
+                command -v "$_t" >/dev/null 2>&1 || ont_missing+=("$_t")
+            done
+            if [[ ${#ont_missing[@]} -gt 0 ]]; then
+                # Report to stderr only; the outer subshell handler owns the
+                # single canonical failed_log entry (matches other branches).
+                echo "❌ ERROR: ONT processing requires missing tools: ${ont_missing[*]}" >&2
+                echo "   Install via: conda install -c bioconda ${ont_missing[*]}  (or module load)" >&2
+                exit 1
+            fi
+
+            primer_trim_path="${dataset_path}/tmp/step_02_primer"
+            chopper_path="${dataset_path}/tmp/step_03_chopper"
+
+            # ── Resume checkpoint: chopper output complete? ──
+            if [[ -f "${chopper_path}/.chopper_done" ]]; then
+                echo ">>> Resuming: found completed chopper-filtered reads"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Resuming from checkpoint" >&3
+                # Clean only downstream directories
+                rm -rf "${dataset_path}/tmp/step_06_ont"
+                rm -rf "${dataset_path}/tmp/step_07_cluster"
+                rm -rf "${dataset_path}/tmp/temp_file"
+            else
+                if [[ -d "${dataset_path}/tmp" ]]; then
+                    echo ">>> No valid chopper checkpoint. Cleaning and re-running..."
+                    rm -rf "${dataset_path}/tmp"
+                    rm -rf "${dataset_path}/ori_fastq"
+                fi
+
+                # ── Step A: Download ──
+                echo ">>> Downloading SRA data..."
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
+                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
+                    echo "Error: Download failed for dataset $dataset_ID" >&2
+                    exit 1
+                fi
+
+                Common_CountRawReads "$dataset_path" "$sra_file_name"
+
+                # ── Step B: Remove sequencing adapters with fastp (SE) ──
+                adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
+                mkdir -p "$adapter_removed_path"
+                _fastp_se_adapter_remove "$ori_fastq_path" "$adapter_removed_path"
+
+                # ── Step C: Entropy-based primer detection & trimming ──
+                mkdir -p "$primer_trim_path"
+                python3 "${SCRIPTS}/entropy_primer_detect.py" \
+                    -i "$adapter_removed_path" \
+                    -o "$primer_trim_path" || {
+                    echo "  ✗ Entropy primer detection failed"
+                    exit 1
+                }
+
+                rm -rf "$ori_fastq_path"
+                rm -rf "$adapter_removed_path"
+
+                # ── Step D: chopper length-window (auto peak) + quality filter ──
+                fastq_path="$primer_trim_path"
+                export fastq_path
+                Amplicon_ONT_ChopperFilter
+
+                rm -rf "$primer_trim_path"
+            fi
+
+            sequence_type="single"
+            export sequence_type
+            original_sequence_type="$sequence_type"
+            export ONT_FASTQ_DIR="$chopper_path"
+
+            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
+            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
+            _proc_start=$_now
+
+            # ── Manifest from chopper-filtered reads (sample-id = run accession) ──
+            fastq_path="$chopper_path"
+            export fastq_path
+            Amplicon_Common_MakeManifestFileForQiime2
+
+            # ── ONT-AmpSeq core: per-sample UNOISE3 -> racon polish -> cluster 97% ──
+            Amplicon_ONT_ClusterPerSample
+            Amplicon_ONT_PolishRacon
+            Amplicon_ONT_RelabelMerge
+            Amplicon_ONT_ClusterID
+            # ── Abundance via read mapping (DegradedQ-style) + QIIME2 import ──
+            Amplicon_ONT_MapReadsToOTUs
+            # ── Filter low-freq OTUs + finalize (reused) ──
+            Amplicon_LS454_FilterLowFreqOTUs
+            Amplicon_Common_FinalFilesCleaning
 
         elif [[ "$platform" == "PACBIO_SMRT" ]]; then
             adapter_removed_path="${dataset_path}/tmp/step_01_adapter_removed"
@@ -940,8 +1093,15 @@ else:
 
             # ── Sub-condition A: Full-length 16S CCS reads (majority > 1400bp) ──
             if python3 -c "sys_exit = __import__('sys').exit; sys_exit(0 if float('${long_read_ratio}') > 0.5 else 1)"; then
-                echo ">>> Full-length 16S detected (>50% reads > 1400bp). Using 27F/1492R primers."
+                echo ">>> Full-length 16S detected (>50% reads > 1400bp)."
 
+                if [[ "$MODE" == "otu" ]]; then
+                # ── OTU: length-window + maxee_rate → shared pooled chain (strand both) ──
+                Amplicon_Pacbio_OTU_Preprocess
+                OTU_STRAND="both"; export OTU_STRAND
+                Amplicon_OTU_RunPooledChain
+                else
+                # ── ASV: DADA2 denoise-ccs with known 27F/1492R primers ──
                 # Read primer sequences from reference FASTA files
                 DOCS_DIR="${SCRIPT_DIR}/docs"
                 primer_front=$(python3 -c "
@@ -968,12 +1128,12 @@ with open('${DOCS_DIR}/1492R.fas') as f:
                 Amplicon_Pacbio_DenosingDada2
                 Amplicon_Pacbio_ExtractReads
                 Amplicon_Common_FinalFilesCleaning
+                fi
 
             else
-                echo "❌ ERROR: PacBio reads are mostly < 1400bp."
-                echo "   This pipeline currently only supports full-length 16S PacBio CCS reads."
-                echo "   Skipping dataset: $dataset_ID"
-                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - PacBio reads too short (ratio > 1400bp: ${long_read_ratio})" >> "$failed_log"
+                echo ">>> SKIP: PacBio reads are mostly < 1400bp (full-length 16S CCS only)."
+                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - PacBio reads too short (ratio >1400bp: ${long_read_ratio})" >> "$skipped_log"
+                echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (PacBio reads too short)" >&3
                 exit 0
             fi
 
@@ -988,7 +1148,7 @@ with open('${DOCS_DIR}/1492R.fas') as f:
             --dataset_id "$dataset_ID" \
             --sra_file "${dataset_path}/${sra_file_name}" \
             --raw_counts "${dataset_path}/${dataset_ID}_raw_read_counts.tsv" \
-            --final_table "${dataset_path}/${dataset_ID}-final-table.qza" \
+            --final_table "${dataset_path}/${dataset_ID}-${MODE}-final-table.qza" \
             --output_csv "$summary_csv" \
             --sequence_type "$original_sequence_type"
 

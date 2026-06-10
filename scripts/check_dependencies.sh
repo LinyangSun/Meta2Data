@@ -12,7 +12,7 @@
 # via `python3 -m pip install`. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
 #
 # meta2data_ensure_vendor_binaries is the parallel helper for vsearch and
-# fastp. AmpliconPIP / ggCOMBO entry scripts call it at startup; if the
+# fastp. AmpliconPIP / AmpliconTAXA entry scripts call it at startup; if the
 # binaries are missing from <repo>/vendor/bin it auto-invokes
 # scripts/install_binaries.sh. MetaDL does not need these binaries and
 # does not call this helper. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
@@ -21,6 +21,16 @@
 _M2D_VENDOR_BINARIES=(
     vsearch
     fastp
+)
+
+# Long-read (ONT) tools — needed ONLY by the OXFORD_NANOPORE branch in run.sh.
+# Reported as an advisory in the dependency check, but NEVER used to gate other
+# platforms: run.sh checks these lazily, per ONT dataset, so an Illumina/454/
+# Ion Torrent/PacBio run is never blocked by a missing long-read tool.
+_M2D_ONT_BINARIES=(
+    chopper
+    minimap2
+    racon
 )
 
 # Required generic system utilities (expected on any Linux distro).
@@ -126,6 +136,19 @@ meta2data_check_dependencies() {
         fi
     done
 
+    # Advisory only: long-read (ONT) tools are needed solely by the
+    # OXFORD_NANOPORE branch, so they are reported but never counted toward the
+    # failure total. run.sh checks them lazily per ONT dataset.
+    local _m2d_missing_ont=()
+    for bin in "${_M2D_ONT_BINARIES[@]}"; do
+        _m2d_check_binary "$bin" || _m2d_missing_ont+=("$bin")
+    done
+    if [[ ${#_m2d_missing_ont[@]} -gt 0 ]]; then
+        echo "[check] Note: ONT-only tools not found: ${_m2d_missing_ont[*]}"
+        echo "        (needed only for Oxford Nanopore datasets; install:"
+        echo "         conda install -c bioconda ${_m2d_missing_ont[*]})"
+    fi
+
     local total=$(( ${#_m2d_missing_vendor[@]} + ${#_m2d_missing_system[@]} + ${#_m2d_missing_qiime[@]} + ${#_m2d_missing_python[@]} ))
 
     if [[ $total -eq 0 ]]; then
@@ -197,7 +220,7 @@ meta2data_check_dependencies() {
 # env — Meta2Data does not care which, it just follows the active interpreter).
 #
 # Design choices:
-#   - Unified dep list across all subcommands. MetaDL, AmpliconPIP and ggCOMBO
+#   - Unified dep list across all subcommands. MetaDL, AmpliconPIP and AmpliconTAXA
 #     all end up touching one of biopython / pandas / numpy / requests, so
 #     there is no point in per-subcommand grouping.
 #   - No interactive prompt. If the user ran a Meta2Data command, they've
@@ -256,7 +279,7 @@ meta2data_ensure_python_deps() {
 # -----------------------------------------------------------------------------
 # Auto-installs vsearch / fastp into <repo>/vendor/bin via
 # scripts/install_binaries.sh if either binary is missing. Called at startup
-# by AmpliconPIP / ggCOMBO entry scripts only — MetaDL does not need these.
+# by AmpliconPIP / AmpliconTAXA entry scripts only — MetaDL does not need these.
 #
 # install_binaries.sh is already idempotent (version-checked via need_install),
 # so a redundant call is near-free; we still guard with a pre-check so users

@@ -668,8 +668,8 @@ Amplicon_Common_FinalFilesCleaning() {
     
     # Check for denoising output
     if [ -d "$denoising_path" ] && [ -f "${denoising_path%/}/${dataset_name}-table-denoising.qza" ]; then
-        cp "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" "${dataset_path%/}/${dataset_name}-final-rep-seqs.qza"
-        cp "${denoising_path%/}/${dataset_name}-table-denoising.qza" "${dataset_path%/}/${dataset_name}-final-table.qza"
+        cp "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" "${dataset_path%/}/${dataset_name}-${MODE}-final-rep-seqs.qza"
+        cp "${denoising_path%/}/${dataset_name}-table-denoising.qza" "${dataset_path%/}/${dataset_name}-${MODE}-final-table.qza"
         
         # Copy trim position files if they exist
         if [ -f "${qf_trim_pos_path%/}/Trim_position.txt" ]; then
@@ -691,7 +691,7 @@ Amplicon_Common_FinalFilesCleaning() {
         fi
         
         # Remove temporary directories but keep dataset_path itself
-        find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
+        [[ "${KEEP_INTERMEDIATE:-0}" == "1" ]] || find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
 
         rm -f "${dataset_path%/}/"{denoising.log,fastp.html,fastp.json}
 
@@ -702,9 +702,9 @@ Amplicon_Common_FinalFilesCleaning() {
 
     # Check for vsearch output (454 pipeline)
     elif [ -f "${dataset_path%/}/${dataset_name}-table-vsearch.qza" ]; then
-        mv "${dataset_path%/}/${dataset_name}-table-vsearch.qza" "${dataset_path%/}/${dataset_name}-final-table.qza"
-        mv "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza" "${dataset_path%/}/${dataset_name}-final-rep-seqs.qza"
-        find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
+        mv "${dataset_path%/}/${dataset_name}-table-vsearch.qza" "${dataset_path%/}/${dataset_name}-${MODE}-final-table.qza"
+        mv "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza" "${dataset_path%/}/${dataset_name}-${MODE}-final-rep-seqs.qza"
+        [[ "${KEEP_INTERMEDIATE:-0}" == "1" ]] || find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
         
         return 0
         
@@ -1232,16 +1232,22 @@ Amplicon_DegradedQ_VsearchDenoise() {
         --output "${vsearch_path%/}/derep_minsize2.fasta" \
         --minsize 2
 
-    echo ">>> Step B2: 99% pre-clustering..."
+    # --strand follows $OTU_STRAND (plus for short reads; both for PacBio).
+    # On --strand both the 99% precluster merges forward/reverse-complement
+    # copies (summing --sizein) BEFORE UNOISE3's minsize=2 survival decision,
+    # so denoising sees the correct total abundance instead of a split count.
+    echo ">>> Step B2: 99% pre-clustering (strand=${OTU_STRAND:-plus})..."
     vsearch --cluster_size "${vsearch_path%/}/derep_minsize2.fasta" \
         --id 0.99 \
+        --strand "${OTU_STRAND:-plus}" \
         --centroids "${vsearch_path%/}/preclust_99.fasta" \
         --sizein --sizeout \
         --threads "$threads"
 
-    echo ">>> Step C: UNOISE3 denoising (minsize=2)..."
+    echo ">>> Step C: UNOISE3 denoising (minsize=2, strand=${OTU_STRAND:-plus})..."
     vsearch --cluster_unoise "${vsearch_path%/}/preclust_99.fasta" \
         --centroids "${vsearch_path%/}/zotus.fasta" \
+        --strand "${OTU_STRAND:-plus}" \
         --sizein --sizeout \
         --minsize 2
 
@@ -1295,6 +1301,270 @@ Amplicon_DegradedQ_ImportResults() {
         --manifest_path "$manifest" \
         --output_table_qza  "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
         --output_repseq_qza "${cluster_path%/}/${dataset_name}-repseq-clustered.qza"
+}
+
+################################################################################
+#                     UNIFIED OTU BACK-END (vsearch)                           #
+################################################################################
+# Shared genus-level OTU back-end used by --otu across platforms.
+# Chain (short-read / pooled):
+#   <platform preprocess> -> DirectDerep -> AbundanceSanityCheck
+#     -> DegradedQ_VsearchDenoise (99% precluster -> UNOISE3 -> uchime3)
+#     -> Amplicon_OTU_ClusterFast97  (B1: collapse ZOTUs to 97% OTU centroids)
+#     -> Amplicon_OTU_MapBack        (B3: strand-aware read mapping -> OTU table)
+#     -> Amplicon_OTU_ImportResults  -> LS454_FilterLowFreqOTUs -> FinalFilesCleaning
+# Strand is controlled by $OTU_STRAND (plus for short reads, both for long reads).
+
+Amplicon_OTU_ClusterFast97() {
+    # B1: collapse UNOISE3 ZOTUs (zotus_nochim.fasta) to genus-level 97% OTU
+    # centroids. Without this, rep-seqs stay at ASV granularity (a sequence
+    # cloud) and only collapse at the abundance-table level — which reintroduces
+    # the ASV cloud when merging across datasets. cluster_fast sorts by length.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
+    local threads="${THREADS_PER_DATASET:-4}"
+
+    echo ">>> Clustering ZOTUs to 97% OTUs (cluster_fast, strand=${OTU_STRAND:-plus})..."
+    vsearch --cluster_fast "${vsearch_path%/}/zotus_nochim.fasta" \
+        --id 0.97 \
+        --centroids "${vsearch_path%/}/otus_97.fasta" \
+        --sizein --sizeout \
+        --strand "${OTU_STRAND:-plus}" \
+        --threads "$threads"
+}
+
+Amplicon_OTU_MapBack() {
+    # Map all preprocessed reads back to the 97% OTUs to build the OTU table.
+    # Strand-aware (B3): short reads = plus; PacBio/ONT = both.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
+    local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
+    local threads="${THREADS_PER_DATASET:-4}"
+
+    echo ">>> Relabeling reads with sample IDs..."
+    python3 "${SCRIPTS}/py_16s.py" relabel_reads_for_mapping \
+        --manifest_path "$manifest" \
+        --output_fasta "${vsearch_path%/}/all_reads_labeled.fasta" \
+        --threads "$threads"
+
+    echo ">>> Mapping reads to 97% OTUs (id=0.97, strand=${OTU_STRAND:-plus})..."
+    vsearch --usearch_global "${vsearch_path%/}/all_reads_labeled.fasta" \
+        --db "${vsearch_path%/}/otus_97.fasta" \
+        --id 0.97 \
+        --strand "${OTU_STRAND:-plus}" \
+        --otutabout "${vsearch_path%/}/otu_table.tsv" \
+        --sizein \
+        --threads "$threads"
+}
+
+Amplicon_OTU_ImportResults() {
+    # Import the 97% OTU rep-seqs + OTU table back into QIIME2 artifacts.
+    # Output paths align with Amplicon_LS454_FilterLowFreqOTUs expectations.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    trimmed_path="${dataset_path%/}"
+    dataset_name="${trimmed_path##*/}"
+    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
+    local cluster_path="${dataset_path%/}/tmp/step_07_cluster/"
+    local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
+    mkdir -p "$cluster_path"
+
+    echo ">>> Importing 97% OTU results into QIIME2..."
+    python3 "${SCRIPTS}/py_16s.py" import_vsearch_to_qiime2 \
+        --zotu_fasta    "${vsearch_path%/}/otus_97.fasta" \
+        --otu_table_tsv "${vsearch_path%/}/otu_table.tsv" \
+        --manifest_path "$manifest" \
+        --output_table_qza  "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
+        --output_repseq_qza "${cluster_path%/}/${dataset_name}-repseq-clustered.qza"
+}
+
+Amplicon_Illumina_OTU_Preprocess() {
+    # Produce clean, full-amplicon single-end reads for the pooled OTU back-end.
+    #   normal quality : per-sample PE merge (vsearch --fastq_mergepairs);
+    #                    if merge rate < OTU_MERGE_MIN, fall back to forward-only
+    #                    R1; then maxee filter (vsearch --fastq_filter).
+    #   binned quality : reuse degraded_quality_preprocess (5' trim + truncate +
+    #                    N filter, forward-only) — maxee is unreliable on binned Q.
+    # On return: $fastq_path -> clean dir; sequence_type=single.
+    # Inputs from caller scope: fastp_path, quality_status, sequence_type.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local clean_path="${dataset_path%/}/tmp/step_02d_otu_preprocess"
+    local threads="${THREADS_PER_DATASET:-4}"
+    local maxee="${OTU_MAXEE:-1.0}"
+    local merge_min="${OTU_MERGE_MIN:-0.5}"
+
+    rm -rf "$clean_path"
+    mkdir -p "$clean_path"
+
+    if [[ "$quality_status" == "degraded_binned" ]]; then
+        echo ">>> OTU preprocess (binned/degraded quality): forward-only truncation path..."
+        python3 "${SCRIPTS}/py_16s.py" degraded_quality_preprocess \
+            --input_dir "$fastp_path" \
+            --output_dir "$clean_path" \
+            --trim_front 15 --truncate_length 0 \
+            --max_n 1 --min_length 50 \
+            --sequence_type "$sequence_type" \
+            --threads "$threads"
+    else
+        echo ">>> OTU preprocess (normal quality): merge pairs + maxee ${maxee}..."
+        local r1 r2 sample merged n_in n_merged
+        shopt -s nullglob
+        if [[ "$sequence_type" == "paired" ]]; then
+            for r1 in "${fastp_path}/"*_1.fastq*; do
+                [[ -f "$r1" ]] || continue
+                r2="${r1/_1.fastq/_2.fastq}"
+                sample=$(basename "$r1"); sample="${sample%%_1.fastq*}"
+                if [[ -f "$r2" ]]; then
+                    merged="${clean_path}/${sample}_merged.fastq"
+                    if vsearch --fastq_mergepairs "$r1" --reverse "$r2" \
+                               --fastq_qmax 93 --fastq_qmaxout 93 \
+                               --fastqout "$merged" --threads "$threads" --quiet 2>/dev/null \
+                       && [[ -s "$merged" ]]; then
+                        n_in=$(( $(zcat -f "$r1" | wc -l) / 4 ))
+                        n_merged=$(( $(wc -l < "$merged") / 4 ))
+                        if python3 -c "import sys; sys.exit(0 if ($n_in>0 and $n_merged/$n_in >= $merge_min) else 1)"; then
+                            vsearch --fastq_filter "$merged" --fastq_maxee "$maxee" --fastq_qmax 93 \
+                                    --fastqout "${clean_path}/${sample}.fastq" --threads "$threads" --quiet
+                            rm -f "$merged"
+                            continue
+                        fi
+                        echo "    ${sample}: low merge rate (${n_merged}/${n_in}) → forward-only R1"
+                        rm -f "$merged"
+                    else
+                        echo "    ${sample}: merge failed → forward-only R1"
+                        rm -f "$merged" 2>/dev/null || true
+                    fi
+                fi
+                # Fallback (low merge rate / merge failed / no R2): forward-only R1
+                vsearch --fastq_filter "$r1" --fastq_maxee "$maxee" --fastq_qmax 93 \
+                        --fastqout "${clean_path}/${sample}.fastq" --threads "$threads" --quiet
+            done
+        else
+            for r1 in "${fastp_path}/"*.fastq*; do
+                [[ -f "$r1" ]] || continue
+                sample=$(basename "$r1"); sample="${sample%%.fastq*}"
+                vsearch --fastq_filter "$r1" --fastq_maxee "$maxee" --fastq_qmax 93 \
+                        --fastqout "${clean_path}/${sample}.fastq" --threads "$threads" --quiet
+            done
+        fi
+        shopt -u nullglob
+    fi
+
+    fastq_path="$clean_path"
+    sequence_type="single"
+    export fastq_path sequence_type
+}
+
+Amplicon_OTU_RunPooledChain() {
+    # Shared pooled OTU back-end (Illumina / 454 / Ion / PacBio).
+    #   derep → UNOISE3(99% precluster) → uchime3 → cluster_fast 97%
+    #   → strand-aware map-back → import → low-freq filter → finalize.
+    # ONT does NOT use this — it keeps its own racon-polished, error-tolerant
+    # back-half (map at id=0.90; see Amplicon_ONT_*).
+    # Caller must have set (in scope): fastq_path (clean reads dir),
+    #   sequence_type=single, OTU_STRAND (plus|both), n_srr (sample count),
+    #   and have $dataset_ID / $low_quality_log available (run.sh scope).
+    Amplicon_Common_MakeManifestFileForQiime2
+    Amplicon_DegradedQ_DirectDerep
+
+    # Untrustworthy single-sample, all-singleton data → skip (rc 99).
+    if ! Amplicon_DegradedQ_AbundanceSanityCheck "${n_srr:-0}"; then
+        local untrust_marker="${dataset_path%/}/${dataset_ID}-UNTRUSTABLE.txt"
+        {
+            echo "Dataset:           ${dataset_ID}"
+            echo "Reason:            single sample with >=95% singleton reads"
+            echo "Samples:           ${n_srr}"
+            echo "Input reads:       ${DEREP_INPUT_READS}"
+            echo "Unique sequences:  ${DEREP_UNIQUE_SEQS}"
+            echo "Detected at:      $(date '+%Y-%m-%d %H:%M:%S')"
+        } > "$untrust_marker"
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - UNTRUSTABLE - 1 sample, ${DEREP_UNIQUE_SEQS}/${DEREP_INPUT_READS} unique" >> "$low_quality_log"
+        exit 99
+    fi
+
+    Amplicon_DegradedQ_VsearchDenoise   # 99% precluster → UNOISE3 → uchime3
+    Amplicon_OTU_ClusterFast97          # B1: collapse ZOTUs → 97% OTUs
+    Amplicon_OTU_MapBack                # B3: strand-aware read mapping
+    Amplicon_OTU_ImportResults
+    Amplicon_LS454_FilterLowFreqOTUs
+    Amplicon_Common_FinalFilesCleaning
+}
+
+Amplicon_IonTorrent_OTU_Preprocess() {
+    # Ion Torrent OTU preprocess: strip 5' 10 bp (signal instability — the
+    # vsearch equivalent of DADA2 denoise-pyro --p-trim-left 10) + maxee filter.
+    # No fixed truncation (B6). SE reads. Reads input from $fastp_path.
+    # On return: fastq_path -> clean dir; sequence_type=single.
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local in_dir="${fastp_path:-${dataset_path%/}/tmp/step_02_fastp}"
+    local clean_path="${dataset_path%/}/tmp/step_02d_otu_preprocess"
+    local threads="${THREADS_PER_DATASET:-4}"
+    # Ion Torrent reads (~200-400 bp) carry homopolymer indel errors, so a flat
+    # maxee 1.0 (≤1 expected error / read) discards the bulk of real reads
+    # (~6% retention observed). Use a more permissive Ion-specific default (2.0);
+    # tune via ION_OTU_MAXEE. (Illumina keeps OTU_MAXEE=1.0.)
+    local maxee="${ION_OTU_MAXEE:-2.0}"
+    local stripleft="${ION_OTU_STRIPLEFT:-10}"
+
+    rm -rf "$clean_path"; mkdir -p "$clean_path"
+    echo ">>> Ion OTU preprocess: stripleft ${stripleft} + maxee ${maxee}..."
+    local fq sample
+    shopt -s nullglob
+    for fq in "${in_dir}/"*.fastq*; do
+        [[ -f "$fq" ]] || continue
+        sample=$(basename "$fq"); sample="${sample%%.fastq*}"
+        vsearch --fastq_filter "$fq" \
+            --fastq_stripleft "$stripleft" \
+            --fastq_maxee "$maxee" \
+            --fastq_qmax 93 \
+            --fastqout "${clean_path}/${sample}.fastq" \
+            --threads "$threads" --quiet
+    done
+    shopt -u nullglob
+
+    fastq_path="$clean_path"; sequence_type="single"; export fastq_path sequence_type
+}
+
+Amplicon_Pacbio_OTU_Preprocess() {
+    # PacBio CCS OTU preprocess: length window + per-base-rate maxee (B5).
+    # CCS reads are high-accuracy full-length 16S (~1500 bp). Keep a length
+    # window (no truncation, B4); filter by error RATE (flat maxee too strict at
+    # 1500 bp); raise fastq_qmax (CCS Q can exceed vsearch's default 41). Reads
+    # occur in both orientations → caller sets OTU_STRAND=both. Input from
+    # $adapter_removed_path (PacBio has no separate primer-trim step).
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path"
+    local in_dir="${adapter_removed_path:-${dataset_path%/}/tmp/step_01_adapter_removed}"
+    local clean_path="${dataset_path%/}/tmp/step_02d_otu_preprocess"
+    local threads="${THREADS_PER_DATASET:-4}"
+    local maxee_rate="${OTU_MAXEE_RATE:-0.01}"
+    local minlen="${PACBIO_OTU_MINLEN:-1000}"
+    local maxlen="${PACBIO_OTU_MAXLEN:-2000}"
+
+    rm -rf "$clean_path"; mkdir -p "$clean_path"
+    echo ">>> PacBio OTU preprocess: len[${minlen},${maxlen}] + maxee_rate ${maxee_rate}..."
+    local fq sample
+    shopt -s nullglob
+    for fq in "${in_dir}/"*.fastq*; do
+        [[ -f "$fq" ]] || continue
+        case "$(basename "$fq")" in fastp.*) continue ;; esac   # skip fastp.json/html
+        sample=$(basename "$fq"); sample="${sample%%.fastq*}"
+        vsearch --fastq_filter "$fq" \
+            --fastq_qmax 93 \
+            --fastq_minlen "$minlen" --fastq_maxlen "$maxlen" \
+            --fastq_maxee_rate "$maxee_rate" \
+            --fastqout "${clean_path}/${sample}.fastq" \
+            --threads "$threads" --quiet
+    done
+    shopt -u nullglob
+
+    fastq_path="$clean_path"; sequence_type="single"; export fastq_path sequence_type
 }
 
 ################################################################################
@@ -1400,7 +1670,290 @@ Amplicon_Pacbio_ExtractReads() {
 ################################################################################
 #                         ONT PLATFORM FUNCTIONS                               #
 ################################################################################
-# Functions for Oxford Nanopore long-read sequencing data processing
+# Oxford Nanopore long-read amplicon processing.
+#
+# Faithful port of the ONT-AmpSeq algorithm (Eskildsen et al.) into the
+# Meta2Data framework, with two deliberate adaptations:
+#
+#   1. Length window is AUTO-DETECTED (read-length peak finding via
+#      py_16s.py detect_length_window) instead of the user-set 1200-1600bp
+#      ONT-AmpSeq requires. Primers are auto-trimmed upstream by
+#      entropy_primer_detect.py. This keeps the pipeline fully automatic and
+#      amplicon-agnostic (16S / ITS / 18S all auto-fit their own peak).
+#
+#   2. The abundance table is built by MAPPING ALL READS BACK to the OTU
+#      centroids (vsearch --usearch_global, as in the DegradedQ pipeline) so
+#      it carries true per-sample read abundance. ONT-AmpSeq's
+#      `cluster_fast --otutabout` instead reports polished-centroid counts,
+#      which destroy the abundance signal and are not comparable with the
+#      read-abundance feature tables every other Meta2Data platform produces.
+#
+# Algorithm:
+#   chopper length/quality filter (auto window)
+#     -> per-sample fasta + vsearch --cluster_unoise --minsize 1 (light denoise)
+#     -> concatenate per-sample centroids
+#     -> per-sample minimap2 map-ont + racon consensus polishing (ONT error fix)
+#     -> per-sample vsearch --sortbysize --sample <id> + merge
+#     -> vsearch --cluster_fast --id <ONT_OTU_IDENTITY> --relabel OTU_  (OTU seqs)
+#     -> map all reads back to OTUs at <ONT_MAP_IDENTITY> (ONT-error-tolerant,
+#        default 0.90) -> true read-abundance table
+#     -> import to QIIME2 (reuses import_vsearch_to_qiime2)
+#     -> Amplicon_LS454_FilterLowFreqOTUs + Amplicon_Common_FinalFilesCleaning
+#
+# DADA2 is intentionally not used: ONT error profiles are unsupported by
+# DADA2's error model. Quality is handled by chopper + abundance/consensus
+# methods (UNOISE3 + racon), mirroring the DegradedQ rationale.
+#
+# Tunable env vars (all optional, sensible defaults):
+#   ONT_QUALITY            chopper mean-quality cutoff           (default 20)
+#   ONT_LENGTH_TOLERANCE   length window half-width fraction     (default 0.15)
+#   ONT_LENGTH_FLOOR       hard lower length bound, bp           (default 200)
+#   ONT_OTU_IDENTITY       final cluster_fast (OTU) identity     (default 0.97)
+#   ONT_MAP_IDENTITY       read->OTU mapping identity            (default 0.90)
+#                          (lower than OTU identity to tolerate raw ONT error)
+
+# ── Per-sample length-window + quality filter via chopper ───────────────────
+# In : $fastq_path  (primer-trimmed reads, one FASTQ per sample, stem = sample id)
+# Out: tmp/step_03_chopper/<stem>.fastq  (+ .chopper_done marker; sets ONT_FASTQ_DIR)
+Amplicon_ONT_ChopperFilter() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path" || { echo "❌ [ONT] cannot cd $dataset_path"; return 1; }
+    trimmed_path="${dataset_path%/}"; dataset_name="${trimmed_path##*/}"
+    local in_dir="${fastq_path%/}"
+    local out_dir="${dataset_path%/}/tmp/step_03_chopper"
+    local threads="${THREADS_PER_DATASET:-${cpu:-4}}"
+    # chopper's own docs default -q to 0 and use -q 10 as the practical example;
+    # ONT-AmpSeq's config uses Q20, but that is tuned for high-quality (R10/Zymo)
+    # data and discards ~99% of typical public ONT reads (mean Q often <20, e.g.
+    # R9). Default to Q10 (chopper's documented practical value) for general
+    # public-data reanalysis; residual error is handled by racon polish + 97%
+    # clustering. Override per-run via ONT_QUALITY (e.g. =20 to match ONT-AmpSeq).
+    local qual="${ONT_QUALITY:-10}"
+    local tol="${ONT_LENGTH_TOLERANCE:-0.15}"
+    local floor="${ONT_LENGTH_FLOOR:-200}"
+    mkdir -p "$out_dir"
+
+    echo ">>> [ONT] Auto-detecting amplicon length window..."
+    local win lo hi peak
+    win=$(python3 "${SCRIPTS}/py_16s.py" detect_length_window \
+        --input_dir "$in_dir" --tolerance "$tol" --floor "$floor" \
+        --max_sample_reads 10000) || { echo "❌ [ONT] length window detection failed"; return 1; }
+    lo=$(printf '%s\n' "$win" | awk -F= '/^LENGTH_LO=/{print $2; exit}')
+    hi=$(printf '%s\n' "$win" | awk -F= '/^LENGTH_HI=/{print $2; exit}')
+    peak=$(printf '%s\n' "$win" | awk -F= '/^PEAK=/{print $2; exit}')
+    [[ -n "$lo" && -n "$hi" ]] || { echo "❌ [ONT] could not parse length window"; return 1; }
+    echo "  [ONT] Length window: ${lo}-${hi} bp (peak ~${peak}), quality >= Q${qual}"
+
+    local any=false fq stem
+    for fq in "${in_dir}/"*.fastq*; do
+        [[ -f "$fq" ]] || continue
+        stem=$(basename "$fq"); stem="${stem%.gz}"; stem="${stem%.fastq}"
+        # pipefail (in a subshell so it stays local) makes a failing zcat on a
+        # corrupt .gz abort the sample instead of being masked by chopper's exit 0.
+        if ! ( set -o pipefail
+               { if [[ "$fq" == *.gz ]]; then zcat "$fq"; else cat "$fq"; fi; } \
+                 | chopper -q "$qual" --minlength "$lo" --maxlength "$hi" -t "$threads" \
+                 > "${out_dir}/${stem}.fastq" 2>>"${dataset_path%/}/tmp/ont_chopper.log" ); then
+            echo "❌ [ONT] chopper failed on ${stem}"; return 1
+        fi
+        if [[ -s "${out_dir}/${stem}.fastq" ]]; then
+            any=true
+        else
+            echo "  [ONT] ${stem}: 0 reads after filtering, dropping" >&2
+            rm -f "${out_dir}/${stem}.fastq"
+        fi
+    done
+    [[ "$any" == true ]] || { echo "❌ [ONT] no reads passed chopper filtering"; return 1; }
+    touch "${out_dir}/.chopper_done"
+    export ONT_FASTQ_DIR="$out_dir"
+}
+
+# ── Per-sample UNOISE3 denoise; concatenate centroids across samples ────────
+# Reads are relabeled uniquely per sample (>stem.N) during fasta conversion to
+# avoid cross-sample read-name collisions in the merged file (racon aborts on
+# duplicate sequence names).
+# In : $ONT_FASTQ_DIR  Out: tmp/step_06_ont/persample/<stem>_cluster.fasta
+#                           tmp/step_06_ont/combined_centroids.fasta
+Amplicon_ONT_ClusterPerSample() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path" || return 1
+    trimmed_path="${dataset_path%/}"; dataset_name="${trimmed_path##*/}"
+    local in_dir="${ONT_FASTQ_DIR:-${dataset_path%/}/tmp/step_03_chopper}"
+    local work="${dataset_path%/}/tmp/step_06_ont"
+    local ps="${work}/persample"
+    local threads="${THREADS_PER_DATASET:-${cpu:-4}}"
+    mkdir -p "$ps"
+    : > "${work}/combined_centroids.fasta"
+
+    local fq stem fasta cent
+    for fq in "${in_dir}/"*.fastq; do
+        [[ -f "$fq" ]] || continue
+        stem=$(basename "$fq" .fastq)
+        fasta="${ps}/${stem}.fasta"
+        cent="${ps}/${stem}_cluster.fasta"
+        awk -v s="$stem" 'NR%4==1{c++; print ">" s "." c} NR%4==2{print}' "$fq" > "$fasta"
+        [[ -s "$fasta" ]] || { echo "  [ONT] ${stem}: empty after fasta conversion, skipping" >&2; continue; }
+        # --strand both: ONT amplicon reads occur in both orientations; without
+        # it forward and reverse-complement copies of one sequence would form
+        # separate centroids.
+        vsearch --cluster_unoise "$fasta" \
+            --minsize 1 --sizeout \
+            --strand both \
+            --threads "$threads" \
+            --centroids "$cent" --quiet 2>>"${work}/ont_vsearch.log" \
+            || { echo "❌ [ONT] cluster_unoise failed on ${stem}"; return 1; }
+        cat "$cent" >> "${work}/combined_centroids.fasta"
+    done
+    [[ -s "${work}/combined_centroids.fasta" ]] || { echo "❌ [ONT] no centroids produced"; return 1; }
+}
+
+# ── Per-sample minimap2 (map-ont) + racon consensus polishing ───────────────
+# ref = that sample's centroids; reads = all samples' centroids (combined),
+# exactly as ONT-AmpSeq rules 04-05. Targets without read support are dropped
+# by racon (removes spurious variants); a sample whose racon output is empty
+# falls back to its raw centroids.
+# In : tmp/step_06_ont/persample/*_cluster.fasta + combined_centroids.fasta
+# Out: tmp/step_06_ont/polish/<stem>_polished.fasta
+Amplicon_ONT_PolishRacon() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path" || return 1
+    local work="${dataset_path%/}/tmp/step_06_ont"
+    local ps="${work}/persample"
+    local mapd="${work}/map" pol="${work}/polish"
+    local combined="${work}/combined_centroids.fasta"
+    local threads="${THREADS_PER_DATASET:-${cpu:-4}}"
+    mkdir -p "$mapd" "$pol"
+
+    local cent stem sam
+    for cent in "${ps}/"*_cluster.fasta; do
+        [[ -f "$cent" ]] || continue
+        stem=$(basename "$cent" _cluster.fasta)
+        sam="${mapd}/${stem}.sam"
+        # -K / -f match the ONT-AmpSeq reference (config: K=500M, f=0.0002):
+        #   -K minibatch size; -f filter out the most frequent minimizers.
+        minimap2 -ax map-ont \
+            -K "${ONT_MINIMAP2_K:-500M}" -f "${ONT_MINIMAP2_F:-0.0002}" \
+            --secondary=no -t "$threads" \
+            "$cent" "$combined" > "$sam" 2>>"${work}/ont_minimap2.log" \
+            || { echo "❌ [ONT] minimap2 failed on ${stem}"; return 1; }
+        if racon -t "$threads" "$combined" "$sam" "$cent" \
+                > "${pol}/${stem}_polished.fasta" 2>>"${work}/ont_racon.log" \
+                && [[ -s "${pol}/${stem}_polished.fasta" ]]; then
+            :
+        else
+            echo "  [ONT] ${stem}: racon empty/failed, using raw centroids" >&2
+            cp "$cent" "${pol}/${stem}_polished.fasta"
+        fi
+    done
+    [[ -n "$(ls -A "$pol" 2>/dev/null)" ]] || { echo "❌ [ONT] no polished output"; return 1; }
+}
+
+# ── Per-sample relabel (tag sample id, sort by size) + merge ────────────────
+# In : tmp/step_06_ont/polish/*_polished.fasta
+# Out: tmp/step_06_ont/merged_polished_relabeled.fasta
+Amplicon_ONT_RelabelMerge() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path" || return 1
+    local work="${dataset_path%/}/tmp/step_06_ont"
+    local pol="${work}/polish" rel="${work}/relabel"
+    local threads="${THREADS_PER_DATASET:-${cpu:-4}}"
+    mkdir -p "$rel"
+    : > "${work}/merged_polished_relabeled.fasta"
+
+    local pf stem
+    for pf in "${pol}/"*_polished.fasta; do
+        [[ -f "$pf" ]] || continue
+        stem=$(basename "$pf" _polished.fasta)
+        vsearch --sortbysize "$pf" \
+            --sample "$stem" \
+            --threads "$threads" \
+            --output "${rel}/${stem}_relabeled.fasta" --quiet 2>>"${work}/ont_vsearch.log" \
+            || { echo "❌ [ONT] relabel/sortbysize failed on ${stem}"; return 1; }
+        cat "${rel}/${stem}_relabeled.fasta" >> "${work}/merged_polished_relabeled.fasta"
+    done
+    [[ -s "${work}/merged_polished_relabeled.fasta" ]] \
+        || { echo "❌ [ONT] merged relabeled file empty"; return 1; }
+}
+
+# ── Cluster merged polished seqs at fixed identity -> OTU representative seqs ─
+# In : tmp/step_06_ont/merged_polished_relabeled.fasta
+# Out: tmp/step_06_ont/otus.fasta  (relabeled OTU_1..N, with ;size=)
+Amplicon_ONT_ClusterID() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path" || return 1
+    local work="${dataset_path%/}/tmp/step_06_ont"
+    local threads="${THREADS_PER_DATASET:-${cpu:-4}}"
+    local id="${ONT_OTU_IDENTITY:-0.97}"
+    # --strand both: collapse forward and reverse-complement representatives of
+    # the same amplicon into one OTU (ONT reads are not strand-normalized).
+    vsearch --cluster_fast "${work}/merged_polished_relabeled.fasta" \
+        --id "$id" \
+        --strand both \
+        --threads "$threads" \
+        --relabel OTU_ --sizein --sizeout \
+        --centroids "${work}/otus.fasta" --quiet 2>>"${work}/ont_vsearch.log" \
+        || { echo "❌ [ONT] cluster_fast failed"; return 1; }
+    [[ -s "${work}/otus.fasta" ]] || { echo "❌ [ONT] no OTU centroids produced"; return 1; }
+    echo "  [ONT] OTUs defined: $(grep -c '^>' "${work}/otus.fasta")"
+}
+
+# ── Build TRUE read-abundance table: map all reads back to OTUs (97%) + import ─
+# Reuses relabel_reads_for_mapping (sample-labeled read fasta from manifest)
+# and import_vsearch_to_qiime2, identical to the DegradedQ pipeline.
+# In : tmp/step_06_ont/otus.fasta + manifest (built by caller)
+# Out: tmp/step_07_cluster/<ds>-table-clustered.qza, -repseq-clustered.qza
+Amplicon_ONT_MapReadsToOTUs() {
+    dataset_path="${dataset_path%/}/"
+    cd "$dataset_path" || return 1
+    trimmed_path="${dataset_path%/}"; dataset_name="${trimmed_path##*/}"
+    local work="${dataset_path%/}/tmp/step_06_ont"
+    local cluster_path="${dataset_path%/}/tmp/step_07_cluster"
+    local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
+    local threads="${THREADS_PER_DATASET:-${cpu:-4}}"
+    mkdir -p "$cluster_path"
+
+    [[ -f "$manifest" ]] || { echo "❌ [ONT] manifest not found: $manifest"; return 1; }
+
+    echo ">>> [ONT] Relabeling reads for mapping..."
+    python3 "${SCRIPTS}/py_16s.py" relabel_reads_for_mapping \
+        --manifest_path "$manifest" \
+        --output_fasta "${work}/all_reads_labeled.fasta" \
+        --threads "$threads" || { echo "❌ [ONT] relabel_reads_for_mapping failed"; return 1; }
+
+    # OTUs are clustered at 97% (accurate, racon-polished), but raw ONT reads
+    # carry ~5-10% native error, so mapping them back at 97% would discard most
+    # of them. Map at a lower, ONT-error-tolerant identity (default 0.90, which
+    # recovers ~97% of reads in testing). Tunable via ONT_MAP_IDENTITY.
+    #   --strand both        : ONT reads occur in both orientations.
+    #   --maxaccepts/--maxrejects : bound the per-read search for the best OTU.
+    #     Fully exhaustive (0/0) assigns every read to its GLOBALLY best OTU but
+    #     is O(reads x OTUs) — at realistic ONT depth (e.g. ~19k reads x ~1.4k
+    #     OTUs) it runs for tens of minutes per dataset. Defaults below give a
+    #     near-best assignment orders of magnitude faster; set both to 0 via
+    #     ONT_MAP_MAXACCEPTS/ONT_MAP_MAXREJECTS for the exhaustive behaviour.
+    local map_id="${ONT_MAP_IDENTITY:-0.90}"
+    local map_acc="${ONT_MAP_MAXACCEPTS:-8}"
+    local map_rej="${ONT_MAP_MAXREJECTS:-64}"
+    echo ">>> [ONT] Mapping all reads to OTUs (id=${map_id}, maxaccepts=${map_acc}/maxrejects=${map_rej}) for abundance table..."
+    vsearch --usearch_global "${work}/all_reads_labeled.fasta" \
+        --db "${work}/otus.fasta" \
+        --id "$map_id" \
+        --strand both \
+        --maxaccepts "$map_acc" --maxrejects "$map_rej" \
+        --otutabout "${work}/otu_table.tsv" \
+        --threads "$threads" --quiet 2>>"${work}/ont_vsearch.log" \
+        || { echo "❌ [ONT] usearch_global mapping failed"; return 1; }
+
+    echo ">>> [ONT] Importing OTU table + rep-seqs into QIIME2..."
+    python3 "${SCRIPTS}/py_16s.py" import_vsearch_to_qiime2 \
+        --zotu_fasta "${work}/otus.fasta" \
+        --otu_table_tsv "${work}/otu_table.tsv" \
+        --manifest_path "$manifest" \
+        --output_table_qza "${cluster_path}/${dataset_name}-table-clustered.qza" \
+        --output_repseq_qza "${cluster_path}/${dataset_name}-repseq-clustered.qza" \
+        || { echo "❌ [ONT] import_vsearch_to_qiime2 failed"; return 1; }
+}
+
 ################################################################################
 #                              END OF FILE                                     #
 ################################################################################

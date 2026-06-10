@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/llloooooog.png" alt="Meta2Data logo" width="100%">
-</p>
-
 # Meta2Data
 
 **Automated Bioinformatics Pipeline for microbiome Sequencing Data Processing from public Databases**
@@ -11,7 +7,7 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 ## 3 module
 1. MetaDL >> For metadata preprocessing.
 2. AmpliconPIP >> For sequencing data processing.
-3. ggCOMBO >> For taxonomy annotation.
+3. AmpliconTAXA >> For taxonomy annotation.
 
 ## Features
 
@@ -19,18 +15,18 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 - **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, and 454 sequencing platforms (ONT not supported).
 - **Smart Primer Detection**: (AmpliconPIP module) Automatic primer detection and trimming for amplicon data (no need provide primer detail).
 - **QIIME2 Integration**: (AmpliconPIP module) Integration with QIIME2 2024.10 for downstream analysis.
-- **Taxonomy Assignment**: (ggCOMBO module) Taxonomy classification (GreenGenes2, Silva and gsr supported) and phylogenetic tree generation.
+- **Taxonomy Assignment**: (AmpliconTAXA module) Taxonomy classification (GreenGenes2 and SILVA supported) and phylogenetic tree generation, in ASV or OTU mode.
 - **OS**: Only for linux.
 - **Others**: Parallel task supported for AmpliconPIP.
 
 ## Notice
 
 Please ensure you allocate sufficient time for your task (1-2 days). The data download and phylogenetic tree generation steps can be very time-consuming.
-The ggCOMBO do not support parallel task, you need to run AmpliconPIP and ggCOMBO at seperate task, if you prefer Parallelize the AmpliconPIP task
+The AmpliconTAXA do not support parallel task, you need to run AmpliconPIP and AmpliconTAXA at seperate task, if you prefer Parallelize the AmpliconPIP task
 
 ## Installation
 
-Meta2Data can be installed in a local folder to avoid contaminating your QIIME2 environment and to make updates easier. Expose it to your shell by adding <repo>/bin to your PATH. QIIME2 is only required if you plan to run AmpliconPIP or ggCOMBO; MetaDL runs on any Python 3 interpreter.
+Meta2Data can be installed in a local folder to avoid contaminating your QIIME2 environment and to make updates easier. Expose it to your shell by adding <repo>/bin to your PATH. QIIME2 is only required if you plan to run AmpliconPIP or AmpliconTAXA; MetaDL runs on any Python 3 interpreter.
 
 ### Step 1: Clone the repo and add it to PATH
 
@@ -43,7 +39,7 @@ source ~/.bashrc
 > Place the export PATH=$HOME/Meta2Data/bin:$PATH line before any conda activate command.
 
 
-### Step 2: Install QIIME2 (only for AmpliconPIP / ggCOMBO)
+### Step 2: Install QIIME2 (only for AmpliconPIP / AmpliconTAXA)
 
 See https://docs.qiime2.org/2024.10/install/ for the current recommended procedure. 
 
@@ -57,7 +53,7 @@ Meta2Data --help
 
 ### System Requirements
 - **OS**: Linux (tested on Ubuntu/CentOS)
-- **Computation Resources**: For AmpliconPIP, 8GB RAM, 4 CPU are recommended per parallel task. For ggCOMBO, 70-100GB RAM and 20CPU are recommonded
+- **Computation Resources**: For AmpliconPIP, 8GB RAM, 4 CPU are recommended per parallel task. For AmpliconTAXA, 70-100GB RAM and 20CPU are recommonded
 
 
 
@@ -71,7 +67,7 @@ Meta2Data <command> [options]
 Available commands:
     MetaDL         Search keywords combination in NCBI and CNCB. Download and preclean metadata.
     AmpliconPIP    Download and process amplicon sequencing data based on user provided metadata.
-    ggCOMBO        Merge amplicon datasets and assign taxonomy using GreenGenes2, SILVA, or GSR-DB.
+    AmpliconTAXA        Merge amplicon datasets (--asv | --otu) and assign taxonomy using GreenGenes2 or SILVA.
     ShortreadsPIP  (In development)
 ```
 
@@ -207,21 +203,22 @@ PRJNA67890,SRR234567
 
 ---
 
-### ggCOMBO: Merge & Taxonomy Assignment
+### AmpliconTAXA: Merge & Taxonomy Assignment
 
-Merge multiple AmpliconPIP dataset outputs, assign taxonomy, and build a phylogenetic tree. Supports three taxonomy databases.
+Merge multiple AmpliconPIP dataset outputs, orient sequences against GreenGenes2, assign taxonomy, and build a phylogenetic tree. Runs in **ASV** or **OTU** mode (mutually exclusive, required) and supports two taxonomy databases.
 
 ```
 Required:
+    --asv | --otu                 Feature mode (mutually exclusive, required).
+                                  Must match the AmpliconPIP run that produced the input.
     --db DIR                      Path to database directory
     -i, --input DIR               Input directory containing PRJ* dataset folders
                                   (output of a previous AmpliconPIP run)
 
 Optional:
-    --db-type TYPE                Taxonomy database (default: greengenes)
+    --db-type TYPE                Taxonomy database for classification (default: greengenes)
                                     greengenes - GreenGenes2 2024.09
                                     silva      - SILVA 138.99
-                                    gsr        - GSR-DB (Gut-Specific Reference DB)
     -o, --output DIR              Output directory (default: same as --input)
     -t, --threads INT             CPU threads (default: 4)
     --confidence FLOAT            Classifier confidence threshold (default: 0.7)
@@ -229,29 +226,34 @@ Optional:
     -h, --help                    Show help
 ```
 
-**Processing pipeline:**
-1. Merge feature tables and representative sequences across all datasets
-2. Orient sequences against database reference sequences
-3. Filter feature table to oriented sequences only
-4. Assign taxonomy via pre-trained Naive Bayes classifier
-5. Build phylogenetic tree via SEPP fragment insertion (always GG2 reference)
-6. Filter features by tree placement
+**Orientation always uses the GreenGenes2 backbone, regardless of `--db-type`** — only taxonomy assignment depends on `--db-type`. Re-running with a different `--db-type` reuses every database-independent step (merge, orient, tree) and only recomputes the `<DB>Taxonomy.qza` artifact.
 
-**Output structure** (`DB_LABEL` = gg2, silva, or gsr):
+**Processing pipeline:**
+1. Collect `<id>-<mode>-final-*.qza` from each PRJ* folder and merge tables + representative sequences
+2. Orient sequences against the GreenGenes2 backbone (drop unmatched)
+3. Filter feature table to oriented sequences
+4. Assign taxonomy via the pre-trained Naive Bayes classifier (`--db-type`)
+5. Build the phylogenetic tree:
+   - `--otu`: SEPP fragment insertion (GG2 reference), then filter table **and** representative sequences to tree-placed features
+   - `--asv`: de novo tree (mafft + mask + fasttree); ASV assumes a single amplicon region and warns if feature lengths vary widely
+
+**Output structure** (`MODE` = asv | otu; `DB` = gg2 | silva). Only final products live in the main directory; intermediates and diagnostics go under `tmp/` (safe to delete — deleting only forces a recompute next run):
 ```
-<output_dir>/
-└── final/
-    └── merged/
-        ├── merged-table.qza                 # Merged feature table (shared)
-        ├── merged-rep-seqs.qza              # Merged representative sequences (shared)
-        ├── merged-table-summary.qzv         # Table summary (shared)
-        └── <DB_LABEL>/                      # Database-specific subfolder
-            ├── oriented-rep-seqs.qza        # Oriented representative sequences
-            ├── merged-table-oriented.qza    # Table filtered to oriented features
-            ├── merged-taxonomy.qza          # Taxonomy classification
-            ├── insertion-tree.qza           # SEPP phylogenetic tree
-            ├── merged-table-tree.qza        # Table filtered to tree-placed features
-            └── merged-table-no-tree.qza     # Features not placed in tree
+<output_dir>/final-<MODE>/
+├── <DB>Taxonomy.qza                 # Taxonomy (e.g. gg2Taxonomy.qza / silvaTaxonomy.qza)
+│
+│   # --otu final products:
+├── treeFilteredTable.qza            # Table filtered to tree-placed features
+├── treeFilteredRepSeqs.qza          # Rep-seqs filtered to tree-placed features
+├── seppTree.qza                     # SEPP phylogenetic tree
+│
+│   # --asv final products:
+├── orientedTable.qza                # Table filtered to GG2-matched features
+├── orientedRepSeqs.qza              # Representative sequences (oriented vs GG2)
+├── denovoRootedTree.qza             # De novo rooted tree
+│
+└── tmp/                             # mergedTable/RepSeqs, summaries, unmatched,
+                                     # alignments, placements, ... (reusable cache)
 ```
 
 ---
@@ -300,13 +302,13 @@ Meta2Data AmpliconPIP \
 
 ### Case 3: Taxonomy Assignment Only (AmpliconPIP Already Complete)
 
-Run ggCOMBO independently on existing AmpliconPIP results, e.g., to compare databases.
+Run AmpliconTAXA independently on existing AmpliconPIP results, e.g., to compare databases.
 
 ```bash
 conda activate qiime2-amplicon-2024.10
 
-# GreenGenes2
-Meta2Data ggCOMBO \
+# OTU mode, GreenGenes2 (must match an AmpliconPIP --otu run)
+Meta2Data AmpliconTAXA --otu \
     --db path/to/your/metafile/databases/ \ # Prepare an empty path, the pip will download database in it
     --db-type greengenes \
     --dl \
@@ -314,8 +316,8 @@ Meta2Data ggCOMBO \
     -i path/to/your/metafile/amplicon_output/ \
     -t 16
 
-# SILVA 138.99
-Meta2Data ggCOMBO \
+# ASV mode, SILVA 138.99 (must match an AmpliconPIP --asv run)
+Meta2Data AmpliconTAXA --asv \
     --db path/to/your/metafile/databases/ \
     --db-type silva \
     --dl \
@@ -323,14 +325,10 @@ Meta2Data ggCOMBO \
     -i path/to/your/metafile/amplicon_output/ \
     -t 16
 
-# GSR-DB (gut-specific, with lower confidence threshold)
-Meta2Data ggCOMBO \
-    --db path/to/your/metafile/databases/ \
-    --db-type gsr \
-    --dl \
-    --confidence 0.7 \
-    -i amplicon_output/ \
-    -t 16
+# Compare databases on the SAME mode: the second run reuses the merge/orient/tree
+# steps and only recomputes the taxonomy artifact.
+Meta2Data AmpliconTAXA --otu --db-type greengenes --db databases/ -i amplicon_output/ -t 16
+Meta2Data AmpliconTAXA --otu --db-type silva      --db databases/ -i amplicon_output/ -t 16
 ```
 
 
@@ -363,14 +361,6 @@ Meta2Data AmpliconPIP --test \
 # Run the dependency check alone, without launching the pipeline.
 bash scripts/check_dependencies.sh
 ```
-
-
-
-> **Note on `--db-type gsr`** — GSR-DB's upstream ships a pre-trained
-> classifier pickled against an older scikit-learn and cannot be trusted with
-> QIIME2 2024.10's sklearn 1.4.2. ggCOMBO therefore downloads only the raw
-> reference tarball (seqs + taxa) and trains a fresh Naive Bayes classifier
-> for information of GSR, see: https://journals.asm.org/doi/10.1128/msystems.00950-23
 
 
 
