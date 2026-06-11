@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/llloooooog.png" alt="Meta2Data logo" width="100%">
+  <img src="docs/meta2data workflow.png" alt="Meta2Data logo" width="100%">
 </p>
 
 # Meta2Data
