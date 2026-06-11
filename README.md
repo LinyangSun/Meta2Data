@@ -6,7 +6,7 @@
 
 **Automated Bioinformatics Pipeline for microbiome Sequencing Data Processing from public Databases**
 
-Meta2Data is a command-line tool for downloading, processing, and analyzing metabarcoding data (maybe also include metagenome in future) from public databases (NCBI, CNCB/GSA). It integrates metadata retrieval, SRA data download, quality control, and QIIME2-based analysis into a single, automated workflow.
+Meta2Data is a command-line tool for downloading, processing, and analyzing metabarcoding data (maybe also include metagenome in future) from public databases (INSDC, CNCB/GSA). It integrates metadata retrieval, SRA data download, quality control, and QIIME2-based analysis into a single, automated workflow.
 
 ## 3 module
 1. MetaDL >> For metadata preprocessing.
@@ -15,10 +15,10 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 
 ## Features
 
-- **Metadata Download and Pre-clean**: (MetaDL module) Search, download, and pre-clean metadata from NCBI and CNCB databases by keywords, BioProject ID, or BioSample ID. Auto-fetches BioProject descriptions and standardizes column names.
-- **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, 454, and Oxford Nanopore (ONT) sequencing platforms. The platform is detected automatically from NCBI/CNCB for each downloaded dataset (or set explicitly with `--platform` in local mode).
+- **Metadata Download and Pre-clean**: (MetaDL module) Search, download, and pre-clean metadata from INSDC and CNCB databases by keywords, BioProject ID, or BioSample ID. Auto-fetches BioProject descriptions and standardizes column names.
+- **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, 454, and Oxford Nanopore (ONT) sequencing platforms. The platform is detected automatically from INSDC/CNCB for each downloaded dataset (or set explicitly with `--platform` in local mode).
 - **ASV / OTU Dual Mode**: (AmpliconPIP module) Choose the denoising strategy with a required `--asv` / `--otu` flag. `--asv` runs DADA2 for single-base ASV resolution (Illumina / Ion Torrent / PacBio CCS); `--otu` runs vsearch for 97% genus-level OTUs and is robust on all 5 platforms, including degraded / binned-quality and ONT data.
-- **Local Mode**: (AmpliconPIP module) Process FASTQ files you already have with `--local` — no download, no NCBI lookup. One run handles one dataset/one platform; you supply `--platform` and, optionally, explicit primers (`--primer-fwd`/`--primer-rev`, otherwise auto-detected). Your original files are never modified.
+- **Local Mode**: (AmpliconPIP module) Process FASTQ files you already have with `--local` — no download, no INSDC lookup. One run handles one dataset/one platform; you supply `--platform` and, optionally, explicit primers (`--primer-fwd`/`--primer-rev`, otherwise auto-detected). Your original files are never modified.
 - **Smart Primer Detection**: (AmpliconPIP module) Automatic entropy-based primer detection and trimming for amplicon data (no need to provide primer details); explicit primers can be given in local mode.
 - **Per-Dataset Summary & Region Detection**: (AmpliconPIP module) After processing, a `per_dataset_summary.tsv` reports each dataset's platform, quality status, and the amplified 16S V-region (e.g. `V3-V4`, `V1-V9`), inferred by aligning representative sequences to the E. coli 16S reference. Summaries and the unified status log are re-run safe (upserted / append-only).
 - **QIIME2 Integration**: (AmpliconPIP module) Integration with QIIME2 2024.10 for downstream analysis.
@@ -29,13 +29,16 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 ## Notice
 
 Please ensure you allocate sufficient time for your task (1-2 days). The data download and phylogenetic tree generation steps can be very time-consuming.
-The AmpliconTAXA do not support parallel task, you need to run AmpliconPIP and AmpliconTAXA at seperate task, if you prefer Parallelize the AmpliconPIP task
 
 ## Installation
 
-Meta2Data can be installed in a local folder to avoid contaminating your QIIME2 environment and to make updates easier. Expose it to your shell by adding <repo>/bin to your PATH. QIIME2 is only required if you plan to run AmpliconPIP or AmpliconTAXA; MetaDL runs on any Python 3 interpreter.
+Meta2Data can be installed in a local folder to avoid contaminating your QIIME2 environment and to make updates easier. QIIME2 is only required if you plan to run AmpliconPIP or AmpliconTAXA; MetaDL runs on any Python 3 interpreter.
 
-### Step 1: Clone the repo and add it to PATH
+### Step 1: Install QIIME2 and associated software (only for AmpliconPIP / AmpliconTAXA)
+
+See the env.yml file.
+
+### Step 2: Clone the repo and add it to PATH
 
 ```bash
 git clone https://github.com/LinyangSun/Meta2Data.git
@@ -45,10 +48,6 @@ source ~/.bashrc
 > If you also use conda, the order of lines in your rc file matters.
 > Place the export PATH=$HOME/Meta2Data/bin:$PATH line before any conda activate command.
 
-
-### Step 2: Install QIIME2 (only for AmpliconPIP / AmpliconTAXA)
-
-See https://docs.qiime2.org/2024.10/install/ for the current recommended procedure. 
 
 ### Step 3: Verify installation
 
@@ -60,7 +59,7 @@ Meta2Data --help
 
 ### System Requirements
 - **OS**: Linux (tested on Ubuntu/CentOS)
-- **Computation Resources**: For AmpliconPIP, 8GB RAM, 4 CPU are recommended per parallel task. For AmpliconTAXA, 70-100GB RAM and 20CPU are recommonded
+- **Computation Resources**: For AmpliconPIP, 8GB RAM, 4 CPU are recommended per parallel task. For AmpliconTAXA, 40-60GB RAM and 10CPU are recommonded
 
 
 
@@ -72,7 +71,7 @@ Meta2Data provides several subcommands for different stages of the workflow:
 Meta2Data <command> [options]
 
 Available commands:
-    MetaDL         Search keywords combination in NCBI and CNCB. Download and preclean metadata.
+    MetaDL         Search keywords combination in INSDC and CNCB. Download and preclean metadata.
     AmpliconPIP    Download and process amplicon sequencing data based on user provided metadata.
     AmpliconTAXA        Merge amplicon datasets (--asv | --otu) and assign taxonomy using GreenGenes2 or SILVA.
     ShortreadsPIP  (In development)
@@ -82,21 +81,21 @@ Available commands:
 
 ### MetaDL: Metadata Download
 
-Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability. Automatically fetches BioProject descriptions and standardizes column names (CamelCase normalization, synonym merging via dictionary).
+Download metadata from INSDC and CNCB databases with parallel processing and checkpoint/resume capability. Automatically fetches BioProject descriptions and standardizes column names (CamelCase normalization, synonym merging via dictionary).
 
 **Two modes:**
 
 | Mode | Required Options | Description |
 |------|-----------------|-------------|
 | ID Input | `-i`, `-o` | Provide a directory of txt files containing BioProject IDs (PRJ*) and/or BioSample IDs (SAM*) — they can be mixed |
-| Keyword Search | `-o`, `--keywords`, `--field`, `--organism` | Search NCBI + CNCB by keywords, then download metadata for matched BioProjects |
+| Keyword Search | `-o`, `--keywords`, `--field`, `--organism` | Search INSDC + CNCB by keywords, then download metadata for matched BioProjects |
 
 ```
 Required:
     -o, --output DIR              Output directory
 
 ID Input Mode:
-    -i, --input DIR               Directory with ID txt files (BioProject and/or BioSample)
+    -i, --input DIR               Directory with provided ID txt files (Only for BioProject and/or BioSample)
 
 Keyword Search Mode:
     --keywords                    Enable keyword search mode
@@ -141,10 +140,11 @@ Internal / resume:
 > ```bash
 > # Instead of just "bee", also search by genus names from the Apoidea phylogeny
 > organism=("bee" "Apis" "Bombus" "Megachile" "Osmia" "Andrena" "Halictus")
+> methods=("16S rRNA" "amplicon")
 > Meta2Data MetaDL \
 >     -o metadata/ \
 >     --keywords \
->     --field "16S rRNA" "amplicon" \
+>     --field "${methods[@]}" \
 >     --organism "${organism[@]}"
 > ```
 >
@@ -185,7 +185,7 @@ Optional:
 
 Local mode (process existing FASTQ instead of downloading):
     --local                       Read FASTQ straight from a folder; no download,
-                                  no NCBI platform detection. -m is the INPUT FOLDER
+                                  no platform detection. -m is the INPUT FOLDER
                                   (one dataset = that folder; every FASTQ directly
                                   inside it is a sample; id = folder name).
     --platform PLATFORM           REQUIRED with --local. One of:
@@ -208,6 +208,14 @@ Local mode (process existing FASTQ instead of downloading):
 >     --primer-fwd GTGYCAGCMGCCGCGGTAA --primer-rev GGACTACNVGGGTWTCTAAT \
 >     -m /path/to/my_fastq_folder -o /path/to/output -t 8
 > ```
+> ```bash
+> Meta2Data AmpliconPIP --local --platform ILLUMINA --asv \
+>     -m /path/to/my_fastq_folder -o /path/to/output -t 8
+> # with explicit primers (cutadapt):
+> Meta2Data AmpliconPIP --local --platform ILLUMINA --asv \
+>     --primer-fwd GTGYCAGCMGCCGCGGTAA --primer-rev GGACTACNVGGGTWTCTAAT \
+>     -m /path/to/my_fastq_folder -o /path/to/output -t 8
+> ```
 
 **Metadata CSV format** (column names customizable via `--col-*`):
 ```csv
@@ -218,8 +226,8 @@ PRJNA67890,SRR234567
 ```
 
 **Processing pipeline:**
-1. Download SRA data (via Aspera/FTP) — or, with `--local`, read FASTQ straight from a folder (no download)
-2. Detect sequencing platform (Illumina, PacBio, Ion Torrent, 454, ONT) and layout (single/paired-end) automatically from NCBI/CNCB — or use `--platform` in local mode
+1. Download SRA data (via FTP) — or, with `--local`, read FASTQ straight from a folder (no download)
+2. Detect sequencing platform (Illumina, PacBio, Ion Torrent, 454, ONT) and layout (single/paired-end) automatically from INSDC/CNCB — or use `--platform` in local mode
 3. Quality control
 4. Identify and trim primers (entropy auto-detection, or explicit primers in local mode)
 5. Mode-specific denoising:
