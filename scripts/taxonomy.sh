@@ -32,6 +32,22 @@ done
 # A .qza/.qzv is reusable only if it is a non-empty, valid zip archive.
 qza_ok() { [[ -s "$1" ]] && unzip -tq "$1" >/dev/null 2>&1; }
 
+# Reuse-or-build a feature-table summary visualization (non-fatal on failure).
+# Args: <in-table> <out-viz> <warn-msg> [guard-qza]
+# If guard-qza is given, the summary is only attempted when that artifact is OK.
+summarize_table() {
+    local in_table="$1" out_viz="$2" warn_msg="$3" guard="${4:-}"
+    if qza_ok "$out_viz"; then
+        echo "✓ reuse: $(basename "$out_viz")"
+    elif { [[ -z "$guard" ]] || qza_ok "$guard"; } && qiime feature-table summarize \
+            --i-table "$in_table" \
+            --o-visualization "$out_viz" --verbose; then
+        echo "✓ Summary generated"
+    else
+        echo "$warn_msg"
+    fi
+}
+
 echo "========================================="
 echo "PHASE 3: Merge, Orient, Classify & Tree (${MODE})"
 echo "Started: $(date)"
@@ -109,7 +125,6 @@ rep_glob="*-${MODE}-final-rep-seqs.qza"
 
 ALL_TABLES=()
 ALL_REP_SEQS=()
-SUCCESSFUL_DATASETS=()
 
 for folder in "${all_folders[@]}"; do
     folder_name=$(basename "$folder")
@@ -124,7 +139,6 @@ for folder in "${all_folders[@]}"; do
 
     ALL_TABLES+=("${table_files[0]}")
     ALL_REP_SEQS+=("${rep_files[0]}")
-    SUCCESSFUL_DATASETS+=("$folder_name")
     echo "  ✓ ${folder_name}"
 done
 
@@ -167,15 +181,8 @@ else
 fi
 
 echo ">>> Step 4: Merged table summary..."
-if qza_ok "$MERGED_SUMMARY"; then
-    echo "✓ reuse: $(basename "$MERGED_SUMMARY")"
-elif qiime feature-table summarize \
-        --i-table "$MERGED_TABLE" \
-        --o-visualization "$MERGED_SUMMARY" --verbose; then
-    echo "✓ Summary generated"
-else
-    echo "⚠️  WARNING: Merged summary generation failed (non-fatal)"
-fi
+summarize_table "$MERGED_TABLE" "$MERGED_SUMMARY" \
+    "⚠️  WARNING: Merged summary generation failed (non-fatal)"
 echo ""
 
 ################################################################################
@@ -337,28 +344,14 @@ if [[ "$MODE" == "otu" ]]; then
         fi
 
         echo ">>> Step 11: Tree-placed table summary..."
-        if qza_ok "$TREE_TABLE_SUMMARY"; then
-            echo "✓ reuse: $(basename "$TREE_TABLE_SUMMARY")"
-        elif qza_ok "$TREE_TABLE" && qiime feature-table summarize \
-                --i-table "$TREE_TABLE" \
-                --o-visualization "$TREE_TABLE_SUMMARY" --verbose; then
-            echo "✓ Summary generated"
-        else
-            echo "⚠️  WARNING: Tree-placed table summary failed (non-fatal)"
-        fi
+        summarize_table "$TREE_TABLE" "$TREE_TABLE_SUMMARY" \
+            "⚠️  WARNING: Tree-placed table summary failed (non-fatal)" "$TREE_TABLE"
     fi
 else
     # ---- ASV: de novo tree (mafft -> mask -> fasttree) ----
     echo ">>> Step 8: ASV final table summary..."
-    if qza_ok "$ORIENTED_TABLE_SUMMARY"; then
-        echo "✓ reuse: $(basename "$ORIENTED_TABLE_SUMMARY")"
-    elif qiime feature-table summarize \
-            --i-table "$ORIENTED_TABLE" \
-            --o-visualization "$ORIENTED_TABLE_SUMMARY" --verbose; then
-        echo "✓ Summary generated"
-    else
-        echo "⚠️  WARNING: ASV table summary failed (non-fatal)"
-    fi
+    summarize_table "$ORIENTED_TABLE" "$ORIENTED_TABLE_SUMMARY" \
+        "⚠️  WARNING: ASV table summary failed (non-fatal)"
 
     echo ">>> Step 9: Building de novo tree (mafft + mask + fasttree)..."
     if qza_ok "$DENOVO_ROOTED"; then

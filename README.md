@@ -4,8 +4,6 @@
 
 # Meta2Data
 
-# Updating.. New feature will be available on June 12th.
-
 **Automated Bioinformatics Pipeline for microbiome Sequencing Data Processing from public Databases**
 
 Meta2Data is a command-line tool for downloading, processing, and analyzing metabarcoding data (maybe also include metagenome in future) from public databases (NCBI, CNCB/GSA). It integrates metadata retrieval, SRA data download, quality control, and QIIME2-based analysis into a single, automated workflow.
@@ -18,9 +16,11 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 ## Features
 
 - **Metadata Download and Pre-clean**: (MetaDL module) Search, download, and pre-clean metadata from NCBI and CNCB databases by keywords, BioProject ID, or BioSample ID. Auto-fetches BioProject descriptions and standardizes column names.
-- **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, 454, and Oxford Nanopore (ONT) sequencing platforms. The platform is detected automatically from NCBI/CNCB for each dataset.
+- **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, 454, and Oxford Nanopore (ONT) sequencing platforms. The platform is detected automatically from NCBI/CNCB for each downloaded dataset (or set explicitly with `--platform` in local mode).
 - **ASV / OTU Dual Mode**: (AmpliconPIP module) Choose the denoising strategy with a required `--asv` / `--otu` flag. `--asv` runs DADA2 for single-base ASV resolution (Illumina / Ion Torrent / PacBio CCS); `--otu` runs vsearch for 97% genus-level OTUs and is robust on all 5 platforms, including degraded / binned-quality and ONT data.
-- **Smart Primer Detection**: (AmpliconPIP module) Automatic primer detection and trimming for amplicon data (no need provide primer detail).
+- **Local Mode**: (AmpliconPIP module) Process FASTQ files you already have with `--local` — no download, no NCBI lookup. One run handles one dataset/one platform; you supply `--platform` and, optionally, explicit primers (`--primer-fwd`/`--primer-rev`, otherwise auto-detected). Your original files are never modified.
+- **Smart Primer Detection**: (AmpliconPIP module) Automatic entropy-based primer detection and trimming for amplicon data (no need to provide primer details); explicit primers can be given in local mode.
+- **Per-Dataset Summary & Region Detection**: (AmpliconPIP module) After processing, a `per_dataset_summary.tsv` reports each dataset's platform, quality status, and the amplified 16S V-region (e.g. `V3-V4`, `V1-V9`), inferred by aligning representative sequences to the E. coli 16S reference. Summaries and the unified status log are re-run safe (upserted / append-only).
 - **QIIME2 Integration**: (AmpliconPIP module) Integration with QIIME2 2024.10 for downstream analysis.
 - **Taxonomy Assignment**: (AmpliconTAXA module) Taxonomy classification (GreenGenes2 and SILVA supported) and phylogenetic tree generation, in ASV or OTU mode (must match the mode used in AmpliconPIP).
 - **OS**: Only for linux.
@@ -182,9 +182,32 @@ Optional:
                                   Without -m: use built-in test data
                                   With -m: subset metadata (2 SRA per BioProject)
     -h, --help                    Show help
+
+Local mode (process existing FASTQ instead of downloading):
+    --local                       Read FASTQ straight from a folder; no download,
+                                  no NCBI platform detection. -m is the INPUT FOLDER
+                                  (one dataset = that folder; every FASTQ directly
+                                  inside it is a sample; id = folder name).
+    --platform PLATFORM           REQUIRED with --local. One of:
+                                  ILLUMINA | LS454 | ION_TORRENT | PACBIO_SMRT | OXFORD_NANOPORE
+                                  (applies to the whole run — one run = one platform).
+    --primer-fwd SEQ              Optional. Forward primer to trim with cutadapt.
+    --primer-rev SEQ              Optional. Reverse primer (paired-end). If no primer
+                                  is given, the entropy auto-detector is used (as in
+                                  download mode). --col-* are not needed in --local.
 ```
 
 > **Note:** A denoising mode (`--asv` or `--otu`) is mandatory and the two are mutually exclusive — there is no default. This replaces the previous auto-mix-by-platform behaviour, which silently combined ASV and OTU results within a single run (a hidden batch-effect risk). The mode you choose here **must** match the `--asv` / `--otu` mode you later pass to AmpliconTAXA.
+
+> **Local mode:** `--local` skips download + automatic platform detection, so you must pass `--platform`. One `--local` run handles exactly **one dataset / one platform** (no sub-folder recursion) — for mixed-platform data, run each folder separately. Your original FASTQ files are never modified (they are symlinked read-only into the working directory). Example:
+> ```bash
+> Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
+>     -m /path/to/my_fastq_folder -o /path/to/output -t 8
+> # with explicit primers (cutadapt):
+> Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
+>     --primer-fwd GTGYCAGCMGCCGCGGTAA --primer-rev GGACTACNVGGGTWTCTAAT \
+>     -m /path/to/my_fastq_folder -o /path/to/output -t 8
+> ```
 
 **Metadata CSV format** (column names customizable via `--col-*`):
 ```csv
@@ -195,14 +218,15 @@ PRJNA67890,SRR234567
 ```
 
 **Processing pipeline:**
-1. Download SRA data (via Aspera/FTP)
-2. Detect sequencing platform (Illumina, PacBio, Ion Torrent, 454, ONT) and layout (single/paired-end) automatically from NCBI/CNCB
+1. Download SRA data (via Aspera/FTP) — or, with `--local`, read FASTQ straight from a folder (no download)
+2. Detect sequencing platform (Illumina, PacBio, Ion Torrent, 454, ONT) and layout (single/paired-end) automatically from NCBI/CNCB — or use `--platform` in local mode
 3. Quality control
-4. Identify and trim primers
+4. Identify and trim primers (entropy auto-detection, or explicit primers in local mode)
 5. Mode-specific denoising:
    - `--asv`: DADA2 (Illumina / Ion Torrent / PacBio CCS); 454, ONT and degraded/binned-quality data are skipped
    - `--otu`: vsearch 97% OTU clustering (all 5 platforms, robust on degraded/binned-quality and ONT data)
 6. Generate QIIME2 artifacts (`.qza` files)
+7. Per-dataset summary: write `per_dataset_summary.tsv` (platform + quality status + amplified 16S region)
 
 **Output structure** (`<mode>` = `asv` | `otu`):
 ```
@@ -213,11 +237,16 @@ PRJNA67890,SRR234567
 │   ├── ori_fastq/                             # Downloaded FASTQ files
 │   ├── <dataset_ID>-<mode>-final-rep-seqs.qza
 │   └── <dataset_ID>-<mode>-final-table.qza
-├── failed_datasets.log
-├── success_datasets.log
-├── skipped_datasets.log
-└── summary.csv                                # Sequencing depth for raw reads / final data
+├── logs/                                      # Per-dataset verbose logs (<dataset_ID>.log)
+├── datasets.log                               # Unified status log (append-only): SUCCESS|FAILED|SKIPPED|LOW_QUALITY, one dated header per run
+├── summary.csv                                # Per-sample sequencing depth (raw vs final; upserted by Run, re-run safe)
+└── per_dataset_summary.tsv                    # Per-dataset: platform + quality status + amplified 16S region (V-region via E. coli alignment); upserted by Bioproject
 ```
+
+The amplified region in `per_dataset_summary.tsv` is inferred by aligning each dataset's
+representative sequences to the E. coli 16S reference (`docs/ecoli_16S_J01859.fasta`) and
+mapping the median E. coli span to the V1–V9 regions (e.g. `V3-V4`, `V1-V9` for full-length),
+with a confidence = fraction of rep-seqs agreeing.
 
 ---
 
@@ -384,6 +413,33 @@ bash scripts/check_dependencies.sh
 ```
 
 
+
+### Case 5: Process Local FASTQ (No Download)
+
+Already have the FASTQ files? Use `--local` to process a folder directly — no download, no NCBI lookup. The folder **is** one dataset (its name becomes the dataset id) and every FASTQ file directly inside it is a sample. You must supply `--platform` (one run = one platform) and an explicit output directory (`-o`); your original files are never modified (they are symlinked read-only).
+
+```bash
+conda activate qiime2-amplicon-2024.10
+
+# Auto-detect primers (entropy), OTU mode, Illumina data
+Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
+    -m path/to/my_fastq_folder/ \   # input folder = one dataset (id = folder name)
+    -o local_output/ \
+    -t 8
+
+# Provide explicit primers (trimmed with cutadapt) instead of auto-detection
+Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
+    --primer-fwd GTGYCAGCMGCCGCGGTAA \
+    --primer-rev GGACTACNVGGGTWTCTAAT \
+    -m path/to/my_fastq_folder/ \
+    -o local_output/ \
+    -t 8
+```
+
+> - `--platform` must be one of `ILLUMINA | LS454 | ION_TORRENT | PACBIO_SMRT | OXFORD_NANOPORE`.
+> - One `--local` run = one dataset / one platform; for mixed-platform data, run each folder separately.
+> - Paired-end is detected from `_1`/`_2` or `_R1`/`_R2` filename suffixes; `.fq`/`.fq.gz` are accepted (normalized to `.fastq`).
+> - The same outputs as download mode are produced (`datasets.log`, `summary.csv`, `per_dataset_summary.tsv`).
 
 ### Contributing
 

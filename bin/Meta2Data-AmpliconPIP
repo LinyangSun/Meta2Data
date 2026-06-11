@@ -124,6 +124,10 @@ MODE=""
 
 COL_BIOPROJECT=""
 COL_SRA=""
+LOCAL_MODE=false
+LOCAL_PLATFORM=""
+PRIMER_FWD=""
+PRIMER_REV=""
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -169,6 +173,22 @@ while [[ $# -gt 0 ]]; do
             ;;
         --col-sra)
             COL_SRA="$2"
+            shift 2
+            ;;
+        --local)
+            LOCAL_MODE=true
+            shift
+            ;;
+        --platform)
+            LOCAL_PLATFORM="$2"
+            shift 2
+            ;;
+        --primer-fwd)
+            PRIMER_FWD="$2"
+            shift 2
+            ;;
+        --primer-rev)
+            PRIMER_REV="$2"
             shift 2
             ;;
         -h|--help)
@@ -290,16 +310,23 @@ if [[ -z "$METADATA" ]]; then
     exit 1
 fi
 
-if [[ -z "$COL_BIOPROJECT" ]]; then
-    echo "Error: --col-bioproject is required (or use --test for test mode)"
-    show_help
-    exit 1
-fi
+if [[ "$LOCAL_MODE" == true ]]; then
+    case "$LOCAL_PLATFORM" in
+        ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE) ;;
+        *) echo "Error: --local requires --platform one of ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE"; show_help; exit 1 ;;
+    esac
+else
+    if [[ -z "$COL_BIOPROJECT" ]]; then
+        echo "Error: --col-bioproject is required (or use --test for test mode)"
+        show_help
+        exit 1
+    fi
 
-if [[ -z "$COL_SRA" ]]; then
-    echo "Error: --col-sra is required (or use --test for test mode)"
-    show_help
-    exit 1
+    if [[ -z "$COL_SRA" ]]; then
+        echo "Error: --col-sra is required (or use --test for test mode)"
+        show_help
+        exit 1
+    fi
 fi
 
 # Denoising mode is mandatory: exactly one of --asv / --otu, no default.
@@ -311,8 +338,13 @@ if [[ -z "$MODE" ]]; then
     exit 1
 fi
 
-# Check if metadata file exists
-if [[ ! -f "$METADATA" ]]; then
+# Check input exists: a folder in --local mode, a CSV file otherwise
+if [[ "$LOCAL_MODE" == true ]]; then
+    if [[ ! -d "$METADATA" ]]; then
+        echo "Error: --local input folder '$METADATA' not found"
+        exit 1
+    fi
+elif [[ ! -f "$METADATA" ]]; then
     echo "Error: Metadata file '$METADATA' not found"
     exit 1
 fi
@@ -320,7 +352,10 @@ fi
 METADATA=$(cd "$(dirname "$METADATA")" && pwd)/$(basename "$METADATA")
 
 if [[ -z "$OUTPUT" ]]; then
-    if [[ "$TEST_MODE" == true ]]; then
+    if [[ "$LOCAL_MODE" == true ]]; then
+        echo "Error: --local requires an explicit -o/--output directory (the input folder must not double as the output)"
+        exit 1
+    elif [[ "$TEST_MODE" == true ]]; then
         # In test mode, default to current working directory
         # (test metadata is inside package, can't write there)
         OUTPUT=$(pwd)
@@ -389,6 +424,14 @@ echo "Started: $(date)"
 echo "========================================="
 echo ""
 
+# Extra flags for --local mode (platform + optional explicit primers)
+EXTRA_ARGS=()
+if [[ "$LOCAL_MODE" == true ]]; then
+    EXTRA_ARGS+=(--local --platform "$LOCAL_PLATFORM")
+fi
+[[ -n "$PRIMER_FWD" ]] && EXTRA_ARGS+=(--primer-fwd "$PRIMER_FWD")
+[[ -n "$PRIMER_REV" ]] && EXTRA_ARGS+=(--primer-rev "$PRIMER_REV")
+
 # Call run.sh to handle all processing
 if ! bash "${SCRIPTS}/run.sh" \
     -m "$METADATA" \
@@ -397,7 +440,8 @@ if ! bash "${SCRIPTS}/run.sh" \
     --max-parallel "$MAX_PARALLEL" \
     --col-bioproject "$COL_BIOPROJECT" \
     --col-sra "$COL_SRA" \
-    --mode "$MODE"; then
+    --mode "$MODE" \
+    "${EXTRA_ARGS[@]}"; then
     echo "❌ ERROR: Amplicon processing pipeline failed"
     echo "Check logs in: $OUTPUT"
     echo "QIIME2 tmpdir preserved for debugging: $PIPELINE_TMPDIR"
@@ -418,25 +462,27 @@ echo "Finished: $(date)"
 echo "========================================="
 echo ""
 
-# Display log file locations
-failed_log="${OUTPUT}/failed_datasets.log"
-success_log="${OUTPUT}/success_datasets.log"
-skipped_log="${OUTPUT}/skipped_datasets.log"
-
-if [ -f "$success_log" ]; then
-    success_count=$(wc -l < "$success_log" 2>/dev/null | tr -d ' ')
-    echo "Successful datasets: $success_count"
-fi
-
-if [ -f "$failed_log" ] && [ -s "$failed_log" ]; then
-    failed_count=$(wc -l < "$failed_log" 2>/dev/null | tr -d ' ')
-    echo "Failed datasets:     $failed_count"
-    echo "⚠️  Check: $failed_log"
-fi
-
-if [ -f "$skipped_log" ] && [ -s "$skipped_log" ]; then
-    skipped_count=$(wc -l < "$skipped_log" 2>/dev/null | tr -d ' ')
-    echo "Skipped datasets:    $skipped_count"
+# Per-run status summary from the unified append-only log. This run's section =
+# the entries after the most recent "# === RUN" header (run.sh prints the same tally).
+run_log="${OUTPUT}/datasets.log"
+if [ -f "$run_log" ]; then
+    awk -F'\t' '
+        /^# === RUN/ { s = NR }
+        { f2[NR] = $2 }
+        END {
+            for (i = s + 1; i <= NR; i++) {
+                if (f2[i] == "SUCCESS") su++
+                else if (f2[i] == "FAILED") fa++
+                else if (f2[i] == "SKIPPED") sk++
+                else if (f2[i] == "LOW_QUALITY") lq++
+            }
+            printf "Successful datasets:  %d\n", su + 0
+            if (fa > 0) printf "Failed datasets:      %d\n", fa
+            if (sk > 0) printf "Skipped datasets:     %d\n", sk
+            if (lq > 0) printf "Low-quality datasets: %d\n", lq
+        }
+    ' "$run_log"
+    echo "⚠️  Failed details (if any) and full history: $run_log"
 fi
 
 echo ""

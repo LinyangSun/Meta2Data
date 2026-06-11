@@ -305,6 +305,13 @@ def remove_duplicate_columns(df):
     return df[keep]
 
 
+def _apply_priority_order(df):
+    """Reorder columns so PRIORITY_COLUMNS (present ones) come first."""
+    first_cols = [c for c in PRIORITY_COLUMNS if c in df.columns]
+    other_cols = [c for c in df.columns if c not in PRIORITY_COLUMNS]
+    return df[first_cols + other_cols]
+
+
 def clean_and_standardize_columns(df, source_prefix=None):
     """Clean column names and auto-detect standard fields by content."""
     if df.empty:
@@ -343,9 +350,7 @@ def clean_and_standardize_columns(df, source_prefix=None):
 
     df.columns = new_columns
 
-    first_cols = [c for c in PRIORITY_COLUMNS if c in df.columns]
-    other_cols = [c for c in df.columns if c not in PRIORITY_COLUMNS]
-    return df[first_cols + other_cols]
+    return _apply_priority_order(df)
 
 
 def apply_column_rename_from_dict(df):
@@ -447,9 +452,7 @@ def standardize_columns(df):
                 break
 
     # Re-apply priority column ordering after all renames
-    first_cols = [c for c in PRIORITY_COLUMNS if c in df.columns]
-    other_cols = [c for c in df.columns if c not in PRIORITY_COLUMNS]
-    df = df[first_cols + other_cols]
+    df = _apply_priority_order(df)
 
     return df
 
@@ -1041,43 +1044,6 @@ def download_sra_runinfo(bioproject_id, output_dir):
     return _fetch_sra_runinfo(sra_ids, bioproject_id, output_dir)
 
 
-def get_sra_ids_from_biosample_ids(biosample_accessions):
-    """Link BioSample accessions -> SRA UIDs via esearch + elink."""
-
-    sra_uids = []
-    batch_size = 200
-
-    for i in range(0, len(biosample_accessions), batch_size):
-        batch = biosample_accessions[i:i + batch_size]
-
-        def _fetch(b=batch):
-            query = " OR ".join(f"{acc}[Accession]" for acc in b)
-            handle = Entrez.esearch(db="biosample", term=query, retmax=10000)
-            results = Entrez.read(handle)
-            handle.close()
-            bs_uids = results["IdList"]
-            if not bs_uids:
-                return []
-            link_handle = Entrez.elink(dbfrom="biosample", db="sra",
-                                       id=bs_uids, retmax=10000)
-            link_results = Entrez.read(link_handle)
-            link_handle.close()
-            return [link["Id"]
-                    for linkset in link_results
-                    for linksetdb in linkset.get("LinkSetDb", [])
-                    for link in linksetdb.get("Link", [])]
-
-        try:
-            sra_uids.extend(retry_wrapper(_fetch))
-        except Exception:
-            pass
-
-        if len(biosample_accessions) > batch_size:
-            time.sleep(DEFAULT_REQUEST_DELAY)
-
-    return list(dict.fromkeys(sra_uids))
-
-
 def _verify_biosample_uid(uid):
     """Return the accession that a BioSample UID actually belongs to."""
     def _do(u=uid):
@@ -1266,6 +1232,13 @@ def merge_ncbi_data_single(biosample_df, sra_df):
     return sra_df
 
 
+def _read_sra_runinfo_df(sra_file):
+    """Read an SRA RunInfo CSV and normalize BioSample/BioProject column names."""
+    sra_df = pd.read_csv(sra_file)
+    sra_df.rename(columns={'BioSample': 'Biosample', 'BioProject': 'Bioproject'}, inplace=True)
+    return sra_df
+
+
 def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, sra_fetch_fn):
     """Shared logic: download BioSample + SRA, merge, standardize.
 
@@ -1288,8 +1261,7 @@ def _download_and_merge_ncbi(group_id, biosample_ids, output_dir, sra_fetch_fn):
     try:
         sra_file, design_map = sra_fetch_fn()
         if sra_file:
-            sra_df = pd.read_csv(sra_file)
-            sra_df.rename(columns={'BioSample': 'Biosample', 'BioProject': 'Bioproject'}, inplace=True)
+            sra_df = _read_sra_runinfo_df(sra_file)
     except Exception:
         pass
 
@@ -1380,8 +1352,7 @@ def download_ncbi_metadata_from_biosamples(biosample_accessions, output_dir):
         sra_uids = _get_sra_uids_from_biosample_uids(all_uids)
         sra_file, design_map = _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
         if sra_file:
-            sra_df = pd.read_csv(sra_file)
-            sra_df.rename(columns={'BioSample': 'Biosample', 'BioProject': 'Bioproject'}, inplace=True)
+            sra_df = _read_sra_runinfo_df(sra_file)
     except Exception:
         pass
 
@@ -1449,8 +1420,7 @@ def download_ncbi_metadata_from_sra_accessions(sra_accessions, output_dir):
     try:
         sra_file, design_map = _fetch_sra_runinfo(sra_uids, GROUP_ID, output_dir)
         if sra_file:
-            sra_df = pd.read_csv(sra_file)
-            sra_df.rename(columns={'BioSample': 'Biosample', 'BioProject': 'Bioproject'}, inplace=True)
+            sra_df = _read_sra_runinfo_df(sra_file)
     except Exception:
         pass
 
@@ -2064,6 +2034,23 @@ def build_bioproject_absdesc(bioproject_ids, output_path, max_abstracts=2):
     return out
 
 
+def _assign_bioproject_descriptions(df):
+    """Set df['Description'] by fetching each unique BioProject's description.
+
+    Fetches serially (with the standard request delay) to respect rate limits.
+    """
+    if 'Bioproject' in df.columns:
+        unique_bps = df['Bioproject'].dropna().astype(str).unique()
+        bp_desc_map = {}
+        for bp in unique_bps:
+            if bp and bp.startswith('PRJ'):
+                bp_desc_map[bp] = fetch_bioproject_description(bp) or ''
+                time.sleep(DEFAULT_REQUEST_DELAY)
+        df['Description'] = df['Bioproject'].astype(str).map(bp_desc_map).fillna('')
+    else:
+        df['Description'] = ''
+
+
 def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=None):
     """Execute unified metadata download pipeline."""
     output_path = Path(output_folder)
@@ -2121,16 +2108,7 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
         )
         if bs_df is not None and not bs_df.empty and validate_run_data(bs_df):
             # Fetch descriptions for each unique BioProject found in BioSample data
-            if 'Bioproject' in bs_df.columns:
-                unique_bps = bs_df['Bioproject'].dropna().astype(str).unique()
-                bp_desc_map = {}
-                for bp in unique_bps:
-                    if bp and bp.startswith('PRJ'):
-                        bp_desc_map[bp] = fetch_bioproject_description(bp) or ''
-                        time.sleep(DEFAULT_REQUEST_DELAY)
-                bs_df['Description'] = bs_df['Bioproject'].astype(str).map(bp_desc_map).fillna('')
-            else:
-                bs_df['Description'] = ''
+            _assign_bioproject_descriptions(bs_df)
 
             bs_df['Source_Database'] = 'NCBI'
             csv_path = tmp_path / "BIOSAMPLE_INPUT.processed.csv"
@@ -2161,16 +2139,7 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
             groups['sra'], tmp_path
         )
         if sra_df is not None and not sra_df.empty and validate_run_data(sra_df):
-            if 'Bioproject' in sra_df.columns:
-                unique_bps = sra_df['Bioproject'].dropna().astype(str).unique()
-                bp_desc_map = {}
-                for bp in unique_bps:
-                    if bp and bp.startswith('PRJ'):
-                        bp_desc_map[bp] = fetch_bioproject_description(bp) or ''
-                        time.sleep(DEFAULT_REQUEST_DELAY)
-                sra_df['Description'] = sra_df['Bioproject'].astype(str).map(bp_desc_map).fillna('')
-            else:
-                sra_df['Description'] = ''
+            _assign_bioproject_descriptions(sra_df)
 
             sra_df['Source_Database'] = 'NCBI'
             csv_path = tmp_path / "SRA_INPUT.processed.csv"

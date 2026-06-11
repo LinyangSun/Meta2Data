@@ -47,6 +47,11 @@ MAX_PARALLEL=2
 COL_BIOPROJECT="Data-Bioproject"
 COL_SRA="Data-SRA"
 MODE=""
+LOCAL_MODE=0
+LOCAL_PLATFORM=""
+PRIMER_FWD=""
+PRIMER_REV=""
+declare -A LOCAL_SRC    # dataset_id -> source FASTQ directory (local mode)
 
 ################################################################################
 #                          ARGUMENT PARSING                                    #
@@ -61,6 +66,10 @@ while [[ $# -gt 0 ]]; do
         --col-bioproject) COL_BIOPROJECT="$2"; shift 2 ;;
         --col-sra) COL_SRA="$2"; shift 2 ;;
         --mode) MODE="$2"; shift 2 ;;
+        --local) LOCAL_MODE=1; shift ;;
+        --platform) LOCAL_PLATFORM="$2"; shift 2 ;;
+        --primer-fwd) PRIMER_FWD="$2"; shift 2 ;;
+        --primer-rev) PRIMER_REV="$2"; shift 2 ;;
         -h|--help) show_help; exit 0 ;;
         *) echo "Error: Unknown option '$1'"; show_help; exit 1 ;;
     esac
@@ -87,6 +96,17 @@ case "$MODE" in
 esac
 export MODE
 
+# --local: read FASTQ straight from a folder (no download, no NCBI detection).
+# Requires an explicit --platform; --primer-fwd/--primer-rev are optional (without
+# them the entropy auto-detector is used, exactly as in download mode).
+export LOCAL_MODE LOCAL_PLATFORM PRIMER_FWD PRIMER_REV
+if [[ "$LOCAL_MODE" == "1" ]]; then
+    case "$LOCAL_PLATFORM" in
+        ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE) ;;
+        *) echo "Error: --local requires --platform one of ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE (got '$LOCAL_PLATFORM')"; exit 1 ;;
+    esac
+fi
+
 # Strip trailing slashes from paths
 METADATA="${METADATA%/}"
 OUTPUT="${OUTPUT%/}"
@@ -97,12 +117,20 @@ if [[ -z "$METADATA" ]]; then
     exit 1
 fi
 
-if [[ ! -f "$METADATA" ]]; then
+if [[ "$LOCAL_MODE" == "1" ]]; then
+    if [[ ! -d "$METADATA" ]]; then
+        echo "Error: --local input folder not found: '$METADATA'. Please check the path."
+        exit 1
+    fi
+elif [[ ! -f "$METADATA" ]]; then
     echo "Error: Metadata file not found: '$METADATA'. Please check the path."
     exit 1
 fi
 
 if [[ -z "$OUTPUT" ]]; then
+    if [[ "$LOCAL_MODE" == "1" ]]; then
+        echo "Error: --local requires an explicit -o/--output directory (the input folder must not double as the output)"; exit 1
+    fi
     OUTPUT=$(dirname "$METADATA")
 fi
 
@@ -136,8 +164,140 @@ _fastp_se_adapter_remove() {
     done
 }
 
+# Emit the "[3/3] Processing..." milestone with prep-phase elapsed time.
+# Args: $1 = dataset start epoch (_ds_start), $2 = dataset id (dataset_ID).
+# Writes to fd 3 (the saved console stdout), inherited from the caller.
+_emit_prep_done() {
+    local _ds_start="$1"
+    local dataset_ID="$2"
+    local _now=$(date +%s); local _prep_elapsed=$(( _now - _ds_start ))
+    echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
+}
+
 cd "$OUTPUT" || exit 1
 mkdir -p "${OUTPUT}/logs"
+
+_stage_local_reads() {
+    # _stage_local_reads <dataset_path> <dataset_id> — symlink local FASTQ into
+    # ori_fastq (read-only on the user's originals; the pipeline only reads them
+    # and removes the symlinks afterwards). Source dir comes from LOCAL_SRC[id].
+    local dest="${1%/}/ori_fastq"
+    local src="${LOCAL_SRC[$2]}"
+    [[ -n "$src" && -d "$src" ]] || { echo "Error: no local source dir for $2" >&2; return 1; }
+    mkdir -p "$dest"
+    local n=0 fq dname
+    shopt -s nullglob
+    for fq in "$src"/*.fastq "$src"/*.fastq.gz "$src"/*.fq "$src"/*.fq.gz; do
+        dname=$(basename "$fq")
+        # Normalize .fq -> .fastq so the rest of the pipeline (which only matches
+        # *.fastq*) processes the file.
+        case "$dname" in
+            *.fq.gz) dname="${dname%.fq.gz}.fastq.gz" ;;
+            *.fq)    dname="${dname%.fq}.fastq" ;;
+        esac
+        ln -sf "$(readlink -f "$fq")" "$dest/$dname"
+        n=$((n + 1))
+    done
+    shopt -u nullglob
+    [[ "$n" -gt 0 ]] || { echo "Error: no FASTQ files in $src" >&2; return 1; }
+    echo "  Staged $n local FASTQ file(s) from $src"
+}
+
+_obtain_reads() {
+    # _obtain_reads <dataset_path> <sra_file_name> <dataset_id>
+    # Download (normal mode) or symlink local files (--local).
+    if [[ "${LOCAL_MODE:-0}" == "1" ]]; then
+        _stage_local_reads "$1" "$3"
+    else
+        Common_SRADownloadToFastq_MultiSource -d "$1" -a "$2" -b "$3"
+    fi
+}
+
+_trim_primers() {
+    # _trim_primers <in_dir> <out_dir>
+    # Explicit primers (cutadapt) when --primer-fwd is given, else the entropy
+    # auto-detector (identical to download-mode behaviour).
+    local in_dir="$1" out_dir="$2"
+    mkdir -p "$out_dir"
+    if [[ -n "${PRIMER_FWD:-}" ]]; then
+        echo "  Trimming primers with cutadapt (fwd=${PRIMER_FWD}${PRIMER_REV:+, rev=$PRIMER_REV})..."
+        local fq base r2
+        shopt -s nullglob
+        for fq in "$in_dir"/*.fastq "$in_dir"/*.fastq.gz "$in_dir"/*.fq "$in_dir"/*.fq.gz; do
+            base=$(basename "$fq")
+            [[ "$base" =~ _2\.fastq || "$base" =~ _R2 ]] && continue   # handled via its R1
+            if [[ "$base" =~ _1\.fastq || "$base" =~ _R1 ]]; then
+                if [[ "$base" =~ _1\.fastq ]]; then r2="${fq/_1./_2.}"; else r2="${fq/_R1/_R2}"; fi
+                if [[ -n "${PRIMER_REV:-}" && -f "$r2" ]]; then
+                    cutadapt -g "$PRIMER_FWD" -G "$PRIMER_REV" \
+                        -o "$out_dir/$base" -p "$out_dir/$(basename "$r2")" "$fq" "$r2" >/dev/null
+                else
+                    cutadapt -g "$PRIMER_FWD" -o "$out_dir/$base" "$fq" >/dev/null
+                fi
+            else
+                cutadapt -g "$PRIMER_FWD" -o "$out_dir/$base" "$fq" >/dev/null
+            fi
+        done
+        shopt -u nullglob
+    else
+        python3 "${SCRIPTS}/entropy_primer_detect.py" -i "$in_dir" -o "$out_dir"
+    fi
+}
+
+_local_register_dataset() {
+    # _local_register_dataset <id> <src_dir> — register one local dataset:
+    # create its dir, map its source, and write a synthetic <id>_sra.txt
+    # (Run<TAB>SampleName per unique sample prefix) so Common_CountRawReads and
+    # append_summary work exactly as in download mode.
+    local id="$1" src="$2"
+    local dpath="${OUTPUT}/${id}"
+    mkdir -p "$dpath"
+    LOCAL_SRC["$id"]="$src"
+    Dataset_ID_sets+=("$id")
+    echo "$id" >> "${OUTPUT}/datasets_ID.txt"
+    local sra="${dpath}/${id}_sra.txt"; : > "$sra"
+    local fq base p
+    declare -A _seen=()
+    shopt -s nullglob
+    for fq in "$src"/*.fastq "$src"/*.fastq.gz "$src"/*.fq "$src"/*.fq.gz; do
+        base=$(basename "$fq")
+        p="${base%.gz}"; p="${p%.fastq}"; p="${p%.fq}"
+        p="${p%_R1}"; p="${p%_R2}"; p="${p%_1}"; p="${p%_2}"
+        [[ -n "${_seen[$p]:-}" ]] && continue
+        _seen["$p"]=1
+        printf '%s\t%s\n' "$p" "$p" >> "$sra"
+    done
+    shopt -u nullglob
+    # Warn on prefix collisions: Common_CountRawReads globs "<prefix>*.fastq*", so a
+    # sample name that is a prefix of another would double-count raw reads.
+    local -a _pf; mapfile -t _pf < <(cut -f1 "$sra")
+    local _a _b
+    for _a in "${_pf[@]}"; do
+        for _b in "${_pf[@]}"; do
+            [[ "$_a" != "$_b" && "$_b" == "$_a"* ]] && \
+                echo "  ⚠️  Warning: sample '$_a' is a prefix of '$_b' — raw-read counts may be inflated; rename to avoid overlap (e.g. sample01/sample10)." >&2
+        done
+    done
+    echo "  Dataset '$id': $(wc -l < "$sra") sample(s) from $src"
+}
+
+_local_discover_datasets() {
+    # --local takes ONE folder = ONE dataset; every FASTQ directly inside it is a
+    # sample of that dataset (dataset id = folder name). No sub-folder recursion:
+    # since --platform is a single value, one --local run handles exactly one
+    # dataset / one platform. Mixed-platform data must be run separately, one
+    # folder per run.
+    local input="${METADATA%/}"
+    Dataset_ID_sets=()
+    : > "${OUTPUT}/datasets_ID.txt"
+    if compgen -G "$input/"*.fastq* >/dev/null 2>&1 || compgen -G "$input/"*.fq* >/dev/null 2>&1; then
+        echo "  Local mode: single dataset '$(basename "$input")' from $input"
+        _local_register_dataset "$(basename "$input")" "$input"
+    else
+        echo "Error: no FASTQ files found directly in '$input'"; exit 1
+    fi
+    [[ ${#Dataset_ID_sets[@]} -gt 0 ]] || { echo "Error: no local dataset discovered"; exit 1; }
+}
 
 ################################################################################
 #                          PHASE 1: DATASET PREPARATION                        #
@@ -148,21 +308,25 @@ echo "PHASE 1: Dataset Preparation"
 echo "Started: $(date)"
 echo "========================================="
 
-if ! python "${SCRIPTS}/py_16s.py" GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --OutputDir "$OUTPUT"; then
-    echo "❌ ERROR: Failed to generate dataset IDs, please check your metadata file and column names for BioProject."
-    exit 1
-fi
+if [[ "$LOCAL_MODE" == "1" ]]; then
+    _local_discover_datasets
+else
+    if ! python "${SCRIPTS}/py_16s.py" GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --OutputDir "$OUTPUT"; then
+        echo "❌ ERROR: Failed to generate dataset IDs, please check your metadata file and column names for BioProject."
+        exit 1
+    fi
 
-mapfile -t Dataset_ID_sets < <(awk '{print $1}' "${OUTPUT}/datasets_ID.txt")
+    mapfile -t Dataset_ID_sets < <(awk '{print $1}' "${OUTPUT}/datasets_ID.txt")
 
-if [ ${#Dataset_ID_sets[@]} -eq 0 ]; then
-    echo "❌ ERROR: No datasets found, please check your metadata file and column names for BioProject."
-    exit 1
-fi
+    if [ ${#Dataset_ID_sets[@]} -eq 0 ]; then
+        echo "❌ ERROR: No datasets found, please check your metadata file and column names for BioProject."
+        exit 1
+    fi
 
-if ! python "${SCRIPTS}/py_16s.py" GenerateSRAsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --SRA_Number "$COL_SRA" --OutputDir "$OUTPUT"; then
-    echo "❌ ERROR: Failed to generate SRA file lists, please check your metadata file and column names for SRA."
-    exit 1
+    if ! python "${SCRIPTS}/py_16s.py" GenerateSRAsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --SRA_Number "$COL_SRA" --OutputDir "$OUTPUT"; then
+        echo "❌ ERROR: Failed to generate SRA file lists, please check your metadata file and column names for SRA."
+        exit 1
+    fi
 fi
 
 ################################################################################
@@ -177,6 +341,7 @@ echo "Started: $(date)"
 echo "========================================="
 
 export PLATFORM_CACHE_FILE="${OUTPUT}/.platform_cache.txt"
+if [[ "$LOCAL_MODE" != "1" ]]; then
 _pairs_file="${OUTPUT}/.platform_query_pairs.txt"
 : > "$PLATFORM_CACHE_FILE"
 : > "$_pairs_file"
@@ -213,6 +378,7 @@ if [[ -s "$_pairs_file" ]]; then
 fi
 
 rm -f "$_pairs_file"
+fi   # end Phase 1.5 (skipped in --local mode)
 echo ""
 
 ################################################################################
@@ -224,16 +390,21 @@ echo "PHASE 2: Individual Dataset Processing"
 echo "Started: $(date)"
 echo "========================================="
 
-failed_log="${OUTPUT}/failed_datasets.log"
-success_log="${OUTPUT}/success_datasets.log"
-skipped_log="${OUTPUT}/skipped_datasets.log"
-low_quality_log="${OUTPUT}/low_quality_datasets.log"
+# Unified status log (append-only audit trail; NEVER truncated). One line per
+# event:  <timestamp>\t<STATUS>\t<dataset_id>\t<detail>
+# STATUS in SUCCESS | FAILED | SKIPPED | LOW_QUALITY
+RUN_LOG="${OUTPUT}/datasets.log"
 summary_csv="${OUTPUT}/summary.csv"
 
-: > "$failed_log"
-: > "$success_log"
-: > "$skipped_log"
-: > "$low_quality_log"
+_log_status() {
+    # _log_status <STATUS> <dataset_id> <detail>
+    printf '%s\t%s\t%s\t%s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$1" "$2" "$3" >> "$RUN_LOG"
+}
+
+# Dated run header, then record the current line count so the end-of-run tally
+# counts only THIS run's events (the log accumulates across runs).
+printf '# === RUN %s | mode=%s | metadata=%s ===\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$MODE" "$METADATA" >> "$RUN_LOG"
+_log_start=$(wc -l < "$RUN_LOG" 2>/dev/null || echo 0)
 
 echo "Threads: $THREADS total, $MAX_PARALLEL parallel datasets, $THREADS_PER_DATASET threads per dataset"
 
@@ -255,7 +426,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
     # Check if already processed (mode-specific name)
     if [ -f "${dataset_path}/${dataset_ID}-${MODE}-final-rep-seqs.qza" ]; then
         echo "✓ Already processed. Skipping."
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - ALREADY_DONE" >> "$skipped_log"
+        _log_status SKIPPED "$dataset_ID" "ALREADY_DONE"
         continue
     fi
 
@@ -271,28 +442,37 @@ for i in "${!Dataset_ID_sets[@]}"; do
         set -e
         cd "$dataset_path"
 
-        # 1. Platform Detection — use pre-detected cache, fallback to API query
-        echo ">>> Detecting sequencing platform..."
-        first_srr=$(awk 'NR==1 {print $1}' "${sra_file_name}")
+        # 1. Platform Detection — --local uses --platform; otherwise the
+        #    pre-detected cache, with an API fallback on cache miss.
+        if [[ "$LOCAL_MODE" == "1" ]]; then
+            platform="$LOCAL_PLATFORM"
+        else
+            echo ">>> Detecting sequencing platform..."
+            first_srr=$(awk 'NR==1 {print $1}' "${sra_file_name}")
 
-        # Read from cache file (written by Phase 1.5)
-        platform=""
-        if [[ -f "$PLATFORM_CACHE_FILE" ]]; then
-            platform=$(awk -v id="$dataset_ID" '$1 == id {print $2}' "$PLATFORM_CACHE_FILE")
-        fi
+            # Read from cache file (written by Phase 1.5)
+            platform=""
+            if [[ -f "$PLATFORM_CACHE_FILE" ]]; then
+                platform=$(awk -v id="$dataset_ID" '$1 == id {print $2}' "$PLATFORM_CACHE_FILE")
+            fi
 
-        # Fallback: query API if cache miss
-        if [[ -z "$platform" ]]; then
-            echo "  Cache miss, querying API..."
-            if [[ "$first_srr" =~ ^CRR ]]; then
-                echo "  CNCB accession detected, using BioProject: $dataset_ID"
-                platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr" --bioproject_id "$dataset_ID")
-            else
-                platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr")
+            # Fallback: query API if cache miss
+            if [[ -z "$platform" ]]; then
+                echo "  Cache miss, querying API..."
+                if [[ "$first_srr" =~ ^CRR ]]; then
+                    echo "  CNCB accession detected, using BioProject: $dataset_ID"
+                    platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr" --bioproject_id "$dataset_ID")
+                else
+                    platform=$(python "${SCRIPTS}/py_16s.py" get_sequencing_platform --srr_id "$first_srr")
+                fi
             fi
         fi
 
         echo "Detected platform: $platform"
+        # Persist platform per dataset so the Phase 3 summary stays correct on
+        # re-runs (the shared .platform_cache.txt is rebuilt each run and skips
+        # already-completed datasets).
+        echo "$platform" > "${dataset_path}/${dataset_ID}_platform.txt"
         echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [1/3] Platform: $platform" >&3
 
         # 2. Platform-specific pipeline (download + processing)
@@ -375,7 +555,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # ── Step A: Download ──
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if [[ "$MODE" == "asv" ]]; then
+                if [[ "$MODE" == "asv" && "$LOCAL_MODE" != "1" ]]; then
                     # ── Early quality probe (asv only) ──
                     # asv skips degraded/binned-quality data. Quality (Q-score
                     # binning) is a dataset-wide property, so probe the first 2
@@ -401,7 +581,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                     if [[ "$quality_status" == "degraded_binned" ]]; then
                         echo ">>> SKIP: degraded/binned quality is incompatible with --asv (DADA2)."
                         echo ">>>       Skipped before downloading the rest of the dataset."
-                        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - asv mode, quality=degraded_binned (early probe)" >> "$skipped_log"
+                        _log_status SKIPPED "$dataset_ID" "asv mode, quality=degraded_binned (early probe)"
                         echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (asv + degraded_binned, early)" >&3
                         rm -rf "$probe_base"
                         exit 0
@@ -424,7 +604,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 else
                     # otu mode: no early skip (quality only selects maxee vs
                     # truncation later), so download everything up front.
-                    if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
+                    if ! _obtain_reads "$dataset_path" "${sra_file_name}" "$dataset_ID"; then
                         echo "Error: Download failed for dataset $dataset_ID" >&2
                         exit 1
                     fi
@@ -520,7 +700,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # ── Quality Score Diversity Check (first 3 samples) ──
                 # asv already determined quality from the early probe above; only
                 # otu needs it here (to pick maxee vs truncation preprocess).
-                if [[ "$MODE" != "asv" ]]; then
+                if [[ "$MODE" != "asv" || "$LOCAL_MODE" == "1" ]]; then
                     echo ">>> Checking quality score diversity..."
                     quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
                         --input_dir "$ori_fastq_path" --n_samples 3 --n_reads 1000)
@@ -575,9 +755,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 # ── Step C: Entropy-based primer detection & trimming ──
                 mkdir -p "$fastp_path"
 
-                python3 "${SCRIPTS}/entropy_primer_detect.py" \
-                    -i "$adapter_removed_path" \
-                    -o "$fastp_path" || {
+                _trim_primers "$adapter_removed_path" "$fastp_path" || {
                     echo "  ✗ Entropy primer detection failed"
                     exit 1
                 }
@@ -588,9 +766,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
             fi
 
             # ── From here: same flow regardless of resume or fresh run ──
-            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
-            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
-            _proc_start=$_now
+            _emit_prep_done "$_ds_start" "$dataset_ID"
 
             if [[ "$MODE" == "otu" ]]; then
                 # ── OTU mode: merge+maxee (normal) / forward-only truncation
@@ -608,7 +784,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 #  AmpliconPIP_OTU_ASV_changelist.md Appendix A for the OTU back-end.)
                 echo ">>> SKIP: degraded/binned quality is incompatible with --asv (DADA2)."
                 echo ">>>       Use --otu for this dataset (vsearch handles binned quality)."
-                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - asv mode, quality=degraded_binned" >> "$skipped_log"
+                _log_status SKIPPED "$dataset_ID" "asv mode, quality=degraded_binned"
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (asv + degraded_binned)" >&3
                 exit 0
             else
@@ -682,7 +858,7 @@ with open(manifest_path, 'w') as f:
                                         echo "  ⚠️ WARNING: SE retention still < 50%. This dataset may have low-quality data."
                                         echo "  Skipping cleanup to preserve intermediate files for debugging."
                                         _skip_cleanup=true
-                                        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - LOW_QUALITY - PE: ${retention_pct}%, SE: ${retention_se}%" >> "$low_quality_log"
+                                        _log_status LOW_QUALITY "$dataset_ID" "PE: ${retention_pct}%, SE: ${retention_se}%"
                                     fi
                                 fi
                             fi
@@ -707,7 +883,7 @@ with open(manifest_path, 'w') as f:
             if [[ "$MODE" == "asv" ]]; then
                 # 454 has no DADA2 method → cannot produce ASVs. Skip (belongs to --otu).
                 echo ">>> SKIP: LS454 (454) has no DADA2 method → not supported in --asv. Use --otu."
-                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - asv mode, platform=LS454" >> "$skipped_log"
+                _log_status SKIPPED "$dataset_ID" "asv mode, platform=LS454"
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (asv: 454 unsupported)" >&3
                 exit 0
             fi
@@ -742,7 +918,7 @@ with open(manifest_path, 'w') as f:
 
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
+                if ! _obtain_reads "$dataset_path" "${sra_file_name}" "$dataset_ID"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
                 fi
@@ -755,9 +931,7 @@ with open(manifest_path, 'w') as f:
                 _fastp_se_adapter_remove "$ori_fastq_path" "$adapter_removed_path"
 
                 mkdir -p "$fastp_path"
-                python3 "${SCRIPTS}/entropy_primer_detect.py" \
-                    -i "$adapter_removed_path" \
-                    -o "$fastp_path" || {
+                _trim_primers "$adapter_removed_path" "$fastp_path" || {
                     echo "  ✗ Entropy primer detection failed"
                     exit 1
                 }
@@ -770,9 +944,7 @@ with open(manifest_path, 'w') as f:
             export sequence_type
             original_sequence_type="$sequence_type"
 
-            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
-            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
-            _proc_start=$_now
+            _emit_prep_done "$_ds_start" "$dataset_ID"
 
             # ── Step D: Adaptive tail trimming (data-driven N removal) ──
             # Analyses per-position N frequency at 3' end, trims elevated-N
@@ -836,7 +1008,7 @@ with open(manifest_path, 'w') as f:
 
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
+                if ! _obtain_reads "$dataset_path" "${sra_file_name}" "$dataset_ID"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
                 fi
@@ -849,9 +1021,7 @@ with open(manifest_path, 'w') as f:
                 _fastp_se_adapter_remove "$ori_fastq_path" "$adapter_removed_path"
 
                 mkdir -p "$fastp_path"
-                python3 "${SCRIPTS}/entropy_primer_detect.py" \
-                    -i "$adapter_removed_path" \
-                    -o "$fastp_path" || {
+                _trim_primers "$adapter_removed_path" "$fastp_path" || {
                     echo "  ✗ Entropy primer detection failed"
                     exit 1
                 }
@@ -864,9 +1034,7 @@ with open(manifest_path, 'w') as f:
             export sequence_type
             original_sequence_type="$sequence_type"
 
-            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
-            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
-            _proc_start=$_now
+            _emit_prep_done "$_ds_start" "$dataset_ID"
 
             if [[ "$MODE" == "otu" ]]; then
                 # ── OTU: strip 5' 10bp + maxee → shared pooled vsearch chain ──
@@ -894,7 +1062,7 @@ with open(manifest_path, 'w') as f:
                 # (~5-10% error + indels): true sequences explode into a cloud of
                 # spurious variants. Skip in --asv; ONT belongs to --otu.
                 echo ">>> SKIP: ONT single-base ASV is invalid (5-10% error+indels) → not supported in --asv. Use --otu."
-                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - asv mode, platform=OXFORD_NANOPORE" >> "$skipped_log"
+                _log_status SKIPPED "$dataset_ID" "asv mode, platform=OXFORD_NANOPORE"
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (asv: ONT unsupported)" >&3
                 exit 0
             fi
@@ -907,7 +1075,7 @@ with open(manifest_path, 'w') as f:
             done
             if [[ ${#ont_missing[@]} -gt 0 ]]; then
                 # Report to stderr only; the outer subshell handler owns the
-                # single canonical failed_log entry (matches other branches).
+                # single canonical FAILED log entry (matches other branches).
                 echo "❌ ERROR: ONT processing requires missing tools: ${ont_missing[*]}" >&2
                 echo "   Install via: conda install -c bioconda ${ont_missing[*]}  (or module load)" >&2
                 exit 1
@@ -934,7 +1102,7 @@ with open(manifest_path, 'w') as f:
                 # ── Step A: Download ──
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
+                if ! _obtain_reads "$dataset_path" "${sra_file_name}" "$dataset_ID"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
                 fi
@@ -948,9 +1116,7 @@ with open(manifest_path, 'w') as f:
 
                 # ── Step C: Entropy-based primer detection & trimming ──
                 mkdir -p "$primer_trim_path"
-                python3 "${SCRIPTS}/entropy_primer_detect.py" \
-                    -i "$adapter_removed_path" \
-                    -o "$primer_trim_path" || {
+                _trim_primers "$adapter_removed_path" "$primer_trim_path" || {
                     echo "  ✗ Entropy primer detection failed"
                     exit 1
                 }
@@ -971,9 +1137,7 @@ with open(manifest_path, 'w') as f:
             original_sequence_type="$sequence_type"
             export ONT_FASTQ_DIR="$chopper_path"
 
-            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
-            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
-            _proc_start=$_now
+            _emit_prep_done "$_ds_start" "$dataset_ID"
 
             # ── Manifest from chopper-filtered reads (sample-id = run accession) ──
             fastq_path="$chopper_path"
@@ -1018,7 +1182,7 @@ with open(manifest_path, 'w') as f:
 
                 echo ">>> Downloading SRA data..."
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [2/3] Downloading..." >&3
-                if ! Common_SRADownloadToFastq_MultiSource -d "$dataset_path" -a "${sra_file_name}" -b "$dataset_ID"; then
+                if ! _obtain_reads "$dataset_path" "${sra_file_name}" "$dataset_ID"; then
                     echo "Error: Download failed for dataset $dataset_ID" >&2
                     exit 1
                 fi
@@ -1035,9 +1199,7 @@ with open(manifest_path, 'w') as f:
             export sequence_type
             original_sequence_type="$sequence_type"
 
-            _now=$(date +%s); _prep_elapsed=$(( _now - _ds_start ))
-            echo "[$(date '+%H:%M:%S')] [${dataset_ID}] [3/3] Processing... (prep: $(( _prep_elapsed / 60 ))m$(( _prep_elapsed % 60 ))s)" >&3
-            _proc_start=$_now
+            _emit_prep_done "$_ds_start" "$dataset_ID"
 
             # ── Step B2: Read length check on first sample ──
             # Sample the first 1000 reads from the first FASTQ file to
@@ -1115,7 +1277,7 @@ with open('${DOCS_DIR}/1492R.fas') as f:
 
             else
                 echo ">>> SKIP: PacBio reads are mostly < 1400bp (full-length 16S CCS only)."
-                echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SKIPPED - PacBio reads too short (ratio >1400bp: ${long_read_ratio})" >> "$skipped_log"
+                _log_status SKIPPED "$dataset_ID" "PacBio reads too short (ratio >1400bp: ${long_read_ratio})"
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (PacBio reads too short)" >&3
                 exit 0
             fi
@@ -1135,7 +1297,7 @@ with open('${DOCS_DIR}/1492R.fas') as f:
             --output_csv "$summary_csv" \
             --sequence_type "$original_sequence_type"
 
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - SUCCESS - Platform: $platform" >> "$success_log"
+        _log_status SUCCESS "$dataset_ID" "Platform: $platform"
 
     )
     local _rc=$?
@@ -1143,12 +1305,12 @@ with open('${DOCS_DIR}/1492R.fas') as f:
     local _total=$(( _ds_end - _ds_start ))
     local _total_fmt="$(( _total / 60 ))m$(( _total % 60 ))s"
     if [[ $_rc -eq 99 ]]; then
-        # Untrustworthy data — already logged to $low_quality_log inside subshell
+        # Untrustworthy data — already logged (LOW_QUALITY) inside subshell
         echo "⚠ Skipped $dataset_ID — untrustworthy data (see ${dataset_ID}-UNTRUSTABLE.txt)"
         echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED-UNTRUSTABLE (${_total_fmt})" >&3
     elif [[ $_rc -ne 0 ]]; then
         echo "❌ Pipeline failed for $dataset_ID — skipping to next dataset"
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - FAILED" >> "$failed_log"
+        _log_status FAILED "$dataset_ID" "see logs/${dataset_ID}.log"
         echo "[$(date '+%H:%M:%S')] [${dataset_ID}] FAILED (${_total_fmt}) - see logs/${dataset_ID}.log" >&3
     else
         echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SUCCESS (${_total_fmt})" >&3
@@ -1172,13 +1334,32 @@ if [[ "$MAX_PARALLEL" -gt 1 ]]; then
 fi
 
 ################################################################################
+#                   PHASE 3: PER-DATASET SUMMARY                               #
+################################################################################
+# One row per successful dataset: platform + quality status + amplified V-region
+# (rep-seqs aligned to the E. coli 16S reference). Upserted, so re-runs never drop
+# previously-summarised datasets. Non-fatal: failure here never fails the pipeline.
+
+echo "========================================="
+echo "PHASE 3: Per-dataset summary (platform + quality + amplified region)"
+echo "Started: $(date)"
+echo "========================================="
+python "${SCRIPTS}/py_16s.py" build_per_dataset_summary \
+    --output_dir "$OUTPUT" \
+    --mode "$MODE" \
+    --ecoli_ref "${SCRIPT_DIR}/docs/ecoli_16S_J01859.fasta" \
+    --output_csv "$summary_csv" \
+    --threads "$THREADS" || echo "  Warning: per-dataset summary generation failed (non-fatal)"
+echo ""
+
+################################################################################
 #                          FINAL SUMMARY                                       #
 ################################################################################
 
-n_success=$(wc -l < "$success_log" 2>/dev/null || echo 0)
-n_failed=$(wc -l < "$failed_log" 2>/dev/null || echo 0)
-n_skipped=$(wc -l < "$skipped_log" 2>/dev/null || echo 0)
-n_low_quality=$(wc -l < "$low_quality_log" 2>/dev/null || echo 0)
+n_success=$(awk -F'\t' -v s="$_log_start" 'NR>s && $2=="SUCCESS"' "$RUN_LOG" 2>/dev/null | wc -l)
+n_failed=$(awk -F'\t' -v s="$_log_start" 'NR>s && $2=="FAILED"' "$RUN_LOG" 2>/dev/null | wc -l)
+n_skipped=$(awk -F'\t' -v s="$_log_start" 'NR>s && $2=="SKIPPED"' "$RUN_LOG" 2>/dev/null | wc -l)
+n_low_quality=$(awk -F'\t' -v s="$_log_start" 'NR>s && $2=="LOW_QUALITY"' "$RUN_LOG" 2>/dev/null | wc -l)
 _pipeline_end=$(date +%s)
 _pipeline_elapsed=$(( _pipeline_end - _pipeline_start ))
 _pipeline_min=$(( _pipeline_elapsed / 60 ))
@@ -1196,15 +1377,16 @@ echo "========================================="
 if [[ "$n_failed" -gt 0 ]]; then
     echo ""
     echo "Failed datasets:"
-    cat "$failed_log"
+    awk -F'\t' -v s="$_log_start" 'NR>s && $2=="FAILED"' "$RUN_LOG"
     echo ""
 fi
 
 if [[ "$n_low_quality" -gt 0 ]]; then
     echo ""
     echo "Low quality datasets (low retention or untrustworthy single-sample data):"
-    cat "$low_quality_log"
+    awk -F'\t' -v s="$_log_start" 'NR>s && $2=="LOW_QUALITY"' "$RUN_LOG"
     echo ""
 fi
 
 echo "Logs: ${OUTPUT}/logs/"
+echo "Status log: $RUN_LOG"
