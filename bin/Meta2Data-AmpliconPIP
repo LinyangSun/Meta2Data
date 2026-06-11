@@ -34,10 +34,6 @@ if ! SCRIPTS=$(find_scripts_dir); then
     exit 1
 fi
 
-# shellcheck disable=SC1091
-source "${SCRIPTS}/check_dependencies.sh"
-meta2data_ensure_python_deps || exit 1
-
 show_help() {
     cat << EOF
 Usage: Meta2Data AmpliconPIP [options]
@@ -219,12 +215,6 @@ METADATA="${METADATA%/}"
 OUTPUT="${OUTPUT%/}"
 
 if [[ "$TEST_MODE" == true ]]; then
-    source "${SCRIPTS}/check_dependencies.sh"
-    if ! meta2data_check_dependencies; then
-        echo "Dependency check failed. Install the missing items above and re-run." >&2
-        exit 1
-    fi
-
     if [[ -n "$METADATA" ]]; then
         # --test with user-provided metadata file:
         # Subset to first 2 SRA entries per BioProject
