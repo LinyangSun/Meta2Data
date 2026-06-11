@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/llloooooog.png" alt="Meta2Data logo" width="100%">
+</p>
+
 # Meta2Data
 
 **Automated Bioinformatics Pipeline for microbiome Sequencing Data Processing from public Databases**
