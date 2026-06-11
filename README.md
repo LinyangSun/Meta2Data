@@ -4,6 +4,8 @@
 
 # Meta2Data
 
+# Updating.. New feature will be available on June 12th.
+
 **Automated Bioinformatics Pipeline for microbiome Sequencing Data Processing from public Databases**
 
 Meta2Data is a command-line tool for downloading, processing, and analyzing metabarcoding data (maybe also include metagenome in future) from public databases (NCBI, CNCB/GSA). It integrates metadata retrieval, SRA data download, quality control, and QIIME2-based analysis into a single, automated workflow.
