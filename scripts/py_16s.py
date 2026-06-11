@@ -84,56 +84,6 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None,
     return datasets
 
 
-def _normalize_platform(raw):
-    """Map a free-text platform string (from user metadata) to the canonical
-    platform name the pipeline dispatches on. Returns None if unrecognized
-    (caller should then fall back to API detection)."""
-    s = str(raw).strip().upper()
-    if not s or s in ("NAN", "NONE", "NA"):
-        return None
-    if "ILLUMINA" in s:
-        return "ILLUMINA"
-    if "NANOPORE" in s or "OXFORD" in s or s == "ONT":
-        return "OXFORD_NANOPORE"
-    if "PACBIO" in s or "SMRT" in s:
-        return "PACBIO_SMRT"
-    if "ION" in s:                       # Ion Torrent (e.g. "Ion Torrent S5 XL")
-        return "ION_TORRENT"
-    if "454" in s or "LS454" in s:
-        return "LS454"
-    return None
-
-
-def build_platform_cache_from_csv(file_path, Bioproject, SequencingPlatform):
-    """Build a dataset_id<TAB>PLATFORM cache directly from the user metadata CSV's
-    platform column, so platform detection needs no NCBI API call (avoids 429).
-
-    Prints '<bioproject>\\t<CANONICAL_PLATFORM>' for each BioProject whose platform
-    value maps to a known canonical name. BioProjects with missing/unrecognized
-    platform values are omitted (the caller queries the API for those).
-    The BioProject id is whitespace-stripped to match GenerateDatasetsIDsFile.
-    """
-    df = pd.read_csv(file_path)
-    if Bioproject not in df.columns or SequencingPlatform not in df.columns:
-        return
-    df = df[[Bioproject, SequencingPlatform]].dropna(subset=[Bioproject])
-    df[Bioproject] = (
-        df[Bioproject].astype(str)
-        .str.replace(' ', '', regex=True)
-        .str.replace('\n', '', regex=True)
-        .str.replace('\t', '', regex=True)
-    )
-    seen = set()
-    for _, row in df.iterrows():
-        bp = row[Bioproject]
-        if bp in seen:
-            continue
-        plat = _normalize_platform(row[SequencingPlatform])
-        if plat:
-            print(f"{bp}\t{plat}")
-            seen.add(bp)
-
-
 def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_dir=None):
     """
     Generate SRA files for each bioproject
@@ -1791,7 +1741,6 @@ if __name__ == "__main__":
         choices=[
             "GenerateSRAsFile",
             "GenerateDatasetsIDsFile",
-            "build_platform_cache_from_csv",
             "subset_meta_for_test",
             "mk_manifest_SE",
             "mk_manifest_PE",
@@ -1876,9 +1825,6 @@ if __name__ == "__main__":
 
     elif args.function == "GenerateSRAsFile":
         GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample, args.OutputDir)
-
-    elif args.function == "build_platform_cache_from_csv":
-        build_platform_cache_from_csv(args.FilePath, args.Bioproject, args.SequencingPlatform)
 
     elif args.function == "subset_meta_for_test":
         result = subset_meta_for_test(args.FilePath, args.Bioproject, args.SRA_Number, args.OutputDir)
