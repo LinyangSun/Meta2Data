@@ -36,7 +36,12 @@ Meta2Data can be installed in a local folder to avoid contaminating your QIIME2 
 
 ### Step 1: Install QIIME2 and associated software (only for AmpliconPIP / AmpliconTAXA)
 
-See the env.yml file.
+Create the conda environment from the provided `env.yml` (replace `<env-name>` with a name of your choice):
+
+```bash
+conda env create -n <env-name> -f env.yml
+conda activate <env-name>
+```
 
 ### Step 2: Clone the repo and add it to PATH
 
@@ -175,7 +180,7 @@ Required (unless --test is used):
 Optional:
     -o, --output DIR              Output directory
                                   Default: current directory (--test) / metadata dir (normal)
-    -t, --threads INT             Total CPU threads (default: 4)
+    -t, --threads INT             Total CPU threads (default: 12)
                                   Auto-split: per-dataset threads = threads / max-parallel
     --max-parallel INT            Datasets to process in parallel (default: 2)
     --test                        Run in test mode
@@ -318,7 +323,7 @@ Optional:
 ### Case 1: Different way to run metaDL
 
 ```bash
-conda activate qiime2-amplicon-2024.10
+conda activate <env-name>
 
 # Step 1: Search and download metadata by keywords
 
@@ -344,7 +349,7 @@ Meta2Data MetaDL \
 Skip the MetaDL step when you already have a metadata CSV file ready.
 
 ```bash
-conda activate qiime2-amplicon-2024.10
+conda activate <env-name>
 
 # Custom column names matching your CSV headers
 Meta2Data AmpliconPIP \
@@ -361,7 +366,7 @@ Meta2Data AmpliconPIP \
 Run AmpliconTAXA independently on existing AmpliconPIP results, e.g., to compare databases.
 
 ```bash
-conda activate qiime2-amplicon-2024.10
+conda activate <env-name>
 
 # OTU mode, GreenGenes2 (must match an AmpliconPIP --otu run)
 Meta2Data AmpliconTAXA --otu \
