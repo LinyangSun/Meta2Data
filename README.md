@@ -411,7 +411,7 @@ and costs ~1 second.
 # A denoising mode is still required, even in test mode.
 Meta2Data AmpliconPIP --test --otu -t 8
 
-# Or test with your own metadata (subsets to 2 SRA per BioProject)
+# Or smoke test on your own data: it confirms your CSV format, your --col-* names, and that your specific accessions download and process — but in a few minutes on 2 runs/project instead of hours/days on the full set
 Meta2Data AmpliconPIP --test \
     -m path/to/your/metafile/metadata.csv \
     --col-bioproject Bioproject \
