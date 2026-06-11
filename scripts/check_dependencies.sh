@@ -12,12 +12,12 @@
 # via `python3 -m pip install`. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
 #
 # meta2data_ensure_vendor_binaries is the parallel helper for vsearch and
-# fastp. AmpliconPIP / AmpliconTAXA entry scripts call it at startup; if the
-# binaries are missing from <repo>/vendor/bin it auto-invokes
-# scripts/install_binaries.sh. MetaDL does not need these binaries and
-# does not call this helper. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
+# fastp. AmpliconPIP / AmpliconTAXA entry scripts call it at startup; it adds
+# <repo>/vendor/bin to PATH and, if either binary is still missing, fails with
+# install hints (conda / module). MetaDL does not need these binaries and does
+# not call this helper. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
 
-# Required non-QIIME2 binaries that install_binaries.sh provisions.
+# Required non-QIIME2 binaries (vsearch / fastp).
 _M2D_VENDOR_BINARIES=(
     vsearch
     fastp
@@ -167,7 +167,7 @@ meta2data_check_dependencies() {
         for b in "${_m2d_missing_vendor[@]}"; do
             echo "  - $b"
         done
-        echo "  Install: bash scripts/install_binaries.sh"
+        echo "  Install: conda install -c bioconda ${_m2d_missing_vendor[*]}"
     fi
 
     if [[ ${#_m2d_missing_system[@]} -gt 0 ]]; then
@@ -277,13 +277,10 @@ meta2data_ensure_python_deps() {
 # -----------------------------------------------------------------------------
 # Lightweight vendor-binary ensure helper
 # -----------------------------------------------------------------------------
-# Auto-installs vsearch / fastp into <repo>/vendor/bin via
-# scripts/install_binaries.sh if either binary is missing. Called at startup
-# by AmpliconPIP / AmpliconTAXA entry scripts only — MetaDL does not need these.
-#
-# install_binaries.sh is already idempotent (version-checked via need_install),
-# so a redundant call is near-free; we still guard with a pre-check so users
-# who have the binaries don't see the installer banner every run.
+# Ensures vsearch / fastp are on PATH for the pipeline. Prepends
+# <repo>/vendor/bin to PATH and, if either binary is still missing, fails with
+# install hints (conda / module). Called at startup by AmpliconPIP /
+# AmpliconTAXA entry scripts only — MetaDL does not need these.
 
 meta2data_ensure_vendor_binaries() {
     [[ "${META2DATA_SKIP_DEP_CHECK:-}" == "1" ]] && return 0
@@ -309,7 +306,6 @@ meta2data_ensure_vendor_binaries() {
     echo "       Install them via one of:" >&2
     echo "         - conda install -c bioconda ${missing[*]}" >&2
     echo "         - module load ${missing[*]}" >&2
-    echo "         - bash ${repo_root}/scripts/install_binaries.sh  (needs internet)" >&2
     echo "       Or set META2DATA_SKIP_DEP_CHECK=1 to bypass this check." >&2
     return 1
 }
