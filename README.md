@@ -448,13 +448,6 @@ Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
 > - Paired-end is detected from `_1`/`_2` or `_R1`/`_R2` filename suffixes; `.fq`/`.fq.gz` are accepted (normalized to `.fastq`).
 > - The same outputs as download mode are produced (`datasets.log`, `summary.csv`, `per_dataset_summary.tsv`).
 
-
-
-<p align="center">
-  <img src="docs/meta2data workflow.png" alt="Meta2Data logo" width="100%">
-</p>
-
-
 ### Contributing
 
 Contributions are welcome! Please:
@@ -475,4 +468,14 @@ If you use Meta2Data in your research, please cite:
 ## License
 
 [License information to be added]
+
+
+## Workflow
+
+<p align="center">
+  <img src="docs/meta2data workflow.png" alt="Meta2Data logo" width="100%">
+</p>
+
+
+
 
