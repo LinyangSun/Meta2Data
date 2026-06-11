@@ -36,7 +36,6 @@ fi
 
 # shellcheck disable=SC1091
 source "${SCRIPTS}/check_dependencies.sh"
-meta2data_ensure_vendor_binaries || exit 1
 meta2data_ensure_python_deps || exit 1
 
 show_help() {
