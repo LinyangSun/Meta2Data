@@ -410,8 +410,7 @@ mode (`--asv` / `--otu`) is required even in test mode.
 # Use built-in test data (fastest way to verify installation)
 Meta2Data AmpliconPIP --test --otu -t 8
 
-# Or smoke-test your own metadata: subsets to 2 SRA per BioProject,
-# then runs the real pipeline on just that subset
+# Or smoke test on your own data: it confirms your CSV format, your --col-* names, and that your specific accessions download and process — but in a few minutes on 2 runs/project instead of hours/days on the full set
 Meta2Data AmpliconPIP --test \
     -m path/to/your/metafile/metadata.csv \
     --col-bioproject Bioproject \
