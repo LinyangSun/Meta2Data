@@ -34,10 +34,6 @@ if ! SCRIPTS=$(find_scripts_dir); then
     exit 1
 fi
 
-# shellcheck disable=SC1091
-source "${SCRIPTS}/check_dependencies.sh"
-meta2data_ensure_python_deps || exit 1
-
 show_help() {
     cat << EOF
 Usage: Meta2Data AmpliconTAXA (--asv | --otu) [options]

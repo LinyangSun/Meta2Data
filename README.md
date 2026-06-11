@@ -396,19 +396,18 @@ Meta2Data AmpliconTAXA --otu --db-type silva      --db databases/ -i amplicon_ou
 
 ### Case 4: Test Mode — Quick Validation
 
-Verify the pipeline works before running on your full dataset. Every
-`AmpliconPIP --test` invocation starts with a **pre-flight dependency
-check** that inspects system utilities, QIIME2 plugins, and Python packages,
-and aborts with a per-layer report and exact install commands if anything is
-missing. Fix the missing items and re-run — the check itself is idempotent
-and costs ~1 second.
+Verify the pipeline works before running on your full dataset. A denoising
+mode (`--asv` / `--otu`) is required even in test mode.
+
+`--test` has two forms:
+- **without `-m`** — runs the built-in test data (fastest way to verify the install).
+- **with `-m`** — subsets *your* metadata to 2 SRA runs per BioProject and runs the
+  real pipeline on that small slice, so you can confirm your CSV format, `--col-*`
+  names, and accessions all work before launching the full run.
 
 ```bash
 
-# Use built-in test data (fastest way to verify installation).
-# The dependency check runs first; if everything is satisfied you'll see
-# `[check] All dependencies satisfied.` before the test pipeline starts.
-# A denoising mode is still required, even in test mode.
+# Use built-in test data (fastest way to verify installation)
 Meta2Data AmpliconPIP --test --otu -t 8
 
 # Or smoke test on your own data: it confirms your CSV format, your --col-* names, and that your specific accessions download and process — but in a few minutes on 2 runs/project instead of hours/days on the full set
@@ -419,9 +418,6 @@ Meta2Data AmpliconPIP --test \
     --otu \
     -o test_output/ \
     -t 8
-
-# Run the dependency check alone, without launching the pipeline.
-bash scripts/check_dependencies.sh
 ```
 
 
