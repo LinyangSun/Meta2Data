@@ -46,7 +46,6 @@ THREADS=4
 MAX_PARALLEL=2
 COL_BIOPROJECT="Data-Bioproject"
 COL_SRA="Data-SRA"
-COL_PLATFORM=""
 MODE=""
 
 ################################################################################
@@ -61,7 +60,6 @@ while [[ $# -gt 0 ]]; do
         --max-parallel) MAX_PARALLEL="$2"; shift 2 ;;
         --col-bioproject) COL_BIOPROJECT="$2"; shift 2 ;;
         --col-sra) COL_SRA="$2"; shift 2 ;;
-        --col-platform) COL_PLATFORM="$2"; shift 2 ;;
         --mode) MODE="$2"; shift 2 ;;
         -h|--help) show_help; exit 0 ;;
         *) echo "Error: Unknown option '$1'"; show_help; exit 1 ;;
@@ -183,28 +181,13 @@ _pairs_file="${OUTPUT}/.platform_query_pairs.txt"
 : > "$PLATFORM_CACHE_FILE"
 : > "$_pairs_file"
 
-# Step 1: if the user gave a platform column, populate the cache straight from
-# the metadata — no NCBI API call (sidesteps Entrez 429 rate-limiting entirely).
-if [[ -n "$COL_PLATFORM" ]]; then
-    echo "  Using platform column '${COL_PLATFORM}' from metadata (no API query)..."
-    python "${SCRIPTS}/py_16s.py" build_platform_cache_from_csv \
-        --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" \
-        --SequencingPlatform "$COL_PLATFORM" >> "$PLATFORM_CACHE_FILE" 2>/dev/null || true
-    echo "  Got $(wc -l < "$PLATFORM_CACHE_FILE" | tr -d ' ') platform(s) from metadata"
-fi
-
-# Step 2: collect dataset_id<TAB>first_srr[<TAB>bioproject_id] for datasets that
-# still lack a platform (not processed, and not already resolved from the CSV).
+# Collect dataset_id<TAB>first_srr[<TAB>bioproject_id] for datasets that still
+# lack a platform (i.e. not already processed).
 for _ds_id in "${Dataset_ID_sets[@]}"; do
     _ds_path="${OUTPUT}/${_ds_id}"
 
     # Skip already processed (mode-specific: an asv run does not block a later otu run)
     [[ -f "${_ds_path}/${_ds_id}-${MODE}-final-rep-seqs.qza" ]] && continue
-
-    # Skip if already resolved from the metadata platform column
-    if awk -v id="$_ds_id" '$1==id{f=1} END{exit !f}' "$PLATFORM_CACHE_FILE"; then
-        continue
-    fi
 
     _sra_file="${_ds_path}/${_ds_id}_sra.txt"
     if [[ ! -f "$_sra_file" ]]; then
@@ -224,7 +207,7 @@ done
 # Single Python call for the remainder: batch Entrez for NCBI, serial for CNCB
 if [[ -s "$_pairs_file" ]]; then
     _n_queries=$(wc -l < "$_pairs_file" | tr -d ' ')
-    echo "  Querying NCBI/CNCB for ${_n_queries} dataset(s) without a metadata platform..."
+    echo "  Querying NCBI/CNCB for ${_n_queries} dataset(s)..."
     python "${SCRIPTS}/py_16s.py" batch_get_sequencing_platforms --pairs_file "$_pairs_file" >> "$PLATFORM_CACHE_FILE"
     echo "  Platform cache now has $(wc -l < "$PLATFORM_CACHE_FILE" | tr -d ' ') entries"
 fi

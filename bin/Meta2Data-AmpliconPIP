@@ -49,12 +49,6 @@ Options:
     -m, --metadata FILE       Input metadata CSV file (required; unless --test is used)
     --col-bioproject Chr     Column name for BioProject in metadata (required; unless --test is used)
     --col-sra Chr            Column name for SRA accession in metadata (required; unless --test is used)
-    --col-platform Chr        (Optional) Column name for sequencing platform in metadata.
-                              If given, platform is read from the metadata instead of
-                              queried from NCBI — avoids Entrez 429 rate-limiting.
-                              Recognized values (case-insensitive, substring): Illumina,
-                              454, Ion Torrent, PacBio, Nanopore/ONT. Unrecognized or
-                              missing values fall back to the NCBI/CNCB API.
     --asv | --otu             Denoising mode (REQUIRED: specify exactly one; no default).
                               --asv : DADA2 only, single-base ASV resolution.
                                       Platforms Illumina / Ion Torrent / PacBio CCS;
@@ -131,7 +125,6 @@ MODE=""
 
 COL_BIOPROJECT=""
 COL_SRA=""
-COL_PLATFORM=""
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -177,10 +170,6 @@ while [[ $# -gt 0 ]]; do
             ;;
         --col-sra)
             COL_SRA="$2"
-            shift 2
-            ;;
-        --col-platform)
-            COL_PLATFORM="$2"
             shift 2
             ;;
         -h|--help)
@@ -409,7 +398,6 @@ if ! bash "${SCRIPTS}/run.sh" \
     --max-parallel "$MAX_PARALLEL" \
     --col-bioproject "$COL_BIOPROJECT" \
     --col-sra "$COL_SRA" \
-    --col-platform "$COL_PLATFORM" \
     --mode "$MODE"; then
     echo "❌ ERROR: Amplicon processing pipeline failed"
     echo "Check logs in: $OUTPUT"
