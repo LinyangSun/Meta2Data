@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/meta2data workflow.png" alt="Meta2Data logo" width="100%">
+  <img src="docs/llloooooog.png" alt="Meta2Data logo" width="100%">
 </p>
 
 # Meta2Data
@@ -447,6 +447,13 @@ Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
 > - One `--local` run = one dataset / one platform; for mixed-platform data, run each folder separately.
 > - Paired-end is detected from `_1`/`_2` or `_R1`/`_R2` filename suffixes; `.fq`/`.fq.gz` are accepted (normalized to `.fastq`).
 > - The same outputs as download mode are produced (`datasets.log`, `summary.csv`, `per_dataset_summary.tsv`).
+
+
+
+<p align="center">
+  <img src="docs/meta2data workflow.png" alt="Meta2Data logo" width="100%">
+</p>
+
 
 ### Contributing
 
