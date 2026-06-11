@@ -399,7 +399,6 @@ missing. Fix the missing items and re-run — the check itself is idempotent
 and costs ~1 second.
 
 ```bash
-conda activate qiime2-amplicon-2024.10
 
 # Use built-in test data (fastest way to verify installation).
 # The dependency check runs first; if everything is satisfied you'll see
@@ -424,10 +423,9 @@ bash scripts/check_dependencies.sh
 
 ### Case 5: Process Local FASTQ (No Download)
 
-Already have the FASTQ files? Use `--local` to process a folder directly — no download, no NCBI lookup. The folder **is** one dataset (its name becomes the dataset id) and every FASTQ file directly inside it is a sample. You must supply `--platform` (one run = one platform) and an explicit output directory (`-o`); your original files are never modified (they are symlinked read-only).
+Already have the FASTQ files? Use `--local` to process a folder directly — no download, no NCBI lookup. The folder **is** one dataset (its name becomes the dataset id) and every FASTQ file directly inside it is a sample or a direction of sample. You must supply `--platform` and an explicit output directory (`-o`); your original files are never modified (they are symlinked read-only).
 
 ```bash
-conda activate qiime2-amplicon-2024.10
 
 # Auto-detect primers (entropy), OTU mode, Illumina data
 Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
