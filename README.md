@@ -64,7 +64,7 @@ Meta2Data --help
 
 ### System Requirements
 - **OS**: Linux (tested on Ubuntu/CentOS)
-- **Computation Resources**: For AmpliconPIP, 8GB RAM, 4 CPU are recommended per parallel task. For AmpliconTAXA, 40-60GB RAM and 10CPU are recommonded
+- **Computation Resources**: For AmpliconPIP, 10 GB RAM, 4 CPU are recommended per parallel task. For AmpliconTAXA, 40-60GB RAM and 10CPU are recommonded
 
 
 
