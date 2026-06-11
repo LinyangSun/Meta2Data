@@ -48,7 +48,7 @@ source ~/.bashrc
 
 See https://docs.qiime2.org/2024.10/install/ for the current recommended procedure. 
 
-### Step 4: Verify installation
+### Step 3: Verify installation
 
 ```bash
 Meta2Data --help
@@ -82,7 +82,7 @@ Available commands:
 
 Download metadata from NCBI and CNCB databases with parallel processing and checkpoint/resume capability. Automatically fetches BioProject descriptions and standardizes column names (CamelCase normalization, synonym merging via dictionary).
 
-**Three modes:**
+**Two modes:**
 
 | Mode | Required Options | Description |
 |------|-----------------|-------------|
@@ -123,7 +123,8 @@ Keyword search mode only:
 - `searched_keywords/search_summary.txt` — Query summary
 
 Internal / resume:
-- `tmp/checkpoints/download_state.json` — Resume state for interrupted runs
+- `checkpoints/download_state.json` — Resume state for interrupted runs
+- `logs/` — Detailed execution logs
 
 > **Tip 1 — AI-assisted metadata screening**
 >
