@@ -650,20 +650,13 @@ Amplicon_Common_FinalFilesCleaning() {
     dataset_path="${dataset_path%/}/"
     local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
     local denoising_path="${dataset_path%/}/tmp/step_05_denoise/"
-    local qf_vis_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/"
-    local qf_view_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_view/"
     local qf_trim_pos_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_trim_pos/"
     local qc_vis="${dataset_path%/}/tmp/temp_file/qc_vis/"
     local denoising_vis="${dataset_path%/}/tmp/temp_file/denoising_vis/"
-    
+
     cd "$dataset_path" || { echo "Error: dataset_path not found"; return 1; }
     trimmed_path="${dataset_path%/}"
     dataset_name="${trimmed_path##*/}"
-    quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
-    denoising_path="${dataset_path%/}/tmp/step_05_denoise/"
-    qf_trim_pos_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/qf_trim_pos/"
-    qc_vis="${dataset_path%/}/tmp/temp_file/qc_vis/"
-    denoising_vis="${dataset_path%/}/tmp/temp_file/denoising_vis/"
     mkdir -p "$qc_vis" "$denoising_vis"
     
     # Check for denoising output
@@ -776,23 +769,6 @@ Count_Raw_Reads_Total() {
 ################################################################################
 #                       ILLUMINA PLATFORM FUNCTIONS                            #
 ################################################################################
-
-Amplicon_Illumina_QualityControlForQZA(){
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
-    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
-    local qf_vis_path="${dataset_path%/}/tmp/temp_file/QualityFilter_vis/"
-    mkdir -p "$quality_filter_path" "$qf_vis_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-    qiime quality-filter q-score \
-        --i-demux "${qza_path%/}/${dataset_name}.qza" \
-        --p-min-quality 20 \
-        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
-        --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
-        --verbose
-}
 
 Amplicon_Illumina_DenosingDada2() {
     # Parse flags: -s <start>, -e <end>
@@ -951,101 +927,6 @@ Amplicon_Illumina_DenosingDada2() {
 # 454 pipeline: QC (length filter) → Deduplication → Chimera removal → OTU clustering (97%) → Filter low-freq OTUs
 # Quality scores from fasterq-dump are unreliable for 454, so q-score filtering is disabled.
 
-Amplicon_LS454_QualityControlForQZA() {
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
-    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
-    mkdir -p "$quality_filter_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-
-    # Use adaptive max_ambiguous if set, otherwise default to 0
-    local p_max_ambiguous="${max_ambiguous:-0}"
-
-    # 454 quality scores are unreliable (dummy values from fasterq-dump),
-    # so disable q-score filtering (--p-min-quality 0) and apply:
-    #   - length filtering (keep reads >= 85% of median length)
-    #   - ambiguous base filtering (--p-max-ambiguous from adaptive_tail_trim)
-    qiime quality-filter q-score \
-        --i-demux "${qza_path%/}/${dataset_name}.qza" \
-        --p-min-quality 0 \
-        --p-min-length-fraction 0.85 \
-        --p-max-ambiguous "$p_max_ambiguous" \
-        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
-        --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
-        --verbose
-}
-
-Amplicon_LS454_Deduplication() {
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
-    local dedupicate_path="${dataset_path%/}/tmp/step_05_dedupicate/"
-    mkdir -p "$dedupicate_path"
-
-    # Dereplicate: collapse identical sequences
-    # Note: Singleton removal is NOT done here. For 454 data with high error
-    # rates, removing singletons before OTU clustering discards reads that
-    # would otherwise cluster together. Low-frequency filtering is applied
-    # after OTU clustering instead (see Amplicon_LS454_FilterLowFreqOTUs).
-    qiime vsearch dereplicate-sequences \
-        --i-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
-        --o-dereplicated-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
-        --o-dereplicated-sequences "${dedupicate_path%/}/${dataset_name}-repseq.qza"
-}
-
-Amplicon_LS454_ChimerasRemoval() {
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-    local dedupicate_path="${dataset_path%/}/tmp/step_05_dedupicate/"
-    local chimeras_path="${dataset_path%/}/tmp/step_06_ChimerasRemoval/"
-    mkdir -p "$chimeras_path"
-
-    # De novo chimera detection (using dereplicated sequences directly,
-    # without prior singleton removal)
-    qiime vsearch uchime-denovo \
-        --i-sequences "${dedupicate_path%/}/${dataset_name}-repseq.qza" \
-        --i-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
-        --o-chimeras "${chimeras_path%/}/${dataset_name}-chimeras.qza" \
-        --o-nonchimeras "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
-        --o-stats "${chimeras_path%/}/${dataset_name}-uchime-stats.qza"
-
-    # Keep only non-chimeric features in the table
-    qiime feature-table filter-features \
-        --i-table "${dedupicate_path%/}/${dataset_name}-table.qza" \
-        --m-metadata-file "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
-        --o-filtered-table "${chimeras_path%/}/${dataset_name}-table-nochimera.qza"
-
-    # Filter sequences to non-chimeras
-    qiime feature-table filter-seqs \
-        --i-data "${dedupicate_path%/}/${dataset_name}-repseq.qza" \
-        --m-metadata-file "${chimeras_path%/}/${dataset_name}-nonchimeras.qza" \
-        --o-filtered-data "${chimeras_path%/}/${dataset_name}-repseq-nochimera.qza"
-}
-
-Amplicon_LS454_ClusterDenovo() {
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-    local chimeras_path="${dataset_path%/}/tmp/step_06_ChimerasRemoval/"
-    local cluster_path="${dataset_path%/}/tmp/step_07_cluster/"
-    mkdir -p "$cluster_path"
-
-    # OTU clustering at 97% identity
-    qiime vsearch cluster-features-de-novo \
-        --i-table "${chimeras_path%/}/${dataset_name}-table-nochimera.qza" \
-        --i-sequences "${chimeras_path%/}/${dataset_name}-repseq-nochimera.qza" \
-        --p-perc-identity 0.97 \
-        --o-clustered-table "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
-        --o-clustered-sequences "${cluster_path%/}/${dataset_name}-repseq-clustered.qza"
-}
-
 Amplicon_LS454_FilterLowFreqOTUs() {
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
@@ -1105,27 +986,6 @@ Amplicon_IonTorrent_QualityControlForQZA() {
 # When DADA2 cannot learn an error model (too few unique Q values),
 # this VSEARCH-based pipeline is used instead.
 # Reuses LS454 dereplicate/chimera/cluster functions downstream.
-
-Amplicon_DegradedQ_QualityControlForQZA() {
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    local qza_path="${dataset_path%/}/tmp/step_03_qza_import/"
-    local quality_filter_path="${dataset_path%/}/tmp/step_04_qza_import_QualityFilter/"
-    mkdir -p "$quality_filter_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-
-    # Quality scores are unreliable (binned/dummy), so skip q-score filtering.
-    # N bases already filtered upstream (max_n=1). Apply length filter only.
-    qiime quality-filter q-score \
-        --i-demux "${qza_path%/}/${dataset_name}.qza" \
-        --p-min-quality 0 \
-        --p-min-length-fraction 0.85 \
-        --p-max-ambiguous 1 \
-        --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
-        --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
-        --verbose
-}
 
 # ── Degraded Quality: Direct VSEARCH derep (bypasses QIIME2) ────────────────
 # Replaces: ImportFastqToQiime2 + QualityControlForQZA + LS454_Deduplication + ExportForVsearch
@@ -1203,23 +1063,6 @@ Amplicon_DegradedQ_AbundanceSanityCheck() {
 # These functions export QIIME2 artifacts → run vsearch natively → import back.
 # Pipeline: ExportForVsearch → VsearchDenoise → MapReadsToZotus → ImportResults
 
-Amplicon_DegradedQ_ExportForVsearch() {
-    # Export QIIME2 dereplicated artifacts to size-annotated FASTA for vsearch.
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-    local dedupicate_path="${dataset_path%/}/tmp/step_05_dedupicate/"
-    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
-    mkdir -p "$vsearch_path"
-
-    echo ">>> Exporting dereplicated data for vsearch CLI pipeline..."
-    python3 "${SCRIPTS}/py_16s.py" export_derep_for_vsearch \
-        --repseq_qza "${dedupicate_path%/}/${dataset_name}-repseq.qza" \
-        --table_qza  "${dedupicate_path%/}/${dataset_name}-table.qza" \
-        --output_fasta "${vsearch_path%/}/derep_sized.fasta"
-}
-
 Amplicon_DegradedQ_VsearchDenoise() {
     # Run native vsearch denoising: 99% pre-cluster → UNOISE3 → uchime3.
     dataset_path="${dataset_path%/}/"
@@ -1255,52 +1098,6 @@ Amplicon_DegradedQ_VsearchDenoise() {
     vsearch --uchime3_denovo "${vsearch_path%/}/zotus.fasta" \
         --nonchimeras "${vsearch_path%/}/zotus_nochim.fasta" \
         --sizein --sizeout
-}
-
-Amplicon_DegradedQ_MapReadsToZotus() {
-    # Map all preprocessed reads back to ZOTUs to build the OTU table.
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
-    local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
-    local threads="${THREADS_PER_DATASET:-4}"
-
-    echo ">>> Relabeling reads with sample IDs..."
-    python3 "${SCRIPTS}/py_16s.py" relabel_reads_for_mapping \
-        --manifest_path "$manifest" \
-        --output_fasta "${vsearch_path%/}/all_reads_labeled.fasta" \
-        --threads "$threads"
-
-    echo ">>> Mapping reads to ZOTUs (97% identity)..."
-    vsearch --usearch_global "${vsearch_path%/}/all_reads_labeled.fasta" \
-        --db "${vsearch_path%/}/zotus_nochim.fasta" \
-        --id 0.97 \
-        --otutabout "${vsearch_path%/}/otu_table.tsv" \
-        --sizein \
-        --threads "$threads"
-}
-
-Amplicon_DegradedQ_ImportResults() {
-    # Import vsearch results back into QIIME2 artifacts.
-    # Output paths are aligned with Amplicon_LS454_FilterLowFreqOTUs expectations.
-    dataset_path="${dataset_path%/}/"
-    cd "$dataset_path"
-    trimmed_path="${dataset_path%/}"
-    dataset_name="${trimmed_path##*/}"
-    local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
-    local cluster_path="${dataset_path%/}/tmp/step_07_cluster/"
-    local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
-    mkdir -p "$cluster_path"
-
-    echo ">>> Importing vsearch results into QIIME2..."
-    python3 "${SCRIPTS}/py_16s.py" import_vsearch_to_qiime2 \
-        --zotu_fasta    "${vsearch_path%/}/zotus_nochim.fasta" \
-        --otu_table_tsv "${vsearch_path%/}/otu_table.tsv" \
-        --manifest_path "$manifest" \
-        --output_table_qza  "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
-        --output_repseq_qza "${cluster_path%/}/${dataset_name}-repseq-clustered.qza"
 }
 
 ################################################################################

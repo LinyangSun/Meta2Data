@@ -25,6 +25,22 @@ def check_and_install(module, module2):
         __import__(module)
 
 
+def _clean_id_series(series):
+    """Strip spaces, newlines and tabs from an ID column (as strings).
+
+    Centralizes the identical .astype(str)+strip chain previously inlined in
+    GenerateDatasetsIDsFile and GenerateSRAsFile; the transformation is purely
+    on the Series value, so callers assigning the result back are unchanged.
+    """
+    return (
+        series
+        .astype(str)
+        .str.replace(' ', '', regex=True)
+        .str.replace('\n', '', regex=True)
+        .str.replace('\t', '', regex=True)
+    )
+
+
 def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None, output_dir=None):
     """
     Generate datasets ID file from CSV
@@ -49,23 +65,11 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None,
     df = pd.read_csv(file_path)
 
     if Bioproject in df.columns:
-        df[Bioproject] = (
-            df[Bioproject]
-            .astype(str)
-            .str.replace(' ', '', regex=True)
-            .str.replace('\n', '', regex=True)
-            .str.replace('\t', '', regex=True)
-        )
+        df[Bioproject] = _clean_id_series(df[Bioproject])
 
     # If platform column is provided and exists, include it (backward compatibility)
     if Data_SequencingPlatform and Data_SequencingPlatform in df.columns:
-        df[Data_SequencingPlatform] = (
-            df[Data_SequencingPlatform]
-            .astype(str)
-            .str.replace(' ', '', regex=True)
-            .str.replace('\n', '', regex=True)
-            .str.replace('\t', '', regex=True)
-        )
+        df[Data_SequencingPlatform] = _clean_id_series(df[Data_SequencingPlatform])
         df_pair = (
             df[[Bioproject, Data_SequencingPlatform]]
             .dropna(subset=[Bioproject])
@@ -107,13 +111,7 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_d
 
     for col in columns_to_clean:
         if col in df.columns:
-            df[col] = (
-                df[col]
-                .astype(str)
-                .str.replace(' ', '', regex=True)
-                .str.replace('\n', '', regex=True)
-                .str.replace('\t', '', regex=True)
-            )
+            df[col] = _clean_id_series(df[col])
 
     if Biosample and Biosample in df.columns:
         df["rename"] = df[Bioproject] + '_' + df[Biosample]
@@ -372,83 +370,66 @@ def _get_platform_from_cncb(crr_id, bioproject_id=None):
         CNCB's API endpoint was changed from getRunInfo to getRunInfoByCra (2024).
     """
     import requests
-    from io import StringIO
 
     BASE_URL = "https://ngdc.cncb.ac.cn/gsa"
     HEADERS = {"User-Agent": "Mozilla/5.0"}
 
+    def _try_cncb(endpoint, search_term, success_label, fail_label):
+        """Run one CNCB query strategy; return platform name or None.
+
+        Differs across strategies only by endpoint, search term, and log
+        labels; the request/parse logic is identical, so each former inline
+        block maps to one call of this closure with byte-identical effects.
+        """
+        try:
+            url = f"{BASE_URL}/search/{endpoint}"
+            data = f'searchTerm=%26quot%3B{search_term}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
+
+            resp = requests.post(
+                url,
+                data=data,
+                headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
+                timeout=30
+            )
+            resp.raise_for_status()
+
+            csv_content = resp.text
+            if csv_content.count('\n') >= 2:
+                print(f"  ✓ {success_label}", file=sys.stderr)
+                platform = _parse_cncb_platform_response(csv_content, crr_id)
+                if platform:
+                    return platform
+        except Exception as e:
+            print(f"  {fail_label}: {str(e)}", file=sys.stderr)
+        return None
+
     # Strategy 1: Try querying by run ID directly with getRunInfoByCra endpoint
     print(f"  Attempting CNCB query with run ID: {crr_id}", file=sys.stderr)
 
-    try:
-        url = f"{BASE_URL}/search/getRunInfoByCra"
-        data = f'searchTerm=%26quot%3B{crr_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
-
-        resp = requests.post(
-            url,
-            data=data,
-            headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
-            timeout=30
-        )
-        resp.raise_for_status()
-
-        csv_content = resp.text
-        if csv_content.count('\n') >= 2:
-            print(f"  ✓ getRunInfoByCra with CRR ID successful", file=sys.stderr)
-            platform = _parse_cncb_platform_response(csv_content, crr_id)
-            if platform:
-                return platform
-    except Exception as e:
-        print(f"  getRunInfoByCra with CRR failed: {str(e)}", file=sys.stderr)
+    platform = _try_cncb("getRunInfoByCra", crr_id,
+                         "getRunInfoByCra with CRR ID successful",
+                         "getRunInfoByCra with CRR failed")
+    if platform:
+        return platform
 
     # Strategy 2: If BioProject ID provided, try querying with it
     if bioproject_id:
         print(f"  Attempting CNCB query with BioProject: {bioproject_id}", file=sys.stderr)
 
-        try:
-            url = f"{BASE_URL}/search/getRunInfoByCra"
-            data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
-
-            resp = requests.post(
-                url,
-                data=data,
-                headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
-                timeout=30
-            )
-            resp.raise_for_status()
-
-            csv_content = resp.text
-            if csv_content.count('\n') >= 2:
-                print(f"  ✓ getRunInfoByCra with BioProject successful", file=sys.stderr)
-                platform = _parse_cncb_platform_response(csv_content, crr_id)
-                if platform:
-                    return platform
-        except Exception as e:
-            print(f"  getRunInfoByCra with BioProject failed: {str(e)}", file=sys.stderr)
+        platform = _try_cncb("getRunInfoByCra", bioproject_id,
+                             "getRunInfoByCra with BioProject successful",
+                             "getRunInfoByCra with BioProject failed")
+        if platform:
+            return platform
 
         # Strategy 3: Fallback to old getRunInfo endpoint with BioProject
         print(f"  Trying legacy getRunInfo endpoint with BioProject", file=sys.stderr)
 
-        try:
-            url = f"{BASE_URL}/search/getRunInfo"
-            data = f'searchTerm=%26quot%3B{bioproject_id}%26quot%3BtotalDatas=9999%3BdownLoadCount=9999'
-
-            resp = requests.post(
-                url,
-                data=data,
-                headers={**HEADERS, "Content-Type": "application/x-www-form-urlencoded"},
-                timeout=30
-            )
-            resp.raise_for_status()
-
-            csv_content = resp.text
-            if csv_content.count('\n') >= 2:
-                print(f"  ✓ Legacy getRunInfo successful", file=sys.stderr)
-                platform = _parse_cncb_platform_response(csv_content, crr_id)
-                if platform:
-                    return platform
-        except Exception as e:
-            print(f"  Legacy getRunInfo failed: {str(e)}", file=sys.stderr)
+        platform = _try_cncb("getRunInfo", bioproject_id,
+                             "Legacy getRunInfo successful",
+                             "Legacy getRunInfo failed")
+        if platform:
+            return platform
 
     print(f"Warning: All CNCB query strategies failed for {crr_id}", file=sys.stderr)
     return None
@@ -1339,84 +1320,6 @@ def derep_fastq_for_vsearch(input_dir, output_fasta, threads=4):
     print(f"DEREP_UNIQUE_SEQS={n_unique}")
 
 
-def export_derep_for_vsearch(repseq_qza, table_qza, output_fasta):
-    """
-    Export QIIME2 dereplicated artifacts to a size-annotated FASTA for vsearch.
-
-    Reads the rep-seqs.qza (FASTA) and table.qza (BIOM feature table),
-    annotates each sequence header with its total abundance (;size=N),
-    and sorts by abundance descending (required by vsearch --cluster_size).
-
-    Args:
-        repseq_qza: Path to dereplicated rep-seqs .qza
-        table_qza: Path to dereplicated table .qza
-        output_fasta: Output path for size-annotated FASTA
-
-    Prints machine-readable lines to stdout:
-        EXPORT_FEATURES=<int>
-        EXPORT_TOTAL_ABUNDANCE=<int>
-    """
-    import tempfile
-    from biom import load_table
-
-    with tempfile.TemporaryDirectory() as tmpdir:
-        seq_dir = os.path.join(tmpdir, 'seqs')
-        tbl_dir = os.path.join(tmpdir, 'table')
-
-        # Export both .qza artifacts
-        subprocess.run([
-            'qiime', 'tools', 'export',
-            '--input-path', repseq_qza, '--output-path', seq_dir
-        ], check=True, capture_output=True)
-
-        subprocess.run([
-            'qiime', 'tools', 'export',
-            '--input-path', table_qza, '--output-path', tbl_dir
-        ], check=True, capture_output=True)
-
-        # Read BIOM table → per-feature total abundance
-        biom_path = os.path.join(tbl_dir, 'feature-table.biom')
-        table = load_table(biom_path)
-        feature_abundances = {}
-        for fid in table.ids(axis='observation'):
-            total = int(table.data(fid, axis='observation', dense=True).sum())
-            feature_abundances[fid] = total
-
-        # Read FASTA sequences
-        fasta_path = os.path.join(seq_dir, 'dna-sequences.fasta')
-        sequences = []
-        for record in SeqIO.parse(fasta_path, 'fasta'):
-            sequences.append((str(record.id), str(record.seq)))
-
-        # Validate: FASTA IDs == BIOM feature IDs
-        fasta_ids = set(sid for sid, _ in sequences)
-        biom_ids = set(feature_abundances.keys())
-        if fasta_ids != biom_ids:
-            only_fasta = fasta_ids - biom_ids
-            only_biom = biom_ids - fasta_ids
-            raise ValueError(
-                f"Feature ID mismatch between rep-seqs and table.\n"
-                f"  In FASTA only ({len(only_fasta)}): {list(only_fasta)[:5]}\n"
-                f"  In BIOM only ({len(only_biom)}): {list(only_biom)[:5]}"
-            )
-
-        # Sort by abundance descending (vsearch --cluster_size expects this)
-        sequences.sort(key=lambda x: feature_abundances[x[0]], reverse=True)
-
-        # Write size-annotated FASTA
-        total_abundance = 0
-        with open(output_fasta, 'w') as fout:
-            for sid, seq in sequences:
-                size = feature_abundances[sid]
-                total_abundance += size
-                fout.write(f">{sid};size={size}\n{seq}\n")
-
-    print(f"  Exported {len(sequences)} features, total abundance {total_abundance}",
-          file=sys.stderr)
-    print(f"EXPORT_FEATURES={len(sequences)}")
-    print(f"EXPORT_TOTAL_ABUNDANCE={total_abundance}")
-
-
 def _relabel_single_sample(args):
     """Worker function for parallel sample relabeling (must be top-level for pickling)."""
     sample_id, filepath, output_path = args
@@ -1642,6 +1545,71 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
     print(f"IMPORT_TOTAL_READS={total_reads}")
 
 
+def _upsert_csv(output_csv, new_rows, key_cols, fieldnames=None, sep=','):
+    """Upsert rows into a CSV keyed by key_cols (idempotent across re-runs).
+
+    Append rows whose key is new, skip rows identical to what is already stored,
+    replace rows whose key exists but whose values changed. The whole file is
+    rewritten atomically (temp file + os.replace) under an exclusive flock, so it
+    is safe when several datasets run in parallel and safe against partial writes.
+    Reusable for any per-sample / per-dataset summary table.
+    """
+    import csv
+    import fcntl
+    import tempfile
+
+    if not new_rows:
+        return
+    if fieldnames is None:
+        fieldnames = list(new_rows[0].keys())
+
+    def _norm(r):
+        def _cell(v):
+            # None and NaN both render as empty, matching the old pandas.to_csv output
+            if v is None or (isinstance(v, float) and v != v):
+                return ''
+            return str(v)
+        return {fn: _cell(r.get(fn)) for fn in fieldnames}
+
+    def _key(r):
+        return tuple(r[k] for k in key_cols)
+
+    lock_path = output_csv + '.lock'
+    with open(lock_path, 'w') as lockf:
+        fcntl.flock(lockf, fcntl.LOCK_EX)
+        try:
+            existing = []
+            index = {}
+            if os.path.exists(output_csv) and os.path.getsize(output_csv) > 0:
+                with open(output_csv, newline='') as f:
+                    for row in csv.DictReader(f, delimiter=sep):
+                        nr = _norm(row)
+                        index[_key(nr)] = len(existing)
+                        existing.append(nr)
+
+            for raw in new_rows:
+                nr = _norm(raw)
+                k = _key(nr)
+                if k in index:
+                    if existing[index[k]] != nr:
+                        existing[index[k]] = nr
+                else:
+                    index[k] = len(existing)
+                    existing.append(nr)
+
+            out_dir = os.path.dirname(os.path.abspath(output_csv))
+            fd, tmp = tempfile.mkstemp(dir=out_dir, suffix='.tmp')
+            with os.fdopen(fd, 'w', newline='') as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames,
+                                        delimiter=sep, extrasaction='ignore',
+                                        lineterminator='\n')
+                writer.writeheader()
+                writer.writerows(existing)
+            os.replace(tmp, output_csv)
+        finally:
+            fcntl.flock(lockf, fcntl.LOCK_UN)
+
+
 def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_csv, sequence_type="single"):
     """
     Append per-sample summary (raw reads + final reads) to a unified CSV.
@@ -1708,17 +1676,172 @@ def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_cs
 
     result_df = pd.DataFrame(rows)
 
-    # 5. Append to unified CSV (write header only if file doesn't exist or is empty)
-    # Use file lock to prevent interleaving when datasets run in parallel
-    import fcntl
-    lock_path = output_csv + '.lock'
-    with open(lock_path, 'w') as lockf:
-        fcntl.flock(lockf, fcntl.LOCK_EX)
-        write_header = not os.path.exists(output_csv) or os.path.getsize(output_csv) == 0
-        result_df.to_csv(output_csv, mode='a', header=write_header, index=False)
-        fcntl.flock(lockf, fcntl.LOCK_UN)
+    # 5. Upsert into the unified CSV, keyed by Run (idempotent across re-runs):
+    #    append new rows, skip identical ones, replace changed ones. Parallel-safe
+    #    and crash-safe (flock + atomic temp/rename) inside _upsert_csv. This keeps
+    #    previously-succeeded datasets' rows intact when the pipeline is re-run.
+    fieldnames = ['BioProject', 'Run', 'SampleName', 'RawReads', 'FinalReads']
+    _upsert_csv(output_csv, result_df.to_dict('records'),
+                key_cols=['Run'], fieldnames=fieldnames)
 
-    print(f"✓ Summary appended for {dataset_id}: {len(rows)} samples")
+    print(f"✓ Summary upserted for {dataset_id}: {len(rows)} samples")
+
+
+# ===========================================================================
+# Amplified-region detection (align rep-seqs to E. coli 16S, map to V-regions)
+# ===========================================================================
+# V-region boundaries in E. coli 16S numbering (reference J01859), following
+# Klindworth et al. 2013 (Nucleic Acids Res) and common usage. Tunable here.
+VREGIONS = [("V1", 69, 99), ("V2", 137, 242), ("V3", 433, 497), ("V4", 576, 682),
+            ("V5", 822, 879), ("V6", 986, 1043), ("V7", 1117, 1173),
+            ("V8", 1243, 1294), ("V9", 1435, 1465)]
+
+
+def _call_region(lo, hi, min_overlap=0.5):
+    """Map an amplicon's E. coli span [lo, hi] to the V-region(s) it covers.
+    A V-region counts as covered when the span overlaps >= min_overlap of its width."""
+    covered = [name for (name, vs, ve) in VREGIONS
+               if max(0, min(hi, ve) - max(lo, vs)) >= min_overlap * (ve - vs)]
+    if not covered:
+        return "unclassified"
+    if len(covered) == len(VREGIONS):
+        return "V1-V9"  # full-length
+    return covered[0] if len(covered) == 1 else f"{covered[0]}-{covered[-1]}"
+
+
+def detect_region(repseqs_qza, ecoli_ref, threads=4):
+    """Infer the amplified 16S V-region by globally aligning representative
+    sequences to the E. coli 16S reference (both strands) and taking the median
+    target span. The variable middle aligns poorly but the conserved primer-flanking
+    ends anchor the span, so the [start, end] is robust. Returns a dict with region,
+    E. coli start/end, confidence (fraction of rep-seqs agreeing with the consensus
+    call) and counts."""
+    import glob
+    import statistics
+    import subprocess
+    import tempfile
+
+    blank = {"region": "NA", "ecoli_start": "", "ecoli_end": "",
+             "confidence": "0.00", "n_repseqs": 0, "n_aligned": 0}
+    if not (repseqs_qza and os.path.exists(repseqs_qza) and os.path.exists(ecoli_ref)):
+        return blank
+    with tempfile.TemporaryDirectory() as td:
+        try:
+            subprocess.run(["qiime", "tools", "export", "--input-path", repseqs_qza,
+                            "--output-path", td], check=True, capture_output=True)
+        except Exception:
+            return blank
+        fastas = glob.glob(os.path.join(td, "*.fasta"))
+        if not fastas:
+            return blank
+        fa = fastas[0]
+        n_rep = sum(1 for line in open(fa) if line.startswith(">"))
+        aln = os.path.join(td, "region_aln.tsv")
+        subprocess.run(["vsearch", "--usearch_global", fa, "--db", ecoli_ref,
+                        "--id", "0.5", "--strand", "both", "--query_cov", "0.80",
+                        "--userout", aln, "--userfields", "query+tilo+tihi+id",
+                        "--maxaccepts", "1", "--top_hits_only",
+                        "--threads", str(threads), "--quiet"],
+                       check=False, capture_output=True)
+        rows = []
+        if os.path.exists(aln):
+            for line in open(aln):
+                p = line.rstrip("\n").split("\t")
+                if len(p) >= 3:
+                    try:
+                        rows.append((int(p[1]), int(p[2])))
+                    except ValueError:
+                        pass
+        if not rows:
+            return {**blank, "region": "unclassified", "n_repseqs": n_rep}
+        mlo = int(statistics.median([r[0] for r in rows]))
+        mhi = int(statistics.median([r[1] for r in rows]))
+        region = _call_region(mlo, mhi)
+        same = sum(1 for lo, hi in rows if _call_region(lo, hi) == region)
+        return {"region": region, "ecoli_start": mlo, "ecoli_end": mhi,
+                "confidence": f"{same / len(rows):.2f}",
+                "n_repseqs": n_rep, "n_aligned": len(rows)}
+
+
+def build_per_dataset_summary(output_dir, mode, ecoli_ref, summary_csv=None, threads=4):
+    """After AmpliconPIP: write one row per SUCCESSFUL dataset (those that produced
+    final rep-seqs) combining platform, quality status and the detected amplified
+    region. Upserts into per_dataset_summary.tsv (keyed by Bioproject) so re-runs
+    never drop previously-summarised datasets. Region results are cached per dataset
+    and only recomputed when the rep-seqs are newer than the cache."""
+    import csv
+    import glob
+
+    out_tsv = os.path.join(output_dir, "per_dataset_summary.tsv")
+
+    platform_map = {}
+    pc = os.path.join(output_dir, ".platform_cache.txt")
+    if os.path.exists(pc):
+        for line in open(pc):
+            p = line.rstrip("\n").split("\t")
+            if len(p) >= 2:
+                platform_map[p[0].strip()] = p[1].strip()
+
+    reads = {}
+    if summary_csv and os.path.exists(summary_csv):
+        for r in csv.DictReader(open(summary_csv)):
+            bp = r.get("BioProject", "")
+            d = reads.setdefault(bp, {"n": 0, "raw": 0, "final": 0})
+            d["n"] += 1
+            for src, key in (("RawReads", "raw"), ("FinalReads", "final")):
+                try:
+                    d[key] += int(r.get(src) or 0)
+                except ValueError:
+                    pass
+
+    rows = []
+    for q in sorted(glob.glob(os.path.join(output_dir, "*", f"*-{mode}-final-rep-seqs.qza"))):
+        ds = os.path.basename(os.path.dirname(q))
+        rcache = os.path.join(output_dir, ds, f"{ds}_region.tsv")
+        keys = ("region", "ecoli_start", "ecoli_end", "confidence", "n_repseqs", "n_aligned")
+        reg = None
+        if os.path.exists(rcache) and os.path.getmtime(rcache) >= os.path.getmtime(q):
+            cached = open(rcache).read().rstrip("\n").split("\t")
+            if len(cached) == len(keys):
+                reg = dict(zip(keys, cached))          # reuse a valid cache
+        if reg is None:
+            reg = detect_region(q, ecoli_ref, threads=threads)
+            # Cache real results only; never pin a transient failure (region == "NA"),
+            # so a one-off hiccup is retried next run. A malformed cache also falls here
+            # and gets rewritten -> self-healing.
+            if reg.get("region") != "NA":
+                with open(rcache, "w") as f:
+                    f.write("\t".join(str(reg[k]) for k in keys) + "\n")
+        qs = "NA"
+        qf = os.path.join(output_dir, ds, f"{ds}_quality_status.txt")
+        if os.path.exists(qf):
+            qs = (open(qf).read().strip() or "NA")
+        plat = "NA"
+        pf = os.path.join(output_dir, ds, f"{ds}_platform.txt")
+        if os.path.exists(pf):
+            plat = (open(pf).read().strip() or "NA")
+        elif ds in platform_map:
+            plat = platform_map[ds]
+        st = reads.get(ds, {})
+        rows.append({
+            "Bioproject": ds,
+            "Platform": plat,
+            "QualityStatus": qs,
+            "Region": reg["region"],
+            "RegionEcoliStart": reg["ecoli_start"],
+            "RegionEcoliEnd": reg["ecoli_end"],
+            "RegionConfidence": reg["confidence"],
+            "NRepSeqs": reg["n_repseqs"],
+            "NSamples": st.get("n", ""),
+            "RawReads": st.get("raw", ""),
+            "FinalReads": st.get("final", ""),
+        })
+
+    fields = ["Bioproject", "Platform", "QualityStatus", "Region",
+              "RegionEcoliStart", "RegionEcoliEnd", "RegionConfidence",
+              "NRepSeqs", "NSamples", "RawReads", "FinalReads"]
+    _upsert_csv(out_tsv, rows, key_cols=["Bioproject"], fieldnames=fields, sep="\t")
+    print(f"\u2713 per_dataset_summary.tsv: {len(rows)} dataset(s) -> {out_tsv}")
 
 
 if __name__ == "__main__":
@@ -1753,10 +1876,11 @@ if __name__ == "__main__":
             "sanitize_fastq",
             "degraded_quality_preprocess",
             "derep_fastq_for_vsearch",
-            "export_derep_for_vsearch",
             "relabel_reads_for_mapping",
             "import_vsearch_to_qiime2",
-            "append_summary"
+            "append_summary",
+            "detect_region",
+            "build_per_dataset_summary"
         ],
         help="The function to execute."
     )
@@ -1788,8 +1912,6 @@ if __name__ == "__main__":
                         help="Number of reads per file to sample (default: 1000)")
     parser.add_argument("--trim_front", type=int, default=15,
                         help="Bases to trim from 5' end (default: 15)")
-    parser.add_argument("--trim_tail", type=int, default=30,
-                        help="Bases to trim from 3' end (default: 30)")
     parser.add_argument("--truncate_length", type=int, default=0,
                         help="Fixed truncation length after trim_front (0=auto-detect)")
     parser.add_argument("--max_n", type=int, default=1,
@@ -1800,14 +1922,15 @@ if __name__ == "__main__":
                         help="Sequence type: 'paired' or 'single' (default: single)")
     parser.add_argument("--threads", type=int, default=4,
                         help="Number of threads for parallel operations (default: 4)")
-    parser.add_argument("--repseq_qza", help="Path to rep-seqs .qza (for export_derep_for_vsearch)")
-    parser.add_argument("--table_qza", help="Path to table .qza (for export_derep_for_vsearch)")
     parser.add_argument("--output_fasta", help="Output FASTA path")
     parser.add_argument("--manifest_path", help="Path to QIIME2 manifest TSV")
     parser.add_argument("--zotu_fasta", help="Path to ZOTU FASTA (for import_vsearch_to_qiime2)")
     parser.add_argument("--otu_table_tsv", help="Path to vsearch OTU table TSV")
     parser.add_argument("--output_table_qza", help="Output table .qza path")
     parser.add_argument("--output_repseq_qza", help="Output rep-seqs .qza path")
+    parser.add_argument("--repseqs", help="Path to rep-seqs .qza (for detect_region)")
+    parser.add_argument("--ecoli_ref", help="Path to E. coli 16S reference FASTA (region detection)")
+    parser.add_argument("--mode", help="Denoising mode token (asv|otu) used in output filenames")
 
     args = parser.parse_args()
     
@@ -1862,9 +1985,6 @@ if __name__ == "__main__":
     elif args.function == "derep_fastq_for_vsearch":
         derep_fastq_for_vsearch(args.input_dir, args.output_fasta, args.threads)
 
-    elif args.function == "export_derep_for_vsearch":
-        export_derep_for_vsearch(args.repseq_qza, args.table_qza, args.output_fasta)
-
     elif args.function == "relabel_reads_for_mapping":
         relabel_reads_for_mapping(args.manifest_path, args.output_fasta, args.threads)
 
@@ -1875,3 +1995,13 @@ if __name__ == "__main__":
 
     elif args.function == "append_summary":
         append_summary(args.dataset_id, args.sra_file, args.raw_counts, args.final_table, args.output_csv, args.sequence_type)
+    elif args.function == "detect_region":
+        res = detect_region(args.repseqs, args.ecoli_ref, threads=args.threads)
+        print(f"REGION={res['region']}")
+        print(f"REGION_ECOLI_START={res['ecoli_start']}")
+        print(f"REGION_ECOLI_END={res['ecoli_end']}")
+        print(f"REGION_CONFIDENCE={res['confidence']}")
+        print(f"REGION_N_ALIGNED={res['n_aligned']}/{res['n_repseqs']}")
+    elif args.function == "build_per_dataset_summary":
+        build_per_dataset_summary(args.output_dir, args.mode, args.ecoli_ref,
+                                  summary_csv=args.output_csv, threads=args.threads)

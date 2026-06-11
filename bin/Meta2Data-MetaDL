@@ -315,9 +315,13 @@ if [[ -n "$MAX_WORKERS" ]]; then
     PYTHON_CMD+=(--max-workers "$MAX_WORKERS")
 fi
 
+# Temporarily disable errexit so a non-zero exit from the pipeline is captured
+# in EXIT_CODE (and reported by the failure branch below) instead of aborting
+# the wrapper silently.
+set +e
 "${PYTHON_CMD[@]}"
-
 EXIT_CODE=$?
+set -e
 
 if [[ $EXIT_CODE -eq 0 ]]; then
     echo ""

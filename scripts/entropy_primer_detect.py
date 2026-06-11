@@ -565,9 +565,14 @@ def match_primer_database(consensus_30bp, database, min_identity=0.85):
 # Step 6: Trimming helpers
 # ===========================================================================
 
+def _out_mode(out_path):
+    """Write mode for an output FASTQ ('wt' for gzip, 'w' otherwise)."""
+    return "wt" if out_path.endswith(".gz") else "w"
+
+
 def trim_single_file(in_path, out_path, trim_len):
     """Trim first trim_len bases/quals from every read in a FASTQ file."""
-    out_mode = "wt" if out_path.endswith(".gz") else "w"
+    out_mode = _out_mode(out_path)
     count = 0
     with _open_fq(in_path) as fin, _open_fq(out_path, out_mode) as fout:
         for header, seq, plus, qual in _iter_fastq(fin):
@@ -578,8 +583,8 @@ def trim_single_file(in_path, out_path, trim_len):
 
 def trim_paired_files(r1_in, r2_in, r1_out, r2_out, r1_trim, r2_trim):
     """Trim PE files in lockstep to maintain read pairing."""
-    r1_mode = "wt" if r1_out.endswith(".gz") else "w"
-    r2_mode = "wt" if r2_out.endswith(".gz") else "w"
+    r1_mode = _out_mode(r1_out)
+    r2_mode = _out_mode(r2_out)
     count = 0
     with _open_fq(r1_in) as f1i, _open_fq(r2_in) as f2i, \
          _open_fq(r1_out, r1_mode) as f1o, _open_fq(r2_out, r2_mode) as f2o:
@@ -605,8 +610,8 @@ def trim_paired_files_mixed(r1_in, r2_in, r1_out, r2_out,
 
     Returns (total_count, swapped_count).
     """
-    r1_mode = "wt" if r1_out.endswith(".gz") else "w"
-    r2_mode = "wt" if r2_out.endswith(".gz") else "w"
+    r1_mode = _out_mode(r1_out)
+    r2_mode = _out_mode(r2_out)
     count = 0
     swapped = 0
     with _open_fq(r1_in) as f1i, _open_fq(r2_in) as f2i, \
@@ -841,6 +846,22 @@ def _find_pe_pairs(input_dir):
         r2 = r1.replace("_1.fastq", "_2.fastq")
         if os.path.exists(r2):
             yield r1, r2
+
+
+def _primer_entry(result):
+    """Build a primer_info.json sub-entry from a detection result dict.
+
+    Returns the all-default entry when result is None (e.g. R2 not run),
+    matching the previous per-field `if result else <default>` guards.
+    """
+    if not result:
+        result = {}
+    return {
+        "name": result.get('primer_name', 'unknown'),
+        "consensus": result.get('consensus', ''),
+        "length": result.get('primer_length', 0),
+        "detected": result.get('detected', False),
+    }
 
 
 def main():
@@ -1086,60 +1107,29 @@ def main():
                 sys.exit(1)
 
     # Save detected primer info to JSON for downstream tools (e.g. DADA2)
-    primer_info = {}
     if mixed_info is not None and mode == "PE":
         # Branch A: mixed orientation PE
         primer_info = {
             "mode": "PE_mixed",
-            "forward_primer": {
-                "name": r1_result.get('primer_name', 'unknown'),
-                "consensus": r1_result.get('consensus', ''),
-                "length": r1_result.get('primer_length', 0),
-                "detected": r1_result.get('detected', False),
-            },
-            "reverse_primer": {
-                "name": r2_result.get('primer_name', 'unknown'),
-                "consensus": r2_result.get('consensus', ''),
-                "length": r2_result.get('primer_length', 0),
-                "detected": r2_result.get('detected', False),
-            },
+            "forward_primer": _primer_entry(r1_result),
+            "reverse_primer": _primer_entry(r2_result),
         }
     elif mixed_info is not None and mode == "SE":
         # Branch A2: mixed orientation SE (e.g., PacBio CCS)
         primer_info = {
             "mode": "SE_mixed",
-            "forward_primer": {
-                "name": r1_result.get('primer_name', 'unknown'),
-                "consensus": r1_result.get('consensus', ''),
-                "length": r1_result.get('primer_length', 0),
-                "detected": r1_result.get('detected', False),
-            },
+            "forward_primer": _primer_entry(r1_result),
         }
     elif mode == "PE":
         primer_info = {
             "mode": "PE",
-            "forward_primer": {
-                "name": r1_result.get('primer_name', 'unknown'),
-                "consensus": r1_result.get('consensus', ''),
-                "length": r1_result.get('primer_length', 0),
-                "detected": r1_result.get('detected', False),
-            },
-            "reverse_primer": {
-                "name": r2_result.get('primer_name', 'unknown') if r2_result else 'unknown',
-                "consensus": r2_result.get('consensus', '') if r2_result else '',
-                "length": r2_result.get('primer_length', 0) if r2_result else 0,
-                "detected": r2_result.get('detected', False) if r2_result else False,
-            },
+            "forward_primer": _primer_entry(r1_result),
+            "reverse_primer": _primer_entry(r2_result),
         }
     else:
         primer_info = {
             "mode": "SE",
-            "forward_primer": {
-                "name": r1_result.get('primer_name', 'unknown'),
-                "consensus": r1_result.get('consensus', ''),
-                "length": r1_result.get('primer_length', 0),
-                "detected": r1_result.get('detected', False),
-            },
+            "forward_primer": _primer_entry(r1_result),
         }
 
     primer_info_path = os.path.join(output_dir, "primer_info.json")
