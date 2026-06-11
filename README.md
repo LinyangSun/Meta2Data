@@ -354,10 +354,10 @@ Meta2Data AmpliconTAXA --otu --db-type silva      --db databases/ -i amplicon_ou
 
 Verify the pipeline works before running on your full dataset. Every
 `AmpliconPIP --test` invocation starts with a **pre-flight dependency
-check** that inspects vendor binaries (`vsearch`, `fastp`), system
-utilities, QIIME2 plugins, and Python packages, and aborts with a per-layer
-report and exact install commands if anything is missing. Fix the missing
-items and re-run — the check itself is idempotent and costs ~1 second.
+check** that inspects system utilities, QIIME2 plugins, and Python packages,
+and aborts with a per-layer report and exact install commands if anything is
+missing. Fix the missing items and re-run — the check itself is idempotent
+and costs ~1 second.
 
 ```bash
 conda activate qiime2-amplicon-2024.10

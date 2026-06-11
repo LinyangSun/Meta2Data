@@ -10,18 +10,6 @@
 # entry script at startup: it checks the Python packages Meta2Data needs,
 # and auto-installs any missing ones into the active python3 environment
 # via `python3 -m pip install`. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
-#
-# meta2data_ensure_vendor_binaries is the parallel helper for vsearch and
-# fastp. AmpliconPIP / AmpliconTAXA entry scripts call it at startup; if the
-# binaries are missing from <repo>/vendor/bin it auto-invokes
-# scripts/install_binaries.sh. MetaDL does not need these binaries and
-# does not call this helper. Set META2DATA_SKIP_DEP_CHECK=1 to bypass.
-
-# Required non-QIIME2 binaries that install_binaries.sh provisions.
-_M2D_VENDOR_BINARIES=(
-    vsearch
-    fastp
-)
 
 # Long-read (ONT) tools — needed ONLY by the OXFORD_NANOPORE branch in run.sh.
 # Reported as an advisory in the dependency check, but NEVER used to gate other
@@ -74,7 +62,6 @@ _M2D_PYTHON_PACKAGES=(
     "biom:biom-format"
 )
 
-_m2d_missing_vendor=()
 _m2d_missing_system=()
 _m2d_missing_qiime=()
 _m2d_missing_python=()
@@ -103,14 +90,9 @@ _m2d_check_qiime_plugin() {
 }
 
 meta2data_check_dependencies() {
-    _m2d_missing_vendor=()
     _m2d_missing_system=()
     _m2d_missing_qiime=()
     _m2d_missing_python=()
-
-    for bin in "${_M2D_VENDOR_BINARIES[@]}"; do
-        _m2d_check_binary "$bin" || _m2d_missing_vendor+=("$bin")
-    done
 
     for bin in "${_M2D_SYSTEM_BINARIES[@]}"; do
         _m2d_check_binary "$bin" || _m2d_missing_system+=("$bin")
@@ -149,7 +131,7 @@ meta2data_check_dependencies() {
         echo "         conda install -c bioconda ${_m2d_missing_ont[*]})"
     fi
 
-    local total=$(( ${#_m2d_missing_vendor[@]} + ${#_m2d_missing_system[@]} + ${#_m2d_missing_qiime[@]} + ${#_m2d_missing_python[@]} ))
+    local total=$(( ${#_m2d_missing_system[@]} + ${#_m2d_missing_qiime[@]} + ${#_m2d_missing_python[@]} ))
 
     if [[ $total -eq 0 ]]; then
         echo "[check] All dependencies satisfied."
@@ -160,15 +142,6 @@ meta2data_check_dependencies() {
     echo "=============================================================="
     echo "  Meta2Data dependency check FAILED — ${total} item(s) missing"
     echo "=============================================================="
-
-    if [[ ${#_m2d_missing_vendor[@]} -gt 0 ]]; then
-        echo ""
-        echo "Missing pipeline binaries:"
-        for b in "${_m2d_missing_vendor[@]}"; do
-            echo "  - $b"
-        done
-        echo "  Install: bash scripts/install_binaries.sh"
-    fi
 
     if [[ ${#_m2d_missing_system[@]} -gt 0 ]]; then
         echo ""
@@ -272,46 +245,6 @@ meta2data_ensure_python_deps() {
     fi
     echo "[deps] OK"
     return 0
-}
-
-# -----------------------------------------------------------------------------
-# Lightweight vendor-binary ensure helper
-# -----------------------------------------------------------------------------
-# Auto-installs vsearch / fastp into <repo>/vendor/bin via
-# scripts/install_binaries.sh if either binary is missing. Called at startup
-# by AmpliconPIP / AmpliconTAXA entry scripts only — MetaDL does not need these.
-#
-# install_binaries.sh is already idempotent (version-checked via need_install),
-# so a redundant call is near-free; we still guard with a pre-check so users
-# who have the binaries don't see the installer banner every run.
-
-meta2data_ensure_vendor_binaries() {
-    [[ "${META2DATA_SKIP_DEP_CHECK:-}" == "1" ]] && return 0
-
-    local scripts_dir repo_root vendor_bin
-    scripts_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-    repo_root="$(dirname "$scripts_dir")"
-    vendor_bin="${repo_root}/vendor/bin"
-
-    # Prepend vendor/bin to PATH so command -v can find binaries there too.
-    [[ -d "$vendor_bin" ]] && export PATH="${vendor_bin}:${PATH}"
-
-    local missing=()
-    local b
-    for b in "${_M2D_VENDOR_BINARIES[@]}"; do
-        command -v "$b" >/dev/null 2>&1 || missing+=("$b")
-    done
-
-    [[ ${#missing[@]} -eq 0 ]] && return 0
-
-    echo "" >&2
-    echo "Error: missing required binaries: ${missing[*]}" >&2
-    echo "       Install them via one of:" >&2
-    echo "         - conda install -c bioconda ${missing[*]}" >&2
-    echo "         - module load ${missing[*]}" >&2
-    echo "         - bash ${repo_root}/scripts/install_binaries.sh  (needs internet)" >&2
-    echo "       Or set META2DATA_SKIP_DEP_CHECK=1 to bypass this check." >&2
-    return 1
 }
 
 # When executed directly, run the check and exit with its status.
