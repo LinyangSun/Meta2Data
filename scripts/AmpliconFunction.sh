@@ -864,7 +864,8 @@ Amplicon_Illumina_DenosingDada2() {
             --p-trim-left-r "$start_rev" \
             --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
             --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
-            --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+            --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
+            --p-n-threads "$cpu"
     else
         # ── SINGLE-END ──
         if [[ "${platform:-}" == "ION_TORRENT" ]]; then
@@ -880,7 +881,8 @@ Amplicon_Illumina_DenosingDada2() {
                 --p-trim-left "$start" \
                 --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
                 --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
-                --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+                --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
+                --p-n-threads "$cpu"
         else
             # Illumina: compute trim positions from QC visualization
             local need_compute=true
@@ -916,7 +918,8 @@ Amplicon_Illumina_DenosingDada2() {
                 --p-trim-left "$start" \
                 --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
                 --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
-                --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+                --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
+                --p-n-threads "$cpu"
         fi
     fi
 }
@@ -1413,6 +1416,7 @@ Amplicon_Pacbio_DenosingDada2() {
         --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza"
         --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
         --verbose
+        --p-n-threads "$cpu"
     )
 
     # Add reverse primer (--p-adapter) if provided
