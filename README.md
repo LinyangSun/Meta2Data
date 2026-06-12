@@ -30,6 +30,13 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 
 Please ensure you allocate sufficient time for your task (1-2 days). The data download and phylogenetic tree generation steps can be very time-consuming.
 
+## Updates
+
+### 2026-06-12
+
+- **Fix (AmpliconPIP `--local`): force `--max-parallel 1` in local mode.** A `--local` run always resolves to exactly one dataset, but `--max-parallel` defaulted to `2`, so the per-dataset thread budget was `threads ÷ 2` and half of the requested `-t` threads sat idle. Local runs now give the single dataset all `-t` threads (if a different `--max-parallel` is passed it is overridden, with a notice).
+- **Fix (AmpliconPIP ASV / DADA2): run DADA2 denoising multithreaded.** All four `qiime dada2` denoise methods (`denoise-paired`, `denoise-pyro`, `denoise-single`, `denoise-ccs`) were invoked without `--p-n-threads`, so they ran on QIIME2's default of a single thread — the serial bottleneck of every ASV run. They now pass `--p-n-threads` with the per-dataset thread budget. Affects both download and `--local` ASV runs; ASV outputs are unchanged (DADA2 is deterministic across thread counts), only faster.
+
 ## Installation
 
 Meta2Data can be installed in a local folder to avoid contaminating your QIIME2 environment and to make updates easier. QIIME2 is only required if you plan to run AmpliconPIP or AmpliconTAXA; MetaDL runs on any Python 3 interpreter.
@@ -445,6 +452,7 @@ Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
 
 > - `--platform` must be one of `ILLUMINA | LS454 | ION_TORRENT | PACBIO_SMRT | OXFORD_NANOPORE`.
 > - One `--local` run = one dataset / one platform; for mixed-platform data, run each folder separately.
+> - `--max-parallel` is forced to `1` in `--local` mode (a single dataset has nothing to parallelize across), so the single dataset always gets all `-t` threads. To process several folders concurrently, launch one `--local` run per folder.
 > - Paired-end is detected from `_1`/`_2` or `_R1`/`_R2` filename suffixes; `.fq`/`.fq.gz` are accepted (normalized to `.fastq`).
 > - The same outputs as download mode are produced (`datasets.log`, `summary.csv`, `per_dataset_summary.tsv`).
 
