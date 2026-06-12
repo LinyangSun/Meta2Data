@@ -105,6 +105,15 @@ if [[ "$LOCAL_MODE" == "1" ]]; then
         ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE) ;;
         *) echo "Error: --local requires --platform one of ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE (got '$LOCAL_PLATFORM')"; exit 1 ;;
     esac
+    # --local always resolves to exactly one dataset / one platform (see
+    # _local_discover_datasets), so there is nothing to parallelize ACROSS
+    # datasets. Force --max-parallel 1 so the single dataset gets ALL --threads;
+    # otherwise THREADS_PER_DATASET = THREADS / MAX_PARALLEL (default 2) would
+    # leave (MAX_PARALLEL-1)/MAX_PARALLEL of the threads idle.
+    if [[ "$MAX_PARALLEL" -ne 1 ]]; then
+        echo "Note: --local processes a single dataset; forcing --max-parallel 1 (was $MAX_PARALLEL) so it uses all $THREADS thread(s)."
+        MAX_PARALLEL=1
+    fi
 fi
 
 # Strip trailing slashes from paths

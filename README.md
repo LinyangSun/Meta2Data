@@ -445,6 +445,7 @@ Meta2Data AmpliconPIP --local --platform ILLUMINA --otu \
 
 > - `--platform` must be one of `ILLUMINA | LS454 | ION_TORRENT | PACBIO_SMRT | OXFORD_NANOPORE`.
 > - One `--local` run = one dataset / one platform; for mixed-platform data, run each folder separately.
+> - `--max-parallel` is forced to `1` in `--local` mode (a single dataset has nothing to parallelize across), so the single dataset always gets all `-t` threads. To process several folders concurrently, launch one `--local` run per folder.
 > - Paired-end is detected from `_1`/`_2` or `_R1`/`_R2` filename suffixes; `.fq`/`.fq.gz` are accepted (normalized to `.fastq`).
 > - The same outputs as download mode are produced (`datasets.log`, `summary.csv`, `per_dataset_summary.tsv`).
 
