@@ -71,18 +71,23 @@ Input Format:
       2. CNCB/GSA metadata download (if available, via NGDC HTTP API)
 
 Output Files:
-    Main output:
+    Main outputs (in -o):
       - all_metadata_merged.csv      Final merged dataset (NCBI + CNCB)
+      - status.tsv                   Per-ID download status
+      - column_description.tsv       Per-column statistics
+      - bioproject_absdesc.tsv       Per-BioProject publication info (PMID/PMC/DOI/abstract)
+      - RecordWithoutRUNinfo.csv     Records without SRA Run info (only when present)
 
-    Intermediate files:
-      - *_biosample.txt              Raw BioSample data (per project)
-      - *_sra_runinfo.csv            Raw SRA RunInfo (per project)
-      - ncbi_merged_*.csv            Merged NCBI data
-      - cncb_combined.csv            Combined CNCB data
+    Keyword search mode (searched_keywords/):
+      - combined_results.csv         Matched BioProjects
+      - bioproject_ids.txt           Matched BioProject accessions (one per line)
+      - search_summary.txt           Query summary
 
-    Progress tracking:
-      - logs/metadl_v2_*.log         Detailed execution log
-      - checkpoints/download_state.json   Resume state (for interrupted runs)
+    Internal / resume (tmp/, safe to delete after the run):
+      - tmp/checkpoints/download_state.json   Resume state (for interrupted runs)
+      - tmp/<BioProject>.processed.csv        Per-BioProject result / checkpoint
+      - tmp/<group>_biosample.txt             Raw BioSample data
+      - tmp/<group>_sra_runinfo.csv           Raw SRA RunInfo
 
 Examples:
 
@@ -330,16 +335,18 @@ if [[ $EXIT_CODE -eq 0 ]]; then
     echo "Main output files:"
     echo "  - all_metadata_merged.csv (merged NCBI + CNCB metadata)"
     echo "  - status.tsv              (download status for all BioProjects)"
+    echo "  - column_description.tsv  (per-column statistics)"
+    echo "  - bioproject_absdesc.tsv  (per-BioProject publication info)"
     echo ""
     if [[ "$KEYWORDS" == "true" ]]; then
         echo "Keyword search results:"
         echo "  - searched_keywords/combined_results.csv  (BioProject search results)"
+        echo "  - searched_keywords/bioproject_ids.txt    (matched accessions)"
         echo "  - searched_keywords/search_summary.txt    (query summary)"
         echo ""
     fi
-    echo "Additional outputs:"
-    echo "  - logs/            (detailed execution logs)"
-    echo "  - checkpoints/     (resume state)"
+    echo "Internal / resume (safe to delete):"
+    echo "  - tmp/            (intermediates, raw data, checkpoints)"
     echo ""
 else
     echo ""
@@ -347,8 +354,7 @@ else
     echo "MetaDL V2.1 failed with exit code $EXIT_CODE"
     echo "========================================"
     echo ""
-    echo "Check logs in: $OUTPUT/logs/"
-    echo "Resume by running the same command again (checkpoints enabled)"
+    echo "Resume by running the same command again (checkpoints enabled, in $OUTPUT/tmp/checkpoints/)"
     echo ""
     exit $EXIT_CODE
 fi

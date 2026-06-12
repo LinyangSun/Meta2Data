@@ -125,19 +125,23 @@ Optional:
 
 **Output files:**
 
-Main outputs:
+Main outputs (in the `-o` output directory):
 - `all_metadata_merged.csv` — Final merged dataset with auto-fetched BioProject descriptions and SRA experiment design descriptions. Column names are standardized (CamelCase normalization + synonym merging via dictionary).
 - `status.tsv` — Processing status for each input ID (`has_data` / `no_data` / `no_run_info` / `download_error`)
 - `column_description.tsv` — Per-column statistics: fill rate, number of datasets covered, top 5 values, and column type (`core` / `cncb` / `rare`)
+- `bioproject_absdesc.tsv` — One row per BioProject with publication info (`PMID`, `PMC`, `DOI`, `ArticleTitle`, `ArticleAbstract`, `PubSource`). Always generated; failures are non-fatal.
 - `RecordWithoutRUNinfo.csv` — Records without SRA Run info (only generated when such records exist)
 
-Keyword search mode only:
-- `searched_keywords/combined_results.csv` — BioProject IDs matched by keyword search
+Keyword search mode only (`searched_keywords/`):
+- `searched_keywords/combined_results.csv` — BioProjects matched by keyword search
+- `searched_keywords/bioproject_ids.txt` — Matched BioProject accessions, one per line
 - `searched_keywords/search_summary.txt` — Query summary
 
-Internal / resume:
-- `checkpoints/download_state.json` — Resume state for interrupted runs
-- `logs/` — Detailed execution logs
+Internal / resume (`tmp/`, safe to delete after the run):
+- `tmp/checkpoints/download_state.json` — Resume state for interrupted runs
+- `tmp/<BioProject>.processed.csv` — Per-BioProject processed result (doubles as the resume checkpoint)
+- `tmp/<group>_biosample.txt`, `tmp/<group>_sra_runinfo.csv` — Raw BioSample / SRA RunInfo fetched from the databases
+- `tmp/<accession>.temp.csv`, `tmp/BIOSAMPLE_INPUT.processed.csv`, `tmp/SRA_INPUT.processed.csv` — scratch / direct SAM*/SRR*-input intermediates
 
 > **Tip 1 — AI-assisted metadata screening**
 >
