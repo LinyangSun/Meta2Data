@@ -10,6 +10,7 @@ from concurrent.futures import ProcessPoolExecutor
 import pandas as pd
 import numpy as np
 from Bio import SeqIO
+from read_layout import discover, PAIR, EXT
 
 
 def check_and_install(module, module2):
@@ -180,61 +181,21 @@ def subset_meta_for_test(file_path, Bioproject, SRA_Number, output_dir=None, n=2
     return out_path
 
 
-def mk_manifest_SE(file_path):
-    """Generate single-end manifest file"""
-    df = pd.read_csv(file_path, sep='\t', header=None)
+def _make_manifest(file_path, paired):
+    from pathlib import Path
+    from read_layout import manifest
+    paths = [line.strip() for line in Path(file_path).read_text().splitlines() if line.strip()]
     dataset_name = os.path.basename(file_path).replace("-file.txt", "")
-    df1 = pd.DataFrame({'sample-id': [], 'absolute-filepath': []})
+    output = os.path.join(os.path.dirname(file_path), f"{dataset_name}_manifest.tsv")
+    manifest(paths, output, paired)
 
-    for i, row in df.iterrows():
-        basenames = os.path.basename(row[0])
-        path = os.path.dirname(row[0])
-        sample = basenames.split('.fastq')[0]
-        # SE reads downloaded as "<bioproject>_<run>_1.fastq" carry a read-pair
-        # suffix (e.g. ONT). Strip a trailing "_1" so the sample-id matches the
-        # "<bioproject>_<run>" name used by Common_CountRawReads / append_summary;
-        # otherwise the OTU-table sample (with _1) never matches the summary's
-        # SampleName (without _1) and FinalReads is mis-reported as 0.
-        if sample.endswith('_1'):
-            sample = sample[:-2]
-        df1.loc[i, 'sample-id'] = sample
-        df1.loc[i, 'absolute-filepath'] = os.path.join(path, basenames)
 
-    df_unique = df1.drop_duplicates(subset=['sample-id'])
-    out_path = os.path.join(os.path.dirname(file_path), f"{dataset_name}_manifest.tsv")
-    df_unique.to_csv(out_path, sep='\t', index=False)
+def mk_manifest_SE(file_path):
+    _make_manifest(file_path, False)
 
 
 def mk_manifest_PE(file_path):
-    """Generate paired-end manifest file from a list of actual file paths."""
-    df = pd.read_csv(file_path, sep='\t', header=None)
-    dataset_name = os.path.basename(file_path).replace("-file.txt", "")
-
-    # Group actual file paths by sample ID and read direction
-    samples = {}
-    for _, row in df.iterrows():
-        filepath = row[0].strip()
-        basename = os.path.basename(filepath)
-        # Extract sample name and suffix: e.g. "PROJ_SAMPLE_1.fastq.gz" → ("PROJ_SAMPLE", "1.fastq.gz")
-        sample, suffix = basename.rsplit('_', 1)
-        if suffix.startswith('1.fastq'):
-            samples.setdefault(sample, {})['forward'] = filepath
-        elif suffix.startswith('2.fastq'):
-            samples.setdefault(sample, {})['reverse'] = filepath
-
-    rows = []
-    for sample in sorted(samples):
-        paths = samples[sample]
-        if 'forward' in paths and 'reverse' in paths:
-            rows.append({
-                'sample-id': sample,
-                'forward-absolute-filepath': paths['forward'],
-                'reverse-absolute-filepath': paths['reverse'],
-            })
-
-    df1 = pd.DataFrame(rows)
-    out_path = os.path.join(os.path.dirname(file_path), f"{dataset_name}_manifest.tsv")
-    df1.to_csv(out_path, sep='\t', index=False)
+    _make_manifest(file_path, True)
 
 
 def trim_pos_deblur(file_path):
@@ -256,7 +217,7 @@ def trim_pos_deblur(file_path):
       Prints "start,end" to stdout for shell capture.
       Returns (start, end) tuple, or (None, None) if no valid window.
     """
-    Q_TRIM = 25          # quality threshold for 25th percentile
+    Q_TRIM = int(os.environ.get("DADA2_QUALITY_TRIM_SCORE", 25))          # quality threshold for 25th percentile
     W = 5                # sliding window size
     CONSEC = 5           # consecutive positions required
     MIN_RETAIN = 50      # minimum retained sequence length
@@ -395,7 +356,7 @@ def _get_platform_from_cncb(crr_id, bioproject_id=None):
 
             csv_content = resp.text
             if csv_content.count('\n') >= 2:
-                print(f"  ✓ {success_label}", file=sys.stderr)
+                print(f"  [OK] {success_label}", file=sys.stderr)
                 platform = _parse_cncb_platform_response(csv_content, crr_id)
                 if platform:
                     return platform
@@ -454,13 +415,13 @@ def _parse_cncb_platform_response(csv_content, target_run_id=None):
         if df.empty:
             return None
 
-        print(f"  ✓ Retrieved {len(df)} runs from CNCB", file=sys.stderr)
+        print(f"  [OK] Retrieved {len(df)} runs from CNCB", file=sys.stderr)
 
         if target_run_id and 'Run' in df.columns:
             run_df = df[df['Run'] == target_run_id]
             if not run_df.empty:
                 df = run_df
-                print(f"  ✓ Found metadata for run {target_run_id}", file=sys.stderr)
+                print(f"  [OK] Found metadata for run {target_run_id}", file=sys.stderr)
             else:
                 print(f"Warning: Run {target_run_id} not found, using first run as fallback", file=sys.stderr)
 
@@ -976,7 +937,7 @@ def _process_single_fastq(args):
     open_fn = gzip.open if fq.endswith('.gz') else open
     out_name = os.path.basename(fq)
     if is_paired:
-        out_name = out_name.replace('_1.fastq', '.fastq').replace('_R1', '')
+        out_name = PAIR.fullmatch(EXT.sub('', out_name)).group('sample') + '.fastq.gz'
     if not out_name.endswith('.gz'):
         out_name += '.gz'
     out_path = os.path.join(output_dir, out_name)
@@ -1034,16 +995,10 @@ def sanitize_fastq(input_dir, min_length=50, sequence_type="single"):
     total_removed = 0
 
     if sequence_type == "paired":
-        # Find R1/R2 pairs
-        all_files = sorted(glob.glob(os.path.join(input_dir, '*.fastq*')))
-        r1_files = [f for f in all_files if '_1.fastq' in f or '_R1' in f]
-
-        for r1 in r1_files:
-            r2 = r1.replace('_1.fastq', '_2.fastq').replace('_R1', '_R2')
-            if not os.path.exists(r2):
-                print(f"  WARNING: No R2 found for {os.path.basename(r1)}, skipping pair",
-                      file=sys.stderr)
-                continue
+        for row in discover(input_dir):
+            if row['layout'] != 'PE':
+                raise ValueError('Expected paired FASTQ input for sanitizing')
+            r1, r2 = row['r1'], row['r2']
 
             open_r1 = gzip.open if r1.endswith('.gz') else open
             open_r2 = gzip.open if r2.endswith('.gz') else open
@@ -1156,10 +1111,10 @@ def degraded_quality_preprocess(input_dir, output_dir, trim_front=15, truncate_l
         raise FileNotFoundError(f"No FASTQ files found in {input_dir}")
 
     if sequence_type == "paired":
-        r1_files = [f for f in fq_files if '_1.fastq' in f or '_R1' in f]
-        if not r1_files:
-            print("  WARNING: No R1 files found for PE, using all files", file=sys.stderr)
-            r1_files = fq_files
+        rows = discover(input_dir)
+        if any(row['layout'] != 'PE' for row in rows):
+            raise ValueError('Expected paired FASTQ input for degraded-quality processing')
+        r1_files = [row['r1'] for row in rows]
         process_files = r1_files
         print(f"  PE mode: using forward reads only ({len(r1_files)} R1 files)", file=sys.stderr)
     else:
@@ -1411,8 +1366,8 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
     Import vsearch results (ZOTU FASTA + OTU table) back into QIIME2 artifacts.
 
     Steps:
-      1. Strip ;size= annotations from ZOTU FASTA
-      2. Validate feature ID consistency (OTU table IDs subset of FASTA IDs)
+      1. Assign stable sequence-hash IDs to representative sequences and table
+      2. Sum identical sequences and validate FASTA/table consistency
       3. Validate sample name consistency (OTU table samples subset of manifest)
       4. Convert OTU table TSV → BIOM V2.1 (HDF5)
       5. Import BIOM → FeatureTable[Frequency] .qza
@@ -1431,65 +1386,18 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
         IMPORT_TOTAL_READS=<int>
     """
     import tempfile
+    from feature_ids import rewrite_features
 
     with tempfile.TemporaryDirectory() as tmpdir:
-        # 1. Strip ;size= from ZOTU FASTA
-        clean_fasta = os.path.join(tmpdir, 'zotus_clean.fasta')
-        n_features = 0
-        fasta_ids = set()
-        with open(zotu_fasta, 'r') as fin, open(clean_fasta, 'w') as fout:
-            for line in fin:
-                if line.startswith('>'):
-                    header = line.rstrip('\n')
-                    seq_id = header[1:].split(';')[0]
-                    fasta_ids.add(seq_id)
-                    fout.write(f">{seq_id}\n")
-                    n_features += 1
-                else:
-                    fout.write(line.upper())
-
-        # Verify no ;size= remains
-        with open(clean_fasta, 'r') as f:
-            for line in f:
-                if line.startswith('>') and ';size=' in line:
-                    raise ValueError(f"Residual ;size= in cleaned FASTA: {line.rstrip()}")
-
-        print(f"  Cleaned FASTA: {n_features} ZOTUs", file=sys.stderr)
-
-        # 2. Read OTU table TSV to validate
-        table_feature_ids = set()
-        table_sample_ids = set()
-        total_reads = 0
-        with open(otu_table_tsv, 'r') as f:
-            header_line = None
-            for line in f:
-                if header_line is None:
-                    # vsearch --otutabout header starts with '#OTU ID'
-                    if line.startswith('#OTU ID') or line.startswith('#OTU\t'):
-                        header_line = line.rstrip('\n').split('\t')
-                        table_sample_ids = set(header_line[1:])
-                        continue
-                    if line.startswith('#'):
-                        continue
-                    # Header without '#' prefix
-                    header_line = line.rstrip('\n').split('\t')
-                    table_sample_ids = set(header_line[1:])
-                    continue
-                if line.startswith('#'):
-                    continue
-                parts = line.rstrip('\n').split('\t')
-                # Feature ID may contain ;size= from vsearch output
-                feature_id = parts[0].split(';')[0]
-                table_feature_ids.add(feature_id)
-                total_reads += sum(int(float(x)) for x in parts[1:] if x)
-
-        # 3. Validate feature IDs: table features must be in FASTA
-        missing_features = table_feature_ids - fasta_ids
-        if missing_features:
-            raise ValueError(
-                f"OTU table has {len(missing_features)} features not in ZOTU FASTA: "
-                f"{list(missing_features)[:5]}"
-            )
+        # Dataset-local centroid labels (e.g. OTU_1) cannot safely be merged.
+        # Rewrite both artifacts to IDs determined only by nucleotide sequence.
+        clean_fasta = os.path.join(tmpdir, 'features.fasta')
+        clean_table = os.path.join(tmpdir, 'feature_table.tsv')
+        normalized = rewrite_features(zotu_fasta, otu_table_tsv, clean_fasta, clean_table)
+        table_feature_ids = normalized['feature_ids']
+        table_sample_ids = normalized['sample_ids']
+        total_reads = normalized['total_reads']
+        print(f"  Normalized FASTA: {len(table_feature_ids)} sequence features", file=sys.stderr)
 
         # 4. Validate sample names against manifest
         manifest = pd.read_csv(manifest_path, sep='\t')
@@ -1506,7 +1414,7 @@ def import_vsearch_to_qiime2(zotu_fasta, otu_table_tsv, manifest_path,
         biom_path = os.path.join(tmpdir, 'otu_table.biom')
         subprocess.run([
             'biom', 'convert',
-            '-i', otu_table_tsv,
+            '-i', clean_table,
             '-o', biom_path,
             '--table-type', 'OTU table',
             '--to-hdf5'
@@ -1684,7 +1592,7 @@ def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_cs
     _upsert_csv(output_csv, result_df.to_dict('records'),
                 key_cols=['Run'], fieldnames=fieldnames)
 
-    print(f"✓ Summary upserted for {dataset_id}: {len(rows)} samples")
+    print(f"[OK] Summary upserted for {dataset_id}: {len(rows)} samples")
 
 
 # ===========================================================================
@@ -1785,6 +1693,9 @@ def build_per_dataset_summary(output_dir, mode, ecoli_ref, summary_csv=None, thr
     reads = {}
     if summary_csv and os.path.exists(summary_csv):
         for r in csv.DictReader(open(summary_csv)):
+            # The extended summary can contain both methods in one output root.
+            if r.get("Mode") and r["Mode"] != mode:
+                continue
             bp = r.get("BioProject", "")
             d = reads.setdefault(bp, {"n": 0, "raw": 0, "final": 0})
             d["n"] += 1
@@ -1930,7 +1841,7 @@ if __name__ == "__main__":
     parser.add_argument("--output_repseq_qza", help="Output rep-seqs .qza path")
     parser.add_argument("--repseqs", help="Path to rep-seqs .qza (for detect_region)")
     parser.add_argument("--ecoli_ref", help="Path to E. coli 16S reference FASTA (region detection)")
-    parser.add_argument("--mode", help="Denoising mode token (asv|otu) used in output filenames")
+    parser.add_argument("--mode", help="Denoising mode token (dada2|vsearch) used in output filenames")
 
     args = parser.parse_args()
     

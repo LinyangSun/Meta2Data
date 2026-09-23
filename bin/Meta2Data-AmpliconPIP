@@ -34,6 +34,9 @@ if ! SCRIPTS=$(find_scripts_dir); then
     exit 1
 fi
 
+export M2D_PROFILE_MODULE=pip
+source "${SCRIPTS}/resource_profile.sh"
+
 show_help() {
     cat << EOF
 Usage: Meta2Data AmpliconPIP [options]
@@ -41,15 +44,15 @@ Usage: Meta2Data AmpliconPIP [options]
 Download and process amplicon sequencing data based on user provided metadata.
 
 Options:
-    -m, --metadata FILE       Input metadata CSV file (required; unless --test is used)
-    --col-bioproject Chr     Column name for BioProject in metadata (required; unless --test is used)
-    --col-sra Chr            Column name for SRA accession in metadata (required; unless --test is used)
-    --asv | --otu             Denoising mode (REQUIRED: specify exactly one; no default).
-                              --asv : DADA2 only, single-base ASV resolution.
+    -m, --metadata PATH       Metadata CSV, or a FASTQ folder with --local
+    --col-bioproject Chr     Column name for BioProject in metadata (required for metadata input unless --test)
+    --col-sra Chr            Column name for SRA accession in metadata (required for metadata input unless --test)
+    --dada2 | --vsearch       Denoising mode (REQUIRED: specify exactly one; no default).
+                              --dada2 : DADA2 only, single-base ASV resolution.
                                       Platforms Illumina / Ion Torrent / PacBio CCS;
                                       454, ONT and degraded/binned quality are skipped.
-                              --otu : vsearch only, 97% genus-level OTU.
-                                      All 5 platforms; robust on mixed / degraded data.
+                              --vsearch : vsearch only, 97%-identity OTU.
+                                      Platform-specific processing for all 5 platforms.
 
 Optional options:
     -o, --output DIR          Output base directory
@@ -59,6 +62,21 @@ Optional options:
                               Automatically split across parallel datasets:
                               per-dataset threads = threads ÷ max-parallel
     --max-parallel int        Number of datasets to process in parallel (default: 2)
+    --local                  Read one local FASTQ folder given with -m; no download.
+    --platform PLATFORM      Required with --local: ILLUMINA, LS454, ION_TORRENT,
+                              PACBIO_SMRT or OXFORD_NANOPORE.
+    --primer-fwd SEQUENCE     Explicit forward primer (optional).
+    --primer-rev SEQUENCE     Explicit reverse primer (optional).
+    --skip-unknown-primers    Skip a dataset when an unknown primer is detected.
+                              Default: trim 20 bp when no database match and fold <16.
+    --parameter FILE         JSON overrides; see docs/parameters.default.json.
+    --adapter-guard          Check inferred adapters against a 16S reference;
+                              retry protected samples without de novo trimming.
+    --no-adapter-guard       Disable the optional adapter guard (default).
+    --adapter-ref FILE       16S FASTA or FeatureData[Sequence] QZA for the guard.
+    --db DIR                 Reuse TAXA's GG2 reference directory for the guard.
+    --dl                     Download a missing GG2 backbone into --db.
+    --adapter-cache DIR      Shared BLAST index/query cache (default: <db>/adapter_guard).
     --test                    Run in test mode.
                               If -m is provided: subset metadata (2 SRA per BioProject)
                               If -m is omitted:  use built-in test file
@@ -77,32 +95,32 @@ Example CSV:
 
 Example usage:
     # Test mode (built-in test data) — a denoising mode is still required
-    Meta2Data AmpliconPIP --test --otu -t 8
+    Meta2Data AmpliconPIP --test --vsearch -t 8
 
     # Test mode (with user metadata: 2 SRA per BioProject)
-    Meta2Data AmpliconPIP --test --otu -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
+    Meta2Data AmpliconPIP --test --vsearch -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
 
     # Basic usage
-    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
+    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --dada2 -t 8
 
     # Custom output directory
-    Meta2Data AmpliconPIP -m metadata.csv -o /output/ --col-bioproject Bioproject --col-sra Run -t 8
+    Meta2Data AmpliconPIP -m metadata.csv -o /output/ --col-bioproject Bioproject --col-sra Run --dada2 -t 8
 
-    # ASV mode (DADA2) — explicit mode is required
-    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --asv -t 8
+    # DADA2 mode (DADA2) — explicit mode is required
+    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --dada2 -t 8
 
-    # OTU mode (vsearch 97%, genus level)
-    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --otu -t 8
+    # vsearch mode (vsearch 97%, genus level)
+    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --vsearch -t 8
 
     # Then assign taxonomy separately (recommended) — mode must match the PIP run
-    Meta2Data AmpliconTAXA --otu --db /path/to/gg2db -i /output/ -t 8
+    Meta2Data AmpliconTAXA --vsearch --db /path/to/gg2db -i /output/ -t 8
 
 Output structure:
     <output_dir>/
     ├── datasets_ID.txt              # Generated dataset list
     ├── <dataset_ID>/                # One directory per dataset
     │   ├── <dataset_ID>_sra.txt     # SRA accession list
-    │   ├── <dataset_ID>-<mode>-final-rep-seqs.qza  # Final sequences (mode=asv|otu)
+    │   ├── <dataset_ID>-<mode>-final-rep-seqs.qza  # Final sequences (mode=dada2|vsearch)
     │   └── <dataset_ID>-<mode>-final-table.qza     # Final feature table
     ├── failed_datasets.log
     ├── success_datasets.log
@@ -113,7 +131,7 @@ EOF
 
 METADATA=""
 OUTPUT=""
-THREADS=12
+THREADS=4
 MAX_PARALLEL=2
 TEST_MODE=false
 MODE=""
@@ -124,6 +142,26 @@ LOCAL_MODE=false
 LOCAL_PLATFORM=""
 PRIMER_FWD=""
 PRIMER_REV=""
+ADAPTER_REF=""
+ADAPTER_DB_DIR=""
+ADAPTER_DL=false
+ADAPTER_CACHE=""
+
+# Load configuration first; explicit command-line options below take precedence.
+PARAMETER_FILE=""
+_args=("$@")
+for (( _i=0; _i<${#_args[@]}; _i++ )); do
+    if [[ "${_args[$_i]}" == "--parameter" ]]; then
+        PARAMETER_FILE="${_args[$((_i+1))]:-}"
+        [[ -n "$PARAMETER_FILE" ]] || { echo "Error: --parameter requires a JSON file" >&2; exit 2; }
+        PARAMETER_FILE=$(realpath "$PARAMETER_FILE")
+    fi
+done
+_config_args=()
+[[ -n "$PARAMETER_FILE" ]] && _config_args+=(--parameter "$PARAMETER_FILE")
+_config=$(python3 "${SCRIPTS}/parameters.py" shell "${_config_args[@]}") || exit 2
+eval "$_config"
+export PARAMETER_FILE
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -131,20 +169,20 @@ while [[ $# -gt 0 ]]; do
             METADATA="$2"
             shift 2
             ;;
-        --asv)
+        --dada2)
             if [[ -n "$MODE" ]]; then
-                echo "Error: --asv and --otu are mutually exclusive; specify exactly one"
+                echo "Error: --dada2 and --vsearch are mutually exclusive; specify exactly one"
                 exit 1
             fi
-            MODE="asv"
+            MODE="dada2"
             shift
             ;;
-        --otu)
+        --vsearch)
             if [[ -n "$MODE" ]]; then
-                echo "Error: --asv and --otu are mutually exclusive; specify exactly one"
+                echo "Error: --dada2 and --vsearch are mutually exclusive; specify exactly one"
                 exit 1
             fi
-            MODE="otu"
+            MODE="vsearch"
             shift
             ;;
         -o|--output)
@@ -159,6 +197,14 @@ while [[ $# -gt 0 ]]; do
             MAX_PARALLEL="$2"
             shift 2
             ;;
+        --parameter) shift 2 ;;
+        --adapter-guard) export ADAPTER_GUARD_ENABLED=true; shift ;;
+        --no-adapter-guard) export ADAPTER_GUARD_ENABLED=false; shift ;;
+        --adapter-ref) ADAPTER_REF="$2"; shift 2 ;;
+        --db) ADAPTER_DB_DIR="$2"; shift 2 ;;
+        --dl) ADAPTER_DL=true; shift ;;
+        --adapter-cache) ADAPTER_CACHE="$2"; shift 2 ;;
+        --skip-unknown-primers) export SKIP_UNKNOWN_PRIMERS=true; shift ;;
         --test)
             TEST_MODE=true
             shift
@@ -319,13 +365,18 @@ else
     fi
 fi
 
-# Denoising mode is mandatory: exactly one of --asv / --otu, no default.
+# Denoising mode is mandatory: exactly one of --dada2 / --vsearch, no default.
 # (Replaces the old auto-mix-by-platform behaviour, which silently mixed
 #  ASV and OTU results within a run and was a hidden batch-effect risk.)
 if [[ -z "$MODE" ]]; then
-    echo "Error: a denoising mode is required — specify exactly one of --asv or --otu"
+    echo "Error: a denoising mode is required — specify exactly one of --dada2 or --vsearch"
     show_help
     exit 1
+fi
+
+if [[ -n "$PRIMER_REV" && -z "$PRIMER_FWD" ]]; then
+    echo "Error: --primer-rev requires --primer-fwd" >&2
+    exit 2
 fi
 
 # Check input exists: a folder in --local mode, a CSV file otherwise
@@ -339,7 +390,11 @@ elif [[ ! -f "$METADATA" ]]; then
     exit 1
 fi
 
-METADATA=$(cd "$(dirname "$METADATA")" && pwd)/$(basename "$METADATA")
+if [[ "$LOCAL_MODE" == true ]]; then
+    METADATA=$(cd "$METADATA" && pwd -P)
+else
+    METADATA=$(cd "$(dirname "$METADATA")" && pwd -P)/$(basename "$METADATA")
+fi
 
 if [[ -z "$OUTPUT" ]]; then
     if [[ "$LOCAL_MODE" == true ]]; then
@@ -358,8 +413,18 @@ if [[ -z "$OUTPUT" ]]; then
 else
     # User specified output directory
     mkdir -p "$OUTPUT"
-    OUTPUT=$(cd "$OUTPUT" && pwd)
+    OUTPUT=$(cd "$OUTPUT" && pwd -P)
 fi
+
+if [[ "$LOCAL_MODE" == true ]] && { [[ "$OUTPUT" == "$METADATA" ]] || [[ "${OUTPUT}/$(basename "$METADATA")" == "$METADATA" ]]; }; then
+    echo "Error: local output and its dataset directory must differ from the input FASTQ directory; choose a separate output folder" >&2
+    exit 2
+fi
+if [[ "$LOCAL_MODE" == true ]]; then
+    python3 "${SCRIPTS}/read_layout.py" validate-local --input "$METADATA" \
+        --output "${OUTPUT}/$(basename "$METADATA")"
+fi
+python3 "${SCRIPTS}/parameters.py" save "${_config_args[@]}" --output "${OUTPUT}/effective-parameters-${MODE}.json"
 
 # Source function library (AmpliconFunction.sh)
 # Note: py_16s.py must be in PATH (installed via setup.py or conda env)
@@ -404,6 +469,33 @@ export QIIME2_CACHE="${PIPELINE_TMPDIR}/qiime2-cache"
 mkdir -p "$QIIME2_CACHE"
 export PYTHONWARNINGS="ignore::FutureWarning"
 
+# Prepare the immutable reference index before parallel dataset workers start.
+export M2D_ADAPTER_GUARD_ENABLED=0
+if [[ "$ADAPTER_GUARD_ENABLED" == true ]]; then
+    if [[ -z "$ADAPTER_REF" ]]; then
+        [[ -n "$ADAPTER_DB_DIR" ]] || {
+            echo 'Error: --adapter-guard requires --adapter-ref or --db' >&2; exit 2;
+        }
+        ADAPTER_REF="${ADAPTER_DB_DIR%/}/2024.09.backbone.full-length.fna.qza"
+    fi
+    if [[ ! -s "$ADAPTER_REF" && "$ADAPTER_DL" == true ]]; then
+        [[ -n "$ADAPTER_DB_DIR" && "$ADAPTER_REF" == "${ADAPTER_DB_DIR%/}/2024.09.backbone.full-length.fna.qza" ]] || {
+            echo 'Error: --dl only downloads the GG2 backbone selected by --db' >&2; exit 2;
+        }
+        python3 "${SCRIPTS}/adapter_reference.py" --db "$ADAPTER_DB_DIR"
+    fi
+    [[ -s "$ADAPTER_REF" ]] || { echo "Error: Missing adapter-guard reference: $ADAPTER_REF" >&2; exit 2; }
+    if [[ -z "$ADAPTER_CACHE" ]]; then
+        ADAPTER_CACHE="${ADAPTER_DB_DIR:-${OUTPUT}/.reference}/adapter_guard"
+    fi
+    mkdir -p "$ADAPTER_CACHE"
+    export M2D_ADAPTER_GUARD_CACHE="$(cd "$ADAPTER_CACHE" && pwd -P)"
+    M2D_ADAPTER_GUARD_DB_MANIFEST=$(python3 "${SCRIPTS}/fastp_guard.py" prepare \
+        --reference "$ADAPTER_REF" --cache-dir "$M2D_ADAPTER_GUARD_CACHE") || exit 2
+    export M2D_ADAPTER_GUARD_DB_MANIFEST M2D_ADAPTER_GUARD_ENABLED=1
+    cp "$M2D_ADAPTER_GUARD_DB_MANIFEST" "${OUTPUT}/adapter_guard_reference.json"
+fi
+
 ################################################################################
 #                    AMPLICON PROCESSING PIPELINE                              #
 ################################################################################
@@ -432,14 +524,14 @@ if ! bash "${SCRIPTS}/run.sh" \
     --col-sra "$COL_SRA" \
     --mode "$MODE" \
     "${EXTRA_ARGS[@]}"; then
-    echo "❌ ERROR: Amplicon processing pipeline failed"
+    echo "[ERROR] Amplicon processing pipeline failed"
     echo "Check logs in: $OUTPUT"
     echo "QIIME2 tmpdir preserved for debugging: $PIPELINE_TMPDIR"
     exit 1
 fi
 
 echo ""
-echo "✓ Amplicon processing completed successfully"
+echo "[OK] Amplicon processing completed successfully"
 echo ""
 
 ################################################################################
@@ -472,7 +564,7 @@ if [ -f "$run_log" ]; then
             if (lq > 0) printf "Low-quality datasets: %d\n", lq
         }
     ' "$run_log"
-    echo "⚠️  Failed details (if any) and full history: $run_log"
+    echo "[WARNING]  Failed details (if any) and full history: $run_log"
 fi
 
 echo ""

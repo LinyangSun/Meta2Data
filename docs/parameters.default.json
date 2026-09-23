@@ -1,0 +1,55 @@
+{
+  "adapter_guard": {
+    "enabled": false,
+    "min_length": 50,
+    "min_identity": 98.0,
+    "min_coverage": 95.0
+  },
+  "primer": {
+    "window": 20,
+    "fold_threshold": 16,
+    "support_frequency": 0.1,
+    "database_identity": 0.85,
+    "informative_fraction": 0.5,
+    "unknown_trim_length": 20,
+    "skip_unknown": false,
+    "min_length": 50,
+    "min_average_quality": 20.0,
+    "min_complexity": 0.3,
+    "min_entropy": 1.0
+  },
+  "vsearch": {
+    "maxee": 1.0,
+    "merge_min_fraction": 0.5,
+    "precluster_identity": 0.99,
+    "cluster_identity": 0.97,
+    "minsize": 2,
+    "min_frequency": 2,
+    "degraded_trim_left": 0,
+    "min_length": 50,
+    "max_n": 1,
+    "ion_maxee": 2.0,
+    "ion_trim_left": 0,
+    "pacbio_maxee_rate": 0.01,
+    "pacbio_min_length": 1000,
+    "pacbio_max_length": 2000
+  },
+  "dada2": {
+    "ion_trim_left": 0,
+    "pacbio_min_length": 1000,
+    "pacbio_max_length": 1600,
+    "quality_trim_score": 25
+  },
+  "ont": {
+    "quality": 10,
+    "length_tolerance": 0.15,
+    "length_floor": 200,
+    "cluster_identity": 0.97,
+    "map_identity": 0.9
+  },
+  "taxa": {
+    "confidence": 0.7,
+    "singleV": false,
+    "notree": false
+  }
+}

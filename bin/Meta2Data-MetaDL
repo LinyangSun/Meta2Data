@@ -26,12 +26,12 @@ Enhanced metadata download pipeline with parallel processing and checkpoints.
 Downloads metadata from both NCBI and CNCB/GSA for ALL BioProjects.
 
 NEW FEATURES IN V2.1:
-    ✓ Keyword search mode: Search BioProjects by field, organism, and optional terms
-    ✓ Dual workflow: Keywords mode OR BioProject ID input mode
-    ✓ Parallel downloads (8 workers with API key, 3 without)
-    ✓ Checkpoint/resume system (no need to restart from scratch)
-    ✓ Retry mechanism with exponential backoff
-    ✓ Comprehensive logging (file + console)
+    [OK] Keyword search mode: Search BioProjects by field, organism, and optional terms
+    [OK] Dual workflow: Keywords mode OR BioProject ID input mode
+    [OK] Parallel downloads (8 workers with API key, 3 without)
+    [OK] Checkpoint/resume system (no need to restart from scratch)
+    [OK] Retry mechanism with exponential backoff
+    [OK] Comprehensive logging (file + console)
 
 WORKFLOW MODES:
 
@@ -126,12 +126,12 @@ Workflow:
     6. Final merge: Combine NCBI + CNCB datasets
 
 Features:
-    ✓ Resume from checkpoint if interrupted (Ctrl+C safe)
-    ✓ Parallel downloads for NCBI (faster than v1)
-    ✓ Automatic retry with exponential backoff
-    ✓ Detailed logging to file + console
-    ✓ Comprehensive error handling
-    ✓ Smart merge strategy selection (BioSample ID vs composite key)
+    [OK] Resume from checkpoint if interrupted (Ctrl+C safe)
+    [OK] Parallel downloads for NCBI (faster than v1)
+    [OK] Automatic retry with exponential backoff
+    [OK] Detailed logging to file + console
+    [OK] Comprehensive error handling
+    [OK] Smart merge strategy selection (BioSample ID vs composite key)
 
 Performance:
     - Without API key: ~10 requests/second (3 parallel workers)

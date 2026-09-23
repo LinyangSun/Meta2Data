@@ -195,8 +195,9 @@ def fetch_cncb_description(bioproject_id):
         resp.raise_for_status()
         html = resp.text
 
+        # Localized CNCB field labels are regex data, not output messages.
         for pat in [
-            r'描述信息\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
+            r'\u63cf\u8ff0\u4fe1\u606f\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
             r'Description\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
         ]:
             m = re.search(pat, html, re.DOTALL | re.IGNORECASE)
@@ -207,7 +208,7 @@ def fetch_cncb_description(bioproject_id):
                     return txt
 
         for pat in [
-            r'项目标题\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
+            r'\u9879\u76ee\u6807\u9898\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
             r'Title\s*</t[dh]>\s*<td[^>]*>(.*?)</td>',
         ]:
             m = re.search(pat, html, re.DOTALL | re.IGNORECASE)

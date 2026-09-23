@@ -1,0 +1,71 @@
+{
+  "reference": "/scratch/project_2009135/Meta2DataRevision/primer/Meta2Data-main/scripts/entropy_primer_detect.py",
+  "reference_override": {
+    "UNKNOWN_PRIMER_FOLD_THRESHOLD": 16
+  },
+  "seed": 20260918,
+  "primer_records": 23,
+  "checked_cases": 860,
+  "categories": {
+    "known_oligos": 552,
+    "random_unprimed": 220,
+    "fold_boundaries": 48,
+    "support_boundaries": 40
+  },
+  "outcomes": {
+    "known_database_match": 327,
+    "unknown_primer": 255,
+    "no_primer": 278
+  },
+  "raw_output_difference_cases": 327,
+  "intentional_difference": "Known database matches: reference primer_fold=0 placeholder; updated primer_fold=null (not evaluated).",
+  "behavior_difference_cases": 0,
+  "behavior_differences": [],
+  "raw_difference_examples": [
+    {
+      "case": "F/1100F/original/offset0/richness1",
+      "differences": {
+        "primer_fold": [
+          0,
+          null
+        ]
+      }
+    },
+    {
+      "case": "F/1100F/original/offset0/richness4",
+      "differences": {
+        "primer_fold": [
+          0,
+          null
+        ]
+      }
+    },
+    {
+      "case": "F/1100F/original/offset0/richness16",
+      "differences": {
+        "primer_fold": [
+          0,
+          null
+        ]
+      }
+    },
+    {
+      "case": "F/1100F/original/offset1/richness1",
+      "differences": {
+        "primer_fold": [
+          0,
+          null
+        ]
+      }
+    },
+    {
+      "case": "F/1100F/original/offset1/richness4",
+      "differences": {
+        "primer_fold": [
+          0,
+          null
+        ]
+      }
+    }
+  ]
+}

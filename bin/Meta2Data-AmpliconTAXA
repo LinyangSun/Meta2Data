@@ -34,82 +34,69 @@ if ! SCRIPTS=$(find_scripts_dir); then
     exit 1
 fi
 
+export M2D_PROFILE_MODULE=taxa
+source "${SCRIPTS}/resource_profile.sh"
+
 show_help() {
     cat << EOF
-Usage: Meta2Data AmpliconTAXA (--asv | --otu) [options]
+Usage: Meta2Data AmpliconTAXA --db DIR -i DIR [options]
 
-Merge amplicon datasets, orient sequences against GreenGenes2, assign
-taxonomy, and build a phylogenetic tree.
+Recursively collect AmpliconPIP results, merge features, orient sequences against
+GreenGenes2, assign taxonomy, and optionally build a phylogenetic tree. Dataset folders
+may have any name. Each result must contain a matching pair:
+    <id>-<method>-final-table.qza
+    <id>-<method>-final-rep-seqs.qza
 
-This command takes the output of AmpliconPIP (PRJ* folders containing
-<id>-<mode>-final-table.qza and <id>-<mode>-final-rep-seqs.qza files) and,
-depending on the mode, performs:
-
-  --otu  (vsearch 97% OTUs)
-    1. Merge feature tables and representative sequences
-    2. Orient sequences against GreenGenes2 backbone (drop unmatched)
-    3. Filter feature table to oriented sequences
-    4. Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
-    5. Phylogenetic tree via SEPP fragment insertion (GG2 reference)
-    6. Filter feature table AND representative sequences to tree-placed features
-
-  --asv  (DADA2 single-base ASVs, single amplicon region assumed)
-    1. Merge feature tables and representative sequences
-    2. Orient sequences against GreenGenes2 backbone (drop unmatched)
-    3. Filter feature table to oriented sequences
-    4. Taxonomy assignment via pre-trained Naive Bayes classifier (sklearn)
-    5. De novo phylogenetic tree (mafft + mask + fasttree)
-
-Orientation always uses the GreenGenes2 backbone regardless of --db-type;
-only taxonomy assignment depends on --db-type. SEPP tree building (otu) always
-uses the GG2 reference. Re-running with a different --db-type reuses every
-database-independent step and only recomputes the taxonomy artifact.
-
-Mode is required and mutually exclusive: pass exactly one of --asv / --otu.
-ASV and OTU outputs must not be mixed in one run (incompatible feature
-definitions); each PRJ* folder is collected by its mode token.
+When one method is present it is selected automatically. If both dada2 and
+vsearch results are present, select one explicitly; methods are never mixed.
 
 Required options:
-    --asv | --otu         Feature mode (mutually exclusive, required). Must match
-                          the AmpliconPIP run that produced the input.
-    --db DIR              Path to database directory (files are stored here;
-                          use --dl to download them automatically)
-    -i, --input DIR       Input directory containing PRJ* dataset folders
-                          (output of a previous AmpliconPIP run)
+    --db DIR              Database directory (use --dl to download files)
+    -i, --input DIR        Directory containing AmpliconPIP results
 
 Optional options:
-    --db-type TYPE        Taxonomy database for classification. One of:
-                            greengenes  - GreenGenes2 2024.09 (default)
-                            silva       - SILVA 138.99
-    -o, --output DIR      Output directory for merged results (default: same as --input)
-    -t, --threads int     Number of CPU threads (default: 4)
-    --confidence FLOAT    Confidence threshold for sklearn classifier (default: 0.7)
-    --dl                  Download database files to --db directory before running
-    -h, --help            Show this help message
+    --dada2 | --vsearch    Select a method; mutually exclusive, otherwise automatic
+    --singleV             Single-region de novo tree (mafft + mask + fasttree)
+                          Default: multi-region SEPP insertion and tree filtering
+    --notree, --no-tree    Skip tree construction and tree-dependent filtering
+                          Mutually exclusive with --singleV
+    --parameter FILE      JSON parameter overrides (CLI options take precedence)
+    --db-type TYPE        greengenes (default) or silva; taxonomy classifier only
+    -o, --output DIR      Result directory (default: same as --input)
+    -t, --threads INT     CPU threads (default: 4)
+    --confidence FLOAT    Classifier confidence (default: 0.7)
+    --dl                  Download missing database files
+    -h, --help            Show this help
 
-Database files (downloaded with --dl):
-    Always (used for orientation, regardless of --db-type):
-      2024.09.backbone.full-length.fna.qza       (GG2 reference sequences)
-    Per --db-type (used for taxonomy):
-      greengenes: 2024.09.backbone.full-length.nb.qza   (GG2 NB classifier)
-      silva:      silva-138-99-nb-classifier.qza         (SILVA NB classifier)
-    --otu only (used for SEPP tree):
-      sepp-refs-gg-13-8.qza                       (SEPP reference tree, GG2)
+Orientation always uses the GreenGenes2 2024.09 backbone. Multi-region runs
+use the existing Greengenes 13_8 SEPP reference regardless of feature method
+or taxonomy classifier. --notree requires no SEPP reference. Tree mode is
+independent of --dada2 / --vsearch.
 
-Example usage:
-    # OTU mode, GreenGenes2 (default), auto-download
-    Meta2Data AmpliconTAXA --otu --db /path/to/db --dl -i /path/to/output -t 8
+Database files:
+    Always: 2024.09.backbone.full-length.fna.qza
+    greengenes classifier: 2024.09.backbone.full-length.nb.qza
+    silva classifier: silva-138-99-nb-classifier.qza
+    SEPP runs only: sepp-refs-gg-13-8.qza
 
-    # ASV mode, SILVA classification
-    Meta2Data AmpliconTAXA --asv --db /path/to/db --db-type silva --dl -i /path/to/output -t 8
+Examples:
+    Meta2Data AmpliconTAXA --db /path/to/db --dl -i /path/to/output
+    Meta2Data AmpliconTAXA --dada2 --singleV --db /path/to/db -i /path/to/output
+    Meta2Data AmpliconTAXA --notree --db /path/to/db -i /path/to/output
+    Meta2Data AmpliconTAXA --vsearch --parameter settings.json --db /path/to/db -i results
 
-Output structure (MODE = asv | otu; DB = gg2 | silva):
-    <output_dir>/final-<MODE>/
-    ├── ... final products (in main dir) ...
-    │       otu: treeFilteredTable.qza, treeFilteredRepSeqs.qza, seppTree.qza
-    │       asv: orientedTable.qza, orientedRepSeqs.qza, denovoRootedTree.qza
-    │       both: <DB>Taxonomy.qza        (e.g. gg2Taxonomy.qza / silvaTaxonomy.qza)
-    └── tmp/                              # intermediates + diagnostics (safe to delete)
+Outputs: <output>/final-<method>-<singleV|multiV|notree>/
+    Single-region: orientedTable.qza, orientedRepSeqs.qza, denovoRootedTree.qza
+    Multi-region: treeFilteredTable.qza, treeFilteredRepSeqs.qza, seppTree.qza
+    No tree: orientedTable.qza, orientedRepSeqs.qza
+    All: <DB>Taxonomy.qza, parameters.json, collection.json, taxa-run-state.json
+    tmp/: intermediates and diagnostics
+
+Changed inputs, parameters or references invalidate the affected cached steps.
+Incomplete or invalid input pairs and duplicate results are recorded in collection.json.
+TAXA aggregate directories are identified by taxa-run-state.json and excluded.
+Sample IDs must be unique across datasets; duplicate sample IDs stop the merge.
+GG2 and SILVA classification outputs are cached independently.
 
 EOF
 }
@@ -123,25 +110,56 @@ INPUT_DIR=""
 OUTPUT=""
 THREADS=4
 CONFIDENCE=0.7
+SINGLE_V=false
+NOTREE=false
+PARAMETER_FILE=""
+
+# Load configuration before parsing explicit CLI overrides.
+scan_args=("$@")
+for ((i=0; i<${#scan_args[@]}; i++)); do
+    if [[ "${scan_args[i]}" == "--parameter" ]]; then
+        if ((i + 1 >= ${#scan_args[@]})); then
+            echo "Error: --parameter requires a JSON file" >&2
+            exit 1
+        fi
+        PARAMETER_FILE="${scan_args[i+1]}"
+    fi
+done
+parameter_args=()
+[[ -z "$PARAMETER_FILE" ]] || parameter_args=(--parameter "$PARAMETER_FILE")
+parameter_exports=$(python3 "${SCRIPTS}/parameters.py" shell "${parameter_args[@]}")
+eval "$parameter_exports"
+export PARAMETER_FILE
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
-        --asv)
-            if [[ -n "$MODE" && "$MODE" != "asv" ]]; then
-                echo "Error: --asv and --otu are mutually exclusive"
+        --dada2)
+            if [[ -n "$MODE" && "$MODE" != "dada2" ]]; then
+                echo "Error: --dada2 and --vsearch are mutually exclusive"
                 exit 1
             fi
-            MODE="asv"
+            MODE="dada2"
             shift
             ;;
-        --otu)
-            if [[ -n "$MODE" && "$MODE" != "otu" ]]; then
-                echo "Error: --asv and --otu are mutually exclusive"
+        --vsearch)
+            if [[ -n "$MODE" && "$MODE" != "vsearch" ]]; then
+                echo "Error: --dada2 and --vsearch are mutually exclusive"
                 exit 1
             fi
-            MODE="otu"
+            MODE="vsearch"
             shift
+            ;;
+        --singleV)
+            SINGLE_V=true
+            shift
+            ;;
+        --notree|--no-tree)
+            NOTREE=true
+            shift
+            ;;
+        --parameter)
+            shift 2
             ;;
         --db)
             DB_DIR="$2"
@@ -183,10 +201,8 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Validate mode (required, mutually exclusive)
-if [[ -z "$MODE" ]]; then
-    echo "Error: feature mode is required - pass exactly one of --asv / --otu"
-    show_help
+if [[ "$SINGLE_V" == true && "$NOTREE" == true ]]; then
+    echo "Error: --singleV and --notree are mutually exclusive" >&2
     exit 1
 fi
 
@@ -211,6 +227,8 @@ if ! [[ "$CONFIDENCE" =~ ^[0-9]*\.?[0-9]+$ ]] || \
     echo "Error: --confidence must be a number between 0 and 1, got '$CONFIDENCE'"
     exit 1
 fi
+# Normalize valid CLI forms such as .7 for the shared JSON parameter snapshot.
+CONFIDENCE=$(python3 -c 'import sys; print(float(sys.argv[1]))' "$CONFIDENCE")
 
 # Validate required parameters
 if [[ -z "$DB_DIR" ]]; then
@@ -250,11 +268,22 @@ else
     OUTPUT=$(cd "$OUTPUT" && pwd)
 fi
 
+# Collect first so ambiguous methods and missing results fail before downloads.
+mkdir -p "${OUTPUT}/.tmpdir"
+COLLECTION="${OUTPUT}/.tmpdir/taxa-collection.json"
+collect_args=(--input "$INPUT_DIR" --output "$COLLECTION")
+[[ -z "$MODE" ]] || collect_args+=(--method "$MODE")
+MODE=$(python3 "${SCRIPTS}/taxa_inputs.py" collect "${collect_args[@]}")
+REGION="multiV"
+[[ "$SINGLE_V" == false ]] || REGION="singleV"
+[[ "$NOTREE" == false ]] || REGION="notree"
+FINAL_DIR="${OUTPUT}/final-${MODE}-${REGION}"
+
 # Database file names.
 #   ORIENT_REF : reference sequences for orientation. Always the GG2 backbone,
 #                regardless of --db-type (only taxonomy depends on --db-type).
 #   NB_CLASSIFIER : pre-trained Naive Bayes classifier for --db-type.
-#   SEPP_REF   : SEPP reference tree (GG2). Only needed for --otu.
+#   SEPP_REF   : Greengenes 13_8 SEPP reference, required for SEPP runs.
 ORIENT_REF="${DB_DIR}/2024.09.backbone.full-length.fna.qza"
 SEPP_REF="${DB_DIR}/sepp-refs-gg-13-8.qza"
 
@@ -305,8 +334,8 @@ if [[ "$ENABLE_DL" == true ]]; then
             DL_FILES+=("silva-138-99-nb-classifier.qza|${SILVA_CLS}|")
             ;;
     esac
-    # SEPP reference: only for --otu (--asv builds a de novo tree)
-    if [[ "$MODE" == "otu" ]]; then
+    # SEPP reference: required only when building the insertion tree
+    if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
         DL_FILES+=("sepp-refs-gg-13-8.qza|${SEPP_URL}|")
     fi
 
@@ -347,9 +376,9 @@ echo "========================================="
 echo "Validating Database Files"
 echo "========================================="
 
-# Mode-aware: orientation ref + classifier always; SEPP ref only for --otu.
+# Orientation and classifier always; SEPP reference only when building its tree.
 NEEDED_FILES=("$ORIENT_REF" "$NB_CLASSIFIER")
-if [[ "$MODE" == "otu" ]]; then
+if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
     NEEDED_FILES+=("$SEPP_REF")
 fi
 
@@ -377,12 +406,13 @@ echo ""
 echo "========================================="
 echo "Meta2Data AmpliconTAXA"
 echo "========================================="
-echo "Mode:           $MODE"
+echo "Method:         $MODE"
+echo "Region mode:    $REGION"
 echo "Database Dir:   $DB_DIR"
 echo "Database Type:  $DB_TYPE ($DB_LABEL)"
 echo "  Orient Ref:   $(basename "$ORIENT_REF")  (GG2, always)"
 echo "  Classifier:   $(basename "$NB_CLASSIFIER")"
-if [[ "$MODE" == "otu" ]]; then
+if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
     echo "  SEPP Ref:     $(basename "$SEPP_REF")"
 fi
 echo "Confidence:     $CONFIDENCE"
@@ -397,7 +427,25 @@ echo ""
 ################################################################################
 
 # Export environment variables for taxonomy.sh
+export CONFIDENCE SINGLE_V NOTREE
+mkdir -p "$FINAL_DIR"
+python3 "${SCRIPTS}/parameters.py" save "${parameter_args[@]}" --output "${FINAL_DIR}/parameters.json"
+prepare_args=(--collection "$COLLECTION" --final-dir "$FINAL_DIR"
+              --orient-ref "$ORIENT_REF" --classifier "$NB_CLASSIFIER"
+              --confidence "$CONFIDENCE" --db-label "$DB_LABEL")
+if [[ "$NOTREE" == true ]]; then
+    prepare_args+=(--notree)
+elif [[ "$SINGLE_V" == true ]]; then
+    prepare_args+=(--single-v)
+else
+    prepare_args+=(--sepp-ref "$SEPP_REF")
+fi
+python3 "${SCRIPTS}/taxa_inputs.py" prepare "${prepare_args[@]}"
 export MODE
+export SINGLE_V
+export FINAL_DIR
+export COLLECTION
+export SCRIPTS
 export DB_LABEL
 export NB_CLASSIFIER
 export ORIENT_REF
@@ -445,5 +493,5 @@ echo "AmpliconTAXA COMPLETE"
 echo "Finished: $(date)"
 echo "========================================="
 echo ""
-echo "Results saved in: ${OUTPUT}/final-${MODE}/"
+echo "Results saved in: ${FINAL_DIR}/"
 echo "========================================="

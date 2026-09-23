@@ -1,7 +1,14 @@
 set -euo pipefail
 
+# Keep direct callers using the existing environment contract compatible.
+NOTREE="${NOTREE:-false}"
+if [[ "$NOTREE" == true && "${SINGLE_V:-false}" == true ]]; then
+    echo "ERROR: --singleV and --notree are mutually exclusive" >&2
+    exit 1
+fi
+
 # Guard required environment variables (set by Meta2Data-AmpliconTAXA)
-for var in MODE INPUT_DIR OUTPUT cpu NB_CLASSIFIER ORIENT_REF DB_LABEL CONFIDENCE; do
+for var in MODE INPUT_DIR OUTPUT cpu NB_CLASSIFIER ORIENT_REF DB_LABEL CONFIDENCE SINGLE_V FINAL_DIR SCRIPTS; do
     if [[ -z "${!var:-}" ]]; then
         echo "ERROR: \$$var is not set. taxonomy.sh must be called from AmpliconTAXA." >&2
         exit 1
@@ -9,15 +16,15 @@ for var in MODE INPUT_DIR OUTPUT cpu NB_CLASSIFIER ORIENT_REF DB_LABEL CONFIDENC
 done
 
 case "$MODE" in
-    asv|otu) ;;
-    *) echo "ERROR: \$MODE must be 'asv' or 'otu' (got '$MODE')" >&2; exit 1 ;;
+    dada2|vsearch) ;;
+    *) echo "ERROR: \$MODE must be 'dada2' or 'vsearch' (got '$MODE')" >&2; exit 1 ;;
 esac
 
 # Files that must exist on disk
 NEEDED_DB=("$NB_CLASSIFIER" "$ORIENT_REF")
-if [[ "$MODE" == "otu" ]]; then
+if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
     if [[ -z "${SEPP_REF:-}" ]]; then
-        echo "ERROR: \$SEPP_REF is not set (required for --otu)." >&2
+        echo "ERROR: \$SEPP_REF is not set (required for SEPP runs)." >&2
         exit 1
     fi
     NEEDED_DB+=("$SEPP_REF")
@@ -38,11 +45,11 @@ qza_ok() { [[ -s "$1" ]] && unzip -tq "$1" >/dev/null 2>&1; }
 summarize_table() {
     local in_table="$1" out_viz="$2" warn_msg="$3" guard="${4:-}"
     if qza_ok "$out_viz"; then
-        echo "✓ reuse: $(basename "$out_viz")"
+        echo "[OK] reuse: $(basename "$out_viz")"
     elif { [[ -z "$guard" ]] || qza_ok "$guard"; } && qiime feature-table summarize \
             --i-table "$in_table" \
             --o-visualization "$out_viz" --verbose; then
-        echo "✓ Summary generated"
+        echo "[OK] Summary generated"
     else
         echo "$warn_msg"
     fi
@@ -61,12 +68,8 @@ echo ""
 ################################################################################
 #                        OUTPUT LAYOUT (mode-scoped)                           #
 ################################################################################
-# Final products live directly under final-<MODE>/ ; every intermediate and
-# diagnostic artifact goes under final-<MODE>/tmp/ (safe to delete; deleting it
-# only forces a recompute on the next run). Only the taxonomy artifact depends
-# on --db-type, so re-running a different DB reuses everything else.
-
-FINAL_DIR="${OUTPUT}/final-${MODE}"
+# Method and region modes have separate output directories. The entry point
+# validates input/reference/configuration fingerprints before reusing artifacts.
 TMP="${FINAL_DIR}/tmp"
 mkdir -p "$FINAL_DIR" "$TMP"
 
@@ -76,8 +79,8 @@ MERGED_REP_SEQS="${TMP}/mergedRepSeqs.qza"
 MERGED_SUMMARY="${TMP}/mergedTableSummary.qzv"
 UNMATCHED="${TMP}/unmatchedRepSeqs.qza"
 
-# Oriented outputs: final products for --asv, intermediates for --otu
-if [[ "$MODE" == "asv" ]]; then
+# Oriented outputs are final products when no SEPP placement filtering is used.
+if [[ "$SINGLE_V" == true || "$NOTREE" == true ]]; then
     ORIENTED_REP_SEQS="${FINAL_DIR}/orientedRepSeqs.qza"
     ORIENTED_TABLE="${FINAL_DIR}/orientedTable.qza"
     ORIENTED_TABLE_SUMMARY="${TMP}/orientedTableSummary.qzv"
@@ -89,7 +92,7 @@ fi
 # Taxonomy artifact carries the DB label (only db-specific output)
 TAXONOMY="${FINAL_DIR}/${DB_LABEL}Taxonomy.qza"
 
-# OTU tree products
+# Multi-region tree products
 SEPP_TREE="${FINAL_DIR}/seppTree.qza"
 SEPP_PLACEMENTS="${TMP}/seppPlacements.qza"
 TREE_TABLE="${FINAL_DIR}/treeFilteredTable.qza"
@@ -97,11 +100,18 @@ TREE_REP_SEQS="${FINAL_DIR}/treeFilteredRepSeqs.qza"
 NOTREE_TABLE="${TMP}/treeUnplacedTable.qza"
 TREE_TABLE_SUMMARY="${TMP}/treeFilteredTableSummary.qzv"
 
-# ASV de novo tree products
+# Single-region de novo tree products
 DENOVO_ALN="${TMP}/denovoAlignment.qza"
 DENOVO_MASKED="${TMP}/denovoMaskedAlignment.qza"
 DENOVO_UNROOTED="${TMP}/denovoUnrootedTree.qza"
 DENOVO_ROOTED="${FINAL_DIR}/denovoRootedTree.qza"
+
+# Durable statistics are independent of temporary artifacts and cache invalidation.
+source "${SCRIPTS}/read_counts.sh"
+READ_COUNTS_STATE=$(python3 "${SCRIPTS}/read_counts.py" begin \
+    --dataset "$FINAL_DIR" --output "$FINAL_DIR" --mode "$MODE" --pipeline taxa)
+export READ_COUNTS_STATE
+trap 'rc=$?; Audit_Exit "$rc" || exit 1' EXIT
 
 ################################################################################
 #                    STEP 1: COLLECT DATASET OUTPUTS                            #
@@ -109,41 +119,15 @@ DENOVO_ROOTED="${FINAL_DIR}/denovoRootedTree.qza"
 
 echo ">>> Step 1: Collecting ${MODE} dataset outputs..."
 
-all_folders=()
-for folder in "${INPUT_DIR}"/PRJ*/; do
-    [ -d "$folder" ] || continue
-    all_folders+=("$folder")
-done
-
-if [ ${#all_folders[@]} -eq 0 ]; then
-    echo "❌ ERROR: No PRJ* dataset folders found in ${INPUT_DIR}"
-    exit 1
-fi
-
-table_glob="*-${MODE}-final-table.qza"
-rep_glob="*-${MODE}-final-rep-seqs.qza"
-
 ALL_TABLES=()
 ALL_REP_SEQS=()
-
-for folder in "${all_folders[@]}"; do
-    folder_name=$(basename "$folder")
-
-    rep_files=("${folder}"/$rep_glob)
-    table_files=("${folder}"/$table_glob)
-
-    if [ ! -f "${rep_files[0]}" ] || [ ! -f "${table_files[0]}" ]; then
-        echo "  ⚠️  ${folder_name}: no ${MODE} outputs, skipping"
-        continue
-    fi
-
-    ALL_TABLES+=("${table_files[0]}")
-    ALL_REP_SEQS+=("${rep_files[0]}")
-    echo "  ✓ ${folder_name}"
-done
-
-if [ ${#ALL_TABLES[@]} -eq 0 ]; then
-    echo "❌ ERROR: No ${MODE} datasets collected (looked for ${table_glob})"
+# NUL separation preserves spaces in local dataset paths.
+mapfile -d '' -t ALL_TABLES < <(python3 "${SCRIPTS}/taxa_inputs.py" paths \
+    --collection "${FINAL_DIR}/collection.json" --kind table)
+mapfile -d '' -t ALL_REP_SEQS < <(python3 "${SCRIPTS}/taxa_inputs.py" paths \
+    --collection "${FINAL_DIR}/collection.json" --kind rep_seqs)
+if [[ ${#ALL_TABLES[@]} -eq 0 || ${#ALL_TABLES[@]} -ne ${#ALL_REP_SEQS[@]} ]]; then
+    echo "ERROR: No complete dataset pairs in ${FINAL_DIR}/collection.json" >&2
     exit 1
 fi
 
@@ -156,33 +140,36 @@ echo ""
 
 echo ">>> Step 2: Merging feature tables..."
 if qza_ok "$MERGED_TABLE"; then
-    echo "✓ reuse: $(basename "$MERGED_TABLE")"
+    echo "[OK] reuse: $(basename "$MERGED_TABLE")"
 else
     rm -f "$MERGED_TABLE"
     if ! qiime feature-table merge \
         --i-tables "${ALL_TABLES[@]}" \
+        --p-overlap-method error_on_overlapping_sample \
         --o-merged-table "$MERGED_TABLE" --verbose; then
-        echo "❌ ERROR: Table merging failed"
+        echo "[ERROR] Table merging failed"
         exit 1
     fi
 fi
 
+Audit_Counts taxa-init --input "$MERGED_TABLE"
+
 echo ">>> Step 3: Merging representative sequences..."
 if qza_ok "$MERGED_REP_SEQS"; then
-    echo "✓ reuse: $(basename "$MERGED_REP_SEQS")"
+    echo "[OK] reuse: $(basename "$MERGED_REP_SEQS")"
 else
     rm -f "$MERGED_REP_SEQS"
     if ! qiime feature-table merge-seqs \
         --i-data "${ALL_REP_SEQS[@]}" \
         --o-merged-data "$MERGED_REP_SEQS" --verbose; then
-        echo "❌ ERROR: Sequence merging failed"
+        echo "[ERROR] Sequence merging failed"
         exit 1
     fi
 fi
 
 echo ">>> Step 4: Merged table summary..."
 summarize_table "$MERGED_TABLE" "$MERGED_SUMMARY" \
-    "⚠️  WARNING: Merged summary generation failed (non-fatal)"
+    "[WARNING] Merged summary generation failed (non-fatal)"
 echo ""
 
 ################################################################################
@@ -194,7 +181,7 @@ echo ""
 
 echo ">>> Step 5: Orienting sequences against GG2 backbone..."
 if qza_ok "$ORIENTED_REP_SEQS"; then
-    echo "✓ reuse: $(basename "$ORIENTED_REP_SEQS")"
+    echo "[OK] reuse: $(basename "$ORIENTED_REP_SEQS")"
 else
     rm -f "$ORIENTED_REP_SEQS" "$UNMATCHED"
     if ! qiime rescript orient-seqs \
@@ -203,35 +190,37 @@ else
         --p-threads "$cpu" \
         --o-oriented-seqs "$ORIENTED_REP_SEQS" \
         --o-unmatched-seqs "$UNMATCHED" --verbose; then
-        echo "❌ ERROR: Sequence orientation failed"
+        echo "[ERROR] Sequence orientation failed"
         exit 1
     fi
 fi
 
 echo ">>> Step 6: Filtering table to oriented features..."
 if qza_ok "$ORIENTED_TABLE"; then
-    echo "✓ reuse: $(basename "$ORIENTED_TABLE")"
+    echo "[OK] reuse: $(basename "$ORIENTED_TABLE")"
 else
     rm -f "$ORIENTED_TABLE"
     if ! qiime feature-table filter-features \
         --i-table "$MERGED_TABLE" \
         --m-metadata-file "$ORIENTED_REP_SEQS" \
         --o-filtered-table "$ORIENTED_TABLE" --verbose; then
-        echo "❌ ERROR: Table filtering by oriented sequences failed"
+        echo "[ERROR] Table filtering by oriented sequences failed"
         exit 1
     fi
 fi
 echo ""
 
+Audit_Table taxa_oriented_reads "$ORIENTED_TABLE" taxa_raw_reads
+
 ################################################################################
-#        STEP 6b (ASV only): single-region length-variance guard               #
+#        STEP 6b (--singleV only): single-region length-variance guard               #
 ################################################################################
-# ASV mode assumes a single amplicon region. If feature lengths vary widely the
+# --singleV assumes a single amplicon region. If feature lengths vary widely the
 # merged set probably mixes regions (e.g. full-length + V-region), which makes
 # the de novo alignment/tree unreliable. Warn but do not stop.
 
-if [[ "$MODE" == "asv" ]]; then
-    echo ">>> Step 6b: ASV single-region length check..."
+if [[ "$SINGLE_V" == true ]]; then
+    echo ">>> Step 6b: Single-region length check..."
     LEN_PROBE="${TMP}/.lenprobe"
     rm -rf "$LEN_PROBE"; mkdir -p "$LEN_PROBE"
     if qiime tools export --input-path "$ORIENTED_REP_SEQS" \
@@ -246,8 +235,8 @@ if [[ "$MODE" == "asv" ]]; then
             ratio=$(awk -v a="$p95" -v b="$p5" 'BEGIN{if(b>0) printf "%.2f", a/b; else print "0"}')
             echo "    feature length p5=${p5}bp  p95=${p95}bp  (p95/p5=${ratio}, n=${n})"
             if awk -v r="$ratio" 'BEGIN{exit !(r>1.5)}'; then
-                echo "⚠️  WARNING: ASV feature lengths vary widely (p95/p5=${ratio} > 1.5)."
-                echo "   ASV mode assumes a SINGLE amplicon region; mixing regions"
+                echo "[WARNING] Feature lengths vary widely (p95/p5=${ratio} > 1.5)."
+                echo "   --singleV assumes a SINGLE amplicon region; mixing regions"
                 echo "   (e.g. full-length + V-region) makes the de novo tree unreliable."
                 echo "   Proceeding anyway (non-fatal)."
             fi
@@ -255,7 +244,7 @@ if [[ "$MODE" == "asv" ]]; then
             echo "    too few features (${n}) for a meaningful length check, skipping"
         fi
     else
-        echo "⚠️  WARNING: could not export sequences for length check (non-fatal)"
+        echo "[WARNING] could not export sequences for length check (non-fatal)"
     fi
     rm -rf "$LEN_PROBE"
     echo ""
@@ -267,7 +256,7 @@ fi
 
 echo ">>> Step 7: Assigning taxonomy (${DB_LABEL}, confidence=${CONFIDENCE})..."
 if qza_ok "$TAXONOMY"; then
-    echo "✓ reuse: $(basename "$TAXONOMY")"
+    echo "[OK] reuse: $(basename "$TAXONOMY")"
 else
     rm -f "$TAXONOMY"
     if ! qiime feature-classifier classify-sklearn \
@@ -276,86 +265,92 @@ else
         --p-n-jobs "$cpu" \
         --p-confidence "$CONFIDENCE" \
         --o-classification "$TAXONOMY" --verbose; then
-        echo "❌ ERROR: Taxonomy assignment failed"
+        echo "[ERROR] Taxonomy assignment failed"
         exit 1
     fi
 fi
-echo "✓ Taxonomy: $(basename "$TAXONOMY")"
+# Classification adds labels; it does not filter unclassified reads.
+Audit_Table taxa_classified_reads "$ORIENTED_TABLE" taxa_oriented_reads
+echo "[OK] Taxonomy: $(basename "$TAXONOMY")"
 echo ""
 
 ################################################################################
 #                    STEP 8: PHYLOGENETIC TREE                                  #
 ################################################################################
 
-if [[ "$MODE" == "otu" ]]; then
-    # ---- OTU: SEPP fragment insertion into the GG2 reference tree ----
+if [[ "$NOTREE" == true ]]; then
+    echo ">>> Step 8: Tree construction and tree-dependent filtering skipped (--notree)."
+    summarize_table "$ORIENTED_TABLE" "$ORIENTED_TABLE_SUMMARY" \
+        "[WARNING] Oriented table summary failed (non-fatal)"
+elif [[ "$SINGLE_V" == false ]]; then
+    # ---- Multi-region: SEPP insertion into the Greengenes 13_8 reference ----
     echo ">>> Step 8: Building phylogenetic tree via SEPP fragment insertion..."
-    SEPP_TREE_OK=false
     if qza_ok "$SEPP_TREE"; then
-        echo "✓ reuse: $(basename "$SEPP_TREE")"
-        SEPP_TREE_OK=true
+        echo "[OK] reuse: $(basename "$SEPP_TREE")"
     else
         rm -f "$SEPP_TREE" "$SEPP_PLACEMENTS"
-        if qiime fragment-insertion sepp \
+        if ! qiime fragment-insertion sepp \
             --i-representative-sequences "$ORIENTED_REP_SEQS" \
             --i-reference-database "$SEPP_REF" \
             --p-threads "$cpu" \
             --o-tree "$SEPP_TREE" \
             --o-placements "$SEPP_PLACEMENTS" --verbose; then
-            SEPP_TREE_OK=true
-            echo "✓ SEPP fragment insertion completed"
-        else
-            echo "⚠️  WARNING: SEPP fragment insertion failed."
-            echo "   Taxonomy was already assigned — no reads lost."
-            echo "   Only UniFrac / phylogenetic diversity will be unavailable."
+            echo "[ERROR] SEPP fragment insertion failed; intermediate artifacts are retained in ${TMP}." >&2
+            exit 1
         fi
+        echo "[OK] SEPP fragment insertion completed"
     fi
 
-    if [[ "$SEPP_TREE_OK" == true ]]; then
-        echo ">>> Step 9: Filtering table to tree-placed features..."
-        if qza_ok "$TREE_TABLE"; then
-            echo "✓ reuse: $(basename "$TREE_TABLE")"
-        else
-            rm -f "$TREE_TABLE" "$NOTREE_TABLE"
-            if qiime fragment-insertion filter-features \
-                --i-table "$ORIENTED_TABLE" \
-                --i-tree "$SEPP_TREE" \
-                --o-filtered-table "$TREE_TABLE" \
-                --o-removed-table "$NOTREE_TABLE" --verbose; then
-                echo "✓ Table filtered by tree placement"
-            else
-                echo "⚠️  WARNING: Feature filtering by tree failed."
-            fi
+    echo ">>> Step 9: Filtering table to tree-placed features..."
+    if qza_ok "$TREE_TABLE"; then
+        echo "[OK] reuse: $(basename "$TREE_TABLE")"
+    else
+        rm -f "$TREE_TABLE" "$NOTREE_TABLE"
+        if ! qiime fragment-insertion filter-features \
+            --i-table "$ORIENTED_TABLE" \
+            --i-tree "$SEPP_TREE" \
+            --o-filtered-table "$TREE_TABLE" \
+            --o-removed-table "$NOTREE_TABLE" --verbose; then
+            echo "[ERROR] Feature filtering by tree failed; intermediate artifacts are retained in ${TMP}." >&2
+            exit 1
         fi
-
-        echo ">>> Step 10: Filtering representative sequences to tree-placed features..."
-        if qza_ok "$TREE_REP_SEQS"; then
-            echo "✓ reuse: $(basename "$TREE_REP_SEQS")"
-        elif qza_ok "$TREE_TABLE"; then
-            rm -f "$TREE_REP_SEQS"
-            if qiime feature-table filter-seqs \
-                --i-data "$ORIENTED_REP_SEQS" \
-                --i-table "$TREE_TABLE" \
-                --o-filtered-data "$TREE_REP_SEQS" --verbose; then
-                echo "✓ Representative sequences filtered by tree placement"
-            else
-                echo "⚠️  WARNING: Rep-seqs filtering by tree failed."
-            fi
-        fi
-
-        echo ">>> Step 11: Tree-placed table summary..."
-        summarize_table "$TREE_TABLE" "$TREE_TABLE_SUMMARY" \
-            "⚠️  WARNING: Tree-placed table summary failed (non-fatal)" "$TREE_TABLE"
+        echo "[OK] Table filtered by tree placement"
     fi
+
+    Audit_Table taxa_tree_placed_reads "$TREE_TABLE" taxa_oriented_reads
+    if qza_ok "$NOTREE_TABLE"; then
+        Audit_Counts check-removed --input "$NOTREE_TABLE" \
+            --parent taxa_oriented_reads --stage taxa_tree_placed_reads
+    fi
+
+    echo ">>> Step 10: Filtering representative sequences to tree-placed features..."
+    if qza_ok "$TREE_REP_SEQS"; then
+        echo "[OK] reuse: $(basename "$TREE_REP_SEQS")"
+    else
+        rm -f "$TREE_REP_SEQS"
+        if ! qiime feature-table filter-seqs \
+            --i-data "$ORIENTED_REP_SEQS" \
+            --i-table "$TREE_TABLE" \
+            --o-filtered-data "$TREE_REP_SEQS" --verbose; then
+            echo "[ERROR] Representative-sequence filtering failed; intermediate artifacts are retained in ${TMP}." >&2
+            exit 1
+        fi
+        echo "[OK] Representative sequences filtered by tree placement"
+    fi
+
+    echo ">>> Step 11: Tree-placed table summary..."
+    summarize_table "$TREE_TABLE" "$TREE_TABLE_SUMMARY" \
+        "[WARNING] Tree-placed table summary failed (non-fatal)" "$TREE_TABLE"
+
 else
-    # ---- ASV: de novo tree (mafft -> mask -> fasttree) ----
-    echo ">>> Step 8: ASV final table summary..."
+    # ---- Single-region: de novo tree (mafft -> mask -> fasttree) ----
+    echo ">>> Step 8: Single-region final table summary..."
     summarize_table "$ORIENTED_TABLE" "$ORIENTED_TABLE_SUMMARY" \
-        "⚠️  WARNING: ASV table summary failed (non-fatal)"
+        "[WARNING] Single-region table summary failed (non-fatal)"
 
     echo ">>> Step 9: Building de novo tree (mafft + mask + fasttree)..."
     if qza_ok "$DENOVO_ROOTED"; then
-        echo "✓ reuse: $(basename "$DENOVO_ROOTED")"
+        echo "[OK] reuse: $(basename "$DENOVO_ROOTED")"
     else
         rm -f "$DENOVO_ALN" "$DENOVO_MASKED" "$DENOVO_UNROOTED" "$DENOVO_ROOTED"
         if ! qiime phylogeny align-to-tree-mafft-fasttree \
@@ -365,13 +360,19 @@ else
             --o-masked-alignment "$DENOVO_MASKED" \
             --o-tree "$DENOVO_UNROOTED" \
             --o-rooted-tree "$DENOVO_ROOTED" --verbose; then
-            echo "❌ ERROR: De novo tree building failed"
+            echo "[ERROR] De novo tree building failed"
             exit 1
         fi
-        echo "✓ De novo tree built"
+        echo "[OK] De novo tree built"
     fi
 fi
 echo ""
+
+if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
+    Audit_Table taxa_final_reads "$TREE_TABLE" taxa_tree_placed_reads
+else
+    Audit_Table taxa_final_reads "$ORIENTED_TABLE" taxa_classified_reads
+fi
 
 ################################################################################
 #                             FINAL SUMMARY                                     #
@@ -382,14 +383,16 @@ echo "Pipeline complete (${MODE}, ${DB_LABEL})"
 echo "Finished: $(date)"
 echo "========================================="
 echo "Final products in: ${FINAL_DIR}/"
-if [[ "$MODE" == "otu" ]]; then
+if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
     echo "  $(basename "$TREE_TABLE")"
     echo "  $(basename "$TREE_REP_SEQS")"
     echo "  $(basename "$SEPP_TREE")"
 else
     echo "  $(basename "$ORIENTED_TABLE")"
     echo "  $(basename "$ORIENTED_REP_SEQS")"
-    echo "  $(basename "$DENOVO_ROOTED")"
+    if [[ "$NOTREE" == false ]]; then
+        echo "  $(basename "$DENOVO_ROOTED")"
+    fi
 fi
 echo "  $(basename "$TAXONOMY")"
 echo "Intermediates/diagnostics in: ${TMP}/ (safe to delete)"

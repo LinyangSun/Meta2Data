@@ -1,56 +1,35 @@
 #!/usr/bin/env python3
 """
-Three-state (C/D/V) Primer Detection and Removal
-(with mixed R1/R2 orientation support)
+Four-state (C/D/T/Q) primer detection and removal
+(with mixed R1/R2 orientation support).
 
-Principle:
-  Analogous to FastQC "Per Base Sequence Content": build a position-wise
-  base frequency matrix and classify each position into one of three states:
-    C (Conserved) — one dominant base (f1 ≥ 0.80)
-    D (Degenerate) — two dominant bases (f1+f2 ≥ 0.80, f2 ≥ 0.10)
-    V (Variable)  — no clear dominant pattern (biological region)
-  Primer = longest [CD]* prefix from position 0, terminated at first V.
+Use all quality-filtered reads from the selected sample and the first 20 bases
+of every read to build the frequency matrix. C/D/T/Q represent
+one/two/three/four bases with at least 10% read support and contribute fold
+factors 1/2/3/4.
 
-Algorithm:
-  Step 0:   Scan directory, pick first sample (PE or SE).
-  Step 1:   Read & pre-filter ALL R1 reads (length, quality, complexity).
-  Step 2:   Build 60×4 position-wise base frequency matrix.
-  Phase 1:  Mixed-orientation detection (PE only).
-            Check first 15 positions for bimodal base distributions.
-            If >50% bimodal → mixed orientation detected.
-
-  --- Branch A (mixed orientation) ---
-  Phase 2:  Split sampled reads into majority/minority groups by the base
-            at the best bimodal position. Run CDV detection (Steps 3-5)
-            on each group independently to determine forward/reverse primer
-            lengths.
-  Phase 3:  Trim ALL files with per-read orientation correction.
-            For each read pair, classify by a single-character check at
-            best_pos. Flipped reads have R1↔R2 swapped before trimming.
-
-  --- Branch B (single orientation) ---
-  Step 3:   Classify each position as C / D / V.
-  Step 4:   Find primer boundary (longest [CD]* prefix, with noise tolerance).
-  Step 5:   Build consensus (C→dominant base, D→N) and report.
-  Step 6:   Trim ALL files using detected primer length.
-
-  Constraints:
-    - Minimum primer length: 10 bp (V before pos 10 → no primer).
-    - Maximum primer length: 30 bp.
-    - Noise tolerance: up to 2 consecutive V positions surrounded by
-      ≥3 non-V positions on each side are treated as degenerate primer
-      bases (e.g., IUPAC N/V/W) and skipped.
+Match the caller-selected direction-specific primer database first and trim at
+the matched endpoint. Only when no database primer matches, calculate fold
+across the first 20 positions. Fold strictly below 16 identifies an unknown
+primer and triggers a fixed 20-bp trim; fold 16 or greater leaves reads
+unchanged.
 """
-
 import sys
 import os
 import gzip
-import glob
 import math
 import shutil
 import argparse
 import json
 from collections import Counter
+from itertools import zip_longest
+
+import parameters
+import read_layout
+
+
+DETECTION_WINDOW = 20
+UNKNOWN_PRIMER_FOLD_THRESHOLD = 16
 
 
 # ===========================================================================
@@ -59,7 +38,8 @@ from collections import Counter
 
 def _open_fq(filepath, mode="rt"):
     """Open FASTQ, transparently handling gzip."""
-    if filepath.endswith(".gz"):
+    filepath = str(filepath)
+    if filepath.lower().endswith(".gz"):
         return gzip.open(filepath, mode)
     return open(filepath, mode.replace("t", ""))
 
@@ -74,8 +54,8 @@ def _iter_fastq(handle):
         seq = handle.readline().rstrip("\n")
         plus = handle.readline().rstrip("\n")
         qual = handle.readline().rstrip("\n")
-        if not header:
-            break
+        if not header.startswith("@") or not plus.startswith("+") or len(seq) != len(qual):
+            raise ValueError("Malformed FASTQ record: missing header/plus line or unequal sequence and quality lengths")
         yield header, seq, plus, qual
 
 
@@ -140,13 +120,25 @@ def _read_entropy(seq):
     return h
 
 
+def _filter_reason(seq, qual, min_len=50, min_avg_qual=20,
+                   min_complexity=0.3, min_entropy=1.0, skip_qual=False):
+    """Return the first failed filter, shared by independent and paired reads."""
+    if len(seq) < min_len:
+        return 'length'
+    if not skip_qual and _avg_quality(qual) < min_avg_qual:
+        return 'quality'
+    if _sequence_complexity(seq) < min_complexity:
+        return 'complexity'
+    if _read_entropy(seq) < min_entropy:
+        return 'entropy'
+    return None
+
+
 def read_and_filter(filepath, min_len=50,
                     min_avg_qual=20, min_complexity=0.3,
                     min_entropy=1.0, skip_qual=False):
     """
-    Step 1: Read ALL reads from a FASTQ file, applying quality filters.
-    Uses the entire first sample for maximum species diversity in the
-    frequency matrix, which improves primer boundary accuracy.
+    Step 1: Read all reads from a FASTQ file and apply quality filters.
     Filters:
       - Length >= min_len
       - Average Phred quality >= min_avg_qual (skipped if skip_qual=True)
@@ -156,23 +148,16 @@ def read_and_filter(filepath, min_len=50,
     """
     reads = []
     total = 0
-    disc_len = disc_qual = disc_cplx = disc_entropy = 0
+    discarded = Counter()
 
     with _open_fq(filepath) as fh:
         for header, seq, plus, qual in _iter_fastq(fh):
             total += 1
 
-            if len(seq) < min_len:
-                disc_len += 1
-                continue
-            if not skip_qual and _avg_quality(qual) < min_avg_qual:
-                disc_qual += 1
-                continue
-            if _sequence_complexity(seq) < min_complexity:
-                disc_cplx += 1
-                continue
-            if _read_entropy(seq) < min_entropy:
-                disc_entropy += 1
+            reason = _filter_reason(seq, qual, min_len, min_avg_qual,
+                                    min_complexity, min_entropy, skip_qual)
+            if reason:
+                discarded[reason] += 1
                 continue
 
             reads.append((seq, qual))
@@ -181,10 +166,10 @@ def read_and_filter(filepath, min_len=50,
     if skip_qual:
         print(f"  Quality filtering: SKIPPED (degraded/dummy scores)",
               file=sys.stderr)
-    print(f"  Discarded: {disc_len} (length<{min_len}), "
-          f"{disc_qual} (avgQ<{min_avg_qual}), "
-          f"{disc_cplx} (complexity<{min_complexity}), "
-          f"{disc_entropy} (entropy<{min_entropy})", file=sys.stderr)
+    print(f"  Discarded: {discarded['length']} (length<{min_len}), "
+          f"{discarded['quality']} (avgQ<{min_avg_qual}), "
+          f"{discarded['complexity']} (complexity<{min_complexity}), "
+          f"{discarded['entropy']} (entropy<{min_entropy})", file=sys.stderr)
 
     if len(reads) < 500:
         print(f"  WARNING: Only {len(reads)} reads passed filters (< 500)",
@@ -197,7 +182,7 @@ def read_and_filter(filepath, min_len=50,
 # Step 2: Position-wise base frequency matrix
 # ===========================================================================
 
-def build_frequency_matrix(reads, num_positions=60):
+def build_frequency_matrix(reads, num_positions=DETECTION_WINDOW):
     """
     Build a num_positions x 4 frequency matrix.
     Column order: A=0, C=1, G=2, T=3.
@@ -243,8 +228,8 @@ def detect_mixed_orientation(freq_matrix, reads, num_check=15):
 
     Returns None if single orientation, or a dict:
         best_pos       – position with the clearest bimodal split
-        majority_base  – dominant base at best_pos (forward-primer reads)
-        minority_base  – second base at best_pos (reverse-primer reads)
+        majority_base  – dominant base at best_pos
+        minority_base  – second base at best_pos
         majority_reads – list of (seq, qual) in majority group
         minority_reads – list of (seq, qual) in minority group
         ratio          – fraction of minority reads
@@ -311,92 +296,46 @@ def detect_mixed_orientation(freq_matrix, reads, num_check=15):
 
 
 # ===========================================================================
-# Step 3: Three-state position classification (C / D / V)
+# Step 3: Four-state position classification (C / D / T / Q)
 # ===========================================================================
 
 BASES = ['A', 'C', 'G', 'T']
+STATE_BY_SUPPORTED_BASE_COUNT = {1: 'C', 2: 'D', 3: 'T', 4: 'Q'}
+STATE_FOLD_FACTORS = {'C': 1, 'D': 2, 'T': 3, 'Q': 4}
+MIN_SUPPORTED_BASE_FREQUENCY = 0.10
 
 
-def classify_position(freqs):
+def classify_position(freqs, min_supported_frequency=MIN_SUPPORTED_BASE_FREQUENCY):
+    """Classify by the number of bases with meaningful read support.
+
+    C/D/T/Q mean one/two/three/four supported bases. Frequencies below 10%
+    are ignored so ordinary sequencing errors do not create false alleles.
     """
-    Classify a single position based on its base frequency distribution.
-
-    C (Conserved):  one dominant base, f1 >= 0.80
-    D (Degenerate): two dominant bases, f1+f2 >= 0.80 and f2 >= 0.10
-    V (Variable):   no clear dominant pattern (biological region)
-
-    Analogous to FastQC "Per Base Sequence Content" interpretation.
-    """
-    sorted_f = sorted(freqs, reverse=True)
-    f1, f2 = sorted_f[0], sorted_f[1]
-    if f1 >= 0.80:
-        return 'C'
-    if f1 + f2 >= 0.80 and f2 >= 0.10:
-        return 'D'
-    return 'V'
+    supported = sum(f >= min_supported_frequency for f in freqs)
+    supported = max(1, min(4, supported))
+    return STATE_BY_SUPPORTED_BASE_COUNT[supported]
 
 
-def classify_all_positions(freq_matrix):
-    """Classify every position in the frequency matrix as C, D, or V."""
-    return [classify_position(freqs) for freqs in freq_matrix]
+def classify_all_positions(freq_matrix, min_supported_frequency=MIN_SUPPORTED_BASE_FREQUENCY):
+    """Classify every position in the frequency matrix as C/D/T/Q."""
+    return [classify_position(freqs, min_supported_frequency) for freqs in freq_matrix]
 
 
 # ===========================================================================
-# Step 4: Primer boundary detection
+# Step 4: Fold calculation
 # ===========================================================================
 
-def find_primer_boundary(states, min_len=10, max_len=30, max_v_run=2):
-    """
-    Primer = longest [CD]* prefix from position 0, terminated at first V.
-
-    Constraints:
-      - Minimum length 10 bp (V before pos 10 → no primer).
-      - Maximum length 30 bp.
-      - Noise tolerance: up to max_v_run (default 2) consecutive V positions
-        are skipped if surrounded by >= 3 non-V positions on each side.
-        This handles 3-way/4-way degenerate primer bases (e.g., N/V/W in
-        IUPAC) that look variable by frequency alone.
-
-    Returns primer_length (0 if no primer detected).
-    """
-    n = min(max_len, len(states))
-    end = 0
-    i = 0
-
-    while i < n:
-        if states[i] in ('C', 'D'):
-            end = i + 1
-            i += 1
-        elif states[i] == 'V':
-            # Count consecutive V's starting at position i
-            v_start = i
-            while i < len(states) and states[i] == 'V':
-                i += 1
-            v_count = i - v_start
-
-            # Tolerance: up to max_v_run consecutive V's, if surrounded
-            # by >= 3 non-V positions on each side
-            if v_count <= max_v_run:
-                before_ok = (v_start >= 3 and
-                             all(s != 'V'
-                                 for s in states[v_start - 3:v_start]))
-                after_ok = (i + 2 < len(states) and
-                            all(s != 'V'
-                                for s in states[i:i + 3]))
-                if before_ok and after_ok:
-                    # Degenerate primer positions — treat as noise, skip
-                    end = i
-                    continue
-
-            # Real variable region — primer ends before these V's
-            break
-        else:
-            i += 1
-
-    if end < min_len:
-        return 0  # Too short to be a primer
-
-    return end
+def calculate_primer_fold(states, boundary):
+    """Calculate C/D/T/Q fold only from position 1 through the boundary."""
+    if boundary < 0 or boundary > len(states):
+        raise ValueError("boundary is outside the state sequence")
+    fold = 1
+    for state in states[:boundary]:
+        try:
+            fold *= STATE_FOLD_FACTORS[state]
+        except KeyError as error:
+            raise ValueError(f"Unknown primer state: {state!r}") from error
+    return fold
 
 
 # ===========================================================================
@@ -408,25 +347,23 @@ def build_consensus_cdv(freq_matrix, states, primer_length):
     Build consensus sequence for the detected primer region.
 
     C positions → dominant base (A/C/G/T)
-    D positions → N (degenerate)
-    Tolerated V → N
+    D/T/Q positions → N (degenerate)
     """
     consensus = []
     for i in range(primer_length):
         if states[i] == 'C':
             max_idx = freq_matrix[i].index(max(freq_matrix[i]))
             consensus.append(BASES[max_idx])
-        else:  # D or tolerated V
+        else:  # D, T, or Q
             consensus.append('N')
     return ''.join(consensus)
 
 
 # ===========================================================================
-# Known 16S primer database (boundary refinement)
+# Known 16S primer database (primary detection path)
 # ===========================================================================
-# CDV classification cannot distinguish primer-conserved from
-# genomic-conserved positions. After CDV detects a primer exists,
-# match the consensus against known 16S primers to get the exact length.
+# A database match is accepted first and determines the trim endpoint. The
+# first-20/fold-<16 fixed-20-bp rule runs only when this search has no match.
 
 _IUPAC = {
     'A': {'A'}, 'C': {'C'}, 'G': {'G'}, 'T': {'T'},
@@ -493,15 +430,16 @@ def _iupac_compatible(base1, base2):
     return bool(set1 & set2)
 
 
-def match_primer_database(consensus_30bp, database, min_identity=0.85):
+def match_primer_database(consensus_window, database, min_identity=0.85,
+                          min_informative_fraction=0.50):
     """
-    Sliding-window match of CDV consensus against a primer database.
+    Sliding-window match of the four-state consensus against a primer database.
 
     database: list of (name, sequence) tuples, e.g. from load_primer_fasta().
               Use PRIMERS_F for forward/R1 reads, PRIMERS_R for reverse/R2.
 
     For each database primer (and its reverse complement), slides a window
-    across the 30bp consensus to find the best matching position.
+    across the detection-window consensus to find the best matching position.
 
     The trim position is calculated as: offset + primer_length
     This means everything from position 0 to the end of the matched primer
@@ -510,7 +448,7 @@ def match_primer_database(consensus_30bp, database, min_identity=0.85):
       - Database lacks suffix → a few residual bases stay in read, harmless
       - Exact match → perfect
 
-    N positions in the consensus (from CDV D/V classification) are skipped
+    N positions in the consensus (from D/T/Q states) are skipped
     as uninformative. At least 50% of positions must be informative for a
     valid match.
 
@@ -519,7 +457,7 @@ def match_primer_database(consensus_30bp, database, min_identity=0.85):
 
     Returns (primer_name, trim_position, identity) or (None, 0, 0.0).
     """
-    if not consensus_30bp:
+    if not consensus_window:
         return None, 0, 0.0
 
     best_name = None
@@ -534,12 +472,12 @@ def match_primer_database(consensus_30bp, database, min_identity=0.85):
         ]
         for seq, suffix in candidates:
             L = len(seq)
-            if L > len(consensus_30bp):
+            if L > len(consensus_window):
                 continue
 
             # Slide window across consensus
-            for offset in range(len(consensus_30bp) - L + 1):
-                segment = consensus_30bp[offset:offset + L]
+            for offset in range(len(consensus_window) - L + 1):
+                segment = consensus_window[offset:offset + L]
                 informative = 0
                 matches = 0
                 for i in range(L):
@@ -549,7 +487,7 @@ def match_primer_database(consensus_30bp, database, min_identity=0.85):
                     if _iupac_compatible(segment[i], seq[i]):
                         matches += 1
 
-                if informative < L * 0.5:
+                if informative < L * min_informative_fraction:
                     continue  # not enough informative positions
 
                 identity = matches / informative
@@ -567,7 +505,7 @@ def match_primer_database(consensus_30bp, database, min_identity=0.85):
 
 def _out_mode(out_path):
     """Write mode for an output FASTQ ('wt' for gzip, 'w' otherwise)."""
-    return "wt" if out_path.endswith(".gz") else "w"
+    return "wt" if str(out_path).lower().endswith(".gz") else "w"
 
 
 def trim_single_file(in_path, out_path, trim_len):
@@ -581,6 +519,14 @@ def trim_single_file(in_path, out_path, trim_len):
     return count
 
 
+def _paired_records(first, second):
+    """Read mates together and report mismatched read counts."""
+    for one, two in zip_longest(_iter_fastq(first), _iter_fastq(second)):
+        if one is None or two is None:
+            raise ValueError("Paired FASTQ files contain different numbers of reads")
+        yield one, two
+
+
 def trim_paired_files(r1_in, r2_in, r1_out, r2_out, r1_trim, r2_trim):
     """Trim PE files in lockstep to maintain read pairing."""
     r1_mode = _out_mode(r1_out)
@@ -588,49 +534,37 @@ def trim_paired_files(r1_in, r2_in, r1_out, r2_out, r1_trim, r2_trim):
     count = 0
     with _open_fq(r1_in) as f1i, _open_fq(r2_in) as f2i, \
          _open_fq(r1_out, r1_mode) as f1o, _open_fq(r2_out, r2_mode) as f2o:
-        for (h1, s1, p1, q1), (h2, s2, p2, q2) in zip(
-                _iter_fastq(f1i), _iter_fastq(f2i)):
+        for (h1, s1, p1, q1), (h2, s2, p2, q2) in _paired_records(f1i, f2i):
             f1o.write(f"{h1}\n{s1[r1_trim:]}\n+\n{q1[r1_trim:]}\n")
             f2o.write(f"{h2}\n{s2[r2_trim:]}\n+\n{q2[r2_trim:]}\n")
             count += 1
     return count
 
 
-def trim_paired_files_mixed(r1_in, r2_in, r1_out, r2_out,
-                            r1_trim, r2_trim, best_pos, majority_base):
-    """
-    Trim PE files with per-read orientation correction.
+def _reverse_orientation(seq, orientation):
+    """Use the same minority-versus-other split for detection and trimming."""
+    position = orientation['best_pos']
+    minority = position < len(seq) and seq[position].upper() == orientation['minority_base']
+    return minority if orientation['forward_is_majority'] else not minority
 
-    For each read pair, checks R1's base at best_pos:
-      - majority_base  -> normal:  R1 trimmed by r1_trim, R2 by r2_trim
-      - other base     -> flipped: swap sequences, then trim
 
-    This applies the sampled detection result to ALL reads in the file.
-    Classification cost per read: one character comparison at best_pos.
-
-    Returns (total_count, swapped_count).
-    """
-    r1_mode = _out_mode(r1_out)
-    r2_mode = _out_mode(r2_out)
-    count = 0
-    swapped = 0
+def trim_paired_files_mixed(r1_in, r2_in, r1_out, r2_out, trims, orientation):
+    """Trim each original end/orientation before normalizing mate direction."""
+    count = swapped = 0
     with _open_fq(r1_in) as f1i, _open_fq(r2_in) as f2i, \
-         _open_fq(r1_out, r1_mode) as f1o, \
-         _open_fq(r2_out, r2_mode) as f2o:
-        for (h1, s1, p1, q1), (h2, s2, p2, q2) in zip(
-                _iter_fastq(f1i), _iter_fastq(f2i)):
+         _open_fq(r1_out, _out_mode(r1_out)) as f1o, \
+         _open_fq(r2_out, _out_mode(r2_out)) as f2o:
+        for (h1, s1, p1, q1), (h2, s2, p2, q2) in _paired_records(f1i, f2i):
             count += 1
-            # Classify: if R1 base at best_pos != majority → flipped
-            is_flipped = (best_pos < len(s1)
-                          and s1[best_pos].upper() != majority_base)
-            if is_flipped:
-                # Swap: output R1 = input R2, output R2 = input R1
+            if _reverse_orientation(s1, orientation):
                 swapped += 1
-                f1o.write(f"{h1}\n{s2[r1_trim:]}\n+\n{q2[r1_trim:]}\n")
-                f2o.write(f"{h2}\n{s1[r2_trim:]}\n+\n{q1[r2_trim:]}\n")
+                first_trim, second_trim = trims['r2']['forward'], trims['r1']['reverse']
+                f1o.write(f"{h1}\n{s2[first_trim:]}\n+\n{q2[first_trim:]}\n")
+                f2o.write(f"{h2}\n{s1[second_trim:]}\n+\n{q1[second_trim:]}\n")
             else:
-                f1o.write(f"{h1}\n{s1[r1_trim:]}\n+\n{q1[r1_trim:]}\n")
-                f2o.write(f"{h2}\n{s2[r2_trim:]}\n+\n{q2[r2_trim:]}\n")
+                first_trim, second_trim = trims['r1']['forward'], trims['r2']['reverse']
+                f1o.write(f"{h1}\n{s1[first_trim:]}\n+\n{q1[first_trim:]}\n")
+                f2o.write(f"{h2}\n{s2[second_trim:]}\n+\n{q2[second_trim:]}\n")
     return count, swapped
 
 
@@ -640,506 +574,307 @@ def copy_file(src, dst):
 
 
 # ===========================================================================
-# Step 0: File discovery
+# Detection and dataset processing
 # ===========================================================================
 
 def find_files(input_dir):
-    """
-    Identify SE/PE mode and pick the first sample.
-    Returns: ("PE", first_r1, first_r2) or ("SE", first_file, None)
-    """
-    # PE: _R1/_R2
-    for r1 in sorted(glob.glob(os.path.join(input_dir, "*_R1*.fastq*"))):
-        r2 = r1.replace("_R1", "_R2")
-        if os.path.exists(r2):
-            return "PE", r1, r2
-
-    # PE: _1/_2
-    for r1 in sorted(glob.glob(os.path.join(input_dir, "*_1.fastq*"))):
-        r2 = r1.replace("_1.fastq", "_2.fastq")
-        if os.path.exists(r2):
-            return "PE", r1, r2
-
-    # SE: everything except R1/R2
-    all_fq = sorted(glob.glob(os.path.join(input_dir, "*.fastq*")))
-    se = [f for f in all_fq if "_R1" not in f and "_R2" not in f]
-    if se:
-        return "SE", se[0], None
-    if all_fq:
-        return "SE", all_fq[0], None
-
-    return None, None, None
+    """Discover every sample with the shared pairing rule; select the first."""
+    rows = read_layout.discover(input_dir)
+    return read_layout.layout(rows), rows[0]['r1'], rows[0]['r2'] or None
 
 
-# ===========================================================================
-# Detection pipeline (Steps 1-6) for one file
-# ===========================================================================
+def _find_pe_pairs(input_dir):
+    rows = read_layout.discover(input_dir)
+    if read_layout.layout(rows) != 'PE':
+        raise ValueError('Expected paired FASTQ files')
+    return ((row['r1'], row['r2']) for row in rows)
 
-def detect_for_reads(reads, label, database):
-    """
-    Run three-state (C/D/V) primer detection on pre-filtered reads.
 
-    database: list of (name, sequence) tuples from load_primer_fasta().
-              Use PRIMERS_F for forward/R1, PRIMERS_R for reverse/R2.
-
-    Steps:
-      2. Build 60×4 position-wise base frequency matrix.
-      3. Classify each position as C (Conserved), D (Degenerate), V (Variable).
-      4. Find primer boundary: longest [CD]* prefix with noise tolerance.
-      5. Build consensus (C→dominant base, D/V→N), match against database.
-    """
-    print(f"\n{'=' * 60}", file=sys.stderr)
-    print(f"  Analyzing {label}: {len(reads)} reads", file=sys.stderr)
-    print(f"{'=' * 60}", file=sys.stderr)
-
-    if not reads:
-        print("  ERROR: No reads to analyze", file=sys.stderr)
-        return dict(detected=False, primer_length=0, consensus="",
-                    message="No primer detected (no reads)")
-
-    print(f"\n[Step 2] Building frequency matrix (60 positions) ...",
-          file=sys.stderr)
-    freq_matrix = build_frequency_matrix(reads, num_positions=60)
-
-    print(f"\n[Step 3] Classifying positions (C/D/V) ...", file=sys.stderr)
-    states = classify_all_positions(freq_matrix)
-    state_str = ''.join(states)
-    print(f"  Pos  0-29: {state_str[:30]}", file=sys.stderr)
-    print(f"  Pos 30-59: {state_str[30:]}", file=sys.stderr)
-
-    # Per-position detail for the first 30 positions (max primer range)
-    for i in range(min(30, len(freq_matrix))):
-        freqs = freq_matrix[i]
-        paired = sorted(zip(BASES, freqs), key=lambda x: -x[1])
-        top = '  '.join(f"{b}:{f:.2f}" for b, f in paired[:2])
-        print(f"    [{i:2d}] {states[i]}  {top}", file=sys.stderr)
-
-    cdv_max_len = 30
-    print(f"\n[Step 4] Finding CDV primer boundary "
-          f"(min=10bp, max={cdv_max_len}bp) ...", file=sys.stderr)
-    cdv_boundary = find_primer_boundary(states, min_len=10,
-                                        max_len=cdv_max_len)
-    print(f"  CDV boundary: {cdv_boundary} bp", file=sys.stderr)
-
-    # D density: fraction of D (Degenerate) positions in the CDV region.
-    # Real synthetic primers have ≤ 20% degenerate bases (max: 341F = 3/15).
-    # Biological 16S sequence shows higher D density due to inter-species
-    # variation.  If D density > 25%, the "primer" region is actually
-    # genomic sequence → primer was already removed upstream.
-    if cdv_boundary > 0:
-        d_count = sum(1 for s in states[:cdv_boundary] if s == 'D')
-        d_density = d_count / cdv_boundary
-        print(f"  D density: {d_count}/{cdv_boundary} = {d_density:.1%}",
-              file=sys.stderr)
-    else:
-        d_density = 0.0
-
-    print(f"\n[Step 5] Database matching (sliding window) ...",
-          file=sys.stderr)
-    consensus_30 = build_consensus_cdv(freq_matrix, states, 30)
-    print(f"  30bp consensus: {consensus_30}", file=sys.stderr)
-
-    # Sliding window: tries both orientations (original + RC)
-    db_name, db_trim, db_identity = match_primer_database(consensus_30,
-                                                          database)
-
-    if db_name:
-        # Database match → use database-defined trim position
-        is_rc = db_name.endswith("_RC")
-        orient_msg = " (matched via reverse complement)" if is_rc else ""
-        print(f"  Database match: {db_name} "
-              f"(trim={db_trim}bp, identity={db_identity:.2f})"
-              f"{orient_msg}", file=sys.stderr)
-        if cdv_boundary > 0 and db_trim != cdv_boundary:
-            print(f"  CDV boundary={cdv_boundary}bp -> "
-                  f"overridden by database trim={db_trim}bp",
-                  file=sys.stderr)
-        primer_length = db_trim
-        consensus = consensus_30[:db_trim]
-        primer_name = db_name
-        result = dict(detected=True, primer_length=primer_length,
-                      consensus=consensus, primer_name=primer_name,
-                      message=f"Primer detected: {primer_name} "
-                              f"(trim={primer_length}bp)")
-    elif cdv_boundary >= cdv_max_len:
-        # CDV hit the ceiling with no database match.
-        # No known 16S primer is 30 bp (database range: 14-24 bp).
-        # Hitting the limit means CDV couldn't find a primer-gene boundary
-        # → likely analysing conserved genomic sequence, not a primer.
-        print(f"  No database match; CDV boundary {cdv_boundary}bp "
-              f"hit ceiling ({cdv_max_len}bp) "
-              f"→ not a primer", file=sys.stderr)
-        primer_length = 0
-        result = dict(detected=False, primer_length=0, consensus="",
-                      primer_name="none",
-                      message=f"No primer detected "
-                              f"(CDV hit {cdv_max_len}bp ceiling)")
-    elif cdv_boundary > 0 and d_density > 0.25:
-        # No database match AND D density too high for a real primer.
-        # Real primers have ≤ 20% degenerate bases (max: 341F = 20%);
-        # this region looks like conserved 16S gene sequence
-        # → primer was already removed upstream.
-        print(f"  No database match; D density {d_density:.0%} > 25% "
-              f"→ not a primer (likely already trimmed)", file=sys.stderr)
-        primer_length = 0
-        result = dict(detected=False, primer_length=0, consensus="",
-                      primer_name="none",
-                      message=f"No primer detected "
-                              f"(D density {d_density:.0%} > 25%)")
-    elif cdv_boundary > 0:
-        # No database match, CDV boundary < ceiling, D density ≤ 25%
-        # → plausible unknown primer; fall back to CDV boundary
-        print(f"  No database match, using CDV boundary: "
-              f"{cdv_boundary}bp", file=sys.stderr)
-        primer_length = cdv_boundary
-        consensus = consensus_30[:cdv_boundary]
-        result = dict(detected=True, primer_length=primer_length,
-                      consensus=consensus, primer_name="unknown",
-                      message=f"Primer detected: unknown "
-                              f"(trim={primer_length}bp, CDV fallback)")
-    else:
-        # Neither database nor CDV detected a primer
-        primer_length = 0
-        result = dict(detected=False, primer_length=0, consensus="",
-                      message="No primer detected")
-
-    print(f"  1. Primer exists:     "
-          f"{'Yes' if result['detected'] else 'No'}", file=sys.stderr)
-    print(f"  2. Truncation length: {result['primer_length']} bp",
-          file=sys.stderr)
-    print(f"  3. Consensus:         "
-          f"{result['consensus'] if result['consensus'] else 'N/A'}",
-          file=sys.stderr)
-
+def detect_for_reads(reads, label, database, settings=None):
+    """Accept database matches first; otherwise apply the strict b1 fold rule."""
+    settings = parameters.current() if settings is None else settings
+    window = settings['primer.window']
+    threshold = settings['primer.fold_threshold']
+    unknown_length = settings['primer.unknown_trim_length']
+    result = dict(
+        detected=False, primer_length=0, consensus='', primer_name='none',
+        primer_fold=None, candidate_boundary=0, degenerate_count=0,
+        degenerate_density=0.0, fallback_applied=False,
+        database_match_identity=0.0, reads_used=len(reads),
+        detection_window=window, fold_threshold=threshold,
+        support_frequency=settings['primer.support_frequency'],
+        database_identity_threshold=settings['primer.database_identity'],
+        informative_fraction=settings['primer.informative_fraction'],
+        states='', decision='no_valid_reads',
+        message='Primer detection failed: no reads passed filters',
+    )
+    if reads:
+        matrix = build_frequency_matrix(reads, window)
+        states = classify_all_positions(matrix, settings['primer.support_frequency'])
+        consensus = build_consensus_cdv(matrix, states, window)
+        name, endpoint, identity = match_primer_database(
+            consensus, database, settings['primer.database_identity'],
+            settings['primer.informative_fraction'])
+        result.update(states=''.join(states), consensus=consensus)
+        if name:
+            result.update(
+                detected=True, primer_length=endpoint, primer_name=name,
+                consensus=consensus[:endpoint], database_match_identity=identity,
+                decision='known_database_match',
+                message=f'Known primer: {name}; trim {endpoint} bp',
+            )
+        else:
+            fold = calculate_primer_fold(states, window)
+            degenerate = sum(state != 'C' for state in states)
+            result.update(
+                primer_fold=fold, candidate_boundary=window,
+                degenerate_count=degenerate, degenerate_density=degenerate / window,
+                fallback_applied=True,
+            )
+            if fold < threshold:
+                result.update(
+                    detected=True, primer_length=unknown_length, primer_name='unknown',
+                    decision='unknown_primer',
+                    message=f'Unknown primer: fold {fold} < {threshold}; trim {unknown_length} bp',
+                )
+            else:
+                result.update(
+                    decision='no_primer',
+                    message=f'No primer: fold {fold} >= {threshold}; no trimming',
+                )
+    print(f"  {label}: {result['message']}", file=sys.stderr)
     return result
 
 
-def detect_for_file(filepath, label, database, skip_qual=False):
-    """Run Steps 1-6 on a single FASTQ file. Returns result dict."""
-    print(f"\n[Step 1] Reading and filtering reads from "
-          f"{os.path.basename(filepath)} ...", file=sys.stderr)
-    reads = read_and_filter(filepath, skip_qual=skip_qual)
-    if not reads:
-        print("  ERROR: No reads passed filters", file=sys.stderr)
-        return dict(detected=False, primer_length=0, consensus="",
-                    message="No primer detected (no reads)")
-    return detect_for_reads(reads, label, database)
+def _filter_options(filepath, settings):
+    return dict(min_len=settings['primer.min_length'],
+                min_avg_qual=settings['primer.min_average_quality'],
+                min_complexity=settings['primer.min_complexity'],
+                min_entropy=settings['primer.min_entropy'],
+                skip_qual=_is_degraded_quality(filepath))
 
 
-# ===========================================================================
-# Main
-# ===========================================================================
-
-def _find_pe_pairs(input_dir):
-    """Find all PE file pairs in input_dir. Yields (r1_path, r2_path)."""
-    # Try _R1/_R2 pattern first
-    found = False
-    for r1 in sorted(glob.glob(os.path.join(input_dir, "*_R1*.fastq*"))):
-        r2 = r1.replace("_R1", "_R2")
-        if os.path.exists(r2):
-            found = True
-            yield r1, r2
-    if found:
-        return
-    # Fallback: _1/_2 pattern
-    for r1 in sorted(glob.glob(os.path.join(input_dir, "*_1.fastq*"))):
-        r2 = r1.replace("_1.fastq", "_2.fastq")
-        if os.path.exists(r2):
-            yield r1, r2
+def _filtered_reads(filepath, settings):
+    return read_and_filter(filepath, **_filter_options(filepath, settings))
 
 
-def _primer_entry(result):
-    """Build a primer_info.json sub-entry from a detection result dict.
+def _detect_mixed_r2(rows, orientation, settings):
+    """Group actual mates using R1 orientation, retaining R2's own filters."""
+    groups = {'forward': [], 'reverse': []}
+    for row in rows:
+        options = _filter_options(row['r2'], settings)
+        with _open_fq(row['r1']) as first, _open_fq(row['r2']) as second:
+            for (_, r1_seq, _, _), (_, seq, _, qual) in _paired_records(first, second):
+                if _filter_reason(seq, qual, **options) is None:
+                    group = 'forward' if _reverse_orientation(r1_seq, orientation) else 'reverse'
+                    groups[group].append((seq, qual))
+    return {group: detect_for_reads(groups[group], 'R2/' + group, database, settings)
+            for group, database in [('forward', PRIMERS_F), ('reverse', PRIMERS_R)]}
 
-    Returns the all-default entry when result is None (e.g. R2 not run),
-    matching the previous per-field `if result else <default>` guards.
-    """
-    if not result:
-        result = {}
+
+def detect_for_file(filepath, label, database, skip_qual=False, settings=None):
+    """Detect from one file, using the same settings as dataset detection."""
+    settings = parameters.current() if settings is None else settings
+    reads = read_and_filter(
+        filepath, min_len=settings['primer.min_length'],
+        min_avg_qual=settings['primer.min_average_quality'],
+        min_complexity=settings['primer.min_complexity'],
+        min_entropy=settings['primer.min_entropy'], skip_qual=skip_qual)
+    return detect_for_reads(reads, label, database, settings)
+
+
+def _primer_entry(result, trim_length=0):
+    """Keep detected length separate from the bases actually removed."""
     return {
-        "name": result.get('primer_name', 'unknown'),
-        "consensus": result.get('consensus', ''),
-        "length": result.get('primer_length', 0),
-        "detected": result.get('detected', False),
+        'name': result['primer_name'],
+        'consensus': result['consensus'],
+        'length': result['primer_length'],
+        'trim_length': trim_length,
+        'detected': result['detected'],
+        'fold': result['primer_fold'],
+        'decision': result['decision'],
+        'reason': result['message'],
+        'states': result['states'],
+        'reads_used': result['reads_used'],
+        'detection_window': result['detection_window'],
+        'fold_threshold': result['fold_threshold'],
+        'support_frequency': result['support_frequency'],
+        'fallback_applied': result['fallback_applied'],
+        'database_match_identity': result['database_match_identity'],
+        'database_identity_threshold': result['database_identity_threshold'],
+        'informative_fraction': result['informative_fraction'],
     }
+
+
+def trim_single_file_mixed(in_path, out_path, forward_trim, reverse_trim, orientation):
+    """Trim SE reads by the orientation group used during detection."""
+    count = 0
+    with _open_fq(in_path) as source, _open_fq(out_path, _out_mode(out_path)) as dest:
+        for header, seq, plus, quality in _iter_fastq(source):
+            reverse = _reverse_orientation(seq, orientation)
+            trim = reverse_trim if reverse else forward_trim
+            dest.write(f'{header}\n{seq[trim:]}\n{plus}\n{quality[trim:]}\n')
+            count += 1
+    return count
+
+
+def _detect_orientation_groups(mixed, settings):
+    """Use known primers to identify orientation, regardless of group size."""
+    forward = detect_for_reads(mixed['majority_reads'], 'Majority/forward', PRIMERS_F, settings)
+    reverse = detect_for_reads(mixed['minority_reads'], 'Minority/reverse', PRIMERS_R, settings)
+    reverse_base = mixed['minority_base']
+    if not all(result['decision'] == 'known_database_match' for result in (forward, reverse)):
+        other_forward = detect_for_reads(mixed['minority_reads'], 'Minority/forward', PRIMERS_F, settings)
+        other_reverse = detect_for_reads(mixed['majority_reads'], 'Majority/reverse', PRIMERS_R, settings)
+
+        def score(first, second):
+            return (sum(result['decision'] == 'known_database_match' for result in (first, second)),
+                    first['database_match_identity'] + second['database_match_identity'])
+
+        if score(other_forward, other_reverse) > score(forward, reverse):
+            forward, reverse = other_forward, other_reverse
+            reverse_base = mixed['majority_base']
+    return forward, reverse, reverse_base
+
+
+def _save_info(output_dir, info):
+    path = os.path.join(output_dir, 'primer_info.json')
+    with open(path, 'w') as handle:
+        json.dump(info, handle, indent=2)
+        handle.write('\n')
+    print(f'  Primer info saved to: {path}', file=sys.stderr)
+
+
+def process_dataset(input_dir, output_dir, settings, detect_only=False,
+                    mixed_orientation=False):
+    """Detect once per dataset, and decide whether to skip before writing reads."""
+    info = {'mode': None, 'layout': None, 'status': 'failed', 'reason': '',
+            'detect_only': detect_only,
+            'skip_unknown_primers': settings['primer.skip_unknown'],
+            'parameters': parameters.nested({k: v for k, v in settings.items()
+                                             if k.startswith('primer.')})['primer']}
+    try:
+        if os.path.realpath(input_dir) == os.path.realpath(output_dir):
+            raise ValueError('Primer input and output directories must be different')
+        rows = read_layout.discover(input_dir)
+        mode = read_layout.layout(rows)
+        info.update(mode=mode, layout=mode, detection_sample=rows[0]['sample'])
+        selected = [row for row in rows if row['sample'] == rows[0]['sample']]
+        reads = {'r1': [], 'r2': []}
+        for row in selected:
+            reads['r1'].extend(_filtered_reads(row['r1'], settings))
+
+        mixed = None
+        if reads['r1'] and (mode == 'PE' or detect_only or mixed_orientation):
+            mixed = detect_mixed_orientation(
+                build_frequency_matrix(reads['r1'], settings['primer.window']),
+                reads['r1'])
+        if mixed:
+            info['mode'] = mode + '_mixed'
+            info['orientation'] = {key: mixed[key] for key in
+                                   ('best_pos', 'majority_base', 'minority_base', 'ratio')}
+            forward, reverse, reverse_base = _detect_orientation_groups(mixed, settings)
+            info['orientation']['reverse_base'] = reverse_base
+            info['orientation']['forward_is_majority'] = reverse_base == mixed['minority_base']
+        else:
+            if mode == 'PE':
+                for row in selected:
+                    reads['r2'].extend(_filtered_reads(row['r2'], settings))
+            forward = detect_for_reads(reads['r1'], 'R1' if mode == 'PE' else 'SE',
+                                       PRIMERS_F, settings)
+            reverse = (detect_for_reads(reads['r2'], 'R2', PRIMERS_R, settings)
+                       if mode == 'PE' else None)
+        info['forward_primer'] = _primer_entry(forward)
+        if reverse is not None:
+            info['reverse_primer'] = _primer_entry(reverse)
+        results = [forward] + ([reverse] if reverse is not None else [])
+        if mixed and mode == 'PE':
+            r2_results = _detect_mixed_r2(selected, info['orientation'], settings)
+            info['original_ends'] = {
+                'r1': {'forward': info['forward_primer'], 'reverse': info['reverse_primer']},
+                'r2': {group: _primer_entry(result) for group, result in r2_results.items()},
+            }
+            results.extend(r2_results.values())
+        if any(result['decision'] == 'no_valid_reads' for result in results):
+            info['reason'] = 'Primer detection failed: no valid reads in a required end/orientation'
+            _save_info(output_dir, info)
+            print(f"ERROR: {info['reason']}", file=sys.stderr)
+            return 1
+        if settings['primer.skip_unknown'] and any(
+                result['decision'] == 'unknown_primer' for result in results):
+            info.update(status='skipped', reason='Unknown primer detected; --skip-unknown-primers enabled')
+            _save_info(output_dir, info)
+            print(f"SKIP: {info['reason']}", file=sys.stderr)
+            return 98
+
+        forward_trim = 0 if detect_only else forward['primer_length']
+        reverse_trim = 0 if detect_only or reverse is None else reverse['primer_length']
+        if mixed and mode == 'PE':
+            trims = {end: {group: 0 if detect_only else entry['length']
+                           for group, entry in groups.items()}
+                     for end, groups in info['original_ends'].items()}
+        for row in rows:
+            first = row['r1']
+            first_out = os.path.join(output_dir, os.path.basename(first))
+            if detect_only or (forward_trim == 0 and reverse_trim == 0 and mixed is None):
+                for direction in ('r1', 'r2') if mode == 'PE' else ('r1',):
+                    source = row[direction]
+                    copy_file(source, os.path.join(output_dir, os.path.basename(source)))
+            elif mode == 'PE':
+                second = row['r2']
+                second_out = os.path.join(output_dir, os.path.basename(second))
+                if mixed:
+                    trim_paired_files_mixed(first, second, first_out, second_out,
+                                            trims, info['orientation'])
+                else:
+                    trim_paired_files(first, second, first_out, second_out,
+                                      forward_trim, reverse_trim)
+            elif mixed:
+                trim_single_file_mixed(first, first_out, forward_trim, reverse_trim,
+                                       info['orientation'])
+            else:
+                trim_single_file(first, first_out, forward_trim)
+        info['forward_primer']['trim_length'] = forward_trim
+        if reverse is not None:
+            info['reverse_primer']['trim_length'] = reverse_trim
+        if mixed and mode == 'PE':
+            for end, groups in info['original_ends'].items():
+                for group, entry in groups.items():
+                    entry['trim_length'] = trims[end][group]
+        info.update(status='completed', reason='Detection only; reads copied unchanged' if detect_only
+                    else 'Primer decisions applied to dataset')
+        _save_info(output_dir, info)
+        return 0
+    except (ValueError, OSError) as error:
+        info.update(status='failed', reason=str(error))
+        _save_info(output_dir, info)
+        print(f'ERROR: {error}', file=sys.stderr)
+        return 1
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Three-state (C/D/V) primer detection and removal")
-    parser.add_argument("-i", "--input", required=True,
-                        help="Input directory containing FASTQ files")
-    parser.add_argument("-o", "--output", required=True,
-                        help="Output directory for trimmed files")
-    parser.add_argument("--detect-only", action="store_true",
-                        help="Detection-only mode: enable SE mixed-"
-                             "orientation detection (for PacBio CCS) "
-                             "and copy files unchanged")
+        description='Database-first primer detection with the b1 four-state fallback')
+    parser.add_argument('-i', '--input', required=True)
+    parser.add_argument('-o', '--output', required=True)
+    parser.add_argument('--detect-only', action='store_true',
+                        help='Detect primers and copy every FASTQ unchanged; also check SE orientations')
+    parser.add_argument('--mixed-orientation', action='store_true',
+                        help='Check SE orientations and trim each group separately (PacBio vsearch)')
+    parser.add_argument('--skip-unknown-primers', action='store_true', default=None,
+                        help='Skip the dataset when any end/orientation has an unknown primer')
+    parser.add_argument('--parameter', help='JSON file overriding built-in parameter defaults')
     args = parser.parse_args()
-
-    input_dir = os.path.abspath(args.input)
-    output_dir = os.path.abspath(args.output)
-    os.makedirs(output_dir, exist_ok=True)
-
-    print("=" * 60, file=sys.stderr)
-    print("THREE-STATE (C/D/V) PRIMER DETECTION", file=sys.stderr)
-    print("=" * 60, file=sys.stderr)
-
-    # ------------------------------------------------------------------
-    # Step 0: File discovery
-    # ------------------------------------------------------------------
-    print(f"\n[Step 0] Scanning directory: {input_dir}", file=sys.stderr)
-    mode, first_file, second_file = find_files(input_dir)
-
-    if mode is None:
-        print("ERROR: No FASTQ files found in input directory",
-              file=sys.stderr)
-        sys.exit(1)
-
-    print(f"  Mode: {mode}", file=sys.stderr)
-    print(f"  First file:  {os.path.basename(first_file)}", file=sys.stderr)
-    if second_file:
-        print(f"  Second file: {os.path.basename(second_file)}",
-              file=sys.stderr)
-
-    # ------------------------------------------------------------------
-    # Auto-detect degraded quality scores (e.g., 454 data from SRA/ENA
-    # with dummy placeholder values). Skip quality filtering if degraded.
-    # ------------------------------------------------------------------
-    skip_qual = _is_degraded_quality(first_file)
-    if skip_qual:
-        print(f"\n  Degraded quality scores detected (single unique Q value) "
-              f"— skipping quality filter", file=sys.stderr)
-
-    # ------------------------------------------------------------------
-    # Step 1: Read & filter first R1 sample
-    # ------------------------------------------------------------------
-    print(f"\n[Step 1] Reading and filtering reads from "
-          f"{os.path.basename(first_file)} ...", file=sys.stderr)
-    r1_reads = read_and_filter(first_file, skip_qual=skip_qual)
-    if not r1_reads:
-        print("  ERROR: No reads passed filters", file=sys.stderr)
-        sys.exit(1)
-
-    # ------------------------------------------------------------------
-    # Step 2: Build frequency matrix (used for both CDV classification
-    #         and mixed-orientation detection)
-    # ------------------------------------------------------------------
-    print(f"\n[Step 2] Building frequency matrix (60 positions) ...",
-          file=sys.stderr)
-    freq_matrix = build_frequency_matrix(r1_reads, num_positions=60)
-
-    # ------------------------------------------------------------------
-    # Phase 1: Mixed-orientation detection
-    # ------------------------------------------------------------------
-    # PE: always check (Illumina PE can have mixed R1/R2 orientations).
-    # SE: only check in --detect-only mode (PacBio CCS reads have random
-    #     forward/RC orientations that prevent CDV primer detection).
-    mixed_info = None
-    if mode == "PE" or args.detect_only:
-        mixed_info = detect_mixed_orientation(freq_matrix, r1_reads)
-
-    # ==================================================================
-    # Branch A: PE + mixed orientation — detect from majority/minority,
-    #           trim all files with per-read orientation correction
-    # ==================================================================
-    if mixed_info is not None and mode == "PE":
-        # Phase 2: CDV detection on each orientation group
-        r1_result = detect_for_reads(mixed_info['majority_reads'],
-                                     "R1 majority (forward primer)",
-                                     PRIMERS_F)
-        r2_result = detect_for_reads(mixed_info['minority_reads'],
-                                     "R1 minority (reverse primer)",
-                                     PRIMERS_R)
-
-        r1_trim = r1_result['primer_length']
-        r2_trim = r2_result['primer_length']
-
-        # Summary
-        print(f"\n{'=' * 60}", file=sys.stderr)
-        print("DETECTION SUMMARY (Mixed Orientation)", file=sys.stderr)
-        print(f"{'=' * 60}", file=sys.stderr)
-        print(f"  Forward primer (majority R1): {r1_result['message']}",
-              file=sys.stderr)
-        print(f"  Reverse primer (minority R1): {r2_result['message']}",
-              file=sys.stderr)
-        print(f"  R1 trim: {r1_trim} bp, R2 trim: {r2_trim} bp",
-              file=sys.stderr)
-
-        # Phase 3: Trim all PE files with orientation correction
-        print(f"\n{'=' * 60}", file=sys.stderr)
-        print("TRIMMING (with orientation correction)", file=sys.stderr)
-        print(f"{'=' * 60}", file=sys.stderr)
-
-        best_pos = mixed_info['best_pos']
-        majority_base = mixed_info['majority_base']
-        total_pairs = 0
-        total_swapped = 0
-        pairs_found = False
-
-        for r1, r2 in _find_pe_pairs(input_dir):
-            pairs_found = True
-            r1_out = os.path.join(output_dir, os.path.basename(r1))
-            r2_out = os.path.join(output_dir, os.path.basename(r2))
-            n, s = trim_paired_files_mixed(
-                r1, r2, r1_out, r2_out,
-                r1_trim, r2_trim, best_pos, majority_base)
-            total_pairs += n
-            total_swapped += s
-            print(f"    {os.path.basename(r1)} + "
-                  f"{os.path.basename(r2)}: "
-                  f"{n} pairs ({s} swapped)", file=sys.stderr)
-
-        if not pairs_found:
-            print("  ERROR: No PE file pairs found for trimming",
-                  file=sys.stderr)
-            sys.exit(1)
-
-        print(f"\n  Total: {total_pairs} pairs processed, "
-              f"{total_swapped} orientation-corrected "
-              f"({total_swapped/max(1,total_pairs)*100:.1f}%)",
-              file=sys.stderr)
-
-    # ==================================================================
-    # Branch A2: SE + mixed orientation (e.g., PacBio CCS)
-    #   Detect primer on the majority (forward) group for primer_info.json.
-    #   Copy files unchanged — downstream tool (DADA2 denoise-ccs) handles
-    #   read orientation and primer removal via --p-front.
-    # ==================================================================
-    elif mixed_info is not None and mode == "SE":
-        r1_result = detect_for_reads(mixed_info['majority_reads'],
-                                     "SE majority (forward primer)",
-                                     PRIMERS_F)
-
-        # Summary
-        print(f"\n{'=' * 60}", file=sys.stderr)
-        print("DETECTION SUMMARY (SE Mixed Orientation)", file=sys.stderr)
-        print(f"{'=' * 60}", file=sys.stderr)
-        print(f"  Forward primer (majority): {r1_result['message']}",
-              file=sys.stderr)
-        print(f"  Flip ratio: {mixed_info['ratio']:.0%}", file=sys.stderr)
-
-        # Copy files unchanged
-        print(f"\n{'=' * 60}", file=sys.stderr)
-        print("COPYING (no trimming — downstream handles orientation)",
-              file=sys.stderr)
-        print(f"{'=' * 60}", file=sys.stderr)
-        for f in sorted(glob.glob(os.path.join(input_dir, "*.fastq*"))):
-            copy_file(f, os.path.join(output_dir, os.path.basename(f)))
-            print(f"  Copied: {os.path.basename(f)}", file=sys.stderr)
-
-    # ==================================================================
-    # Branch B: Normal single orientation
-    # ==================================================================
-    else:
-        # Steps 3-6 on already-loaded R1 reads (avoid re-reading)
-        r1_result = detect_for_reads(r1_reads,
-                                     "R1" if mode == "PE" else "SE",
-                                     PRIMERS_F)
-
-        r2_result = None
-        if mode == "PE" and second_file:
-            r2_result = detect_for_file(second_file, "R2", PRIMERS_R,
-                                       skip_qual=skip_qual)
-
-        # Summary
-        print(f"\n{'=' * 60}", file=sys.stderr)
-        print("DETECTION SUMMARY", file=sys.stderr)
-        print(f"{'=' * 60}", file=sys.stderr)
-
-        if mode == "PE":
-            print(f"  R1: {r1_result['message']}", file=sys.stderr)
-            print(f"  R2: {r2_result['message']}", file=sys.stderr)
-            r1_trim = r1_result['primer_length']
-            r2_trim = r2_result['primer_length']
-            any_detected = (r1_result['detected']
-                            or r2_result['detected'])
-        else:
-            print(f"  SE: {r1_result['message']}", file=sys.stderr)
-            r1_trim = r1_result['primer_length']
-            r2_trim = 0
-            any_detected = r1_result['detected']
-
-        # Step 6: Trim the ENTIRE dataset
-        print(f"\n{'=' * 60}", file=sys.stderr)
-        print("TRIMMING", file=sys.stderr)
-        print(f"{'=' * 60}", file=sys.stderr)
-
-        if not any_detected:
-            print("\n  No primers detected. Copying files unchanged ...",
-                  file=sys.stderr)
-            for f in glob.glob(os.path.join(input_dir, "*.fastq*")):
-                copy_file(f, os.path.join(output_dir,
-                                          os.path.basename(f)))
-            print("  Done.", file=sys.stderr)
-            return
-
-        # --- SE trimming ---
-        if mode == "SE":
-            print(f"\n  Trimming all SE files: "
-                  f"remove first {r1_trim} bp ...", file=sys.stderr)
-            for f in sorted(glob.glob(os.path.join(input_dir,
-                                                    "*.fastq*"))):
-                out = os.path.join(output_dir, os.path.basename(f))
-                n = trim_single_file(f, out, r1_trim)
-                print(f"    {os.path.basename(f)}: {n} reads trimmed",
-                      file=sys.stderr)
-
-        # --- PE trimming ---
-        else:
-            print(f"\n  Trimming all PE pairs: "
-                  f"R1 -{r1_trim} bp, R2 -{r2_trim} bp ...",
-                  file=sys.stderr)
-            pairs_found = False
-            for r1, r2 in _find_pe_pairs(input_dir):
-                pairs_found = True
-                r1_out = os.path.join(output_dir, os.path.basename(r1))
-                r2_out = os.path.join(output_dir, os.path.basename(r2))
-                n = trim_paired_files(r1, r2, r1_out, r2_out,
-                                      r1_trim, r2_trim)
-                print(f"    {os.path.basename(r1)} + "
-                      f"{os.path.basename(r2)}: {n} pairs trimmed",
-                      file=sys.stderr)
-
-            if not pairs_found:
-                print("  ERROR: No PE file pairs found for trimming",
-                      file=sys.stderr)
-                sys.exit(1)
-
-    # Save detected primer info to JSON for downstream tools (e.g. DADA2)
-    if mixed_info is not None and mode == "PE":
-        # Branch A: mixed orientation PE
-        primer_info = {
-            "mode": "PE_mixed",
-            "forward_primer": _primer_entry(r1_result),
-            "reverse_primer": _primer_entry(r2_result),
-        }
-    elif mixed_info is not None and mode == "SE":
-        # Branch A2: mixed orientation SE (e.g., PacBio CCS)
-        primer_info = {
-            "mode": "SE_mixed",
-            "forward_primer": _primer_entry(r1_result),
-        }
-    elif mode == "PE":
-        primer_info = {
-            "mode": "PE",
-            "forward_primer": _primer_entry(r1_result),
-            "reverse_primer": _primer_entry(r2_result),
-        }
-    else:
-        primer_info = {
-            "mode": "SE",
-            "forward_primer": _primer_entry(r1_result),
-        }
-
-    primer_info_path = os.path.join(output_dir, "primer_info.json")
-    with open(primer_info_path, 'w') as f:
-        json.dump(primer_info, f, indent=2)
-    print(f"\n  Primer info saved to: {primer_info_path}", file=sys.stderr)
-
-    print(f"\n  Output directory: {output_dir}", file=sys.stderr)
-    print("  Done.", file=sys.stderr)
+    try:
+        settings = parameters.load(args.parameter) if args.parameter else parameters.current()
+    except (ValueError, OSError) as error:
+        parser.exit(2, f'Parameter error: {error}\n')
+    if args.skip_unknown_primers is not None:
+        settings['primer.skip_unknown'] = args.skip_unknown_primers
+    os.makedirs(args.output, exist_ok=True)
+    return process_dataset(os.path.abspath(args.input), os.path.abspath(args.output),
+                           settings, args.detect_only, args.mixed_orientation)
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    sys.exit(main())

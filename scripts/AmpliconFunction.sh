@@ -1,4 +1,5 @@
 #!/bin/bash
+source "$(dirname "${BASH_SOURCE[0]}")/read_counts.sh"
 #
 # AmpliconFunction.sh - Unified Amplicon Processing Functions
 #
@@ -26,41 +27,22 @@ set -e
 ################################################################################
 
 Verify_Fastq_Integrity() {
-    # Verify that a FASTQ file is valid (line count divisible by 4, has content).
-    # Args: $1 = path to FASTQ file
-    # Returns: 0 if valid, 1 if invalid
-    local fq_file="$1"
+    python3 "$(dirname "${BASH_SOURCE[0]}")/download_integrity.py" verify-file --file "$1"
+}
 
-    if [[ ! -f "$fq_file" ]]; then
-        echo "  Integrity check: file not found: $fq_file" >&2
-        return 1
-    fi
-
-    local file_size
-    file_size=$(stat -c%s "$fq_file" 2>/dev/null || stat -f%z "$fq_file" 2>/dev/null)
-    if [[ "$file_size" -eq 0 ]]; then
-        echo "  Integrity check: empty file: $(basename "$fq_file")" >&2
-        return 1
-    fi
-
-    local line_count
-    if [[ "$fq_file" == *.gz ]]; then
-        line_count=$(zcat "$fq_file" 2>/dev/null | wc -l)
+Download_Verify_Run() {
+    # Shared success gate for initial downloads and retries. A valid R1 alone
+    # must never satisfy a manifest requiring R1 and R2.
+    local source="$1" srr="$2" target_dir="$3" prefix="$4"
+    local receipts="$(dirname "$target_dir")/download_integrity"
+    local helper="$(dirname "${BASH_SOURCE[0]}")/download_integrity.py"
+    if [[ "$source" == ENA ]]; then
+        python3 "$helper" verify-ena --map "$_ena_url_map" --run "$srr" --prefix "$prefix" \
+            --target "$target_dir" --receipts "$receipts"
     else
-        line_count=$(wc -l < "$fq_file")
+        python3 "$helper" verify-list --file "$receipts/${prefix}.ncbi.tsv" \
+            --target "$target_dir" --receipts "$receipts"
     fi
-
-    if [[ "$line_count" -eq 0 ]]; then
-        echo "  Integrity check: no lines in file: $(basename "$fq_file")" >&2
-        return 1
-    fi
-
-    if (( line_count % 4 != 0 )); then
-        echo "  Integrity check: line count ($line_count) not divisible by 4: $(basename "$fq_file")" >&2
-        return 1
-    fi
-
-    return 0
 }
 
 Common_SanitizeFastq() {
@@ -72,85 +54,50 @@ Common_SanitizeFastq() {
         --input_dir "$fastq_path" \
         --min_length 50 \
         --sequence_type "$sequence_type"
+    Audit_Fastq sanitized_reads "$fastq_path" primer_trimmed_reads
 }
 
 Download_From_ENA() {
-    # Download FASTQ file(s) from ENA using pre-fetched URL map.
-    # Requires _ena_url_map file (set by Common_SRADownloadToFastq_MultiSource).
-    #
-    # Args:
-    #   $1 = SRR/ERR/DRR accession
-    #   $2 = target directory for FASTQ files
-    #   $3 = rename prefix for output files
-    #
-    # Returns: 0 on success, 1 on failure
-    local srr="$1"
-    local target_dir="$2"
-    local rename_prefix="$3"
-    local max_retries=5
-
-    # Look up exact URLs from the filereport map
-    local url_line
-    url_line=$(awk -v acc="$srr" '$1 == acc {print $2}' "$_ena_url_map")
-
-    if [[ -z "$url_line" ]]; then
-        echo "  [ENA] No filereport entry for $srr" >&2
-        return 1
-    fi
-
-    # url_line is semicolon-separated list of FTP paths from ENA
-    local downloaded_any=false
-
-    IFS=';' read -ra urls <<< "$url_line"
-    for ftp_path in "${urls[@]}"; do
-        [[ -z "$ftp_path" ]] && continue
-        local fname
-        fname=$(basename "$ftp_path")
-        local url="ftp://${ftp_path}"
-        local out_file="${target_dir}/${fname}"
-        local success=false
-
-        # Prefer paired files; skip single .fastq.gz if we already have _1 + _2
-        if [[ "$fname" == "${srr}.fastq.gz" ]]; then
-            if [[ -f "${target_dir}/${rename_prefix}_1.fastq.gz" && -f "${target_dir}/${rename_prefix}_2.fastq.gz" ]]; then
-                continue
-            fi
+    local srr="$1" target_dir="$2" rename_prefix="$3" max_retries=5
+    local helper="$(dirname "${BASH_SOURCE[0]}")/download_integrity.py"
+    local receipts="$(dirname "$target_dir")/download_integrity"
+    local manifest
+    manifest=$(python3 "$helper" ena-manifest --map "$_ena_url_map" --run "$srr" --prefix "$rename_prefix") || return 1
+    mkdir -p "$target_dir" "$receipts"
+    local name ftp_path expected_md5 out_file url attempt partial wait all_ok=true
+    while IFS=$'\t' read -r name ftp_path expected_md5; do
+        out_file="$target_dir/$name"
+        if [[ -f "$out_file" ]] && python3 "$helper" verify-file --file "$out_file" \
+            --md5 "$expected_md5" --receipts "$receipts"; then
+            continue
         fi
-
+        url="${_ena_protocol:-ftp}://${ftp_path#*://}"
+        local success=false
         for ((attempt=1; attempt<=max_retries; attempt++)); do
+            # Never truncate an existing final file (it may be a recovery hardlink).
+            partial=$(mktemp "${target_dir}/.${name}.part.XXXXXX") || return 1
             local wget_err=""
-            if wget_err=$(wget --timeout=60 --tries=1 "$url" -O "$out_file" 2>&1); then
-                if gzip -t "$out_file" 2>/dev/null; then
+            if wget_err=$(wget --timeout=60 --tries=1 "$url" -O "$partial" 2>&1); then
+                if python3 "$helper" publish --file "$partial" --destination "$out_file" \
+                    --md5 "$expected_md5" --receipts "$receipts"; then
                     success=true
                     break
-                else
-                    echo "  [ENA] Corrupt download for $fname (attempt $attempt/$max_retries)" >&2
-                    rm -f "$out_file"
                 fi
             else
-                rm -f "$out_file"
+                echo "  [ENA] Download failed: $srr/$name (attempt $attempt/$max_retries)" >&2
+                printf '%s\n' "$wget_err" >&2
             fi
-            local wait=$(( 5 * (1 << (attempt - 1)) ))
+            rm -f "$partial"
+            wait=$(( 5 * (1 << (attempt - 1)) ))
             (( wait > 60 )) && wait=60
             [[ $attempt -lt $max_retries ]] && sleep "$wait"
         done
-
-        if [[ "$success" == true ]]; then
-            local base_filename="${fname/${srr}/}"
-            base_filename="${base_filename/_subreads.fastq/.fastq}"
-            mv "$out_file" "${target_dir}/${rename_prefix}${base_filename}"
-            downloaded_any=true
-        else
-            rm -f "$out_file" 2>/dev/null
+        if [[ "$success" != true ]]; then
+            echo "  [ENA] Missing or invalid required file: $srr/$name" >&2
+            all_ok=false
         fi
-    done
-
-    if [[ "$downloaded_any" == true ]]; then
-        return 0
-    fi
-
-    echo "  [ENA] Failed: $srr (download failed for all URLs)" >&2
-    return 1
+    done <<< "$manifest"
+    [[ "$all_ok" == true ]] && Download_Verify_Run ENA "$srr" "$target_dir" "$rename_prefix"
 }
 
 Download_CRR() {
@@ -237,97 +184,84 @@ Download_CRR() {
 
 
 Download_From_NCBI() {
-    # Download FASTQ file(s) from NCBI SRA via sra-toolkit (prefetch + fasterq-dump).
-    # Used as a fallback when ENA has not mirrored the run's data yet.
-    # NCBI imposes per-IP rate limits; callers should not parallelize this.
-    #
-    # Args:
-    #   $1 = SRR/ERR/DRR accession
-    #   $2 = target directory for FASTQ files
-    #   $3 = rename prefix for output files
-    #
-    # Returns: 0 on success, 1 on failure
-    local srr="$1"
-    local target_dir="$2"
-    local rename_prefix="$3"
-    local max_retries=5
-
-    # Place the SRA workdir alongside the dataset's tmp/, never inside
-    # ori_fastq (downstream tooling globs ori_fastq for *.fastq*).
-    local tmp_root
-    tmp_root="$(dirname "$target_dir")/tmp/sra_dl"
+    local srr="$1" target_dir="$2" rename_prefix="$3" max_retries=5
+    local helper="$(dirname "${BASH_SOURCE[0]}")/download_integrity.py"
+    local receipts="$(dirname "$target_dir")/download_integrity"
+    mkdir -p "$receipts" "$target_dir"
+    # Only a previously recorded complete NCBI file set can satisfy this cache.
+    if [[ -s "$receipts/${rename_prefix}.ncbi.tsv" ]] && \
+        Download_Verify_Run NCBI "$srr" "$target_dir" "$rename_prefix"; then
+        return 0
+    fi
+    local tmp_root="$(dirname "$target_dir")/tmp/sra_dl" tmp_dir
     mkdir -p "$tmp_root"
-    local tmp_dir
-    tmp_dir=$(mktemp -d "${tmp_root}/${srr}.XXXXXX") || {
-        echo "  [NCBI] Failed to create tmp dir for $srr" >&2
-        return 1
-    }
-
-    # Cushion to ease NCBI per-IP rate limits between sequential accessions.
-    # NCBI without an API key allows 3 req/s; 0.3s stays under that.
+    tmp_dir=$(mktemp -d "${tmp_root}/${srr}.XXXXXX") || return 1
     sleep 0.3
-
-    local success=false
-    local attempt
+    local success=false attempt manifest=''
     for ((attempt=1; attempt<=max_retries; attempt++)); do
-        if prefetch --max-size u --output-directory "$tmp_dir" "$srr" >/dev/null 2>&1; then
-            # Resolve the .sra path (prefetch layout: <tmp>/<srr>/<srr>.sra).
+        # Preserve tool diagnostics in the dataset log, including network errors.
+        if prefetch --max-size u --output-directory "$tmp_dir" "$srr"; then
             local sra_file="${tmp_dir}/${srr}/${srr}.sra"
             [[ -f "$sra_file" ]] || sra_file="${tmp_dir}/${srr}.sra"
-            # Pass the file path if we found it, else let fasterq-dump resolve.
             local dump_target="$srr"
             [[ -f "$sra_file" ]] && dump_target="$sra_file"
-
-            if fasterq-dump --split-files --skip-technical --threads 2 \
-                            -O "$tmp_dir" "$dump_target" >/dev/null 2>&1; then
-                success=true
-                break
+            # Previous failed extraction must not leave a stale apparent mate.
+            find "$tmp_dir" -maxdepth 1 -name "${srr}*.fastq" -type f -delete
+            if fasterq-dump --split-files --skip-technical --threads 2 -O "$tmp_dir" "$dump_target"; then
+                if manifest=$(python3 "$helper" ncbi-manifest --map "${_ena_url_map:-}" --run "$srr" \
+                    --prefix "$rename_prefix" --target "$tmp_dir"); then
+                    success=true
+                    break
+                fi
             fi
-            echo "  [NCBI] fasterq-dump failed for $srr (attempt $attempt/$max_retries)" >&2
+            echo "  [NCBI] FASTQ extraction/validation failed: $srr (attempt $attempt/$max_retries)" >&2
         else
-            echo "  [NCBI] prefetch failed for $srr (attempt $attempt/$max_retries)" >&2
+            echo "  [NCBI] prefetch failed: $srr (attempt $attempt/$max_retries)" >&2
         fi
-
         local wait=$(( 5 * (1 << (attempt - 1)) ))
         (( wait > 60 )) && wait=60
         [[ $attempt -lt $max_retries ]] && sleep "$wait"
     done
-
-    if ! $success; then
+    if [[ "$success" != true ]]; then
         rm -rf "$tmp_dir"
-        echo "  [NCBI] Failed: $srr after $max_retries attempts" >&2
         return 1
     fi
-
-    # Move + gzip + rename FASTQ outputs. fasterq-dump emits ${srr}.fastq (SE),
-    # ${srr}_1.fastq + ${srr}_2.fastq (PE), or ${srr}_subreads.fastq (PacBio).
-    local downloaded_any=false
-    shopt -s nullglob
-    for fq in "${tmp_dir}/${srr}"*.fastq; do
-        [[ -f "$fq" ]] || continue
-        local fname
-        fname=$(basename "$fq")
-        local stem="${fname%.fastq}"
-        local suffix="${stem#${srr}}"
-        # Match Download_From_ENA: PacBio _subreads is folded into the base name.
-        suffix="${suffix/_subreads/}"
-        local out_path="${target_dir}/${rename_prefix}${suffix}.fastq.gz"
-        if gzip -c "$fq" > "$out_path"; then
-            downloaded_any=true
-        else
-            rm -f "$out_path"
+    # Validate every gzip before publishing any file or success manifest.
+    mkdir -p "$tmp_dir/compressed"
+    local fq name output
+    : > "$tmp_dir/complete.tsv"
+    while IFS=$'\t' read -r fq name; do
+        output="$tmp_dir/compressed/$name"
+        if ! gzip -c "$fq" > "$output" || ! python3 "$helper" verify-file --file "$output" --receipts "$receipts"; then
+            echo "  [NCBI] Compression/validation failed: $srr/$name" >&2
+            rm -rf "$tmp_dir"
+            return 1
         fi
-        rm -f "$fq"
-    done
-    shopt -u nullglob
-
-    rm -rf "$tmp_dir"
-
-    if ! $downloaded_any; then
-        echo "  [NCBI] Failed: $srr (no FASTQ output produced)" >&2
+        printf '%s\t\t\n' "$name" >> "$tmp_dir/complete.tsv"
+    done <<< "$manifest"
+    while IFS=$'\t' read -r fq name; do
+        if ! python3 "$helper" publish --file "$tmp_dir/compressed/$name" \
+            --destination "$target_dir/$name" --receipts "$receipts"; then
+            rm -rf "$tmp_dir"
+            return 1
+        fi
+    done <<< "$manifest"
+    if ! mv "$tmp_dir/complete.tsv" "$receipts/${rename_prefix}.ncbi.tsv"; then
+        rm -rf "$tmp_dir"
         return 1
     fi
-    return 0
+    rm -rf "$tmp_dir"
+    Download_Verify_Run NCBI "$srr" "$target_dir" "$rename_prefix"
+}
+
+Download_Accession_Complete() {
+    local source="$1" srr="$2" target="$3" prefix="$4"
+    case "$source" in
+        CNCB) Download_CRR "$srr" "$target" "$prefix" ;;
+        NCBI) Download_From_NCBI "$srr" "$target" "$prefix" && Download_Verify_Run NCBI "$srr" "$target" "$prefix" ;;
+        ENA) Download_From_ENA "$srr" "$target" "$prefix" && Download_Verify_Run ENA "$srr" "$target" "$prefix" ;;
+        *) echo "Unknown download source: $source" >&2; return 1 ;;
+    esac
 }
 
 Common_SRADownloadToFastq_MultiSource() {
@@ -395,10 +329,10 @@ Common_SRADownloadToFastq_MultiSource() {
     local _ena_url_map="${base_dir}/.ena_url_map.tsv"
     if [[ "$has_ncbi_accessions" == true && "$ena_reachable" == true && -n "$bioproject" ]]; then
         echo "  [ENA] Fetching filereport for ${bioproject}..."
-        local filereport_url="https://www.ebi.ac.uk/ena/portal/api/filereport?accession=${bioproject}&result=read_run&fields=run_accession,fastq_ftp&format=tsv"
+        local filereport_url="https://www.ebi.ac.uk/ena/portal/api/filereport?accession=${bioproject}&result=read_run&fields=run_accession,fastq_ftp,fastq_md5,library_layout&format=tsv"
         if wget -q --timeout=30 "$filereport_url" -O "${_ena_url_map}.raw" 2>/dev/null; then
-            # Extract run_accession and fastq_ftp columns, skip header
-            awk -F'\t' 'NR>1 && $1!="" && $2!="" {print $1"\t"$2}' "${_ena_url_map}.raw" > "$_ena_url_map"
+            # Preserve URL, MD5 and layout columns, including runs with no URL.
+            awk -F'\t' 'NR>1 && $1!="" {print $1"\t"$2"\t"$3"\t"$4}' "${_ena_url_map}.raw" > "$_ena_url_map"
             rm -f "${_ena_url_map}.raw"
             local map_count
             map_count=$(wc -l < "$_ena_url_map" | tr -d ' ')
@@ -416,37 +350,63 @@ Common_SRADownloadToFastq_MultiSource() {
     # mirroring the actual reads from NCBI SRA, so a run can exist on NCBI with
     # full data while ENA reports read_count=0 and empty FTP fields.
     # When this happens, we cannot recover by retrying ENA — switch the entire
-    # dataset to NCBI SRA Toolkit and discard any partial ENA downloads to keep
-    # the dataset's source uniform.
+    # dataset to NCBI SRA Toolkit. Existing files are retained until each run's
+    # complete replacement has been extracted and validated.
     local ncbi_fallback_mode=false
     if [[ "$has_ncbi_accessions" == true ]]; then
         local ena_gap_count=0
         while IFS=$'\t' read -r srr _; do
             [[ -z "$srr" ]] && continue
             [[ ! "$srr" =~ ^[EDS]RR ]] && continue
-            if ! awk -v acc="$srr" '$1 == acc && $2 != "" {found=1; exit} END{exit !found}' "$_ena_url_map" 2>/dev/null; then
+            if ! awk -F'\t' -v acc="$srr" '$1 == acc && $2 != "" {found=1; exit} END{exit !found}' "$_ena_url_map" 2>/dev/null; then
                 ena_gap_count=$((ena_gap_count + 1))
             fi
         done < "${base_dir}/${acc_file}"
 
-        if (( ena_gap_count > 0 )); then
+        # The metadata API and FASTQ service are separate endpoints. A healthy
+        # API must not cause five retries per file against an unavailable FTP
+        # server. Probe one selected file and use an available ENA transport;
+        # otherwise switch this download batch to NCBI before downloading reads.
+        local _ena_protocol=ftp ena_files_reachable=true
+        local ena_reason="${ena_gap_count} accession(s) lack mirrored FASTQ in ENA"
+        if (( ena_gap_count == 0 )); then
+            local probe_run probe_urls probe_path scheme
+            probe_run=$(awk '$1 ~ /^[EDS]RR/ {print $1; exit}' "${base_dir}/${acc_file}")
+            probe_urls=$(awk -F'\t' -v acc="$probe_run" '$1==acc {print $2; exit}' "$_ena_url_map")
+            probe_path="${probe_urls%%;*}"
+            probe_path="${probe_path#*://}"
+            ena_files_reachable=false
+            for scheme in ftp http https; do
+                if wget -q --spider --timeout=10 --tries=1 "${scheme}://${probe_path}" 2>/dev/null; then
+                    _ena_protocol=$scheme
+                    ena_files_reachable=true
+                    break
+                fi
+            done
+            if [[ "$ena_files_reachable" == false ]]; then
+                ena_reason="ENA FASTQ file service is unreachable (metadata API is available)"
+            fi
+        fi
+
+        if (( ena_gap_count > 0 )) || [[ "$ena_files_reachable" == false ]]; then
             if ! command -v prefetch >/dev/null 2>&1 || ! command -v fasterq-dump >/dev/null 2>&1; then
-                echo "  [ENA] ${ena_gap_count} accession(s) lack mirrored FASTQ in ENA, but NCBI SRA Toolkit (prefetch, fasterq-dump) is not available." >&2
+                echo "  [ENA] ${ena_reason}, but NCBI SRA Toolkit (prefetch, fasterq-dump) is not available." >&2
                 echo "  [ENA] Install sra-toolkit to enable NCBI fallback for unmirrored runs." >&2
                 return 1
             fi
             # Fail fast if NCBI is unreachable rather than burning hours on
             # 5 backoff retries per accession before discovering the network is down.
             if ! wget -q --spider --timeout=10 "https://trace.ncbi.nlm.nih.gov/" 2>/dev/null; then
-                echo "  [ENA] ${ena_gap_count} accession(s) need NCBI fallback, but trace.ncbi.nlm.nih.gov is unreachable." >&2
+                echo "  [ENA] ${ena_reason}; NCBI fallback is needed, but trace.ncbi.nlm.nih.gov is unreachable." >&2
                 return 1
             fi
-            echo "  [ENA] ${ena_gap_count} accession(s) lack mirrored FASTQ in ENA — switching dataset to NCBI SRA Toolkit"
-            # Wipe any partial ENA downloads so the dataset has a single source.
-            find "$fastq_path" -mindepth 1 -delete 2>/dev/null || true
+            echo "  [ENA] ${ena_reason} — switching dataset to NCBI SRA Toolkit"
+            # Preserve existing final files; NCBI validates a complete run before
+            # atomically replacing its files, so partial ENA mates cannot be mixed.
             ncbi_fallback_mode=true
             source_label="NCBI"
         fi
+        printf '%s\t%s\t%s\n' "$(date -u +%FT%TZ)" "$source_label" "$_ena_protocol" >> "${base_dir}/download_source.tsv"
     fi
 
     # Download all accessions, tracking progress
@@ -459,61 +419,20 @@ Common_SRADownloadToFastq_MultiSource() {
         [[ -z "$srr" || -z "$rename" ]] && continue
         current=$((current + 1))
 
+        local selected_source=''
         if [[ "$srr" =~ ^CRR ]]; then
-            if Download_CRR "$srr" "$fastq_path" "$rename"; then
-                dl_success=$((dl_success + 1))
-            else
-                dl_failed=$((dl_failed + 1))
-                failed_accessions+=("$srr")
-            fi
-
+            selected_source=CNCB
         elif [[ "$srr" =~ ^[EDS]RR ]]; then
-            local _dl_ok=false
-            if $ncbi_fallback_mode; then
-                Download_From_NCBI "$srr" "$fastq_path" "$rename" && _dl_ok=true
-            else
-                Download_From_ENA "$srr" "$fastq_path" "$rename" && _dl_ok=true
-            fi
-            if $_dl_ok; then
-                # Silent integrity check — only report failures.
-                # Enumerate exact suffixes to avoid prefix collisions
-                # (e.g. rename="MNB_04" matching files of "MNB_04317").
-                local _candidate_files=(
-                    "${fastq_path}/${rename}.fastq"
-                    "${fastq_path}/${rename}.fastq.gz"
-                    "${fastq_path}/${rename}_1.fastq"
-                    "${fastq_path}/${rename}_1.fastq.gz"
-                    "${fastq_path}/${rename}_2.fastq"
-                    "${fastq_path}/${rename}_2.fastq.gz"
-                )
-                local verify_failed=false
-                for fq in "${_candidate_files[@]}"; do
-                    [[ -f "$fq" ]] || continue
-                    if ! Verify_Fastq_Integrity "$fq"; then
-                        echo "  [verify] Invalid: $(basename "$fq") — removing" >&2
-                        rm -f "$fq"
-                        verify_failed=true
-                    fi
-                done
-                if [[ "$verify_failed" == true ]]; then
-                    local remaining_files=0
-                    for fq in "${_candidate_files[@]}"; do
-                        [[ -f "$fq" ]] && remaining_files=$((remaining_files + 1))
-                    done
-                    if [[ "$remaining_files" -eq 0 ]]; then
-                        echo "  [verify] No valid files remaining for $srr" >&2
-                        dl_failed=$((dl_failed + 1))
-                        failed_accessions+=("$srr")
-                        continue
-                    fi
-                fi
-                dl_success=$((dl_success + 1))
-            else
-                dl_failed=$((dl_failed + 1))
-                failed_accessions+=("$srr")
-            fi
+            selected_source=ENA
+            $ncbi_fallback_mode && selected_source=NCBI
         else
-            echo "  Warning: Unknown accession format: $srr" >&2
+            echo "  Error: Unknown accession format: $srr" >&2
+        fi
+        if Download_Accession_Complete "$selected_source" "$srr" "$fastq_path" "$rename"; then
+            dl_success=$((dl_success + 1))
+        else
+            dl_failed=$((dl_failed + 1))
+            failed_accessions+=("$srr")
         fi
 
         # Print progress at 25% milestones (for datasets with >= 8 accessions)
@@ -541,11 +460,10 @@ Common_SRADownloadToFastq_MultiSource() {
             failed_rename=$(awk -F'\t' -v acc="$failed_srr" '$1 == acc {print $2}' "${base_dir}/${acc_file}")
             local retry_ok=false
             if [[ -n "$failed_rename" ]]; then
-                if $ncbi_fallback_mode; then
-                    Download_From_NCBI "$failed_srr" "$fastq_path" "$failed_rename" && retry_ok=true
-                else
-                    Download_From_ENA "$failed_srr" "$fastq_path" "$failed_rename" && retry_ok=true
-                fi
+                local retry_source=ENA
+                $ncbi_fallback_mode && retry_source=NCBI
+                [[ "$failed_srr" =~ ^CRR ]] && retry_source=CNCB
+                Download_Accession_Complete "$retry_source" "$failed_srr" "$fastq_path" "$failed_rename" && retry_ok=true
             fi
             if $retry_ok; then
                 echo "  [${source_label}] Retry OK: $failed_srr"
@@ -607,16 +525,15 @@ Amplicon_Common_MakeManifestFileForQiime2() {
     mkdir -p "$temp_file_path"
     local _dp="${dataset_path%/}"
     dataset_name="${_dp##*/}"
-    find "$fastq_path" -type f -name "*.fastq*" > "${temp_file_path}/${dataset_name}-file.txt"
-    if [ "$sequence_type" = "single" ]; then
-        python "${SCRIPTS}/py_16s.py" mk_manifest_SE --FilePath "${temp_file_path}/${dataset_name}-file.txt"
-    else
-        python "${SCRIPTS}/py_16s.py" mk_manifest_PE --FilePath "${temp_file_path}/${dataset_name}-file.txt"
-    fi
+    local -a layout_args=()
+    [[ "$sequence_type" == "paired" ]] && layout_args+=(--paired)
+    python3 "${SCRIPTS}/read_layout.py" manifest --input "$fastq_path" \
+        --output "${temp_file_path}/${dataset_name}_manifest.tsv" "${layout_args[@]}"
+
 }
 Amplicon_Common_ImportFastqToQiime2() {
     set -u
-    cd "$dataset_path" || { echo "❌ Cannot access dataset path: $dataset_path"; exit 1; }
+    cd "$dataset_path" || { echo "[ERROR] Cannot access dataset path: $dataset_path"; exit 1; }
 
     local temp_path="${dataset_path%/}/tmp/"
     local temp_file_path="${temp_path}temp_file/"
@@ -674,22 +591,26 @@ Amplicon_Common_FinalFilesCleaning() {
         
         # Extract stats
         if [ -f "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" ]; then
-            unzip -q "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" -d "$qc_vis"
-            find "$qc_vis" -type f -name 'stats.csv' -exec cp {} "${dataset_path%/}/${dataset_name}-QCStats.csv" \;
+            python3 "${SCRIPTS}/read_counts.py" export-stats \
+                --input "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
+                --output "${dataset_path%/}/${dataset_name}-QCStats.tsv"
         fi
         
         if [ -f "${denoising_path%/}/${dataset_name}-denoising-stats.qza" ]; then
-            unzip -q "${denoising_path%/}/${dataset_name}-denoising-stats.qza" -d "$denoising_vis"
-            find "$denoising_vis" -type f -name 'stats.csv' -exec cp {} "${dataset_path%/}/${dataset_name}-DenoisingStats.csv" \;
+            python3 "${SCRIPTS}/read_counts.py" export-stats \
+                --input "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
+                --output "${dataset_path%/}/${dataset_name}-DenoisingStats.tsv"
         fi
         
         # Remove temporary directories but keep dataset_path itself
-        [[ "${KEEP_INTERMEDIATE:-0}" == "1" ]] || find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
+        [[ "${KEEP_INTERMEDIATE:-0}" == "1" ]] || rm -rf "${dataset_path%/}/tmp" "${dataset_path%/}/ori_fastq" "${dataset_path%/}/downloaded_fastq" "${dataset_path%/}/working_fastq"
 
         rm -f "${dataset_path%/}/"{denoising.log,fastp.html,fastp.json}
 
-        rm -rf "${dataset_path%/}/ori_fastq" 2>/dev/null || true
-        rm -rf "${dataset_path%/}/working_fastq" 2>/dev/null || true
+        if [[ "${KEEP_INTERMEDIATE:-0}" != "1" ]]; then
+            rm -rf "${dataset_path%/}/ori_fastq" 2>/dev/null || true
+            rm -rf "${dataset_path%/}/working_fastq" 2>/dev/null || true
+        fi
 
         return 0
 
@@ -697,12 +618,12 @@ Amplicon_Common_FinalFilesCleaning() {
     elif [ -f "${dataset_path%/}/${dataset_name}-table-vsearch.qza" ]; then
         mv "${dataset_path%/}/${dataset_name}-table-vsearch.qza" "${dataset_path%/}/${dataset_name}-${MODE}-final-table.qza"
         mv "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza" "${dataset_path%/}/${dataset_name}-${MODE}-final-rep-seqs.qza"
-        [[ "${KEEP_INTERMEDIATE:-0}" == "1" ]] || find "$dataset_path" -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
+        [[ "${KEEP_INTERMEDIATE:-0}" == "1" ]] || rm -rf "${dataset_path%/}/tmp" "${dataset_path%/}/ori_fastq" "${dataset_path%/}/downloaded_fastq" "${dataset_path%/}/working_fastq"
         
         return 0
         
     else
-        echo "❌ ERROR: The analysis failed! The final denoising output does not exist."
+        echo "[ERROR] The analysis failed! The final denoising output does not exist."
         echo "   Expected files:"
         echo "     - ${denoising_path%/}/${dataset_name}-table-denoising.qza "
         echo ""
@@ -716,31 +637,12 @@ Amplicon_Common_FinalFilesCleaning() {
 
 
 Common_CountRawReads() {
-    # Count raw reads per sample from ori_fastq and save to TSV
-    # Args: $1 = dataset_path, $2 = sra_file_name
     local base_dir="${1%/}"
-    local acc_file="$2"
-    local fastq_path="${base_dir}/ori_fastq"
-    local dataset_name="${base_dir##*/}"
-    local raw_counts_file="${base_dir}/${dataset_name}_raw_read_counts.tsv"
-    : > "$raw_counts_file"
+    python3 "${SCRIPTS}/read_layout.py" count --input "${base_dir}/ori_fastq" \
+        --samples "${base_dir}/$2" \
+        --output "${base_dir}/${base_dir##*/}_raw_read_counts.tsv"
 
-    while IFS=$'\t' read -r srr rename _; do
-        [[ -z "$srr" || -z "$rename" ]] && continue
-        local total_lines=0
-        for fq in "${fastq_path}/${rename}"*.fastq*; do
-            [[ -f "$fq" ]] || continue
-            local lines
-            if [[ "$fq" == *.gz ]]; then
-                lines=$(zcat "$fq" | wc -l)
-            else
-                lines=$(wc -l < "$fq")
-            fi
-            total_lines=$((total_lines + lines))
-        done
-        local total_reads=$((total_lines / 4))
-        printf '%s\t%s\t%d\n' "$srr" "$rename" "$total_reads" >> "$raw_counts_file"
-    done < "${base_dir}/${acc_file}"
+    Audit_Fastq RawReads "${base_dir}/ori_fastq"
 }
 
 Count_Feature_Table_Reads() {
@@ -842,7 +744,7 @@ Amplicon_Illumina_DenosingDada2() {
                 rev_result="$(python "${SCRIPTS}/py_16s.py" trim_pos_deblur --FilePath "$rev_tsv")"
                 IFS=',' read -r start_r end_r <<< "$rev_result"
             else
-                echo "⚠️ No reverse summary found, using forward positions for reverse"
+                echo "[WARNING] No reverse summary found, using forward positions for reverse"
                 start_r="$start_f"
                 end_r="$end_f"
             fi
@@ -922,6 +824,7 @@ Amplicon_Illumina_DenosingDada2() {
                 --p-n-threads "$cpu"
         fi
     fi
+    Audit_Dada2
 }
 ################################################################################
 #                        LS454 PLATFORM FUNCTIONS                              #
@@ -942,7 +845,7 @@ Amplicon_LS454_FilterLowFreqOTUs() {
     # than sequencing-error variants that failed to cluster.
     qiime feature-table filter-features \
         --i-table "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
-        --p-min-frequency 2 \
+        --p-min-frequency "${VSEARCH_MIN_FREQUENCY}" \
         --o-filtered-table "${dataset_path%/}/${dataset_name}-table-vsearch.qza"
 
     # Sync representative sequences with filtered OTU table
@@ -950,6 +853,7 @@ Amplicon_LS454_FilterLowFreqOTUs() {
         --i-data "${cluster_path%/}/${dataset_name}-repseq-clustered.qza" \
         --i-table "${dataset_path%/}/${dataset_name}-table-vsearch.qza" \
         --o-filtered-data "${dataset_path%/}/${dataset_name}-rep-seqs-vsearch.qza"
+    Audit_Table vsearch_final_reads "${dataset_path%/}/${dataset_name}-table-vsearch.qza" vsearch_imported_reads
 }
 
 ################################################################################
@@ -980,6 +884,7 @@ Amplicon_IonTorrent_QualityControlForQZA() {
         --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
         --verbose
+    Audit_QC
 }
 
 ################################################################################
@@ -1014,6 +919,7 @@ Amplicon_DegradedQ_DirectDerep() {
     DEREP_INPUT_READS=$(printf '%s\n' "$_derep_stdout" | awk -F= '/^DEREP_INPUT_READS=/{print $2; exit}')
     DEREP_UNIQUE_SEQS=$(printf '%s\n' "$_derep_stdout" | awk -F= '/^DEREP_UNIQUE_SEQS=/{print $2; exit}')
     export DEREP_INPUT_READS DEREP_UNIQUE_SEQS
+    Audit_Fasta vsearch_dereplicated_reads "${vsearch_path%/}/derep_sized.fasta"
 }
 
 # ── Degraded Quality: Abundance sanity check ────────────────────────────────
@@ -1073,49 +979,55 @@ Amplicon_DegradedQ_VsearchDenoise() {
     local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
     local threads="${THREADS_PER_DATASET:-4}"
 
-    echo ">>> Step B1: Filtering singletons (minsize=2)..."
+    echo ">>> Step B1: Abundance filtering (minsize=${VSEARCH_MINSIZE})..."
     vsearch --sortbysize "${vsearch_path%/}/derep_sized.fasta" \
         --output "${vsearch_path%/}/derep_minsize2.fasta" \
-        --minsize 2
+        --minsize "${VSEARCH_MINSIZE}"
+    Audit_Fasta vsearch_abundance_filtered_reads "${vsearch_path%/}/derep_minsize2.fasta" vsearch_dereplicated_reads
 
-    # --strand follows $OTU_STRAND (plus for short reads; both for PacBio).
+    # --strand follows $VSEARCH_STRAND (plus for short reads; both for PacBio).
     # On --strand both the 99% precluster merges forward/reverse-complement
     # copies (summing --sizein) BEFORE UNOISE3's minsize=2 survival decision,
     # so denoising sees the correct total abundance instead of a split count.
-    echo ">>> Step B2: 99% pre-clustering (strand=${OTU_STRAND:-plus})..."
+    echo ">>> Step B2: Pre-clustering (identity=${VSEARCH_PRECLUSTER_IDENTITY}) (strand=${VSEARCH_STRAND:-plus})..."
     vsearch --cluster_size "${vsearch_path%/}/derep_minsize2.fasta" \
-        --id 0.99 \
-        --strand "${OTU_STRAND:-plus}" \
+        --id "${VSEARCH_PRECLUSTER_IDENTITY}" \
+        --strand "${VSEARCH_STRAND:-plus}" \
         --centroids "${vsearch_path%/}/preclust_99.fasta" \
         --sizein --sizeout \
         --threads "$threads"
 
-    echo ">>> Step C: UNOISE3 denoising (minsize=2, strand=${OTU_STRAND:-plus})..."
+    Audit_Fasta vsearch_preclustered_reads "${vsearch_path%/}/preclust_99.fasta" vsearch_abundance_filtered_reads
+
+    echo ">>> Step C: UNOISE3 denoising (minsize=${VSEARCH_MINSIZE}, strand=${VSEARCH_STRAND:-plus})..."
     vsearch --cluster_unoise "${vsearch_path%/}/preclust_99.fasta" \
         --centroids "${vsearch_path%/}/zotus.fasta" \
-        --strand "${OTU_STRAND:-plus}" \
+        --strand "${VSEARCH_STRAND:-plus}" \
         --sizein --sizeout \
-        --minsize 2
+        --minsize "${VSEARCH_MINSIZE}"
+
+    Audit_Fasta vsearch_denoised_reads "${vsearch_path%/}/zotus.fasta" vsearch_preclustered_reads
 
     echo ">>> Chimera removal (uchime3_denovo)..."
     vsearch --uchime3_denovo "${vsearch_path%/}/zotus.fasta" \
         --nonchimeras "${vsearch_path%/}/zotus_nochim.fasta" \
         --sizein --sizeout
+    Audit_Fasta vsearch_nonchimeric_reads "${vsearch_path%/}/zotus_nochim.fasta" vsearch_denoised_reads
 }
 
 ################################################################################
 #                     UNIFIED OTU BACK-END (vsearch)                           #
 ################################################################################
-# Shared genus-level OTU back-end used by --otu across platforms.
+# Shared genus-level OTU back-end used by --vsearch across platforms.
 # Chain (short-read / pooled):
 #   <platform preprocess> -> DirectDerep -> AbundanceSanityCheck
 #     -> DegradedQ_VsearchDenoise (99% precluster -> UNOISE3 -> uchime3)
-#     -> Amplicon_OTU_ClusterFast97  (B1: collapse ZOTUs to 97% OTU centroids)
-#     -> Amplicon_OTU_MapBack        (B3: strand-aware read mapping -> OTU table)
-#     -> Amplicon_OTU_ImportResults  -> LS454_FilterLowFreqOTUs -> FinalFilesCleaning
-# Strand is controlled by $OTU_STRAND (plus for short reads, both for long reads).
+#     -> Amplicon_Vsearch_ClusterFast97  (B1: collapse ZOTUs to 97% OTU centroids)
+#     -> Amplicon_Vsearch_MapBack        (B3: strand-aware read mapping -> OTU table)
+#     -> Amplicon_Vsearch_ImportResults  -> LS454_FilterLowFreqOTUs -> FinalFilesCleaning
+# Strand is controlled by $VSEARCH_STRAND (plus for short reads, both for long reads).
 
-Amplicon_OTU_ClusterFast97() {
+Amplicon_Vsearch_ClusterFast97() {
     # B1: collapse UNOISE3 ZOTUs (zotus_nochim.fasta) to genus-level 97% OTU
     # centroids. Without this, rep-seqs stay at ASV granularity (a sequence
     # cloud) and only collapse at the abundance-table level — which reintroduces
@@ -1125,16 +1037,17 @@ Amplicon_OTU_ClusterFast97() {
     local vsearch_path="${dataset_path%/}/tmp/step_06_vsearch_cli/"
     local threads="${THREADS_PER_DATASET:-4}"
 
-    echo ">>> Clustering ZOTUs to 97% OTUs (cluster_fast, strand=${OTU_STRAND:-plus})..."
+    echo ">>> Clustering features (identity=${VSEARCH_CLUSTER_IDENTITY}) (cluster_fast, strand=${VSEARCH_STRAND:-plus})..."
     vsearch --cluster_fast "${vsearch_path%/}/zotus_nochim.fasta" \
-        --id 0.97 \
+        --id "${VSEARCH_CLUSTER_IDENTITY}" \
         --centroids "${vsearch_path%/}/otus_97.fasta" \
         --sizein --sizeout \
-        --strand "${OTU_STRAND:-plus}" \
+        --strand "${VSEARCH_STRAND:-plus}" \
         --threads "$threads"
+    Audit_Fasta vsearch_clustered_reads "${vsearch_path%/}/otus_97.fasta" vsearch_nonchimeric_reads
 }
 
-Amplicon_OTU_MapBack() {
+Amplicon_Vsearch_MapBack() {
     # Map all preprocessed reads back to the 97% OTUs to build the OTU table.
     # Strand-aware (B3): short reads = plus; PacBio/ONT = both.
     dataset_path="${dataset_path%/}/"
@@ -1145,23 +1058,25 @@ Amplicon_OTU_MapBack() {
     local manifest="${dataset_path%/}/tmp/temp_file/${dataset_name}_manifest.tsv"
     local threads="${THREADS_PER_DATASET:-4}"
 
+    Audit_Fastq vsearch_mapping_input_reads "$fastq_path"
     echo ">>> Relabeling reads with sample IDs..."
     python3 "${SCRIPTS}/py_16s.py" relabel_reads_for_mapping \
         --manifest_path "$manifest" \
         --output_fasta "${vsearch_path%/}/all_reads_labeled.fasta" \
         --threads "$threads"
 
-    echo ">>> Mapping reads to 97% OTUs (id=0.97, strand=${OTU_STRAND:-plus})..."
+    echo ">>> Mapping reads to features (id=${VSEARCH_CLUSTER_IDENTITY}, strand=${VSEARCH_STRAND:-plus})..."
     vsearch --usearch_global "${vsearch_path%/}/all_reads_labeled.fasta" \
         --db "${vsearch_path%/}/otus_97.fasta" \
-        --id 0.97 \
-        --strand "${OTU_STRAND:-plus}" \
+        --id "${VSEARCH_CLUSTER_IDENTITY}" \
+        --strand "${VSEARCH_STRAND:-plus}" \
         --otutabout "${vsearch_path%/}/otu_table.tsv" \
         --sizein \
         --threads "$threads"
+    Audit_Counts otu --stage vsearch_mapped_reads --input "${vsearch_path%/}/otu_table.tsv" --parent vsearch_mapping_input_reads
 }
 
-Amplicon_OTU_ImportResults() {
+Amplicon_Vsearch_ImportResults() {
     # Import the 97% OTU rep-seqs + OTU table back into QIIME2 artifacts.
     # Output paths align with Amplicon_LS454_FilterLowFreqOTUs expectations.
     dataset_path="${dataset_path%/}/"
@@ -1180,12 +1095,13 @@ Amplicon_OTU_ImportResults() {
         --manifest_path "$manifest" \
         --output_table_qza  "${cluster_path%/}/${dataset_name}-table-clustered.qza" \
         --output_repseq_qza "${cluster_path%/}/${dataset_name}-repseq-clustered.qza"
+    Audit_Table vsearch_imported_reads "${cluster_path%/}/${dataset_name}-table-clustered.qza" vsearch_mapped_reads
 }
 
-Amplicon_Illumina_OTU_Preprocess() {
+Amplicon_Illumina_Vsearch_Preprocess() {
     # Produce clean, full-amplicon single-end reads for the pooled OTU back-end.
     #   normal quality : per-sample PE merge (vsearch --fastq_mergepairs);
-    #                    if merge rate < OTU_MERGE_MIN, fall back to forward-only
+    #                    if merge rate < VSEARCH_MERGE_MIN, fall back to forward-only
     #                    R1; then maxee filter (vsearch --fastq_filter).
     #   binned quality : reuse degraded_quality_preprocess (5' trim + truncate +
     #                    N filter, forward-only) — maxee is unreliable on binned Q.
@@ -1193,41 +1109,41 @@ Amplicon_Illumina_OTU_Preprocess() {
     # Inputs from caller scope: fastp_path, quality_status, sequence_type.
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
-    local clean_path="${dataset_path%/}/tmp/step_02d_otu_preprocess"
+    local clean_path="${dataset_path%/}/tmp/step_02d_vsearch_preprocess"
     local threads="${THREADS_PER_DATASET:-4}"
-    local maxee="${OTU_MAXEE:-1.0}"
-    local merge_min="${OTU_MERGE_MIN:-0.5}"
+    local maxee="${VSEARCH_MAXEE:-1.0}"
+    local merge_min="${VSEARCH_MERGE_MIN:-0.5}"
 
     rm -rf "$clean_path"
     mkdir -p "$clean_path"
 
     if [[ "$quality_status" == "degraded_binned" ]]; then
-        echo ">>> OTU preprocess (binned/degraded quality): forward-only truncation path..."
+        echo ">>> vsearch preprocess (binned/degraded quality): forward-only truncation path..."
         python3 "${SCRIPTS}/py_16s.py" degraded_quality_preprocess \
             --input_dir "$fastp_path" \
             --output_dir "$clean_path" \
-            --trim_front 15 --truncate_length 0 \
-            --max_n 1 --min_length 50 \
+            --trim_front "${VSEARCH_DEGRADED_TRIM_LEFT}" --truncate_length 0 \
+            --max_n "${VSEARCH_MAX_N}" --min_length "${VSEARCH_MIN_LENGTH}" \
             --sequence_type "$sequence_type" \
             --threads "$threads"
     else
-        echo ">>> OTU preprocess (normal quality): merge pairs + maxee ${maxee}..."
+        echo ">>> vsearch preprocess (normal quality): merge pairs + maxee ${maxee}..."
         local r1 r2 sample merged n_in n_merged
         shopt -s nullglob
         if [[ "$sequence_type" == "paired" ]]; then
-            for r1 in "${fastp_path}/"*_1.fastq*; do
-                [[ -f "$r1" ]] || continue
-                r2="${r1/_1.fastq/_2.fastq}"
-                sample=$(basename "$r1"); sample="${sample%%_1.fastq*}"
+            local pair_rows
+            pair_rows=$(python3 "${SCRIPTS}/read_layout.py" pairs --input "$fastp_path")
+            while IFS=$'\t' read -r sample r1 r2; do
                 if [[ -f "$r2" ]]; then
                     merged="${clean_path}/${sample}_merged.fastq"
                     if vsearch --fastq_mergepairs "$r1" --reverse "$r2" \
                                --fastq_qmax 93 --fastq_qmaxout 93 \
-                               --fastqout "$merged" --threads "$threads" --quiet 2>/dev/null \
-                       && [[ -s "$merged" ]]; then
+                               --fastqout "$merged" --threads "$threads" --quiet 2>/dev/null; then
+                        Audit_Fastq vsearch_merge_attempt_reads "$merged" primer_trimmed_reads --sample "$sample"
                         n_in=$(( $(zcat -f "$r1" | wc -l) / 4 ))
                         n_merged=$(( $(wc -l < "$merged") / 4 ))
                         if python3 -c "import sys; sys.exit(0 if ($n_in>0 and $n_merged/$n_in >= $merge_min) else 1)"; then
+                            Audit_Fastq vsearch_preprocess_input_reads "$merged" "" --sample "$sample"
                             vsearch --fastq_filter "$merged" --fastq_maxee "$maxee" --fastq_qmax 93 \
                                     --fastqout "${clean_path}/${sample}.fastq" --threads "$threads" --quiet
                             rm -f "$merged"
@@ -1241,13 +1157,15 @@ Amplicon_Illumina_OTU_Preprocess() {
                     fi
                 fi
                 # Fallback (low merge rate / merge failed / no R2): forward-only R1
+                Audit_Fastq vsearch_preprocess_input_reads "$r1" "" --sample "$sample"
                 vsearch --fastq_filter "$r1" --fastq_maxee "$maxee" --fastq_qmax 93 \
                         --fastqout "${clean_path}/${sample}.fastq" --threads "$threads" --quiet
-            done
+            done <<< "$pair_rows"
         else
             for r1 in "${fastp_path}/"*.fastq*; do
                 [[ -f "$r1" ]] || continue
                 sample=$(basename "$r1"); sample="${sample%%.fastq*}"
+                Audit_Fastq vsearch_preprocess_input_reads "$r1" "" --sample "$sample"
                 vsearch --fastq_filter "$r1" --fastq_maxee "$maxee" --fastq_qmax 93 \
                         --fastqout "${clean_path}/${sample}.fastq" --threads "$threads" --quiet
             done
@@ -1255,20 +1173,26 @@ Amplicon_Illumina_OTU_Preprocess() {
         shopt -u nullglob
     fi
 
+    if [[ "$quality_status" == "degraded_binned" ]]; then
+        Audit_Fastq vsearch_length_n_filtered_reads "$clean_path" primer_trimmed_reads
+    else
+        Audit_Fastq vsearch_quality_filtered_reads "$clean_path" vsearch_preprocess_input_reads
+    fi
     fastq_path="$clean_path"
     sequence_type="single"
     export fastq_path sequence_type
 }
 
-Amplicon_OTU_RunPooledChain() {
+Amplicon_Vsearch_RunPooledChain() {
     # Shared pooled OTU back-end (Illumina / 454 / Ion / PacBio).
     #   derep → UNOISE3(99% precluster) → uchime3 → cluster_fast 97%
     #   → strand-aware map-back → import → low-freq filter → finalize.
     # ONT does NOT use this — it keeps its own racon-polished, error-tolerant
     # back-half (map at id=0.90; see Amplicon_ONT_*).
     # Caller must have set (in scope): fastq_path (clean reads dir),
-    #   sequence_type=single, OTU_STRAND (plus|both), n_srr (sample count),
-    #   and have $dataset_ID / $low_quality_log available (run.sh scope).
+    #   sequence_type=single, VSEARCH_STRAND (plus|both), n_srr (sample count),
+    #   and have $dataset_ID available (run.sh scope).
+    Audit_Fastq vsearch_preprocessed_reads "$fastq_path"
     Amplicon_Common_MakeManifestFileForQiime2
     Amplicon_DegradedQ_DirectDerep
 
@@ -1283,37 +1207,37 @@ Amplicon_OTU_RunPooledChain() {
             echo "Unique sequences:  ${DEREP_UNIQUE_SEQS}"
             echo "Detected at:      $(date '+%Y-%m-%d %H:%M:%S')"
         } > "$untrust_marker"
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - $dataset_ID - UNTRUSTABLE - 1 sample, ${DEREP_UNIQUE_SEQS}/${DEREP_INPUT_READS} unique" >> "$low_quality_log"
+        echo "SKIP: $dataset_ID has untrustworthy single-sample abundance; see $untrust_marker" >&2
         exit 99
     fi
 
     Amplicon_DegradedQ_VsearchDenoise   # 99% precluster → UNOISE3 → uchime3
-    Amplicon_OTU_ClusterFast97          # B1: collapse ZOTUs → 97% OTUs
-    Amplicon_OTU_MapBack                # B3: strand-aware read mapping
-    Amplicon_OTU_ImportResults
+    Amplicon_Vsearch_ClusterFast97          # B1: collapse ZOTUs → 97% OTUs
+    Amplicon_Vsearch_MapBack                # B3: strand-aware read mapping
+    Amplicon_Vsearch_ImportResults
     Amplicon_LS454_FilterLowFreqOTUs
     Amplicon_Common_FinalFilesCleaning
 }
 
-Amplicon_IonTorrent_OTU_Preprocess() {
-    # Ion Torrent OTU preprocess: strip 5' 10 bp (signal instability — the
-    # vsearch equivalent of DADA2 denoise-pyro --p-trim-left 10) + maxee filter.
+Amplicon_IonTorrent_Vsearch_Preprocess() {
+    # Ion Torrent preprocessing: configurable additional 5' trimming + maxee.
+    # Primers have already been removed, so extra trimming defaults to zero.
     # No fixed truncation (B6). SE reads. Reads input from $fastp_path.
     # On return: fastq_path -> clean dir; sequence_type=single.
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
     local in_dir="${fastp_path:-${dataset_path%/}/tmp/step_02_fastp}"
-    local clean_path="${dataset_path%/}/tmp/step_02d_otu_preprocess"
+    local clean_path="${dataset_path%/}/tmp/step_02d_vsearch_preprocess"
     local threads="${THREADS_PER_DATASET:-4}"
     # Ion Torrent reads (~200-400 bp) carry homopolymer indel errors, so a flat
     # maxee 1.0 (≤1 expected error / read) discards the bulk of real reads
     # (~6% retention observed). Use a more permissive Ion-specific default (2.0);
-    # tune via ION_OTU_MAXEE. (Illumina keeps OTU_MAXEE=1.0.)
-    local maxee="${ION_OTU_MAXEE:-2.0}"
-    local stripleft="${ION_OTU_STRIPLEFT:-10}"
+    # tune via ION_VSEARCH_MAXEE. (Illumina keeps VSEARCH_MAXEE=1.0.)
+    local maxee="${ION_VSEARCH_MAXEE:-2.0}"
+    local stripleft="${ION_VSEARCH_STRIPLEFT:-0}"
 
     rm -rf "$clean_path"; mkdir -p "$clean_path"
-    echo ">>> Ion OTU preprocess: stripleft ${stripleft} + maxee ${maxee}..."
+    echo ">>> Ion vsearch preprocess: stripleft ${stripleft} + maxee ${maxee}..."
     local fq sample
     shopt -s nullglob
     for fq in "${in_dir}/"*.fastq*; do
@@ -1329,26 +1253,27 @@ Amplicon_IonTorrent_OTU_Preprocess() {
     shopt -u nullglob
 
     fastq_path="$clean_path"; sequence_type="single"; export fastq_path sequence_type
+    Audit_Fastq vsearch_quality_filtered_reads "$clean_path" primer_trimmed_reads
 }
 
-Amplicon_Pacbio_OTU_Preprocess() {
-    # PacBio CCS OTU preprocess: length window + per-base-rate maxee (B5).
+Amplicon_Pacbio_Vsearch_Preprocess() {
+    # PacBio CCS vsearch preprocess: length window + per-base-rate maxee (B5).
     # CCS reads are high-accuracy full-length 16S (~1500 bp). Keep a length
     # window (no truncation, B4); filter by error RATE (flat maxee too strict at
     # 1500 bp); raise fastq_qmax (CCS Q can exceed vsearch's default 41). Reads
-    # occur in both orientations → caller sets OTU_STRAND=both. Input from
-    # $adapter_removed_path (PacBio has no separate primer-trim step).
+    # occur in both orientations → caller sets VSEARCH_STRAND=both. Input from
+    # $adapter_removed_path, set by the caller to primer-trimmed reads.
     dataset_path="${dataset_path%/}/"
     cd "$dataset_path"
     local in_dir="${adapter_removed_path:-${dataset_path%/}/tmp/step_01_adapter_removed}"
-    local clean_path="${dataset_path%/}/tmp/step_02d_otu_preprocess"
+    local clean_path="${dataset_path%/}/tmp/step_02d_vsearch_preprocess"
     local threads="${THREADS_PER_DATASET:-4}"
-    local maxee_rate="${OTU_MAXEE_RATE:-0.01}"
-    local minlen="${PACBIO_OTU_MINLEN:-1000}"
-    local maxlen="${PACBIO_OTU_MAXLEN:-2000}"
+    local maxee_rate="${VSEARCH_MAXEE_RATE:-0.01}"
+    local minlen="${PACBIO_VSEARCH_MINLEN:-1000}"
+    local maxlen="${PACBIO_VSEARCH_MAXLEN:-2000}"
 
     rm -rf "$clean_path"; mkdir -p "$clean_path"
-    echo ">>> PacBio OTU preprocess: len[${minlen},${maxlen}] + maxee_rate ${maxee_rate}..."
+    echo ">>> PacBio vsearch preprocess: len[${minlen},${maxlen}] + maxee_rate ${maxee_rate}..."
     local fq sample
     shopt -s nullglob
     for fq in "${in_dir}/"*.fastq*; do
@@ -1365,6 +1290,7 @@ Amplicon_Pacbio_OTU_Preprocess() {
     shopt -u nullglob
 
     fastq_path="$clean_path"; sequence_type="single"; export fastq_path sequence_type
+    Audit_Fastq vsearch_quality_filtered_reads "$clean_path" primer_trimmed_reads
 }
 
 ################################################################################
@@ -1388,6 +1314,7 @@ Amplicon_Pacbio_QualityControlForQZA() {
         --o-filtered-sequences "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza" \
         --o-filter-stats "${quality_filter_path%/}/${dataset_name}_filter-stats.qza" \
         --verbose
+    Audit_QC
 }
 Amplicon_Pacbio_DenosingDada2() {
     dataset_path="${dataset_path%/}/"
@@ -1401,7 +1328,7 @@ Amplicon_Pacbio_DenosingDada2() {
 
     # Validate that primer sequences are provided
     if [[ -z "$primer_front" ]]; then
-        echo "❌ ERROR: No forward primer (primer_front) set for PacBio denoise-ccs."
+        echo "[ERROR] No forward primer (primer_front) set for PacBio denoise-ccs."
         echo "   dada2 denoise-ccs requires --p-front to orient CCS reads."
         return 1
     fi
@@ -1410,8 +1337,8 @@ Amplicon_Pacbio_DenosingDada2() {
         qiime dada2 denoise-ccs
         --i-demultiplexed-seqs "${quality_filter_path%/}/${dataset_name}_QualityFilter.qza"
         --p-front "$primer_front"
-        --p-min-len 1000
-        --p-max-len 1600
+        --p-min-len "${DADA2_PACBIO_MIN_LENGTH}"
+        --p-max-len "${DADA2_PACBIO_MAX_LENGTH}"
         --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza"
         --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza"
         --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
@@ -1430,6 +1357,7 @@ Amplicon_Pacbio_DenosingDada2() {
     # --p-adapter: reverse primer (1492R) — trims 3' end
     # Reads without primers are discarded; RC reads are re-oriented.
     "${cmd[@]}"
+    Audit_Dada2
 }
 
 Amplicon_Pacbio_ExtractReads() {
@@ -1446,7 +1374,7 @@ Amplicon_Pacbio_ExtractReads() {
     local ori_renamed="${denoising_path}/${dataset_name}-ori-rep-seqs-denoising.qza"
 
     if [[ ! -f "$original" ]]; then
-        echo "❌ ERROR: Rep-seqs file not found: $original"
+        echo "[ERROR] Rep-seqs file not found: $original"
         return 1
     fi
 
@@ -1495,7 +1423,7 @@ Amplicon_Pacbio_ExtractReads() {
 #     -> concatenate per-sample centroids
 #     -> per-sample minimap2 map-ont + racon consensus polishing (ONT error fix)
 #     -> per-sample vsearch --sortbysize --sample <id> + merge
-#     -> vsearch --cluster_fast --id <ONT_OTU_IDENTITY> --relabel OTU_  (OTU seqs)
+#     -> vsearch --cluster_fast --id <ONT_VSEARCH_IDENTITY> --relabel OTU_  (OTU seqs)
 #     -> map all reads back to OTUs at <ONT_MAP_IDENTITY> (ONT-error-tolerant,
 #        default 0.90) -> true read-abundance table
 #     -> import to QIIME2 (reuses import_vsearch_to_qiime2)
@@ -1509,7 +1437,7 @@ Amplicon_Pacbio_ExtractReads() {
 #   ONT_QUALITY            chopper mean-quality cutoff           (default 20)
 #   ONT_LENGTH_TOLERANCE   length window half-width fraction     (default 0.15)
 #   ONT_LENGTH_FLOOR       hard lower length bound, bp           (default 200)
-#   ONT_OTU_IDENTITY       final cluster_fast (OTU) identity     (default 0.97)
+#   ONT_VSEARCH_IDENTITY       final cluster_fast (OTU) identity     (default 0.97)
 #   ONT_MAP_IDENTITY       read->OTU mapping identity            (default 0.90)
 #                          (lower than OTU identity to tolerate raw ONT error)
 
@@ -1518,7 +1446,7 @@ Amplicon_Pacbio_ExtractReads() {
 # Out: tmp/step_03_chopper/<stem>.fastq  (+ .chopper_done marker; sets ONT_FASTQ_DIR)
 Amplicon_ONT_ChopperFilter() {
     dataset_path="${dataset_path%/}/"
-    cd "$dataset_path" || { echo "❌ [ONT] cannot cd $dataset_path"; return 1; }
+    cd "$dataset_path" || { echo "[ERROR] [ONT] cannot cd $dataset_path"; return 1; }
     trimmed_path="${dataset_path%/}"; dataset_name="${trimmed_path##*/}"
     local in_dir="${fastq_path%/}"
     local out_dir="${dataset_path%/}/tmp/step_03_chopper"
@@ -1538,11 +1466,11 @@ Amplicon_ONT_ChopperFilter() {
     local win lo hi peak
     win=$(python3 "${SCRIPTS}/py_16s.py" detect_length_window \
         --input_dir "$in_dir" --tolerance "$tol" --floor "$floor" \
-        --max_sample_reads 10000) || { echo "❌ [ONT] length window detection failed"; return 1; }
+        --max_sample_reads 10000) || { echo "[ERROR] [ONT] length window detection failed"; return 1; }
     lo=$(printf '%s\n' "$win" | awk -F= '/^LENGTH_LO=/{print $2; exit}')
     hi=$(printf '%s\n' "$win" | awk -F= '/^LENGTH_HI=/{print $2; exit}')
     peak=$(printf '%s\n' "$win" | awk -F= '/^PEAK=/{print $2; exit}')
-    [[ -n "$lo" && -n "$hi" ]] || { echo "❌ [ONT] could not parse length window"; return 1; }
+    [[ -n "$lo" && -n "$hi" ]] || { echo "[ERROR] [ONT] could not parse length window"; return 1; }
     echo "  [ONT] Length window: ${lo}-${hi} bp (peak ~${peak}), quality >= Q${qual}"
 
     local any=false fq stem
@@ -1555,7 +1483,7 @@ Amplicon_ONT_ChopperFilter() {
                { if [[ "$fq" == *.gz ]]; then zcat "$fq"; else cat "$fq"; fi; } \
                  | chopper -q "$qual" --minlength "$lo" --maxlength "$hi" -t "$threads" \
                  > "${out_dir}/${stem}.fastq" 2>>"${dataset_path%/}/tmp/ont_chopper.log" ); then
-            echo "❌ [ONT] chopper failed on ${stem}"; return 1
+            echo "[ERROR] [ONT] chopper failed on ${stem}"; return 1
         fi
         if [[ -s "${out_dir}/${stem}.fastq" ]]; then
             any=true
@@ -1564,7 +1492,8 @@ Amplicon_ONT_ChopperFilter() {
             rm -f "${out_dir}/${stem}.fastq"
         fi
     done
-    [[ "$any" == true ]] || { echo "❌ [ONT] no reads passed chopper filtering"; return 1; }
+    Audit_Fastq vsearch_chopper_reads "$out_dir" primer_trimmed_reads
+    [[ "$any" == true ]] || { echo "[ERROR] [ONT] no reads passed chopper filtering"; return 1; }
     touch "${out_dir}/.chopper_done"
     export ONT_FASTQ_DIR="$out_dir"
 }
@@ -1602,10 +1531,11 @@ Amplicon_ONT_ClusterPerSample() {
             --strand both \
             --threads "$threads" \
             --centroids "$cent" --quiet 2>>"${work}/ont_vsearch.log" \
-            || { echo "❌ [ONT] cluster_unoise failed on ${stem}"; return 1; }
+            || { echo "[ERROR] [ONT] cluster_unoise failed on ${stem}"; return 1; }
         cat "$cent" >> "${work}/combined_centroids.fasta"
     done
-    [[ -s "${work}/combined_centroids.fasta" ]] || { echo "❌ [ONT] no centroids produced"; return 1; }
+    [[ -s "${work}/combined_centroids.fasta" ]] || { echo "[ERROR] [ONT] no centroids produced"; return 1; }
+    Audit_Fasta vsearch_ont_denoised_reads "${work}/combined_centroids.fasta"
 }
 
 # ── Per-sample minimap2 (map-ont) + racon consensus polishing ───────────────
@@ -1636,7 +1566,7 @@ Amplicon_ONT_PolishRacon() {
             -K "${ONT_MINIMAP2_K:-500M}" -f "${ONT_MINIMAP2_F:-0.0002}" \
             --secondary=no -t "$threads" \
             "$cent" "$combined" > "$sam" 2>>"${work}/ont_minimap2.log" \
-            || { echo "❌ [ONT] minimap2 failed on ${stem}"; return 1; }
+            || { echo "[ERROR] [ONT] minimap2 failed on ${stem}"; return 1; }
         if racon -t "$threads" "$combined" "$sam" "$cent" \
                 > "${pol}/${stem}_polished.fasta" 2>>"${work}/ont_racon.log" \
                 && [[ -s "${pol}/${stem}_polished.fasta" ]]; then
@@ -1646,7 +1576,9 @@ Amplicon_ONT_PolishRacon() {
             cp "$cent" "${pol}/${stem}_polished.fasta"
         fi
     done
-    [[ -n "$(ls -A "$pol" 2>/dev/null)" ]] || { echo "❌ [ONT] no polished output"; return 1; }
+    [[ -n "$(ls -A "$pol" 2>/dev/null)" ]] || { echo "[ERROR] [ONT] no polished output"; return 1; }
+    Audit_Counts fasta-directory --stage vsearch_ont_polished_reads --input "$pol"
+
 }
 
 # ── Per-sample relabel (tag sample id, sort by size) + merge ────────────────
@@ -1669,11 +1601,12 @@ Amplicon_ONT_RelabelMerge() {
             --sample "$stem" \
             --threads "$threads" \
             --output "${rel}/${stem}_relabeled.fasta" --quiet 2>>"${work}/ont_vsearch.log" \
-            || { echo "❌ [ONT] relabel/sortbysize failed on ${stem}"; return 1; }
+            || { echo "[ERROR] [ONT] relabel/sortbysize failed on ${stem}"; return 1; }
         cat "${rel}/${stem}_relabeled.fasta" >> "${work}/merged_polished_relabeled.fasta"
     done
     [[ -s "${work}/merged_polished_relabeled.fasta" ]] \
-        || { echo "❌ [ONT] merged relabeled file empty"; return 1; }
+        || { echo "[ERROR] [ONT] merged relabeled file empty"; return 1; }
+    Audit_Fasta vsearch_ont_relabeled_reads "${work}/merged_polished_relabeled.fasta"
 }
 
 # ── Cluster merged polished seqs at fixed identity -> OTU representative seqs ─
@@ -1684,7 +1617,7 @@ Amplicon_ONT_ClusterID() {
     cd "$dataset_path" || return 1
     local work="${dataset_path%/}/tmp/step_06_ont"
     local threads="${THREADS_PER_DATASET:-${cpu:-4}}"
-    local id="${ONT_OTU_IDENTITY:-0.97}"
+    local id="${ONT_VSEARCH_IDENTITY:-0.97}"
     # --strand both: collapse forward and reverse-complement representatives of
     # the same amplicon into one OTU (ONT reads are not strand-normalized).
     vsearch --cluster_fast "${work}/merged_polished_relabeled.fasta" \
@@ -1693,9 +1626,10 @@ Amplicon_ONT_ClusterID() {
         --threads "$threads" \
         --relabel OTU_ --sizein --sizeout \
         --centroids "${work}/otus.fasta" --quiet 2>>"${work}/ont_vsearch.log" \
-        || { echo "❌ [ONT] cluster_fast failed"; return 1; }
-    [[ -s "${work}/otus.fasta" ]] || { echo "❌ [ONT] no OTU centroids produced"; return 1; }
+        || { echo "[ERROR] [ONT] cluster_fast failed"; return 1; }
+    [[ -s "${work}/otus.fasta" ]] || { echo "[ERROR] [ONT] no OTU centroids produced"; return 1; }
     echo "  [ONT] OTUs defined: $(grep -c '^>' "${work}/otus.fasta")"
+    Audit_Fasta vsearch_clustered_reads "${work}/otus.fasta"
 }
 
 # ── Build TRUE read-abundance table: map all reads back to OTUs (97%) + import ─
@@ -1713,13 +1647,14 @@ Amplicon_ONT_MapReadsToOTUs() {
     local threads="${THREADS_PER_DATASET:-${cpu:-4}}"
     mkdir -p "$cluster_path"
 
-    [[ -f "$manifest" ]] || { echo "❌ [ONT] manifest not found: $manifest"; return 1; }
+    [[ -f "$manifest" ]] || { echo "[ERROR] [ONT] manifest not found: $manifest"; return 1; }
 
+    Audit_Fastq vsearch_mapping_input_reads "$ONT_FASTQ_DIR"
     echo ">>> [ONT] Relabeling reads for mapping..."
     python3 "${SCRIPTS}/py_16s.py" relabel_reads_for_mapping \
         --manifest_path "$manifest" \
         --output_fasta "${work}/all_reads_labeled.fasta" \
-        --threads "$threads" || { echo "❌ [ONT] relabel_reads_for_mapping failed"; return 1; }
+        --threads "$threads" || { echo "[ERROR] [ONT] relabel_reads_for_mapping failed"; return 1; }
 
     # OTUs are clustered at 97% (accurate, racon-polished), but raw ONT reads
     # carry ~5-10% native error, so mapping them back at 97% would discard most
@@ -1743,8 +1678,9 @@ Amplicon_ONT_MapReadsToOTUs() {
         --maxaccepts "$map_acc" --maxrejects "$map_rej" \
         --otutabout "${work}/otu_table.tsv" \
         --threads "$threads" --quiet 2>>"${work}/ont_vsearch.log" \
-        || { echo "❌ [ONT] usearch_global mapping failed"; return 1; }
+        || { echo "[ERROR] [ONT] usearch_global mapping failed"; return 1; }
 
+    Audit_Counts otu --stage vsearch_mapped_reads --input "${work}/otu_table.tsv" --parent vsearch_mapping_input_reads
     echo ">>> [ONT] Importing OTU table + rep-seqs into QIIME2..."
     python3 "${SCRIPTS}/py_16s.py" import_vsearch_to_qiime2 \
         --zotu_fasta "${work}/otus.fasta" \
@@ -1752,10 +1688,10 @@ Amplicon_ONT_MapReadsToOTUs() {
         --manifest_path "$manifest" \
         --output_table_qza "${cluster_path}/${dataset_name}-table-clustered.qza" \
         --output_repseq_qza "${cluster_path}/${dataset_name}-repseq-clustered.qza" \
-        || { echo "❌ [ONT] import_vsearch_to_qiime2 failed"; return 1; }
+        || { echo "[ERROR] [ONT] import_vsearch_to_qiime2 failed"; return 1; }
+    Audit_Table vsearch_imported_reads "${cluster_path}/${dataset_name}-table-clustered.qza" vsearch_mapped_reads
 }
 
 ################################################################################
 #                              END OF FILE                                     #
 ################################################################################
-
