@@ -13,6 +13,10 @@ Meta2Data is a command-line tool for downloading, processing, and analyzing meta
 2. AmpliconPIP >> For sequencing data processing.
 3. AmpliconTAXA >> For taxonomy annotation.
 
+
+# Note: The README file is not updated yet. New version of the README file will be released before 9 Oct.
+
+
 ## Features
 
 - **Metadata Download and Pre-clean**: (MetaDL module) Search, download, and pre-clean metadata from INSDC and CNCB databases by keywords, BioProject ID, or BioSample ID. Auto-fetches BioProject descriptions and standardizes column names.
