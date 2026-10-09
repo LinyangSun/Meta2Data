@@ -21,8 +21,9 @@ Usage: multi-vsearch.sh [options]
 Complete multi-platform amplicon processing pipeline with smart primer trimming.
 
 Required options:
-    -m, --metadata FILE        Input metadata CSV file
-    -o, --output DIR           Output base directory
+    -m, --metadata FILE        Online metadata CSV
+    --local-manifest FILE       Prepared local-dataset manifest; may accompany -m
+    -o, --output DIR           Output base directory (default: results/pip)
 
 Optional options:
     -t, --threads INT          Total CPU threads available (default: 4)
@@ -48,9 +49,12 @@ COL_BIOPROJECT="Data-Bioproject"
 COL_SRA="Data-SRA"
 MODE=""
 LOCAL_MODE=0
+LOCAL_MANIFEST=""
 LOCAL_PLATFORM=""
 PRIMER_FWD=""
 PRIMER_REV=""
+PROJECT_PRIMER_MAP=""
+declare -A PROJECT_FORWARD PROJECT_REVERSE LOCAL_FORWARD LOCAL_REVERSE LOCAL_PLATFORMS
 declare -A LOCAL_SRC    # dataset_id -> source FASTQ directory (local mode)
 
 ################################################################################
@@ -66,10 +70,8 @@ while [[ $# -gt 0 ]]; do
         --col-bioproject) COL_BIOPROJECT="$2"; shift 2 ;;
         --col-sra) COL_SRA="$2"; shift 2 ;;
         --mode) MODE="$2"; shift 2 ;;
-        --local) LOCAL_MODE=1; shift ;;
-        --platform) LOCAL_PLATFORM="$2"; shift 2 ;;
-        --primer-fwd) PRIMER_FWD="$2"; shift 2 ;;
-        --primer-rev) PRIMER_REV="$2"; shift 2 ;;
+        --local-manifest) LOCAL_MANIFEST="$2"; shift 2 ;;
+        --project-primers) PROJECT_PRIMER_MAP="$2"; shift 2 ;;
         -h|--help) show_help; exit 0 ;;
         *) echo "Error: Unknown option '$1'"; show_help; exit 1 ;;
     esac
@@ -100,68 +102,57 @@ if [[ -z "${PRIMER_WINDOW:-}" ]]; then
     eval "$_defaults"
 fi
 
-# --local: read FASTQ straight from a folder (no download, no NCBI detection).
-# Requires an explicit --platform; --primer-fwd/--primer-rev are optional (without
-# them the entropy auto-detector is used, exactly as in download mode).
+# Online project mappings and local row mappings stay separate. Worker context
+# is selected anew for every ID so no platform or primer leaks between inputs.
 export LOCAL_MODE LOCAL_PLATFORM PRIMER_FWD PRIMER_REV
-if [[ "$LOCAL_MODE" == "1" ]]; then
-    case "$LOCAL_PLATFORM" in
-        ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE) ;;
-        *) echo "Error: --local requires --platform one of ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE (got '$LOCAL_PLATFORM')"; exit 1 ;;
-    esac
-    # --local always resolves to exactly one dataset / one platform (see
-    # _local_discover_datasets), so there is nothing to parallelize ACROSS
-    # datasets. Force --max-parallel 1 so the single dataset gets ALL --threads;
-    # otherwise THREADS_PER_DATASET = THREADS / MAX_PARALLEL (default 2) would
-    # leave (MAX_PARALLEL-1)/MAX_PARALLEL of the threads idle.
-    if [[ "$MAX_PARALLEL" -ne 1 ]]; then
-        echo "Note: --local processes a single dataset; forcing --max-parallel 1 (was $MAX_PARALLEL) so it uses all $THREADS thread(s)."
-        MAX_PARALLEL=1
-    fi
+if [[ -n "$PROJECT_PRIMER_MAP" ]]; then
+    [[ -n "$METADATA" && -z "$LOCAL_MANIFEST" ]] || {
+        echo "Error: project-primer mappings require online-only metadata" >&2; exit 2;
+    }
+    _primer_rows=$(python3 "${SCRIPTS}/project_primers.py" emit --mapping "$PROJECT_PRIMER_MAP") || exit 2
+    while IFS=$'\t' read -r _project _forward _reverse; do
+        PROJECT_FORWARD["$_project"]="$_forward"
+        PROJECT_REVERSE["$_project"]="$_reverse"
+    done <<< "$_primer_rows"
 fi
+
+_select_dataset_context() {
+    LOCAL_MODE=0
+    LOCAL_PLATFORM=""
+    PRIMER_FWD=""
+    PRIMER_REV=""
+    if [[ -n "${LOCAL_SRC[$1]:-}" ]]; then
+        LOCAL_MODE=1
+        LOCAL_PLATFORM="${LOCAL_PLATFORMS[$1]}"
+        PRIMER_FWD="${LOCAL_FORWARD[$1]:-}"
+        PRIMER_REV="${LOCAL_REVERSE[$1]:-}"
+    elif [[ -n "$PROJECT_PRIMER_MAP" ]]; then
+        [[ -n "${PROJECT_FORWARD[$1]:-}" ]] || {
+            echo "Error: no explicit primer mapping for dataset $1; automatic detection is disabled" >&2
+            return 2
+        }
+        PRIMER_FWD="${PROJECT_FORWARD[$1]}"
+        PRIMER_REV="${PROJECT_REVERSE[$1]:-}"
+    fi
+    export LOCAL_MODE LOCAL_PLATFORM PRIMER_FWD PRIMER_REV
+}
 
 # Strip trailing slashes from paths
 METADATA="${METADATA%/}"
 OUTPUT="${OUTPUT%/}"
 
-# Validate input
-if [[ -z "$METADATA" ]]; then
-    echo "Error: --metadata is required"
-    exit 1
-fi
-
-if [[ "$LOCAL_MODE" == "1" ]]; then
-    if [[ ! -d "$METADATA" ]]; then
-        echo "Error: --local input folder not found: '$METADATA'. Please check the path."
-        exit 1
-    fi
-    METADATA=$(cd "$METADATA" && pwd -P)
-elif [[ ! -f "$METADATA" ]]; then
-    echo "Error: Metadata file not found: '$METADATA'. Please check the path."
-    exit 1
-fi
-
-if [[ -z "$OUTPUT" ]]; then
-    if [[ "$LOCAL_MODE" == "1" ]]; then
-        echo "Error: --local requires an explicit -o/--output directory (the input folder must not double as the output)"; exit 1
-    fi
-    OUTPUT=$(dirname "$METADATA")
-fi
-
-# A worker needs at least one CPU; never launch more workers than the budget.
-if [[ "$MAX_PARALLEL" -gt "$THREADS" ]]; then
-    echo "Note: limiting --max-parallel $MAX_PARALLEL to the $THREADS available CPU(s)."
-    MAX_PARALLEL="$THREADS"
-fi
+# Validate each optional source; at least one is required.
+[[ -n "$METADATA" || -n "$LOCAL_MANIFEST" ]] || {
+    echo "Error: provide metadata or a prepared local manifest" >&2; exit 2;
+}
+[[ -z "$METADATA" || -f "$METADATA" ]] || { echo "Error: metadata CSV not found: $METADATA" >&2; exit 2; }
+[[ -z "$LOCAL_MANIFEST" || -f "$LOCAL_MANIFEST" ]] || { echo "Error: local manifest not found: $LOCAL_MANIFEST" >&2; exit 2; }
+RUN_INPUT="online=${METADATA:-none}; local=${LOCAL_MANIFEST:-none}"
+OUTPUT="${OUTPUT:-$(pwd -P)/results/pip}"
+mkdir -p "$OUTPUT"
+OUTPUT=$(cd "$OUTPUT" && pwd -P)
 export M2D_PROFILE_CPUS="$THREADS"
-
-# Compute per-dataset thread count: total threads ÷ max parallel datasets
-THREADS_PER_DATASET=$(( THREADS / MAX_PARALLEL ))
-if [[ "$THREADS_PER_DATASET" -lt 1 ]]; then
-    THREADS_PER_DATASET=1
-fi
-export THREADS_PER_DATASET
-export cpu=$THREADS_PER_DATASET
+export cpu="$THREADS"
 
 if [[ -f "${SCRIPTS}/AmpliconFunction.sh" ]]; then
     source "${SCRIPTS}/AmpliconFunction.sh"
@@ -235,7 +226,7 @@ _stage_local_reads() {
 
 _obtain_reads() {
     # _obtain_reads <dataset_path> <sra_file_name> <dataset_id>
-    # Download (normal mode) or symlink local files (--local).
+    # Download online reads or stage the current local dataset from its manifest.
     if [[ "${LOCAL_MODE:-0}" == "1" ]]; then
         _stage_local_reads "$1" "$3"
     else
@@ -253,7 +244,7 @@ _validate_platform_layout() {
     local actual_layout
     actual_layout=$(python3 "${SCRIPTS}/read_layout.py" layout --input "$1")
     if [[ "$platform" != "ILLUMINA" && "$actual_layout" == "paired" ]]; then
-        echo "SKIP: paired-end data is unsupported for platform $platform; check --platform or separate the input dataset." >&2
+        echo "SKIP: paired-end data is unsupported for platform $platform; check the platform in the local CSV or online archive metadata, or separate the input dataset." >&2
         _log_status SKIPPED "$dataset_ID" "Unsupported paired-end layout for $platform"
         exit 98
     fi
@@ -292,7 +283,7 @@ _local_register_dataset() {
     # _local_register_dataset <id> <src_dir> — register one local dataset:
     # create its dir, map its source, and write a synthetic <id>_sra.txt
     # (Run<TAB>SampleName per unique sample prefix) so Common_CountRawReads and
-    # append_summary work exactly as in download mode.
+    # audited read counts work exactly as in download mode.
     local id="$1" src="$2"
     local dpath="${OUTPUT}/${id}"
     python3 "${SCRIPTS}/read_layout.py" validate-local --input "$src" --output "$dpath"
@@ -306,17 +297,21 @@ _local_register_dataset() {
 }
 
 _local_discover_datasets() {
-    # --local takes ONE folder = ONE dataset; every FASTQ directly inside it is a
-    # sample of that dataset (dataset id = folder name). No sub-folder recursion:
-    # since --platform is a single value, one --local run handles exactly one
-    # dataset / one platform. Mixed-platform data must be run separately, one
-    # folder per run.
-    local input="${METADATA%/}"
-    Dataset_ID_sets=()
-    : > "${OUTPUT}/datasets_ID.txt"
-    echo "  Local mode: single dataset '$(basename "$input")' from $input"
-    _local_register_dataset "$(basename "$input")" "$input"
-    [[ ${#Dataset_ID_sets[@]} -gt 0 ]] || { echo "Error: no local dataset discovered"; exit 1; }
+    local local_rows id source local_platform forward reverse
+    local_rows=$(python3 "${SCRIPTS}/local_datasets.py" emit --manifest "$LOCAL_MANIFEST") || exit 2
+    [[ -n "$local_rows" ]] || { echo "Error: no local datasets in manifest" >&2; exit 2; }
+    while IFS=$'\t' read -r id source local_platform forward reverse; do
+        [[ -n "$id" && -n "$source" && -n "$local_platform" ]] || { echo "Error: invalid local dataset manifest row" >&2; exit 2; }
+        case "$local_platform" in
+            ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE) ;;
+            *) echo "Error: invalid platform for local dataset $id: $local_platform" >&2; exit 2 ;;
+        esac
+        LOCAL_FORWARD["$id"]="$forward"
+        LOCAL_REVERSE["$id"]="$reverse"
+        LOCAL_PLATFORMS["$id"]="$local_platform"
+        echo "  Local dataset '$id' from $source (platform: $local_platform)"
+        _local_register_dataset "$id" "$source"
+    done <<< "$local_rows"
 }
 
 ################################################################################
@@ -328,9 +323,9 @@ echo "PHASE 1: Dataset Preparation"
 echo "Started: $(date)"
 echo "========================================="
 
-if [[ "$LOCAL_MODE" == "1" ]]; then
-    _local_discover_datasets
-else
+Dataset_ID_sets=()
+: > "${OUTPUT}/datasets_ID.txt"
+if [[ -n "$METADATA" ]]; then
     if ! python "${SCRIPTS}/py_16s.py" GenerateDatasetsIDsFile --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" --OutputDir "$OUTPUT"; then
         echo "[ERROR] Failed to generate dataset IDs, please check your metadata file and column names for BioProject."
         exit 1
@@ -349,8 +344,26 @@ else
     fi
 fi
 
+if [[ -n "$LOCAL_MANIFEST" ]]; then
+    _local_discover_datasets
+fi
+[[ ${#Dataset_ID_sets[@]} -gt 0 ]] || { echo "Error: no datasets found" >&2; exit 2; }
+
+# Limit workers by both available CPUs and actual dataset count. A single
+# dataset receives the whole CPU budget, including in local mode.
+if [[ "$MAX_PARALLEL" -gt "$THREADS" ]]; then
+    MAX_PARALLEL="$THREADS"
+fi
+if [[ "$MAX_PARALLEL" -gt "${#Dataset_ID_sets[@]}" ]]; then
+    MAX_PARALLEL="${#Dataset_ID_sets[@]}"
+fi
+THREADS_PER_DATASET=$(( THREADS / MAX_PARALLEL ))
+export THREADS_PER_DATASET
+export cpu="$THREADS_PER_DATASET"
+
 # Preserve checkpoints only for the same inputs and effective settings.
 for _id in "${Dataset_ID_sets[@]}"; do
+    _select_dataset_context "$_id"
     python3 "${SCRIPTS}/pip_state.py" --dataset "${OUTPUT}/${_id}" --method "$MODE" \
         --local-source "${LOCAL_SRC[$_id]:-}" --platform "$LOCAL_PLATFORM" \
         --forward "$PRIMER_FWD" --reverse "$PRIMER_REV"
@@ -368,7 +381,7 @@ echo "Started: $(date)"
 echo "========================================="
 
 export PLATFORM_CACHE_FILE="${OUTPUT}/.platform_cache.txt"
-if [[ "$LOCAL_MODE" != "1" ]]; then
+if [[ -n "$METADATA" ]]; then
 _pairs_file="${OUTPUT}/.platform_query_pairs.txt"
 : > "$PLATFORM_CACHE_FILE"
 : > "$_pairs_file"
@@ -376,6 +389,7 @@ _pairs_file="${OUTPUT}/.platform_query_pairs.txt"
 # Collect dataset_id<TAB>first_srr[<TAB>bioproject_id] for datasets that still
 # lack a platform (i.e. not already processed).
 for _ds_id in "${Dataset_ID_sets[@]}"; do
+    [[ -n "${LOCAL_SRC[$_ds_id]:-}" ]] && continue
     _ds_path="${OUTPUT}/${_ds_id}"
 
     # Skip already processed (mode-specific: an dada2 run does not block a later vsearch run)
@@ -405,7 +419,7 @@ if [[ -s "$_pairs_file" ]]; then
 fi
 
 rm -f "$_pairs_file"
-fi   # end Phase 1.5 (skipped in --local mode)
+fi   # end Phase 1.5 (online datasets only)
 echo ""
 
 ################################################################################
@@ -430,7 +444,7 @@ _log_status() {
 
 # Dated run header, then record the current line count so the end-of-run tally
 # counts only THIS run's events (the log accumulates across runs).
-printf '# === RUN %s | mode=%s | metadata=%s ===\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$MODE" "$METADATA" >> "$RUN_LOG"
+printf '# === RUN %s | mode=%s | metadata=%s ===\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$MODE" "$RUN_INPUT" >> "$RUN_LOG"
 _log_start=$(wc -l < "$RUN_LOG" 2>/dev/null || echo 0)
 
 echo "Threads: $THREADS total, $MAX_PARALLEL parallel datasets, $THREADS_PER_DATASET threads per dataset"
@@ -473,6 +487,7 @@ _pipeline_start=$(date +%s)
 
 for i in "${!Dataset_ID_sets[@]}"; do
     dataset_ID="${Dataset_ID_sets[$i]}"
+    _select_dataset_context "$dataset_ID"
     dataset_path="${OUTPUT}/${dataset_ID}"
     sra_file_name="${dataset_ID}_sra.txt"
     log_file="${OUTPUT}/logs/${dataset_ID}.log"
@@ -514,7 +529,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
         export READ_COUNTS_REPORTS
         trap 'rc=$?; Audit_Exit "$rc" || exit 1' EXIT
 
-        # 1. Platform Detection — --local uses --platform; otherwise the
+        # 1. Local rows supply their platform; online datasets use the
         #    pre-detected cache, with an API fallback on cache miss.
         if [[ "$LOCAL_MODE" == "1" ]]; then
             platform="$LOCAL_PLATFORM"
@@ -596,7 +611,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                     if [[ "$quality_status" != "normal" && "$quality_status" != "degraded_binned" ]]; then
                         echo ">>> Quality cache stale/invalid ('$quality_status'); re-testing..."
                         quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
-                            --input_dir "$fastp_path" --n_samples 3 --n_reads 1000)
+                            --input_dir "$fastp_path")
                         quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
                     fi
                     echo "$quality_status" > "$quality_cache"
@@ -604,7 +619,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 else
                     echo ">>> Checking quality score diversity..."
                     quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
-                        --input_dir "$fastp_path" --n_samples 3 --n_reads 1000)
+                        --input_dir "$fastp_path")
                     quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
                     echo "$quality_status" > "$quality_cache"
                     echo "Quality status: $quality_status"
@@ -639,7 +654,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
                     fi
                     echo ">>> Checking quality score diversity (early probe, first 2 samples)..."
                     quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
-                        --input_dir "${probe_base}/ori_fastq" --n_samples 2 --n_reads 1000)
+                        --input_dir "${probe_base}/ori_fastq")
                     quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
                     echo "$quality_status" > "$quality_cache"
                     echo "Quality status (early probe): $quality_status"
@@ -689,13 +704,13 @@ for i in "${!Dataset_ID_sets[@]}"; do
                 export sequence_type
                 original_sequence_type="$sequence_type"
 
-                # ── Quality Score Diversity Check (first 3 samples) ──
+                # ── Quality Score Diversity Check ──
                 # dada2 already determined quality from the early probe above; only
                 # vsearch needs it here (to pick maxee vs truncation preprocess).
                 if [[ "$MODE" != "dada2" || "$LOCAL_MODE" == "1" ]]; then
                     echo ">>> Checking quality score diversity..."
                     quality_result=$(python3 "${SCRIPTS}/py_16s.py" check_quality_diversity \
-                        --input_dir "$ori_fastq_path" --n_samples 3 --n_reads 1000)
+                        --input_dir "$ori_fastq_path")
                     quality_status=$(echo "$quality_result" | grep "^QUALITY_STATUS=" | cut -d= -f2)
                     echo "$quality_status" > "$quality_cache"
                     echo "Quality status: $quality_status"
@@ -849,8 +864,8 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
 
         elif [[ "$platform" == "LS454" ]]; then
             if [[ "$MODE" == "dada2" ]]; then
-                # 454 has no DADA2 method → cannot produce ASVs. Skip (belongs to --vsearch).
-                echo ">>> SKIP: LS454 (454) has no DADA2 method → not supported in --dada2. Use --vsearch."
+                # Meta2Data currently routes 454 through its vsearch chain.
+                echo ">>> SKIP: this Meta2Data release supports LS454 through --vsearch only."
                 _log_status SKIPPED "$dataset_ID" "dada2 mode, platform=LS454"
                 echo "[$(date '+%H:%M:%S')] [${dataset_ID}] SKIPPED (dada2: 454 unsupported)" >&3
                 exit 98
@@ -896,7 +911,7 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
 
                 if [[ "$LOCAL_MODE" != "1" ]]; then
                     python3 "${SCRIPTS}/read_layout.py" normalize --input "$ori_fastq_path" \
-                        --output "${dataset_path}/read_layout.json"
+                        --expected-layout SE --output "${dataset_path}/read_layout.json"
                 fi
                 _validate_platform_layout "$ori_fastq_path"
                 Common_CountRawReads "$dataset_path" "$sra_file_name"
@@ -921,8 +936,7 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
             _emit_prep_done "$_ds_start" "$dataset_ID"
 
             # ── Step D: Adaptive tail trimming (data-driven N removal) ──
-            # Analyses per-position N frequency at 3' end, trims elevated-N
-            # tail, then computes P95 of remaining N counts for QC threshold.
+            # Trim the shared elevated-N tail before per-sample length/N QC.
             adaptive_trim_path="${dataset_path}/tmp/step_02b_adaptive_trim"
             mkdir -p "$adaptive_trim_path"
 
@@ -933,30 +947,28 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
                 --max_sample_reads 10000)
 
             trim_length=$(echo "$trim_result" | grep "^TRIM_LENGTH=" | cut -d= -f2)
-            max_ambiguous=$(echo "$trim_result" | grep "^MAX_AMBIGUOUS=" | cut -d= -f2)
-            export max_ambiguous
-
             echo "  Trim length: ${trim_length} bp"
-            echo "  Max ambiguous (P95): ${max_ambiguous}"
 
             Audit_Fastq vsearch_adaptive_trimmed_reads "$adaptive_trim_path" primer_trimmed_reads
 
             # Clean up pre-trim FASTQ
             rm -rf "$fastp_path"
 
-            # ── OTU back-end (unified pooled vsearch chain) ──
-            # 454 is vsearch-only (no DADA2 method). §4.x (user-accepted) behaviour
-            # change: the old QIIME2 dedup→chimera→cluster path is replaced by the
-            # shared UNOISE3 → cluster_fast 97% → map-back chain. Abundance now
-            # comes from read map-back (not cluster size), with added UNOISE3
-            # denoising. NOTE for review: the old LS454_QualityControlForQZA
-            # q-score/length filter is dropped; adaptive_tail_trim handles the
-            # 3' N-tail but there is no explicit quality (maxee) filter for 454.
-            fastq_path="$adaptive_trim_path"
+            # Dataset-wide primer/tail trimming is complete. The length floor
+            # is now computed independently from each sample's trimmed reads.
+            ls454_qc_path="${dataset_path}/tmp/step_03_ls454_qc"
+            rm -rf "$ls454_qc_path"
+            python3 "${SCRIPTS}/ls454_quality.py" preprocess \
+                --input "$adaptive_trim_path" --output-dir "$ls454_qc_path" \
+                --report "${dataset_path}/ls454_quality-vsearch.json" \
+                --length-fraction "$LS454_LENGTH_FRACTION" \
+                --max-n "$LS454_MAX_N"
+            Audit_Fastq vsearch_length_n_filtered_reads "$ls454_qc_path" vsearch_adaptive_trimmed_reads
+            fastq_path="$ls454_qc_path"
             export fastq_path
             sequence_type="single"; export sequence_type
             VSEARCH_STRAND="plus"; export VSEARCH_STRAND
-            Amplicon_Vsearch_RunPooledChain
+            Amplicon_LS454_RunChain
 
         elif [[ "$platform" == "ION_TORRENT" ]]; then
             fastp_path="${dataset_path}/tmp/step_02_fastp"
@@ -993,7 +1005,7 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
 
                 if [[ "$LOCAL_MODE" != "1" ]]; then
                     python3 "${SCRIPTS}/read_layout.py" normalize --input "$ori_fastq_path" \
-                        --output "${dataset_path}/read_layout.json"
+                        --expected-layout SE --output "${dataset_path}/read_layout.json"
                 fi
                 _validate_platform_layout "$ori_fastq_path"
                 Common_CountRawReads "$dataset_path" "$sra_file_name"
@@ -1017,6 +1029,8 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
 
             _emit_prep_done "$_ds_start" "$dataset_ID"
 
+            Amplicon_IonTorrent_SetMaxEE
+
             if [[ "$MODE" == "vsearch" ]]; then
                 # ── vsearch: configurable extra 5' trimming + maxee → shared pooled vsearch chain ──
                 Amplicon_IonTorrent_Vsearch_Preprocess
@@ -1026,7 +1040,7 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
                 # ── DADA2: QIIME2 Import → Quality filter → DADA2 denoise-pyro ──
                 # Additional Ion Torrent trimming is explicit and configurable.
                 # The default is zero after primer removal.
-                # trunc-len is computed automatically from QC visualization.
+                # No fixed-length truncation; denoise-pyro retains its Q2 cutoff.
                 fastq_path="$fastp_path"
                 export fastq_path
                 Common_SanitizeFastq
@@ -1092,7 +1106,7 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
 
                 if [[ "$LOCAL_MODE" != "1" ]]; then
                     python3 "${SCRIPTS}/read_layout.py" normalize --input "$ori_fastq_path" \
-                        --output "${dataset_path}/read_layout.json"
+                        --expected-layout SE --output "${dataset_path}/read_layout.json"
                 fi
                 _validate_platform_layout "$ori_fastq_path"
                 Common_CountRawReads "$dataset_path" "$sra_file_name"
@@ -1177,7 +1191,7 @@ manifest([row['r1'] for row in rows], sys.argv[1], False, sample_ids=[row['sampl
 
                 if [[ "$LOCAL_MODE" != "1" ]]; then
                     python3 "${SCRIPTS}/read_layout.py" normalize --input "$ori_fastq_path" \
-                        --output "${dataset_path}/read_layout.json"
+                        --expected-layout SE --output "${dataset_path}/read_layout.json"
                 fi
                 _validate_platform_layout "$ori_fastq_path"
                 Common_CountRawReads "$dataset_path" "$sra_file_name"
@@ -1264,7 +1278,6 @@ else:
                 export primer_front
                 export primer_adapter
                 Amplicon_Pacbio_DenosingDada2
-                Amplicon_Pacbio_ExtractReads
                 Amplicon_Common_FinalFilesCleaning
                 fi
 

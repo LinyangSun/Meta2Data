@@ -34,7 +34,7 @@ All original columns remain available in the archived native statistics file.
 VSEARCH records pair-merge attempts, the chosen preprocessing input, quality or
 combined length/N filtering, adaptive trimming or chopper filtering where used,
 preprocessed reads, dereplication, abundance filtering, preclustering, UNOISE,
-chimera removal, OTU clustering, mapping input, mapped abundance, imported table,
+chimera removal, vsearch clustering, mapping input, mapped abundance, imported table,
 and final low-frequency-filtered table. ONT also has denoising, polishing and
 relabeling columns. A combined tool operation has one output count; this does not
 invent separate intermediate outputs for simultaneous filter criteria.
@@ -77,7 +77,7 @@ Alignment/masking/tree construction
 operate on representatives and do not constitute additional read-table filters.
 Multi-region runs check that retained plus SEPP-unplaced abundance equals the
 oriented input, including an empty removed table. Samples with total dropout remain
-as zero rows. TAXA counts are **feature-table abundance**, not ASV/OTU richness.
+as zero rows. TAXA counts are **feature-table abundance**, not the number of representative features.
 
 ## Persistence, retries and cleanup
 
@@ -116,6 +116,11 @@ are normalized to TSV. The existing `summary.csv` filename and `RawReads` /
 `FinalReads` names are preserved. Shell helper calls outside the PIP runner do not
 create a ledger unless initialized by the runner.
 
-Validation and example outputs: `validation/read-counts-20260921/`.
-The pre-existing SIF is not rebuilt by this source-code change; the validation uses
-its installed tools to execute the revised scripts from the host source directory.
+With `Meta2Data.sif`, run the packaged command directly:
+
+```bash
+apptainer exec --cleanenv Meta2Data.sif Meta2Data AmpliconPIP --help
+```
+
+The read-count output structure is the same as described above. See
+[container.md](container.md) for SIF usage.

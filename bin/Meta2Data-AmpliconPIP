@@ -1,8 +1,12 @@
 #!/bin/bash
 set -e
 
-# Find scripts directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# Resolve symlinks before locating sibling commands or packaged scripts.
+_M2D_ENTRYPOINT="$(readlink -f -- "${BASH_SOURCE[0]}")" || {
+    echo "ERROR: Cannot resolve Meta2Data entry point: ${BASH_SOURCE[0]}" >&2
+    exit 1
+}
+SCRIPT_DIR="$(dirname -- "$(dirname -- "$_M2D_ENTRYPOINT")")"
 
 # Search for scripts directory in multiple possible locations
 find_scripts_dir() {
@@ -41,96 +45,86 @@ show_help() {
     cat << EOF
 Usage: Meta2Data AmpliconPIP [options]
 
-Download and process amplicon sequencing data based on user provided metadata.
+Download or read amplicon data and process it with dada2 or vsearch.
+Choose exactly one method: --dada2 or --vsearch (no default).
 
-Options:
-    -m, --metadata PATH       Metadata CSV, or a FASTQ folder with --local
-    --col-bioproject Chr     Column name for BioProject in metadata (required for metadata input unless --test)
-    --col-sra Chr            Column name for SRA accession in metadata (required for metadata input unless --test)
-    --dada2 | --vsearch       Denoising mode (REQUIRED: specify exactly one; no default).
-                              --dada2 : DADA2 only, single-base ASV resolution.
-                                      Platforms Illumina / Ion Torrent / PacBio CCS;
-                                      454, ONT and degraded/binned quality are skipped.
-                              --vsearch : vsearch only, 97%-identity OTU.
-                                      Platform-specific processing for all 5 platforms.
+Online batch mode (primers detected separately for each dataset):
+    --public-m FILE                     Metadata CSV
+    --public-bioproject-colNAME NAME    BioProject column (required with a user CSV)
+    --public-sra-colNAME NAME           Run column (required with a user CSV)
 
-Optional options:
-    -o, --output DIR          Output base directory
-                              Default: current directory in --test mode
-                                       metadata file directory in normal mode
-    -t, --threads int         Total CPU threads available (default: 4)
-                              Automatically split across parallel datasets:
-                              per-dataset threads = threads ÷ max-parallel
-    --max-parallel int        Number of datasets to process in parallel (default: 2)
-    --local                  Read one local FASTQ folder given with -m; no download.
-    --platform PLATFORM      Required with --local: ILLUMINA, LS454, ION_TORRENT,
-                              PACBIO_SMRT or OXFORD_NANOPORE.
-    --primer-fwd SEQUENCE     Explicit forward primer (optional).
-    --primer-rev SEQUENCE     Explicit reverse primer (optional).
-    --skip-unknown-primers    Skip a dataset when an unknown primer is detected.
-                              Default: trim 20 bp when no database match and fold <16.
-    --parameter FILE         JSON overrides; see docs/parameters.default.json.
-    --adapter-guard          Check inferred adapters against a 16S reference;
-                              retry protected samples without de novo trimming.
-    --no-adapter-guard       Disable the optional adapter guard (default).
-    --adapter-ref FILE       16S FASTA or FeatureData[Sequence] QZA for the guard.
-    --db DIR                 Reuse TAXA's GG2 reference directory for the guard.
-    --dl                     Download a missing GG2 backbone into --db.
-    --adapter-cache DIR      Shared BLAST index/query cache (default: <db>/adapter_guard).
-    --test                    Run in test mode.
-                              If -m is provided: subset metadata (2 SRA per BioProject)
-                              If -m is omitted:  use built-in test file
-                              Output defaults to current directory in test mode
-    -h, --help                Show this help message
+Selected projects with explicit primers:
+    --public-bioprojectIDs ID ...       Select projects from the original CSV; off by default.
+    --public-primer-fwd SEQ ...         One forward primer per selected project, same order.
+    --public-primer-rev SEQ ...         Optional reverse list; if provided, one per project.
+                                        Requires --public-m and both public column options. All selected
+                                        projects use explicit primers; no automatic detection.
+                                        No broadcasting or automatic reverse-primer filling.
 
-Metadata CSV file format:
-    Required columns (customizable with --col-* options):
-    - Bioproject          : BioProject accession (e.g., PRJNA123456)
-    - Run                 : SRA run accession (e.g., SRR123456)
+Local metadata CSV (can be combined with ordinary online --public-m input):
+    --local-m FILE                      CSV listing local datasets; no download for these rows.
+    --local-datasets-colNAME NAME       Dataset name column (required with --local-m).
+    --local-path-colNAME NAME           FASTQ directory column (required with --local-m).
+    --local-platform-colNAME NAME       Platform column (required with --local-m).
+    --local-primer-f-colNAME NAME       Optional forward-primer column; enables explicit primers
+                                        for rows containing a sequence. Empty rows auto-detect.
+    --local-primer-r-colNAME NAME       Optional reverse-primer column; requires the forward
+                                        column option. A reverse value requires a forward value.
+                                        Paths are relative to the local CSV or absolute.
+                                        Each row has its own platform and optional primers.
+                                        Mixed input cannot use --public-bioprojectIDs or --test.
 
-Example CSV:
-    Bioproject,Run
-    PRJNA12345,SRR123456
-    PRJNA12345,SRR123457
+Output and resources:
+    Results are saved in results/pip/ in the startup working directory.
+    Start independent analyses from different working directories.
+    -t, --threads N                     Total threads (default: 4).
+    --max-parallel N                    Concurrent datasets (default: 2). Limited by dataset
+                                        count and total threads; one dataset uses all threads.
+    --parameter FILE                    JSON overrides; see docs/parameters.default.json.
+                                        Ion EE defaults to post-primer median read length
+                                        multiplied by 10^(-19/10), for both methods.
+                                        Set vsearch.ion_maxee / dada2.ion_maxee to override.
+                                        454 filters each sample after primer/tail trimming:
+                                        length >= ceil(0.5 * its median), then at most 1 N.
+                                        Override ls454.length_fraction / ls454.max_n in JSON.
+                                        Filtering precedes 99% preclustering; mapping uses
+                                        filtered reads and excludes identified chimera members.
+    --skip-unknown-primers              Both input types: skip entire datasets with unknown primers
+                                        instead of the default 20 bp trim (no match and fold <16).
 
-Example usage:
-    # Test mode (built-in test data) — a denoising mode is still required
+Adapter protection (enabled by default; normal adapter removal still runs when disabled):
+    --adapter-guard                     Check fastp candidates against a 16S reference (default).
+                                        Missing GG2 reference is prepared automatically in
+                                        <working directory>/results/db/.
+                                        The BLAST cache is fixed at results/db/adapter_guard/.
+    --no-adapter-guard                  Disable the additional check.
+
+Tests and help:
+    --test                              Online input only; cannot combine with --local-m.
+                                        Without --public-m: built-in accession list.
+                                        With --public-m: first 2 rows per project, after any selection.
+                                        Downloads complete Runs, not subsampled reads.
+    -h, --help                          Show this help.
+
+Examples:
     Meta2Data AmpliconPIP --test --vsearch -t 8
+    Meta2Data AmpliconPIP --public-m metadata.csv --public-bioproject-colNAME Bioproject --public-sra-colNAME Run --vsearch
+    Meta2Data AmpliconPIP --public-m metadata.csv --public-bioproject-colNAME Bioproject --public-sra-colNAME Run --public-bioprojectIDs PRJNA12345 PRJNA67890 --public-primer-fwd CCTACGGGNGGCWGCAG GTGYCAGCMGCCGCGGTAA --vsearch
+    Meta2Data AmpliconPIP --local-m local_metadata.csv --local-datasets-colNAME datasets --local-path-colNAME path --local-platform-colNAME platform --dada2
+    Meta2Data AmpliconPIP --public-m metadata.csv --public-bioproject-colNAME Bioproject --public-sra-colNAME Run --local-m local_metadata.csv --local-datasets-colNAME datasets --local-path-colNAME path --local-platform-colNAME platform --vsearch
+    Meta2Data AmpliconTAXA --vsearch -i results/pip --classifier greengenes
 
-    # Test mode (with user metadata: 2 SRA per BioProject)
-    Meta2Data AmpliconPIP --test --vsearch -m metadata.csv --col-bioproject Bioproject --col-sra Run -t 8
-
-    # Basic usage
-    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --dada2 -t 8
-
-    # Custom output directory
-    Meta2Data AmpliconPIP -m metadata.csv -o /output/ --col-bioproject Bioproject --col-sra Run --dada2 -t 8
-
-    # DADA2 mode (DADA2) — explicit mode is required
-    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --dada2 -t 8
-
-    # vsearch mode (vsearch 97%, genus level)
-    Meta2Data AmpliconPIP -m metadata.csv --col-bioproject Bioproject --col-sra Run --vsearch -t 8
-
-    # Then assign taxonomy separately (recommended) — mode must match the PIP run
-    Meta2Data AmpliconTAXA --vsearch --db /path/to/gg2db -i /output/ -t 8
-
-Output structure:
-    <output_dir>/
-    ├── datasets_ID.txt              # Generated dataset list
-    ├── <dataset_ID>/                # One directory per dataset
-    │   ├── <dataset_ID>_sra.txt     # SRA accession list
-    │   ├── <dataset_ID>-<mode>-final-rep-seqs.qza  # Final sequences (mode=dada2|vsearch)
-    │   └── <dataset_ID>-<mode>-final-table.qza     # Final feature table
-    ├── failed_datasets.log
-    ├── success_datasets.log
-    └── skipped_datasets.log
-
+Major outputs:
+    <dataset>/<dataset>-<method>-final-table.qza
+    <dataset>/<dataset>-<method>-final-rep-seqs.qza
+    summary.csv, pip_dataset_read_counts.csv, per_dataset_summary.tsv
+    datasets.log, logs/<dataset>.log
+    selected_metadata.csv, project_primers.json (selected-project mode only)
+    local_datasets.json (local input and per-dataset primers)
 EOF
 }
 
 METADATA=""
-OUTPUT=""
 THREADS=4
 MAX_PARALLEL=2
 TEST_MODE=false
@@ -138,18 +132,69 @@ MODE=""
 
 COL_BIOPROJECT=""
 COL_SRA=""
-LOCAL_MODE=false
-LOCAL_PLATFORM=""
-PRIMER_FWD=""
-PRIMER_REV=""
-ADAPTER_REF=""
-ADAPTER_DB_DIR=""
-ADAPTER_DL=false
-ADAPTER_CACHE=""
+LOCAL_METADATA=""
+LOCAL_MANIFEST=""
+LOCAL_COL_DATASETS=""
+LOCAL_COL_PATH=""
+LOCAL_COL_PLATFORM=""
+LOCAL_COL_PRIMER_F=""
+LOCAL_COL_PRIMER_R=""
+LOCAL_COLUMNS_SET=false
+BIOPROJECT_IDS=()
+PRIMER_FWDS=()
+PRIMER_REVS=()
+PROJECT_PRIMER_MAP=""
+START_CWD="$(pwd -P)"
+
+# Validate the public interface before loading configuration or writing results.
+_args=("$@")
+for (( _i=0; _i<${#_args[@]}; _i++ )); do
+    _option="${_args[$_i]}"
+    _replacement=""
+    case "${_option%%=*}" in
+        --adapter-ref|--adapter-cache)
+            echo "Error: ${_option%%=*} has been removed. Adapter protection automatically uses GG2; its cache is fixed at results/db/adapter_guard/ in the startup working directory." >&2
+            exit 2
+            ;;
+        -m|--metadata) _replacement="--public-m" ;;
+        --col-bioproject) _replacement="--public-bioproject-colNAME" ;;
+        --col-sra) _replacement="--public-sra-colNAME" ;;
+        --bioprojectIDs) _replacement="--public-bioprojectIDs" ;;
+        --primer-fwd) _replacement="--public-primer-fwd" ;;
+        --primer-rev) _replacement="--public-primer-rev" ;;
+        --local-col-datasets) _replacement="--local-datasets-colNAME" ;;
+        --local-col-path) _replacement="--local-path-colNAME" ;;
+        --local-col-platform) _replacement="--local-platform-colNAME" ;;
+        --local-col-primer-f) _replacement="--local-primer-f-colNAME" ;;
+        --local-col-primer-r) _replacement="--local-primer-r-colNAME" ;;
+    esac
+    if [[ -n "$_replacement" ]]; then
+        echo "Error: ${_option%%=*} has been removed. Use $_replacement instead; see --help." >&2
+        exit 2
+    fi
+    case "$_option" in
+        --public-m|--public-bioproject-colNAME|--public-sra-colNAME|\
+        --local-m|--local-datasets-colNAME|--local-path-colNAME|--local-platform-colNAME|\
+        --local-primer-f-colNAME|--local-primer-r-colNAME|\
+        -t|--threads|--max-parallel|--parameter)
+            _value="${_args[$((_i+1))]:-}"
+            [[ -n "$_value" && "$_value" != -* ]] || {
+                echo "Error: $_option requires a value" >&2
+                exit 2
+            }
+            ;;
+        --public-bioprojectIDs|--public-primer-fwd|--public-primer-rev)
+            _value="${_args[$((_i+1))]:-}"
+            [[ -n "$_value" && "$_value" != -* ]] || {
+                echo "Error: $_option requires one or more values" >&2
+                exit 2
+            }
+            ;;
+    esac
+done
 
 # Load configuration first; explicit command-line options below take precedence.
 PARAMETER_FILE=""
-_args=("$@")
 for (( _i=0; _i<${#_args[@]}; _i++ )); do
     if [[ "${_args[$_i]}" == "--parameter" ]]; then
         PARAMETER_FILE="${_args[$((_i+1))]:-}"
@@ -165,8 +210,23 @@ export PARAMETER_FILE
 
 while [[ $# -gt 0 ]]; do
     case $1 in
-        -m|--metadata)
+        --public-m)
             METADATA="$2"
+            shift 2
+            ;;
+        --local|--localinput|--input|--localIDs|--platform)
+            echo "Error: $1 has been removed. Use --local-m local_metadata.csv with dataset, path, platform and optional primer columns; see --help." >&2
+            exit 2
+            ;;
+        --local-m|--local-datasets-colNAME|--local-path-colNAME|--local-platform-colNAME|--local-primer-f-colNAME|--local-primer-r-colNAME)
+            case "$1" in
+                --local-m) LOCAL_METADATA="$2" ;;
+                --local-datasets-colNAME) LOCAL_COL_DATASETS="$2"; LOCAL_COLUMNS_SET=true ;;
+                --local-path-colNAME) LOCAL_COL_PATH="$2"; LOCAL_COLUMNS_SET=true ;;
+                --local-platform-colNAME) LOCAL_COL_PLATFORM="$2"; LOCAL_COLUMNS_SET=true ;;
+                --local-primer-f-colNAME) LOCAL_COL_PRIMER_F="$2"; LOCAL_COLUMNS_SET=true ;;
+                --local-primer-r-colNAME) LOCAL_COL_PRIMER_R="$2"; LOCAL_COLUMNS_SET=true ;;
+            esac
             shift 2
             ;;
         --dada2)
@@ -185,9 +245,9 @@ while [[ $# -gt 0 ]]; do
             MODE="vsearch"
             shift
             ;;
-        -o|--output)
-            OUTPUT="$2"
-            shift 2
+        -o|--output|--output=*)
+            echo "Error: $1 has been removed. AmpliconPIP writes to results/pip/ in the startup working directory; start another analysis from a different working directory." >&2
+            exit 2
             ;;
         -t|--threads)
             THREADS="$2"
@@ -200,38 +260,37 @@ while [[ $# -gt 0 ]]; do
         --parameter) shift 2 ;;
         --adapter-guard) export ADAPTER_GUARD_ENABLED=true; shift ;;
         --no-adapter-guard) export ADAPTER_GUARD_ENABLED=false; shift ;;
-        --adapter-ref) ADAPTER_REF="$2"; shift 2 ;;
-        --db) ADAPTER_DB_DIR="$2"; shift 2 ;;
-        --dl) ADAPTER_DL=true; shift ;;
-        --adapter-cache) ADAPTER_CACHE="$2"; shift 2 ;;
+        --db|--dl)
+            echo "Error: $1 has been removed; adapter references are prepared automatically in results/db/." >&2
+            exit 2
+            ;;
         --skip-unknown-primers) export SKIP_UNKNOWN_PRIMERS=true; shift ;;
         --test)
             TEST_MODE=true
             shift
             ;;
-        --col-bioproject)
+        --public-bioproject-colNAME)
             COL_BIOPROJECT="$2"
             shift 2
             ;;
-        --col-sra)
+        --public-sra-colNAME)
             COL_SRA="$2"
             shift 2
             ;;
-        --local)
-            LOCAL_MODE=true
+        --public-bioprojectIDs|--public-primer-fwd|--public-primer-rev)
+            _list_option="$1"
             shift
-            ;;
-        --platform)
-            LOCAL_PLATFORM="$2"
-            shift 2
-            ;;
-        --primer-fwd)
-            PRIMER_FWD="$2"
-            shift 2
-            ;;
-        --primer-rev)
-            PRIMER_REV="$2"
-            shift 2
+            _values=()
+            while [[ $# -gt 0 && "$1" != -* ]]; do
+                _values+=("$1")
+                shift
+            done
+            [[ ${#_values[@]} -gt 0 ]] || { echo "Error: $_list_option requires one or more values" >&2; exit 2; }
+            case "$_list_option" in
+                --public-bioprojectIDs) BIOPROJECT_IDS+=("${_values[@]}") ;;
+                --public-primer-fwd) PRIMER_FWDS+=("${_values[@]}") ;;
+                --public-primer-rev) PRIMER_REVS+=("${_values[@]}") ;;
+            esac
             ;;
         -h|--help)
             show_help
@@ -244,6 +303,54 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
+
+# Local datasets and primers are configured per row; command-line primers are
+# reserved for selected online projects. Validate scope before any side effects.
+if [[ -n "$LOCAL_METADATA" ]]; then
+    [[ "$TEST_MODE" == false ]] || { echo "Error: --test is online-only and cannot be combined with --local-m" >&2; exit 2; }
+    [[ ${#BIOPROJECT_IDS[@]} -eq 0 ]] || { echo "Error: --public-bioprojectIDs cannot be combined with --local-m; mixed input supports ordinary online metadata only" >&2; exit 2; }
+elif [[ "$LOCAL_COLUMNS_SET" == true ]]; then
+    echo "Error: --local-*-colNAME options require --local-m FILE" >&2
+    exit 2
+fi
+[[ -z "$LOCAL_COL_PRIMER_R" || -n "$LOCAL_COL_PRIMER_F" ]] || {
+    echo "Error: --local-primer-r-colNAME requires --local-primer-f-colNAME" >&2; exit 2;
+}
+if [[ -z "$METADATA" && -n "$LOCAL_METADATA" && ( -n "$COL_BIOPROJECT" || -n "$COL_SRA" ) ]]; then
+    echo "Error: --public-bioproject-colNAME and --public-sra-colNAME require online --public-m input" >&2
+    exit 2
+fi
+if [[ ${#BIOPROJECT_IDS[@]} -gt 0 ]]; then
+    [[ -n "$METADATA" && -n "$COL_BIOPROJECT" && -n "$COL_SRA" ]] || {
+        echo "Error: --public-bioprojectIDs requires --public-m, --public-bioproject-colNAME and --public-sra-colNAME" >&2; exit 2;
+    }
+    [[ ${#PRIMER_FWDS[@]} -eq ${#BIOPROJECT_IDS[@]} ]] || {
+        echo "Error: --public-primer-fwd must provide one primer per --public-bioprojectIDs entry" >&2; exit 2;
+    }
+    [[ ${#PRIMER_REVS[@]} -eq 0 || ${#PRIMER_REVS[@]} -eq ${#BIOPROJECT_IDS[@]} ]] || {
+        echo "Error: --public-primer-rev must provide one primer per --public-bioprojectIDs entry, or be omitted entirely" >&2; exit 2;
+    }
+elif [[ ${#PRIMER_FWDS[@]} -gt 0 || ${#PRIMER_REVS[@]} -gt 0 ]]; then
+    echo "Error: online explicit primers require --public-bioprojectIDs; local primers must be mapped from --local-m CSV columns" >&2
+    exit 2
+fi
+
+# Dataset, path and platform column mappings must be explicit for all local input,
+# including commands that also process online metadata.
+if [[ -n "$LOCAL_METADATA" ]]; then
+    [[ -n "$LOCAL_COL_DATASETS" ]] || {
+        echo "Error: --local-m requires --local-datasets-colNAME NAME to identify the dataset name column" >&2
+        exit 2
+    }
+    [[ -n "$LOCAL_COL_PATH" ]] || {
+        echo "Error: --local-m requires --local-path-colNAME NAME to identify the FASTQ directory column" >&2
+        exit 2
+    }
+    [[ -n "$LOCAL_COL_PLATFORM" ]] || {
+        echo "Error: --local-m requires --local-platform-colNAME NAME to identify the sequencing platform column" >&2
+        exit 2
+    }
+fi
 
 # Validate thread count is a positive integer
 if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
@@ -258,7 +365,6 @@ if ! [[ "$MAX_PARALLEL" =~ ^[1-9][0-9]*$ ]]; then
 fi
 
 METADATA="${METADATA%/}"
-OUTPUT="${OUTPUT%/}"
 
 if [[ "$TEST_MODE" == true ]]; then
     if [[ -n "$METADATA" ]]; then
@@ -267,12 +373,12 @@ if [[ "$TEST_MODE" == true ]]; then
         echo "Test mode enabled with user metadata: $METADATA"
 
         if [[ -z "$COL_BIOPROJECT" ]]; then
-            echo "Error: --col-bioproject is required when using --test with -m"
+            echo "Error: --public-bioproject-colNAME is required when using --test with --public-m"
             show_help
             exit 1
         fi
         if [[ -z "$COL_SRA" ]]; then
-            echo "Error: --col-sra is required when using --test with -m"
+            echo "Error: --public-sra-colNAME is required when using --test with --public-m"
             show_help
             exit 1
         fi
@@ -282,26 +388,7 @@ if [[ "$TEST_MODE" == true ]]; then
             exit 1
         fi
 
-        if [[ -n "$OUTPUT" ]]; then
-            mkdir -p "$OUTPUT"
-            SUBSET_DIR="$OUTPUT"
-        else
-            SUBSET_DIR=$(pwd)
-        fi
 
-        SUBSET_META=$(python3 "${SCRIPTS}/py_16s.py" subset_meta_for_test \
-            --FilePath "$METADATA" \
-            --Bioproject "$COL_BIOPROJECT" \
-            --SRA_Number "$COL_SRA" \
-            --OutputDir "$SUBSET_DIR" | tail -1)
-
-        if [[ ! -f "$SUBSET_META" ]]; then
-            echo "Error: Failed to create test subset metadata file"
-            exit 1
-        fi
-
-        METADATA="$SUBSET_META"
-        echo "Test mode: Using subset metadata $METADATA"
     else
         TEST_FILE="ampliconpiptest.csv"
 
@@ -329,7 +416,7 @@ if [[ "$TEST_MODE" == true ]]; then
             done
             echo ""
             echo "Hint: The test file may not be included in pip installations."
-            echo "      Use -m /path/to/your/metadata.csv instead of --test"
+            echo "      Use --public-m /path/to/your/metadata.csv instead of --test"
             exit 1
         fi
 
@@ -339,30 +426,14 @@ if [[ "$TEST_MODE" == true ]]; then
     fi
 fi
 
-# Validate required parameters
-if [[ -z "$METADATA" ]]; then
-    echo "Error: --metadata is required (or use --test for test mode)"
-    show_help
-    exit 1
+# Either input may be used alone; together they share one processing queue.
+if [[ -z "$METADATA" && -z "$LOCAL_METADATA" ]]; then
+    echo "Error: provide --public-m, --local-m, or --test" >&2
+    exit 2
 fi
-
-if [[ "$LOCAL_MODE" == true ]]; then
-    case "$LOCAL_PLATFORM" in
-        ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE) ;;
-        *) echo "Error: --local requires --platform one of ILLUMINA|LS454|ION_TORRENT|PACBIO_SMRT|OXFORD_NANOPORE"; show_help; exit 1 ;;
-    esac
-else
-    if [[ -z "$COL_BIOPROJECT" ]]; then
-        echo "Error: --col-bioproject is required (or use --test for test mode)"
-        show_help
-        exit 1
-    fi
-
-    if [[ -z "$COL_SRA" ]]; then
-        echo "Error: --col-sra is required (or use --test for test mode)"
-        show_help
-        exit 1
-    fi
+if [[ -n "$METADATA" && ( -z "$COL_BIOPROJECT" || -z "$COL_SRA" ) ]]; then
+    echo "Error: online metadata requires --public-bioproject-colNAME and --public-sra-colNAME" >&2
+    exit 2
 fi
 
 # Denoising mode is mandatory: exactly one of --dada2 / --vsearch, no default.
@@ -374,66 +445,77 @@ if [[ -z "$MODE" ]]; then
     exit 1
 fi
 
-if [[ -n "$PRIMER_REV" && -z "$PRIMER_FWD" ]]; then
-    echo "Error: --primer-rev requires --primer-fwd" >&2
-    exit 2
-fi
-
-# Check input exists: a folder in --local mode, a CSV file otherwise
-if [[ "$LOCAL_MODE" == true ]]; then
-    if [[ ! -d "$METADATA" ]]; then
-        echo "Error: --local input folder '$METADATA' not found"
-        exit 1
-    fi
-elif [[ ! -f "$METADATA" ]]; then
-    echo "Error: Metadata file '$METADATA' not found"
-    exit 1
-fi
-
-if [[ "$LOCAL_MODE" == true ]]; then
-    METADATA=$(cd "$METADATA" && pwd -P)
-else
+# Resolve each CSV independently. Local FASTQ paths are relative to its CSV.
+if [[ -n "$METADATA" ]]; then
+    [[ -f "$METADATA" ]] || { echo "Error: Metadata file '$METADATA' not found" >&2; exit 2; }
     METADATA=$(cd "$(dirname "$METADATA")" && pwd -P)/$(basename "$METADATA")
 fi
-
-if [[ -z "$OUTPUT" ]]; then
-    if [[ "$LOCAL_MODE" == true ]]; then
-        echo "Error: --local requires an explicit -o/--output directory (the input folder must not double as the output)"
-        exit 1
-    elif [[ "$TEST_MODE" == true ]]; then
-        # In test mode, default to current working directory
-        # (test metadata is inside package, can't write there)
-        OUTPUT=$(pwd)
-        echo "Output directory not specified, using current directory: $OUTPUT"
-    else
-        # Normal mode: use metadata file directory
-        OUTPUT=$(dirname "$METADATA")
-        echo "Output directory not specified, using metadata file directory: $OUTPUT"
-    fi
-else
-    # User specified output directory
-    mkdir -p "$OUTPUT"
-    OUTPUT=$(cd "$OUTPUT" && pwd -P)
+if [[ -n "$LOCAL_METADATA" ]]; then
+    [[ -f "$LOCAL_METADATA" ]] || { echo "Error: Local metadata CSV '$LOCAL_METADATA' not found" >&2; exit 2; }
+    LOCAL_METADATA=$(cd "$(dirname "$LOCAL_METADATA")" && pwd -P)/$(basename "$LOCAL_METADATA")
 fi
+OUTPUT="${START_CWD}/results/pip"
+mkdir -p "$OUTPUT"
+OUTPUT=$(cd "$OUTPUT" && pwd -P)
 
-if [[ "$LOCAL_MODE" == true ]] && { [[ "$OUTPUT" == "$METADATA" ]] || [[ "${OUTPUT}/$(basename "$METADATA")" == "$METADATA" ]]; }; then
-    echo "Error: local output and its dataset directory must differ from the input FASTQ directory; choose a separate output folder" >&2
+# Protect shared manifests, dataset lists, checkpoints and summaries across
+# independent PIP commands. Python locks the inherited open-file description;
+# this shell keeps it open for the entire run, including parallel workers.
+exec {PIP_OUTPUT_LOCK_FD}>>"${OUTPUT}/.pip.lock"
+python3 - "$PIP_OUTPUT_LOCK_FD" "$OUTPUT" <<'LOCK_PY'
+import fcntl
+import sys
+try:
+    fcntl.flock(int(sys.argv[1]), fcntl.LOCK_EX | fcntl.LOCK_NB)
+except BlockingIOError:
+    print(f"Error: another AmpliconPIP command is using output directory {sys.argv[2]}. "
+          "Wait for it to finish or start the other analysis from a different working directory. "
+          "Use --max-parallel for datasets within one run.", file=sys.stderr)
+    sys.exit(2)
+LOCK_PY
+
+# Never overwrite a user's metadata when generated test files share its name.
+if [[ "$TEST_MODE" == true && "$METADATA" -ef "${OUTPUT}/test_subset_meta.csv" ]]; then
+    echo "Error: input metadata would be overwritten by test_subset_meta.csv; move the input CSV outside results/pip/ or start from another working directory" >&2
     exit 2
 fi
-if [[ "$LOCAL_MODE" == true ]]; then
-    python3 "${SCRIPTS}/read_layout.py" validate-local --input "$METADATA" \
-        --output "${OUTPUT}/$(basename "$METADATA")"
-fi
-python3 "${SCRIPTS}/parameters.py" save "${_config_args[@]}" --output "${OUTPUT}/effective-parameters-${MODE}.json"
 
-# Source function library (AmpliconFunction.sh)
-# Note: py_16s.py must be in PATH (installed via setup.py or conda env)
-if [[ -f "${SCRIPTS}/AmpliconFunction.sh" ]]; then
-    source "${SCRIPTS}/AmpliconFunction.sh"
-else
-    echo "Error: AmpliconFunction.sh not found at ${SCRIPTS}/AmpliconFunction.sh"
-    exit 1
+if [[ ${#BIOPROJECT_IDS[@]} -gt 0 ]]; then
+    _selection_args=(prepare --metadata "$METADATA" --output "$OUTPUT"
+        --col-bioproject "$COL_BIOPROJECT" --col-sra "$COL_SRA"
+        --projects "${BIOPROJECT_IDS[@]}" --forward "${PRIMER_FWDS[@]}")
+    [[ ${#PRIMER_REVS[@]} -gt 0 ]] && _selection_args+=(--reverse "${PRIMER_REVS[@]}")
+    python3 "${SCRIPTS}/project_primers.py" "${_selection_args[@]}" || exit 2
+    METADATA="${OUTPUT}/selected_metadata.csv"
+    PROJECT_PRIMER_MAP="${OUTPUT}/project_primers.json"
 fi
+
+# Selection comes first; test mode then takes two rows per selected project.
+if [[ "$TEST_MODE" == true && -n "$COL_BIOPROJECT" ]]; then
+    SUBSET_META=$(python3 "${SCRIPTS}/py_16s.py" subset_meta_for_test \
+        --FilePath "$METADATA" --Bioproject "$COL_BIOPROJECT" \
+        --SRA_Number "$COL_SRA" --OutputDir "$OUTPUT" | tail -1)
+    [[ -f "$SUBSET_META" ]] || { echo "Error: Failed to create test subset metadata file" >&2; exit 2; }
+    METADATA="$SUBSET_META"
+fi
+
+if [[ -n "$METADATA" ]]; then
+    python3 "${SCRIPTS}/local_datasets.py" check-online --metadata "$METADATA" \
+        --col-bioproject "$COL_BIOPROJECT" --output "$OUTPUT" || exit 2
+fi
+
+if [[ -n "$LOCAL_METADATA" ]]; then
+    _local_args=(prepare --metadata "$LOCAL_METADATA" --output "$OUTPUT"
+        --col-datasets "$LOCAL_COL_DATASETS" --col-path "$LOCAL_COL_PATH"
+        --col-platform "$LOCAL_COL_PLATFORM")
+    [[ -n "$LOCAL_COL_PRIMER_F" ]] && _local_args+=(--col-primer-f "$LOCAL_COL_PRIMER_F")
+    [[ -n "$LOCAL_COL_PRIMER_R" ]] && _local_args+=(--col-primer-r "$LOCAL_COL_PRIMER_R")
+    [[ -n "$METADATA" ]] && _local_args+=(--online-metadata "$METADATA" --col-bioproject "$COL_BIOPROJECT" --col-sra "$COL_SRA")
+    LOCAL_MANIFEST=$(python3 "${SCRIPTS}/local_datasets.py" "${_local_args[@]}") || exit 2
+    [[ -f "$LOCAL_MANIFEST" ]] || { echo "Error: local preflight did not produce a manifest" >&2; exit 2; }
+fi
+
+python3 "${SCRIPTS}/parameters.py" save "${_config_args[@]}" --output "${OUTPUT}/effective-parameters-${MODE}.json"
 
 # Check required tools
 [[ -f "${SCRIPTS}/py_16s.py" ]] || { echo "Error: 'py_16s.py' not found at ${SCRIPTS}/py_16s.py"; exit 1; }
@@ -442,7 +524,8 @@ fi
 echo "========================================="
 echo "Meta2Data AmpliconPIP"
 echo "========================================="
-echo "Metadata:       $METADATA"
+[[ -n "$METADATA" ]] && echo "Online metadata: $METADATA"
+[[ -n "$LOCAL_METADATA" ]] && echo "Local metadata:  $LOCAL_METADATA"
 echo "Output:         $OUTPUT"
 echo "Threads:        $THREADS"
 echo "Mode:           $MODE"
@@ -472,26 +555,13 @@ export PYTHONWARNINGS="ignore::FutureWarning"
 # Prepare the immutable reference index before parallel dataset workers start.
 export M2D_ADAPTER_GUARD_ENABLED=0
 if [[ "$ADAPTER_GUARD_ENABLED" == true ]]; then
-    if [[ -z "$ADAPTER_REF" ]]; then
-        [[ -n "$ADAPTER_DB_DIR" ]] || {
-            echo 'Error: --adapter-guard requires --adapter-ref or --db' >&2; exit 2;
-        }
-        ADAPTER_REF="${ADAPTER_DB_DIR%/}/2024.09.backbone.full-length.fna.qza"
-    fi
-    if [[ ! -s "$ADAPTER_REF" && "$ADAPTER_DL" == true ]]; then
-        [[ -n "$ADAPTER_DB_DIR" && "$ADAPTER_REF" == "${ADAPTER_DB_DIR%/}/2024.09.backbone.full-length.fna.qza" ]] || {
-            echo 'Error: --dl only downloads the GG2 backbone selected by --db' >&2; exit 2;
-        }
-        python3 "${SCRIPTS}/adapter_reference.py" --db "$ADAPTER_DB_DIR"
-    fi
-    [[ -s "$ADAPTER_REF" ]] || { echo "Error: Missing adapter-guard reference: $ADAPTER_REF" >&2; exit 2; }
-    if [[ -z "$ADAPTER_CACHE" ]]; then
-        ADAPTER_CACHE="${ADAPTER_DB_DIR:-${OUTPUT}/.reference}/adapter_guard"
-    fi
-    mkdir -p "$ADAPTER_CACHE"
-    export M2D_ADAPTER_GUARD_CACHE="$(cd "$ADAPTER_CACHE" && pwd -P)"
+    GG2_GUARD_REF=$(python3 "${SCRIPTS}/reference_resources.py" prepare \
+        --kind gg2-sequences --work-dir "$START_CWD") || exit 2
+    [[ -s "$GG2_GUARD_REF" ]] || { echo "Error: Missing GG2 adapter-guard reference: $GG2_GUARD_REF" >&2; exit 2; }
+    mkdir -p "${START_CWD}/results/db/adapter_guard"
+    export M2D_ADAPTER_GUARD_CACHE="$(cd "${START_CWD}/results/db/adapter_guard" && pwd -P)"
     M2D_ADAPTER_GUARD_DB_MANIFEST=$(python3 "${SCRIPTS}/fastp_guard.py" prepare \
-        --reference "$ADAPTER_REF" --cache-dir "$M2D_ADAPTER_GUARD_CACHE") || exit 2
+        --reference "$GG2_GUARD_REF" --cache-dir "$M2D_ADAPTER_GUARD_CACHE") || exit 2
     export M2D_ADAPTER_GUARD_DB_MANIFEST M2D_ADAPTER_GUARD_ENABLED=1
     cp "$M2D_ADAPTER_GUARD_DB_MANIFEST" "${OUTPUT}/adapter_guard_reference.json"
 fi
@@ -506,17 +576,14 @@ echo "Started: $(date)"
 echo "========================================="
 echo ""
 
-# Extra flags for --local mode (platform + optional explicit primers)
+# The runner accepts online metadata, a local manifest, or both.
 EXTRA_ARGS=()
-if [[ "$LOCAL_MODE" == true ]]; then
-    EXTRA_ARGS+=(--local --platform "$LOCAL_PLATFORM")
-fi
-[[ -n "$PRIMER_FWD" ]] && EXTRA_ARGS+=(--primer-fwd "$PRIMER_FWD")
-[[ -n "$PRIMER_REV" ]] && EXTRA_ARGS+=(--primer-rev "$PRIMER_REV")
+[[ -n "$METADATA" ]] && EXTRA_ARGS+=(-m "$METADATA")
+[[ -n "$LOCAL_MANIFEST" ]] && EXTRA_ARGS+=(--local-manifest "$LOCAL_MANIFEST")
+[[ -n "$PROJECT_PRIMER_MAP" ]] && EXTRA_ARGS+=(--project-primers "$PROJECT_PRIMER_MAP")
 
 # Call run.sh to handle all processing
 if ! bash "${SCRIPTS}/run.sh" \
-    -m "$METADATA" \
     -o "$OUTPUT" \
     -t "$THREADS" \
     --max-parallel "$MAX_PARALLEL" \
@@ -569,5 +636,5 @@ fi
 
 echo ""
 echo "Results saved in: $OUTPUT"
-echo "To assign taxonomy, run: Meta2Data AmpliconTAXA --$MODE --db <gg2db> -i $OUTPUT"
+echo "To assign taxonomy, run: Meta2Data AmpliconTAXA --$MODE -i $OUTPUT --classifier greengenes"
 echo "========================================="

@@ -8,7 +8,7 @@ import shlex
 
 # section.key: default, environment variable, lower bound, upper bound
 SPEC = {
-    'adapter_guard.enabled': (False, 'ADAPTER_GUARD_ENABLED', None, None),
+    'adapter_guard.enabled': (True, 'ADAPTER_GUARD_ENABLED', None, None),
     'adapter_guard.min_length': (50, 'M2D_ADAPTER_GUARD_MIN_LENGTH', 1, None),
     'adapter_guard.min_identity': (98.0, 'M2D_ADAPTER_GUARD_MIN_IDENTITY', 0, 100),
     'adapter_guard.min_coverage': (95.0, 'M2D_ADAPTER_GUARD_MIN_COVERAGE', 0, 100),
@@ -32,11 +32,14 @@ SPEC = {
     'vsearch.degraded_trim_left': (0, 'VSEARCH_DEGRADED_TRIM_LEFT', 0, None),
     'vsearch.min_length': (50, 'VSEARCH_MIN_LENGTH', 1, None),
     'vsearch.max_n': (1, 'VSEARCH_MAX_N', 0, None),
-    'vsearch.ion_maxee': (2.0, 'ION_VSEARCH_MAXEE', 0, None),
+    'vsearch.ion_maxee': (None, 'ION_VSEARCH_MAXEE', 0, None),
     'vsearch.ion_trim_left': (0, 'ION_VSEARCH_STRIPLEFT', 0, None),
     'vsearch.pacbio_maxee_rate': (0.01, 'VSEARCH_MAXEE_RATE', 0, 1),
     'vsearch.pacbio_min_length': (1000, 'PACBIO_VSEARCH_MINLEN', 1, None),
     'vsearch.pacbio_max_length': (2000, 'PACBIO_VSEARCH_MAXLEN', 1, None),
+    'ls454.length_fraction': (0.5, 'LS454_LENGTH_FRACTION', 0.01, 1),
+    'ls454.max_n': (1, 'LS454_MAX_N', 0, None),
+    'dada2.ion_maxee': (None, 'DADA2_ION_MAXEE', 0, None),
     'dada2.ion_trim_left': (0, 'DADA2_ION_TRIM_LEFT', 0, None),
     'dada2.pacbio_min_length': (1000, 'DADA2_PACBIO_MIN_LENGTH', 1, None),
     'dada2.pacbio_max_length': (1600, 'DADA2_PACBIO_MAX_LENGTH', 1, None),
@@ -54,6 +57,9 @@ SPEC = {
 
 def validate(key, value):
     default, _, lo, hi = SPEC[key]
+    # Nullable numeric defaults select a runtime-derived value (Ion EE).
+    if default is None and value is None:
+        return None
     if isinstance(default, bool):
         valid = isinstance(value, bool)
     elif isinstance(default, int):

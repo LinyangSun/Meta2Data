@@ -20,6 +20,6 @@ if __name__ == '__main__':
     forward = sequence(info.get('forward_primer', {}), PRIMERS_F)
     reverse = sequence(info.get('reverse_primer', {}), PRIMERS_R)
     if not forward:
-        sys.exit('SKIP: DADA2 CCS requires a known or explicit forward primer; supply --primer-fwd or use --vsearch.')
+        sys.exit('SKIP: DADA2 CCS requires a known or explicit forward primer; provide --public-primer-fwd with --public-bioprojectIDs for online data, or map the local CSV primer column with --local-primer-f-colNAME; alternatively use --vsearch.')
     # No reverse adapter is required by denoise-ccs when it was not detected.
     print(forward + '\t' + reverse)

@@ -19,7 +19,6 @@ import re
 import requests
 from io import StringIO
 from pathlib import Path
-import glob
 import argparse
 import sys
 import json
@@ -100,6 +99,8 @@ def load_column_rename_dict():
 
 def setup_entrez(api_key=None):
     """Set up Entrez with auto-generated email. Call once at pipeline start."""
+    from entrez_cache import configure_entrez_cache
+    configure_entrez_cache()
     Entrez.email = generate_fake_email()
     if api_key:
         Entrez.api_key = api_key
@@ -261,8 +262,9 @@ def validate_run_data(df):
 
 
 def read_input_ids(folder_path):
-    """Read IDs from all txt files in folder."""
-    txt_files = glob.glob(os.path.join(folder_path, "*.txt"))
+    """Read an explicit ID file, or all txt files in an input folder."""
+    source = Path(folder_path)
+    txt_files = [source] if source.is_file() else sorted(source.glob("*.txt"))
     if not txt_files:
         print(f"ERROR: No txt files found in {folder_path}")
         return []
@@ -738,15 +740,12 @@ class BioProjectDownloader:
                 except Exception as e:
                     print(f"  CNCB parse error: {e}")
 
-        if not all_dfs:
-            print("No data found")
-            return pd.DataFrame()
-
-        combined_df = pd.concat(all_dfs, ignore_index=True)
+        columns = ['accession', 'title', 'description', 'organism', 'source']
+        combined_df = (pd.concat(all_dfs, ignore_index=True).reindex(columns=columns)
+                       if all_dfs else pd.DataFrame(columns=columns))
         combined_df = combined_df.dropna(subset=['accession'])
         combined_df = combined_df[combined_df['accession'].str.startswith('PRJ', na=False)]
         combined_df = combined_df.drop_duplicates(subset=['accession'], keep='first')
-        combined_df = combined_df[['accession', 'title', 'description', 'organism', 'source']]
 
         print(f"Final: {len(combined_df)} unique records")
 
@@ -1649,7 +1648,7 @@ def generate_column_description(df, output_dir, cncb_col_names=None):
     bp_col = 'Bioproject' if 'Bioproject' in df.columns else None
     for col in df.columns:
         non_empty = df[col].notna().sum()
-        fill_rate = f"{non_empty / len(df) * 100:.1f}%"
+        fill_rate = f"{non_empty / len(df) * 100:.1f}%" if len(df) else "NA"
         if bp_col:
             num_datasets = df.loc[df[col].notna(), bp_col].nunique()
         else:
@@ -1670,34 +1669,28 @@ def generate_column_description(df, output_dir, cncb_col_names=None):
     print(f"  Column description: {desc_file}")
 
 
-def merge_all_results(results, output_dir, tmp_dir=None):
-    """Merge all .processed.csv files into final output."""
+def merge_all_results(results, output_dir):
+    """Merge only results accepted for the current input, including checkpoints."""
     print(f"\n{'='*70}")
     print("Final Merge")
     print('='*70)
 
-    scan_path = Path(tmp_dir) if tmp_dir else Path(output_dir)
-    processed_files = sorted(scan_path.glob('*.processed.csv'))
-
-    if not processed_files:
-        print("  No .processed.csv files found")
-        return pd.DataFrame()
-
-    print(f"  Found {len(processed_files)} .processed.csv files")
-
-    all_dfs = []
-    for csv_file in processed_files:
-        try:
-            df = pd.read_csv(csv_file)
-            if not df.empty and 'Run' in df.columns:
-                all_dfs.append(df)
-        except Exception as e:
-            print(f"  Failed to read {csv_file.name}: {e}")
-
+    all_dfs = [result['df'] for result in results
+               if result.get('df') is not None and not result['df'].empty
+               and 'Run' in result['df'].columns]
+    # Old checkpoints may belong to different BioProject/BioSample/SRA inputs.
+    # Keep them available for resume, but never discover merge inputs by glob.
+    no_run_file = Path(output_dir) / "RecordWithoutRUNinfo.csv"
+    no_run_file.unlink(missing_ok=True)
     if not all_dfs:
-        print("  No valid DataFrames to merge")
-        return pd.DataFrame()
+        print("  No valid current results to merge")
+        final_df = pd.DataFrame(columns=CORE_COLUMNS)
+        final_df.to_csv(Path(output_dir) / "all_metadata_merged.csv", index=False,
+                        encoding='utf-8-sig')
+        generate_column_description(final_df, output_dir)
+        return final_df
 
+    print(f"  Merging {len(all_dfs)} current results")
     final_df = pd.concat(all_dfs, axis=0, ignore_index=True, sort=False)
 
     # a. Separate records without Run info
@@ -1705,7 +1698,6 @@ def merge_all_results(results, output_dir, tmp_dir=None):
         no_run_mask = final_df['Run'].isna() | (final_df['Run'].astype(str).str.strip() == '')
         if no_run_mask.any():
             no_run_df = final_df[no_run_mask]
-            no_run_file = Path(output_dir) / "RecordWithoutRUNinfo.csv"
             no_run_df.to_csv(no_run_file, index=False, encoding='utf-8-sig')
             print(f"  Separated {len(no_run_df)} records without Run → {no_run_file.name}")
             final_df = final_df[~no_run_mask].reset_index(drop=True)
@@ -2185,7 +2177,7 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
 
     # Step 4: Final merge
     print("\n[Step 4] Final merge...")
-    final_df = merge_all_results(results, output_path, tmp_dir=tmp_path)
+    final_df = merge_all_results(results, output_path)
 
     # Step 4b: BioProject-level AI-summary table (bioproject_absdesc.tsv).
     # Covers every BioProject in the merged output (direct inputs + those
@@ -2203,9 +2195,17 @@ def run_unified_pipeline(input_folder, output_folder, api_key=None, max_workers=
     print("\n" + "="*70)
     print("PIPELINE COMPLETE")
     print("="*70)
+    # BioSample/SRA batches can share one result file; count current input IDs
+    # from their status report, not result files or historical checkpoints.
+    status_counts = status_df['Status'].value_counts().to_dict()
+    no_data_count = sum(status_counts.get(status, 0)
+                        for status in (STATUS_NO_DATA, STATUS_NO_RUN))
     print(f"Total input IDs: {len(all_input_ids)}")
-    print(f"  With valid Run data: {len(results)}")
-    print(f"  No data/No Run info: {len(all_input_ids) - len(results)}")
+    print(f"  With valid Run data: {status_counts.get(STATUS_HAS_DATA, 0)}")
+    print(f"  No data/No Run info: {no_data_count}")
+    for status, count in status_counts.items():
+        if status not in (STATUS_HAS_DATA, STATUS_NO_DATA, STATUS_NO_RUN):
+            print(f"  {status}: {count}")
     print(f"\nOutput:")
     print(f"  status.tsv:             {len(status_df)} records")
     print(f"  all_metadata_merged.csv: {len(final_df)} records")
@@ -2262,6 +2262,7 @@ def main():
         print("===========================\n")
 
         try:
+            setup_entrez(args.api_key)
             downloader = BioProjectDownloader()
             search_results = downloader.search_and_download_batch(
                 field=args.field, organism=args.organism, opt=args.opt,
@@ -2273,9 +2274,10 @@ def main():
                 print("ERROR: No BioProjects found")
                 sys.exit(1)
 
-            bioproject_input_folder = search_results['dirs']['results']
+            # search_summary.txt is a report, not a list of accessions.
+            bioproject_input_file = search_results['dirs']['results'] / "bioproject_ids.txt"
             result = run_unified_pipeline(
-                str(bioproject_input_folder), args.output,
+                str(bioproject_input_file), args.output,
                 args.api_key, args.max_workers
             )
             sys.exit(0 if result else 1)

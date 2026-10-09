@@ -4,611 +4,532 @@
 
 # Meta2Data
 
-**Automated Bioinformatics Pipeline for microbiome Sequencing Data Processing from public Databases**
-
-Meta2Data is a command-line tool for downloading, processing, and analyzing metabarcoding data (maybe also include metagenome in future) from public databases (INSDC, CNCB/GSA). It integrates metadata retrieval, SRA data download, quality control, and QIIME2-based analysis into a single, automated workflow.
-
-## 3 module
-1. MetaDL >> For metadata preprocessing.
-2. AmpliconPIP >> For sequencing data processing.
-3. AmpliconTAXA >> For taxonomy annotation.
-
-
-# Note: The README file is not updated yet. New version of the README file will be released before 9 Oct.
-
-
-## Features
-
-- **Metadata Download and Pre-clean**: (MetaDL module) Search, download, and pre-clean metadata from INSDC and CNCB databases by keywords, BioProject ID, or BioSample ID. Auto-fetches BioProject descriptions and standardizes column names.
-- **Multi-Platform Support**: (AmpliconPIP module) Automatic detection and processing of Illumina, PacBio, Ion Torrent, 454, and Oxford Nanopore (ONT) sequencing platforms. The platform is detected automatically from INSDC/CNCB for each downloaded dataset (or set explicitly with `--platform` in local mode).
-- **DADA2 / vsearch workflows**: (AmpliconPIP module) Choose the denoising strategy with a required `--dada2` / `--vsearch` flag. `--dada2` runs DADA2 for single-base ASV resolution (Illumina / Ion Torrent / PacBio CCS); `--vsearch` runs vsearch for 97%-identity OTUs and is robust on all 5 platforms, including degraded / binned-quality and ONT data.
-- **Local Mode**: (AmpliconPIP module) Process FASTQ files you already have with `--local` — no download, no INSDC lookup. One run handles one dataset/one platform; you supply `--platform` and, optionally, explicit primers (`--primer-fwd`/`--primer-rev`, otherwise auto-detected). Your original files are never modified.
-- **Smart Primer Detection**: (AmpliconPIP module) Automatic entropy-based primer detection and trimming for amplicon data (no need to provide primer details); explicit primers can be given in local mode.
-- **Per-Dataset Summary & Region Detection**: (AmpliconPIP module) After processing, a `per_dataset_summary.tsv` reports each dataset's platform, quality status, and the amplified 16S V-region (e.g. `V3-V4`, `V1-V9`), inferred by aligning representative sequences to the E. coli 16S reference. Summaries and the unified status log are re-run safe (upserted / append-only).
-- **QIIME2 Integration**: (AmpliconPIP module) Integration with QIIME2 2024.10 for downstream analysis.
-- **Taxonomy Assignment**: (AmpliconTAXA module) Taxonomy classification (GreenGenes2 and SILVA supported) and phylogenetic tree generation, in ASV or OTU mode (must match the mode used in AmpliconPIP).
-- **OS**: Only for linux.
-- **Others**: Parallel task supported for AmpliconPIP.
-
-## Notice
-
-Please ensure you allocate sufficient time for your task (1-2 days). The data download and phylogenetic tree generation steps can be very time-consuming.
-
-## Updates
-
-### 2026-09 revision
-
-- Permanent per-step read counts extend `summary.csv`, with `dada2_` / `vsearch_` branch columns, a BioProject total table, and TAXA retained/lost abundance tables. See [read-count outputs and units](docs/read_counts.md).
-- Optional `M2D_PROFILE_DIR` records command time, CPU, memory observations, I/O and nested invocation history without changing `summary.csv`. Actual FASTQ bases/bytes/layout are retained with the raw-count audit. See [resource profiling](docs/resource_profile.md).
-
-- Workflow flags and result names now use `dada2` and `vsearch`.
-- Primer defaults follow benchmark b1: first 20 bp, database first, strict `fold < 16` fallback; unknown primers are trimmed by 20 bp unless `--skip-unknown-primers` is set.
-- Local pairing, sample IDs, raw counts and manifests use one naming rule, including `_1_001` / `_2_001` and multi-lane files.
-- TAXA discovers complete result pairs recursively, deduplicates artifacts, and selects the region workflow independently with `--singleV` or `--notree` (default: multi-region SEPP).
-- `--parameter` loads validated JSON overrides. Effective settings and input provenance are saved, and changed inputs/settings invalidate affected checkpoints.
-
-### 2026-06-12
-
-- **Fix (AmpliconPIP `--local`): force `--max-parallel 1` in local mode.** A `--local` run always resolves to exactly one dataset, but `--max-parallel` defaulted to `2`, so the per-dataset thread budget was `threads ÷ 2` and half of the requested `-t` threads sat idle. Local runs now give the single dataset all `-t` threads (if a different `--max-parallel` is passed it is overridden, with a notice).
-- **Fix (AmpliconPIP ASV / DADA2): run DADA2 denoising multithreaded.** All four `qiime dada2` denoise methods (`denoise-paired`, `denoise-pyro`, `denoise-single`, `denoise-ccs`) were invoked without `--p-n-threads`, so they ran on QIIME2's default of a single thread — the serial bottleneck of every ASV run. They now pass `--p-n-threads` with the per-dataset thread budget. Affects both download and `--local` ASV runs; ASV outputs are unchanged (DADA2 is deterministic across thread counts), only faster.
-
-## Installation
-
-Meta2Data can be installed in a local folder to avoid contaminating your QIIME2 environment and to make updates easier. QIIME2 is only required if you plan to run AmpliconPIP or AmpliconTAXA; MetaDL runs on any Python 3 interpreter.
-
-### Step 1: Install QIIME2 and associated software (only for AmpliconPIP / AmpliconTAXA)
-
-Create the conda environment from the provided `env.yml` (replace `<env-name>` with a name of your choice):
-
-```bash
-conda env create -n <env-name> -f env.yml
-conda activate <env-name>
-```
-
-### Step 2: Clone the repo and add it to PATH
-
-```bash
-git clone https://github.com/LinyangSun/Meta2Data.git
-echo 'export PATH="'"$PWD"'/Meta2Data/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-```
-> If you also use conda, the order of lines in your rc file matters.
-> Place the export PATH=$HOME/Meta2Data/bin:$PATH line before any conda activate command.
-
-
-### Step 3: Verify installation
-
-```bash
-Meta2Data --help
-```
-
-## Requirements
-
-### System Requirements
-- **OS**: Linux (tested on Ubuntu/CentOS)
-- **Computation Resources**: For AmpliconPIP, 10 GB RAM, 4 CPU are recommended per parallel task. For AmpliconTAXA, 40-60GB RAM and 10CPU are recommonded
-
-
-
-## Usage
-
-Meta2Data provides several subcommands for different stages of the workflow:
-
-```bash
-Meta2Data <command> [options]
-
-Available commands:
-    MetaDL         Search keywords combination in INSDC and CNCB. Download and preclean metadata.
-    AmpliconPIP    Download and process amplicon sequencing data based on user provided metadata.
-    AmpliconTAXA        Merge amplicon datasets (--dada2 | --vsearch) and assign taxonomy using GreenGenes2 or SILVA.
-    ShortreadsPIP  (In development)
-```
-
----
-
-### MetaDL: Metadata Download
-
-Download metadata from INSDC and CNCB databases with parallel processing and checkpoint/resume capability. Automatically fetches BioProject descriptions and standardizes column names (CamelCase normalization, synonym merging via dictionary).
-
-**Two modes:**
-
-| Mode | Required Options | Description |
-|------|-----------------|-------------|
-| ID Input | `-i`, `-o` | Provide a directory of txt files containing BioProject IDs (PRJ*) and/or BioSample IDs (SAM*) — they can be mixed |
-| Keyword Search | `-o`, `--keywords`, `--field`, `--organism` | Search INSDC + CNCB by keywords, then download metadata for matched BioProjects |
-
-```
-Required:
-    -o, --output DIR              Output directory
-
-ID Input Mode:
-    -i, --input DIR               Directory with provided ID txt files (Only for BioProject and/or BioSample)
-
-Keyword Search Mode:
-    --keywords                    Enable keyword search mode
-    --field "term1" "term2"       Search field terms
-    --organism "term1" ...        Organism terms
-    --opt "term1" ...             Optional additional terms
-
-Optional:
-    -k, --api-key KEY             NCBI API key (enables 8 parallel workers)
-    -w, --max-workers NUM         Max parallel workers (default: 8 with key, 3 without)
-    -h, --help                    Show help
-```
-
-**Output columns:** `Run, Bioproject, Description, DesignDescription, Biosample, Experiment, ...` (core columns first, then rare columns grouped alphabetically)
-
-**Output files:**
-
-Main outputs (in the `-o` output directory):
-- `all_metadata_merged.csv` — Final merged dataset with auto-fetched BioProject descriptions and SRA experiment design descriptions. Column names are standardized (CamelCase normalization + synonym merging via dictionary).
-- `status.tsv` — Processing status for each input ID (`has_data` / `no_data` / `no_run_info` / `download_error`)
-- `column_description.tsv` — Per-column statistics: fill rate, number of datasets covered, top 5 values, and column type (`core` / `cncb` / `rare`)
-- `bioproject_absdesc.tsv` — One row per BioProject with publication info (`PMID`, `PMC`, `DOI`, `ArticleTitle`, `ArticleAbstract`, `PubSource`). Always generated; failures are non-fatal.
-- `RecordWithoutRUNinfo.csv` — Records without SRA Run info (only generated when such records exist)
-
-Keyword search mode only (`searched_keywords/`):
-- `searched_keywords/combined_results.csv` — BioProjects matched by keyword search
-- `searched_keywords/bioproject_ids.txt` — Matched BioProject accessions, one per line
-- `searched_keywords/search_summary.txt` — Query summary
-
-Internal / resume (`tmp/`, safe to delete after the run):
-- `tmp/checkpoints/download_state.json` — Resume state for interrupted runs
-- `tmp/<BioProject>.processed.csv` — Per-BioProject processed result (doubles as the resume checkpoint)
-- `tmp/<group>_biosample.txt`, `tmp/<group>_sra_runinfo.csv` — Raw BioSample / SRA RunInfo fetched from the databases
-- `tmp/<accession>.temp.csv`, `tmp/BIOSAMPLE_INPUT.processed.csv`, `tmp/SRA_INPUT.processed.csv` — scratch / direct SAM*/SRR*-input intermediates
-
-> **Tip 1 — AI-assisted metadata screening**
->
-> MetaDL automatically fetches a `Description` column for every BioProject, which summarizes each study's purpose, target organism, and experimental design. This makes the merged CSV well-suited for AI-based screening. Upload the CSV to any AI tool with a Team/collaborative workspace (Claude Team, ChatGPT Team, Gemini, etc.) and ask it to filter based on your criteria. For example:
->
-> *"Here is my metadata CSV. Based on the Description and other columns, keep only gut microbiome samples from healthy human adults sequenced on Illumina with 16S amplicons. I do not want include any datasets that have illness. You need to label each item as include exclude and NotSure. You need to assign 3 workers to screen the full datasets independently, and a leader to give a final decision. Then output with xxx xxx xxx files. Ask me anything unclear to you before starting."*
-
-> **Tip 2 — Broader keyword search with genus-level terms**
->
-> Keyword search results depend heavily on how authors annotate their BioProjects. To maximize coverage for a taxonomic group of interest, don't rely solely on high-level terms (e.g., "bee"). Instead, collect genus names from a published phylogeny or species tree for your clade (for example from tree of life), and include them as `--organism` terms. For example:
->
-> ```bash
-> # Instead of just "bee", also search by genus names from the Apoidea phylogeny
-> organism=("bee" "Apis" "Bombus" "Megachile" "Osmia" "Andrena" "Halictus")
-> methods=("16S rRNA" "amplicon")
-> Meta2Data MetaDL \
->     -o metadata/ \
->     --keywords \
->     --field "${methods[@]}" \
->     --organism "${organism[@]}"
-> ```
->
-> This catches studies that only mention a genus in their BioProject metadata and would otherwise be missed.
-
-> **Tip 3 — Quick column labeling with `column_description.tsv`**
->
-> Download `column_description.tsv` and open it in Excel. Add a new column (e.g., `Label`) and tag each row as `keep`, `drop`, or `body part` ... based on the fill rate and top values. This gives you a quick overview of all available columns and makes subsequent data cleaning much faster — you can filter by your labels to decide which columns to retain before any downstream analysis.
-
----
-
-### AmpliconPIP: Amplicon Data Processing
-
-Download SRA data and process amplicon sequencing data with provided metadata.
-
-```
-Required (unless --test is used):
-    -m, --metadata FILE           Input metadata CSV file
-    --col-bioproject NAME         Column name for BioProject in CSV
-    --col-sra NAME                Column name for SRA accession in CSV
-    --dada2 | --vsearch                 Denoising mode (REQUIRED: specify exactly one; no default)
-                                  --dada2 : DADA2, single-base ASV resolution.
-                                          Platforms Illumina / Ion Torrent / PacBio CCS;
-                                          454, ONT and degraded/binned quality are skipped.
-                                  --vsearch : vsearch, 97%-identity OTU.
-                                          All 5 platforms; robust on mixed / degraded data.
-
-Optional:
-    -o, --output DIR              Output directory
-                                  Default: current directory (--test) / metadata dir (normal)
-    -t, --threads INT             Total CPU threads (default: 12)
-                                  Auto-split: per-dataset threads = threads / max-parallel
-    --max-parallel INT            Datasets to process in parallel (default: 2)
-    --test                        Run in test mode
-                                  Without -m: use built-in test data
-                                  With -m: subset metadata (2 SRA per BioProject)
-    -h, --help                    Show help
-
-Local mode (process existing FASTQ instead of downloading):
-    --skip-unknown-primers        Skip the dataset when an unmatched primer has fold <16.
-                                  Default: trim the first 20 bp and continue.
-    --parameter FILE             JSON overrides (docs/parameters.default.json).
-    --local                       Read FASTQ straight from a folder; no download,
-                                  no platform detection. -m is the INPUT FOLDER
-                                  (one dataset = that folder; every FASTQ directly
-                                  inside it is a sample; id = folder name).
-    --platform PLATFORM           REQUIRED with --local. One of:
-                                  ILLUMINA | LS454 | ION_TORRENT | PACBIO_SMRT | OXFORD_NANOPORE
-                                  (applies to the whole run — one run = one platform).
-    --primer-fwd SEQ              Optional. Forward primer to trim with cutadapt.
-    --primer-rev SEQ              Optional. Reverse primer (paired-end). If no primer
-                                  is given, the entropy auto-detector is used (as in
-                                  download mode). --col-* are not needed in --local.
-```
-
-> **Note:** A denoising mode (`--dada2` or `--vsearch`) is mandatory and the two are mutually exclusive — there is no default. This replaces the previous auto-mix-by-platform behaviour, which silently combined ASV and OTU results within a single run (a hidden batch-effect risk). AmpliconTAXA automatically identifies the method when its input contains only one method. If both are present, select one explicitly.
-
-> **Local mode:** `--local` skips download + automatic platform detection, so you must pass `--platform`. One `--local` run handles exactly **one dataset / one platform** (no sub-folder recursion) — for mixed-platform data, run each folder separately. Your original FASTQ files are never modified (they are symlinked read-only into the working directory). Example:
-> ```bash
-> Meta2Data AmpliconPIP --local --platform ILLUMINA --vsearch \
->     -m /path/to/my_fastq_folder -o /path/to/output -t 8
-> # with explicit primers (cutadapt):
-> Meta2Data AmpliconPIP --local --platform ILLUMINA --vsearch \
->     --primer-fwd GTGYCAGCMGCCGCGGTAA --primer-rev GGACTACNVGGGTWTCTAAT \
->     -m /path/to/my_fastq_folder -o /path/to/output -t 8
-> ```
-> ```bash
-> Meta2Data AmpliconPIP --local --platform ILLUMINA --dada2 \
->     -m /path/to/my_fastq_folder -o /path/to/output -t 8
-> # with explicit primers (cutadapt):
-> Meta2Data AmpliconPIP --local --platform ILLUMINA --dada2 \
->     --primer-fwd GTGYCAGCMGCCGCGGTAA --primer-rev GGACTACNVGGGTWTCTAAT \
->     -m /path/to/my_fastq_folder -o /path/to/output -t 8
-> ```
-
-**Metadata CSV format** (column names customizable via `--col-*`):
-```csv
-Bioproject,Run
-PRJNA12345,SRR123456
-PRJNA12345,SRR123457
-PRJNA67890,SRR234567
-```
-
-**Processing pipeline:**
-1. Download SRA data (via FTP) — or, with `--local`, read FASTQ straight from a folder (no download)
-2. Detect sequencing platform (Illumina, PacBio, Ion Torrent, 454, ONT) and layout (single/paired-end) automatically from INSDC/CNCB — or use `--platform` in local mode
-3. Quality control
-4. Identify and trim primers (entropy auto-detection, or explicit primers in local mode)
-5. Mode-specific denoising:
-   - `--dada2`: DADA2 (Illumina / Ion Torrent / PacBio CCS); 454, ONT and degraded/binned-quality data are skipped
-   - `--vsearch`: vsearch 97% OTU clustering (all 5 platforms, robust on degraded/binned-quality and ONT data)
-6. Generate QIIME2 artifacts (`.qza` files)
-7. Per-dataset summary: write `per_dataset_summary.tsv` (platform + quality status + amplified 16S region)
-
-**Output structure** (`<mode>` = `dada2` | `vsearch`):
-```
-<output_dir>/
-├── datasets_ID.txt                            # Generated dataset list
-├── <dataset_ID>/                              # One directory per dataset
-│   ├── <dataset_ID>_sra.txt                  # SRA accession list
-│   ├── ori_fastq/                             # Downloaded FASTQ files
-│   ├── <dataset_ID>-<mode>-final-rep-seqs.qza
-│   └── <dataset_ID>-<mode>-final-table.qza
-├── logs/                                      # Per-dataset verbose logs (<dataset_ID>.log)
-├── datasets.log                               # Unified status log (append-only): SUCCESS|FAILED|SKIPPED|LOW_QUALITY, one dated header per run
-├── summary.csv                                # Ordered per-sample stage counts; DADA2/VSEARCH prefixes; keyed by dataset/method/sample
-├── pip_dataset_read_counts.csv                # Per-BioProject stage totals (including pooled VSEARCH abundances)
-└── per_dataset_summary.tsv                    # Per-dataset: platform + quality status + amplified 16S region (V-region via E. coli alignment); upserted by Bioproject
-```
-
-The amplified region in `per_dataset_summary.tsv` is inferred by aligning each dataset's
-representative sequences to the E. coli 16S reference (`docs/ecoli_16S_J01859.fasta`) and
-mapping the median E. coli span to the V1–V9 regions (e.g. `V3-V4`, `V1-V9` for full-length),
-with a confidence = fraction of rep-seqs agreeing.
-
----
-
-### AmpliconTAXA: Merge & Taxonomy Assignment
-
-```text
-Required:
-    --db DIR                     Database directory
-    -i, --input DIR              Search this directory recursively for PIP final results
-
-Optional:
-    --dada2 | --vsearch           Select a method; inferred when only one is present
-    --singleV                    Single-region alignment and de novo tree
-                                 Default: multi-region SEPP reference-tree insertion
-    --notree, --no-tree           Skip tree construction and tree-dependent filtering
-                                 Mutually exclusive with --singleV
-    --parameter FILE             JSON parameter overrides
-    --db-type TYPE               greengenes (default) or silva
-    --confidence FLOAT           Classification confidence (default: 0.7)
-    -o, --output DIR             Output directory (default: input directory)
-    -t, --threads INT            Threads (default: 4)
-    --dl                         Download missing database files
-```
-
-Dataset directory names are unrestricted. TAXA finds matching
-`<id>-<method>-final-table.qza` and `<id>-<method>-final-rep-seqs.qza`
-in the same directory, validates the artifact types, and removes copied or linked
-duplicate artifact pairs. Incomplete/invalid pairs are recorded and skipped;
-conflicting dataset names or artifacts are reported as errors. Temporary
-directories and TAXA aggregate directories marked by `taxa-run-state.json` are
-excluded. Local dataset names beginning with `final-` remain valid. Both methods
-in the same input require an explicit `--dada2` or `--vsearch`; they are never
-silently combined. Sample IDs must be unique across included datasets; overlapping
-sample IDs cause a merge error. Rename local sample files before PIP processing
-if separate datasets reuse the same sample names.
-
-New vsearch results use sequence-derived SHA-256 feature IDs so independently
-numbered centroids cannot collide across datasets. Identical sequences share IDs;
-this does not change clustering parameters or sample counts.
-
-All TAXA modes merge feature tables and sequences, orient sequences using
-the GreenGenes2 backbone, filter the table to oriented features, and classify with
-the chosen GreenGenes2 or SILVA classifier. `--singleV` then builds a de novo tree
-with MAFFT/masking/FastTree. By default, SEPP inserts features into the
-existing Greengenes 13_8 reference (`sepp-refs-gg-13-8.qza`) and filters tables and
-sequences to placed features. `--notree` (alias `--no-tree`) skips tree construction
-and tree-dependent filtering, and requires no SEPP reference, including with `--dl`.
-The oriented table and representative sequences are its final outputs.
-`--singleV` and `--notree` are mutually exclusive, including when selected through
-the parameter file. The feature method does not choose the tree workflow.
-Different region sequences remain distinct features; taxonomy classification does
-not automatically collapse them into taxon-level abundance counts.
-
-Outputs are isolated by method and region workflow:
-
-```text
-final-<dada2|vsearch>-<singleV|multiV|notree>/
-    collection.json                 # included, duplicate and skipped result pairs
-    parameters.json                 # resolved settings
-    taxa-run-state.json             # cache dependencies
-    <gg2|silva>Taxonomy.qza
-    # singleV:
-    orientedTable.qza, orientedRepSeqs.qza, denovoRootedTree.qza
-    # multiV:
-    treeFilteredTable.qza, treeFilteredRepSeqs.qza, seppTree.qza
-    # notree:
-    orientedTable.qza, orientedRepSeqs.qza
-    tmp/                            # intermediate artifacts and diagnostics
-```
-
-Input, reference and classification-parameter changes invalidate their dependent
-artifacts. A database change reuses the merge and orientation steps when their
-inputs are unchanged. GG2 and SILVA classifications are cached independently,
-so switching classifiers preserves each valid result. Required tree insertion
-and feature filtering failures return a nonzero exit status and retain
-intermediate artifacts for diagnosis.
-
-### Custom parameters and primer decisions
-
-PIP and TAXA accept `--parameter my_parameters.json`. The complete template is
-[docs/parameters.default.json](docs/parameters.default.json); supply only the
-fields you want to override. Explicit CLI flags take precedence over the JSON
-file, which takes precedence over built-in defaults. Unknown fields, incorrect
-types and out-of-range values fail before data processing.
-
-```json
-{
-  "primer": {"fold_threshold": 16, "skip_unknown": true},
-  "vsearch": {"maxee": 1.0, "cluster_identity": 0.97},
-  "taxa": {"confidence": 0.8, "singleV": false, "notree": false}
-}
-```
-
-The b1 detector uses the first 20 bases of all quality-filtered reads from the
-selected sample (forward and reverse analyzed separately). Bases supported by
-at least 10% of reads define C/D/T/Q states, contributing fold factors 1/2/3/4.
-Database matching takes precedence, with identity >=0.85 and informative-position
-fraction >=0.50. The bundled benchmark database contains 10 forward and 13 reverse
-primers. Only unmatched sequences use the strict fold rule:
-
-| Decision | Default behavior | With `--skip-unknown-primers` |
-|---|---|---|
-| Database match | Trim to the matched endpoint | Same |
-| No match and fold <16 | Trim 20 bp | Skip the whole dataset |
-| No match and fold >=16 | Leave reads unchanged | Same |
-| No valid detection reads | Record failure | Same |
-
-`<dataset>-<method>-primer_info.json` records layout, decisions, thresholds and
-actual trimming outside temporary directories. In mixed-orientation PE data,
-actual R1 and R2 reads are evaluated separately within each orientation group.
-Unknown primers on any required end/orientation trigger the skip policy.
-Explicit cutadapt runs report variable trim lengths as `null`; detection-only
-runs record zero trimming. Additional fixed 5-prime trimming after primer removal
-is zero by default for degraded-quality and Ion workflows; the relevant JSON
-settings can request additional trimming explicitly.
-
-Both PacBio workflows retain the full-length eligibility check: more than half
-of the first 1,000 adapter-removed reads must exceed 1,400 bp. The configurable
-PacBio minimum/maximum lengths apply to subsequent read filtering and do not
-change this platform eligibility check.
-
-PacBio vsearch applies automatic primer trimming, including mixed orientations.
-DADA2 CCS detects primers without pre-trimming because `denoise-ccs` requires a
-known or explicitly supplied forward primer to orient and trim reads itself.
-If that prerequisite cannot be met, the dataset is skipped with an explanation;
-use explicit primers or the vsearch workflow for that dataset.
-
----
-
-## Examples
-
-### Case 1: Different way to run metaDL
-
-```bash
-conda activate <env-name>
-
-# Step 1: Search and download metadata by keywords
-
-field=("16S rRNA" "amplicon")
-organism=("bee" "bees")
-
-Meta2Data MetaDL \
-    -o metadata/ \
-    --keywords \
-    --field "${field[@]}" \
-    --organism "${organism[@]}" \
-    --opt "Illumina"
-
-
-# Step 1: Download metadata from a folder of BioProject ID files
-Meta2Data MetaDL \
-    -i bioproject_ids/ \
-    -o metadata/ 
-```
-
-### Case 2: Process Amplicon Data Only (Metadata Already Prepared)
-
-Skip the MetaDL step when you already have a metadata CSV file ready.
-
-```bash
-conda activate <env-name>
-
-# Custom column names matching your CSV headers
-Meta2Data AmpliconPIP \
-    -m my_samples.csv \ # your metadata.csv
-    --col-bioproject "ProjectID" \ # column name for bioproject
-    --col-sra "SRA_Accession" \ # column name for sra run (the sra normally start with SRR, ERR, DRR OR CRR)
-    --vsearch \
-    -o amplicon_output/ \
-    -t 8
-```
-
-### Case 3: Taxonomy Assignment Only (AmpliconPIP Already Complete)
-
-Run AmpliconTAXA independently on existing AmpliconPIP results, e.g., to compare databases.
-
-```bash
-conda activate <env-name>
-
-# vsearch results, multi-region workflow, GreenGenes2 classification
-Meta2Data AmpliconTAXA --vsearch \
-    --db path/to/your/metafile/databases/ \ # Prepare an empty path, the pip will download database in it
-    --db-type greengenes \
-    --dl \
-    --confidence 0.7 \
-    -i path/to/your/metafile/amplicon_output/ \
-    -t 16
-
-# DADA2 results from one region, SILVA 138.99 classification
-Meta2Data AmpliconTAXA --dada2 --singleV \
-    --db path/to/your/metafile/databases/ \
-    --db-type silva \
-    --dl \
-    --confidence 0.7 \
-    -i path/to/your/metafile/amplicon_output/ \
-    -t 16
-
-# Compare databases on the SAME mode: the second run reuses the merge/orient/tree
-# steps and only recomputes the taxonomy artifact.
-Meta2Data AmpliconTAXA --vsearch --db-type greengenes --db databases/ -i amplicon_output/ -t 16
-Meta2Data AmpliconTAXA --vsearch --db-type silva      --db databases/ -i amplicon_output/ -t 16
-```
-
-
-
-### Case 4: Test Mode — Quick Validation
-
-Verify the pipeline works before running on your full dataset. A denoising
-mode (`--dada2` / `--vsearch`) is required even in test mode.
-
-`--test` has two forms:
-- **without `-m`** — runs the built-in test data (fastest way to verify the install).
-- **with `-m`** — subsets *your* metadata to 2 SRA runs per BioProject and runs the
-  real pipeline on that small slice, so you can confirm your CSV format, `--col-*`
-  names, and accessions all work before launching the full run.
-
-```bash
-
-# Use built-in test data (fastest way to verify installation)
-Meta2Data AmpliconPIP --test --vsearch -t 8
-
-# Or smoke test on your own data: it confirms your CSV format, your --col-* names, and that your specific accessions download and process — but in a few minutes on 2 runs/project instead of hours/days on the full set
-Meta2Data AmpliconPIP --test \
-    -m path/to/your/metafile/metadata.csv \
-    --col-bioproject Bioproject \
-    --col-sra Run \
-    --vsearch \
-    -o test_output/ \
-    -t 8
-```
-
-
-
-### Case 5: Process Local FASTQ (No Download)
-
-Already have the FASTQ files? Use `--local` to process a folder directly — no download, no NCBI lookup. The folder **is** one dataset (its name becomes the dataset id) and every FASTQ file directly inside it is a sample or a direction of sample. You must supply `--platform` and an explicit output directory (`-o`); your original files are never modified (they are symlinked read-only).
-
-```bash
-
-# Auto-detect primers (b1), vsearch method, Illumina data
-Meta2Data AmpliconPIP --local --platform ILLUMINA --vsearch \
-    -m path/to/my_fastq_folder/ \   # input folder = one dataset (id = folder name)
-    -o local_output/ \
-    -t 8
-
-# Provide explicit primers (trimmed with cutadapt) instead of auto-detection
-Meta2Data AmpliconPIP --local --platform ILLUMINA --vsearch \
-    --primer-fwd GTGYCAGCMGCCGCGGTAA \
-    --primer-rev GGACTACNVGGGTWTCTAAT \
-    -m path/to/my_fastq_folder/ \
-    -o local_output/ \
-    -t 8
-```
-
-> - `--platform` must be one of `ILLUMINA | LS454 | ION_TORRENT | PACBIO_SMRT | OXFORD_NANOPORE`.
-> - One `--local` run = one dataset / one platform; for mixed-platform data, run each folder separately.
-> - `--max-parallel` is forced to `1` in `--local` mode (a single dataset has nothing to parallelize across), so the single dataset always gets all `-t` threads. To process several folders concurrently, launch one `--local` run per folder.
-> - Paired-end is detected from `_1`/`_2` or `_R1`/`_R2` filename suffixes; `.fq`/`.fq.gz` are accepted (normalized to `.fastq`).
-> - The same outputs as download mode are produced (`datasets.log`, `summary.csv`, `per_dataset_summary.tsv`).
-
-Local paired filenames may use `_R1/_R2`, `_1/_2`, `_R1_001/_R2_001`,
-or `_1_001/_2_001`, with `.fastq`, `.fq`, or gzip-compressed extensions. For example:
-
-```text
-PRM190709-001_S205_L001_1_001.fastq.gz
-PRM190709-001_S205_L001_2_001.fastq.gz
-```
-
-The direction is `1/2`; the last `001` is a chunk number. Matching lane/chunk pairs
-are combined in a stable order under the same sample ID. Original files are left
-unchanged, and `read_layout.json` records their mapping. Unpaired or ambiguous
-names produce a filename error with a renaming example; there is no user manifest
-option. Plain single-end reads should use names such as `sample.fastq.gz`.
-Mixed PE/SE datasets should be separated into different folders.
-
-One local folder remains one dataset, named after the folder. To process a subset
-of downloaded datasets, supply a metadata CSV containing just those datasets.
-For TAXA, choose an input directory containing the desired results. No dataset-ID,
-manifest, or dataset-selection flags are provided.
-
-For validation coverage and execution limits, see
-[docs/revision-validation.md](docs/revision-validation.md).
-
-### Contributing
-
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Follow existing code style (bash best practices)
-4. Test with sample data
-5. Submit a pull request
-
-## Citation
-
-If you use Meta2Data in your research, please cite:
-
-```
-[Citation information to be added]
-```
-
-## License
-
-[License information to be added]
-
+Meta2Data is a Linux toolkit for amplicon analysis, combining public metadata retrieval, sequencing data processing, taxonomic classification, and phylogenetic tree construction. It also supports local FASTQ datasets.
 
 ## Workflow
 
-<p align="center">
-  <img src="docs/meta2data workflow.png" alt="Meta2Data logo" width="100%">
-</p>
+```text
+MetaDL: retrieve and organize metadata
+   ↓ Select projects and samples for analysis
+AmpliconPIP: download/read FASTQ → adapter and primer processing → quality control → dada2 or vsearch
+   ↓ Feature tables + representative sequences
+AmpliconTAXA: collect results recursively → merge and orient sequences → classify → optionally build a tree
+```
 
+| Module | Input | Main output |
+|---|---|---|
+| `MetaDL` | Project/sample/Run IDs, or keywords | Merged metadata CSV |
+| `AmpliconPIP` | Public metadata CSV, local dataset CSV, or both | Feature table, representative sequences, and processing statistics for each dataset |
+| `AmpliconTAXA` | A common parent directory containing one or more PIP results | Merged feature table, representative sequences, taxonomy, and an optional phylogenetic tree |
 
+Select a processing method explicitly in PIP: `--dada2` supports Illumina, Ion Torrent, and full-length PacBio CCS; `--vsearch` also supports 454, Oxford Nanopore, and data with degraded or binned quality scores. In this pipeline, dada2 skips unsupported data rather than switching methods automatically.
 
+## Installation
 
-### Per-sample protection against false inferred adapters
+Choose either Conda or SIF.
 
-AmpliconPIP accepts `--adapter-guard --db /path/to/gg2 --dl` (or
-`--adapter-guard --adapter-ref reference.qza`). This optional guard checks
-fastp's inferred adapter sequences against the 16S reference, then reruns only
-samples with a strong biological match from their original FASTQs. Existing
-FASTQ names and `summary.csv` stay compatible. See [adapter guard](docs/adapter_guard.md)
-for thresholds, provenance, fallback behavior and limitations.
+### Conda
+
+```bash
+export M2D_ROOT=/absolute/path/to/Meta2Data  # Source directory
+conda env create -n meta2data -f "$M2D_ROOT/env.yml"
+conda activate meta2data
+export PATH="$M2D_ROOT/bin:$PATH"
+Meta2Data --help
+```
+
+`env.yml` includes QIIME 2 2024.10 and the pipeline dependencies.
+
+### SIF / Apptainer
+
+Use a SIF version that provides the interface documented here. Meta2Data and its dependencies run directly from the image. After installing Apptainer, choose a version from [GitHub Packages](https://github.com/LinyangSun/Meta2Data/pkgs/container/meta2data) and replace `TAG` below with its tag:
+
+```bash
+apptainer pull Meta2Data.sif \
+  oras://ghcr.io/linyangsun/meta2data:TAG
+
+apptainer exec --cleanenv Meta2Data.sif Meta2Data --help
+```
+
+For convenience, define a shortcut:
+
+```bash
+export M2D_SIF="$(realpath Meta2Data.sif)"
+
+m2d() {
+  apptainer exec --cleanenv "$M2D_SIF" Meta2Data "$@"
+}
+
+m2d --help
+```
+
+Replace `Meta2Data` with `m2d` in the examples below. Run commands from your working directory; PIP and TAXA write to its `results/` directory. Set the image path and define the `m2d` function again in each new terminal.
+
+See the [container guide](docs/container.md) for more examples.
+
+## Preparing your analysis
+
+Run the examples below from the same working directory. PIP and TAXA share fixed input/output locations, while MetaDL uses a separately specified output directory:
+
+```text
+working_directory/
+├── id_files/                # Input directory for ID-file mode; location is configurable
+│   ├── projects.txt
+│   └── metadata/            # MetaDL output for ID-file mode
+├── metadata/
+│   └── bee/                 # Example MetaDL output for keyword mode
+├── metadata.csv             # Selected public projects and Runs for PIP
+├── local_metadata.csv       # Local datasets, paths, and platforms
+├── local_data/
+│   ├── project_A/
+│   └── project_B/
+└── results/
+    ├── pip/
+    │   ├── PRJNA1402755/     # Public project
+    │   ├── project_A/        # Local dataset
+    │   └── project_B/
+    ├── db/                  # Shared reference resources
+    └── taxa/                # Merged tables, taxonomy, and trees
+```
+
+Specify MetaDL output with `-o`. The examples place ID-file output in a new subdirectory of the input directory, and keyword output in `metadata/<task_name>/`. After filtering the metadata, save the projects and Runs selected for analysis as `metadata.csv` for PIP.
+
+All PIP modes—public batch, selected projects, local, mixed, and test—write to `results/pip/` under the directory where the command starts. TAXA collects results recursively from there by default, or from an existing PIP directory specified with `-i`; its output is always `results/taxa/` under the launch directory. Reference resources are cached in `results/db/`. Use a separate working directory for each analysis.
+
+Use the same processing method for datasets merged in one TAXA run, and keep sample IDs unique across datasets. Run independent PIP commands sequentially when they share an output root; a second command reports that the directory is in use if another PIP run is active. After rerunning a project, retain only the intended version for merging so that TAXA does not collect both old and new results.
+
+## 1. MetaDL: retrieve and organize metadata
+
+MetaDL supports INSDC and CNCB/GSA and retrieves project, sample, and Run information. Filter the metadata according to your research question before analysis.
+
+Choose one of two independent input modes: **keyword mode** searches by terms; **ID-file mode** reads BioProject, BioSample, or SRA accessions supplied by the user. ID-file mode does not require a previous keyword search.
+
+### Keyword mode
+
+Enable `--keywords` and supply search terms directly.
+
+| Parameter | Description |
+|---|---|
+| `--keywords` | Enable keyword mode |
+| `--field TERM...` | Required; method-related or similar search terms |
+| `--organism TERM...` | Required; terms describing the organisms of interest |
+| `--opt TERM...` | Optional additional search terms |
+
+For example, use Bash arrays for bee-related terms and methods:
+
+```bash
+bee=("Apis" "Bombus" "Megachile" "Osmia" "Andrena" "Halictus")
+methods=("16S rRNA" "amplicon")
+
+Meta2Data MetaDL \
+  --keywords \
+  --field "${methods[@]}" \
+  --organism "${bee[@]}" \
+  -o metadata/bee
+```
+
+### ID-file mode
+
+**Without `--keywords`, specify an input directory using `-i, --input DIR`.** Put the BioProject or BioSample IDs to retrieve in one or more `.txt` files, one ID per line without a header, and place these files in that directory. SRA accessions are also accepted, including Run IDs starting with `SRR`, `ERR`, or `DRR`.
+
+For example, prepare a directory containing:
+
+```text
+id_files/
+├── projects.txt      # One BioProject ID per line
+└── samples.txt       # One BioSample ID per line
+```
+
+Either file type alone is sufficient; directory and file names are configurable. Example contents of `projects.txt`:
+
+```text
+PRJNA1402755
+PRJNA863317
+```
+
+Pass the directory containing the files:
+
+```bash
+Meta2Data MetaDL \
+  -i /path/to/id_files \
+  -o /path/to/id_files/metadata
+```
+
+The program creates the `metadata/` output directory under `/path/to/id_files/`:
+
+```text
+id_files/
+├── projects.txt
+├── samples.txt
+└── metadata/
+    ├── all_metadata_merged.csv
+    ├── status.tsv
+    └── tmp/
+```
+
+`-i` takes a **directory path, not an individual `.txt` file**. The directory can be anywhere accessible and is independent of keyword-mode output. MetaDL reads `.txt` files directly within it, without scanning subdirectories.
+
+### Parameters shared by both modes
+
+| Parameter | Description |
+|---|---|
+| `-o, --output DIR` | Required metadata output directory; the program creates the subdirectories shown in the examples |
+| `-k, --api-key KEY` | Optional NCBI API key |
+| `-w, --max-workers N` | Parallel workers; defaults to `3` without an API key or `8` with one |
+| `-h, --help` | Show help |
+
+### Main output
+
+| File or directory | Contents |
+|---|---|
+| `all_metadata_merged.csv` | Merged metadata |
+| `status.tsv` | Download status |
+| `column_description.tsv` | Field statistics |
+| `bioproject_absdesc.tsv` | Publication information associated with projects |
+| `searched_keywords/` | Search results generated in keyword mode only |
+
+Resume an interrupted task by rerunning it with the same output directory. Use separate output directories for different ID lists or keyword searches.
+
+## 2. AmpliconPIP: sequencing data processing
+
+### Automatic primer detection and trimming
+
+Primers are detected automatically for each dataset unless supplied manually. This applies to standard public-data batch processing and to local datasets whose primer columns are not mapped or whose mapped primer fields are both empty. Manually supplied primers are still trimmed, but automatic detection and fallback are disabled.
+
+The default rules are:
+
+| Detection result | Action |
+|---|---|
+| Matches the known primer database | Trim through the end of the match |
+| No match, and fold in the first 20 bp is strictly less than 16 | Treat as an unknown primer and trim the first 20 bp by default |
+| No match, and fold is at least 16 | Treat this end as primer-free and do not trim it |
+
+`--skip-unknown-primers`: **skip the entire dataset** if automatic detection finds an unknown primer. This option does not bypass primer processing and continue the analysis.
+
+**PacBio dada2 has an additional requirement:** after passing the near-full-length check, a known forward primer must still be detected or explicitly supplied. The preliminary step detects primers without trimming them; `denoise-ccs` then handles orientation and primer removal. Datasets without a forward primer are skipped. Full-length reads are not necessarily primer-free, and the output retains near-full-length representative sequences. vsearch does not require detection of a known forward primer, but still follows the detection and trimming rules above.
+
+The following settings can be configured in a JSON file supplied with `--parameter`:
+
+| JSON parameter | Default | Description |
+|---|---:|---|
+| `primer.window` | `20` | Detection window at the start of a read, in bp |
+| `primer.fold_threshold` | `16` | When no database primer matches, fold strictly below this threshold indicates an unknown primer |
+| `primer.support_frequency` | `0.10` | Minimum frequency for a base to contribute support at each position; affects the consensus and fold |
+| `primer.database_identity` | `0.85` | Minimum proportion of IUPAC-compatible non-N positions when matching the primer database |
+| `primer.informative_fraction` | `0.50` | Minimum ratio of non-N positions in the matched segment to the full length of the database primer |
+| `primer.unknown_trim_length` | `20` | Bases removed from the start when an unknown primer is found and the dataset is not skipped |
+| `primer.skip_unknown` | `false` | Whether to skip the entire dataset when an unknown primer is detected; corresponds to `--skip-unknown-primers` |
+
+The following parameters select **reads used for detection only**. They do not directly filter reads across the full dataset:
+
+| JSON parameter | Default | Condition for inclusion in detection |
+|---|---:|---|
+| `primer.min_length` | `50` | Read length of at least 50 bp |
+| `primer.min_average_quality` | `20` | Mean Phred score of at least 20 across the read; this filter is skipped when constant placeholder quality scores are detected |
+| `primer.min_complexity` | `0.3` | Number of distinct 2-mers divided by 16, at least 0.3 |
+| `primer.min_entropy` | `1.0` | Shannon entropy of the A/C/G/T composition of at least 1.0 |
+
+Detection uses the first sample after sorting the dataset's samples by name, and the resulting decision applies to the entire dataset. If no valid detection reads remain, processing fails; this is not interpreted as “no primer.” Manually supplied primers do not use the automatic detection parameters above.
+See the [JSON parameter guide](docs/parameters.md) for accepted ranges, platform applicability, and configuration examples.
+
+### Adapter protection
+
+Adapter protection is enabled by default. It checks whether an “adapter” inferred by fastp could actually be a biological 16S sequence. If a match is found, the sample is reprocessed from the original FASTQ: adapter trimming is disabled for single-end reads; for paired-end reads, automatic adapter inference is disabled while overlap-based adapter trimming remains enabled. `--no-adapter-guard` disables only this additional check. Standard adapter removal, primer trimming, and downstream quality control still run.
+
+### Processing modes
+
+| Mode | Input and purpose |
+|---|---|
+| Public and local data together | Supply both a public metadata CSV and a local dataset CSV to process all data in one run |
+| Rerun selected public projects | Select projects from public metadata and supply known primers for each project |
+| Public data only | Download data using public metadata and automatically identify the platform and primers |
+| Local data only | Read FASTQ files listed in a local CSV, with a platform and optional primers specified for each row |
+
+All modes write to `results/pip/` under the directory where the command is launched. Select either `--dada2` or `--vsearch`.
+
+### Processing public and local data together
+
+Prepare two CSV files. The public metadata file, `metadata.csv`, contains one Run per row:
+
+```csv
+Bioproject,Run
+PRJNA1402755,SRR36832824
+PRJNA863317,SRR20818414
+```
+
+The local metadata file, `local_metadata.csv`, contains one dataset per row:
+
+```csv
+datasets,path,platform
+project_A,local_data/project_A,ILLUMINA
+project_B,local_data/project_B,ION_TORRENT
+```
+
+Each local path points to a directory that directly contains FASTQ files. Relative paths are resolved against **the directory containing the local CSV**. Dataset names determine the output directory names. `datasets`, `path`, and `platform` are example column names; all three column-mapping parameters must be supplied explicitly.
+
+```bash
+Meta2Data AmpliconPIP \
+  --public-m metadata.csv \
+  --public-bioproject-colNAME Bioproject --public-sra-colNAME Run \
+  --local-m local_metadata.csv \
+  --local-datasets-colNAME datasets \
+  --local-path-colNAME path --local-platform-colNAME platform \
+  --dada2 -t 8
+```
+
+Public and local results are written to `results/pip/<project-or-dataset-name>/`. To read local primer columns, also supply `--local-primer-f-colNAME` and, optionally, `--local-primer-r-colNAME`; see the local examples below. Mixed input cannot be combined with `--public-bioprojectIDs` or `--test`.
+
+### Main parameters
+
+**Public data input**
+
+| Parameter | Description |
+|---|---|
+| `--public-m FILE` | Required for public or mixed input; public metadata CSV |
+| `--public-bioproject-colNAME NAME` | Required; project ID column in the public CSV |
+| `--public-sra-colNAME NAME` | Required; Run ID column in the public CSV |
+
+**Local data input**
+
+| Parameter | Description |
+|---|---|
+| `--local-m FILE` | Required for local or mixed input; local dataset CSV |
+| `--local-datasets-colNAME NAME` | Required; dataset name column, with no default |
+| `--local-path-colNAME NAME` | Required; FASTQ directory column, with no default |
+| `--local-platform-colNAME NAME` | Required; platform column, with no default |
+| `--local-primer-f-colNAME NAME` | Optional; forward primer column |
+| `--local-primer-r-colNAME NAME` | Optional; reverse primer column; requires the forward primer column to be specified |
+
+**General parameters**
+
+| Parameter | Description / default |
+|---|---|
+| `--dada2` / `--vsearch` | Choose exactly one; no default |
+| `-t, --threads N` | Total threads; default `4` |
+| `--max-parallel N` | Concurrent datasets; default `2`, also applies to multiple local datasets |
+| `--skip-unknown-primers` | Skip the entire dataset if an unknown primer is detected; see the start of this section |
+| `--parameter FILE` | JSON parameter overrides; see the advanced parameters section |
+| `--adapter-guard` | Explicitly enable adapter protection; already enabled by default |
+| `--no-adapter-guard` | Disable the additional adapter protection check |
+| `--test` | Public-data test list; see the test dataset section |
+| `-h, --help` | Show help |
+
+Threads are divided evenly among concurrent datasets. For example, `-t 8 --max-parallel 2` assigns 4 threads per dataset. A single dataset uses all requested threads.
+
+### Rerunning selected public projects with known primers
+
+`--public-bioprojectIDs` is disabled by default. If automatic processing produces unexpected results, select all Runs belonging to specific projects from the original public CSV and rerun them with known primers for each project. This mode cannot be combined with local input.
+
+| Parameter | Description |
+|---|---|
+| `--public-bioprojectIDs ID...` | Public projects to process, separated by spaces |
+| `--public-primer-fwd SEQ...` | Required; one sequence per project, in the same order |
+| `--public-primer-rev SEQ...` | May be omitted entirely; if supplied, the number and order must also match the projects |
+
+Public primer parameters take **lists of nucleotide sequences** directly; local primer parameters take **CSV column names**. The following project IDs and primers only illustrate the pairing. Replace them using your public metadata and original experimental records:
+
+```bash
+projects=("PRJNA123456" "PRJNA654321")
+forward=("GTGYCAGCMGCCGCGGTAA" "CCTACGGGNGGCWGCAG")
+reverse=("GGACTACNVGGGTWTCTAAT" "GACTACHVGGGTATCTAATCC")
+Meta2Data AmpliconPIP \
+  --public-m metadata.csv \
+  --public-bioproject-colNAME Bioproject --public-sra-colNAME Run \
+  --public-bioprojectIDs "${projects[@]}" \
+  --public-primer-fwd "${forward[@]}" --public-primer-rev "${reverse[@]}" \
+  --dada2 -t 8
+```
+
+Each selected project uses the supplied primers, with no automatic detection or fallback. Standard public batch processing does not accept manually supplied primers. The selected metadata is saved as `selected_metadata.csv`, and the project-to-primer mapping as `project_primers.json`. The original CSV is not modified.
+
+### Processing public data only
+
+Save the filtered public metadata as `metadata.csv` using the format above, and supply only the public input parameters:
+
+```bash
+Meta2Data AmpliconPIP \
+  --public-m metadata.csv \
+  --public-bioproject-colNAME Bioproject --public-sra-colNAME Run \
+  --dada2 -t 8
+```
+
+All projects in the CSV are processed, with automatic platform and primer detection. Additional platform or quality-description columns in the public CSV do not directly control processing.
+
+### Processing local data only
+
+Each row in the local CSV corresponds to a directory that directly contains FASTQ files, for example:
+
+```text
+local_data/
+├── project_A/
+│   ├── A01_R1.fastq.gz
+│   └── A01_R2.fastq.gz
+└── project_B/
+    └── B01.fastq.gz
+```
+
+Use `local_metadata.csv` from above to detect primers automatically for each dataset:
+
+```bash
+Meta2Data AmpliconPIP --local-m local_metadata.csv \
+  --local-datasets-colNAME datasets \
+  --local-path-colNAME path --local-platform-colNAME platform \
+  --dada2 -t 8
+```
+
+Results are written to `results/pip/project_A/` and `results/pip/project_B/`.
+
+**Primer columns are read only when explicitly specified.** For example, add two columns to the local CSV:
+
+```csv
+datasets,path,platform,primer_f,primer_r
+project_A,local_data/project_A,ILLUMINA,GTGYCAGCMGCCGCGGTAA,GGACTACNVGGGTWTCTAAT
+project_B,local_data/project_B,ION_TORRENT,,
+```
+
+```bash
+Meta2Data AmpliconPIP --local-m local_metadata.csv \
+  --local-datasets-colNAME datasets \
+  --local-path-colNAME path --local-platform-colNAME platform \
+  --local-primer-f-colNAME primer_f --local-primer-r-colNAME primer_r \
+  --dada2 -t 8
+```
+
+If both mapped primer fields are empty, primers are detected automatically. If a forward primer is supplied, the sequences in that row are used, with no fallback to automatic detection. The reverse primer may be empty, but cannot be supplied on its own. Known primers at both ends of long single-end reads are trimmed; shorter reads that do not reach the reverse primer are retained. Replace the example sequences using the original experimental records.
+
+Different local datasets may use different platforms: `ILLUMINA`, `LS454`, `ION_TORRENT`, `PACBIO_SMRT`, or `OXFORD_NANOPORE`. A single dataset cannot mix platforms or single-end and paired-end reads.
+
+Supported extensions are `.fastq`, `.fq`, and their `.gz` equivalents. Paired-end files support the following naming patterns; extensions are omitted in the table:
+
+| Forward filename | Reverse filename |
+|---|---|
+| `sample_R1` | `sample_R2` |
+| `sample_1` | `sample_2` |
+| `sample_R1_001` | `sample_R2_001` |
+| `sample_1_001` | `sample_2_001` |
+| `sample_L001_R1_001` | `sample_L001_R2_001` |
+
+Local single-end files should use names without a pairing suffix, such as `sample.fastq.gz`. An unpaired `sample_R1.fastq.gz` or `sample_1.fastq.gz` causes a missing-mate error. Single-end files named `sample_L001.fastq` and `sample_L002.fastq` are treated as two separate samples and are not merged automatically.
+
+For paired-end data, multiple lanes or chunks from the same sample are sorted by name, then merged separately for R1 and R2. Every group must contain both mates. The paired-end sample ID is the filename prefix after removing the extension and read, lane, and chunk suffixes. For example, `A_S1_L001_R1_001.fastq.gz` becomes `A_S1`. Single-end sample IDs are filenames with the extension removed.
+
+Dataset names must be unique and must not conflict with public project IDs in the same run. The same FASTQ directory cannot be registered twice, and datasets with identical names but different source directories are not overwritten. Duplicate sample IDs within a local or mixed run cause a preflight error; they are not renamed automatically. Sample names must also remain unique across separate runs, and TAXA checks them during merging. Input sources and output directories must not overlap. Keep metadata CSV files outside the results directory. Original FASTQ files are not modified.
+
+### Main outputs
+
+```text
+results/pip/
+├── <dataset>/
+│   ├── <dataset>-<method>-final-table.qza
+│   ├── <dataset>-<method>-final-rep-seqs.qza
+│   └── read_counts/                 # Per-stage counts and quality-control reports
+├── summary.csv                      # Per-sample read counts at each processing stage
+├── pip_dataset_read_counts.csv      # Dataset-level summary
+├── per_dataset_summary.tsv          # Platform, quality, amplicon region, etc.
+├── effective-parameters-<method>.json
+├── datasets.log                     # Success, failure, skipped, and other statuses
+└── logs/<dataset>.log                # Detailed log for each dataset
+```
+
+`<method>` is `dada2` or `vsearch`. After successful processing, working FASTQ files and temporary files are removed; final results and statistics are retained. Completed steps can be reused when inputs and parameters are unchanged. Changes to inputs or parameters trigger reprocessing of the affected steps.
+
+## 3. AmpliconTAXA: merge, classify, and build trees
+
+By default, TAXA recursively collects complete public and local results from `results/pip/`, merges feature tables and representative sequences, orients sequences, assigns taxonomy, and optionally builds a tree. Output is always written to `results/taxa/` under the launch directory.
+
+```bash
+Meta2Data AmpliconTAXA --dada2 --classifier greengenes -t 8
+```
+
+| Parameter | Description / default |
+|---|---|
+| `-i, --input DIR` | Recursively search this directory; defaults to `results/pip` under the launch directory |
+| `--dada2` / `--vsearch` | Mutually exclusive; must match PIP. Detected automatically if only one method is present; select explicitly when both are present |
+| `--classifier greengenes / silva` | Classifier; defaults to `greengenes` and downloads automatically if missing |
+| `--singleV` | For data from the same amplified region: align sequences and build a tree de novo |
+| `--notree` / `--no-tree` | Merge, orient, and classify without building a tree |
+| `--confidence FLOAT` | Classification confidence; default `0.7`, range `0–1` |
+| `-t, --threads N` | Threads; default `4` |
+| `--parameter FILE` | Override parameters using JSON |
+| `-h, --help` | Show help |
+
+All modes orient sequences against the GG2 sequence reference and remove features that cannot be oriented from both the representative sequences and feature table. The default SEPP workflow also removes features that cannot be inserted into the tree. `--singleV` and `--notree` are mutually exclusive, and neither requires the SEPP reference. `--notree` skips tree construction and tree-insertion filtering only. Classifier selection is independent of the tree method; resources are prepared automatically in `results/db/`.
+
+If the recorded state identifies results from an input source that has since been replaced, TAXA reports an error and preserves the files. Rerun PIP with that method first. External results without a state record can still be imported.
+
+To classify with SILVA without building a tree:
+
+```bash
+Meta2Data AmpliconTAXA --dada2 --classifier silva --notree -t 8
+```
+
+Results are saved in `results/taxa/final-<method>-<multiV|singleV|notree>/`:
+
+| Workflow | Main output |
+|---|---|
+| Default, multiple regions | `treeFilteredTable.qza`, `treeFilteredRepSeqs.qza`, `seppTree.qza` |
+| `--singleV` | `orientedTable.qza`, `orientedRepSeqs.qza`, `denovoRootedTree.qza` |
+| `--notree` | `orientedTable.qza`, `orientedRepSeqs.qza` |
+| All workflows | `gg2Taxonomy.qza` or `silvaTaxonomy.qza`, `taxa_read_counts.csv`, `taxa_read_losses.csv`, configuration and input records |
+
+## Test datasets
+
+Test files contain real accessions and require an internet connection to download complete Runs. Runtime and disk usage depend on the data size. Use a separate working directory; tests also use the fixed `results/pip`, `results/taxa`, and `results/db` paths.
+
+```bash
+# Built-in test: 6 projects and 6 Runs across multiple platforms
+Meta2Data AmpliconPIP --test --vsearch -t 8
+
+# Classify the test results without building a tree
+Meta2Data AmpliconTAXA --vsearch --notree -t 8
+```
+
+The extended list, [newpipe.csv](test/newpipe.csv), contains 12 projects and 24 Runs. Save it in your working directory and run:
+
+```bash
+Meta2Data AmpliconPIP --test --vsearch \
+  --public-m newpipe.csv \
+  --public-bioproject-colNAME Bioproject --public-sra-colNAME Run -t 8
+```
+
+`--test` is for public data only and cannot be combined with `--local-m`. Without `--public-m`, it uses the built-in `test/ampliconpiptest.csv`; with a CSV, it selects the first 2 rows per project. When combined with `--public-bioprojectIDs`, projects are selected first, then the first 2 rows are taken; matching primers are still required. A processing method must be selected. Skipping unsupported platforms is expected when using dada2.
+
+MetaDL has no `--test` option. To test it, prepare a small number of IDs as described in ID-file mode and pass their directory with `-i`. Test TAXA using results already generated by PIP.
+
+## Advanced parameters and diagnostics
+
+For 454, after primer processing and tail trimming, the pipeline calculates the median read length `L` from all reads in each Run/local sample. It removes reads shorter than `ceil(0.5 × L)`, then removes reads containing more than 1 `N`/`n` in total. Retained reads are not truncated to a common length. Set the fraction with JSON parameter `ls454.length_fraction` (default `0.5`) and the maximum N count with `ls454.max_n` (default `1`). This screens for length and ambiguous bases without relying on quality scores; it does not guarantee error-free sequences.
+
+Filtering is followed by exact dereplication, 99% preclustering, vsearch denoising, chimera removal, 97% clustering, and mapping reads back to the representatives. Sequences with abundance 1 are retained before 99% preclustering; denoising still uses `vsearch.minsize`. Mapping uses filtered reads, excluding members assigned to identified chimeras. There is no additional removal of final features with count 1. Per-sample thresholds and losses are recorded in `ls454_quality-vsearch.json`; member exclusion statistics are in `ls454_members-vsearch.json`.
+
+For Ion Torrent, both vsearch and dada2 automatically set `EE = L × 10^(-19/10)` by default, where `L` is the dataset's median read length after primer removal. The actual threshold is recorded in `ion_quality-<method>.json` in the dataset directory.
+
+For Oxford Nanopore, reads and representative sequences are ordered deterministically before clustering and consensus polishing. Sequence identifiers are stable, and repeated reads retain their full contribution to abundance.
+
+PIP and TAXA both support `--parameter settings.json`. Include only the fields to override; explicit CLI options take precedence. See the [JSON parameter guide](docs/parameters.md) for definitions, units, ranges, applicable platforms, and effects of parameter changes. The [default configuration](docs/parameters.default.json) is available as a template.
+
+For example, save the following as `settings.json`:
+
+```json
+{
+  "primer": {"skip_unknown": true},
+  "vsearch": {"maxee": 1.0, "cluster_identity": 0.97},
+  "taxa": {"confidence": 0.8}
+}
+```
+
+For local input, the dataset name, path, and platform column parameters remain required when using a configuration file:
+
+```bash
+Meta2Data AmpliconPIP --local-m local_metadata.csv \
+  --local-datasets-colNAME datasets \
+  --local-path-colNAME path --local-platform-colNAME platform \
+  --vsearch --parameter settings.json -t 8
+Meta2Data AmpliconTAXA --vsearch --parameter settings.json --notree -t 8
+```
+
+AmpliconPIP adapter protection automatically uses the GG2 sequence reference. The BLAST index and query cache are stored in `results/db/adapter_guard/` under the launch directory.
+
+If a dataset fails, check `datasets.log` and its dataset log first, resolve the issue, and rerun the same command. In `summary.csv`, `0` means that no reads were retained at that stage; `NA` means the stage was not run or was not applicable. Initial counts for paired-end data are reported as read pairs.
+
+Further documentation: [Processing workflow](docs/amplicon_pipeline.md) · [Adapter protection](docs/adapter_guard.md) · [Read counts](docs/read_counts.md) · [Resource statistics](docs/resource_profile.md).

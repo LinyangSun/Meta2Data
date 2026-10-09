@@ -8,6 +8,11 @@ import sys
 from read_layout import discover, layout
 
 
+def reverse_complement(sequence):
+    return sequence.upper().translate(
+        str.maketrans('ACGTRYSWKMBDHVN', 'TGCAYRSWMKVHDBN'))[::-1]
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--input', required=True)
@@ -21,7 +26,7 @@ def main():
     mode = layout(rows)
     out = Path(a.output)
     out.mkdir(parents=True, exist_ok=True)
-    reverse_used = bool(a.reverse) and (mode == 'PE' or a.mixed_orientation)
+    reverse_used = bool(a.reverse)
 
     def entry(sequence, used):
         applied = used and not a.detect_only
@@ -36,7 +41,9 @@ def main():
                 trim_method='none' if a.detect_only else 'cutadapt_variable',
                 forward_primer=entry(a.forward, True),
                 reverse_primer=entry(a.reverse, reverse_used),
-                detect_only=a.detect_only)
+                detect_only=a.detect_only,
+                reverse_complement_search=(mode == 'SE' and a.mixed_orientation
+                                           and not a.detect_only))
 
     for row in rows:
         r1, r2 = row['r1'], row['r2']
@@ -45,14 +52,23 @@ def main():
                 if src:
                     shutil.copyfile(src, out / Path(src).name)
             continue
-        cmd = ['cutadapt', '-g', a.forward, '-o', str(out / Path(r1).name)]
+        cmd = ['cutadapt', '-o', str(out / Path(r1).name)]
         if r2:
+            cmd += ['-g', a.forward]
             if a.reverse:
                 cmd += ['-G', a.reverse]
             cmd += ['-p', str(out / Path(r2).name), r1, r2]
         else:
-            if a.mixed_orientation and a.reverse:
-                cmd += ['-g', a.reverse]
+            if a.reverse:
+                # A long SE read can reach the reverse primer at its 3' end.
+                # Requiring only F also preserves short reads that never reach R.
+                linked = f'{a.forward};required...{reverse_complement(a.reverse)};optional'
+                cmd += ['-a', linked]
+            else:
+                cmd += ['-g', a.forward]
+            if a.mixed_orientation:
+                # Search both orientations without changing the original read ID.
+                cmd += ['--revcomp', '--rename', '{header}']
             cmd += [r1]
         try:
             subprocess.run(cmd, check=True)

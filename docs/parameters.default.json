@@ -1,6 +1,6 @@
 {
   "adapter_guard": {
-    "enabled": false,
+    "enabled": true,
     "min_length": 50,
     "min_identity": 98.0,
     "min_coverage": 95.0
@@ -28,13 +28,14 @@
     "degraded_trim_left": 0,
     "min_length": 50,
     "max_n": 1,
-    "ion_maxee": 2.0,
+    "ion_maxee": null,
     "ion_trim_left": 0,
     "pacbio_maxee_rate": 0.01,
     "pacbio_min_length": 1000,
     "pacbio_max_length": 2000
   },
   "dada2": {
+    "ion_maxee": null,
     "ion_trim_left": 0,
     "pacbio_min_length": 1000,
     "pacbio_max_length": 1600,
@@ -51,5 +52,9 @@
     "confidence": 0.7,
     "singleV": false,
     "notree": false
+  },
+  "ls454": {
+    "length_fraction": 0.5,
+    "max_n": 1
   }
 }

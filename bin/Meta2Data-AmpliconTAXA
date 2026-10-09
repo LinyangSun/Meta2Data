@@ -1,8 +1,15 @@
 #!/bin/bash
 set -e
 
-# Find scripts directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# Output and shared references are fixed beneath the physical launch directory.
+WORK_DIR="$(pwd -P)"
+
+# Resolve symlinks before locating sibling commands or packaged scripts.
+_M2D_ENTRYPOINT="$(readlink -f -- "${BASH_SOURCE[0]}")" || {
+    echo "ERROR: Cannot resolve Meta2Data entry point: ${BASH_SOURCE[0]}" >&2
+    exit 1
+}
+SCRIPT_DIR="$(dirname -- "$(dirname -- "$_M2D_ENTRYPOINT")")"
 
 # Search for scripts directory in multiple possible locations
 find_scripts_dir() {
@@ -39,7 +46,7 @@ source "${SCRIPTS}/resource_profile.sh"
 
 show_help() {
     cat << EOF
-Usage: Meta2Data AmpliconTAXA --db DIR -i DIR [options]
+Usage: Meta2Data AmpliconTAXA [options]
 
 Recursively collect AmpliconPIP results, merge features, orient sequences against
 GreenGenes2, assign taxonomy, and optionally build a phylogenetic tree. Dataset folders
@@ -50,28 +57,29 @@ may have any name. Each result must contain a matching pair:
 When one method is present it is selected automatically. If both dada2 and
 vsearch results are present, select one explicitly; methods are never mixed.
 
-Required options:
-    --db DIR              Database directory (use --dl to download files)
-    -i, --input DIR        Directory containing AmpliconPIP results
-
-Optional options:
+Options:
+    -i, --input DIR        PIP results directory (default: ./results/pip)
     --dada2 | --vsearch    Select a method; mutually exclusive, otherwise automatic
     --singleV             Single-region de novo tree (mafft + mask + fasttree)
                           Default: multi-region SEPP insertion and tree filtering
     --notree, --no-tree    Skip tree construction and tree-dependent filtering
                           Mutually exclusive with --singleV
     --parameter FILE      JSON parameter overrides (CLI options take precedence)
-    --db-type TYPE        greengenes (default) or silva; taxonomy classifier only
-    -o, --output DIR      Result directory (default: same as --input)
+    --classifier TYPE     greengenes (default) or silva; missing classifier downloads automatically
     -t, --threads INT     CPU threads (default: 4)
     --confidence FLOAT    Classifier confidence (default: 0.7)
-    --dl                  Download missing database files
     -h, --help            Show this help
 
 Orientation always uses the GreenGenes2 2024.09 backbone. Multi-region runs
 use the existing Greengenes 13_8 SEPP reference regardless of feature method
 or taxonomy classifier. --notree requires no SEPP reference. Tree mode is
 independent of --dada2 / --vsearch.
+
+All default paths are relative to the launch working directory:
+    Input: ./results/pip   Output: ./results/taxa   References: ./results/db
+Changing --input does not change either fixed output or reference location.
+Valid cached or bundled references are reused; missing resources download
+automatically. Only the selected classifier and required tree reference are prepared.
 
 Database files:
     Always: 2024.09.backbone.full-length.fna.qza
@@ -80,12 +88,12 @@ Database files:
     SEPP runs only: sepp-refs-gg-13-8.qza
 
 Examples:
-    Meta2Data AmpliconTAXA --db /path/to/db --dl -i /path/to/output
-    Meta2Data AmpliconTAXA --dada2 --singleV --db /path/to/db -i /path/to/output
-    Meta2Data AmpliconTAXA --notree --db /path/to/db -i /path/to/output
-    Meta2Data AmpliconTAXA --vsearch --parameter settings.json --db /path/to/db -i results
+    Meta2Data AmpliconTAXA
+    Meta2Data AmpliconTAXA --dada2 --singleV
+    Meta2Data AmpliconTAXA --notree --classifier silva
+    Meta2Data AmpliconTAXA --vsearch --parameter settings.json
 
-Outputs: <output>/final-<method>-<singleV|multiV|notree>/
+Outputs: results/taxa/final-<method>-<singleV|multiV|notree>/
     Single-region: orientedTable.qza, orientedRepSeqs.qza, denovoRootedTree.qza
     Multi-region: treeFilteredTable.qza, treeFilteredRepSeqs.qza, seppTree.qza
     No tree: orientedTable.qza, orientedRepSeqs.qza
@@ -93,6 +101,8 @@ Outputs: <output>/final-<method>-<singleV|multiV|notree>/
     tmp/: intermediates and diagnostics
 
 Changed inputs, parameters or references invalidate the affected cached steps.
+Damaged TAXA state triggers recomputation of managed outputs. PIP results known
+to belong to a previous input source are rejected; re-run that method first.
 Incomplete or invalid input pairs and duplicate results are recorded in collection.json.
 TAXA aggregate directories are identified by taxa-run-state.json and excluded.
 Sample IDs must be unique across datasets; duplicate sample IDs stop the merge.
@@ -103,11 +113,11 @@ EOF
 
 # Default parameters
 MODE=""
-DB_DIR=""
+DB_DIR="${WORK_DIR}/results/db"
 DB_TYPE="greengenes"
-ENABLE_DL=false
-INPUT_DIR=""
-OUTPUT=""
+INPUT_DIR="${WORK_DIR}/results/pip"
+OUTPUT="${WORK_DIR}/results/taxa"
+INPUT_EXPLICIT=false
 THREADS=4
 CONFIDENCE=0.7
 SINGLE_V=false
@@ -130,6 +140,14 @@ parameter_args=()
 parameter_exports=$(python3 "${SCRIPTS}/parameters.py" shell "${parameter_args[@]}")
 eval "$parameter_exports"
 export PARAMETER_FILE
+
+# Fail clearly for missing values rather than passing option tokens as paths.
+require_value() {
+    if [[ $# -lt 2 || -z "$2" || "$2" == -* ]]; then
+        echo "Error: $1 requires a value" >&2
+        exit 1
+    fi
+}
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -161,31 +179,32 @@ while [[ $# -gt 0 ]]; do
         --parameter)
             shift 2
             ;;
-        --db)
-            DB_DIR="$2"
-            shift 2
-            ;;
-        --db-type)
+        --classifier)
+            require_value "$@"
             DB_TYPE="$2"
             shift 2
             ;;
-        --dl)
-            ENABLE_DL=true
-            shift
+        --db|--db-type|--dl)
+            echo "Error: $1 was removed. References are prepared automatically in ./results/db; select --classifier greengenes or --classifier silva." >&2
+            exit 1
             ;;
         --confidence)
+            require_value "$@"
             CONFIDENCE="$2"
             shift 2
             ;;
         -i|--input)
+            require_value "$@"
             INPUT_DIR="$2"
+            INPUT_EXPLICIT=true
             shift 2
             ;;
-        -o|--output)
-            OUTPUT="$2"
-            shift 2
+        -o|--output|--output=*)
+            echo "Error: ${1%%=*} was removed. AmpliconTAXA always writes to ./results/taxa beneath the launch working directory; shared references use ./results/db." >&2
+            exit 1
             ;;
         -t|--threads)
+            require_value "$@"
             THREADS="$2"
             shift 2
             ;;
@@ -212,11 +231,11 @@ if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
     exit 1
 fi
 
-# Validate --db-type
+# Validate --classifier
 case "$DB_TYPE" in
     greengenes|silva) ;;
     *)
-        echo "Error: --db-type must be one of: greengenes, silva (got '$DB_TYPE')"
+        echo "Error: --classifier must be one of: greengenes, silva (got '$DB_TYPE')"
         exit 1
         ;;
 esac
@@ -230,43 +249,22 @@ fi
 # Normalize valid CLI forms such as .7 for the shared JSON parameter snapshot.
 CONFIDENCE=$(python3 -c 'import sys; print(float(sys.argv[1]))' "$CONFIDENCE")
 
-# Validate required parameters
-if [[ -z "$DB_DIR" ]]; then
-    echo "Error: --db is required"
-    show_help
-    exit 1
-fi
-
-if [[ -z "$INPUT_DIR" ]]; then
-    echo "Error: --input is required"
-    show_help
-    exit 1
-fi
-
-# Strip trailing slashes from user-provided paths
-DB_DIR="${DB_DIR%/}"
-INPUT_DIR="${INPUT_DIR%/}"
-OUTPUT="${OUTPUT%/}"
-
-# Create DB_DIR if it doesn't exist (needed for --dl)
-mkdir -p "$DB_DIR"
-DB_DIR=$(cd "$DB_DIR" && pwd)
-
-# Validate and convert INPUT_DIR to absolute path
+# Resolve input before creating outputs or preparing references.
 if [[ ! -d "$INPUT_DIR" ]]; then
-    echo "Error: Input directory '$INPUT_DIR' does not exist"
-    echo "This should be the output directory from a previous AmpliconPIP run"
+    if [[ "$INPUT_EXPLICIT" == false ]]; then
+        echo "Error: Default input directory '$INPUT_DIR' does not exist." >&2
+        echo "Run AmpliconPIP first, or use --input DIR to select existing PIP results." >&2
+    else
+        echo "Error: Input directory '$INPUT_DIR' does not exist." >&2
+        echo "Select a directory containing AmpliconPIP results." >&2
+    fi
     exit 1
 fi
 INPUT_DIR=$(cd "$INPUT_DIR" && pwd)
 
-# Default OUTPUT to INPUT_DIR if not specified
-if [[ -z "$OUTPUT" ]]; then
-    OUTPUT="$INPUT_DIR"
-else
-    mkdir -p "$OUTPUT"
-    OUTPUT=$(cd "$OUTPUT" && pwd)
-fi
+# Output is fixed beneath the launch directory, even when --input is overridden.
+mkdir -p "$OUTPUT"
+OUTPUT=$(cd "$OUTPUT" && pwd)
 
 # Collect first so ambiguous methods and missing results fail before downloads.
 mkdir -p "${OUTPUT}/.tmpdir"
@@ -279,125 +277,21 @@ REGION="multiV"
 [[ "$NOTREE" == false ]] || REGION="notree"
 FINAL_DIR="${OUTPUT}/final-${MODE}-${REGION}"
 
-# Database file names.
-#   ORIENT_REF : reference sequences for orientation. Always the GG2 backbone,
-#                regardless of --db-type (only taxonomy depends on --db-type).
-#   NB_CLASSIFIER : pre-trained Naive Bayes classifier for --db-type.
-#   SEPP_REF   : Greengenes 13_8 SEPP reference, required for SEPP runs.
-ORIENT_REF="${DB_DIR}/2024.09.backbone.full-length.fna.qza"
-SEPP_REF="${DB_DIR}/sepp-refs-gg-13-8.qza"
-
-case "$DB_TYPE" in
-    greengenes)
-        DB_LABEL="gg2"
-        NB_CLASSIFIER="${DB_DIR}/2024.09.backbone.full-length.nb.qza"
-        ;;
-    silva)
-        DB_LABEL="silva"
-        NB_CLASSIFIER="${DB_DIR}/silva-138-99-nb-classifier.qza"
-        ;;
-esac
-
-################################################################################
-#                    DOWNLOAD DATABASE (if --dl enabled)                        #
-################################################################################
-
-if [[ "$ENABLE_DL" == true ]]; then
-    GG2_BASE="http://ftp.microbio.me/greengenes_release/2024.09/"
-    SILVA_CLS="https://data.qiime2.org/classifiers/sklearn-1.4.2/silva/"
-    SEPP_URL="https://data.qiime2.org/classifiers/sepp-ref-dbs/"
-
-    echo "========================================="
-    echo "Downloading Database Files"
-    echo "Target:  $DB_DIR"
-    echo "Mode:    $MODE"
-    echo "DB type: $DB_TYPE ($DB_LABEL)"
-    echo "========================================="
-    echo ""
-
-    # Validate a .qza file by checking it is a non-empty, valid zip archive
-    validate_qza() {
-        local file="$1"
-        [[ -f "$file" ]] && [[ -s "$file" ]] && unzip -tq "$file" >/dev/null 2>&1
-    }
-
-    # Each entry: "filename|base_url|wget_extra_flags"
-    DL_FILES=()
-    # Orientation reference: always the GG2 backbone sequences
-    DL_FILES+=("2024.09.backbone.full-length.fna.qza|${GG2_BASE}|--no-check-certificate")
-    # Taxonomy classifier: per --db-type
-    case "$DB_TYPE" in
-        greengenes)
-            DL_FILES+=("2024.09.backbone.full-length.nb.qza|${GG2_BASE}|--no-check-certificate")
-            ;;
-        silva)
-            DL_FILES+=("silva-138-99-nb-classifier.qza|${SILVA_CLS}|")
-            ;;
-    esac
-    # SEPP reference: required only when building the insertion tree
-    if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
-        DL_FILES+=("sepp-refs-gg-13-8.qza|${SEPP_URL}|")
-    fi
-
-    for entry in "${DL_FILES[@]}"; do
-        IFS='|' read -r fname base_url extra_flags <<< "$entry"
-        target="${DB_DIR}/${fname}"
-        if validate_qza "$target"; then
-            echo "Valid file exists: ${fname}, skipping download"
-        else
-            [[ -f "$target" ]] && echo "Existing file is corrupt or incomplete, re-downloading: ${fname}"
-            rm -f "$target"
-            echo "Downloading: ${fname}..."
-            # shellcheck disable=SC2086
-            if ! wget -q --show-progress ${extra_flags} -O "$target" "${base_url}${fname}"; then
-                echo "ERROR: Failed to download ${fname}"
-                rm -f "$target"
-                exit 1
-            fi
-            if ! validate_qza "$target"; then
-                echo "ERROR: Downloaded file is corrupt: ${fname}"
-                rm -f "$target"
-                exit 1
-            fi
-            echo "Downloaded and verified: ${fname}"
-        fi
-    done
-
-    echo ""
-    echo "Database download complete."
-    echo ""
-fi
-
-################################################################################
-#                    VALIDATE DATABASE FILES                                    #
-################################################################################
-
-echo "========================================="
-echo "Validating Database Files"
-echo "========================================="
-
-# Orientation and classifier always; SEPP reference only when building its tree.
-NEEDED_FILES=("$ORIENT_REF" "$NB_CLASSIFIER")
+# Prepare only references required by the selected classifier and tree mode.
+# All module invocations use the same startup-working-directory cache.
+ORIENT_REF=$(python3 "${SCRIPTS}/reference_resources.py" prepare \
+    --kind gg2-sequences --work-dir "$WORK_DIR")
+NB_CLASSIFIER=$(python3 "${SCRIPTS}/reference_resources.py" prepare \
+    --kind "${DB_TYPE}-classifier" --work-dir "$WORK_DIR")
+SEPP_REF=""
 if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
-    NEEDED_FILES+=("$SEPP_REF")
+    SEPP_REF=$(python3 "${SCRIPTS}/reference_resources.py" prepare \
+        --kind sepp --work-dir "$WORK_DIR")
 fi
-
-MISSING=false
-for f in "${NEEDED_FILES[@]}"; do
-    if [[ ! -f "$f" ]]; then
-        echo "ERROR: Required file not found: $f"
-        MISSING=true
-    else
-        echo "Found: $(basename "$f")"
-    fi
-done
-
-if [[ "$MISSING" == true ]]; then
-    echo ""
-    echo "Use --dl to download missing database files automatically"
-    exit 1
-fi
-echo ""
+case "$DB_TYPE" in
+    greengenes) DB_LABEL="gg2" ;;
+    silva) DB_LABEL="silva" ;;
+esac
 
 ################################################################################
 #                    DISPLAY CONFIGURATION                                     #
@@ -409,7 +303,7 @@ echo "========================================="
 echo "Method:         $MODE"
 echo "Region mode:    $REGION"
 echo "Database Dir:   $DB_DIR"
-echo "Database Type:  $DB_TYPE ($DB_LABEL)"
+echo "Classifier:     $DB_TYPE ($DB_LABEL)"
 echo "  Orient Ref:   $(basename "$ORIENT_REF")  (GG2, always)"
 echo "  Classifier:   $(basename "$NB_CLASSIFIER")"
 if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
@@ -442,15 +336,12 @@ else
 fi
 python3 "${SCRIPTS}/taxa_inputs.py" prepare "${prepare_args[@]}"
 export MODE
-export SINGLE_V
 export FINAL_DIR
-export COLLECTION
 export SCRIPTS
 export DB_LABEL
 export NB_CLASSIFIER
 export ORIENT_REF
 export SEPP_REF
-export CONFIDENCE
 export INPUT_DIR
 export OUTPUT
 export cpu=$THREADS

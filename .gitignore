@@ -13,3 +13,21 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Generated analysis and validation output
+/results/
+/tmp/
+/validation-*/
+*.log
+slurm-*.out
+
+# Test and tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Container images are published separately
+*.sif

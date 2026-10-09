@@ -8,13 +8,13 @@ these variables explicitly using `--env`.
 
 ```bash
 M2D_PROFILE_DIR=/absolute/run/b4 M2D_EXECUTION_ID=run001 \
-  Meta2Data AmpliconPIP --vsearch -m metadata.csv \
-  --col-bioproject Bioproject --col-sra Run -o results --max-parallel 2 -t 8
+  Meta2Data AmpliconPIP --vsearch --public-m metadata.csv \
+  --public-bioproject-colNAME Bioproject --public-sra-colNAME Run --max-parallel 2 -t 8
 python3 scripts/resource_profile.py export --directory /absolute/run/b4
 ```
 
 Native AmpliconPIP workers automatically receive a separate `dataset` scope,
-with stage `pip_dataset_total`, for each BioProject. With `-t 8 --max-parallel 2`,
+with stage `pip_dataset_total`, for each online or local dataset. With `-t 8 --max-parallel 2`,
 at most two datasets run concurrently and each receives four CPU threads. The
 worker context includes its BioProject, thread budget and parent invocation ID;
 its child commands inherit those values. Actual worker failures are reported

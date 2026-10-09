@@ -176,7 +176,7 @@ echo ""
 #        STEP 5: ORIENT vs GG2 (database-independent, reusable)                #
 ################################################################################
 # Orientation always uses the GG2 backbone (ORIENT_REF), regardless of
-# --db-type. Sequences that cannot be oriented (no match) go to UNMATCHED and
+# --classifier. Sequences that cannot be oriented (no match) go to UNMATCHED and
 # are dropped from the analysis.
 
 echo ">>> Step 5: Orienting sequences against GG2 backbone..."

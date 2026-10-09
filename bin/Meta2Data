@@ -5,10 +5,9 @@ show_help() {
 Usage: Meta2Data <command> [options]
 
 Available commands:
-    MetaDL                  Search keywords combination in NCBI and CNCB. Download and preclean metadata.
-    AmpliconPIP             Download and process amplicon sequencing data based on user provided metadata.
+    MetaDL                  Retrieve and merge metadata from ID files or keyword searches.
+    AmpliconPIP             Process public reads, local FASTQ datasets, or both with dada2 or vsearch.
     AmpliconTAXA            Merge amplicon datasets (method auto-detected) and assign taxonomy (GreenGenes2 or SILVA).
-    ShortreadsPIP           TBD
 
 Run 'Meta2Data <command> --help' for command-specific options.
 EOF
@@ -19,20 +18,24 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
+# Resolve symlinks before locating sibling commands or packaged scripts.
+_M2D_ENTRYPOINT="$(readlink -f -- "${BASH_SOURCE[0]}")" || {
+    echo "ERROR: Cannot resolve Meta2Data entry point: ${BASH_SOURCE[0]}" >&2
+    exit 1
+}
+BIN_DIR="$(dirname -- "$_M2D_ENTRYPOINT")"
+
 COMMAND=$1
 shift
 case $COMMAND in
     MetaDL)
-        Meta2Data-MetaDL "$@"
+        exec "${BIN_DIR}/Meta2Data-MetaDL" "$@"
         ;;
     AmpliconPIP)
-        Meta2Data-AmpliconPIP "$@"
+        exec "${BIN_DIR}/Meta2Data-AmpliconPIP" "$@"
         ;;
     AmpliconTAXA)
-        Meta2Data-AmpliconTAXA "$@"
-        ;;
-    ShortreadsPIP)
-        Meta2Data-ShortreadsPIP "$@"
+        exec "${BIN_DIR}/Meta2Data-AmpliconTAXA" "$@"
         ;;
     -h|--help)
         show_help

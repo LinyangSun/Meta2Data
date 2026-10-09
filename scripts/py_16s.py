@@ -42,17 +42,16 @@ def _clean_id_series(series):
     )
 
 
-def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None, output_dir=None):
+def GenerateDatasetsIDsFile(file_path, Bioproject, output_dir=None):
     """
     Generate datasets ID file from CSV
 
     Extracts unique BioProject IDs from metadata CSV.
-    Platform parameter is optional since platform is detected dynamically downstream.
+    Sequencing platform is detected dynamically downstream.
 
     Args:
         file_path: Path to metadata CSV
         Bioproject: Column name for BioProject ID
-        Data_SequencingPlatform: (Optional) Column name for platform - if provided, outputs both columns
         output_dir: (Optional) Directory to write output file. If not provided, uses input file directory
 
     Returns:
@@ -68,20 +67,11 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None,
     if Bioproject in df.columns:
         df[Bioproject] = _clean_id_series(df[Bioproject])
 
-    # If platform column is provided and exists, include it (backward compatibility)
-    if Data_SequencingPlatform and Data_SequencingPlatform in df.columns:
-        df[Data_SequencingPlatform] = _clean_id_series(df[Data_SequencingPlatform])
-        df_pair = (
-            df[[Bioproject, Data_SequencingPlatform]]
-            .dropna(subset=[Bioproject])
-            .drop_duplicates()
-        )
-    else:
-        df_pair = (
-            df[[Bioproject]]
-            .dropna(subset=[Bioproject])
-            .drop_duplicates()
-        )
+    df_pair = (
+        df[[Bioproject]]
+        .dropna(subset=[Bioproject])
+        .drop_duplicates()
+    )
 
     datasets = df_pair.values.astype(object)
     out_path = f"{directory_path}/datasets_ID.txt"
@@ -89,7 +79,7 @@ def GenerateDatasetsIDsFile(file_path, Bioproject, Data_SequencingPlatform=None,
     return datasets
 
 
-def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_dir=None):
+def GenerateSRAsFile(file_path, Bioproject, SRA_Number, output_dir=None):
     """
     Generate SRA files for each bioproject
 
@@ -97,7 +87,6 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_d
         file_path: Path to metadata CSV
         Bioproject: Column name for BioProject ID
         SRA_Number: Column name for SRA/Run accession
-        Biosample: (Optional) Column name for BioSample ID - if not provided, uses SRA_Number for naming
         output_dir: (Optional) Directory to write output files
     """
     if output_dir:
@@ -106,19 +95,11 @@ def GenerateSRAsFile(file_path, Bioproject, SRA_Number, Biosample=None, output_d
         directory_path = os.path.dirname(os.path.abspath(file_path))
     df = pd.read_csv(file_path)
 
-    columns_to_clean = [Bioproject, SRA_Number]
-    if Biosample and Biosample in df.columns:
-        columns_to_clean.append(Biosample)
-
-    for col in columns_to_clean:
+    for col in (Bioproject, SRA_Number):
         if col in df.columns:
             df[col] = _clean_id_series(df[col])
 
-    if Biosample and Biosample in df.columns:
-        df["rename"] = df[Bioproject] + '_' + df[Biosample]
-    else:
-        # Fallback: use SRA_Number (Run ID) when Biosample is not available
-        df["rename"] = df[Bioproject] + '_' + df[SRA_Number]
+    df["rename"] = df[Bioproject] + '_' + df[SRA_Number]
 
     datasets = np.array(
         [str(x).strip().replace('\t', '') for x in df[Bioproject].dropna().unique()],
@@ -179,23 +160,6 @@ def subset_meta_for_test(file_path, Bioproject, SRA_Number, output_dir=None, n=2
     print(f"Subset file: {out_path}", file=sys.stderr)
 
     return out_path
-
-
-def _make_manifest(file_path, paired):
-    from pathlib import Path
-    from read_layout import manifest
-    paths = [line.strip() for line in Path(file_path).read_text().splitlines() if line.strip()]
-    dataset_name = os.path.basename(file_path).replace("-file.txt", "")
-    output = os.path.join(os.path.dirname(file_path), f"{dataset_name}_manifest.tsv")
-    manifest(paths, output, paired)
-
-
-def mk_manifest_SE(file_path):
-    _make_manifest(file_path, False)
-
-
-def mk_manifest_PE(file_path):
-    _make_manifest(file_path, True)
 
 
 def trim_pos_deblur(file_path):
@@ -417,13 +381,15 @@ def _parse_cncb_platform_response(csv_content, target_run_id=None):
 
         print(f"  [OK] Retrieved {len(df)} runs from CNCB", file=sys.stderr)
 
-        if target_run_id and 'Run' in df.columns:
-            run_df = df[df['Run'] == target_run_id]
-            if not run_df.empty:
-                df = run_df
-                print(f"  [OK] Found metadata for run {target_run_id}", file=sys.stderr)
-            else:
-                print(f"Warning: Run {target_run_id} not found, using first run as fallback", file=sys.stderr)
+        if target_run_id:
+            if 'Run' not in df.columns:
+                print("Warning: Run column not found in CNCB response", file=sys.stderr)
+                return None
+            df = df[df['Run'].astype(str).str.strip() == target_run_id]
+            if df.empty:
+                print(f"Warning: Run {target_run_id} not found in CNCB response", file=sys.stderr)
+                return None
+            print(f"  [OK] Found metadata for run {target_run_id}", file=sys.stderr)
 
         platform_columns = ['Platform', 'Instrument', 'Model', 'Sequencing Platform', 'instrument']
 
@@ -467,12 +433,28 @@ def _configure_entrez():
     """
     import os
     from Bio import Entrez
+    from entrez_cache import configure_entrez_cache
+    configure_entrez_cache()
     Entrez.email = os.environ.get("NCBI_EMAIL", "your_email@example.com")
     _key = os.environ.get("NCBI_API_KEY")
     if _key:
         Entrez.api_key = _key
     Entrez.max_tries = 4
     Entrez.sleep_between_tries = 15
+
+
+def _parse_ncbi_platforms(xml_data):
+    """Associate each Run with its own experiment's platform."""
+    import xml.etree.ElementTree as ET
+    platforms = {}
+    for package in ET.fromstring(xml_data).iter('EXPERIMENT_PACKAGE'):
+        platform = package.find('.//PLATFORM')
+        if platform is not None and len(platform):
+            for run in package.findall('.//RUN'):
+                accession = run.get('accession')
+                if accession:
+                    platforms[accession] = platform[0].tag
+    return platforms
 
 
 def _get_platform_from_ncbi(srr_id):
@@ -485,9 +467,8 @@ def _get_platform_from_ncbi(srr_id):
     Returns:
         Platform name or None
     """
-    import os, time
+    import time
     from Bio import Entrez
-    import xml.etree.ElementTree as ET
     from urllib.error import HTTPError
 
     _configure_entrez()
@@ -506,17 +487,13 @@ def _get_platform_from_ncbi(srr_id):
                 print(f"Warning: No results found for {srr_id}", file=sys.stderr)
                 return None
 
-            uid = search_results['IdList'][0]
-
-            fetch_handle = Entrez.efetch(db="sra", id=uid, retmode="xml")
+            fetch_handle = Entrez.efetch(db="sra", id=",".join(search_results['IdList']), retmode="xml")
             xml_data = fetch_handle.read()
             fetch_handle.close()
 
-            root = ET.fromstring(xml_data)
-            platform = root.find('.//PLATFORM')
-
-            if platform is not None and len(platform) > 0:
-                return platform[0].tag
+            platform = _parse_ncbi_platforms(xml_data).get(srr_id)
+            if platform:
+                return platform
 
             print(f"Warning: Platform not found in metadata for {srr_id}", file=sys.stderr)
             return None
@@ -541,13 +518,12 @@ def batch_get_sequencing_platforms(pairs_file):
     Batch-detect sequencing platforms for multiple datasets.
 
     Reads a TSV file with dataset_id<TAB>srr_id[<TAB>bioproject_id] per line.
-    NCBI accessions (SRR/ERR/DRR) are queried in a single Entrez epost+efetch.
+    NCBI accessions (SRR/ERR/DRR) are queried in a single Entrez esearch+efetch.
     CNCB accessions (CRR) are queried serially with a short delay.
 
     Prints results to stdout as: dataset_id<TAB>platform (one per line).
     """
     from Bio import Entrez
-    import xml.etree.ElementTree as ET
     import time
 
     _configure_entrez()
@@ -567,9 +543,11 @@ def batch_get_sequencing_platforms(pairs_file):
             else:
                 ncbi_pairs.append((ds_id, srr))
 
-    # --- NCBI batch query via epost + efetch ---
+    # --- NCBI batch query via esearch + efetch ---
     if ncbi_pairs:
-        srr_to_ds = {srr: ds_id for ds_id, srr in ncbi_pairs}
+        srr_to_ds = {}
+        for ds_id, srr in ncbi_pairs:
+            srr_to_ds.setdefault(srr, []).append(ds_id)
         srr_list = list(srr_to_ds.keys())
 
         try:
@@ -584,19 +562,12 @@ def batch_get_sequencing_platforms(pairs_file):
                 xml_data = fetch_handle.read()
                 fetch_handle.close()
 
-                root = ET.fromstring(xml_data)
-                for pkg in root.findall('.//EXPERIMENT_PACKAGE'):
-                    run_el = pkg.find('.//RUN')
-                    platform_el = pkg.find('.//PLATFORM')
-                    if run_el is not None and platform_el is not None and len(platform_el) > 0:
-                        acc = run_el.get('accession', '')
-                        plat = platform_el[0].tag
-                        if acc in srr_to_ds:
-                            print(f"{srr_to_ds[acc]}\t{plat}")
-                            del srr_to_ds[acc]
+                for acc, platform in _parse_ncbi_platforms(xml_data).items():
+                    for ds_id in srr_to_ds.pop(acc, []):
+                        print(f"{ds_id}\t{platform}")
 
-            for srr, ds_id in srr_to_ds.items():
-                print(f"Warning: No platform found for {srr} ({ds_id})", file=sys.stderr)
+            for srr, datasets in srr_to_ds.items():
+                print(f"Warning: No platform found for {srr} ({', '.join(datasets)})", file=sys.stderr)
 
         except Exception as e:
             print(f"Warning: Batch NCBI query failed: {e}", file=sys.stderr)
@@ -852,7 +823,7 @@ def adaptive_tail_trim(input_dir, output_dir, max_sample_reads=10000):
     return {"trim_length": trim_length, "max_ambiguous": max_ambiguous}
 
 
-def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
+def check_quality_diversity(fastq_dir):
     """
     Check quality score diversity in FASTQ files to determine if DADA2 is viable.
 
@@ -873,8 +844,6 @@ def check_quality_diversity(fastq_dir, n_samples=3, n_reads=1000):
 
     Args:
         fastq_dir: Directory containing FASTQ files
-        n_samples: Not used (kept for CLI compatibility)
-        n_reads: Not used (kept for CLI compatibility)
 
     Prints machine-readable lines to stdout:
         QUALITY_STATUS=normal|degraded_binned
@@ -1518,83 +1487,6 @@ def _upsert_csv(output_csv, new_rows, key_cols, fieldnames=None, sep=','):
             fcntl.flock(lockf, fcntl.LOCK_UN)
 
 
-def append_summary(dataset_id, sra_file, raw_counts_file, final_table, output_csv, sequence_type="single"):
-    """
-    Append per-sample summary (raw reads + final reads) to a unified CSV.
-
-    Args:
-        dataset_id: BioProject ID
-        sra_file: Path to _sra.txt (Run<tab>SampleName)
-        raw_counts_file: Path to _raw_read_counts.tsv (Run<tab>SampleName<tab>RawReads)
-        final_table: Path to final-table.qza
-        output_csv: Path to the unified summary CSV
-        sequence_type: Original sequence type ('paired' or 'single')
-    """
-    import tempfile
-    import subprocess
-    from biom import load_table
-
-    # 1. Read SRA mapping: Run → SampleName
-    sra_df = pd.read_csv(sra_file, sep='\t', header=None, names=['Run', 'SampleName'])
-
-    # 2. Read raw read counts
-    raw_df = pd.read_csv(raw_counts_file, sep='\t', header=None, names=['Run', 'SampleName', 'RawReads'])
-
-    # 3. Export final-table.qza and get per-sample total reads
-    final_reads = {}
-    with tempfile.TemporaryDirectory() as tmpdir:
-        subprocess.run([
-            'qiime', 'tools', 'export',
-            '--input-path', final_table,
-            '--output-path', tmpdir
-        ], check=True, capture_output=True)
-
-        biom_path = os.path.join(tmpdir, 'feature-table.biom')
-        table = load_table(biom_path)
-
-        for sample_id in table.ids(axis='sample'):
-            total = int(table.data(sample_id, axis='sample', dense=True).sum())
-            final_reads[sample_id] = total
-            # Handle .fastq suffix artifact from SE manifest
-            clean_id = sample_id.replace('.fastq', '')
-            if clean_id != sample_id:
-                final_reads[clean_id] = total
-
-    # 4. Build summary rows
-    rows = []
-    for _, row in sra_df.iterrows():
-        run_id = row['Run']
-        sample_name = row['SampleName']
-
-        raw_match = raw_df[raw_df['Run'] == run_id]
-        raw_read_count = int(raw_match['RawReads'].iloc[0]) if not raw_match.empty else 0
-        # For PE data, raw_read_counts.tsv has R1+R2 total; divide by 2 for per-sample pair count
-        if sequence_type == "paired" and raw_read_count > 0:
-            raw_read_count = raw_read_count // 2
-
-        final_read_count = final_reads.get(sample_name, 0)
-
-        rows.append({
-            'BioProject': dataset_id,
-            'Run': run_id,
-            'SampleName': sample_name,
-            'RawReads': raw_read_count,
-            'FinalReads': final_read_count
-        })
-
-    result_df = pd.DataFrame(rows)
-
-    # 5. Upsert into the unified CSV, keyed by Run (idempotent across re-runs):
-    #    append new rows, skip identical ones, replace changed ones. Parallel-safe
-    #    and crash-safe (flock + atomic temp/rename) inside _upsert_csv. This keeps
-    #    previously-succeeded datasets' rows intact when the pipeline is re-run.
-    fieldnames = ['BioProject', 'Run', 'SampleName', 'RawReads', 'FinalReads']
-    _upsert_csv(output_csv, result_df.to_dict('records'),
-                key_cols=['Run'], fieldnames=fieldnames)
-
-    print(f"[OK] Summary upserted for {dataset_id}: {len(rows)} samples")
-
-
 # ===========================================================================
 # Amplified-region detection (align rep-seqs to E. coli 16S, map to V-regions)
 # ===========================================================================
@@ -1776,8 +1668,6 @@ if __name__ == "__main__":
             "GenerateSRAsFile",
             "GenerateDatasetsIDsFile",
             "subset_meta_for_test",
-            "mk_manifest_SE",
-            "mk_manifest_PE",
             "trim_pos_deblur",
             "get_sequencing_platform",
             "batch_get_sequencing_platforms",
@@ -1789,17 +1679,13 @@ if __name__ == "__main__":
             "derep_fastq_for_vsearch",
             "relabel_reads_for_mapping",
             "import_vsearch_to_qiime2",
-            "append_summary",
-            "detect_region",
             "build_per_dataset_summary"
         ],
         help="The function to execute."
     )
     parser.add_argument("--FilePath", help="Path to input file")
-    parser.add_argument("--SequencingPlatform", help="Sequencing Platform column name")
     parser.add_argument("--Bioproject", help="Bioproject column name")
     parser.add_argument("--SRA_Number", help="SRA_Number column name")
-    parser.add_argument("--Biosample", help="Biosample column name")
     parser.add_argument("--OutputDir", help="Output directory for generated files")
     parser.add_argument("--srr_id", help="SRA accession number")
     parser.add_argument("--bioproject_id", help="BioProject ID (required for CNCB/CRR accessions)")
@@ -1812,15 +1698,7 @@ if __name__ == "__main__":
                         help="Length-window half-width fraction around peak (default: 0.15)")
     parser.add_argument("--floor", type=int, default=200,
                         help="Hard minimum for the lower length bound in bp (default: 200)")
-    parser.add_argument("--dataset_id", help="Dataset/BioProject ID for summary")
-    parser.add_argument("--sra_file", help="Path to _sra.txt file")
-    parser.add_argument("--raw_counts", help="Path to raw read counts TSV")
-    parser.add_argument("--final_table", help="Path to final-table.qza")
     parser.add_argument("--output_csv", help="Path to output summary CSV")
-    parser.add_argument("--n_samples", type=int, default=3,
-                        help="Number of files to sample for quality check (default: 3)")
-    parser.add_argument("--n_reads", type=int, default=1000,
-                        help="Number of reads per file to sample (default: 1000)")
     parser.add_argument("--trim_front", type=int, default=15,
                         help="Bases to trim from 5' end (default: 15)")
     parser.add_argument("--truncate_length", type=int, default=0,
@@ -1839,26 +1717,19 @@ if __name__ == "__main__":
     parser.add_argument("--otu_table_tsv", help="Path to vsearch OTU table TSV")
     parser.add_argument("--output_table_qza", help="Output table .qza path")
     parser.add_argument("--output_repseq_qza", help="Output rep-seqs .qza path")
-    parser.add_argument("--repseqs", help="Path to rep-seqs .qza (for detect_region)")
     parser.add_argument("--ecoli_ref", help="Path to E. coli 16S reference FASTA (region detection)")
     parser.add_argument("--mode", help="Denoising mode token (dada2|vsearch) used in output filenames")
 
     args = parser.parse_args()
     
-    if args.function == "mk_manifest_SE":
-        mk_manifest_SE(args.FilePath)
-
-    elif args.function == "mk_manifest_PE":
-        mk_manifest_PE(args.FilePath)
-
-    elif args.function == "trim_pos_deblur":
+    if args.function == "trim_pos_deblur":
         trim_pos_deblur(args.FilePath)
 
     elif args.function == "GenerateDatasetsIDsFile":
-        GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, args.SequencingPlatform, args.OutputDir)
+        GenerateDatasetsIDsFile(args.FilePath, args.Bioproject, output_dir=args.OutputDir)
 
     elif args.function == "GenerateSRAsFile":
-        GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, args.Biosample, args.OutputDir)
+        GenerateSRAsFile(args.FilePath, args.Bioproject, args.SRA_Number, output_dir=args.OutputDir)
 
     elif args.function == "subset_meta_for_test":
         result = subset_meta_for_test(args.FilePath, args.Bioproject, args.SRA_Number, args.OutputDir)
@@ -1882,7 +1753,7 @@ if __name__ == "__main__":
                              args.max_sample_reads)
 
     elif args.function == "check_quality_diversity":
-        check_quality_diversity(args.input_dir, args.n_samples, args.n_reads)
+        check_quality_diversity(args.input_dir)
 
     elif args.function == "sanitize_fastq":
         sanitize_fastq(args.input_dir, args.min_length, args.sequence_type)
@@ -1904,15 +1775,6 @@ if __name__ == "__main__":
                                   args.manifest_path,
                                   args.output_table_qza, args.output_repseq_qza)
 
-    elif args.function == "append_summary":
-        append_summary(args.dataset_id, args.sra_file, args.raw_counts, args.final_table, args.output_csv, args.sequence_type)
-    elif args.function == "detect_region":
-        res = detect_region(args.repseqs, args.ecoli_ref, threads=args.threads)
-        print(f"REGION={res['region']}")
-        print(f"REGION_ECOLI_START={res['ecoli_start']}")
-        print(f"REGION_ECOLI_END={res['ecoli_end']}")
-        print(f"REGION_CONFIDENCE={res['confidence']}")
-        print(f"REGION_N_ALIGNED={res['n_aligned']}/{res['n_repseqs']}")
     elif args.function == "build_per_dataset_summary":
         build_per_dataset_summary(args.output_dir, args.mode, args.ecoli_ref,
                                   summary_csv=args.output_csv, threads=args.threads)

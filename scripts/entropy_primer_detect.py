@@ -29,7 +29,6 @@ import read_layout
 
 
 DETECTION_WINDOW = 20
-UNKNOWN_PRIMER_FOLD_THRESHOLD = 16
 
 
 # ===========================================================================
@@ -577,19 +576,6 @@ def copy_file(src, dst):
 # Detection and dataset processing
 # ===========================================================================
 
-def find_files(input_dir):
-    """Discover every sample with the shared pairing rule; select the first."""
-    rows = read_layout.discover(input_dir)
-    return read_layout.layout(rows), rows[0]['r1'], rows[0]['r2'] or None
-
-
-def _find_pe_pairs(input_dir):
-    rows = read_layout.discover(input_dir)
-    if read_layout.layout(rows) != 'PE':
-        raise ValueError('Expected paired FASTQ files')
-    return ((row['r1'], row['r2']) for row in rows)
-
-
 def detect_for_reads(reads, label, database, settings=None):
     """Accept database matches first; otherwise apply the strict b1 fold rule."""
     settings = parameters.current() if settings is None else settings
@@ -670,17 +656,6 @@ def _detect_mixed_r2(rows, orientation, settings):
                     groups[group].append((seq, qual))
     return {group: detect_for_reads(groups[group], 'R2/' + group, database, settings)
             for group, database in [('forward', PRIMERS_F), ('reverse', PRIMERS_R)]}
-
-
-def detect_for_file(filepath, label, database, skip_qual=False, settings=None):
-    """Detect from one file, using the same settings as dataset detection."""
-    settings = parameters.current() if settings is None else settings
-    reads = read_and_filter(
-        filepath, min_len=settings['primer.min_length'],
-        min_avg_qual=settings['primer.min_average_quality'],
-        min_complexity=settings['primer.min_complexity'],
-        min_entropy=settings['primer.min_entropy'], skip_qual=skip_qual)
-    return detect_for_reads(reads, label, database, settings)
 
 
 def _primer_entry(result, trim_length=0):

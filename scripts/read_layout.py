@@ -22,10 +22,10 @@ def validate_local_source(source, dataset):
     dataset = Path(dataset).resolve()
     candidates = [source] + [path.resolve() for path in files(source)]
     if any(path == dataset or dataset in path.parents for path in candidates):
-        raise ValueError('Local input overlaps the pipeline dataset directory; choose a separate output folder outside the original reads.')
+        raise ValueError('Local input overlaps the pipeline dataset directory; keep the original reads outside results/pip or run from another working directory.')
 
 
-def discover(directory, allow_single_r1=False, paths=None):
+def discover(directory, allow_single_r1=False, paths=None, allow_single_r2=False):
     groups = {}
     for path in files(directory) if paths is None else sorted(map(Path, paths)):
         stem = EXT.sub('', path.name)
@@ -49,7 +49,8 @@ def discover(directory, allow_single_r1=False, paths=None):
     for (sample, lane, chunk), group in sorted(groups.items()):
         if set(group) == {'1', '2'}:
             layout, r1, r2 = 'PE', group['1'], group['2']
-        elif set(group) == {''} or (allow_single_r1 and set(group) == {'1'}):
+        elif (set(group) == {''} or (allow_single_r1 and set(group) == {'1'})
+              or (allow_single_r2 and set(group) == {'2'})):
             layout, r1, r2 = 'SE', next(iter(group.values())), ''
         else:
             raise ValueError(f'Unmatched or ambiguous FASTQ filenames: {list(group.values())}. {HINT}')
@@ -120,8 +121,9 @@ def main():
     parser.add_argument('--input', required=True)
     parser.add_argument('--output')
     parser.add_argument('--samples')
-    parser.add_argument('--list')
     parser.add_argument('--paired', action='store_true')
+    parser.add_argument('--expected-layout', choices=['SE', 'PE'],
+                        help='Expected online layout; SE permits a numbered single biological read after technical-read removal.')
     args = parser.parse_args()
     try:
         if args.action == 'validate-local':
@@ -134,8 +136,15 @@ def main():
         elif args.action == 'stage':
             stage(json.loads(Path(args.input).read_text()), args.output)
         elif args.action == 'normalize':
-            rows = discover(args.input, allow_single_r1=True)
-            layout(rows)
+            # SRA --split-files preserves the original read number after
+            # --skip-technical, so a known single-end run can yield only
+            # _2.fastq. Require explicit platform context for that case;
+            # local registration and Illumina discovery stay strict.
+            rows = discover(args.input, allow_single_r1=True,
+                            allow_single_r2=args.expected_layout == 'SE')
+            actual_layout = layout(rows)
+            if args.expected_layout and actual_layout != args.expected_layout:
+                raise ValueError(f'Expected {args.expected_layout} FASTQ layout, found {actual_layout}.')
             # Download paths must remain available: move raw downloads aside and stage links.
             raw = Path(args.input).with_name('downloaded_fastq')
             if raw.exists():

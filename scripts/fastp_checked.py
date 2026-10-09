@@ -22,7 +22,7 @@ def save_json(path, data):
 
 
 def records(path):
-    opener = gzip.open if str(path).endswith('.gz') else open
+    opener = gzip.open if str(path).lower().endswith('.gz') else open
     with opener(path, 'rt') as stream:
         while True:
             header = stream.readline()
@@ -70,7 +70,7 @@ def process(args):
         raise ValueError('Outputs must be distinct and must not overwrite input reads')
     for source, target in zip(inputs, outputs):
         # The staging input may be a link whose resolved name is not canonical.
-        if str(source).endswith('.gz') != str(target).endswith('.gz'):
+        if str(source).lower().endswith('.gz') != str(target).lower().endswith('.gz'):
             raise ValueError('Input/output compression suffixes must agree')
     report_dir = Path(args.audit_dir).absolute()
     report_dir.mkdir(parents=True, exist_ok=True)

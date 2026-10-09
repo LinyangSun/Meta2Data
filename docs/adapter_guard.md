@@ -1,12 +1,21 @@
 # Per-sample fastp inferred-adapter guard
 
-Enable with `Meta2Data AmpliconPIP --adapter-guard --db /path/to/gg2 --dl ...`.
-The GG2 backbone is shared with TAXA. `--dl` downloads it when missing; the QZA
-is validated and BLAST indexes are cached before parallel dataset workers start.
-Alternatively supply `--adapter-ref` with a FeatureData[Sequence] QZA or FASTA.
-No classifier or SEPP placement is needed for this check. The feature is opt-in;
-the repaired B3/B4 run explicitly enables it. Thresholds are available in the
-`adapter_guard` section of `--parameter` JSON.
+The guard is enabled by default in AmpliconPIP. It checks whether a sequence
+inferred as a sequencing adapter may actually be biological 16S sequence, and
+adjusts processing for protected samples. `--no-adapter-guard` disables this
+additional check; `--adapter-guard` explicitly enables it.
+
+The GG2 backbone is automatically prepared in
+`<launch working directory>/results/db/`, shared with TAXA. Valid cached or
+bundled references are reused; missing references are downloaded. BLAST indexes
+and query results use the fixed cache directory
+`<launch working directory>/results/db/adapter_guard/`; indexes are prepared
+before parallel dataset workers start.
+No classifier or SEPP reference is needed for this check.
+
+Thresholds are in the `adapter_guard` section of `--parameter` JSON. The bundled
+E. coli 16S sequence serves amplified-region reporting, independently of this
+GG2-based guard.
 
 Each sample first runs the existing adapter-only fastp command. The guard checks
 only inferred adapter fields from read ends for which de novo detection was
@@ -16,7 +25,7 @@ triggers protection. These conservative engineering thresholds are configurable;
 a hit is evidence of potential biological mis-trimming, not a taxonomic call.
 An absent inferred adapter, a short query or lack of a strong hit does not prove
 that a sample is adapter-free. In particular this guard does not remove adapters
-that fastp failed to infer, including the separate PRJEB13147 issue.
+that fastp failed to infer.
 
 A protected single-end sample reruns from the original FASTQ with adapter
 trimming disabled. A protected paired-end sample reruns both original mates
@@ -33,7 +42,7 @@ commands, BLAST evidence and `decision.json`. The original `reports/fastp/`
 location contains the accepted report. `summary.csv` records only accepted
 `fastp_reads`; the discarded initial count remains in the decision sidecar.
 Reference and query caches use sequence/reference/tool/parameter fingerprints,
-locks and atomic publication so five dataset workers can share them safely.
+locks and atomic publication so concurrent dataset workers can share them safely.
 
 B4 keeps separate initial-fastp, reference-check and fallback-fastp events with
 sample, project, method, wall time, CPU and peak sampled RSS. Each fastp event
@@ -45,5 +54,4 @@ Cache hits must be reported when comparing cold and warm execution costs.
 Changing guard settings, reference identity or processing code invalidates
 processing checkpoints. Unchanged input accession mappings retain the archived
 raw downloads. Changed inputs archive old raw files separately so old samples
-cannot silently enter a new run. Historical benchmark results are preserved;
-the repaired comparison is run into a fresh directory.
+cannot silently enter a new run.

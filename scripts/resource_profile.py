@@ -90,7 +90,7 @@ def stage_for(argv, module, method):
             return 'read_count_audit_' + action, 'auditing'
         if script == 'py_16s.py':
             category = 'compute'
-            if action in ('GenerateDatasetsIDsFile', 'GenerateSRAsFile', 'get_sequencing_platform', 'batch_get_platforms', 'batch_get_sequencing_platforms'):
+            if action in ('GenerateDatasetsIDsFile', 'GenerateSRAsFile', 'get_sequencing_platform', 'batch_get_sequencing_platforms'):
                 category = 'metadata'
             elif action == 'build_per_dataset_summary':
                 category = 'reporting'

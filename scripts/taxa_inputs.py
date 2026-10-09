@@ -6,8 +6,8 @@ import json
 import os
 from pathlib import Path
 import re
-import shutil
 import sys
+import tempfile
 import uuid
 import zipfile
 
@@ -18,7 +18,16 @@ EXPECTED_TYPES = {"table": "FeatureTable[Frequency]", "rep_seqs": "FeatureData[S
 def write_json(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2) + "\n")
+    descriptor, temporary = tempfile.mkstemp(prefix="." + path.name + ".", dir=path.parent)
+    try:
+        with os.fdopen(descriptor, "w") as handle:
+            json.dump(value, handle, indent=2)
+            handle.write("\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        os.replace(temporary, path)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
 
 
 def fingerprint(value):
@@ -79,6 +88,22 @@ def discover(directory):
     return pairs
 
 
+def has_stale_input(directory, dataset, method):
+    """Only compare known Meta2Data identities; imported artifact pairs need no state."""
+    directory = Path(directory)
+    states = []
+    for path in (directory / f"{dataset}-{method}-run.json", directory / ".checkpoint.json"):
+        try:
+            state = json.loads(path.read_text())
+        except (ValueError, OSError):
+            return False
+        identity = state.get("input_fingerprint") if isinstance(state, dict) else None
+        if not isinstance(identity, str) or re.fullmatch(r"[0-9a-f]{64}", identity) is None:
+            return False
+        states.append(identity)
+    return states[0] != states[1]
+
+
 def collect(directory, method=None):
     directory = Path(directory)
     audit = {"input_directory": str(directory.resolve()), "method": method,
@@ -106,6 +131,11 @@ def collect(directory, method=None):
         if found_method != method:
             audit["skipped"].append({"directory": folder, "dataset": dataset, "method": found_method,
                                      "reason": "Different feature method"})
+            continue
+        if has_stale_input(folder, dataset, method):
+            audit["errors"].append(
+                f"Dataset '{dataset}' has stale {method} results from a previous input source: "
+                f"{folder}. Rerun AmpliconPIP with --{method} for the current source before TAXA.")
             continue
         try:
             record = {"dataset": dataset, "method": method,
@@ -171,6 +201,33 @@ CACHE_OUTPUTS = {
 }
 
 
+def previous_state(path):
+    """Untrusted or interrupted state cannot authorize reuse of managed outputs."""
+    if not path.exists():
+        return {}
+    try:
+        state = json.loads(path.read_text())
+        if not isinstance(state, dict):
+            raise ValueError("state is not an object")
+        dependencies = state.get("dependencies")
+        if not isinstance(dependencies, dict) or any(
+                not isinstance(dependencies.get(stage), str) or
+                re.fullmatch(r"[0-9a-f]{64}", dependencies[stage]) is None
+                for stage in CACHE_OUTPUTS):
+            raise ValueError("invalid stage dependencies")
+        taxonomy = state.get("taxonomy_dependencies", {})
+        if not isinstance(taxonomy, dict) or any(
+                label not in {"gg2", "silva"} or not isinstance(entry, dict) or
+                not isinstance(entry.get("fingerprint"), str) or
+                re.fullmatch(r"[0-9a-f]{64}", entry["fingerprint"]) is None
+                for label, entry in taxonomy.items()):
+            raise ValueError("invalid classifier dependencies")
+        return state
+    except (ValueError, OSError) as error:
+        print(f"Invalid TAXA state {path}: {error}; recomputing managed outputs.", file=sys.stderr)
+        return {}
+
+
 def prepare(collection, final_dir, orient_ref, classifier, confidence, single_v=False,
             sepp_ref=None, db_label="gg2", notree=False):
     if single_v and notree:
@@ -200,7 +257,7 @@ def prepare(collection, final_dir, orient_ref, classifier, confidence, single_v=
                               "reference": database_signature(sepp_ref) if tree_mode == "sepp" else None}),
     }
     state_path = final_dir / "taxa-run-state.json"
-    previous = json.loads(state_path.read_text()) if state_path.exists() else {}
+    previous = previous_state(state_path)
     previous_dependencies = previous.get("dependencies", {})
     taxonomy_dependencies = previous.get("taxonomy_dependencies", {})
     if previous_dependencies.get("orient") != orient:
@@ -222,7 +279,7 @@ def prepare(collection, final_dir, orient_ref, classifier, confidence, single_v=
                 (final_dir / relative).unlink(missing_ok=True)
     taxonomy_dependencies[db_label] = {"fingerprint": dependencies["taxonomy"],
                                        "confidence": confidence, "classifier": classifier_info}
-    shutil.copyfile(collection, final_dir / "collection.json")
+    write_json(final_dir / "collection.json", audit)
     write_json(state_path, {"method": audit["method"], "singleV": single_v,
                             "notree": notree, "tree_mode": tree_mode, "confidence": confidence,
                             "dependencies": dependencies,

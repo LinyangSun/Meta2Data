@@ -144,7 +144,9 @@ def prepare(dataset, method, local_source='', platform='', forward='', reverse='
                     source_kind='local' if local_source else 'archive')
     state = dict(schema_version=SCHEMA_VERSION, method=method, parameters=nested(settings),
                  **identity, input_fingerprint=digest(identity), platform=platform,
-                 primer_fwd=forward, primer_rev=reverse, code=code_fingerprint(),
+                 primer_fwd=forward, primer_rev=reverse,
+                 primer_source='explicit' if forward else 'automatic',
+                 code=code_fingerprint(),
                  adapter_guard=guard_identity(settings))
     token = digest(state)
     completed = dataset / f'{name}-{method}-run.json'
@@ -167,6 +169,9 @@ def prepare(dataset, method, local_source='', platform='', forward='', reverse='
         for suffix in ('table.qza', 'rep-seqs.qza'):
             (dataset / f'{name}-{method}-final-{suffix}').unlink(missing_ok=True)
         (dataset / f'{name}-{method}-primer_info.json').unlink(missing_ok=True)
+        (dataset / f'ion_quality-{method}.json').unlink(missing_ok=True)
+        (dataset / f'ls454_quality-{method}.json').unlink(missing_ok=True)
+        (dataset / f'ls454_members-{method}.json').unlink(missing_ok=True)
     if (previous.get('schema_version') != SCHEMA_VERSION or
             previous.get('fingerprint') != token or not same_inputs):
         # Before normalization, ori_fastq may still contain the only raw download.

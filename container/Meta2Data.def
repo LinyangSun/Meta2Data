@@ -1,0 +1,72 @@
+Bootstrap: localimage
+From: {{ BASE_SIF }}
+
+# Refresh application code while retaining the published QIIME 2 environment
+# and its embedded SEPP resource. Build from a checkout with executable bin/*.
+# Use relative BASE_SIF / SOURCE_DIR build arguments to keep host paths out of
+# the embedded definition and labels (for example base.sif and source).
+%files
+    {{ SOURCE_DIR }}/bin /opt/meta2data-current/bin
+    {{ SOURCE_DIR }}/scripts /opt/meta2data-current/scripts
+    {{ SOURCE_DIR }}/docs /opt/meta2data-current/docs
+    {{ SOURCE_DIR }}/test /opt/meta2data-current/test
+    {{ SOURCE_DIR }}/tests /opt/meta2data-current/tests
+    {{ SOURCE_DIR }}/example /opt/meta2data-current/example
+    {{ SOURCE_DIR }}/README.md /opt/meta2data-current/README.md
+    {{ SOURCE_DIR }}/env.yml /opt/meta2data-current/env.yml
+
+%post
+    set -eu
+    # Keep one application implementation while preserving the bundled SEPP reference.
+    for component in bin scripts docs test tests example README.md env.yml; do
+        rm -rf "/opt/Meta2Data/$component"
+        ln -s "/opt/meta2data-current/$component" "/opt/Meta2Data/$component"
+    done
+    # Build provenance is archived alongside releases; omit host-specific history
+    # and obsolete writable QIIME caches inherited from the base image.
+    rm -rf /opt/Meta2Data/build_support /opt/Meta2Data/.config
+    rm -rf /.singularity.d/bootstrap_history
+    find /opt/meta2data-current -type d -name __pycache__ -prune -exec rm -rf {} +
+    # Host project umasks must not make the image readable only by its builder.
+    chmod -R a+rX /opt/meta2data-current
+    chmod a+rx /opt/meta2data-current/bin/*
+    for command in Meta2Data Meta2Data-MetaDL Meta2Data-AmpliconPIP Meta2Data-AmpliconTAXA; do
+        ln -sfn "/opt/meta2data-current/bin/$command" "/usr/local/bin/$command"
+    done
+
+%environment
+    export META2DATA_HOME=/opt/meta2data-current
+    export META2DATA_SEPP_REF=/opt/Meta2Data/reference/sepp-refs-gg-13-8.qza
+    export CONDA_PREFIX=/opt/conda/envs/qiime2-amplicon-2024.10
+    export PATH=/opt/sratoolkit/bin:/opt/meta2data-current/bin:/opt/conda/envs/qiime2-amplicon-2024.10/bin:/opt/conda/bin:$PATH
+    export XDG_CONFIG_HOME="${TMPDIR:-/tmp}/meta2data-config-$(id -u)"
+    # QIIME plugins must work with a read-only or unmounted user home.
+    export XDG_CACHE_HOME="${TMPDIR:-/tmp}/meta2data-cache-$(id -u)"
+    export NUMBA_CACHE_DIR="${XDG_CACHE_HOME}/numba"
+    export MPLCONFIGDIR="${XDG_CACHE_HOME}/matplotlib"
+    export LC_ALL=C.UTF-8
+    export LANG=C.UTF-8
+    export MPLBACKEND=agg
+    export UNIFRAC_USE_GPU=N
+    export PYTHONNOUSERSITE=1
+
+%runscript
+    exec /opt/meta2data-current/bin/Meta2Data "$@"
+
+%test
+    set -eu
+    /opt/meta2data-current/bin/Meta2Data --help >/dev/null
+    /opt/meta2data-current/bin/Meta2Data MetaDL --help >/dev/null
+    /opt/meta2data-current/bin/Meta2Data AmpliconPIP --help >/dev/null
+    /opt/meta2data-current/bin/Meta2Data AmpliconTAXA --help >/dev/null
+    PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s /opt/meta2data-current/tests
+
+%labels
+    org.opencontainers.image.title Meta2Data
+    org.opencontainers.image.description Updated application code with shared references and per-project primers
+
+%help
+    Meta2Data with the command-line interface from the supplied source checkout.
+    Run from your analysis working directory.
+    Results and references are prepared automatically in ./results/.
+    Example: apptainer run Meta2Data.sif AmpliconPIP --help
