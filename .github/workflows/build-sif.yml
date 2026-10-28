@@ -33,7 +33,6 @@ jobs:
       APPTAINER_VERSION: '1.5.5'
       BASE_TAG: ${{ inputs.base_tag }}
       OUTPUT_TAG: ${{ inputs.output_tag }}
-      APPTAINER_TMPDIR: ${{ runner.temp }}/sif-build
 
     steps:
       - name: Check out the selected source revision
@@ -48,6 +47,8 @@ jobs:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          export APPTAINER_TMPDIR="$RUNNER_TEMP/sif-build"
+          echo "APPTAINER_TMPDIR=$APPTAINER_TMPDIR" >> "$GITHUB_ENV"
           tag_pattern='^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$'
           if [[ ! "$BASE_TAG" =~ $tag_pattern || ! "$OUTPUT_TAG" =~ $tag_pattern ]]; then
             echo '::error::Use valid container tags of at most 128 characters.'
