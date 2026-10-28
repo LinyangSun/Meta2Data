@@ -1,4 +1,4 @@
-"""Filter 454 reads by each sample's median length and remaining N bases."""
+"""Filter 454 reads by minimum length, each sample's median length and N bases."""
 import argparse
 from collections import Counter
 import gzip
@@ -16,7 +16,7 @@ from read_layout import EXT, files
 _ALLOWED_BASES = frozenset('ACGTRYSWKMBDHVNacgtryswkmbdhvn')
 
 
-def fastq_records(path):
+def fastq_records(path, allow_empty=False):
     """Yield validated four-line records without altering IDs, bases or scores."""
     opener = gzip.open if str(path).lower().endswith('.gz') else open
     with opener(path, 'rt', encoding='ascii', newline='') as stream:
@@ -37,7 +37,7 @@ def fastq_records(path):
                 raise ValueError(f'Invalid FASTQ header: {label}')
             if not plus.startswith('+'):
                 raise ValueError(f'Invalid FASTQ separator: {label}')
-            if not seq or any(base not in _ALLOWED_BASES for base in seq):
+            if (not seq and not allow_empty) or any(base not in _ALLOWED_BASES for base in seq):
                 raise ValueError(f'Empty or invalid FASTQ sequence: {label}')
             if len(seq) != len(qual) or any(not 33 <= ord(base) <= 126 for base in qual):
                 raise ValueError(f'Invalid FASTQ quality: {label}')
@@ -105,29 +105,39 @@ def _prepare_paths(input_dir, output_dir, report_path):
     return paths, target, report, names
 
 
-def preprocess(input_dir, output_dir, report_path, length_fraction=0.5, max_n=1):
+def preprocess(input_dir, output_dir, report_path, length_fraction=0.5, max_n=1,
+               min_length=50):
     """Two passes per file: estimate its length limit, then filter every read.
 
-    Length is checked first. ``removed_short`` and ``removed_n`` are exclusive;
-    ``removed_both`` is an informational subset of ``removed_short`` and must
-    not be added to the loss total. N and n are counted together; reads with
-    at most max_n are retained. No Phred or expected-error filter is used.
+    Reads below min_length, including complete empty records, are excluded
+    from the median and removed before N filtering. Length is checked first.
+    ``removed_short`` and ``removed_n`` are exclusive; ``removed_both`` and
+    ``removed_below_min_length`` are informational subsets of ``removed_short``.
+    ``removed_empty`` is a subset of ``removed_below_min_length``. These subsets
+    must not be added to the loss total. N and n are counted together; reads
+    with at most max_n are retained. No Phred or expected-error filter is used.
     """
     if (type(length_fraction) not in (int, float) or not math.isfinite(length_fraction)
             or not 0 < length_fraction <= 1):
         raise ValueError('Length fraction must be finite and in (0, 1]')
     if type(max_n) is not int or max_n < 0:
         raise ValueError('Maximum N count must be a nonnegative integer')
+    if type(min_length) is not int or min_length < 1:
+        raise ValueError('Minimum read length must be a positive integer')
     paths, target, report_path, names = _prepare_paths(input_dir, output_dir, report_path)
     report = {
         'status': 'running', 'input_stage': 'post_primer_and_adaptive_tail_trim',
         'length_fraction': length_fraction, 'max_n': max_n,
+        'absolute_min_length': min_length,
         'n_rule': 'count(N) + count(n) <= max_n',
-        'length_rule': 'length >= ceil(per_sample_median_length * length_fraction)',
-        'median_basis': 'all input reads in each sample, including reads containing N',
+        'length_rule': 'length >= max(absolute_min_length, ceil(per_sample_median_length * length_fraction))',
+        'median_basis': 'reads with length >= absolute_min_length in each sample, including reads containing N',
         'filter_order': ['short_length', 'N_count_exceeds_max_n'],
         'quality_filter': False,
-        'counting': 'input = removed_short + removed_n + kept; removed_both is the short-and-N-over-limit subset of removed_short; kept_with_n is a subset of kept',
+        'counting': ('input = removed_short + removed_n + kept; '
+                     'removed_both is the short-and-N-over-limit subset of removed_short; '
+                     'removed_below_min_length is the subset of removed_short below absolute_min_length; '
+                     'removed_empty is a subset of removed_below_min_length; kept_with_n is a subset of kept'),
         'files': [], 'totals': {key: 0 for key in
                               ('input', 'removed_short', 'removed_n', 'removed_both', 'kept', 'kept_with_n')},
     }
@@ -139,19 +149,27 @@ def preprocess(input_dir, output_dir, report_path, length_fraction=0.5, max_n=1)
         signatures = []
         for path, name in zip(paths, names):
             before = _signature(path)
-            lengths = Counter(len(seq) for _, seq in fastq_records(path))
+            lengths = Counter(len(seq) for _, seq in fastq_records(path, allow_empty=True))
             if _signature(path) != before:
                 raise ValueError(f'FASTQ changed while being read: {path}')
             signatures.append(before)
-            median = median_length(lengths)
+            eligible_lengths = {length: count for length, count in lengths.items()
+                                if length >= min_length}
+            median = median_length(eligible_lengths)
+            threshold = min_length if lengths else None
+            if median is not None:
+                threshold = max(min_length, math.ceil(median * length_fraction))
             report['files'].append({
                 'sample': EXT.sub('', path.name), 'path': str(path),
                 'output': str(target / name), 'input': sum(lengths.values()),
                 'median_length': median,
-                'min_length': math.ceil(median * length_fraction) if median is not None else None,
+                'min_length': threshold,
                 'removed_short': 0, 'removed_n': 0, 'removed_both': 0, 'kept': 0,
+                'removed_empty': lengths.get(0, 0),
+                'removed_below_min_length': sum(count for length, count in lengths.items()
+                                                if length < min_length),
                 'kept_with_n': 0,
-                'status': 'empty_input' if median is None else 'pending',
+                'status': 'pending' if lengths else 'empty_input',
             })
         target.parent.mkdir(parents=True, exist_ok=True)
         temporary = Path(tempfile.mkdtemp(prefix='.ls454-quality-', dir=target.parent))
@@ -161,7 +179,7 @@ def preprocess(input_dir, output_dir, report_path, length_fraction=0.5, max_n=1)
             opener = gzip.open if name.endswith('.gz') else open
             counted = 0
             with opener(temporary / name, 'wt', encoding='ascii', newline='') as output:
-                for raw_record, seq in fastq_records(path):
+                for raw_record, seq in fastq_records(path, allow_empty=True):
                     counted += 1
                     n_count = seq.count('N') + seq.count('n')
                     exceeds_n = n_count > max_n
@@ -184,6 +202,8 @@ def preprocess(input_dir, output_dir, report_path, length_fraction=0.5, max_n=1)
                 report['totals'][key] += entry[key]
             print(f"454 sample {entry['sample']}: input={entry['input']}; "
                   f"median={entry['median_length']}; min_length={entry['min_length']}; "
+                  f"absolute_min_length={min_length}; removed_empty={entry['removed_empty']}; "
+                  f"removed_below_min_length={entry['removed_below_min_length']}; "
                   f"removed_short={entry['removed_short']}; removed_n={entry['removed_n']}; "
                   f"max_n={max_n}; kept={entry['kept']}; kept_with_n={entry['kept_with_n']}",
                   file=sys.stderr)
@@ -215,16 +235,19 @@ def preprocess(input_dir, output_dir, report_path, length_fraction=0.5, max_n=1)
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest='command', required=True)
-    command = subparsers.add_parser('preprocess', help='Filter each sample by relative length and N bases')
+    command = subparsers.add_parser('preprocess', help='Filter each sample by minimum/relative length and N bases')
     command.add_argument('--input', required=True)
     command.add_argument('--output-dir', required=True)
     command.add_argument('--report', required=True)
     command.add_argument('--length-fraction', type=float, default=0.5)
     command.add_argument('--max-n', type=int, default=1,
                          help='Maximum combined N/n count per read (default: 1)')
+    command.add_argument('--min-length', type=int, default=50,
+                         help='Minimum read length before estimating the sample median (default: 50)')
     args = parser.parse_args()
     try:
-        preprocess(args.input, args.output_dir, args.report, args.length_fraction, args.max_n)
+        preprocess(args.input, args.output_dir, args.report, args.length_fraction,
+                   args.max_n, args.min_length)
     except (ValueError, OSError, EOFError) as error:
         parser.exit(2, f'454 quality error: {error}\n')
 
