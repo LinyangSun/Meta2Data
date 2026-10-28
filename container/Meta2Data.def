@@ -5,6 +5,18 @@ From: {{ BASE_SIF }}
 # and its embedded SEPP resource. Build from a checkout with executable bin/*.
 # Use relative BASE_SIF / SOURCE_DIR build arguments to keep host paths out of
 # the embedded definition and labels (for example base.sif and source).
+%setup
+    set -eu
+    : "${APPTAINER_ROOTFS:?Apptainer build rootfs is not set}"
+    [ "$APPTAINER_ROOTFS" != / ]
+    # %setup runs before %files. Remove only application components from the
+    # extracted image so directory copies replace them instead of nesting
+    # bin/bin or scripts/scripts under inherited code. Keep dependencies and
+    # /opt/Meta2Data/reference unchanged.
+    for component in bin scripts docs test tests example README.md env.yml; do
+        rm -rf -- "${APPTAINER_ROOTFS}/opt/meta2data-current/$component"
+    done
+
 %files
     {{ SOURCE_DIR }}/bin /opt/meta2data-current/bin
     {{ SOURCE_DIR }}/scripts /opt/meta2data-current/scripts
