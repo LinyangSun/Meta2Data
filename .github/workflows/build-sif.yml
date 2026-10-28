@@ -1,0 +1,162 @@
+name: Build SIF
+run-name: Build SIF ${{ inputs.output_tag }} from ${{ github.ref_name }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_tag:
+        description: Existing Meta2Data SIF tag in GHCR to use as the base environment
+        required: true
+        type: string
+      output_tag:
+        description: New GHCR tag to publish (must not exist; latest is not allowed)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: build-sif-${{ github.repository }}-${{ inputs.output_tag }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # SIF_RUNNER can select an available larger Ubuntu x64 GitHub-hosted runner.
+    runs-on: ${{ vars.SIF_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 180
+    defaults:
+      run:
+        shell: bash
+    env:
+      APPTAINER_VERSION: '1.5.5'
+      BASE_TAG: ${{ inputs.base_tag }}
+      OUTPUT_TAG: ${{ inputs.output_tag }}
+      APPTAINER_TMPDIR: ${{ runner.temp }}/sif-build
+
+    steps:
+      - name: Check out the selected source revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          path: source
+          persist-credentials: false
+
+      - name: Validate tags and reserve a new publication target
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          tag_pattern='^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$'
+          if [[ ! "$BASE_TAG" =~ $tag_pattern || ! "$OUTPUT_TAG" =~ $tag_pattern ]]; then
+            echo '::error::Use valid container tags of at most 128 characters.'
+            exit 1
+          fi
+          if [[ "$BASE_TAG" == "$OUTPUT_TAG" || "${OUTPUT_TAG,,}" == latest ]]; then
+            echo '::error::Choose a new output tag, different from the base tag and latest.'
+            exit 1
+          fi
+          image_name="${GITHUB_REPOSITORY,,}"
+          echo "IMAGE_NAME=$image_name" >> "$GITHUB_ENV"
+          mkdir -p "$APPTAINER_TMPDIR"
+
+          registry_token=$(curl --fail-with-body --silent --show-error --retry 3 \
+            --user "${GITHUB_ACTOR}:${GHCR_TOKEN}" --get \
+            --data-urlencode 'service=ghcr.io' \
+            --data-urlencode "scope=repository:${image_name}:pull,push" \
+            https://ghcr.io/token | jq -er '.token // .access_token')
+          echo "::add-mask::$registry_token"
+          status=$(curl --silent --show-error --retry 3 \
+            --output "$RUNNER_TEMP/sif-output-manifest.json" --write-out '%{http_code}' \
+            --header "Authorization: Bearer $registry_token" \
+            --header 'Accept: application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json' \
+            "https://ghcr.io/v2/${image_name}/manifests/${OUTPUT_TAG}")
+          case "$status" in
+            404) ;;
+            200)
+              echo "::error::Tag $OUTPUT_TAG already exists; refusing to overwrite it."
+              exit 1 ;;
+            *)
+              echo "::error::GHCR tag check failed (HTTP $status). Check the package's Manage Actions access setting for this repository."
+              exit 1 ;;
+          esac
+
+      - name: Free space on the standard disposable runner
+        if: ${{ vars.SIF_RUNNER == '' || vars.SIF_RUNNER == 'ubuntu-24.04' }}
+        run: |
+          # These preinstalled SDKs are not used by this packaging job.
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          df -h "$GITHUB_WORKSPACE" "$RUNNER_TEMP"
+
+      - name: Install the pinned Apptainer build tool
+        run: |
+          package="apptainer_${APPTAINER_VERSION}_amd64.deb"
+          curl --fail --location --show-error --retry 3 \
+            "https://github.com/apptainer/apptainer/releases/download/v${APPTAINER_VERSION}/${package}" \
+            --output "$RUNNER_TEMP/$package"
+          sudo apt-get update
+          sudo apt-get install -y "$RUNNER_TEMP/$package"
+          apptainer --version
+
+      - name: Download the existing SIF environment
+        env:
+          APPTAINER_DOCKER_USERNAME: ${{ github.actor }}
+          APPTAINER_DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          apptainer pull --disable-cache base.sif "oras://ghcr.io/${IMAGE_NAME}:${BASE_TAG}"
+          sha256sum base.sif
+          ls -lh base.sif
+          df -h "$GITHUB_WORKSPACE" "$APPTAINER_TMPDIR"
+
+      - name: Check build space
+        run: |
+          # A conservative estimate, not an exact prediction of unpacked size.
+          base_bytes=$(stat -c '%s' base.sif)
+          required_bytes=$((base_bytes * 4 + 2 * 1024 * 1024 * 1024))
+          for directory in "$GITHUB_WORKSPACE" "$APPTAINER_TMPDIR"; do
+            available_bytes=$(df -B1 --output=avail "$directory" | tail -n 1 | tr -d ' ')
+            if (( available_bytes < required_bytes )); then
+              echo '::error::Insufficient estimated build space. Set the SIF_RUNNER repository variable to an available larger Ubuntu x64 GitHub-hosted runner, then run again.'
+              echo "Available: $available_bytes bytes; estimate: $required_bytes bytes."
+              exit 1
+            fi
+          done
+
+      - name: Rebuild the SIF with the selected application code
+        run: |
+          chmod a+rx source/bin/*
+          sudo env APPTAINER_TMPDIR="$APPTAINER_TMPDIR" \
+            apptainer build --disable-cache --notest \
+              --build-arg BASE_SIF=base.sif \
+              --build-arg SOURCE_DIR=source \
+              Meta2Data.sif source/container/Meta2Data.def
+          sudo chown "$(id -u):$(id -g)" Meta2Data.sif
+          sha256sum Meta2Data.sif
+
+      - name: Publish the new SIF tag to GHCR
+        env:
+          APPTAINER_DOCKER_USERNAME: ${{ github.actor }}
+          APPTAINER_DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          apptainer push Meta2Data.sif "oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}"
+
+      - name: Write the publication summary
+        run: |
+          revision=$(git -C source rev-parse HEAD)
+          base_checksum=$(sha256sum base.sif | cut -d ' ' -f 1)
+          checksum=$(sha256sum Meta2Data.sif | cut -d ' ' -f 1)
+          {
+            echo '## Published Meta2Data SIF'
+            echo
+            echo "- Source commit: \`$revision\`"
+            echo "- Base image: \`oras://ghcr.io/${IMAGE_NAME}:${BASE_TAG}\`"
+            echo "- Base SIF SHA-256: \`$base_checksum\`"
+            echo "- New image: \`oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}\`"
+            echo "- New SIF SHA-256: \`$checksum\`"
+            echo '- Tests: not run (`apptainer build --notest`).'
+            echo
+            echo '```bash'
+            echo "apptainer pull Meta2Data-${OUTPUT_TAG}.sif oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
