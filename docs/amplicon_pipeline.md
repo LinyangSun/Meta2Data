@@ -28,7 +28,7 @@ flowchart TD
     DPlatform -->|Ion Torrent| Ion["Denoise pyro reads"]
     DPlatform -->|Full-length PacBio CCS| CCS["Require a known or explicit forward primer; denoise CCS"]
     Method -->|vsearch| VPlatform{"Platform?"}
-    VPlatform -->|Illumina| VIllumina["Merge and filter reads, or preprocess degraded quality"]
+    VPlatform -->|Illumina| VIllumina["Normal PE: Q20 tail trim, project-wide merged/R1 choice, EE 1.5; other layouts unchanged"]
     VPlatform -->|454| V454["Adaptive tail trimming"]
     VPlatform -->|Ion Torrent| VIon["Filter reads with optional extra trimming"]
     VPlatform -->|Full-length PacBio CCS| VCCS["Trim by orientation; length and expected-error filtering"]
@@ -121,6 +121,46 @@ extraction. The internal detection-only step is not a public primer-bypass optio
 PacBio vsearch trims
 before its length/quality filtering. Additional fixed 5-prime trimming defaults
 to zero for Ion and degraded-quality workflows and can be set through JSON.
+
+## Normal-quality Illumina paired-end VSEARCH
+
+Only `--vsearch` + Illumina + paired-end + `quality_status=normal` uses this
+branch. DADA2, original single-end input, degraded/binned qualities and other
+platforms keep their existing processing rules.
+
+1. After adapter removal, resolve primer decisions before trimming. When R1's
+   final authorized 5-prime cut is L > 0, apply the same cut to R2 instead of its
+   independent cut. Each mate is trimmed once. With no R1 cut, keep R2's own
+   decision. Existing failed-detection and `--skip-unknown-primers` dataset gates
+   run first; synchronization never overrides them. Automatic detection uses
+   dataset/orientation cuts; explicit cutadapt matches use the actual cut per
+   pair, rather than assuming the primer's nominal length.
+2. Trim only the contiguous Q < 20 suffix of each mate, independently, stopping
+   at the first Q >= 20 base. The implementation streams FASTQ records directly
+   so it introduces no extra adapter, polyG, N, length or EE trimming. Nonempty
+   R1 reads form a separate complete fallback pool even when R2 becomes empty.
+   Nonempty matched pairs enter VSEARCH with the existing merge parameters;
+   VSEARCH's existing length/N/overlap checks still apply.
+3. Finish all sample merge attempts, then calculate sum(merged pairs) /
+   sum(pairs actually submitted). At >= `vsearch.merge_min_fraction` (0.5 by
+   default), every sample uses merged reads; otherwise every sample uses ALL
+   eligible R1 reads, including those whose pairs merged successfully. Zero
+   usable pairs with usable R1 selects R1 and records a null/NA merge fraction.
+   Missing or corrupt input, unequal/reordered mate IDs, and command failures
+   fail the dataset, not trigger a fallback. Samples without reads in the chosen
+   project route stay zero; they cannot switch routes independently.
+4. Filter the selected sequences with `--fastq_maxee 1.5` by default, controlled
+   by `vsearch.illumina_pe_maxee`. This rejects whole sequences and does not
+   truncate them. There is no EE filter before project routing, and no second
+   route decision after EE filtering. Continue into the unchanged pooled chain.
+
+The project is one BioProject or one local dataset, not the entire invocation.
+`vsearch.maxee` remains 1.0 for original normal-quality single-end Illumina;
+setting it no longer changes this PE-specific branch. Reports, length histograms,
+merge/filter command logs and final table counts are retained under
+`read_counts/vsearch/<attempt>/reports/illumina_pe/`. See [read_counts.md](read_counts.md).
+Input/parameter/code fingerprints, checkpoint invalidation and concurrency locks
+remain enabled and unchanged. Use a separate launch directory for comparisons.
 
 ## Input and restart behavior
 

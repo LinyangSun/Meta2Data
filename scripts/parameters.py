@@ -24,6 +24,7 @@ SPEC = {
     'primer.min_complexity': (0.3, 'PRIMER_MIN_COMPLEXITY', 0, 1),
     'primer.min_entropy': (1.0, 'PRIMER_MIN_ENTROPY', 0, 2),
     'vsearch.maxee': (1.0, 'VSEARCH_MAXEE', 0, None),
+    'vsearch.illumina_pe_maxee': (1.5, 'ILLUMINA_PE_MAXEE', 0, None),
     'vsearch.merge_min_fraction': (0.5, 'VSEARCH_MERGE_MIN', 0, 1),
     'vsearch.precluster_identity': (0.99, 'VSEARCH_PRECLUSTER_IDENTITY', 0.01, 1),
     'vsearch.cluster_identity': (0.97, 'VSEARCH_CLUSTER_IDENTITY', 0.01, 1),

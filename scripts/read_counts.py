@@ -27,7 +27,8 @@ DADA2 = ['dada2_qc_input_reads', 'dada2_quality_filtered_reads',
          'dada2_denoised_reads', 'dada2_denoised_forward_reads',
          'dada2_denoised_reverse_reads', 'dada2_merged_reads',
          'dada2_nonchimeric_reads', 'dada2_final_reads']
-VSEARCH = ['vsearch_merge_attempt_reads', 'vsearch_preprocess_input_reads',
+VSEARCH = ['vsearch_tail_r1_reads', 'vsearch_tail_r2_reads', 'vsearch_merge_input_pairs',
+           'vsearch_merge_attempt_reads', 'vsearch_preprocess_input_reads',
            'vsearch_quality_filtered_reads', 'vsearch_length_n_filtered_reads',
            'vsearch_adaptive_trimmed_reads', 'vsearch_chopper_reads',
            'vsearch_preprocessed_reads', 'vsearch_dereplicated_reads',
@@ -434,6 +435,10 @@ def main():
         # A crash after copying the final table must not leave a failed/partial
         # summary forever merely because the runner skips completed datasets.
         record(state, args.mode + '_final_reads', table_counts(args.input), args.input)
+        pe_report = Path(state['directory']) / 'reports/illumina_pe/project.json'
+        if args.mode == 'vsearch' and pe_report.exists():
+            from illumina_pe import finalize
+            finalize(pe_report, args.input)
         state['status'] = 'success'
         save(state)
         return

@@ -17,7 +17,8 @@ are `NA`. `FinalReads` equals the selected branch's final feature-table abundanc
   forward-only reads are comparable to this fragment baseline. The legacy
   `<dataset>_raw_read_counts.tsv` continues to contain R1+R2 individual-read totals.
 - `ProcessingPath`: DADA2's selected `paired`/`single` execution, or VSEARCH's
-  per-sample preprocessing input path (merged FASTQ versus original forward FASTQ).
+  per-sample preprocessing input path for legacy branches. Normal-quality Illumina
+  PE uses the literal project-wide `merged` or `R1` route for every sample.
   Detailed events record each observation's source, basis and predecessor.
 - `Status`: `running`, `success`, `failed`, or `skipped`. A partially completed
   dataset has only the steps actually observed; downstream values remain `NA`.
@@ -54,6 +55,34 @@ is calculated against `vsearch_mapping_input_reads`; differences between arbitra
 adjacent columns are not necessarily read losses. SE fallback similarly has its
 own input. A successful merge attempt yielding zero reads is recorded as zero;
 a failed tool invocation has no invented count.
+
+## Normal Illumina PE diagnostics
+
+This branch additionally records `vsearch_tail_r1_reads` and
+`vsearch_tail_r2_reads` (nonempty directional candidates),
+`vsearch_merge_input_pairs` (matched pairs actually submitted), and
+`vsearch_merge_attempt_reads` (successful merge OUTPUT, retained for backward
+compatibility). R1 and R2 candidate columns overlap at the fragment level and
+must not be added. R1 fallback includes successful-merge pairs as well as failed
+merges and R1 reads whose mate became empty. Its loss edge starts from
+`vsearch_tail_r1_reads`, not from merge output.
+
+Each attempt retains `reports/illumina_pe/project.json`, `sample_counts.tsv` and
+`logs/`. They contain the project route/reason, weighted merge fraction, merge
+output / raw-pair fraction, raw/post-primer/tail/merge/selected/filter counts,
+directional pre/post-tail length histograms, removed bases, orphan R1 counts,
+VSEARCH commands/version, native merge-failure categories, and log paths. Missing
+measurements are JSON null / TSV NA, not zero. The original ledger and
+`sample_sizes.csv` retain upstream raw/adapter counts and raw length metrics.
+Unrecognized merge-log wording is retained in the complete tool log rather than
+inventing a failure category.
+
+After the final table is saved, the report adds each sample's final abundance,
+final read count and number of samples with positive abundance. Empty samples
+retain exclusion reasons. Tool errors mark the attempt failed and cannot count
+as zero-rate merges. Checkpoint recovery also repairs this report after a crash
+between final-table publication and summary completion. Normal fingerprint and
+concurrent-writer protections are unchanged.
 
 ## TAXA steps
 

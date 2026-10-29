@@ -255,11 +255,16 @@ _trim_primers() {
     shift 2
     mkdir -p "$out_dir"
     local status=0
+    local sync_args=()
+    if [[ "$MODE" == vsearch && "${platform:-}" == ILLUMINA &&
+          "${sequence_type:-}" == paired && "${quality_status:-}" == normal ]]; then
+        sync_args+=(--sync-r2-to-r1)
+    fi
     if [[ -n "${PRIMER_FWD:-}" ]]; then
         python3 "${SCRIPTS}/explicit_primers.py" --input "$in_dir" --output "$out_dir" \
-            --forward "$PRIMER_FWD" --reverse "${PRIMER_REV:-}" "$@" || status=$?
+            --forward "$PRIMER_FWD" --reverse "${PRIMER_REV:-}" "${sync_args[@]}" "$@" || status=$?
     else
-        python3 "${SCRIPTS}/entropy_primer_detect.py" -i "$in_dir" -o "$out_dir" "$@" || status=$?
+        python3 "${SCRIPTS}/entropy_primer_detect.py" -i "$in_dir" -o "$out_dir" "${sync_args[@]}" "$@" || status=$?
     fi
     if [[ -f "${out_dir}/primer_info.json" ]]; then
         cp "${out_dir}/primer_info.json" "${dataset_path}/${dataset_ID}-${MODE}-primer_info.json"
@@ -520,6 +525,7 @@ for i in "${!Dataset_ID_sets[@]}"; do
     local _ds_start=$(date +%s)
     (
         set -e
+        unset ILLUMINA_PE_REPORT
         cd "$dataset_path"
         READ_COUNTS_STATE=$(python3 "${SCRIPTS}/read_counts.py" begin \
             --dataset "$dataset_path" --output "$OUTPUT" --mode "$MODE")
@@ -1296,6 +1302,10 @@ else:
 
         # Preserve the final per-sample abundances in the existing summary.csv.
         Audit_Table "${MODE}_final_reads" "${dataset_path}/${dataset_ID}-${MODE}-final-table.qza"
+        if [[ -n "${ILLUMINA_PE_REPORT:-}" ]]; then
+            python3 "${SCRIPTS}/illumina_pe.py" finalize --report "$ILLUMINA_PE_REPORT" \
+                --table "${dataset_path}/${dataset_ID}-${MODE}-final-table.qza"
+        fi
 
         _log_status SUCCESS "$dataset_ID" "Platform: $platform"
 

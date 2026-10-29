@@ -1176,10 +1176,10 @@ Amplicon_Vsearch_ImportResults() {
 }
 
 Amplicon_Illumina_Vsearch_Preprocess() {
-    # Produce clean, full-amplicon single-end reads for the pooled OTU back-end.
-    #   normal quality : per-sample PE merge (vsearch --fastq_mergepairs);
-    #                    if merge rate < VSEARCH_MERGE_MIN, fall back to forward-only
-    #                    R1; then maxee filter (vsearch --fastq_filter).
+    # Produce single-end inputs for the pooled OTU back-end.
+    #   normal PE: Q20 tail trim -> all project merges -> one project route
+    #              (merged or ALL usable R1) -> maxee 1.5 by default.
+    #   normal SE: retain the existing single-read maxee path.
     #   binned quality : reuse degraded_quality_preprocess (5' trim + truncate +
     #                    N filter, forward-only) — maxee is unreliable on binned Q.
     # On return: $fastq_path -> clean dir; sequence_type=single.
@@ -1193,6 +1193,25 @@ Amplicon_Illumina_Vsearch_Preprocess() {
 
     rm -rf "$clean_path"
     mkdir -p "$clean_path"
+
+    if [[ "$quality_status" == normal && "$sequence_type" == paired ]]; then
+        ILLUMINA_PE_REPORT="${READ_COUNTS_REPORTS:-${dataset_path%/}/reports}/illumina_pe/project.json"
+        export ILLUMINA_PE_REPORT
+        local pe_status=0
+        python3 "${SCRIPTS}/illumina_pe.py" preprocess \
+            --input "$fastp_path" --output "$clean_path" --report "$ILLUMINA_PE_REPORT" \
+            --threads "$threads" --maxee "${ILLUMINA_PE_MAXEE:-1.5}" \
+            --merge-min "$merge_min" || pe_status=$?
+        if [[ "$pe_status" -eq 98 ]] && declare -F _log_status >/dev/null; then
+            _log_status SKIPPED "${dataset_ID:-${dataset_name:-unknown}}" \
+                "No usable Illumina PE reads; see $ILLUMINA_PE_REPORT"
+        fi
+        [[ "$pe_status" -eq 0 ]] || return "$pe_status"
+        fastq_path="$clean_path"
+        sequence_type="single"
+        export fastq_path sequence_type
+        return 0
+    fi
 
     if [[ "$quality_status" == "degraded_binned" ]]; then
         echo ">>> vsearch preprocess (binned/degraded quality): forward-only truncation path..."

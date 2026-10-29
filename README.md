@@ -502,6 +502,17 @@ For 454, after primer processing and tail trimming, the pipeline calculates the 
 
 Filtering is followed by exact dereplication, 99% preclustering, vsearch denoising, chimera removal, 97% clustering, and mapping reads back to the representatives. Sequences with abundance 1 are retained before 99% preclustering; denoising still uses `vsearch.minsize`. Mapping uses filtered reads, excluding members assigned to identified chimeras. There is no additional removal of final features with count 1. Per-sample thresholds and losses are recorded in `ls454_quality-vsearch.json`; member exclusion statistics are in `ls454_members-vsearch.json`.
 
+For normal-quality Illumina paired-end data in `--vsearch`, an authorized R1
+5-prime primer cut is also applied once to R2. Unknown-primer skip rules take
+precedence. Each mate then loses only its contiguous Q<20 tail. All samples
+finish merging before one project-wide route is chosen: >=50% pooled merge
+success uses merged reads; otherwise all usable R1 reads are retained for
+filtering, including successfully merged pairs and R1 with unusable R2. The
+selected input is filtered at EE<=1.5 (`vsearch.illumina_pe_maxee`) without EE
+truncation. Other platforms, DADA2, original single-end input and degraded-quality
+branches are unchanged. Detailed counts and logs survive temporary-file cleanup;
+see [the pipeline description](docs/amplicon_pipeline.md#normal-quality-illumina-paired-end-vsearch).
+
 For Ion Torrent, both vsearch and dada2 automatically set `EE = L × 10^(-19/10)` by default, where `L` is the dataset's median read length after primer removal. The actual threshold is recorded in `ion_quality-<method>.json` in the dataset directory.
 
 For Oxford Nanopore, reads and representative sequences are ordered deterministically before clustering and consensus polishing. Sequence identifiers are stable, and repeated reads retain their full contribution to abundance.
@@ -513,7 +524,7 @@ For example, save the following as `settings.json`:
 ```json
 {
   "primer": {"skip_unknown": true},
-  "vsearch": {"maxee": 1.0, "cluster_identity": 0.97},
+  "vsearch": {"maxee": 1.0, "illumina_pe_maxee": 1.5, "cluster_identity": 0.97},
   "taxa": {"confidence": 0.8}
 }
 ```

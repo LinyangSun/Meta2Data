@@ -21,6 +21,7 @@ def main():
     p.add_argument('--reverse', default='')
     p.add_argument('--detect-only', action='store_true')
     p.add_argument('--mixed-orientation', action='store_true')
+    p.add_argument('--sync-r2-to-r1', action='store_true')
     a = p.parse_args()
     rows = discover(a.input)
     mode = layout(rows)
@@ -51,6 +52,24 @@ def main():
             for src in (r1, r2):
                 if src:
                     shutil.copyfile(src, out / Path(src).name)
+            continue
+        if r2 and a.sync_r2_to_r1:
+            from primer_sync import explicit_paired
+            try:
+                result = explicit_paired(r1, r2, out / Path(r1).name,
+                                         out / Path(r2).name, a.forward, a.reverse)
+            except (OSError, ValueError, subprocess.CalledProcessError) as error:
+                info.update(status='failed', reason=str(error))
+                (out / 'primer_info.json').write_text(json.dumps(info, indent=2) + '\n')
+                print(f'Error: {error}', file=sys.stderr)
+                return 1
+            info.setdefault('paired_sync', {})[Path(r1).name] = result
+            info['r2_sync_policy'] = 'r1_authorized_5prime_trim'
+            info['trim_method'] = 'match_then_apply_once'
+            info['reason'] = ('Explicit primer matches resolved before trimming; '
+                              'authorized R1 cuts override R2 cuts per pair')
+            info['reverse_primer']['trim_method'] = 'r1_synchronized_or_independent_cutadapt'
+            info['reverse_primer']['trim_length'] = None
             continue
         cmd = ['cutadapt', '-o', str(out / Path(r1).name)]
         if r2:
