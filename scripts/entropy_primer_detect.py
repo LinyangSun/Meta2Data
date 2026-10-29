@@ -721,7 +721,7 @@ def _save_info(output_dir, info):
 
 
 def process_dataset(input_dir, output_dir, settings, detect_only=False,
-                    mixed_orientation=False):
+                    mixed_orientation=False, sync_r2_to_r1=False):
     """Detect once per dataset, and decide whether to skip before writing reads."""
     info = {'mode': None, 'layout': None, 'status': 'failed', 'reason': '',
             'detect_only': detect_only,
@@ -788,6 +788,13 @@ def process_dataset(input_dir, output_dir, settings, detect_only=False,
             trims = {end: {group: 0 if detect_only else entry['length']
                            for group, entry in groups.items()}
                      for end, groups in info['original_ends'].items()}
+        # Apply synchronization only after the existing failed/unknown gates.
+        # Preserve R2 detection evidence but change its effective cut before any
+        # read is written. In mixed libraries, use the original R1 orientation.
+        if sync_r2_to_r1 and mode == 'PE' and not detect_only:
+            from primer_sync import synchronize_plan
+            reverse_trim = synchronize_plan(
+                info, forward_trim, reverse_trim, trims if mixed else None)
         for row in rows:
             first = row['r1']
             first_out = os.path.join(output_dir, os.path.basename(first))
@@ -836,6 +843,8 @@ def main():
                         help='Detect primers and copy every FASTQ unchanged; also check SE orientations')
     parser.add_argument('--mixed-orientation', action='store_true',
                         help='Check SE orientations and trim each group separately (PacBio vsearch)')
+    parser.add_argument('--sync-r2-to-r1', action='store_true',
+                        help='Mirror authorized R1 5-prime cuts to R2 (Illumina PE VSEARCH only)')
     parser.add_argument('--skip-unknown-primers', action='store_true', default=None,
                         help='Skip the dataset when any end/orientation has an unknown primer')
     parser.add_argument('--parameter', help='JSON file overriding built-in parameter defaults')
@@ -848,7 +857,7 @@ def main():
         settings['primer.skip_unknown'] = args.skip_unknown_primers
     os.makedirs(args.output, exist_ok=True)
     return process_dataset(os.path.abspath(args.input), os.path.abspath(args.output),
-                           settings, args.detect_only, args.mixed_orientation)
+                           settings, args.detect_only, args.mixed_orientation, args.sync_r2_to_r1)
 
 
 if __name__ == '__main__':

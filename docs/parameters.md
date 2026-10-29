@@ -58,8 +58,9 @@ Illumina、Ion Torrent、PacBio 使用共享的预聚类、去噪及聚类分支
 
 | JSON 字段 | 默认值 | 作用 | 取值范围 |
 |---|---:|---|---|
-| `vsearch.maxee` | `1.0` | Illumina 正常质量分支：每条 read 允许的最大期望错误数；双端拼接成功时作用于拼接后的 read | 数值 ≥ 0 |
-| `vsearch.merge_min_fraction` | `0.5` | Illumina 正常质量双端数据：每个样本接受拼接结果的最低成功比例；低于此值则改用该样本 R1 | 数值 `0–1` |
+| `vsearch.maxee` | `1.0` | Illumina 原始单端、正常质量分支的最大期望错误数；不再控制双端项目 | 数值 ≥ 0 |
+| `vsearch.illumina_pe_maxee` | `1.5` | Illumina 双端、正常质量：项目统一选路后对 merged 或全部 R1 过滤；不按 EE 截短 | 数值 ≥ 0 |
+| `vsearch.merge_min_fraction` | `0.5` | Illumina 正常质量双端数据：全项目成功合并总数／实际合并输入总数的阈值；达到阈值统一用 merged，否则统一用全部可用 R1 | 数值 `0–1` |
 | `vsearch.precluster_identity` | `0.99` | 共享及 454 分支进入去噪前的预聚类相似度比例 | 数值 `0.01–1` |
 | `vsearch.cluster_identity` | `0.97` | 共享及 454 分支最终聚类和 reads 回贴的相似度比例 | 数值 `0.01–1` |
 | `vsearch.minsize` | `2` | 共享分支预聚类前及去噪时的最低丰度；454 仅在 99% 预聚类后的去噪步骤使用 | 整数 ≥ 1 |
