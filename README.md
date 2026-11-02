@@ -62,7 +62,6 @@ apptainer exec --cleanenv Meta2Data.sif \
 
 Run commands from your working directory; PIP and TAXA write to its `results/` directory. Set the image path and define the `m2d` function again in each new terminal.
 
-See the [container guide](docs/container.md) for more examples.
 
 ## Preparing your analysis
 
