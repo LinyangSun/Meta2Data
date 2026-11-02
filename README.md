@@ -45,25 +45,22 @@ Meta2Data --help
 Use a SIF version that provides the interface documented here. Meta2Data and its dependencies run directly from the image. After installing Apptainer, choose a version from [GitHub Packages](https://github.com/LinyangSun/Meta2Data/pkgs/container/meta2data) and replace `TAG` below with its tag:
 
 ```bash
-apptainer pull Meta2Data.sif \
-  oras://ghcr.io/linyangsun/meta2data:TAG
+apptainer pull Meta2Data.sif oras://ghcr.io/linyangsun/meta2data:<version>
 
 apptainer exec --cleanenv Meta2Data.sif Meta2Data --help
 ```
 
-For convenience, define a shortcut:
-
-```bash
-export M2D_SIF="$(realpath Meta2Data.sif)"
-
-m2d() {
-  apptainer exec --cleanenv "$M2D_SIF" Meta2Data "$@"
-}
-
-m2d --help
+apptainer exec --cleanenv Meta2Data.sif \
+    Meta2Data AmpliconPIP \
+    --public-m <metadata.csv> \
+    --public-bioproject-colNAME Bioproject \
+    --public-sra-colNAME Run \
+    --vsearch \
+    --threads <n_threads> \
+    --max-parallel <n_parallel>
 ```
 
-Replace `Meta2Data` with `m2d` in the examples below. Run commands from your working directory; PIP and TAXA write to its `results/` directory. Set the image path and define the `m2d` function again in each new terminal.
+Run commands from your working directory; PIP and TAXA write to its `results/` directory. Set the image path and define the `m2d` function again in each new terminal.
 
 See the [container guide](docs/container.md) for more examples.
 
