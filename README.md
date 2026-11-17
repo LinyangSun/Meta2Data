@@ -4,6 +4,13 @@
 
 # Meta2Data
 
+> [!IMPORTANT]
+> **Help expand Meta2Data | 欢迎共同拓展 Meta2Data**
+>
+> Meta2Data's analysis workflow currently supports only 16S rRNA amplicon data. We aim to extend it to other marker genes and short- and long-read metagenomic data. **Contributions and collaborations are welcome!**
+>
+> Meta2Data 的分析流程目前仅支持 16S rRNA 扩增子数据。未来希望扩展至其他标记基因，以及短读长和长读长宏基因组数据。**欢迎参与开发与合作！**
+
 Meta2Data is a Linux toolkit for amplicon analysis, combining public metadata retrieval, sequencing data processing, taxonomic classification, and phylogenetic tree construction. It also supports local FASTQ datasets.
 
 ## Workflow
