@@ -13,6 +13,81 @@
 
 Meta2Data is a Linux toolkit for amplicon analysis, combining public metadata retrieval, sequencing data processing, taxonomic classification, and phylogenetic tree construction. It also supports local FASTQ datasets.
 
+## Citation
+
+If you use Meta2Data in your research, please cite:
+
+**Li J, Duplouy A, Sun L. (2026).** Meta2Data: Automated data processing for large scale microbiome data re-analysis. *Bioinformatics*, btag828.  
+[https://doi.org/10.1093/bioinformatics/btag828](https://doi.org/10.1093/bioinformatics/btag828)
+
+**Please also cite the software and reference databases used in your analysis.**
+
+| Workflow | Core software to cite |
+|---|---|
+| **VSEARCH workflow** (`--vsearch`) | [fastp](https://doi.org/10.1002/imt2.70078), [VSEARCH](https://doi.org/10.7717/peerj.2584), and [QIIME 2](https://doi.org/10.1038/s41587-019-0209-9) |
+| **DADA2 workflow** (`--dada2`) | [fastp](https://doi.org/10.1002/imt2.70078), [DADA2](https://doi.org/10.1038/nmeth.3869), and [QIIME 2](https://doi.org/10.1038/s41587-019-0209-9) |
+
+Additional citations apply to AmpliconTAXA, platform-specific processing, and the optional steps used in your workflow.
+
+<details>
+<summary><strong>Additional citations by analysis step</strong></summary>
+
+Use the references for the steps and database versions used in your run. The core software references are also listed in full below.
+
+| Step or resource used | Additional references |
+|---|---|
+| Oxford Nanopore processing with `--vsearch` | [Chopper / NanoPack2](https://doi.org/10.1093/bioinformatics/btad311), [minimap2](https://doi.org/10.1093/bioinformatics/bty191), and [Racon](https://doi.org/10.1101/gr.214270.116) |
+| Primer matching or trimming with Cutadapt | [Cutadapt](https://doi.org/10.14806/ej.17.1.200) |
+| Adapter protection using BLAST and the GG2 reference | [BLAST+](https://doi.org/10.1186/1471-2105-10-421) and [Greengenes2](https://doi.org/10.1038/s41587-023-01845-1) |
+| AmpliconTAXA sequence orientation and taxonomic classification, with either denoising method | [RESCRIPt](https://doi.org/10.1371/journal.pcbi.1009581), [VSEARCH](https://doi.org/10.7717/peerj.2584), [q2-feature-classifier](https://doi.org/10.1186/s40168-018-0470-z), and [Greengenes2](https://doi.org/10.1038/s41587-023-01845-1) |
+| SILVA 138 classifier (`--classifier silva`) | [SILVA (Chuvochina et al., 2026)](https://doi.org/10.1093/nar/gkaf1247) |
+| Default SEPP tree construction | [SEPP](https://doi.org/10.1142/9789814366496_0024), [q2-fragment-insertion](https://doi.org/10.1128/mSystems.00021-18), and the Greengenes 13_8 reference: [DeSantis et al. (2006)](https://doi.org/10.1128/AEM.03006-05) and [McDonald et al. (2012)](https://doi.org/10.1038/ismej.2011.139) |
+| De novo tree construction with `--singleV` | [MAFFT](https://doi.org/10.1093/molbev/mst010) and [FastTree](https://doi.org/10.1371/journal.pone.0009490) |
+| Full-length PacBio CCS processing with DADA2 `denoise-ccs` | [Callahan et al. (2019)](https://doi.org/10.1093/nar/gkz569), in addition to the DADA2 reference above |
+| VSEARCH denoising (`--cluster_unoise`) | [UNOISE (Edgar, 2016)](https://doi.org/10.1101/081257), in addition to VSEARCH |
+| VSEARCH chimera removal (`--uchime3_denovo`) | [UCHIME2 (Edgar, 2016)](https://doi.org/10.1101/074252), in addition to VSEARCH |
+
+AmpliconTAXA uses RESCRIPt and VSEARCH to orient sequences against Greengenes2 even when the SILVA classifier is selected. The Greengenes 13_8 reference used by SEPP is a separate resource from Greengenes2. With `--notree`, no tree-construction references are needed.
+
+The SILVA reference follows the database's [current citation guidance](https://www.arb-silva.de/contact/citation); the classifier used here remains SILVA 138.
+
+### Core software references
+
+- **fastp:** Chen S. (2025). fastp 1.0: An ultra-fast all-round tool for FASTQ data quality control and preprocessing. *iMeta 4(5):e70078*. [doi:10.1002/imt2.70078](https://doi.org/10.1002/imt2.70078)
+- **VSEARCH:** Rognes T, Flouri T, Nichols B, Quince C, Mahé F. (2016). VSEARCH: a versatile open source tool for metagenomics. *PeerJ 4:e2584*. [doi:10.7717/peerj.2584](https://doi.org/10.7717/peerj.2584)
+- **DADA2:** Callahan BJ et al. (2016). DADA2: High-resolution sample inference from Illumina amplicon data. *Nature Methods 13:581–583*. [doi:10.1038/nmeth.3869](https://doi.org/10.1038/nmeth.3869)
+- **QIIME 2:** Bolyen E et al. (2019). Reproducible, interactive, scalable and extensible microbiome data science using QIIME 2. *Nature Biotechnology 37:852–857*. [doi:10.1038/s41587-019-0209-9](https://doi.org/10.1038/s41587-019-0209-9)
+
+### References for additional steps
+
+- **Chopper / NanoPack2:** De Coster W, Rademakers R. (2023). NanoPack2: population-scale evaluation of long-read sequencing data. *Bioinformatics 39(5):btad311*. [doi:10.1093/bioinformatics/btad311](https://doi.org/10.1093/bioinformatics/btad311)
+- **minimap2:** Li H. (2018). Minimap2: pairwise alignment for nucleotide sequences. *Bioinformatics 34(18):3094–3100*. [doi:10.1093/bioinformatics/bty191](https://doi.org/10.1093/bioinformatics/bty191)
+- **Racon:** Vaser R, Sović I, Nagarajan N, Šikić M. (2017). Fast and accurate de novo genome assembly from long uncorrected reads. *Genome Research 27(5):737–746*. [doi:10.1101/gr.214270.116](https://doi.org/10.1101/gr.214270.116)
+- **Cutadapt:** Martin M. (2011). Cutadapt removes adapter sequences from high-throughput sequencing reads. *EMBnet.journal 17(1):10–12*. [doi:10.14806/ej.17.1.200](https://doi.org/10.14806/ej.17.1.200)
+- **BLAST+:** Camacho C et al. (2009). BLAST+: architecture and applications. *BMC Bioinformatics 10:421*. [doi:10.1186/1471-2105-10-421](https://doi.org/10.1186/1471-2105-10-421)
+- **RESCRIPt:** Robeson MS II et al. (2021). RESCRIPt: Reproducible sequence taxonomy reference database management. *PLoS Computational Biology 17(11):e1009581*. [doi:10.1371/journal.pcbi.1009581](https://doi.org/10.1371/journal.pcbi.1009581)
+- **q2-feature-classifier:** Bokulich NA et al. (2018). Optimizing taxonomic classification of marker-gene amplicon sequences with QIIME 2’s q2-feature-classifier plugin. *Microbiome 6:90*. [doi:10.1186/s40168-018-0470-z](https://doi.org/10.1186/s40168-018-0470-z)
+- **Greengenes2:** McDonald D et al. (2024). Greengenes2 unifies microbial data in a single reference tree. *Nature Biotechnology 42:715–718*. [doi:10.1038/s41587-023-01845-1](https://doi.org/10.1038/s41587-023-01845-1)
+- **SILVA:** Chuvochina M et al. (2026). SILVA in 2026: a global core biodata resource for rRNA within the DSMZ digital diversity. *Nucleic Acids Research 54(D1):D334–D341*. [doi:10.1093/nar/gkaf1247](https://doi.org/10.1093/nar/gkaf1247)
+- **SEPP:** Mirarab S, Nguyen N, Warnow T. (2012). SEPP: SATé-enabled phylogenetic placement. *Pacific Symposium on Biocomputing:247–258*. [doi:10.1142/9789814366496_0024](https://doi.org/10.1142/9789814366496_0024)
+- **q2-fragment-insertion:** Janssen S et al. (2018). Phylogenetic Placement of Exact Amplicon Sequences Improves Associations with Clinical Information. *mSystems 3(3):e00021-18*. [doi:10.1128/mSystems.00021-18](https://doi.org/10.1128/mSystems.00021-18)
+- **Greengenes database:** DeSantis TZ et al. (2006). Greengenes, a Chimera-Checked 16S rRNA Gene Database and Workbench Compatible with ARB. *Applied and Environmental Microbiology 72(7):5069–5072*. [doi:10.1128/AEM.03006-05](https://doi.org/10.1128/AEM.03006-05)
+- **Greengenes taxonomy:** McDonald D et al. (2012). An improved Greengenes taxonomy with explicit ranks for ecological and evolutionary analyses of bacteria and archaea. *The ISME Journal 6:610–618*. [doi:10.1038/ismej.2011.139](https://doi.org/10.1038/ismej.2011.139)
+- **MAFFT:** Katoh K, Standley DM. (2013). MAFFT multiple sequence alignment software version 7: improvements in performance and usability. *Molecular Biology and Evolution 30(4):772–780*. [doi:10.1093/molbev/mst010](https://doi.org/10.1093/molbev/mst010)
+- **FastTree:** Price MN, Dehal PS, Arkin AP. (2010). FastTree 2 – Approximately Maximum-Likelihood Trees for Large Alignments. *PLoS ONE 5(3):e9490*. [doi:10.1371/journal.pone.0009490](https://doi.org/10.1371/journal.pone.0009490)
+- **DADA2 for PacBio CCS:** Callahan BJ et al. (2019). High-throughput amplicon sequencing of the full-length 16S rRNA gene with single-nucleotide resolution. *Nucleic Acids Research 47(18):e103*. [doi:10.1093/nar/gkz569](https://doi.org/10.1093/nar/gkz569)
+- **UNOISE:** Edgar RC. (2016). UNOISE2: improved error-correction for Illumina 16S and ITS amplicon sequencing. *bioRxiv 081257 (preprint)*. [doi:10.1101/081257](https://doi.org/10.1101/081257)
+- **UCHIME2:** Edgar RC. (2016). UCHIME2: improved chimera prediction for amplicon sequencing. *bioRxiv 074252 (preprint)*. [doi:10.1101/074252](https://doi.org/10.1101/074252)
+
+### Earlier fastp versions
+
+The main fastp link follows the current citation for fastp 1.x. For an older environment, choose the paper appropriate to the version and features used:
+
+- **fastp, original paper:** Chen S, Zhou Y, Chen Y, Gu J. (2018). fastp: an ultra-fast all-in-one FASTQ preprocessor. *Bioinformatics 34(17):i884–i890*. [doi:10.1093/bioinformatics/bty560](https://doi.org/10.1093/bioinformatics/bty560)
+- **fastp, subsequent improvements:** Chen S. (2023). Ultrafast one-pass FASTQ data preprocessing, quality control, and deduplication using fastp. *iMeta 2(2):e107*. [doi:10.1002/imt2.107](https://doi.org/10.1002/imt2.107)
+
+</details>
+
 ## Workflow
 
 ```text
