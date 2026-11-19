@@ -49,7 +49,7 @@ show_help() {
 Usage: Meta2Data AmpliconTAXA [options]
 
 Recursively collect AmpliconPIP results, merge features, orient sequences against
-GreenGenes2, assign taxonomy, and optionally build a phylogenetic tree. Dataset folders
+Greengenes2, assign taxonomy, and optionally build a phylogenetic tree. Dataset folders
 may have any name. Each result must contain a matching pair:
     <id>-<method>-final-table.qza
     <id>-<method>-final-rep-seqs.qza
@@ -67,12 +67,12 @@ Options:
     --parameter FILE      JSON parameter overrides (CLI options take precedence)
     --classifier TYPE     gg2-2024.09 (default), silva-138.1, or silva-144
                           Legacy aliases: greengenes = gg2-2024.09,
-                          silva = silva-138.1. Published classifiers download automatically
+                          silva = silva-138.1
     -t, --threads INT     CPU threads (default: 4)
     --confidence FLOAT    Classifier confidence (default: 0.7)
     -h, --help            Show this help
 
-Orientation always uses the GreenGenes2 2024.09 backbone. Multi-region runs
+Orientation always uses the Greengenes2 2024.09 backbone. Multi-region runs
 use the existing Greengenes 13_8 SEPP reference regardless of feature method
 or taxonomy classifier. --notree requires no SEPP reference. Tree mode is
 independent of --dada2 / --vsearch.
@@ -80,13 +80,20 @@ independent of --dada2 / --vsearch.
 All default paths are relative to the launch working directory:
     Input: ./results/pip   Output: ./results/taxa   References: ./results/db
 Changing --input does not change either fixed output or reference location.
-Valid cached or bundled references are reused; missing resources download
-automatically. Only the selected classifier and required tree reference are prepared.
+Valid cached or bundled references are reused; missing published resources
+download automatically. Only the selected classifier and required tree reference are prepared.
 
-Database files:
-    Always: 2024.09.backbone.full-length.fna.qza
-    Classifiers: pinned, runtime-compatible models for the selected database version
+Reference/model inputs in results/db/:
+    Orientation (always): 2024.09.backbone.full-length.fna.qza
+    gg2-2024.09: gg2-2024.09-full-length-sklearn-1.7.1.qza
+    silva-138.1: silva-138.1-full-length-sklearn-1.7.1.qza
+    silva-144: silva-144-full-length-sklearn-1.7.1.qza
     SEPP runs only: sepp-refs-gg-13-8.qza
+
+Current upgrade branch: the official SILVA 144 model downloads automatically.
+Compatible GG2 2024.09 and SILVA 138.1 models are not yet published. Those choices,
+including the default, require a compatible maintainer-built bundle or cache;
+otherwise the command stops with NOT READY. Old scikit-learn 1.4.2 models cannot be reused.
 
 Examples:
     Meta2Data AmpliconTAXA
@@ -94,7 +101,8 @@ Examples:
     Meta2Data AmpliconTAXA --notree --classifier silva-144
     Meta2Data AmpliconTAXA --vsearch --parameter settings.json
 
-Outputs: results/taxa/final-<method>-<singleV|multiV|notree>/
+Analysis outputs (separate from input models):
+    results/taxa/final-<method>-<singleV|multiV|notree>/
     Single-region: orientedTable.qza, orientedRepSeqs.qza, denovoRootedTree.qza
     Multi-region: treeFilteredTable.qza, treeFilteredRepSeqs.qza, seppTree.qza
     No tree: orientedTable.qza, orientedRepSeqs.qza

@@ -1,5 +1,5 @@
 """Regression tests for minimal runtime locking and installer isolation."""
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 import io
 import os
 from pathlib import Path
@@ -90,15 +90,19 @@ class EnvironmentInstallerTests(unittest.TestCase):
     def test_successful_conda_creation_requires_successful_sra_setup(self):
         with tempfile.TemporaryDirectory() as directory:
             prefix = Path(directory) / "env"
+            errors = io.StringIO()
             with mock.patch.object(installer.shutil, "which", return_value="/conda/bin/conda"), \
                     mock.patch.object(installer.subprocess, "run", side_effect=[
                         subprocess.CompletedProcess([], 0), subprocess.CompletedProcess([], 7)]) as run, \
-                    redirect_stdout(io.StringIO()):
+                    redirect_stdout(io.StringIO()), redirect_stderr(errors):
                 self.assertEqual(installer.create(prefix, "conda"), 7)
                 self.assertEqual(run.call_count, 2)
                 self.assertEqual(run.call_args.args[0], [
                     str(prefix / "bin/python"), str(ROOT / "scripts/install_sra_toolkit.py"),
                     "--prefix", str(prefix)])
+            self.assertIn("Conda environment was created", errors.getvalue())
+            self.assertIn(installer.shlex.join(run.call_args.args[0]), errors.getvalue())
+            self.assertIn("existing-file or provenance conflict", errors.getvalue())
 
     def test_stale_or_modified_lock_is_rejected(self):
         channels, pins = installer.read_freeze(ROOT / "env.yml")

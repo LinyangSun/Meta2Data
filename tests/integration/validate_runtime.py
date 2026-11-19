@@ -22,6 +22,8 @@ import shutil
 import subprocess
 import sys
 import time
+import uuid
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
 CLASSIFIERS = {
@@ -66,6 +68,79 @@ def check_identifiers(table_ids, sequence_ids, taxonomy_ids=None, tree_ids=None)
         require(table_ids <= set(taxonomy_ids), "Features are missing taxonomy records")
     if tree_ids is not None:
         require(table_ids <= set(tree_ids), "Features are missing from the final tree")
+
+
+def _artifact_metadata(archive, path, semantic_type):
+    """Read identity without extracting a potentially large classifier payload."""
+    import yaml
+    names = [name for name in archive.namelist()
+             if name.count("/") == 1 and name.endswith("/metadata.yaml")]
+    require(len(names) == 1, f"Expected one artifact metadata record: {path}")
+    metadata = yaml.load(archive.read(names[0]), Loader=yaml.BaseLoader)
+    require(isinstance(metadata, dict), f"Invalid artifact metadata: {path}")
+    artifact_uuid = metadata.get("uuid")
+    try:
+        valid_uuid = isinstance(artifact_uuid, str) and str(uuid.UUID(artifact_uuid)) == artifact_uuid
+    except ValueError:
+        valid_uuid = False
+    require(valid_uuid and names[0].split("/")[0] == artifact_uuid,
+            f"Artifact UUID and archive root differ or are invalid: {path}")
+    require(metadata.get("type") == semantic_type,
+            f"{path}: expected {semantic_type}, got {metadata.get('type')}")
+    return artifact_uuid
+
+
+def check_taxonomy_classifier(taxonomy_path, classifier_path):
+    """Require the output action to reference the selected classifier's UUID.
+
+    Resource preparation independently checks published classifier identity.
+    This check catches a pipeline using another model despite the expected
+    output filename; it does not replace missing release UUID/hash pins.
+    """
+    import yaml
+    try:
+        with zipfile.ZipFile(classifier_path) as archive:
+            classifier_uuid = _artifact_metadata(archive, classifier_path, "TaxonomicClassifier")
+        with zipfile.ZipFile(taxonomy_path) as archive:
+            taxonomy_uuid = _artifact_metadata(archive, taxonomy_path, "FeatureData[Taxonomy]")
+            action = yaml.load(archive.read(
+                f"{taxonomy_uuid}/provenance/action/action.yaml"), Loader=yaml.BaseLoader)
+    except (OSError, KeyError, zipfile.BadZipFile, yaml.YAMLError) as error:
+        raise RuntimeError(f"Cannot read classifier provenance for {taxonomy_path}: {error}") from error
+    action = action.get("action") if isinstance(action, dict) else None
+    require(isinstance(action, dict) and action.get("type") == "method" and
+            action.get("plugin") == "environment:plugins:feature-classifier" and
+            action.get("action") == "classify_sklearn",
+            f"Taxonomy was not produced directly by feature-classifier.classify_sklearn: {taxonomy_path}")
+    inputs = action.get("inputs")
+    require(isinstance(inputs, list), f"Taxonomy provenance has no input records: {taxonomy_path}")
+    classifier_inputs = [entry["classifier"] for entry in inputs
+                         if isinstance(entry, dict) and "classifier" in entry]
+    require(classifier_inputs == [classifier_uuid],
+            f"Taxonomy classifier UUID mismatch: expected {classifier_uuid} from {classifier_path}, "
+            f"found {classifier_inputs} in {taxonomy_path}")
+    return {"taxonomy_uuid": taxonomy_uuid, "classifier_uuid": classifier_uuid}
+
+
+def check_silva144_ranks(taxa):
+    """Check the observed SILVA 144 schema without requiring full-depth calls."""
+    prefixes = ("d__", "k__", "p__", "c__", "o__", "f__", "g__")
+    rank_counts, unassigned = set(), 0
+    for index, taxon in enumerate(taxa):
+        require(isinstance(taxon, str) and bool(taxon.strip()),
+                f"SILVA 144 taxonomy row {index} is empty or not text: {taxon!r}")
+        taxon = taxon.strip()
+        if taxon == "Unassigned":
+            rank_counts.add(0)
+            unassigned += 1
+            continue
+        lineage = [rank.strip() for rank in taxon.split(";")]
+        require(len(lineage) <= len(prefixes) and
+                all(rank.startswith(prefix) for rank, prefix in zip(lineage, prefixes)),
+                f"SILVA 144 rank order must be d/k/p/c/o/f/g, possibly truncated: {taxon!r}")
+        rank_counts.add(len(lineage))
+    return {"observed_rank_counts": sorted(rank_counts), "unassigned_features": unassigned,
+            "expected_rank_prefixes": list(prefixes)}
 
 
 class Validation:
@@ -327,6 +402,8 @@ class Validation:
     def taxa(self, inputs):
         import pandas as pd
         from skbio import TreeNode
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import reference_resources as refs
         # Reuse the small PE VSEARCH output for two additional tree branches.
         cases = [(key, "notree", inputs["dada2"], "dada2") for key in CLASSIFIERS]
         cases += [("gg2-2024.09", tree, inputs["vsearch"] / "pe_explicit", "vsearch")
@@ -348,6 +425,11 @@ class Validation:
             require({"Taxon", "Confidence"} <= set(taxonomy), "Taxonomy columns changed")
             require(all(math.isfinite(float(v)) and 0 <= float(v) <= 1 for v in taxonomy["Confidence"]),
                     "Invalid taxonomy confidence values")
+            resource = refs.RESOURCES[CLASSIFIERS[classifier][0]]
+            identity = check_taxonomy_classifier(taxonomy_path, self.cache / resource.filename)
+            ranks = (check_silva144_ranks(taxonomy["Taxon"]) if classifier == "silva-144" else
+                     {"observed_rank_counts": sorted(
+                         {len(str(taxon).split(";")) for taxon in taxonomy["Taxon"]})})
             if tree == "sepp":
                 table_path, sequences_path = final / "treeFilteredTable.qza", final / "treeFilteredRepSeqs.qza"
             else:
@@ -367,8 +449,8 @@ class Validation:
             self.summary(final / "tmp" / ("treeFilteredTableSummary.qzv" if tree == "sepp"
                                           else "orientedTableSummary.qzv"))
             self.report["products"][str(taxonomy_path.relative_to(self.work))] = {
-                "features": len(taxonomy),
-                "observed_rank_counts": sorted({len(str(taxon).split(";")) for taxon in taxonomy["Taxon"]}),
+                "features": len(taxonomy), "requested_classifier": classifier,
+                **identity, **ranks,
             }
             self.save()
 

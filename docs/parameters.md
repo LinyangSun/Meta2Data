@@ -133,11 +133,13 @@ PacBio 最短长度不得大于最长长度。`quality_trim_score` 只用于 Ill
 
 | 参数 | 数据库版本 | 旧参数别名 |
 |---|---|---|
-| `--classifier gg2-2024.09` | Greengenes2 2024.09 | `--classifier greengenes`，默认值 |
+| `--classifier gg2-2024.09`（默认） | Greengenes2 2024.09 | `--classifier greengenes` |
 | `--classifier silva-138.1` | SILVA 138.1 | `--classifier silva` |
 | `--classifier silva-144` | SILVA 144 | 无 |
 
-旧 SILVA 分类器虽然命名为 `silva-138-99-nb-classifier.qza`，其内部训练记录使用的是 SILVA 138.1。`silva` 别名保持这个版本，不随新数据库发布而改变。新环境为 QIIME 2 2026.7.0 / scikit-learn 1.7.1，使用与该环境匹配的内置分类器构建文件。此升级分支的发布前验证进度见 [升级计划](qiime2-2026.7-upgrade.md)。
+旧 SILVA 分类器虽然命名为 `silva-138-99-nb-classifier.qza`，其内部训练记录使用的是 SILVA 138.1。`silva` 别名保持这个版本，不随新数据库发布而改变。新环境为 QIIME 2 2026.7.0 / scikit-learn 1.7.1，要求内置分类器与该环境匹配。
+
+当前升级分支可自动下载官方 SILVA 144 模型。兼容的 GG2 2024.09 和 SILVA 138.1 模型尚未发布；这些选项（包括默认选项）需要维护者构建的兼容内置模型或其缓存，否则命令以 `NOT READY` 退出。输入模型文件名与分类结果文件名见 [共享参考资源](amplicon_pipeline.md#shared-references)，发布前验证进度见 [升级计划](qiime2-2026.7-upgrade.md)。
 
 **配置示例**
 

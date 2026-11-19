@@ -564,11 +564,25 @@ All modes orient sequences against the GG2 sequence reference and remove feature
 
 | Database release | Explicit selection | Legacy alias | Taxonomy output |
 |---|---|---|---|
-| Greengenes2 2024.09 | `--classifier gg2-2024.09` | `--classifier greengenes` (default) | `gg2Taxonomy.qza` |
+| Greengenes2 2024.09 | `--classifier gg2-2024.09` (default) | `--classifier greengenes` | `gg2Taxonomy.qza` |
 | SILVA 138.1 | `--classifier silva-138.1` | `--classifier silva` | `silvaTaxonomy.qza` |
 | SILVA 144 | `--classifier silva-144` | None | `silva144Taxonomy.qza` |
 
-All three choices use full-length reference classifiers for scikit-learn 1.7.1.
+All three choices require full-length reference classifiers built with scikit-learn 1.7.1.
+In this upgrade branch, the official SILVA 144 model downloads automatically.
+Compatible GG2 2024.09 and SILVA 138.1 models are not yet published. Those choices,
+including the default, require a compatible maintainer-built bundle or cache;
+otherwise the command stops with `NOT READY`.
+
+Input classifier files are cached in `results/db/`. These model artifacts are
+separate from the taxonomy output artifacts listed above:
+
+| Canonical classifier | Input model filename in `results/db/` |
+|---|---|
+| `gg2-2024.09` | `gg2-2024.09-full-length-sklearn-1.7.1.qza` |
+| `silva-138.1` | `silva-138.1-full-length-sklearn-1.7.1.qza` |
+| `silva-144` | `silva-144-full-length-sklearn-1.7.1.qza` |
+
 The `silva` alias remains tied to 138.1; it does not select the latest SILVA
 release. Classifier choice is a command-line option, not a JSON parameter or a
 path to a user-supplied `.qza` file. The selected database identity is recorded in

@@ -151,8 +151,16 @@ def create(prefix, conda, *, dry_run=False, freeze=None, lock=None):
         command, env=dict(os.environ, CONDA_CHANNEL_PRIORITY="flexible"))
     if result.returncode or dry_run:
         return result.returncode
-    return subprocess.run([str(prefix / "bin/python"), str(ROOT / "scripts/install_sra_toolkit.py"),
-                           "--prefix", str(prefix)]).returncode
+    sra_command = [str(prefix / "bin/python"), str(ROOT / "scripts/install_sra_toolkit.py"),
+                   "--prefix", str(prefix)]
+    result = subprocess.run(sra_command)
+    if result.returncode:
+        print("The Conda environment was created, but SRA Toolkit setup failed.\n"
+              "For a download or permission failure, resolve the reported error and retry this component:\n"
+              + shlex.join(sra_command) + "\n"
+              "For an existing-file or provenance conflict, inspect the reported path before retrying.",
+              file=sys.stderr)
+    return result.returncode
 
 
 def main(argv=None):

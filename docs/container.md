@@ -65,7 +65,7 @@ m2d AmpliconTAXA --vsearch --notree -t 8
 
 ### 首次配置
 
-将 `.github/workflows/build-sif.yml` 合并到默认分支，并确保仓库已启用 Actions。在现有 `meta2data` 包的 **Package settings → Manage Actions access** 中，允许 `LinyangSun/Meta2Data` 仓库写入。工作流使用自动提供的 `GITHUB_TOKEN`，权限为 `contents: read` 和 `packages: write`，无需创建个人 Token。
+确认仓库已启用 Actions，默认分支存在支持 `workflow_dispatch` 的 `Build SIF` 工作流。本仓库原有工作流已满足这一条件。升级代码和新版工作流从下方 **Use workflow from** 选择的候选分支运行，完成原生环境与最终 SIF 验证后再合并。在现有 `meta2data` 包的 **Package settings → Manage Actions access** 中，允许 `LinyangSun/Meta2Data` 仓库写入。工作流使用自动提供的 `GITHUB_TOKEN`，权限为 `contents: read` 和 `packages: write`，无需创建个人 Token。
 
 ### 网页操作
 

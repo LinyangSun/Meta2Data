@@ -197,17 +197,32 @@ remain enabled and unchanged. Use a separate launch directory for comparisons.
 ## Shared references
 
 Reference resources use the fixed `<launch working directory>/results/db/`.
-Valid cached and bundled references are reused, with missing resources
+Valid cached and bundled references are reused, with missing published resources
 downloaded automatically. PIP adapter protection is enabled by default and prepares the GG2
 sequence reference; `--no-adapter-guard` disables the additional check. BLAST
 indexes and query results use the fixed cache directory
 `<launch working directory>/results/db/adapter_guard/`.
 TAXA accepts `--classifier gg2-2024.09`, `--classifier silva-138.1`, and
-`--classifier silva-144`. The legacy `greengenes` alias remains the default and
-selects GG2 2024.09; `silva` selects SILVA 138.1. The old SILVA model's filename
+`--classifier silva-144`. The default is `gg2-2024.09`; the legacy `greengenes`
+alias selects that same release, and `silva` selects SILVA 138.1. The old SILVA model's filename
 said `138`, while its embedded provenance identifies `138.1`. Classifier builds
 must match scikit-learn 1.7.1 in the QIIME 2 2026.7 runtime. Their cache filenames
 are distinct from the previous models built with scikit-learn 1.4.2.
+
+Input model files are cached in `results/db/`; taxonomy results are written to
+`results/taxa/final-<method>-<multiV|singleV|notree>/`:
+
+| Canonical classifier | Input model filename | Taxonomy output filename |
+|---|---|---|
+| `gg2-2024.09` (default) | `gg2-2024.09-full-length-sklearn-1.7.1.qza` | `gg2Taxonomy.qza` |
+| `silva-138.1` | `silva-138.1-full-length-sklearn-1.7.1.qza` | `silvaTaxonomy.qza` |
+| `silva-144` | `silva-144-full-length-sklearn-1.7.1.qza` | `silva144Taxonomy.qza` |
+
+In this upgrade branch, the official SILVA 144 model downloads automatically.
+Compatible GG2 2024.09 and SILVA 138.1 models are not yet published. Those choices,
+including the default, require a compatible maintainer-built bundle or cache;
+otherwise the command stops with `NOT READY`.
+
 All classifiers use GG2 sequences for orientation. Only default
 multi-region tree runs prepare the SEPP reference; `--singleV` and `--notree`
 do not require it.
