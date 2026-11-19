@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "classifier_id": "gg2-2024.09",
+  "built_utc": "2026-11-19T18:29:00.948950+00:00",
+  "recipe_sha256": "1629f9b0fae80f4e10ce66e7ccf8ccf8fde523ec22d486d2c1935b8fc3824893",
+  "environment": {
+    "qiime2": "2026.7.0",
+    "q2-feature-classifier": "2026.7.0",
+    "rescript": "2026.7.0",
+    "scikit-learn": "1.7.1",
+    "numpy": "2.4.2",
+    "scipy": "1.17.1",
+    "python": "3.12.13"
+  },
+  "classifier": {
+    "filename": "gg2-2024.09-full-length-sklearn-1.7.1.qza",
+    "uuid": "b1cd95ec-3416-4183-9286-1f426af96c81",
+    "sklearn_version": "1.7.1",
+    "sha256": "b68e1d5632fc3b6ee3fd815d176e5e2273b3f41343858b007e374e83f7f5f5f6",
+    "md5": "e3a82923c8c412b5c010247974a139c1"
+  },
+  "sources": {
+    "reference_reads": {
+      "url": "https://ftp.microbio.me/greengenes_release/2024.09/2024.09.backbone.full-length.fna.qza",
+      "filename": "2024.09.backbone.full-length.fna.qza",
+      "type": "FeatureData[Sequence]",
+      "uuid": "5b42d9b6-2f24-4f01-b989-9b4dafca7d5e",
+      "payload_md5": "5c5d84ddf524b815ec47a684ace39dcc",
+      "download_sha256": "527e7a7d48fd2af7ebd269d9330f7d4da8ee92dd5961aa9c5514455f4b873989"
+    },
+    "reference_taxonomy": {
+      "url": "https://ftp.microbio.me/greengenes_release/2024.09/2024.09.backbone.tax.qza",
+      "filename": "2024.09.backbone.tax.qza",
+      "type": "FeatureData[Taxonomy]",
+      "uuid": "b7c3e691-ea51-4547-94dd-f79f49e41a36",
+      "payload_md5": "058c1a301903be986cbfb5fdd8bad053",
+      "download_sha256": "6cb6f476afa9f8351d1d83cdec4e1836fb22a5c460cc86a97cef21cfecd9b1fe"
+    }
+  },
+  "recipe": {
+    "schema_version": 1,
+    "classifier_id": "gg2-2024.09",
+    "original_classifier_uuid": "49ccfb0a-155d-404b-80b4-818d2aeb53b2",
+    "taxonomy_parse_ranks": null,
+    "sklearn_version": "1.7.1",
+    "sources": {
+      "reference_reads": {
+        "url": "https://ftp.microbio.me/greengenes_release/2024.09/2024.09.backbone.full-length.fna.qza",
+        "filename": "2024.09.backbone.full-length.fna.qza",
+        "type": "FeatureData[Sequence]",
+        "uuid": "5b42d9b6-2f24-4f01-b989-9b4dafca7d5e",
+        "payload_md5": "5c5d84ddf524b815ec47a684ace39dcc"
+      },
+      "reference_taxonomy": {
+        "url": "https://ftp.microbio.me/greengenes_release/2024.09/2024.09.backbone.tax.qza",
+        "filename": "2024.09.backbone.tax.qza",
+        "type": "FeatureData[Taxonomy]",
+        "uuid": "b7c3e691-ea51-4547-94dd-f79f49e41a36",
+        "payload_md5": "058c1a301903be986cbfb5fdd8bad053"
+      }
+    },
+    "steps": [
+      {
+        "plugin": "feature_classifier",
+        "action": "fit_classifier_naive_bayes",
+        "inputs": {
+          "reference_reads": "reference_reads",
+          "reference_taxonomy": "reference_taxonomy"
+        },
+        "parameters": {
+          "classify__alpha": 0.001,
+          "classify__chunk_size": 1000,
+          "classify__class_prior": "null",
+          "classify__fit_prior": false,
+          "feat_ext__alternate_sign": false,
+          "feat_ext__analyzer": "char_wb",
+          "feat_ext__binary": false,
+          "feat_ext__decode_error": "strict",
+          "feat_ext__encoding": "utf-8",
+          "feat_ext__input": "content",
+          "feat_ext__lowercase": true,
+          "feat_ext__n_features": 8192,
+          "feat_ext__ngram_range": "[7, 7]",
+          "feat_ext__norm": "l2",
+          "feat_ext__preprocessor": "null",
+          "feat_ext__stop_words": "null",
+          "feat_ext__strip_accents": "null",
+          "feat_ext__token_pattern": "(?u)\\b\\w\\w+\\b",
+          "feat_ext__tokenizer": "null",
+          "verbose": false
+        },
+        "outputs": [
+          {
+            "name": "classifier",
+            "id": "classifier",
+            "type": "TaxonomicClassifier"
+          }
+        ]
+      }
+    ]
+  }
+}
