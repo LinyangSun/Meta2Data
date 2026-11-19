@@ -363,7 +363,6 @@ export MODE
 export FINAL_DIR
 export SCRIPTS
 export DB_LABEL
-export CLASSIFIER_ID
 export NB_CLASSIFIER
 export ORIENT_REF
 export SEPP_REF

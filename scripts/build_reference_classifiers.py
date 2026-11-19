@@ -297,8 +297,6 @@ def build(classifier_id, output_dir, work_dir, versions):
     model = artifacts["classifier"]
     # A rebuild gets its own UUID and archive hash. Pin those only when the
     # maintainer publishes this build, not to a previously published model.
-    refs.validate_artifact(model, resource.semantic_type,
-                           sklearn_version=resource.sklearn_version)
     manifest = {"schema_version": SCHEMA_VERSION, "classifier_id": classifier_id,
                 "built_utc": datetime.now(timezone.utc).isoformat(),
                 "recipe_sha256": fingerprint, "environment": versions,

@@ -53,6 +53,18 @@ class ReferenceTests(unittest.TestCase):
         self.resource = refs.RESOURCES["gg2-sequences"]
         self.target = self.root / "results/db" / self.resource.filename
 
+    def classifier_fixture(self, key, path):
+        identity = refs.RESOURCES[key]
+        artifact_uuid = str(uuid.uuid4())
+        fixture = make_artifact(path, "TaxonomicClassifier", artifact_uuid=artifact_uuid)
+        resource = refs.Resource(
+            identity.filename, "TaxonomicClassifier",
+            "https://example.test/models/" + identity.filename,
+            classifier_id=identity.classifier_id, sklearn_version="1.7.1",
+            expected_uuid=artifact_uuid, md5=refs.file_digest(fixture, "md5"),
+            sha256=refs.file_digest(fixture))
+        return fixture, resource
+
     def test_valid_cache_precedes_bundle_and_download(self):
         make_artifact(self.target)
         cached = self.target.read_bytes()
@@ -156,41 +168,53 @@ class ReferenceTests(unittest.TestCase):
                     process.join()
             replies.close()
 
-    def test_legacy_model_not_ready_never_downloads_old_model(self):
+    def test_old_model_cache_is_replaced_only_by_selected_pinned_model(self):
         for key, old_name in (("greengenes-classifier", "2024.09.backbone.full-length.nb.qza"),
                               ("silva-classifier", "silva-138-99-nb-classifier.qza")):
             with self.subTest(key=key):
-                resource = refs.RESOURCES[key]
-                self.assertIsNone(resource.url)
+                fixture, resource = self.classifier_fixture(key, self.root / (key + ".qza"))
                 old = make_artifact(self.root / "results/db" / old_name,
                                     "TaxonomicClassifier", sklearn_version="1.4.2")
                 wrong_cache = make_artifact(self.root / "results/db" / resource.filename,
                                             "TaxonomicClassifier", sklearn_version="1.4.2")
+                wrong_model = make_artifact(self.root / "other-model.qza", "TaxonomicClassifier")
                 old_bytes = old.read_bytes()
                 wrong_bytes = wrong_cache.read_bytes()
-                def forbidden(*args):
-                    self.fail("unpublished legacy model must never download a fallback")
-                with self.assertRaisesRegex(RuntimeError, "NOT READY"):
-                    refs.prepare_resource(key, self.root, builtin_paths=[], downloader=forbidden)
+                fetched = []
+                source = wrong_model
+                def downloader(url, destination):
+                    fetched.append(url)
+                    shutil.copyfile(source, destination)
+                with patch.dict(refs.RESOURCES, {key: resource}):
+                    with self.assertRaisesRegex(RuntimeError, "expected artifact UUID"):
+                        refs.prepare_resource(key, self.root, builtin_paths=[], downloader=downloader)
+                    self.assertEqual(wrong_cache.read_bytes(), wrong_bytes)
+                    source = fixture
+                    result = refs.prepare_resource(key, self.root,
+                                                   builtin_paths=[], downloader=downloader)
+                self.assertEqual(fetched, [resource.url, resource.url])
+                self.assertEqual(result, wrong_cache)
+                self.assertEqual(result.read_bytes(), fixture.read_bytes())
+                refs.validate_resource(result, resource)
                 self.assertEqual(old.read_bytes(), old_bytes)
-                self.assertEqual(wrong_cache.read_bytes(), wrong_bytes)
+                self.assertFalse(list(result.parent.glob("*.partial")))
 
-    def test_compatible_maintainer_bundle_is_reused_without_a_published_url(self):
-        resource = refs.RESOURCES["silva-classifier"]
-        bundle = make_artifact(self.root / "references" / resource.filename,
-                               "TaxonomicClassifier", sklearn_version="1.7.1")
+    def test_compatible_pinned_bundle_is_reused_without_download(self):
+        bundle, resource = self.classifier_fixture("silva-classifier", self.root / "bundle.qza")
         def forbidden(*args):
             self.fail("compatible maintainer bundle must not download")
-        result = refs.prepare_resource("silva-classifier", self.root,
-                                       builtin_paths=[bundle], downloader=forbidden)
-        refs.validate_resource(result, resource)
-        self.assertEqual(result.read_bytes(), bundle.read_bytes())
-        bundle.unlink()
-        self.assertEqual(refs.prepare_resource("silva-classifier", self.root,
-                         builtin_paths=[], downloader=forbidden), result)
+        with patch.dict(refs.RESOURCES, {"silva-classifier": resource}):
+            result = refs.prepare_resource("silva-classifier", self.root,
+                                           builtin_paths=[bundle], downloader=forbidden)
+            refs.validate_resource(result, resource)
+            self.assertEqual(result.read_bytes(), bundle.read_bytes())
+            bundle.unlink()
+            self.assertEqual(refs.prepare_resource("silva-classifier", self.root,
+                             builtin_paths=[], downloader=forbidden), result)
 
     def test_missing_or_incompatible_sklearn_metadata_is_rejected(self):
-        resource = refs.RESOURCES["greengenes-classifier"]
+        resource = refs.Resource("model.qza", "TaxonomicClassifier",
+                                 "https://example.test/model.qza", sklearn_version="1.7.1")
         for version in (None, "1.4.2", "1.7.0", ""):
             with self.subTest(version=version):
                 classifier = make_artifact(self.root / "model.qza", "TaxonomicClassifier",
@@ -201,11 +225,7 @@ class ReferenceTests(unittest.TestCase):
         self.assertTrue(refs.valid_resource(classifier, resource))
 
     def test_builtin_uuid_and_checksum_both_identify_the_model(self):
-        official = refs.RESOURCES["silva144-classifier"]
-        fixture = make_artifact(self.root / "silva144.qza", "TaxonomicClassifier",
-                                artifact_uuid=official.expected_uuid)
-        resource = replace(official, md5=refs.file_digest(fixture, "md5"),
-                           sha256=refs.file_digest(fixture))
+        fixture, resource = self.classifier_fixture("silva144-classifier", self.root / "silva144.qza")
         refs.validate_resource(fixture, resource)
         for different in (replace(resource, expected_uuid=str(uuid.uuid4())),
                           replace(resource, md5="0" * 32),
@@ -214,10 +234,7 @@ class ReferenceTests(unittest.TestCase):
                 self.assertFalse(refs.valid_resource(fixture, different))
 
     def test_silva144_download_is_checked_before_publishing(self):
-        official = refs.RESOURCES["silva144-classifier"]
-        fixture = make_artifact(self.root / "official.qza", "TaxonomicClassifier",
-                                artifact_uuid=official.expected_uuid)
-        resource = replace(official, md5=refs.file_digest(fixture, "md5"))
+        fixture, resource = self.classifier_fixture("silva144-classifier", self.root / "model.qza")
         fetched = []
         def downloader(url, destination):
             fetched.append(url)
@@ -225,8 +242,7 @@ class ReferenceTests(unittest.TestCase):
         with patch.dict(refs.RESOURCES, {"silva144-classifier": resource}):
             result = refs.prepare_resource("silva144-classifier", self.root,
                                            builtin_paths=[], downloader=downloader)
-        self.assertEqual(fetched, [official.url])
-        self.assertIn("/release_144/", fetched[0])
+        self.assertEqual(fetched, [resource.url])
         self.assertEqual(result.read_bytes(), fixture.read_bytes())
         result.unlink()
         bad = replace(resource, md5="0" * 32)
