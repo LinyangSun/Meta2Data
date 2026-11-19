@@ -1,0 +1,301 @@
+{
+  "finished": "2026-11-19T11:39:28.822522+00:00",
+  "initial_files": {
+    "orientedRepSeqs.qza": {
+      "sha256": "f6d77a27fb778e8917b4987310a4c2cf91121accd70f9a69e70ab61d7d962902",
+      "uuid": "10ce232d-c773-4835-a12f-ee4769842489"
+    },
+    "orientedTable.qza": {
+      "sha256": "799822f9850ec466a7c9775d66f7fecffa4a4cfb9ade20a0a58c06fb891d4896",
+      "uuid": "193bed54-9f4a-4fb1-8596-3500a7846a75"
+    },
+    "silva144Taxonomy.qza": {
+      "sha256": "e12c04fb1683bf1a0564bee2701582c022794f17f04ca41a9e5403af64a5493a",
+      "uuid": "d294fcf4-346e-4d1e-b38a-c4a39515fa7d"
+    },
+    "tmp/mergedRepSeqs.qza": {
+      "sha256": "08dd6d2a2da86e6bf9b9d59626a2b479109c20d305681a0b504460c5faa91786",
+      "uuid": "7d0f03ea-896c-440d-84ac-ce52b3d6b842"
+    },
+    "tmp/mergedTable.qza": {
+      "sha256": "7b6f8bf01aa0ec839aef8ea726e5671431f4178b0a4f7672f24fbb2883431097",
+      "uuid": "a7efdfb2-452a-437f-9c86-7d93971e3e5c"
+    },
+    "tmp/mergedTableSummary-feature-frequencies.qza": {
+      "sha256": "c0b48edc689e93aebe51f10285852f6509101782089cd3b17b456c466174a5bc",
+      "uuid": "e1836c94-4551-49a6-ac11-6fce9d8542ff"
+    },
+    "tmp/mergedTableSummary-sample-frequencies.qza": {
+      "sha256": "5efbadae3dbf47994ca86e62c2557dd193c8d19f9223b933fb0f40b03a5d778f",
+      "uuid": "012c564a-2f58-4a9d-a522-6b364d42e27f"
+    },
+    "tmp/mergedTableSummary.qzv": {
+      "sha256": "f7f9fa4ded90861fa15b08f5832e8993a52d66ad7ef17fb577460c615c8dd51b",
+      "uuid": "829c1ccb-e593-4303-8383-d707acaccf3c"
+    },
+    "tmp/orientedTableSummary-feature-frequencies.qza": {
+      "sha256": "bcea1bf3bd927c7f52b12d0e255004cec807567a63788dbcbbd4a2e8a5f08080",
+      "uuid": "190052c9-f9bd-449e-8c6d-33eaa1c997da"
+    },
+    "tmp/orientedTableSummary-sample-frequencies.qza": {
+      "sha256": "08d5a695428b48846080b0321ffe25e86010b5d0803e23f43fed4d14a2b1f7ff",
+      "uuid": "999fa797-4afd-4288-be19-aa970f6c6133"
+    },
+    "tmp/orientedTableSummary.qzv": {
+      "sha256": "e96ab88638704e245392e97f894087274280ceec474fb5832e8e1f945ef5737b",
+      "uuid": "04e53f43-a8a6-44ff-aead-663d4f8119b8"
+    },
+    "tmp/unmatchedRepSeqs.qza": {
+      "sha256": "0422b8700c469fcaffca53c3b0be75c5d3875cbbeeb850aca36a7c002a7982dd",
+      "uuid": "58b4c81d-62f1-4e35-90e3-5f92bed94d5e"
+    }
+  },
+  "scope": "Real taxonomy reuse and stale-content rejection; not the full release gate",
+  "source_revision": "550d440e0b127e84b0b412ebd0884fc36b937064",
+  "started": "2026-11-19T11:35:54.458632+00:00",
+  "status": "passed",
+  "steps": [
+    {
+      "checks": [
+        "all artifact UUIDs and SHA256 values unchanged",
+        "taxonomy reuse observed"
+      ],
+      "command": [
+        "/workspaces/meta2data-validation/audit-source-550d440/bin/Meta2Data",
+        "AmpliconTAXA",
+        "-i",
+        "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_explicit",
+        "--dada2",
+        "--classifier",
+        "silva-144",
+        "--notree",
+        "-t",
+        "1",
+        "--confidence",
+        "0.7"
+      ],
+      "files": {
+        "orientedRepSeqs.qza": {
+          "sha256": "f6d77a27fb778e8917b4987310a4c2cf91121accd70f9a69e70ab61d7d962902",
+          "uuid": "10ce232d-c773-4835-a12f-ee4769842489"
+        },
+        "orientedTable.qza": {
+          "sha256": "799822f9850ec466a7c9775d66f7fecffa4a4cfb9ade20a0a58c06fb891d4896",
+          "uuid": "193bed54-9f4a-4fb1-8596-3500a7846a75"
+        },
+        "silva144Taxonomy.qza": {
+          "sha256": "e12c04fb1683bf1a0564bee2701582c022794f17f04ca41a9e5403af64a5493a",
+          "uuid": "d294fcf4-346e-4d1e-b38a-c4a39515fa7d"
+        },
+        "tmp/mergedRepSeqs.qza": {
+          "sha256": "08dd6d2a2da86e6bf9b9d59626a2b479109c20d305681a0b504460c5faa91786",
+          "uuid": "7d0f03ea-896c-440d-84ac-ce52b3d6b842"
+        },
+        "tmp/mergedTable.qza": {
+          "sha256": "7b6f8bf01aa0ec839aef8ea726e5671431f4178b0a4f7672f24fbb2883431097",
+          "uuid": "a7efdfb2-452a-437f-9c86-7d93971e3e5c"
+        },
+        "tmp/mergedTableSummary-feature-frequencies.qza": {
+          "sha256": "c0b48edc689e93aebe51f10285852f6509101782089cd3b17b456c466174a5bc",
+          "uuid": "e1836c94-4551-49a6-ac11-6fce9d8542ff"
+        },
+        "tmp/mergedTableSummary-sample-frequencies.qza": {
+          "sha256": "5efbadae3dbf47994ca86e62c2557dd193c8d19f9223b933fb0f40b03a5d778f",
+          "uuid": "012c564a-2f58-4a9d-a522-6b364d42e27f"
+        },
+        "tmp/mergedTableSummary.qzv": {
+          "sha256": "f7f9fa4ded90861fa15b08f5832e8993a52d66ad7ef17fb577460c615c8dd51b",
+          "uuid": "829c1ccb-e593-4303-8383-d707acaccf3c"
+        },
+        "tmp/orientedTableSummary-feature-frequencies.qza": {
+          "sha256": "bcea1bf3bd927c7f52b12d0e255004cec807567a63788dbcbbd4a2e8a5f08080",
+          "uuid": "190052c9-f9bd-449e-8c6d-33eaa1c997da"
+        },
+        "tmp/orientedTableSummary-sample-frequencies.qza": {
+          "sha256": "08d5a695428b48846080b0321ffe25e86010b5d0803e23f43fed4d14a2b1f7ff",
+          "uuid": "999fa797-4afd-4288-be19-aa970f6c6133"
+        },
+        "tmp/orientedTableSummary.qzv": {
+          "sha256": "e96ab88638704e245392e97f894087274280ceec474fb5832e8e1f945ef5737b",
+          "uuid": "04e53f43-a8a6-44ff-aead-663d4f8119b8"
+        },
+        "tmp/unmatchedRepSeqs.qza": {
+          "sha256": "0422b8700c469fcaffca53c3b0be75c5d3875cbbeeb850aca36a7c002a7982dd",
+          "uuid": "58b4c81d-62f1-4e35-90e3-5f92bed94d5e"
+        }
+      },
+      "identity": {
+        "classifier_uuid": "b7986601-1851-4fa2-ace5-98bacf660fa3",
+        "confidence": 0.7,
+        "reads_uuid": "10ce232d-c773-4835-a12f-ee4769842489",
+        "taxonomy_uuid": "d294fcf4-346e-4d1e-b38a-c4a39515fa7d"
+      },
+      "log": "/workspaces/meta2data-validation/logs/resume-audit-identical-0.7.log",
+      "name": "identical-0.7",
+      "returncode": 0,
+      "seconds": 12.51
+    },
+    {
+      "checks": [
+        "only taxonomy UUID and SHA256 changed",
+        "confidence provenance is 0.8"
+      ],
+      "command": [
+        "/workspaces/meta2data-validation/audit-source-550d440/bin/Meta2Data",
+        "AmpliconTAXA",
+        "-i",
+        "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_explicit",
+        "--dada2",
+        "--classifier",
+        "silva-144",
+        "--notree",
+        "-t",
+        "1",
+        "--confidence",
+        "0.8"
+      ],
+      "files": {
+        "orientedRepSeqs.qza": {
+          "sha256": "f6d77a27fb778e8917b4987310a4c2cf91121accd70f9a69e70ab61d7d962902",
+          "uuid": "10ce232d-c773-4835-a12f-ee4769842489"
+        },
+        "orientedTable.qza": {
+          "sha256": "799822f9850ec466a7c9775d66f7fecffa4a4cfb9ade20a0a58c06fb891d4896",
+          "uuid": "193bed54-9f4a-4fb1-8596-3500a7846a75"
+        },
+        "silva144Taxonomy.qza": {
+          "sha256": "c73d2667344f9a03f41040b6d32cee8fe175b5453324b7073087c6abcb786f71",
+          "uuid": "b490a9b4-79a0-45ae-beb2-1c9b91e73fae"
+        },
+        "tmp/mergedRepSeqs.qza": {
+          "sha256": "08dd6d2a2da86e6bf9b9d59626a2b479109c20d305681a0b504460c5faa91786",
+          "uuid": "7d0f03ea-896c-440d-84ac-ce52b3d6b842"
+        },
+        "tmp/mergedTable.qza": {
+          "sha256": "7b6f8bf01aa0ec839aef8ea726e5671431f4178b0a4f7672f24fbb2883431097",
+          "uuid": "a7efdfb2-452a-437f-9c86-7d93971e3e5c"
+        },
+        "tmp/mergedTableSummary-feature-frequencies.qza": {
+          "sha256": "c0b48edc689e93aebe51f10285852f6509101782089cd3b17b456c466174a5bc",
+          "uuid": "e1836c94-4551-49a6-ac11-6fce9d8542ff"
+        },
+        "tmp/mergedTableSummary-sample-frequencies.qza": {
+          "sha256": "5efbadae3dbf47994ca86e62c2557dd193c8d19f9223b933fb0f40b03a5d778f",
+          "uuid": "012c564a-2f58-4a9d-a522-6b364d42e27f"
+        },
+        "tmp/mergedTableSummary.qzv": {
+          "sha256": "f7f9fa4ded90861fa15b08f5832e8993a52d66ad7ef17fb577460c615c8dd51b",
+          "uuid": "829c1ccb-e593-4303-8383-d707acaccf3c"
+        },
+        "tmp/orientedTableSummary-feature-frequencies.qza": {
+          "sha256": "bcea1bf3bd927c7f52b12d0e255004cec807567a63788dbcbbd4a2e8a5f08080",
+          "uuid": "190052c9-f9bd-449e-8c6d-33eaa1c997da"
+        },
+        "tmp/orientedTableSummary-sample-frequencies.qza": {
+          "sha256": "08d5a695428b48846080b0321ffe25e86010b5d0803e23f43fed4d14a2b1f7ff",
+          "uuid": "999fa797-4afd-4288-be19-aa970f6c6133"
+        },
+        "tmp/orientedTableSummary.qzv": {
+          "sha256": "e96ab88638704e245392e97f894087274280ceec474fb5832e8e1f945ef5737b",
+          "uuid": "04e53f43-a8a6-44ff-aead-663d4f8119b8"
+        },
+        "tmp/unmatchedRepSeqs.qza": {
+          "sha256": "0422b8700c469fcaffca53c3b0be75c5d3875cbbeeb850aca36a7c002a7982dd",
+          "uuid": "58b4c81d-62f1-4e35-90e3-5f92bed94d5e"
+        }
+      },
+      "identity": {
+        "classifier_uuid": "b7986601-1851-4fa2-ace5-98bacf660fa3",
+        "confidence": 0.8,
+        "reads_uuid": "10ce232d-c773-4835-a12f-ee4769842489",
+        "taxonomy_uuid": "b490a9b4-79a0-45ae-beb2-1c9b91e73fae"
+      },
+      "log": "/workspaces/meta2data-validation/logs/resume-audit-changed-0.8.log",
+      "name": "changed-0.8",
+      "returncode": 0,
+      "seconds": 132.07
+    },
+    {
+      "checks": [
+        "stale 0.7 artifact copied over 0.8 output with current state retained",
+        "provenance mismatch rejected",
+        "only taxonomy regenerated",
+        "regenerated confidence provenance is 0.8"
+      ],
+      "command": [
+        "/workspaces/meta2data-validation/audit-source-550d440/bin/Meta2Data",
+        "AmpliconTAXA",
+        "-i",
+        "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_explicit",
+        "--dada2",
+        "--classifier",
+        "silva-144",
+        "--notree",
+        "-t",
+        "1",
+        "--confidence",
+        "0.8"
+      ],
+      "files": {
+        "orientedRepSeqs.qza": {
+          "sha256": "f6d77a27fb778e8917b4987310a4c2cf91121accd70f9a69e70ab61d7d962902",
+          "uuid": "10ce232d-c773-4835-a12f-ee4769842489"
+        },
+        "orientedTable.qza": {
+          "sha256": "799822f9850ec466a7c9775d66f7fecffa4a4cfb9ade20a0a58c06fb891d4896",
+          "uuid": "193bed54-9f4a-4fb1-8596-3500a7846a75"
+        },
+        "silva144Taxonomy.qza": {
+          "sha256": "4adb6162feef5e3d066194b76dcc2bbbf8348564adccc1ddef46633fc658ec9f",
+          "uuid": "845c8a3c-a723-4d9b-9cd2-135dd0df1472"
+        },
+        "tmp/mergedRepSeqs.qza": {
+          "sha256": "08dd6d2a2da86e6bf9b9d59626a2b479109c20d305681a0b504460c5faa91786",
+          "uuid": "7d0f03ea-896c-440d-84ac-ce52b3d6b842"
+        },
+        "tmp/mergedTable.qza": {
+          "sha256": "7b6f8bf01aa0ec839aef8ea726e5671431f4178b0a4f7672f24fbb2883431097",
+          "uuid": "a7efdfb2-452a-437f-9c86-7d93971e3e5c"
+        },
+        "tmp/mergedTableSummary-feature-frequencies.qza": {
+          "sha256": "c0b48edc689e93aebe51f10285852f6509101782089cd3b17b456c466174a5bc",
+          "uuid": "e1836c94-4551-49a6-ac11-6fce9d8542ff"
+        },
+        "tmp/mergedTableSummary-sample-frequencies.qza": {
+          "sha256": "5efbadae3dbf47994ca86e62c2557dd193c8d19f9223b933fb0f40b03a5d778f",
+          "uuid": "012c564a-2f58-4a9d-a522-6b364d42e27f"
+        },
+        "tmp/mergedTableSummary.qzv": {
+          "sha256": "f7f9fa4ded90861fa15b08f5832e8993a52d66ad7ef17fb577460c615c8dd51b",
+          "uuid": "829c1ccb-e593-4303-8383-d707acaccf3c"
+        },
+        "tmp/orientedTableSummary-feature-frequencies.qza": {
+          "sha256": "bcea1bf3bd927c7f52b12d0e255004cec807567a63788dbcbbd4a2e8a5f08080",
+          "uuid": "190052c9-f9bd-449e-8c6d-33eaa1c997da"
+        },
+        "tmp/orientedTableSummary-sample-frequencies.qza": {
+          "sha256": "08d5a695428b48846080b0321ffe25e86010b5d0803e23f43fed4d14a2b1f7ff",
+          "uuid": "999fa797-4afd-4288-be19-aa970f6c6133"
+        },
+        "tmp/orientedTableSummary.qzv": {
+          "sha256": "e96ab88638704e245392e97f894087274280ceec474fb5832e8e1f945ef5737b",
+          "uuid": "04e53f43-a8a6-44ff-aead-663d4f8119b8"
+        },
+        "tmp/unmatchedRepSeqs.qza": {
+          "sha256": "0422b8700c469fcaffca53c3b0be75c5d3875cbbeeb850aca36a7c002a7982dd",
+          "uuid": "58b4c81d-62f1-4e35-90e3-5f92bed94d5e"
+        }
+      },
+      "identity": {
+        "classifier_uuid": "b7986601-1851-4fa2-ace5-98bacf660fa3",
+        "confidence": 0.8,
+        "reads_uuid": "10ce232d-c773-4835-a12f-ee4769842489",
+        "taxonomy_uuid": "845c8a3c-a723-4d9b-9cd2-135dd0df1472"
+      },
+      "log": "/workspaces/meta2data-validation/logs/resume-audit-restore-stale-0.7-request-0.8.log",
+      "name": "restore-stale-0.7-request-0.8",
+      "returncode": 0,
+      "seconds": 69.59
+    }
+  ]
+}

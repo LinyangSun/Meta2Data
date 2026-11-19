@@ -20,5 +20,8 @@ Environment: QIIME 2 2026.7.0 and scikit-learn 1.7.1, installed from the
 - silva144-taxonomy.tsv and representative-sequences.fasta: the small classification input and output.
 
 These checks do not establish biological accuracy or complete release validation.
-The full platform/workflow matrix, compatible replacement legacy models, and
-fresh SIF validation are still pending. No full reference classifier was trained.
+The subsequent [parameter, filename, and workflow audit](workflow-audit.md)
+records 14 passing PIP cases, SILVA 144 in all three tree modes, three passing
+cache regressions, and 317 passing isolated unit tests. The all-classifier gate,
+compatible replacement legacy models, and fresh SIF validation remain pending.
+No full reference classifier was trained.

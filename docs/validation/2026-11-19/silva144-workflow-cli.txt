@@ -1,0 +1,101 @@
+Collection audit: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 dada2 datasets; removed 0 duplicate pairs.
+=========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         dada2
+Region mode:    notree
+Database Dir:   /workspaces/meta2data-validation/taxa-audit-01/results/db
+Classifier:     silva-144
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   silva-144-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_explicit
+Output:         /workspaces/meta2data-validation/taxa-audit-01/results/taxa
+Threads:        1
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 11:24:06 UTC 2026
+TMPDIR:         /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir
+=========================================
+
+=========================================
+PHASE 3: Merge, Orient, Classify & Tree (dada2)
+Started: Thu Nov 19 11:24:06 UTC 2026
+TMPDIR:  /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir
+Database (taxonomy): silva144
+Orient reference:    2024.09.backbone.full-length.fna.qza  (GG2, always)
+Confidence:          0.7
+=========================================
+
+>>> Step 1: Collecting dada2 dataset outputs...
+Collected 1 dada2 dataset(s)
+
+>>> Step 2: Merging feature tables...
+Saved FeatureTable[Frequency] to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/mergedTable.qza
+>>> Step 3: Merging representative sequences...
+Saved FeatureData[Sequence] to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/mergedRepSeqs.qza
+>>> Step 4: Merged table summary...
+Saved ImmutableMetadata to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/mergedTableSummary-feature-frequencies.qza
+Saved ImmutableMetadata to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/mergedTableSummary-sample-frequencies.qza
+Saved Visualization to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/mergedTableSummary.qzv
+[OK] Summary and frequency artifacts generated
+
+>>> Step 5: Orienting sequences against GG2 backbone...
+vsearch v2.30.4_linux_x86_64, 15.6GB RAM, 4 cores
+https://github.com/torognes/vsearch
+
+Reading file /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir/qiime2/codespace/data/5b42d9b6-2f24-4f01-b989-9b4dafca7d5e/data/dna-sequences.fasta 100%
+503899159 nt in 337506 seqs, min 416, max 4563, avg 1493
+Masking 100%
+Counting k-mers 100%
+Creating k-mer index 100%
+Orienting sequences 100%
+Forward oriented sequences: 5 (100.00%)
+Reverse oriented sequences: 0 (0.00%)
+All oriented sequences:     5 (100.00%)
+Not oriented sequences:     0 (0.00%)
+Total number of sequences:  5
+Running external command line application. This may print messages to stdout and/or stderr.
+The command being run is below. This command cannot be manually re-run as it will depend on temporary files that no longer exist.
+
+Command: vsearch --orient /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir/qiime2/codespace/data/7d0f03ea-896c-440d-84ac-ce52b3d6b842/data/dna-sequences.fasta --fastaout /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir/qiime2/codespace/processes/52627-1795087468.81@codespace/tmp/rachis-OutPath-gc41vs6f --notmatched /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir/qiime2/codespace/processes/52627-1795087468.81@codespace/tmp/rachis-OutPath-z1iqqcl7 --db /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir/qiime2/codespace/data/5b42d9b6-2f24-4f01-b989-9b4dafca7d5e/data/dna-sequences.fasta --qmask none
+
+Saved FeatureData[Sequence] to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/orientedRepSeqs.qza
+Saved FeatureData[Sequence] to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/unmatchedRepSeqs.qza
+>>> Step 6: Filtering table to oriented features...
+Saved FeatureTable[Frequency] to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/orientedTable.qza
+
+>>> Step 7: Assigning taxonomy (silva144, confidence=0.7)...
+Saved FeatureData[Taxonomy] to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/silva144Taxonomy.qza
+[OK] Taxonomy: silva144Taxonomy.qza
+
+>>> Step 8: Tree construction and tree-dependent filtering skipped (--notree).
+Saved ImmutableMetadata to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/orientedTableSummary-feature-frequencies.qza
+Saved ImmutableMetadata to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/orientedTableSummary-sample-frequencies.qza
+Saved Visualization to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/orientedTableSummary.qzv
+[OK] Summary and frequency artifacts generated
+
+=========================================
+Pipeline complete (dada2, silva144)
+Finished: Thu Nov 19 11:28:11 UTC 2026
+=========================================
+Final products in: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/
+  orientedTable.qza
+  orientedRepSeqs.qza
+  silva144Taxonomy.qza
+Intermediates/diagnostics in: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/ (safe to delete)
+=========================================
+
+Taxonomy pipeline completed successfully
+
+=========================================
+AmpliconTAXA COMPLETE
+Finished: Thu Nov 19 11:28:11 UTC 2026
+=========================================
+
+Results saved in: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/
+=========================================

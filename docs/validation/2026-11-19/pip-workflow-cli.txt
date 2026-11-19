@@ -1,0 +1,19 @@
+[export-reference] qiime tools export --input-path /workspaces/meta2data-validation/results/db/2024.09.backbone.full-length.fna.qza --output-path /workspaces/meta2data-validation/workflow-audit-01/reference-export
+[generate-fixtures] /workspaces/meta2data-validation/env-release-frozen/bin/python /workspaces/Meta2Data/tests/integration/generate_fixture.py --reference-fasta /workspaces/meta2data-validation/workflow-audit-01/reference-export/dna-sequences.fasta --output /workspaces/meta2data-validation/workflow-audit-01/fixtures --reads 8000 --pacbio-reads 2000 --templates 5
+[pip-dada2] Meta2Data AmpliconPIP --local-m /workspaces/meta2data-validation/workflow-audit-01/fixtures/compatibility-dada2.csv --local-datasets-colNAME datasets --local-path-colNAME path --local-platform-colNAME platform --local-primer-f-colNAME primer_f --local-primer-r-colNAME primer_r --dada2 -t 2 --max-parallel 1
+CASE_PASSED dada2/pe_auto 5
+CASE_PASSED dada2/pe_explicit 5
+CASE_PASSED dada2/se_auto 5
+CASE_PASSED dada2/se_explicit 5
+CASE_PASSED dada2/pacbio 5
+CASE_PASSED dada2/ion 5
+[pip-vsearch] Meta2Data AmpliconPIP --local-m /workspaces/meta2data-validation/workflow-audit-01/fixtures/compatibility-vsearch.csv --local-datasets-colNAME datasets --local-path-colNAME path --local-platform-colNAME platform --local-primer-f-colNAME primer_f --local-primer-r-colNAME primer_r --vsearch -t 2 --max-parallel 1
+CASE_PASSED vsearch/pe_auto 5
+CASE_PASSED vsearch/pe_explicit 5
+CASE_PASSED vsearch/se_auto 5
+CASE_PASSED vsearch/se_explicit 5
+CASE_PASSED vsearch/pacbio 5
+CASE_PASSED vsearch/ion 5
+CASE_PASSED vsearch/ls454 5
+CASE_PASSED vsearch/ont 5
+PIP_AUDIT_FINISHED passed

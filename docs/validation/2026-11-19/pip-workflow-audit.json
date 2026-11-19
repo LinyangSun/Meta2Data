@@ -1,0 +1,321 @@
+{
+  "case_results": {
+    "dada2/ion": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/ion/ion-dada2-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/ion/ion-dada2-final-table.qza"
+    },
+    "dada2/pacbio": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pacbio/pacbio-dada2-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pacbio/pacbio-dada2-final-table.qza"
+    },
+    "dada2/pe_auto": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_auto/pe_auto-dada2-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_auto/pe_auto-dada2-final-table.qza"
+    },
+    "dada2/pe_explicit": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_explicit/pe_explicit-dada2-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_explicit/pe_explicit-dada2-final-table.qza"
+    },
+    "dada2/se_auto": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/se_auto/se_auto-dada2-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/se_auto/se_auto-dada2-final-table.qza"
+    },
+    "dada2/se_explicit": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/se_explicit/se_explicit-dada2-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/se_explicit/se_explicit-dada2-final-table.qza"
+    },
+    "vsearch/ion": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/ion/ion-vsearch-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/ion/ion-vsearch-final-table.qza"
+    },
+    "vsearch/ls454": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/ls454/ls454-vsearch-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/ls454/ls454-vsearch-final-table.qza"
+    },
+    "vsearch/ont": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/ont/ont-vsearch-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/ont/ont-vsearch-final-table.qza"
+    },
+    "vsearch/pacbio": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/pacbio/pacbio-vsearch-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/pacbio/pacbio-vsearch-final-table.qza"
+    },
+    "vsearch/pe_auto": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/pe_auto/pe_auto-vsearch-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/pe_auto/pe_auto-vsearch-final-table.qza"
+    },
+    "vsearch/pe_explicit": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/pe_explicit/pe_explicit-vsearch-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/pe_explicit/pe_explicit-vsearch-final-table.qza"
+    },
+    "vsearch/se_auto": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/se_auto/se_auto-vsearch-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/se_auto/se_auto-vsearch-final-table.qza"
+    },
+    "vsearch/se_explicit": {
+      "features": 5,
+      "sequences": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/se_explicit/se_explicit-vsearch-final-rep-seqs.qza",
+      "status": "passed",
+      "table": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip/se_explicit/se_explicit-vsearch-final-table.qza"
+    }
+  },
+  "env_yml_sha256": "2360159fc398ada7c9a0fe5e2b2cd6600034ed149b060f9a5ea86dae5d8de59f",
+  "environment_lock_sha256": "f0780c28ee08a3c5a95927f42b58f6bfeedc7589e56affdb97ac92c6d2f1b5cd",
+  "errors": [],
+  "finished": "2026-11-19T11:40:56.548190+00:00",
+  "fixture_metadata": {
+    "dada2": {
+      "csv": "/workspaces/meta2data-validation/workflow-audit-01/fixtures/compatibility-dada2.csv",
+      "datasets": [
+        "pe_auto",
+        "pe_explicit",
+        "se_auto",
+        "se_explicit",
+        "pacbio",
+        "ion"
+      ]
+    },
+    "vsearch": {
+      "csv": "/workspaces/meta2data-validation/workflow-audit-01/fixtures/compatibility-vsearch.csv",
+      "datasets": [
+        "pe_auto",
+        "pe_explicit",
+        "se_auto",
+        "se_explicit",
+        "pacbio",
+        "ion",
+        "ls454",
+        "ont"
+      ]
+    }
+  },
+  "mode": "pip-platform-audit",
+  "pip_outputs": {
+    "dada2": "/workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip",
+    "vsearch": "/workspaces/meta2data-validation/workflow-audit-01/pip-vsearch/results/pip"
+  },
+  "products": {
+    "pip-dada2/results/pip/ion/ion-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ion_A": 8000,
+        "ion_B": 8000
+      }
+    },
+    "pip-dada2/results/pip/pacbio/pacbio-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ccs_A": 2000,
+        "ccs_B": 2000
+      }
+    },
+    "pip-dada2/results/pip/pe_auto/pe_auto-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "autoPE_A": 8000,
+        "autoPE_B": 8000
+      }
+    },
+    "pip-dada2/results/pip/pe_explicit/pe_explicit-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitPE_A": 8000,
+        "explicitPE_B": 8000
+      }
+    },
+    "pip-dada2/results/pip/se_auto/se_auto-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "autoSE_A": 8000,
+        "autoSE_B": 8000
+      }
+    },
+    "pip-dada2/results/pip/se_explicit/se_explicit-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitSE_A": 8000,
+        "explicitSE_B": 8000
+      }
+    },
+    "pip-vsearch/results/pip/ion/ion-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ion_A": 8000,
+        "ion_B": 8000
+      }
+    },
+    "pip-vsearch/results/pip/ls454/ls454-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ls454_A": 8000,
+        "ls454_B": 8000
+      }
+    },
+    "pip-vsearch/results/pip/ont/ont-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ont_A": 2000,
+        "ont_B": 2000
+      }
+    },
+    "pip-vsearch/results/pip/pacbio/pacbio-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ccs_A": 2000,
+        "ccs_B": 2000
+      }
+    },
+    "pip-vsearch/results/pip/pe_auto/pe_auto-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "autoPE_A": 7996,
+        "autoPE_B": 7997
+      }
+    },
+    "pip-vsearch/results/pip/pe_explicit/pe_explicit-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitPE_A": 7994,
+        "explicitPE_B": 7998
+      }
+    },
+    "pip-vsearch/results/pip/se_auto/se_auto-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "autoSE_A": 8000,
+        "autoSE_B": 8000
+      }
+    },
+    "pip-vsearch/results/pip/se_explicit/se_explicit-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitSE_A": 8000,
+        "explicitSE_B": 8000
+      }
+    }
+  },
+  "python_executable": "/workspaces/meta2data-validation/env-release-frozen/bin/python",
+  "schema_version": 1,
+  "scope": "PIP platform and output-file compatibility only; full release gate remains pending",
+  "source": "/workspaces/Meta2Data",
+  "source_revision": "82d41e0b174ac2934e3c614add80629bb159d2a9",
+  "started": "2026-11-19T11:19:24.669200+00:00",
+  "status": "passed",
+  "steps": [
+    {
+      "command": [
+        "qiime",
+        "tools",
+        "export",
+        "--input-path",
+        "/workspaces/meta2data-validation/results/db/2024.09.backbone.full-length.fna.qza",
+        "--output-path",
+        "/workspaces/meta2data-validation/workflow-audit-01/reference-export"
+      ],
+      "log": "/workspaces/meta2data-validation/workflow-audit-01/logs/export-reference.log",
+      "name": "export-reference",
+      "returncode": 0,
+      "seconds": 7.92
+    },
+    {
+      "command": [
+        "/workspaces/meta2data-validation/env-release-frozen/bin/python",
+        "/workspaces/Meta2Data/tests/integration/generate_fixture.py",
+        "--reference-fasta",
+        "/workspaces/meta2data-validation/workflow-audit-01/reference-export/dna-sequences.fasta",
+        "--output",
+        "/workspaces/meta2data-validation/workflow-audit-01/fixtures",
+        "--reads",
+        "8000",
+        "--pacbio-reads",
+        "2000",
+        "--templates",
+        "5"
+      ],
+      "log": "/workspaces/meta2data-validation/workflow-audit-01/logs/generate-fixtures.log",
+      "name": "generate-fixtures",
+      "returncode": 0,
+      "seconds": 50.87
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconPIP",
+        "--local-m",
+        "/workspaces/meta2data-validation/workflow-audit-01/fixtures/compatibility-dada2.csv",
+        "--local-datasets-colNAME",
+        "datasets",
+        "--local-path-colNAME",
+        "path",
+        "--local-platform-colNAME",
+        "platform",
+        "--local-primer-f-colNAME",
+        "primer_f",
+        "--local-primer-r-colNAME",
+        "primer_r",
+        "--dada2",
+        "-t",
+        "2",
+        "--max-parallel",
+        "1"
+      ],
+      "log": "/workspaces/meta2data-validation/workflow-audit-01/logs/pip-dada2.log",
+      "name": "pip-dada2",
+      "returncode": 0,
+      "seconds": 356.57
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconPIP",
+        "--local-m",
+        "/workspaces/meta2data-validation/workflow-audit-01/fixtures/compatibility-vsearch.csv",
+        "--local-datasets-colNAME",
+        "datasets",
+        "--local-path-colNAME",
+        "path",
+        "--local-platform-colNAME",
+        "platform",
+        "--local-primer-f-colNAME",
+        "primer_f",
+        "--local-primer-r-colNAME",
+        "primer_r",
+        "--vsearch",
+        "-t",
+        "2",
+        "--max-parallel",
+        "1"
+      ],
+      "log": "/workspaces/meta2data-validation/workflow-audit-01/logs/pip-vsearch.log",
+      "name": "pip-vsearch",
+      "returncode": 0,
+      "seconds": 865.51
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+Collection audit: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 dada2 datasets; removed 0 duplicate pairs.
+Downloading sepp to /workspaces/meta2data-validation/tree-audit-01/sepp/results/db/sepp-refs-gg-13-8.qza
+=========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         dada2
+Region mode:    multiV
+Database Dir:   /workspaces/meta2data-validation/tree-audit-01/sepp/results/db
+Classifier:     silva-144
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   silva-144-full-length-sklearn-1.7.1.qza
+  SEPP Ref:     sepp-refs-gg-13-8.qza
+Confidence:     0.7
+Input:          /workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_explicit
+Output:         /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa
+Threads:        2
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 11:35:50 UTC 2026
+TMPDIR:         /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir
+=========================================
+
+=========================================
+PHASE 3: Merge, Orient, Classify & Tree (dada2)
+Started: Thu Nov 19 11:35:50 UTC 2026
+TMPDIR:  /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir
+Database (taxonomy): silva144
+Orient reference:    2024.09.backbone.full-length.fna.qza  (GG2, always)
+Confidence:          0.7
+=========================================
+
+>>> Step 1: Collecting dada2 dataset outputs...
+Collected 1 dada2 dataset(s)
+
+>>> Step 2: Merging feature tables...
+Saved FeatureTable[Frequency] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/mergedTable.qza
+>>> Step 3: Merging representative sequences...
+Saved FeatureData[Sequence] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/mergedRepSeqs.qza
+>>> Step 4: Merged table summary...
+Saved ImmutableMetadata to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/mergedTableSummary-feature-frequencies.qza
+Saved ImmutableMetadata to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/mergedTableSummary-sample-frequencies.qza
+Saved Visualization to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/mergedTableSummary.qzv
+[OK] Summary and frequency artifacts generated
+
+>>> Step 5: Orienting sequences against GG2 backbone...
+vsearch v2.30.4_linux_x86_64, 15.6GB RAM, 4 cores
+https://github.com/torognes/vsearch
+
+Reading file /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/qiime2/codespace/data/5b42d9b6-2f24-4f01-b989-9b4dafca7d5e/data/dna-sequences.fasta 100%
+503899159 nt in 337506 seqs, min 416, max 4563, avg 1493
+Masking 100%
+Counting k-mers 100%
+Creating k-mer index 100%
+Orienting sequences 100%
+Forward oriented sequences: 5 (100.00%)
+Reverse oriented sequences: 0 (0.00%)
+All oriented sequences:     5 (100.00%)
+Not oriented sequences:     0 (0.00%)
+Total number of sequences:  5
+Running external command line application. This may print messages to stdout and/or stderr.
+The command being run is below. This command cannot be manually re-run as it will depend on temporary files that no longer exist.
+
+Command: vsearch --orient /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/qiime2/codespace/data/3f367dfb-6591-4c90-9e06-15a1f9002808/data/dna-sequences.fasta --fastaout /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/qiime2/codespace/processes/64695-1795088188.4@codespace/tmp/rachis-OutPath-mewufh8t --notmatched /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/qiime2/codespace/processes/64695-1795088188.4@codespace/tmp/rachis-OutPath-c3w_qf3i --db /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/qiime2/codespace/data/5b42d9b6-2f24-4f01-b989-9b4dafca7d5e/data/dna-sequences.fasta --qmask none
+
+Saved FeatureData[Sequence] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/orientedRepSeqs.qza
+Saved FeatureData[Sequence] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/unmatchedRepSeqs.qza
+>>> Step 6: Filtering table to oriented features...
+Saved FeatureTable[Frequency] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/orientedTable.qza
+
+>>> Step 7: Assigning taxonomy (silva144, confidence=0.7)...
+Saved FeatureData[Taxonomy] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/silva144Taxonomy.qza
+[OK] Taxonomy: silva144Taxonomy.qza
+
+>>> Step 8: Building phylogenetic tree via SEPP fragment insertion...
+==> sepp-q2-fragment-insertion-err.log <==
+[11:45:04] alignment.py (line 570):     INFO: Merging extension sto file (/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_38/A_38_2/FC_38_2_0/hmmalign.results.o96o_qkm) into base alignment (/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_38/A_38_2/hmmbuild.input.9uyknm49.fasta).
+[11:45:04] exhaustive.py (line 152):     INFO: Merging sub-alignments for placement problem : P_39.
+[11:45:04] alignment.py (line 570):     INFO: Merging extension sto file (/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_39/A_39_2/FC_39_2_0/hmmalign.results.09zp74ee) into base alignment (/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_39/A_39_2/hmmbuild.input.3p8j4r4c.fasta).
+[11:45:04] alignment.py (line 570):     INFO: Merging extension sto file (/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_39/A_39_3/FC_39_3_0/hmmalign.results.gt6jru5t) into base alignment (/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_39/A_39_3/hmmbuild.input.wyz52kh1.fasta).
+[11:45:15] jobs.py (line 131):     INFO: Finished pplacer Job with input: backbone_alignment_file:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_38/pplacer.backbone.ktxn7p_k.fasta, tree_file:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_38/pplacer.tree.5l861c9z.tre, info_file:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/qiime2/codespace/data/a14c6180-506b-4ecb-bacb-9cb30bc3044b/data/raxml-info.txt, extended alignment:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_38/pplacer.extended.0.8wjly9a4.fasta, output:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_38/pplacer.extended.0.8wjly9a4.jplace
+[11:45:22] jobs.py (line 131):     INFO: Finished pplacer Job with input: backbone_alignment_file:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_39/pplacer.backbone.7p4bvvun.fasta, tree_file:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_39/pplacer.tree.siqbt2mj.tre, info_file:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/qiime2/codespace/data/a14c6180-506b-4ecb-bacb-9cb30bc3044b/data/raxml-info.txt, extended alignment:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_39/pplacer.extended.0.q88lw4p6.fasta, output:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973/root/P_39/pplacer.extended.0.q88lw4p6.jplace
+[11:45:34] jobs.py (line 131):     INFO: Finished jsonmerger Job with input: input:pipe output:/workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tmp-6cZr4tbWys/q2-fragment-insertion_placement.json
+[11:45:35] algorithm.py (line 213):     INFO: Current execution Finished in 157 seconds
+[11:45:35] algorithm.py (line 215):     INFO: All checkpointed executions Finished in 157 cumulative time
+[11:45:35] algorithm.py (line 224):     INFO: Temp files are left behind at /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tempssd-PVb4l7jikC/q2-fragment-insertion.xdwdm973
+
+==> sepp-q2-fragment-insertion-out.log <==
+root_p='/workspaces/meta2data-validation/env-release-frozen/share/sepp/sepp'
+output files are at q2-fragment-insertion_placement.json q2-fragment-insertion_placement.tog.relabelled.tre q2-fragment-insertion_placement.tog.relabelled.xml q2-fragment-insertion_placement.tog.tre q2-fragment-insertion_placement.tog.xml and more files are at /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tmp-6cZr4tbWys . Consider removing /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tmp-6cZr4tbWys if its files are not needed.
+Removing /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/.tmpdir/tmp.Xdk4sNdCg3/sepp-tmp-6cZr4tbWys
+Saved Phylogeny[Rooted] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/seppTree.qza
+Saved Placements to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/seppPlacements.qza
+[OK] SEPP fragment insertion completed
+>>> Step 9: Filtering table to tree-placed features...
+Saved FeatureTable[Frequency] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/treeFilteredTable.qza
+Saved FeatureTable[Frequency] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/treeUnplacedTable.qza
+[OK] Table filtered by tree placement
+>>> Step 10: Filtering representative sequences to tree-placed features...
+Saved FeatureData[Sequence] to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/treeFilteredRepSeqs.qza
+[OK] Representative sequences filtered by tree placement
+>>> Step 11: Tree-placed table summary...
+Saved ImmutableMetadata to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/treeFilteredTableSummary-feature-frequencies.qza
+Saved ImmutableMetadata to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/treeFilteredTableSummary-sample-frequencies.qza
+Saved Visualization to: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/treeFilteredTableSummary.qzv
+[OK] Summary and frequency artifacts generated
+
+=========================================
+Pipeline complete (dada2, silva144)
+Finished: Thu Nov 19 11:47:11 UTC 2026
+=========================================
+Final products in: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/
+  treeFilteredTable.qza
+  treeFilteredRepSeqs.qza
+  seppTree.qza
+  silva144Taxonomy.qza
+Intermediates/diagnostics in: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/tmp/ (safe to delete)
+=========================================
+
+Taxonomy pipeline completed successfully
+
+=========================================
+AmpliconTAXA COMPLETE
+Finished: Thu Nov 19 11:47:11 UTC 2026
+=========================================
+
+Results saved in: /workspaces/meta2data-validation/tree-audit-01/sepp/results/taxa/final-dada2-multiV/
+=========================================

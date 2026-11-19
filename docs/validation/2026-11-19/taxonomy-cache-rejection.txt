@@ -1,0 +1,75 @@
+Collection audit: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 dada2 datasets; removed 0 duplicate pairs.
+=========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         dada2
+Region mode:    notree
+Database Dir:   /workspaces/meta2data-validation/taxa-audit-01/results/db
+Classifier:     silva-144
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   silva-144-full-length-sklearn-1.7.1.qza
+Confidence:     0.8
+Input:          /workspaces/meta2data-validation/workflow-audit-01/pip-dada2/results/pip/pe_explicit
+Output:         /workspaces/meta2data-validation/taxa-audit-01/results/taxa
+Threads:        1
+=========================================
+
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 11:38:27 UTC 2026
+TMPDIR:         /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir
+=========================================
+
+=========================================
+PHASE 3: Merge, Orient, Classify & Tree (dada2)
+Started: Thu Nov 19 11:38:27 UTC 2026
+TMPDIR:  /workspaces/meta2data-validation/taxa-audit-01/results/taxa/.tmpdir
+Database (taxonomy): silva144
+Orient reference:    2024.09.backbone.full-length.fna.qza  (GG2, always)
+Confidence:          0.8
+=========================================
+
+>>> Step 1: Collecting dada2 dataset outputs...
+Collected 1 dada2 dataset(s)
+
+>>> Step 2: Merging feature tables...
+[OK] reuse: mergedTable.qza
+>>> Step 3: Merging representative sequences...
+[OK] reuse: mergedRepSeqs.qza
+>>> Step 4: Merged table summary...
+[OK] reuse: mergedTableSummary.qzv
+
+>>> Step 5: Orienting sequences against GG2 backbone...
+[OK] reuse: orientedRepSeqs.qza
+>>> Step 6: Filtering table to oriented features...
+[OK] reuse: orientedTable.qza
+
+>>> Step 7: Assigning taxonomy (silva144, confidence=0.8)...
+Cached taxonomy rejected: Taxonomy confidence mismatch: expected 0.8, found 0.7; recomputing.
+Saved FeatureData[Taxonomy] to: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/silva144Taxonomy.qza
+[OK] Taxonomy: silva144Taxonomy.qza
+
+>>> Step 8: Tree construction and tree-dependent filtering skipped (--notree).
+[OK] reuse: orientedTableSummary.qzv
+
+=========================================
+Pipeline complete (dada2, silva144)
+Finished: Thu Nov 19 11:39:28 UTC 2026
+=========================================
+Final products in: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/
+  orientedTable.qza
+  orientedRepSeqs.qza
+  silva144Taxonomy.qza
+Intermediates/diagnostics in: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/tmp/ (safe to delete)
+=========================================
+
+Taxonomy pipeline completed successfully
+
+=========================================
+AmpliconTAXA COMPLETE
+Finished: Thu Nov 19 11:39:28 UTC 2026
+=========================================
+
+Results saved in: /workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/
+=========================================

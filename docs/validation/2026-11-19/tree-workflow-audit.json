@@ -1,0 +1,233 @@
+{
+  "cases": {
+    "sepp": {
+      "classifier_uuid": "b7986601-1851-4fa2-ace5-98bacf660fa3",
+      "confidence": 0.7,
+      "expected_rank_prefixes": [
+        "d__",
+        "k__",
+        "p__",
+        "c__",
+        "o__",
+        "f__",
+        "g__"
+      ],
+      "files": {
+        "seppTree.qza": {
+          "bytes": 2473823,
+          "type": "Phylogeny[Rooted]",
+          "uuid": "dbf87062-4bd0-456b-b9b7-a34a2fe422aa"
+        },
+        "silva144Taxonomy.qza": {
+          "bytes": 227560,
+          "type": "FeatureData[Taxonomy]",
+          "uuid": "41b0ddd8-8674-4ee7-b020-0d6b84ee7c7b"
+        },
+        "tmp/mergedRepSeqs.qza": {
+          "bytes": 37182,
+          "type": "FeatureData[Sequence]",
+          "uuid": "3f367dfb-6591-4c90-9e06-15a1f9002808"
+        },
+        "tmp/mergedTable.qza": {
+          "bytes": 38477,
+          "type": "FeatureTable[Frequency]",
+          "uuid": "4486d5d4-fbf7-4edd-8fe1-8392cc31e252"
+        },
+        "tmp/mergedTableSummary-feature-frequencies.qza": {
+          "bytes": 60563,
+          "type": "ImmutableMetadata",
+          "uuid": "2fd64e3a-d699-4ed1-89b2-75923a73f539"
+        },
+        "tmp/mergedTableSummary-sample-frequencies.qza": {
+          "bytes": 60448,
+          "type": "ImmutableMetadata",
+          "uuid": "6bdcfb3e-f0fa-4fd7-96c2-d6b6be11ba7e"
+        },
+        "tmp/mergedTableSummary.qzv": {
+          "bytes": 455432,
+          "type": "Visualization",
+          "uuid": "5b6f4e57-b3af-42a3-bc44-9faa71254f40"
+        },
+        "tmp/orientedRepSeqs.qza": {
+          "bytes": 55196,
+          "type": "FeatureData[Sequence]",
+          "uuid": "f942f3f4-3836-4b33-9ad1-c38101ce4223"
+        },
+        "tmp/orientedTable.qza": {
+          "bytes": 93631,
+          "type": "FeatureTable[Frequency]",
+          "uuid": "7e50f1ee-a8df-441e-a63d-c199fd5328cf"
+        },
+        "tmp/seppPlacements.qza": {
+          "bytes": 5536302,
+          "type": "Placements",
+          "uuid": "44bd6b76-6664-4911-89fd-d42b7bbca641"
+        },
+        "tmp/treeFilteredTableSummary-feature-frequencies.qza": {
+          "bytes": 147573,
+          "type": "ImmutableMetadata",
+          "uuid": "66b79c29-1d25-488f-94d9-d719be3ab30d"
+        },
+        "tmp/treeFilteredTableSummary-sample-frequencies.qza": {
+          "bytes": 147446,
+          "type": "ImmutableMetadata",
+          "uuid": "e6cf693a-10df-4c0d-a72d-6dbedc260cb7"
+        },
+        "tmp/treeFilteredTableSummary.qzv": {
+          "bytes": 542463,
+          "type": "Visualization",
+          "uuid": "c4345f42-3321-4b91-870b-165904e908b7"
+        },
+        "tmp/treeUnplacedTable.qza": {
+          "bytes": 125025,
+          "type": "FeatureTable[Frequency]",
+          "uuid": "24336a8c-402a-44f6-b0df-88a9638facea"
+        },
+        "tmp/unmatchedRepSeqs.qza": {
+          "bytes": 54459,
+          "type": "FeatureData[Sequence]",
+          "uuid": "fab22f23-7b24-4cc2-b412-ed887bbb47ed"
+        },
+        "treeFilteredRepSeqs.qza": {
+          "bytes": 136814,
+          "type": "FeatureData[Sequence]",
+          "uuid": "24b54311-3d9d-42ad-94f3-5d7ded167fe4"
+        },
+        "treeFilteredTable.qza": {
+          "bytes": 125491,
+          "type": "FeatureTable[Frequency]",
+          "uuid": "144b8c86-5fc1-4292-9cec-0fdd0a2d7e59"
+        }
+      },
+      "observed_rank_counts": [
+        4,
+        7
+      ],
+      "reads_uuid": "f942f3f4-3836-4b33-9ad1-c38101ce4223",
+      "retained_features": 5,
+      "sample_counts": {
+        "explicitPE_A": 8000,
+        "explicitPE_B": 8000
+      },
+      "status": "passed",
+      "taxonomy_features": 5,
+      "taxonomy_uuid": "41b0ddd8-8674-4ee7-b020-0d6b84ee7c7b",
+      "tree_tips": 203457,
+      "unassigned_features": 0
+    },
+    "singleV": {
+      "classifier_uuid": "b7986601-1851-4fa2-ace5-98bacf660fa3",
+      "confidence": 0.7,
+      "expected_rank_prefixes": [
+        "d__",
+        "k__",
+        "p__",
+        "c__",
+        "o__",
+        "f__",
+        "g__"
+      ],
+      "files": {
+        "denovoRootedTree.qza": {
+          "bytes": 113732,
+          "type": "Phylogeny[Rooted]",
+          "uuid": "466b7e61-dbdd-481e-b591-b5a6be8870e4"
+        },
+        "orientedRepSeqs.qza": {
+          "bytes": 55203,
+          "type": "FeatureData[Sequence]",
+          "uuid": "320b5986-2e4f-4a71-a91c-63bf7439e323"
+        },
+        "orientedTable.qza": {
+          "bytes": 93629,
+          "type": "FeatureTable[Frequency]",
+          "uuid": "7bd3f5ae-0fbd-415a-88ca-d8586548a741"
+        },
+        "silva144Taxonomy.qza": {
+          "bytes": 227562,
+          "type": "FeatureData[Taxonomy]",
+          "uuid": "1331cfd0-21bb-4332-b486-edd3fce08e58"
+        },
+        "tmp/denovoAlignment.qza": {
+          "bytes": 78840,
+          "type": "FeatureData[AlignedSequence]",
+          "uuid": "8f51d8cb-edbd-49ef-a640-a841b8cc0be0"
+        },
+        "tmp/denovoMaskedAlignment.qza": {
+          "bytes": 90805,
+          "type": "FeatureData[AlignedSequence]",
+          "uuid": "d46c18d3-5eea-40dd-81a7-2d121cb526e5"
+        },
+        "tmp/denovoUnrootedTree.qza": {
+          "bytes": 102081,
+          "type": "Phylogeny[Unrooted]",
+          "uuid": "16941cc4-d42f-49cb-84cd-30a2b0489456"
+        },
+        "tmp/mergedRepSeqs.qza": {
+          "bytes": 37186,
+          "type": "FeatureData[Sequence]",
+          "uuid": "f401f5d2-6017-45cd-a0b9-fa771cd37897"
+        },
+        "tmp/mergedTable.qza": {
+          "bytes": 38472,
+          "type": "FeatureTable[Frequency]",
+          "uuid": "a7d056be-bbaf-4c1d-a8bf-d1b50b7f021a"
+        },
+        "tmp/mergedTableSummary-feature-frequencies.qza": {
+          "bytes": 60548,
+          "type": "ImmutableMetadata",
+          "uuid": "abbbc05e-3f24-465e-96ff-f68015bc7291"
+        },
+        "tmp/mergedTableSummary-sample-frequencies.qza": {
+          "bytes": 60437,
+          "type": "ImmutableMetadata",
+          "uuid": "7a3efc32-ee18-48d6-9d24-3f76b297ec8f"
+        },
+        "tmp/mergedTableSummary.qzv": {
+          "bytes": 455419,
+          "type": "Visualization",
+          "uuid": "6fa43452-1a74-4700-9429-ce82c1a276b0"
+        },
+        "tmp/orientedTableSummary-feature-frequencies.qza": {
+          "bytes": 115802,
+          "type": "ImmutableMetadata",
+          "uuid": "0893fff5-7081-4d96-8d75-fe4c2c1a58f7"
+        },
+        "tmp/orientedTableSummary-sample-frequencies.qza": {
+          "bytes": 115694,
+          "type": "ImmutableMetadata",
+          "uuid": "1ea19d72-f326-46df-9957-93c6d7e35bf5"
+        },
+        "tmp/orientedTableSummary.qzv": {
+          "bytes": 510681,
+          "type": "Visualization",
+          "uuid": "df758272-d2dd-42b1-a143-5bb2c627672b"
+        },
+        "tmp/unmatchedRepSeqs.qza": {
+          "bytes": 54459,
+          "type": "FeatureData[Sequence]",
+          "uuid": "950242d9-15a4-4c6b-b74e-fbb4ba179ac9"
+        }
+      },
+      "observed_rank_counts": [
+        4,
+        7
+      ],
+      "reads_uuid": "320b5986-2e4f-4a71-a91c-63bf7439e323",
+      "retained_features": 5,
+      "sample_counts": {
+        "explicitPE_A": 8000,
+        "explicitPE_B": 8000
+      },
+      "status": "passed",
+      "taxonomy_features": 5,
+      "taxonomy_uuid": "1331cfd0-21bb-4332-b486-edd3fce08e58",
+      "tree_tips": 5,
+      "unassigned_features": 0
+    }
+  },
+  "run_revision": "86dea0b3d5ad3b060588bb5466060138df96d6f3",
+  "scope": "SILVA144 tree output compatibility, not the all-classifier release gate",
+  "status": "passed",
+  "validator_revision": "550d440e0b127e84b0b412ebd0884fc36b937064"
+}
