@@ -103,7 +103,7 @@ class TaxonomyIdentityTests(unittest.TestCase):
                                       f"    -   classifier: {self.other_uuid}\n    parameters:")):
             with self.subTest(action=action):
                 self.write_artifact(self.taxonomy, self.taxonomy_uuid, "FeatureData[Taxonomy]", action)
-                with self.assertRaisesRegex(RuntimeError, "classifier UUID mismatch"):
+                with self.assertRaisesRegex(RuntimeError, "classifier (UUID mismatch|record)"):
                     runtime.check_taxonomy_classifier(self.taxonomy, self.classifier)
 
     def test_imported_taxonomy_or_missing_provenance_is_not_a_classification_result(self):

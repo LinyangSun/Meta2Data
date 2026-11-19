@@ -588,6 +588,9 @@ release. Classifier choice is a command-line option, not a JSON parameter or a
 path to a user-supplied `.qza` file. The selected database identity is recorded in
 the TAXA state. Classifier builds have separate cache filenames, so older
 scikit-learn 1.4.2 files cannot be mistaken for the replacement models.
+Before reusing a taxonomy result, Meta2Data checks its recorded classifier UUID,
+input-sequence UUID, and confidence. A valid archive with mismatched provenance
+is recomputed even when its filename and saved run state appear correct.
 
 Taxonomy strings are preserved as produced by the selected classifier. Meta2Data
 does not infer ranks from fixed field positions. When using downstream tools,

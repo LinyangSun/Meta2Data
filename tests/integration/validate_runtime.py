@@ -22,8 +22,6 @@ import shutil
 import subprocess
 import sys
 import time
-import uuid
-import zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
 CLASSIFIERS = {
@@ -70,26 +68,6 @@ def check_identifiers(table_ids, sequence_ids, taxonomy_ids=None, tree_ids=None)
         require(table_ids <= set(tree_ids), "Features are missing from the final tree")
 
 
-def _artifact_metadata(archive, path, semantic_type):
-    """Read identity without extracting a potentially large classifier payload."""
-    import yaml
-    names = [name for name in archive.namelist()
-             if name.count("/") == 1 and name.endswith("/metadata.yaml")]
-    require(len(names) == 1, f"Expected one artifact metadata record: {path}")
-    metadata = yaml.load(archive.read(names[0]), Loader=yaml.BaseLoader)
-    require(isinstance(metadata, dict), f"Invalid artifact metadata: {path}")
-    artifact_uuid = metadata.get("uuid")
-    try:
-        valid_uuid = isinstance(artifact_uuid, str) and str(uuid.UUID(artifact_uuid)) == artifact_uuid
-    except ValueError:
-        valid_uuid = False
-    require(valid_uuid and names[0].split("/")[0] == artifact_uuid,
-            f"Artifact UUID and archive root differ or are invalid: {path}")
-    require(metadata.get("type") == semantic_type,
-            f"{path}: expected {semantic_type}, got {metadata.get('type')}")
-    return artifact_uuid
-
-
 def check_taxonomy_classifier(taxonomy_path, classifier_path):
     """Require the output action to reference the selected classifier's UUID.
 
@@ -97,29 +75,13 @@ def check_taxonomy_classifier(taxonomy_path, classifier_path):
     This check catches a pipeline using another model despite the expected
     output filename; it does not replace missing release UUID/hash pins.
     """
-    import yaml
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from taxonomy_provenance import check_taxonomy_provenance
     try:
-        with zipfile.ZipFile(classifier_path) as archive:
-            classifier_uuid = _artifact_metadata(archive, classifier_path, "TaxonomicClassifier")
-        with zipfile.ZipFile(taxonomy_path) as archive:
-            taxonomy_uuid = _artifact_metadata(archive, taxonomy_path, "FeatureData[Taxonomy]")
-            action = yaml.load(archive.read(
-                f"{taxonomy_uuid}/provenance/action/action.yaml"), Loader=yaml.BaseLoader)
-    except (OSError, KeyError, zipfile.BadZipFile, yaml.YAMLError) as error:
-        raise RuntimeError(f"Cannot read classifier provenance for {taxonomy_path}: {error}") from error
-    action = action.get("action") if isinstance(action, dict) else None
-    require(isinstance(action, dict) and action.get("type") == "method" and
-            action.get("plugin") == "environment:plugins:feature-classifier" and
-            action.get("action") == "classify_sklearn",
-            f"Taxonomy was not produced directly by feature-classifier.classify_sklearn: {taxonomy_path}")
-    inputs = action.get("inputs")
-    require(isinstance(inputs, list), f"Taxonomy provenance has no input records: {taxonomy_path}")
-    classifier_inputs = [entry["classifier"] for entry in inputs
-                         if isinstance(entry, dict) and "classifier" in entry]
-    require(classifier_inputs == [classifier_uuid],
-            f"Taxonomy classifier UUID mismatch: expected {classifier_uuid} from {classifier_path}, "
-            f"found {classifier_inputs} in {taxonomy_path}")
-    return {"taxonomy_uuid": taxonomy_uuid, "classifier_uuid": classifier_uuid}
+        record = check_taxonomy_provenance(taxonomy_path, classifier_path)
+    except ValueError as error:
+        raise RuntimeError(str(error)) from error
+    return {key: record[key] for key in ("taxonomy_uuid", "classifier_uuid")}
 
 
 def check_silva144_ranks(taxa):

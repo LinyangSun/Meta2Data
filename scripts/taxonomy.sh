@@ -268,7 +268,9 @@ fi
 ################################################################################
 
 echo ">>> Step 7: Assigning taxonomy (${DB_LABEL}, confidence=${CONFIDENCE})..."
-if qza_ok "$TAXONOMY"; then
+if qza_ok "$TAXONOMY" && python3 "${SCRIPTS}/taxonomy_provenance.py" \
+        --taxonomy "$TAXONOMY" --classifier "$NB_CLASSIFIER" \
+        --reads "$ORIENTED_REP_SEQS" --confidence "$CONFIDENCE"; then
     echo "[OK] reuse: $(basename "$TAXONOMY")"
 else
     rm -f "$TAXONOMY"

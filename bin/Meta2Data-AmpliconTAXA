@@ -118,6 +118,8 @@ Sample IDs must be unique across datasets; duplicate sample IDs stop the merge.
 GG2, SILVA 138.1, and SILVA 144 classification outputs are cached independently:
 gg2Taxonomy.qza, silvaTaxonomy.qza, and silva144Taxonomy.qza.
 The selected database version is recorded in taxa-run-state.json.
+Reused taxonomy must also record the selected classifier, current input sequences,
+and requested confidence in its provenance; mismatches trigger reclassification.
 
 EOF
 }
