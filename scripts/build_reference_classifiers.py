@@ -31,12 +31,13 @@ MODEL_KEYS = {"gg2-2024.09": "greengenes-classifier",
               "silva-138.1": "silva-classifier"}
 SILVA_RANKS = ["domain", "phylum", "class", "order", "family", "genus"]
 
-# These values were read from the existing 1.4.2 models' provenance. In
-# particular, the historical file named silva-138-99 is based on 138.1 and
-# excludes species labels. Do not substitute the older 138.0 reference exports.
+# Preserve the 1.4.2 models' recorded fit parameters except chunk_size:
+# smaller training batches reduce peak memory while retaining all references.
+# The historical silva-138-99 model uses 138.1 without species labels;
+# do not substitute the older 138.0 reference exports.
 FIT_PARAMETERS = {
     "classify__alpha": 0.001,
-    "classify__chunk_size": 20000,
+    "classify__chunk_size": 1000,
     "classify__class_prior": "null",
     "classify__fit_prior": False,
     "feat_ext__alternate_sign": False,
