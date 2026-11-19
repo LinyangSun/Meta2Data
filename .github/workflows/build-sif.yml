@@ -64,8 +64,9 @@ jobs:
             --output "$installer"
           echo "$MINIFORGE_SHA256  $installer" | sha256sum --check -
           bash "$installer" -b -p "$RUNNER_TEMP/miniforge"
-          "$RUNNER_TEMP/miniforge/bin/conda" env create --solver libmamba \
-            --prefix "$RUNNER_TEMP/meta2data-env" --file env.yml
+          "$RUNNER_TEMP/miniforge/bin/python" scripts/create_conda_environment.py \
+            --conda "$RUNNER_TEMP/miniforge/bin/conda" \
+            --prefix "$RUNNER_TEMP/meta2data-env"
           echo "$RUNNER_TEMP/meta2data-env/bin" >> "$GITHUB_PATH"
           echo "$GITHUB_WORKSPACE/bin" >> "$GITHUB_PATH"
           echo "CONDA_PREFIX=$RUNNER_TEMP/meta2data-env" >> "$GITHUB_ENV"
@@ -88,6 +89,7 @@ jobs:
             ${{ runner.temp }}/native-validation/validation.json
             ${{ runner.temp }}/native-validation/logs/
             ${{ runner.temp }}/native-environment-linux-64.lock
+            ${{ runner.temp }}/meta2data-env/opt/sratoolkit.3.4.1-alma_linux64/meta2data-install.json
           retention-days: 14
 
   build:

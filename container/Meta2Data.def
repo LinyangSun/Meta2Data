@@ -1,7 +1,7 @@
 Bootstrap: docker
 From: ubuntu:24.04
 
-# Build a fresh runtime from the same pinned env.yml used by native Conda.
+# Build the same minimal locked runtime and standalone SRA used by native Conda.
 # Example: sudo apptainer build --build-arg SOURCE_DIR=. Meta2Data.sif container/Meta2Data.def
 %files
     {{ SOURCE_DIR }}/bin /opt/meta2data-current/bin
@@ -12,6 +12,7 @@ From: ubuntu:24.04
     {{ SOURCE_DIR }}/example /opt/meta2data-current/example
     {{ SOURCE_DIR }}/README.md /opt/meta2data-current/README.md
     {{ SOURCE_DIR }}/env.yml /opt/meta2data-current/env.yml
+    {{ SOURCE_DIR }}/environment-linux-64.lock /opt/meta2data-current/environment-linux-64.lock
 
 %post
     set -eu
@@ -27,17 +28,16 @@ From: ubuntu:24.04
     echo 'bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf  /tmp/miniforge.sh' | sha256sum --check -
     bash /tmp/miniforge.sh -b -p /opt/conda
     rm /tmp/miniforge.sh
-    export CONDA_CHANNEL_PRIORITY=flexible
-    /opt/conda/bin/conda env create --solver libmamba \
-        --prefix /opt/conda/envs/meta2data --file /opt/meta2data-current/env.yml
+    /opt/conda/bin/python /opt/meta2data-current/scripts/create_conda_environment.py \
+        --conda /opt/conda/bin/conda --prefix /opt/conda/envs/meta2data
     export CONDA_PREFIX=/opt/conda/envs/meta2data
     export PATH=/opt/meta2data-current/bin:/opt/conda/envs/meta2data/bin:/opt/conda/bin:$PATH
     /opt/conda/bin/conda list --prefix "$CONDA_PREFIX" --explicit \
-        > /opt/meta2data-current/environment-linux-64.lock
+        > /opt/meta2data-current/environment-installed-linux-64.txt
     /opt/conda/bin/conda clean --all --yes
 
     mkdir -p /opt/Meta2Data/reference
-    for component in bin scripts docs test tests example README.md env.yml; do
+    for component in bin scripts docs test tests example README.md env.yml environment-linux-64.lock; do
         ln -s "/opt/meta2data-current/$component" "/opt/Meta2Data/$component"
     done
     chmod -R a+rX /opt/meta2data-current

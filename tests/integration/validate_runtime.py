@@ -34,7 +34,7 @@ VERSIONS = {
     "q2-dada2": "2026.7.0", "q2-demux": "2026.7.0",
     "q2-feature-classifier": "2026.7.0", "q2-feature-table": "2026.7.0",
     "q2-fragment-insertion": "2026.7.0", "q2-phylogeny": "2026.7.0",
-    "q2-quality-filter": "2026.7.0", "q2-vsearch": "2026.7.0",
+    "q2-quality-filter": "2026.7.0",
     "rescript": "2026.7.0", "scikit-learn": "1.7.1",
 }
 ACTIONS = {
@@ -81,6 +81,8 @@ class Validation:
             "started": datetime.now(timezone.utc).isoformat(),
             "source": str(ROOT), "python_executable": sys.executable,
             "env_yml_sha256": hashlib.sha256((ROOT / "env.yml").read_bytes()).hexdigest(),
+            "environment_lock_sha256": hashlib.sha256(
+                (ROOT / "environment-linux-64.lock").read_bytes()).hexdigest(),
             "steps": [], "products": {},
         }
         self.save()
@@ -128,6 +130,16 @@ class Validation:
                 "Meta2Data on PATH must be the entry point from the source or SIF being validated")
         self.report["binaries"] = binaries
 
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import install_sra_toolkit as sra
+        manifest = prefix / "opt" / sra.DIRECTORY / sra.MANIFEST
+        require(manifest.is_file(), f"SRA Toolkit installation record is missing: {manifest}")
+        sra_record = json.loads(manifest.read_text())
+        require(sra_record.get("version") == sra.VERSION and
+                sra_record.get("archive", {}).get("sha256") == sra.ARCHIVE_SHA256,
+                "SRA Toolkit installation record does not match the pinned component")
+        self.report["sra_toolkit"] = sra_record
+
         from qiime2.sdk import PluginManager
         plugins = {plugin.name.replace("_", "-"): plugin for plugin in PluginManager().plugins.values()}
         for name, actions in ACTIONS.items():
@@ -143,7 +155,9 @@ class Validation:
         self.run("qiime-info", ["qiime", "info"])
         for binary in BIO_BINARIES[3:]:
             flag = "-version" if binary in ("blastn", "makeblastdb") else "--version"
-            self.run("version-" + binary, [binary, flag])
+            log = self.run("version-" + binary, [binary, flag])
+            if binary in ("prefetch", "fasterq-dump"):
+                require(sra.VERSION in log.read_text(), f"Unexpected {binary} version; expected {sra.VERSION}")
         for module in (None, "MetaDL", "AmpliconPIP", "AmpliconTAXA"):
             args = ["Meta2Data"] + ([module] if module else []) + ["--help"]
             self.run("help-" + (module or "Meta2Data"), args)
