@@ -105,10 +105,14 @@ class EnvironmentInstallerTests(unittest.TestCase):
         original = (ROOT / "environment-linux-64.lock").read_text()
         cases = (
             (original.replace("# env.yml sha256:", "# outdated hash:"), "does not match"),
+            (original.replace("# release constraints sha256:", "# outdated constraints:"),
+             "does not match release constraints"),
             (original.replace("https://conda.anaconda.org/bioconda/", "https://example.org/"),
              "Unsupported package source"),
             ("\n".join(line for line in original.splitlines() if "/python-3.12.13-" not in line),
              "does not provide python"),
+            (original.replace("/bibtexparser-1.4.4-", "/bibtexparser-2.1.0-"),
+             "differs from the exact release"),
         )
         with tempfile.TemporaryDirectory() as directory:
             lock = Path(directory) / "explicit.txt"

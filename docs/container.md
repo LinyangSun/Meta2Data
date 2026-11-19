@@ -86,9 +86,9 @@ apptainer pull Meta2Data-qiime2026.7-rc1.sif \
 
 ### 构建范围
 
-`container/Meta2Data.def` 使用 `Bootstrap: docker` 和 Ubuntu 24.04，通过带校验和的 Miniforge 安装器创建 `/opt/conda/envs/meta2data`。`env.yml` 只列出实际调用的 8 个 QIIME 插件、核心程序及其他直接依赖，QIIME 2 固定为 2026.7.0、scikit-learn 固定为 1.7.1。Conda 用户与 SIF 使用同一个 `environment-linux-64.lock`，锁定所需间接依赖的具体构建、下载地址和 SHA256；镜像中的实际安装清单另存为 `/opt/meta2data-current/environment-installed-linux-64.txt`。
+`container/Meta2Data.def` 使用 `Bootstrap: docker` 和 Ubuntu 24.04，通过带校验和的 Miniforge 安装器创建 `/opt/conda/envs/meta2data`。`env.yml` 只列出实际调用的 8 个 QIIME 插件、核心程序及其他直接依赖，QIIME 2 固定为 2026.7.0、scikit-learn 固定为 1.7.1。`environment-constraints-linux-64.txt` 保留官方发布环境中实际需要的依赖版本和构建，不重新加入未使用的插件。Conda 用户与 SIF 使用同一个 `environment-linux-64.lock`，锁定这些包的下载地址和 SHA256；镜像中的实际安装清单另存为 `/opt/meta2data-current/environment-installed-linux-64.txt`。
 
-原生安装、CI 与 SIF 构建统一调用 `scripts/create_conda_environment.py`。脚本先检查锁文件与 `env.yml` 一致，再通过 `conda create --override-channels --no-default-packages` 安装，不加入用户配置的额外 channel 或默认包。这样可避开 Conda 26.7–26.9 对 `nodefaults` 的已知问题；不会修改用户的 Conda 配置。
+原生安装、CI 与 SIF 构建统一调用 `scripts/create_conda_environment.py`。脚本先核对 `env.yml` 和依赖约束文件的 SHA256，再逐项核对锁文件中的完整包集合、版本和构建。随后通过 `conda create --override-channels --no-default-packages` 安装，不加入用户配置的额外 channel 或默认包。这样可避开 Conda 26.7–26.9 对 `nodefaults` 的已知问题；不会修改用户的 Conda 配置。
 
 环境不安装 `q2-fondue`、Conda `sra-tools` 或 `ossuuid`。同一安装脚本会将官方 NCBI SRA Toolkit 3.4.1 的固定校验和归档安装到 `/opt/conda/envs/meta2data/opt/sratoolkit.3.4.1-alma_linux64/`，在环境内提供 `prefetch` 和 `fasterq-dump`。该目录的 `meta2data-install.json` 保存来源、校验和与工具版本，CI 同时保存这份记录。这样避免了已确认的 SRA 可执行文件重复归属，以及 `ossuuid` 和 `libuuid` 的文件冲突。
 

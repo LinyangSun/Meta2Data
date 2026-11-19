@@ -128,14 +128,16 @@ Meta2Data --help
 
 `env.yml` lists the direct requirements for Linux x86_64 with glibc 2.28 or
 newer: QIIME 2 2026.7.0, the eight plugins Meta2Data uses, scikit-learn 1.7.1,
-and the pipeline's Python modules and command-line tools. Required indirect
-dependencies are included in `environment-linux-64.lock`; unused plugins such
-as `q2-fondue` are excluded. The same lock is used for Conda and the fresh SIF.
+and the pipeline's Python modules and command-line tools.
+`environment-constraints-linux-64.txt` retains the official release dependency
+versions and their resolved builds; `environment-linux-64.lock`
+records their archives and checksums. Unused plugins such as `q2-fondue` are
+excluded. The same files are used for Conda and the fresh SIF.
 Create a separate environment when upgrading. Classifier models built with
 scikit-learn 1.4.2 cannot be reused in this environment.
 
 The installer requires Conda with the libmamba solver. It checks that the lock
-matches `env.yml`, installs the exact package archives with SHA256 checksums,
+matches `env.yml` and every release constraint, installs the exact package archives with SHA256 checksums,
 and excludes configured extra channels and default packages. This also avoids the
 [Conda 26.7–26.9 `nodefaults` regression](https://github.com/conda/conda/issues/16816).
 It does not change your Conda configuration or replace an existing environment.

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Install Meta2Data's locked Linux runtime and pinned standalone SRA Toolkit.
 
-env.yml lists direct requirements. The explicit lock fixes their full package
-closure and is tied to env.yml by SHA256. Configured extra channels and default
-packages cannot change this installation. No Conda configuration is changed.
+env.yml lists direct requirements. Release constraints retain compatible
+dependency versions/builds; the explicit lock is tied to both files by SHA256.
+Configured extra channels and default packages cannot change this installation.
+No Conda configuration is changed.
 """
 import argparse
 import hashlib
@@ -54,12 +55,36 @@ def read_freeze(path):
     return channels, pins
 
 
-def read_lock(path, freeze, channels, pins):
+def read_constraints(path):
+    packages = {}
+    for raw in Path(path).read_text().splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split("=")
+        if len(parts) != 3 or not all(re.fullmatch(r"[A-Za-z0-9_.+!-]+", part)
+                                      for part in parts):
+            raise ValueError(f"Release constraint must specify name=version=build: {line}")
+        name, version, build = parts
+        if name in packages:
+            raise ValueError(f"Duplicate release constraint: {name}")
+        packages[name] = (version, build)
+    if not packages:
+        raise ValueError("Release constraints must not be empty")
+    return packages
+
+
+def read_lock(path, freeze, channels, pins, constraints=None):
     """Reject stale, incomplete, or foreign-channel explicit package lists."""
     lines = Path(path).read_text().splitlines()
     digest = hashlib.sha256(Path(freeze).read_bytes()).hexdigest()
     if f"# env.yml sha256: {digest}" not in lines:
         raise ValueError("The environment lock does not match env.yml; regenerate both together")
+    constraints = Path(constraints or ROOT / "environment-constraints-linux-64.txt")
+    digest = hashlib.sha256(constraints.read_bytes()).hexdigest()
+    if f"# release constraints sha256: {digest}" not in lines:
+        raise ValueError("The environment lock does not match release constraints")
+    expected = read_constraints(constraints)
     specifications = [line for line in lines if line and not line.startswith("#")]
     if not specifications or specifications.pop(0) != "@EXPLICIT":
         raise ValueError("The environment lock must be an explicit package list")
@@ -81,16 +106,18 @@ def read_lock(path, freeze, channels, pins):
         if suffix is None:
             raise ValueError(f"Unsupported package archive: {filename}")
         try:
-            name, version, _build = filename[:-len(suffix)].rsplit("-", 2)
+            name, version, build = filename[:-len(suffix)].rsplit("-", 2)
         except ValueError as error:
             raise ValueError(f"Malformed package filename: {filename}") from error
         if name in packages:
             raise ValueError(f"Duplicate package in lock: {name}")
-        packages[name] = version
+        packages[name] = (version, build)
     for pin in pins:
         name, version = pin.split("=")
-        if packages.get(name) != version:
+        if packages.get(name, (None, None))[0] != version:
             raise ValueError(f"The environment lock does not provide {pin}")
+    if packages != expected:
+        raise ValueError("The environment lock differs from the exact release package constraints")
     return specifications
 
 

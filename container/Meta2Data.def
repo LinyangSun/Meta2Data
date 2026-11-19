@@ -12,6 +12,7 @@ From: ubuntu:24.04
     {{ SOURCE_DIR }}/example /opt/meta2data-current/example
     {{ SOURCE_DIR }}/README.md /opt/meta2data-current/README.md
     {{ SOURCE_DIR }}/env.yml /opt/meta2data-current/env.yml
+    {{ SOURCE_DIR }}/environment-constraints-linux-64.txt /opt/meta2data-current/environment-constraints-linux-64.txt
     {{ SOURCE_DIR }}/environment-linux-64.lock /opt/meta2data-current/environment-linux-64.lock
 
 %post
@@ -37,7 +38,7 @@ From: ubuntu:24.04
     /opt/conda/bin/conda clean --all --yes
 
     mkdir -p /opt/Meta2Data/reference
-    for component in bin scripts docs test tests example README.md env.yml environment-linux-64.lock; do
+    for component in bin scripts docs test tests example README.md env.yml environment-constraints-linux-64.txt environment-linux-64.lock; do
         ln -s "/opt/meta2data-current/$component" "/opt/Meta2Data/$component"
     done
     chmod -R a+rX /opt/meta2data-current
