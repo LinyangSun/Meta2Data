@@ -1,0 +1,510 @@
+test_bundled_resources_prepare_automatically_without_download_flags (test_taxa_cli.TaxaCliTests.test_bundled_resources_prepare_automatically_without_download_flags) ... FAIL
+test_default_classifier_and_default_tree_use_shared_cache (test_taxa_cli.TaxaCliTests.test_default_classifier_and_default_tree_use_shared_cache) ... FAIL
+test_explicit_input_does_not_change_fixed_output (test_taxa_cli.TaxaCliTests.test_explicit_input_does_not_change_fixed_output) ... FAIL
+test_invalid_input_fails_before_preparing_references (test_taxa_cli.TaxaCliTests.test_invalid_input_fails_before_preparing_references) ... ok
+test_invalid_or_missing_classifier_fails_before_preparation (test_taxa_cli.TaxaCliTests.test_invalid_or_missing_classifier_fails_before_preparation) ... ok
+test_missing_default_input_fails_before_output_or_download (test_taxa_cli.TaxaCliTests.test_missing_default_input_fails_before_output_or_download) ... ok
+test_no_paths_uses_project_input_and_output_defaults (test_taxa_cli.TaxaCliTests.test_no_paths_uses_project_input_and_output_defaults) ... FAIL
+test_notree_and_single_region_do_not_prepare_sepp (test_taxa_cli.TaxaCliTests.test_notree_and_single_region_do_not_prepare_sepp) ... 
+  test_notree_and_single_region_do_not_prepare_sepp (test_taxa_cli.TaxaCliTests.test_notree_and_single_region_do_not_prepare_sepp) (mode='--notree') ... FAIL
+  test_notree_and_single_region_do_not_prepare_sepp (test_taxa_cli.TaxaCliTests.test_notree_and_single_region_do_not_prepare_sepp) (mode='--singleV') ... FAIL
+test_physical_launch_directory_anchors_output_and_references (test_taxa_cli.TaxaCliTests.test_physical_launch_directory_anchors_output_and_references) ... FAIL
+test_removed_flags_have_migration_message (test_taxa_cli.TaxaCliTests.test_removed_flags_have_migration_message) ... ok
+test_removed_output_flags_fail_before_any_output_or_reference_writes (test_taxa_cli.TaxaCliTests.test_removed_output_flags_fail_before_any_output_or_reference_writes) ... ok
+test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) ... 
+  test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='gg2-2024.09') ... FAIL
+  test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='greengenes') ... FAIL
+  test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='silva-138.1') ... FAIL
+  test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='silva') ... FAIL
+  test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='silva-144') ... FAIL
+test_classifier_replacement_invalidates_only_its_taxonomy (test_taxa_cli.TaxaStateRecoveryTests.test_classifier_replacement_invalidates_only_its_taxonomy) ... ok
+test_corrupt_state_recomputes_owned_outputs_and_preserves_other_files (test_taxa_cli.TaxaStateRecoveryTests.test_corrupt_state_recomputes_owned_outputs_and_preserves_other_files) ... Invalid TAXA state /tmp/tmph9h51t35/taxa/taxa-run-state.json: Expecting value: line 1 column 17 (char 16); recomputing managed outputs.
+Invalid TAXA state /tmp/tmph9h51t35/taxa/taxa-run-state.json: state is not an object; recomputing managed outputs.
+Invalid TAXA state /tmp/tmph9h51t35/taxa/taxa-run-state.json: invalid stage dependencies; recomputing managed outputs.
+Invalid TAXA state /tmp/tmph9h51t35/taxa/taxa-run-state.json: invalid classifier dependencies; recomputing managed outputs.
+ok
+test_database_versions_cache_independently_and_keep_shared_stages (test_taxa_cli.TaxaStateRecoveryTests.test_database_versions_cache_independently_and_keep_shared_stages) ... ok
+test_external_artifacts_without_pipeline_state_remain_accepted (test_taxa_cli.TaxaStateRecoveryTests.test_external_artifacts_without_pipeline_state_remain_accepted) ... ok
+test_failed_json_publication_keeps_previous_complete_state (test_taxa_cli.TaxaStateRecoveryTests.test_failed_json_publication_keeps_previous_complete_state) ... ok
+test_legacy_state_without_classifier_id_recomputes_only_taxonomy (test_taxa_cli.TaxaStateRecoveryTests.test_legacy_state_without_classifier_id_recomputes_only_taxonomy) ... ok
+test_mismatched_classifier_identity_and_output_label_are_rejected (test_taxa_cli.TaxaStateRecoveryTests.test_mismatched_classifier_identity_and_output_label_are_rejected) ... ok
+test_orientation_change_invalidates_every_database_taxonomy (test_taxa_cli.TaxaStateRecoveryTests.test_orientation_change_invalidates_every_database_taxonomy) ... ok
+test_source_change_rejects_other_method_without_deleting_artifacts (test_taxa_cli.TaxaStateRecoveryTests.test_source_change_rejects_other_method_without_deleting_artifacts) ... ok
+test_valid_unchanged_state_preserves_cached_outputs (test_taxa_cli.TaxaStateRecoveryTests.test_valid_unchanged_state_preserves_cached_outputs) ... ok
+
+======================================================================
+FAIL: test_bundled_resources_prepare_automatically_without_download_flags (test_taxa_cli.TaxaCliTests.test_bundled_resources_prepare_automatically_without_download_flags)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 194, in test_bundled_resources_prepare_automatically_without_download_flags
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    multiV
+Database Dir:   /tmp/tmp9sslo81e/project work/results/db
+Classifier:     gg2-2024.09
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   gg2-2024.09-full-length-sklearn-1.7.1.qza
+  SEPP Ref:     sepp-refs-gg-13-8.qza
+Confidence:     0.7
+Input:          /tmp/tmp9sslo81e/project work/pip
+Output:         /tmp/tmp9sslo81e/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:28 UTC 2026
+TMPDIR:         /tmp/tmp9sslo81e/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmp9sslo81e/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmp9sslo81e/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmp9sslo81e/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Preparing bundled reference: /tmp/tmp9sslo81e/package/references/2024.09.backbone.full-length.fna.qza -> /tmp/tmp9sslo81e/project work/results/db/2024.09.backbone.full-length.fna.qza
+Preparing bundled reference: /tmp/tmp9sslo81e/package/references/gg2-2024.09-full-length-sklearn-1.7.1.qza -> /tmp/tmp9sslo81e/project work/results/db/gg2-2024.09-full-length-sklearn-1.7.1.qza
+Preparing bundled reference: /tmp/tmp9sslo81e/package/references/sepp-refs-gg-13-8.qza -> /tmp/tmp9sslo81e/project work/results/db/sepp-refs-gg-13-8.qza
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_default_classifier_and_default_tree_use_shared_cache (test_taxa_cli.TaxaCliTests.test_default_classifier_and_default_tree_use_shared_cache)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 82, in test_default_classifier_and_default_tree_use_shared_cache
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    multiV
+Database Dir:   /tmp/tmpy2duvvkm/project work/results/db
+Classifier:     gg2-2024.09
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   gg2-2024.09-full-length-sklearn-1.7.1.qza
+  SEPP Ref:     sepp-refs-gg-13-8.qza
+Confidence:     0.7
+Input:          /tmp/tmpy2duvvkm/project work/pip
+Output:         /tmp/tmpy2duvvkm/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:28 UTC 2026
+TMPDIR:         /tmp/tmpy2duvvkm/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpy2duvvkm/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpy2duvvkm/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpy2duvvkm/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_explicit_input_does_not_change_fixed_output (test_taxa_cli.TaxaCliTests.test_explicit_input_does_not_change_fixed_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 133, in test_explicit_input_does_not_change_fixed_output
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    notree
+Database Dir:   /tmp/tmpjw4phx_w/project work/results/db
+Classifier:     gg2-2024.09
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   gg2-2024.09-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpjw4phx_w/project work/pip
+Output:         /tmp/tmpjw4phx_w/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:28 UTC 2026
+TMPDIR:         /tmp/tmpjw4phx_w/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpjw4phx_w/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpjw4phx_w/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpjw4phx_w/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_no_paths_uses_project_input_and_output_defaults (test_taxa_cli.TaxaCliTests.test_no_paths_uses_project_input_and_output_defaults)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 125, in test_no_paths_uses_project_input_and_output_defaults
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    multiV
+Database Dir:   /tmp/tmpm7lwedqz/project work/results/db
+Classifier:     gg2-2024.09
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   gg2-2024.09-full-length-sklearn-1.7.1.qza
+  SEPP Ref:     sepp-refs-gg-13-8.qza
+Confidence:     0.7
+Input:          /tmp/tmpm7lwedqz/project work/results/pip
+Output:         /tmp/tmpm7lwedqz/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:29 UTC 2026
+TMPDIR:         /tmp/tmpm7lwedqz/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpm7lwedqz/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpm7lwedqz/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpm7lwedqz/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_notree_and_single_region_do_not_prepare_sepp (test_taxa_cli.TaxaCliTests.test_notree_and_single_region_do_not_prepare_sepp) (mode='--notree')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 180, in test_notree_and_single_region_do_not_prepare_sepp
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    notree
+Database Dir:   /tmp/tmpo2v7wjg_/project work/results/db
+Classifier:     silva-138.1
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   silva-138.1-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpo2v7wjg_/project work/pip
+Output:         /tmp/tmpo2v7wjg_/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:30 UTC 2026
+TMPDIR:         /tmp/tmpo2v7wjg_/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpo2v7wjg_/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpo2v7wjg_/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpo2v7wjg_/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_notree_and_single_region_do_not_prepare_sepp (test_taxa_cli.TaxaCliTests.test_notree_and_single_region_do_not_prepare_sepp) (mode='--singleV')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 180, in test_notree_and_single_region_do_not_prepare_sepp
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    singleV
+Database Dir:   /tmp/tmpo2v7wjg_/project work/results/db
+Classifier:     silva-138.1
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   silva-138.1-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpo2v7wjg_/project work/pip
+Output:         /tmp/tmpo2v7wjg_/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:30 UTC 2026
+TMPDIR:         /tmp/tmpo2v7wjg_/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpo2v7wjg_/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpo2v7wjg_/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpo2v7wjg_/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_physical_launch_directory_anchors_output_and_references (test_taxa_cli.TaxaCliTests.test_physical_launch_directory_anchors_output_and_references)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 161, in test_physical_launch_directory_anchors_output_and_references
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    notree
+Database Dir:   /tmp/tmpdtup8xch/project work/results/db
+Classifier:     gg2-2024.09
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   gg2-2024.09-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpdtup8xch/project work/pip
+Output:         /tmp/tmpdtup8xch/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:30 UTC 2026
+TMPDIR:         /tmp/tmpdtup8xch/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpdtup8xch/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpdtup8xch/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpdtup8xch/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='gg2-2024.09')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 104, in test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    notree
+Database Dir:   /tmp/tmpqri9qczc/project work/results/db
+Classifier:     gg2-2024.09
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   gg2-2024.09-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpqri9qczc/project work/pip
+Output:         /tmp/tmpqri9qczc/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: merge, orient, taxonomy, tree
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:31 UTC 2026
+TMPDIR:         /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpqri9qczc/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='greengenes')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 104, in test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    notree
+Database Dir:   /tmp/tmpqri9qczc/project work/results/db
+Classifier:     gg2-2024.09
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   gg2-2024.09-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpqri9qczc/project work/pip
+Output:         /tmp/tmpqri9qczc/project work/results/taxa
+Threads:        4
+=========================================
+
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:31 UTC 2026
+TMPDIR:         /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpqri9qczc/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='silva-138.1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 104, in test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    notree
+Database Dir:   /tmp/tmpqri9qczc/project work/results/db
+Classifier:     silva-138.1
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   silva-138.1-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpqri9qczc/project work/pip
+Output:         /tmp/tmpqri9qczc/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: taxonomy
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:32 UTC 2026
+TMPDIR:         /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpqri9qczc/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='silva')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 104, in test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    notree
+Database Dir:   /tmp/tmpqri9qczc/project work/results/db
+Classifier:     silva-138.1
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   silva-138.1-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpqri9qczc/project work/pip
+Output:         /tmp/tmpqri9qczc/project work/results/taxa
+Threads:        4
+=========================================
+
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:32 UTC 2026
+TMPDIR:         /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpqri9qczc/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+======================================================================
+FAIL: test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) (selection='silva-144')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspaces/Meta2Data/tests/test_taxa_cli.py", line 104, in test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : =========================================
+Meta2Data AmpliconTAXA
+=========================================
+Method:         vsearch
+Region mode:    notree
+Database Dir:   /tmp/tmpqri9qczc/project work/results/db
+Classifier:     silva-144
+  Orient Ref:   2024.09.backbone.full-length.fna.qza  (GG2, always)
+  Classifier:   silva-144-full-length-sklearn-1.7.1.qza
+Confidence:     0.7
+Input:          /tmp/tmpqri9qczc/project work/pip
+Output:         /tmp/tmpqri9qczc/project work/results/taxa
+Threads:        4
+=========================================
+
+Recompute affected TAXA steps: taxonomy
+=========================================
+Running Taxonomy & Tree Pipeline
+Started: Thu Nov 19 22:47:32 UTC 2026
+TMPDIR:         /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+=========================================
+
+ERROR: Taxonomy pipeline failed
+Check logs in: /tmp/tmpqri9qczc/project work/results/taxa
+QIIME2 tmpdir preserved for debugging: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir
+Collection audit: /tmp/tmpqri9qczc/project work/results/taxa/.tmpdir/taxa-collection.json
+Collected 1 vsearch datasets; removed 0 duplicate pairs.
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "<frozen os>", line 714, in __getitem__
+KeyError: 'CLASSIFIER_ID'
+
+
+----------------------------------------------------------------------
+Ran 22 tests in 5.717s
+
+FAILED (failures=12)

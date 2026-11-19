@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "utc": "2026-11-19T22:47:11.415151+00:00",
+  "source_revision": "ff66625ab15dfa0f13bfecfb8a591f467f6e649d",
+  "runtime": {
+    "qiime2": "2026.7.0",
+    "scikit-learn": "1.7.1"
+  },
+  "cache_root": "/tmp/meta2data-model-download-audit-h788ulpz",
+  "models": [
+    {
+      "kind": "greengenes-classifier",
+      "classifier_id": "gg2-2024.09",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/gg2-2024.09-full-length-sklearn-1.7.1.qza",
+      "download_calls": [
+        "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/gg2-2024.09-full-length-sklearn-1.7.1.qza"
+      ],
+      "first": {
+        "path": "/tmp/meta2data-model-download-audit-h788ulpz/greengenes-classifier/results/db/gg2-2024.09-full-length-sklearn-1.7.1.qza",
+        "uuid": "b1cd95ec-3416-4183-9286-1f426af96c81",
+        "type": "TaxonomicClassifier",
+        "sklearn_version": "1.7.1",
+        "sha256": "b68e1d5632fc3b6ee3fd815d176e5e2273b3f41343858b007e374e83f7f5f5f6",
+        "bytes": 180058060,
+        "mtime_ns": 1795128437349580680,
+        "inode": 524316
+      },
+      "repeat": {
+        "path": "/tmp/meta2data-model-download-audit-h788ulpz/greengenes-classifier/results/db/gg2-2024.09-full-length-sklearn-1.7.1.qza",
+        "uuid": "b1cd95ec-3416-4183-9286-1f426af96c81",
+        "type": "TaxonomicClassifier",
+        "sklearn_version": "1.7.1",
+        "sha256": "b68e1d5632fc3b6ee3fd815d176e5e2273b3f41343858b007e374e83f7f5f5f6",
+        "bytes": 180058060,
+        "mtime_ns": 1795128437349580680,
+        "inode": 524316
+      },
+      "status": "passed"
+    },
+    {
+      "kind": "silva-classifier",
+      "classifier_id": "silva-138.1",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/silva-138.1-full-length-sklearn-1.7.1.qza",
+      "download_calls": [
+        "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/silva-138.1-full-length-sklearn-1.7.1.qza"
+      ],
+      "first": {
+        "path": "/tmp/meta2data-model-download-audit-h788ulpz/silva-classifier/results/db/silva-138.1-full-length-sklearn-1.7.1.qza",
+        "uuid": "7bb8da5e-bc83-4d33-8271-97f3c4028973",
+        "type": "TaxonomicClassifier",
+        "sklearn_version": "1.7.1",
+        "sha256": "81aa6ceef0fda3cef4e988423832eaeb8c134b67f300f5ba07ea3ac01e1da1d1",
+        "bytes": 218310928,
+        "mtime_ns": 1795128446050580096,
+        "inode": 524321
+      },
+      "repeat": {
+        "path": "/tmp/meta2data-model-download-audit-h788ulpz/silva-classifier/results/db/silva-138.1-full-length-sklearn-1.7.1.qza",
+        "uuid": "7bb8da5e-bc83-4d33-8271-97f3c4028973",
+        "type": "TaxonomicClassifier",
+        "sklearn_version": "1.7.1",
+        "sha256": "81aa6ceef0fda3cef4e988423832eaeb8c134b67f300f5ba07ea3ac01e1da1d1",
+        "bytes": 218310928,
+        "mtime_ns": 1795128446050580096,
+        "inode": 524321
+      },
+      "status": "passed"
+    }
+  ]
+}
