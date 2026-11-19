@@ -1,7 +1,7 @@
 # Compatible classifier build checkpoint
 
-**Status: PARTIAL.** Run04 produced the GG2 model and its build manifest, but
-the model audit has not run. SILVA preparation stopped at
+**Status: PARTIAL.** Run04 produced the GG2 model and its build manifest, and
+the separate GG2 model audit has passed. SILVA preparation stopped at
 `rescript.reverse_transcribe`; its replacement model has not been produced.
 Neither model has been published, and the upgrade branch has not been merged.
 
@@ -73,9 +73,6 @@ The GG2 artifact `gg2-2024.09-full-length-sklearn-1.7.1.qza` and its
 | MD5 | `e3a82923c8c412b5c010247974a139c1` |
 | Recipe SHA-256 | `1629f9b0fae80f4e10ce66e7ccf8ccf8fde523ec22d486d2c1935b8fc3824893` |
 
-These are build records, not an independent model audit. No model audit has
-run, including the automatic audit scheduled after both builds.
-
 The run04 log stopped during SILVA's `rescript.reverse_transcribe`. Its last
 memory sample, at **18:34:06 UTC**, recorded **100% CPU**, **0.614 GiB process
 RSS**, **12.93 GiB available RAM** and **1.648 GiB swap use**. No `run04.exit`
@@ -84,9 +81,78 @@ with no live training process. The old `/tmp` build-work and swap file were
 absent; model output and logs under `/workspaces` were preserved. The cause
 of the interruption has not been established.
 
+## Scoped GG2 audit
+
+The standalone GG2 audit **passed**. Its report is
+[`gg2-model-validation.json`](gg2-model-validation.json), copied from
+`/workspaces/meta2data-validation/gg2-model-audit-01/model-validation.json`,
+with audit source revision `0a103ba240e3fd885d5dd1a5829c98b5f15cec61`.
+The artifact SHA-256 matches the build record above.
+
+| Check or field | Recorded result |
+|---|---|
+| `requested_classifiers` | `["gg2-2024.09"]` |
+| Training sequences | 337,506 |
+| Training classes | 28,054 |
+| `all_class_counts_match` | `true` |
+| Classified features | 5 |
+| Taxonomy UUID | `aed9345f-1dda-4503-af3b-ad2a26e73d95` |
+| Classifier UUID | `b1cd95ec-3416-4183-9286-1f426af96c81` |
+| Reads UUID | `10ce232d-c773-4835-a12f-ee4769842489` |
+| Confidence threshold | 0.7 |
+| Duration | 84.97 seconds |
+
+The audit checked complete training counts, every class count and real
+classification with matching output IDs and provenance. GG2 reference inputs
+were restored through the same pinned source-acquisition functions under
+`/workspaces/meta2data-validation/classifier-build/gg2-2024.09-1629f9b0fae80f4e/sources`.
+
+This pass applies to GG2 only. Reports explicitly record
+`requested_classifiers`; the audit driver's default `all` checks both models.
+The automatic audit scheduled after both builds has not run.
+
+## Draft asset backup
+
+The draft GitHub Release `classifiers-2026.7-sklearn-1.7.1-v1` contains the
+GG2 model, its build manifest, the scoped validation report and
+`reference-model-licenses.txt`. All four assets report `uploaded`.
+The model is **180,058,060 bytes**; GitHub's recorded SHA-256 matches
+`b68e1d5632fc3b6ee3fd815d176e5e2273b3f41343858b007e374e83f7f5f5f6`.
+Release metadata is saved in
+`/workspaces/meta2data-validation/logs/classifier-draft-assets.json`.
+This is a draft backup, not a published model download or completed source
+installation test. The registry URLs remain pending until the bundle is ready.
+
+## SILVA recovery launch
+
+A detached SILVA-only recovery started at **21:09:11 UTC** in the existing
+Codespace using `run-silva-recovery-02.sh`, with build work under
+`/workspaces/meta2data-validation/classifier-build`. The process was confirmed
+alive during `rescript.reverse_transcribe`, after all four imports and
+taxonomy parsing. Its launcher records
+`logs/silva-recovery-02.log` and `logs/silva-recovery-02.exit` beneath
+`/workspaces/meta2data-validation`, and runs the SILVA model audit after a
+successful build. The model has not yet been produced or audited.
+
+Recovery01 exited with status 127 before building because `/usr/bin/time` was
+absent. Its log is retained. Recovery02 uses Bash's built-in `time` instead.
+Neither attempt changes the training recipe or limits the input sequences.
+
+Completed intermediates, inputs, models and logs now reside on the persistent
+`/workspaces` mount; QIIME temporary extraction remains on the separate `/tmp`
+mount. A temporary 16 GiB swap file at
+`/tmp/meta2data-training-swap.hXFB9Y` was enabled with root ownership and mode
+0600. No `fstab` entry was added. Remove this swap after training and auditing.
+`nohup` detaches the process from the terminal; it cannot preserve a running
+process across Codespace shutdown. Valid completed intermediates can be reused
+after a restart.
+
+No new Codespace was created, and no account timeout setting was changed.
+
 ## Raw evidence locations
 
-All logs are under `/workspaces/meta2data-validation/logs/`:
+The original build and memory logs are under
+`/workspaces/meta2data-validation/logs/`:
 
 ```text
 classifier-build-20261119-run01.log
@@ -103,16 +169,14 @@ archiving; they are not strict JSON Lines files from the first line onward.
 
 ## Required remaining checks
 
-1. Complete the SILVA model build, retain both `.build.json` records, and
-   restore the reference inputs needed for the model audits.
-2. Run [verify-rebuilt-models.py](audit-drivers/verify-rebuilt-models.py). This
-   audit driver is ready and reviewed but has **not run**. It must verify model
-   identity and checksums, exact total and per-class training counts against
-   all actual training references, and real classification of the existing
-   representative sequences with matching output IDs and provenance.
-   `--classifier gg2-2024.09` permits a separate GG2 audit; the default `all`
-   audits both models. Reports explicitly record `requested_classifiers`, so
-   a passed scoped audit applies only to the requested model.
+1. Complete the SILVA model build and
+   retain both models' `.build.json` records and required reference inputs.
+2. Run [verify-rebuilt-models.py](audit-drivers/verify-rebuilt-models.py) with
+   `--classifier silva-138.1`. The SILVA audit must verify model identity and
+   checksums, exact total and per-class training counts against all actual
+   training references, and real classification of the existing representative
+   sequences with matching output IDs and provenance. The scoped GG2 audit
+   has already passed.
 3. Publish the verified versioned assets, register their actual download URLs,
    UUIDs and checksums, and verify download from an empty classifier cache and
    subsequent valid cache reuse.
