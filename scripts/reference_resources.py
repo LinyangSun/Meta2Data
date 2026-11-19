@@ -71,7 +71,7 @@ def database_directory(work_dir=None):
 
 
 def validate_artifact(path, semantic_type, *, sklearn_version=None, expected_uuid=None,
-                      require_nonempty_data=True):
+                      require_nonempty_data=True, check_crc=True):
     """Check archive integrity, UUID, semantic type, and a nonempty data payload."""
     with zipfile.ZipFile(path) as archive:
         names = archive.namelist()
@@ -110,9 +110,10 @@ def validate_artifact(path, semantic_type, *, sklearn_version=None, expected_uui
             pipeline = f"{artifact_uuid}/data/sklearn_pipeline.tar"
             if pipeline not in names or archive.getinfo(pipeline).file_size == 0:
                 raise ValueError("classifier contains no trained model payload")
-        bad_member = archive.testzip()
-        if bad_member:
-            raise ValueError(f"archive integrity check failed: {bad_member}")
+        if check_crc:
+            bad_member = archive.testzip()
+            if bad_member:
+                raise ValueError(f"archive integrity check failed: {bad_member}")
 
 
 def valid_artifact(path, semantic_type, **kwargs):
@@ -133,9 +134,11 @@ def file_digest(path, algorithm="sha256"):
 
 def validate_resource(path, resource):
     """Validate a fixed built-in model without loading or unpickling it."""
+    # Pinned digests below replace the redundant full-payload CRC pass.
     validate_artifact(path, resource.semantic_type,
                       sklearn_version=resource.sklearn_version,
-                      expected_uuid=resource.expected_uuid)
+                      expected_uuid=resource.expected_uuid,
+                      check_crc=resource.md5 is None and resource.sha256 is None)
     for algorithm in ("md5", "sha256"):
         expected = getattr(resource, algorithm)
         if expected is not None and file_digest(path, algorithm) != expected:
