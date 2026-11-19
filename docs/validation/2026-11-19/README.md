@@ -26,6 +26,10 @@ cache regressions, and 317 passing isolated unit tests. The all-classifier gate,
 compatible replacement legacy models, and fresh SIF validation remain pending.
 No full reference classifier was trained.
 
+The subsequent [full-reference build checkpoint](classifier-build-audit.md)
+records the current model training, resource diagnosis and remaining release
+checks. Its status is separate from these completed compatibility checks.
+
 ## Production and test isolation
 
 The [production/test isolation audit](production-test-isolation.md) traces the

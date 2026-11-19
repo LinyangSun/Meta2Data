@@ -46,7 +46,7 @@ def training_counts(reads, taxonomy):
     labels = {}
     for row in rows:
         assert row[0] not in labels, "Duplicate reference taxonomy ID"
-        labels[row[0]] = row[column]
+        labels[row[0]] = row[column].strip()
     counts, seen = Counter(), set()
     for identifier in sequence_ids(reads):
         assert identifier not in seen, "Duplicate reference sequence ID"
