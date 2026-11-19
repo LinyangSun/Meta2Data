@@ -52,6 +52,8 @@ From: ubuntu:24.04
         'from pathlib import Path; from reference_resources import RESOURCES, download, validate_artifact; resource = RESOURCES["sepp"]; target = Path("/opt/Meta2Data/reference") / resource.filename; download(resource.url, target); validate_artifact(target, resource.semantic_type)'
     chmod -R a+rX /opt/Meta2Data/reference
     qiime dev refresh-cache
+    # Initialize QIIME's default config before the image becomes read-only.
+    qiime info > /dev/null
     find /opt/meta2data-current -type d -name __pycache__ -prune -exec rm -rf {} +
 
 %environment

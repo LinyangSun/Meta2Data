@@ -1,9 +1,11 @@
 # Compatible classifier build checkpoint
 
 **Status: BOTH MODELS BUILT, AUDITED AND PUBLISHED.** GG2 completed in run04;
-SILVA completed in recovery02. Empty-cache download/reuse checks, native
-integration and final-SIF validation remain pending. Training cleanup is
-complete. The upgrade branch has not been merged.
+SILVA completed in recovery02. Public download and cache-reuse checks passed
+for both models. Fresh native integration passed; final-SIF validation
+remains pending after the first image build exposed a read-only configuration
+initialization error. See the [release gate record](release-gates.md).
+Training cleanup is complete. The upgrade branch has not been merged.
 
 ## Environment and inputs
 
@@ -128,10 +130,30 @@ models match their build manifests. Public release metadata is retained in
 | [GG2 2024.09](https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/gg2-2024.09-full-length-sklearn-1.7.1.qza) | 180,058,060 |
 | [SILVA 138.1](https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/silva-138.1-full-length-sklearn-1.7.1.qza) | 218,310,928 |
 
-Local registry URLs, UUIDs and SHA-256 pins were compared with the committed
-build manifests. Actual download from an empty cache and subsequent cache
-reuse have not yet been checked. Draft-stage release metadata was saved in
+Registry URLs, UUIDs and SHA-256 pins were compared with the committed build
+manifests. Public download from an empty cache and subsequent reuse **passed**
+for both models at revision `ff66625`. Each model downloaded once; repeat
+preparation preserved its UUID, SHA-256, size, modification time and inode
+without another download. Evidence is in
+[`public-model-download-audit.json`](public-model-download-audit.json).
+Draft-stage release metadata was saved in
 `/workspaces/meta2data-validation/logs/classifier-draft-assets.json`.
+
+### Published-resource regression checks
+
+All **13 resource tests passed**. The first TAXA CLI run had **12 failures
+among 22 tests** because its test shim read the removed `CLASSIFIER_ID`
+environment variable and raised `KeyError`. The probe was corrected to read
+the classifier identity from generated state, preserving selector, alias,
+filename and cache assertions. All **22 tests then passed in 5.525 seconds**
+in the frozen environment at revision `f2f7762`. No production code or timeout
+was changed for this fix.
+
+The summary is in [`published-resource-checks.json`](published-resource-checks.json).
+Raw records are retained for the
+[resource tests](published-resource-unit-tests.txt),
+[initial CLI run](published-taxa-cli-initial.txt) and
+[successful CLI rerun](published-taxa-cli-rerun.txt).
 
 ## SILVA recovery02 completion
 
@@ -201,8 +223,7 @@ Cleanup completed at **2026-11-19T22:43:00.079695+00:00**. The temporary swap
 was disabled and removed; `swapon --show` was empty. The temporary `py-spy`
 installation and three raw stack snapshots were removed. Models, prepared
 reference intermediates and raw logs were retained; monitors and jobs had
-exited. Evidence is saved in
-`/workspaces/meta2data-validation/logs/training-cleanup.json`.
+exited. Evidence is retained in [`training-cleanup.json`](training-cleanup.json).
 
 ## Raw evidence locations
 
@@ -226,10 +247,8 @@ archiving; they are not strict JSON Lines files from the first line onward.
 
 The final production-change audit passed with no findings.
 
-1. Verify automatic download from an empty classifier cache and subsequent
-   valid cache reuse using the registered public resources.
-2. Synchronize README, help, resource documentation and release status with
+1. Synchronize README, help, resource documentation and release status with
    the verified implementation and completed gates.
-3. Pass the existing native and final-SIF release gates, publish the validated
+2. Pass the existing native and final-SIF release gates, publish the validated
    image tag, and only then complete the merge. Earlier workflow results do not
    substitute for successful execution of these remaining gates.

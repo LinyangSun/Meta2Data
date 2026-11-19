@@ -1,0 +1,46 @@
+Source commit: 3915439a5322a4e197e6373374776d9803d4c038
+Workflow run: https://github.com/LinyangSun/Meta2Data/actions/runs/44633113721
+Build job: https://github.com/LinyangSun/Meta2Data/actions/runs/44633113721/job/135964747152
+
+Unedited excerpt from the first SIF build log:
+
+2026-11-19T23:39:45.3132632Z INFO:    Running testscript
+2026-11-19T23:39:48.6981537Z [qiime-info] qiime info
+2026-11-19T23:39:49.4948841Z Validation failed: qiime-info failed (exit 1); see /tmp/tmp.AeDLKXtSYh/logs/qiime-info.log
+2026-11-19T23:39:49.4949235Z types: 2026.7.0
+2026-11-19T23:39:49.4949405Z vizard: 2026.7.0
+2026-11-19T23:39:49.4949514Z 
+2026-11-19T23:39:49.4949624Z Application config directory
+2026-11-19T23:39:49.4949898Z /opt/conda/envs/meta2data/var/q2cli
+2026-11-19T23:39:49.4950049Z 
+2026-11-19T23:39:49.4950120Z Config
+2026-11-19T23:39:49.4950294Z Traceback (most recent call last):
+2026-11-19T23:39:49.4950574Z   File "/opt/conda/envs/meta2data/bin/qiime", line 11, in <module>
+2026-11-19T23:39:49.4950872Z     sys.exit(qiime())
+2026-11-19T23:39:49.4951055Z              ^^^^^^^
+2026-11-19T23:39:49.4951618Z   File "/opt/conda/envs/meta2data/lib/python3.12/site-packages/click/core.py", line 1161, in __call__
+2026-11-19T23:39:49.4952007Z     return self.main(*args, **kwargs)
+2026-11-19T23:39:49.4952213Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-19T23:39:49.4952537Z   File "/opt/conda/envs/meta2data/lib/python3.12/site-packages/click/core.py", line 1082, in main
+2026-11-19T23:39:49.4952889Z     rv = self.invoke(ctx)
+2026-11-19T23:39:49.4953067Z          ^^^^^^^^^^^^^^^^
+2026-11-19T23:39:49.4953377Z   File "/opt/conda/envs/meta2data/lib/python3.12/site-packages/click/core.py", line 1697, in invoke
+2026-11-19T23:39:49.4953772Z     return _process_result(sub_ctx.command.invoke(sub_ctx))
+2026-11-19T23:39:49.4954050Z                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-19T23:39:49.4954403Z   File "/opt/conda/envs/meta2data/lib/python3.12/site-packages/click/core.py", line 1443, in invoke
+2026-11-19T23:39:49.4954793Z     return ctx.invoke(self.callback, **ctx.params)
+2026-11-19T23:39:49.4955032Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-19T23:39:49.4955418Z   File "/opt/conda/envs/meta2data/lib/python3.12/site-packages/click/core.py", line 788, in invoke
+2026-11-19T23:39:49.4955778Z     return __callback(*args, **kwargs)
+2026-11-19T23:39:49.4955980Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-19T23:39:49.4956346Z   File "/opt/conda/envs/meta2data/lib/python3.12/site-packages/q2cli/builtin/info.py", line 98, in info
+2026-11-19T23:39:49.4956693Z     get_vendored_config()
+2026-11-19T23:39:49.4957091Z   File "/opt/conda/envs/meta2data/lib/python3.12/site-packages/rachis/sdk/parallel_config.py", line 117, in get_vendored_config
+2026-11-19T23:39:49.4957520Z     config_fp = _get_vendored_config_path()
+2026-11-19T23:39:49.4957734Z                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-19T23:39:49.4958147Z   File "/opt/conda/envs/meta2data/lib/python3.12/site-packages/rachis/sdk/parallel_config.py", line 179, in _get_vendored_config_path
+2026-11-19T23:39:49.4958920Z     with open(VENDORED_FP, 'w') as fh:
+2026-11-19T23:39:49.4959122Z          ^^^^^^^^^^^^^^^^^^^^^^
+2026-11-19T23:39:49.4959436Z OSError: [Errno 30] Read-only file system: '/opt/conda/envs/meta2data/etc/qiime2_config.toml'
+2026-11-19T23:40:20.6872768Z FATAL:   While performing build: failed to execute %test script: exit status 1
+2026-11-19T23:40:20.6912355Z ##[error]Process completed with exit code 255.
