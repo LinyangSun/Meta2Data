@@ -25,3 +25,12 @@ records 14 passing PIP cases, SILVA 144 in all three tree modes, three passing
 cache regressions, and 317 passing isolated unit tests. The all-classifier gate,
 compatible replacement legacy models, and fresh SIF validation remain pending.
 No full reference classifier was trained.
+
+## Production and test isolation
+
+The [production/test isolation audit](production-test-isolation.md) traces the
+normal entrypoints, input handling, installers, and SIF runscript. It found no
+test-only analysis deadline or fixture-size cap in normal execution. A recorded
+31-second command also passed through the unchanged production profiler.
+Existing opt-in test mode, network timeouts, and diagnostic sampling are
+documented separately from test restrictions.
