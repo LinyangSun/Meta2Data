@@ -46,7 +46,7 @@ class TaxaCliTests(unittest.TestCase):
             "#!/bin/bash\npython3 - <<'PYTHON'\n"
             "import json, os\n"
             "from pathlib import Path\n"
-            "names = ('ORIENT_REF', 'NB_CLASSIFIER', 'SEPP_REF', 'DB_LABEL', 'CLASSIFIER_ID', 'FINAL_DIR', 'INPUT_DIR')\n"
+            "names = ('ORIENT_REF', 'NB_CLASSIFIER', 'SEPP_REF', 'DB_LABEL', 'FINAL_DIR', 'INPUT_DIR')\n"
             "Path(os.environ['CAPTURE']).write_text(json.dumps({key: os.environ[key] for key in names}))\n"
             "PYTHON\n")
         self.work = self.root / "project work"
@@ -82,7 +82,8 @@ class TaxaCliTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         record = json.loads(self.capture.read_text())
         self.assertEqual(record["DB_LABEL"], "gg2")
-        self.assertEqual(record["CLASSIFIER_ID"], "gg2-2024.09")
+        state = json.loads((Path(record["FINAL_DIR"]) / "taxa-run-state.json").read_text())
+        self.assertEqual(state["classifier_id"], "gg2-2024.09")
         for variable in ("ORIENT_REF", "NB_CLASSIFIER", "SEPP_REF"):
             self.assertEqual(Path(record[variable]).parent, self.work / "results/db")
         self.assertEqual(Path(record["FINAL_DIR"]), self.output / "final-vsearch-multiV")
@@ -103,7 +104,6 @@ class TaxaCliTests(unittest.TestCase):
                 result = self.invoke("--input", self.inputs, "--classifier", selection, "--notree")
                 self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
                 record = json.loads(self.capture.read_text())
-                self.assertEqual(record["CLASSIFIER_ID"], canonical)
                 self.assertEqual(record["DB_LABEL"], label)
                 self.assertEqual(Path(record["NB_CLASSIFIER"]).name, RESOURCES[kind].filename)
                 state = json.loads((Path(record["FINAL_DIR"]) / "taxa-run-state.json").read_text())
