@@ -390,11 +390,12 @@ Amplicon_Illumina_Vsearch_Preprocess
 
 @unittest.skipUnless(shutil.which('vsearch'), 'Real VSEARCH is required')
 class RealVsearchTests(unittest.TestCase):
+    """Isolate ledger state while preserving the activated tool environment."""
     def test_real_merge_and_report(self):
         rng = random.Random(804)
         insert = ''.join(rng.choices('ACGT', k=170))
         first, second = insert[:120], insert[50:].translate(str.maketrans('ACGT','TGCA'))[::-1]
-        with tempfile.TemporaryDirectory() as temp, patch.dict(os.environ, {}, clear=True):
+        with tempfile.TemporaryDirectory() as temp, patch.dict(os.environ, {'READ_COUNTS_STATE': ''}):
             root = Path(temp); source = root / 'in'; source.mkdir()
             put(source / 'A_R1.fastq', [rec('r/1', first + 'ACT', 'I'*120 + '!!!')])
             put(source / 'A_R2.fastq', [rec('r/2', second)])
@@ -406,7 +407,7 @@ class RealVsearchTests(unittest.TestCase):
     def test_real_filter_accepts_ee_between_one_and_onepointfive_without_truncation(self):
         rng = random.Random(77)
         insert = ''.join(rng.choices('ACGT', k=80))
-        with tempfile.TemporaryDirectory() as temp, patch.dict(os.environ, {}, clear=True):
+        with tempfile.TemporaryDirectory() as temp, patch.dict(os.environ, {'READ_COUNTS_STATE': ''}):
             root = Path(temp); source = root / 'in'; source.mkdir()
             put(source / 'A_R1.fastq', [rec('r/1', insert, '!' + 'I'*79)])
             put(source / 'A_R2.fastq', [rec('r/2', insert, '!'*80)])
