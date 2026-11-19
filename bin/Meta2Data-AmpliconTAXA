@@ -90,10 +90,10 @@ Reference/model inputs in results/db/:
     silva-144: silva-144-full-length-sklearn-1.7.1.qza
     SEPP runs only: sepp-refs-gg-13-8.qza
 
-Current upgrade branch: the official SILVA 144 model downloads automatically.
-Compatible GG2 2024.09 and SILVA 138.1 models are not yet published. Those choices,
-including the default, require a compatible maintainer-built bundle or cache;
-otherwise the command stops with NOT READY. Old scikit-learn 1.4.2 models cannot be reused.
+All three classifiers use full-length models built with scikit-learn 1.7.1.
+The selected model is prepared automatically in results/db/, reusing a valid
+cache or bundle and downloading from a fixed release URL when needed.
+Old scikit-learn 1.4.2 models cannot be reused.
 
 Examples:
     Meta2Data AmpliconTAXA

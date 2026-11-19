@@ -1,5 +1,7 @@
 # Codespace compatibility checks, 19 November 2026
 
+This report preserves the original compatibility checks.
+
 Tested source: b6d7bd8d7241289ed618917887349867cbadfdad.
 Environment: QIIME 2 2026.7.0 and scikit-learn 1.7.1, installed from the
 485-package minimal release lock plus the pinned standalone SRA Toolkit.
@@ -22,13 +24,13 @@ Environment: QIIME 2 2026.7.0 and scikit-learn 1.7.1, installed from the
 These checks do not establish biological accuracy or complete release validation.
 The subsequent [parameter, filename, and workflow audit](workflow-audit.md)
 records 14 passing PIP cases, SILVA 144 in all three tree modes, three passing
-cache regressions, and 317 passing isolated unit tests. The all-classifier gate,
-compatible replacement legacy models, and fresh SIF validation remain pending.
-No full reference classifier was trained.
+cache regressions, and 317 passing isolated unit tests. At those checkpoints,
+the all-classifier gate, compatible replacement legacy models, and fresh SIF
+validation were pending. No full reference classifier was trained during these
+checks.
 
 The subsequent [full-reference build checkpoint](classifier-build-audit.md)
-records the current model training, resource diagnosis and remaining release
-checks. Its status is separate from these completed compatibility checks.
+records later model builds, resource diagnosis and current release status.
 
 ## Production and test isolation
 

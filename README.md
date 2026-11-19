@@ -110,10 +110,10 @@ Select a processing method explicitly in PIP: `--dada2` supports Illumina, Ion T
 
 Choose either Conda or SIF.
 
-This branch is preparing the QIIME 2 2026.7 upgrade. The replacement Greengenes2
-2024.09 and SILVA 138.1 models must be built, validated, and published before this
-revision is released. See the [upgrade validation plan](docs/qiime2-2026.7-upgrade.md)
-for the remaining release requirements.
+The compatible Greengenes2 2024.09 and SILVA 138.1 replacements have passed
+their model audits and are published. Native integration and final SIF
+validation remain pending before this revision is released. See the
+[upgrade validation plan](docs/qiime2-2026.7-upgrade.md).
 
 ### Conda
 
@@ -153,23 +153,30 @@ runtime compatibility.
 Use a SIF version that provides the interface documented here. Meta2Data and its dependencies run directly from the image. After installing Apptainer, choose a version from [GitHub Packages](https://github.com/LinyangSun/Meta2Data/pkgs/container/meta2data) and replace `TAG` below with its tag:
 
 ```bash
-apptainer pull Meta2Data.sif oras://ghcr.io/linyangsun/meta2data:<version>
+apptainer pull Meta2Data.sif oras://ghcr.io/linyangsun/meta2data:TAG
 
-apptainer exec --cleanenv Meta2Data.sif Meta2Data --help
+export M2D_SIF="$(pwd)/Meta2Data.sif"
+
+m2d() {
+    apptainer exec --cleanenv "$M2D_SIF" Meta2Data "$@"
+}
+
+m2d --help
 ```
 
 ```bash
-apptainer exec --cleanenv Meta2Data.sif \
-    Meta2Data AmpliconPIP \
-    --public-m <metadata.csv> \
+m2d AmpliconPIP \
+    --public-m metadata.csv \
     --public-bioproject-colNAME Bioproject \
     --public-sra-colNAME Run \
     --vsearch \
-    --threads <n_threads> \
-    --max-parallel <n_parallel>
+    --threads 8 \
+    --max-parallel 2
 ```
 
 Run commands from your working directory; PIP and TAXA write to its `results/` directory. Set the image path and define the `m2d` function again in each new terminal.
+
+For SIF, replace the leading `Meta2Data` with `m2d` in the examples below.
 
 
 ## Preparing your analysis
@@ -568,11 +575,10 @@ All modes orient sequences against the GG2 sequence reference and remove feature
 | SILVA 138.1 | `--classifier silva-138.1` | `--classifier silva` | `silvaTaxonomy.qza` |
 | SILVA 144 | `--classifier silva-144` | None | `silva144Taxonomy.qza` |
 
-All three choices require full-length reference classifiers built with scikit-learn 1.7.1.
-In this upgrade branch, the official SILVA 144 model downloads automatically.
-Compatible GG2 2024.09 and SILVA 138.1 models are not yet published. Those choices,
-including the default, require a compatible maintainer-built bundle or cache;
-otherwise the command stops with `NOT READY`.
+All three choices use full-length reference classifiers built with scikit-learn 1.7.1.
+The selected model is prepared automatically in `results/db/`, reusing a valid
+cache or bundle and downloading from a fixed release URL when needed.
+Conda and SIF builds use the same resource definitions.
 
 Input classifier files are cached in `results/db/`. These model artifacts are
 separate from the taxonomy output artifacts listed above:

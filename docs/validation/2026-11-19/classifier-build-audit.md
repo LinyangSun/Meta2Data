@@ -1,9 +1,9 @@
 # Compatible classifier build checkpoint
 
-**Status: PARTIAL.** Run04 produced the GG2 model and its build manifest, and
-the separate GG2 model audit has passed. SILVA preparation stopped at
-`rescript.reverse_transcribe`; its replacement model has not been produced.
-Neither model has been published, and the upgrade branch has not been merged.
+**Status: BOTH MODELS BUILT, AUDITED AND PUBLISHED.** GG2 completed in run04;
+SILVA completed in recovery02. Empty-cache download/reuse checks, native
+integration and final-SIF validation remain pending. Training cleanup is
+complete. The upgrade branch has not been merged.
 
 ## Environment and inputs
 
@@ -11,13 +11,15 @@ Neither model has been published, and the upgrade branch has not been merged.
   The machine choices exposed during this work offered 8 or 16 GiB RAM.
 - Frozen environment: QIIME 2, q2-feature-classifier and RESCRIPt **2026.7.0**;
   scikit-learn **1.7.1**.
-- Build code: commit `ec56140`, using training batches of **1,000** references.
+- GG2 run04 build code: commit `ec56140`, using training batches of **1,000** references.
 - GG2 2024.09 full-length training input: **337,506 sequences** and **28,054
   taxonomy classes**. The build retains all reference sequences.
+- SILVA 138.1 full-length training input after the recorded preparation:
+  **435,518 sequences** and **10,572 taxonomy classes**, with batches of **1,000**.
 - All four raw SILVA 138.1 source files were prefetched through the existing
   `build_reference_classifiers.acquire_source` function. Their compressed and
-  uncompressed MD5 checks passed. This verifies acquisition, not completion of
-  SILVA preparation or model training.
+  uncompressed MD5 checks passed. Those checks verified source acquisition;
+  completed SILVA training and model validation are recorded below.
 
 Run04 used `/tmp/meta2data-classifier-build-20261119`; the SILVA workspace was
 `silva-138.1-45ed4331f34efbfe`. That build-work directory was absent after the
@@ -107,23 +109,31 @@ classification with matching output IDs and provenance. GG2 reference inputs
 were restored through the same pinned source-acquisition functions under
 `/workspaces/meta2data-validation/classifier-build/gg2-2024.09-1629f9b0fae80f4e/sources`.
 
-This pass applies to GG2 only. Reports explicitly record
+This report applies to GG2 only. SILVA passed a separate scoped audit during
+recovery02, recorded below. Both reports explicitly record
 `requested_classifiers`; the audit driver's default `all` checks both models.
-The automatic audit scheduled after both builds has not run.
 
-## Draft asset backup
+## Published model resources
 
-The draft GitHub Release `classifiers-2026.7-sklearn-1.7.1-v1` contains the
-GG2 model, its build manifest, the scoped validation report and
-`reference-model-licenses.txt`. All four assets report `uploaded`.
-The model is **180,058,060 bytes**; GitHub's recorded SHA-256 matches
-`b68e1d5632fc3b6ee3fd815d176e5e2273b3f41343858b007e374e83f7f5f5f6`.
-Release metadata is saved in
+The GitHub Release
+[`classifiers-2026.7-sklearn-1.7.1-v1`](https://github.com/LinyangSun/Meta2Data/releases/tag/classifiers-2026.7-sklearn-1.7.1-v1)
+was published at **2026-11-19T22:41:14Z**, with `draft=false` and seven uploaded
+assets: two models, both build manifests, both scoped validation reports and
+`reference-model-licenses.txt`. GitHub's recorded SHA-256 values for both
+models match their build manifests. Public release metadata is retained in
+[`classifier-release.json`](classifier-release.json).
+
+| Model download | Bytes |
+|---|---:|
+| [GG2 2024.09](https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/gg2-2024.09-full-length-sklearn-1.7.1.qza) | 180,058,060 |
+| [SILVA 138.1](https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/silva-138.1-full-length-sklearn-1.7.1.qza) | 218,310,928 |
+
+Local registry URLs, UUIDs and SHA-256 pins were compared with the committed
+build manifests. Actual download from an empty cache and subsequent cache
+reuse have not yet been checked. Draft-stage release metadata was saved in
 `/workspaces/meta2data-validation/logs/classifier-draft-assets.json`.
-This is a draft backup, not a published model download or completed source
-installation test. The registry URLs remain pending until the bundle is ready.
 
-## SILVA recovery launch
+## SILVA recovery02 completion
 
 A detached SILVA-only recovery started at **21:09:11 UTC** in the existing
 Codespace using `run-silva-recovery-02.sh`, with build work under
@@ -132,7 +142,8 @@ alive during `rescript.reverse_transcribe`, after all four imports and
 taxonomy parsing. Its launcher records
 `logs/silva-recovery-02.log` and `logs/silva-recovery-02.exit` beneath
 `/workspaces/meta2data-validation`, and runs the SILVA model audit after a
-successful build. The model has not yet been produced or audited.
+successful build. The build completed in **87 min 46.360 s**. The full wrapper,
+including the model audit, exited **0** at **2026-11-19T22:37:32Z**.
 
 Recovery01 exited with status 127 before building because `/usr/bin/time` was
 absent. Its log is retained. Recovery02 uses Bash's built-in `time` instead.
@@ -142,12 +153,56 @@ Completed intermediates, inputs, models and logs now reside on the persistent
 `/workspaces` mount; QIIME temporary extraction remains on the separate `/tmp`
 mount. A temporary 16 GiB swap file at
 `/tmp/meta2data-training-swap.hXFB9Y` was enabled with root ownership and mode
-0600. No `fstab` entry was added. Remove this swap after training and auditing.
+0600. No `fstab` entry was added. This swap was disabled and removed during
+the cleanup recorded below.
 `nohup` detaches the process from the terminal; it cannot preserve a running
 process across Codespace shutdown. Valid completed intermediates can be reused
 after a restart.
 
 No new Codespace was created, and no account timeout setting was changed.
+
+## SILVA model and scoped audit
+
+The completed build is recorded in
+[`silva-classifier-build.json`](silva-classifier-build.json). Its full-length
+model passed the audit in
+[`silva-model-validation.json`](silva-model-validation.json), copied from
+`/workspaces/meta2data-validation/silva-model-audit-02/model-validation.json`.
+The audit used source revision `d0b7a38f28afb1c5e4ca77c3a547dfd33f8eb7b9`
+and requested only `silva-138.1`.
+
+| Field or check | Recorded result |
+|---|---|
+| Model filename | `silva-138.1-full-length-sklearn-1.7.1.qza` |
+| `built_utc` | `2026-11-19T22:36:47.835193+00:00` |
+| Classifier UUID | `7bb8da5e-bc83-4d33-8271-97f3c4028973` |
+| SHA-256 | `81aa6ceef0fda3cef4e988423832eaeb8c134b67f300f5ba07ea3ac01e1da1d1` |
+| MD5 | `2cfc9c00b994e5a6dd58c251c91db7c0` |
+| Recipe SHA-256 | `45ed4331f34efbfee4e9540c31c99d8c76ba7ce726d2fd8e0a313ea878947bc6` |
+| Training sequences | 435,518 |
+| Training classes | 10,572 |
+| `all_class_counts_match` | `true` |
+| Classified features | 5 |
+| Taxonomy UUID | `b6eaea05-c748-4fe0-a8c4-b3827defe2d3` |
+| Reads UUID | `10ce232d-c773-4835-a12f-ee4769842489` |
+| Confidence threshold | 0.7 |
+| Audit duration | 29.61 seconds |
+
+The audit matched the total and every class count against all prepared
+reference sequences, then checked real classification, output IDs and
+provenance. Its reference artifacts are retained under
+`/workspaces/meta2data-validation/classifier-build/silva-138.1-45ed4331f34efbfe/`.
+These two scoped model audits do not replace the pending native and final-SIF
+release gates.
+
+## Training cleanup
+
+Cleanup completed at **2026-11-19T22:43:00.079695+00:00**. The temporary swap
+was disabled and removed; `swapon --show` was empty. The temporary `py-spy`
+installation and three raw stack snapshots were removed. Models, prepared
+reference intermediates and raw logs were retained; monitors and jobs had
+exited. Evidence is saved in
+`/workspaces/meta2data-validation/logs/training-cleanup.json`.
 
 ## Raw evidence locations
 
@@ -169,21 +224,12 @@ archiving; they are not strict JSON Lines files from the first line onward.
 
 ## Required remaining checks
 
-1. Complete the SILVA model build and
-   retain both models' `.build.json` records and required reference inputs.
-2. Run [verify-rebuilt-models.py](audit-drivers/verify-rebuilt-models.py) with
-   `--classifier silva-138.1`. The SILVA audit must verify model identity and
-   checksums, exact total and per-class training counts against all actual
-   training references, and real classification of the existing representative
-   sequences with matching output IDs and provenance. The scoped GG2 audit
-   has already passed.
-3. Publish the verified versioned assets, register their actual download URLs,
-   UUIDs and checksums, and verify download from an empty classifier cache and
-   subsequent valid cache reuse.
-4. Complete the final code simplicity review and synchronize README, help,
-   resource documentation and release status with the verified implementation.
-5. Pass the existing native and final-SIF release gates, publish the validated
+The final production-change audit passed with no findings.
+
+1. Verify automatic download from an empty classifier cache and subsequent
+   valid cache reuse using the registered public resources.
+2. Synchronize README, help, resource documentation and release status with
+   the verified implementation and completed gates.
+3. Pass the existing native and final-SIF release gates, publish the validated
    image tag, and only then complete the merge. Earlier workflow results do not
    substitute for successful execution of these remaining gates.
-6. Record the final build outcome, retaining the unsuccessful attempts and
-   interruption evidence.

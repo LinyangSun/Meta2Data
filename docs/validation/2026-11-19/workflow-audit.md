@@ -4,10 +4,15 @@ Date: 19 November 2026. Environment: QIIME 2 2026.7.0, scikit-learn 1.7.1,
 Python 3.12.13, and standalone VSEARCH 2.30.4, using the pinned 485-package
 minimal runtime in the 4-core / 16 GB Codespace.
 
+This report preserves the checkpoint at the revisions listed below. Subsequent
+model builds and current release status are recorded in the
+[full-reference build checkpoint](classifier-build-audit.md).
+
 The parameter/file audit, 14 PIP cases, SILVA 144 no-tree and both tree modes,
 three real taxonomy-cache scenarios, and the isolated 317-test suite passed.
-Compatible replacement GG2 and SILVA 138.1 models and final SIF validation are
-still pending. This is not the complete all-classifier release gate.
+At this checkpoint, compatible replacement GG2 and SILVA 138.1 models and final
+SIF validation were pending. This audit did not cover the complete
+all-classifier release gate.
 
 ## Revisions actually exercised
 
@@ -39,11 +44,11 @@ means GG2 2024.09. Confidence remains 0.7, threads remain 4, and the default tre
 mode remains SEPP. Existing PIP table/representative-sequence and TAXA table/tree
 basenames remain unchanged. Classifier selection remains a CLI option.
 
-Current availability is stated in README and help: SILVA 144 downloads from the
-pinned official source; the compatible GG2 and SILVA 138.1 models are not yet
-published. Their valid parameters, including the default, stop with NOT READY
-unless a compatible maintainer-built resource is installed. Old 1.4.2 models
-are not silently substituted.
+At this checkpoint, README and help stated that SILVA 144 downloaded from the
+pinned official source; the compatible GG2 and SILVA 138.1 models were not yet
+published. Their valid parameters, including the default, stopped with NOT READY
+unless a compatible maintainer-built resource was installed. Old 1.4.2 models
+were not silently substituted.
 
 QIIME's new DADA2 base-transition artifact is an intermediate under
 `tmp/step_05_denoise/`; normal successful cleanup removes it unless
@@ -53,9 +58,10 @@ feature-frequencies and sample-frequencies .qza files alongside it under
 
 ## Concrete issues corrected
 
-1. README/help documentation now consistently identifies the canonical default,
-   exact model-cache filenames, final result filenames, and pending legacy-model
-   availability. The parameter reference and pipeline guide match these choices.
+1. README/help documentation consistently identified the canonical default,
+   exact model-cache filenames, final result filenames, and legacy-model
+   availability at this checkpoint. The parameter reference and pipeline guide
+   matched these choices.
 2. A valid ZIP placed under an expected taxonomy filename could previously be
    reused if current state was retained, even when the artifact came from another
    model, reads artifact, or confidence. Reuse now checks the direct
@@ -146,12 +152,13 @@ also passed. See [unit-audit-isolated.json](unit-audit-isolated.json),
 [unit-tests-isolated.txt](unit-tests-isolated.txt), and
 [AmpliconTAXA-help.txt](AmpliconTAXA-help.txt).
 
-## Remaining release work
+## Remaining release work at this checkpoint
 
 - Build and publish the compatible fixed GG2 2024.09 and SILVA 138.1 classifiers,
   register their verified identities/checksums, and run the all-classifier gate.
 - Build the fresh SIF and validate the packaged runtime and resources.
 - Review those results before merging the upgrade branch.
 
-Full reference-model training remains paused. These fixtures check execution,
-artifact handling, and caching; they do not assess taxonomic accuracy.
+Full reference-model training was paused at this checkpoint. These fixtures
+check execution, artifact handling, and caching; they do not assess taxonomic
+accuracy.

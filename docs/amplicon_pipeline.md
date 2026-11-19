@@ -218,10 +218,9 @@ Input model files are cached in `results/db/`; taxonomy results are written to
 | `silva-138.1` | `silva-138.1-full-length-sklearn-1.7.1.qza` | `silvaTaxonomy.qza` |
 | `silva-144` | `silva-144-full-length-sklearn-1.7.1.qza` | `silva144Taxonomy.qza` |
 
-In this upgrade branch, the official SILVA 144 model downloads automatically.
-Compatible GG2 2024.09 and SILVA 138.1 models are not yet published. Those choices,
-including the default, require a compatible maintainer-built bundle or cache;
-otherwise the command stops with `NOT READY`.
+For all three choices, the selected classifier is prepared automatically in
+`results/db/`, reusing a valid cache or bundle and downloading from a fixed
+release URL when needed. Conda and SIF builds use the same resource definitions.
 
 All classifiers use GG2 sequences for orientation. Only default
 multi-region tree runs prepare the SEPP reference; `--singleV` and `--notree`

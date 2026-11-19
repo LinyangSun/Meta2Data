@@ -24,7 +24,7 @@ import zlib
 class Resource:
     filename: str
     semantic_type: str
-    url: str | None
+    url: str
     classifier_id: str | None = None
     sklearn_version: str | None = None
     expected_uuid: str | None = None
@@ -34,6 +34,9 @@ class Resource:
 
 GG2_BASE = "https://ftp.microbio.me/greengenes_release/2024.09/"
 CLASSIFIER_SKLEARN_VERSION = "1.7.1"
+CLASSIFIER_BASE = (
+    "https://github.com/LinyangSun/Meta2Data/releases/download/"
+    "classifiers-2026.7-sklearn-1.7.1-v1/")
 SILVA144_BASE = (
     "https://www.arb-silva.de/fileadmin/silva_databases/release_144/"
     "QIIME2/2026.7/SSU/full-length/uniform/")
@@ -43,10 +46,16 @@ RESOURCES = {
         GG2_BASE + "2024.09.backbone.full-length.fna.qza"),
     "greengenes-classifier": Resource(
         "gg2-2024.09-full-length-sklearn-1.7.1.qza", "TaxonomicClassifier",
-        None, classifier_id="gg2-2024.09", sklearn_version=CLASSIFIER_SKLEARN_VERSION),
+        CLASSIFIER_BASE + "gg2-2024.09-full-length-sklearn-1.7.1.qza",
+        classifier_id="gg2-2024.09", sklearn_version=CLASSIFIER_SKLEARN_VERSION,
+        expected_uuid="b1cd95ec-3416-4183-9286-1f426af96c81",
+        sha256="b68e1d5632fc3b6ee3fd815d176e5e2273b3f41343858b007e374e83f7f5f5f6"),
     "silva-classifier": Resource(
         "silva-138.1-full-length-sklearn-1.7.1.qza", "TaxonomicClassifier",
-        None, classifier_id="silva-138.1", sklearn_version=CLASSIFIER_SKLEARN_VERSION),
+        CLASSIFIER_BASE + "silva-138.1-full-length-sklearn-1.7.1.qza",
+        classifier_id="silva-138.1", sklearn_version=CLASSIFIER_SKLEARN_VERSION,
+        expected_uuid="7bb8da5e-bc83-4d33-8271-97f3c4028973",
+        sha256="81aa6ceef0fda3cef4e988423832eaeb8c134b67f300f5ba07ea3ac01e1da1d1"),
     "silva144-classifier": Resource(
         "silva-144-full-length-sklearn-1.7.1.qza", "TaxonomicClassifier",
         SILVA144_BASE +
@@ -58,12 +67,6 @@ RESOURCES = {
         "sepp-refs-gg-13-8.qza", "SeppReferenceDatabase",
         "https://data.qiime2.org/classifiers/sepp-ref-dbs/sepp-refs-gg-13-8.qza"),
 }
-
-# The two legacy classifiers must be rebuilt with 1.7.1 before this development
-# branch is released. A missing URL is intentional: never substitute the old
-# 1.4.2 model or a different SILVA release. Maintainer-built bundles can be used
-# while their final UUIDs, checksums, and published URLs are being established.
-
 
 def database_directory(work_dir=None):
     """Resolve the shared cache independently of each module's output directory."""
@@ -210,15 +213,6 @@ def prepare_resource(kind, work_dir=None, *, builtin_paths=None, downloader=None
                 break
             if candidate.is_file():
                 print(f"Ignoring invalid bundled reference: {candidate}", file=sys.stderr)
-        if source is None and resource.url is None:
-            raise RuntimeError(
-                f"NOT READY: the built-in {resource.classifier_id} classifier for "
-                f"scikit-learn {resource.sklearn_version} has not been published, "
-                f"and no compatible installed bundle was found. Install a complete "
-                f"Meta2Data release containing {resource.filename}. Maintainers can "
-                f"build this fixed resource with scripts/build_reference_classifiers.py "
-                f"--classifier {resource.classifier_id} --output-dir <Meta2Data>/references. "
-                f"The old classifier will not be downloaded or used.")
         with tempfile.NamedTemporaryFile(prefix=f".{resource.filename}.", suffix=".partial",
                                          dir=directory, delete=False) as temporary:
             staging = Path(temporary.name)

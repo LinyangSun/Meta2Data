@@ -15,18 +15,18 @@ TAXA 可用 `-i` 指定已有 PIP 结果，输出仍固定为当前工作目录�
 **直接运行**
 
 ```bash
-apptainer exec --cleanenv Meta2Data.sif Meta2Data AmpliconPIP \
+apptainer exec --cleanenv "$M2D_SIF" Meta2Data AmpliconPIP \
   --local-m local_metadata.csv \
   --local-datasets-colNAME datasets \
   --local-path-colNAME path \
   --local-platform-colNAME platform \
   --dada2 -t 8
 
-apptainer exec --cleanenv Meta2Data.sif Meta2Data AmpliconTAXA \
+apptainer exec --cleanenv "$M2D_SIF" Meta2Data AmpliconTAXA \
   --dada2 --classifier greengenes --notree -t 8
 ```
 
-示例假设镜像在当前目录；位于其他位置时，将 `Meta2Data.sif` 换成镜像路径。
+示例使用 README 中配置的绝对路径变量 `M2D_SIF`，切换分析目录后仍指向同一个镜像。
 
 **使用 `m2d` 快捷命令**
 
@@ -61,7 +61,7 @@ m2d AmpliconTAXA --vsearch --notree -t 8
 
 `Build SIF` 工作流在 GitHub Actions 中先验证原生 Conda 环境，再从 Ubuntu 24.04 安装新的 QIIME 2 2026.7 环境、构建 SIF，并测试镜像内的实际程序。全部通过后才发布到 GitHub Container Registry（GHCR）。工作流只由 `workflow_dispatch` 手动触发，不会因普通提交或 PR 自动运行。
 
-当前升级分支仍需完成旧分类器的兼容构建和发布；资源缺失会使验证失败并阻止镜像发布。具体进度和验证范围见 [QIIME 2 2026.7 升级计划](qiime2-2026.7-upgrade.md)。
+兼容的 GG2 2024.09 和 SILVA 138.1 模型已通过核验并发布；当前升级分支仍需完成原生环境和最终 SIF 验证。具体进度和验证范围见 [QIIME 2 2026.7 升级计划](qiime2-2026.7-upgrade.md)。
 
 ### 首次配置
 

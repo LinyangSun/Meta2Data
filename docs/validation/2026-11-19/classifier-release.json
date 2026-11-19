@@ -1,0 +1,59 @@
+{
+  "id": 451934968,
+  "tag_name": "classifiers-2026.7-sklearn-1.7.1-v1",
+  "draft": false,
+  "html_url": "https://github.com/LinyangSun/Meta2Data/releases/tag/classifiers-2026.7-sklearn-1.7.1-v1",
+  "published_at": "2026-11-19T22:41:14Z",
+  "target_commitish": "0a103ba240e3fd885d5dd1a5829c98b5f15cec61",
+  "assets": [
+    {
+      "name": "gg2-2024.09-full-length-sklearn-1.7.1.qza",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/gg2-2024.09-full-length-sklearn-1.7.1.qza",
+      "size": 180058060,
+      "digest": "sha256:b68e1d5632fc3b6ee3fd815d176e5e2273b3f41343858b007e374e83f7f5f5f6",
+      "state": "uploaded"
+    },
+    {
+      "name": "gg2-2024.09-full-length-sklearn-1.7.1.qza.build.json",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/gg2-2024.09-full-length-sklearn-1.7.1.qza.build.json",
+      "size": 3796,
+      "digest": "sha256:9a97b3d3537eec8a02e7140a138fd11219bdd6750a1f1b07e7dd6d63d960883a",
+      "state": "uploaded"
+    },
+    {
+      "name": "gg2-2024.09-full-length-sklearn-1.7.1.validation.json",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/gg2-2024.09-full-length-sklearn-1.7.1.validation.json",
+      "size": 1973,
+      "digest": "sha256:088552bfd6d6fa76fa5d1db85a68d2528e189cab7a58642bf567bf7d562c8ea9",
+      "state": "uploaded"
+    },
+    {
+      "name": "reference-model-licenses.txt",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/reference-model-licenses.txt",
+      "size": 5915,
+      "digest": "sha256:8c0d26679edbc2443f51cadd05545d0e9737563cd3034ff31b40c84b6121b2de",
+      "state": "uploaded"
+    },
+    {
+      "name": "silva-138.1-full-length-sklearn-1.7.1.qza",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/silva-138.1-full-length-sklearn-1.7.1.qza",
+      "size": 218310928,
+      "digest": "sha256:81aa6ceef0fda3cef4e988423832eaeb8c134b67f300f5ba07ea3ac01e1da1d1",
+      "state": "uploaded"
+    },
+    {
+      "name": "silva-138.1-full-length-sklearn-1.7.1.qza.build.json",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/silva-138.1-full-length-sklearn-1.7.1.qza.build.json",
+      "size": 9977,
+      "digest": "sha256:072cc62ce62e88f7aba2c3f194d23835a822eaea6ed8a4e00f169e606747b3b7",
+      "state": "uploaded"
+    },
+    {
+      "name": "silva-138.1-full-length-sklearn-1.7.1.validation.json",
+      "url": "https://github.com/LinyangSun/Meta2Data/releases/download/classifiers-2026.7-sklearn-1.7.1-v1/silva-138.1-full-length-sklearn-1.7.1.validation.json",
+      "size": 1940,
+      "digest": "sha256:a469738763596c90330f29fd7f7336970568f52cc2c9f8136b438eaf2e2f7278",
+      "state": "uploaded"
+    }
+  ]
+}
