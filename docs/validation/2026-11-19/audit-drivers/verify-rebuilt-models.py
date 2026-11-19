@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit complete training counts and real classification for the two rebuilt models."""
+"""Audit complete training counts and real classification for selected rebuilt models."""
 import argparse
 from collections import Counter
 import csv
@@ -60,19 +60,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("models", "build-work", "reads", "output"):
         parser.add_argument("--" + name, type=Path, required=True)
+    parser.add_argument("--classifier", choices=["all", *builder.MODEL_KEYS], default="all")
     args = parser.parse_args()
+    selected = list(builder.MODEL_KEYS) if args.classifier == "all" else [args.classifier]
     args.output.mkdir(parents=True)
     query_ids = list(sequence_ids(args.reads))
     assert query_ids and len(query_ids) == len(set(query_ids))
     report = {"status": "incomplete", "environment": builder.environment_versions(),
               "source_revision": subprocess.check_output(
                   ["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip(),
-              "reads": str(args.reads.resolve()), "models": []}
+              "reads": str(args.reads.resolve()), "requested_classifiers": selected, "models": []}
     report_path = args.output / "model-validation.json"
     report_path.write_text(json.dumps(report, indent=2) + "\n")
-    for name, key in builder.MODEL_KEYS.items():
+    for name in selected:
         started = time.monotonic()
-        configured = refs.RESOURCES[key]
+        configured = refs.RESOURCES[builder.MODEL_KEYS[name]]
         model = args.models / configured.filename
         manifest = json.loads(Path(str(model) + ".build.json").read_text())
         identity = manifest["classifier"]
@@ -124,7 +126,7 @@ def main():
                                  "reference_taxonomy": str(reference_taxonomy.resolve()),
                                  "features": len(taxonomy), "command": command,
                                  "seconds": round(time.monotonic() - started, 2)})
-        report["status"] = "passed" if len(report["models"]) == len(builder.MODEL_KEYS) else "incomplete"
+        report["status"] = "passed" if len(report["models"]) == len(selected) else "incomplete"
         report_path.write_text(json.dumps(report, indent=2) + "\n")
     print(f"Model validation passed: {report_path}")
 
