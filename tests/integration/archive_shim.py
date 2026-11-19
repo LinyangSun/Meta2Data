@@ -13,7 +13,7 @@ import sys
 from urllib.parse import parse_qs, urlsplit
 
 PLATFORM_ACTIONS = {'batch_get_sequencing_platforms', 'get_sequencing_platform'}
-DEFAULT_REAL_PYTHON = '/opt/conda/envs/qiime2-amplicon-2024.10/bin/python3'
+DEFAULT_REAL_PYTHON = '/opt/conda/envs/meta2data/bin/python3'
 
 
 def trace(tool, argv, action, status, **details):

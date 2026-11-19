@@ -202,8 +202,13 @@ downloaded automatically. PIP adapter protection is enabled by default and prepa
 sequence reference; `--no-adapter-guard` disables the additional check. BLAST
 indexes and query results use the fixed cache directory
 `<launch working directory>/results/db/adapter_guard/`.
-TAXA `--classifier greengenes|silva` selects its classifier (default:
-`greengenes`). Both classifiers use GG2 sequences for orientation. Only default
+TAXA accepts `--classifier gg2-2024.09`, `--classifier silva-138.1`, and
+`--classifier silva-144`. The legacy `greengenes` alias remains the default and
+selects GG2 2024.09; `silva` selects SILVA 138.1. The old SILVA model's filename
+said `138`, while its embedded provenance identifies `138.1`. Classifier builds
+must match scikit-learn 1.7.1 in the QIIME 2 2026.7 runtime. Their cache filenames
+are distinct from the previous models built with scikit-learn 1.4.2.
+All classifiers use GG2 sequences for orientation. Only default
 multi-region tree runs prepare the SEPP reference; `--singleV` and `--notree`
 do not require it.
 
@@ -230,5 +235,10 @@ re-run that method before TAXA. External results without state remain supported.
 Damaged TAXA state safely triggers recomputation of managed outputs.
 Use fresh working directories for this
 revision rather than mixing results with older processing code. Required tree/filter failures
-return a failure status and retain intermediate results; GG2 and SILVA
-classification caches are maintained separately.
+return a failure status and retain intermediate results. The three classifiers
+have separate classification caches and outputs (`gg2Taxonomy.qza`,
+`silvaTaxonomy.qza`, and `silva144Taxonomy.qza`). Switching classifiers reuses
+unchanged merge, orientation, and tree results. The selected canonical
+classifier ID is recorded in the state and contributes to its taxonomy
+fingerprint. Taxonomy rank strings are preserved without positional parsing or
+rank rewriting.

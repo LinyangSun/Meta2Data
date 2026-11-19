@@ -761,6 +761,7 @@ Amplicon_Illumina_DenosingDada2() {
             --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
             --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
             --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
+            --o-base-transition-stats "${denoising_path%/}/${dataset_name}-base-transition-stats.qza" \
             --p-n-threads "$cpu"
     else
         # ── SINGLE-END ──
@@ -779,6 +780,7 @@ Amplicon_Illumina_DenosingDada2() {
                 --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
                 --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
                 --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
+                --o-base-transition-stats "${denoising_path%/}/${dataset_name}-base-transition-stats.qza" \
                 --p-n-threads "$cpu"
         else
             # Illumina: compute trim positions from QC visualization
@@ -816,6 +818,7 @@ Amplicon_Illumina_DenosingDada2() {
                 --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza" \
                 --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza" \
                 --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza" \
+                --o-base-transition-stats "${denoising_path%/}/${dataset_name}-base-transition-stats.qza" \
                 --p-n-threads "$cpu"
         fi
     fi
@@ -1435,6 +1438,7 @@ Amplicon_Pacbio_DenosingDada2() {
         --o-table "${denoising_path%/}/${dataset_name}-table-denoising.qza"
         --o-representative-sequences "${denoising_path%/}/${dataset_name}-rep-seqs-denoising.qza"
         --o-denoising-stats "${denoising_path%/}/${dataset_name}-denoising-stats.qza"
+        --o-base-transition-stats "${denoising_path%/}/${dataset_name}-base-transition-stats.qza"
         --verbose
         --p-n-threads "$cpu"
     )

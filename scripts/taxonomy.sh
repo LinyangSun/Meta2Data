@@ -39,18 +39,32 @@ done
 # A .qza/.qzv is reusable only if it is a non-empty, valid zip archive.
 qza_ok() { [[ -s "$1" ]] && unzip -tq "$1" >/dev/null 2>&1; }
 
-# Reuse-or-build a feature-table summary visualization (non-fatal on failure).
+# Reuse-or-build the QIIME 2 2026.7 summary and both frequency artifacts.
+# A partial summary bundle is regenerated; failure remains non-fatal.
 # Args: <in-table> <out-viz> <warn-msg> [guard-qza]
 # If guard-qza is given, the summary is only attempted when that artifact is OK.
 summarize_table() {
     local in_table="$1" out_viz="$2" warn_msg="$3" guard="${4:-}"
-    if qza_ok "$out_viz"; then
+    local feature_frequencies="${out_viz%.qzv}-feature-frequencies.qza"
+    local sample_frequencies="${out_viz%.qzv}-sample-frequencies.qza"
+    if qza_ok "$out_viz" && qza_ok "$feature_frequencies" && qza_ok "$sample_frequencies"; then
         echo "[OK] reuse: $(basename "$out_viz")"
-    elif { [[ -z "$guard" ]] || qza_ok "$guard"; } && qiime feature-table summarize \
+        return 0
+    fi
+    if [[ -n "$guard" ]] && ! qza_ok "$guard"; then
+        echo "$warn_msg"
+        return 0
+    fi
+    rm -f "$out_viz" "$feature_frequencies" "$sample_frequencies"
+    if qiime feature-table summarize \
             --i-table "$in_table" \
-            --o-visualization "$out_viz" --verbose; then
-        echo "[OK] Summary generated"
+            --o-feature-frequencies "$feature_frequencies" \
+            --o-sample-frequencies "$sample_frequencies" \
+            --o-summary "$out_viz" --verbose \
+            && qza_ok "$out_viz" && qza_ok "$feature_frequencies" && qza_ok "$sample_frequencies"; then
+        echo "[OK] Summary and frequency artifacts generated"
     else
+        rm -f "$out_viz" "$feature_frequencies" "$sample_frequencies"
         echo "$warn_msg"
     fi
 }
@@ -187,7 +201,6 @@ else
     if ! qiime rescript orient-seqs \
         --i-sequences "$MERGED_REP_SEQS" \
         --i-reference-sequences "$ORIENT_REF" \
-        --p-threads "$cpu" \
         --o-oriented-seqs "$ORIENTED_REP_SEQS" \
         --o-unmatched-seqs "$UNMATCHED" --verbose; then
         echo "[ERROR] Sequence orientation failed"

@@ -65,7 +65,9 @@ Options:
     --notree, --no-tree    Skip tree construction and tree-dependent filtering
                           Mutually exclusive with --singleV
     --parameter FILE      JSON parameter overrides (CLI options take precedence)
-    --classifier TYPE     greengenes (default) or silva; missing classifier downloads automatically
+    --classifier TYPE     gg2-2024.09 (default), silva-138.1, or silva-144
+                          Legacy aliases: greengenes = gg2-2024.09,
+                          silva = silva-138.1. Published classifiers download automatically
     -t, --threads INT     CPU threads (default: 4)
     --confidence FLOAT    Classifier confidence (default: 0.7)
     -h, --help            Show this help
@@ -83,14 +85,13 @@ automatically. Only the selected classifier and required tree reference are prep
 
 Database files:
     Always: 2024.09.backbone.full-length.fna.qza
-    greengenes classifier: 2024.09.backbone.full-length.nb.qza
-    silva classifier: silva-138-99-nb-classifier.qza
+    Classifiers: pinned, runtime-compatible models for the selected database version
     SEPP runs only: sepp-refs-gg-13-8.qza
 
 Examples:
     Meta2Data AmpliconTAXA
     Meta2Data AmpliconTAXA --dada2 --singleV
-    Meta2Data AmpliconTAXA --notree --classifier silva
+    Meta2Data AmpliconTAXA --notree --classifier silva-144
     Meta2Data AmpliconTAXA --vsearch --parameter settings.json
 
 Outputs: results/taxa/final-<method>-<singleV|multiV|notree>/
@@ -106,7 +107,9 @@ to belong to a previous input source are rejected; re-run that method first.
 Incomplete or invalid input pairs and duplicate results are recorded in collection.json.
 TAXA aggregate directories are identified by taxa-run-state.json and excluded.
 Sample IDs must be unique across datasets; duplicate sample IDs stop the merge.
-GG2 and SILVA classification outputs are cached independently.
+GG2, SILVA 138.1, and SILVA 144 classification outputs are cached independently:
+gg2Taxonomy.qza, silvaTaxonomy.qza, and silva144Taxonomy.qza.
+The selected database version is recorded in taxa-run-state.json.
 
 EOF
 }
@@ -114,7 +117,7 @@ EOF
 # Default parameters
 MODE=""
 DB_DIR="${WORK_DIR}/results/db"
-DB_TYPE="greengenes"
+DB_TYPE="gg2-2024.09"
 INPUT_DIR="${WORK_DIR}/results/pip"
 OUTPUT="${WORK_DIR}/results/taxa"
 INPUT_EXPLICIT=false
@@ -185,7 +188,7 @@ while [[ $# -gt 0 ]]; do
             shift 2
             ;;
         --db|--db-type|--dl)
-            echo "Error: $1 was removed. References are prepared automatically in ./results/db; select --classifier greengenes or --classifier silva." >&2
+            echo "Error: $1 was removed. References are prepared automatically in ./results/db; select --classifier gg2-2024.09, silva-138.1, or silva-144." >&2
             exit 1
             ;;
         --confidence)
@@ -231,11 +234,25 @@ if ! [[ "$THREADS" =~ ^[1-9][0-9]*$ ]]; then
     exit 1
 fi
 
-# Validate --classifier
+# Resolve public aliases to one database identity and one owned output label.
 case "$DB_TYPE" in
-    greengenes|silva) ;;
+    gg2-2024.09|greengenes)
+        CLASSIFIER_ID="gg2-2024.09"
+        CLASSIFIER_RESOURCE="greengenes-classifier"
+        DB_LABEL="gg2"
+        ;;
+    silva-138.1|silva)
+        CLASSIFIER_ID="silva-138.1"
+        CLASSIFIER_RESOURCE="silva-classifier"
+        DB_LABEL="silva"
+        ;;
+    silva-144)
+        CLASSIFIER_ID="silva-144"
+        CLASSIFIER_RESOURCE="silva144-classifier"
+        DB_LABEL="silva144"
+        ;;
     *)
-        echo "Error: --classifier must be one of: greengenes, silva (got '$DB_TYPE')"
+        echo "Error: --classifier must be gg2-2024.09, silva-138.1, or silva-144 (legacy aliases: greengenes, silva; got '$DB_TYPE')" >&2
         exit 1
         ;;
 esac
@@ -282,16 +299,12 @@ FINAL_DIR="${OUTPUT}/final-${MODE}-${REGION}"
 ORIENT_REF=$(python3 "${SCRIPTS}/reference_resources.py" prepare \
     --kind gg2-sequences --work-dir "$WORK_DIR")
 NB_CLASSIFIER=$(python3 "${SCRIPTS}/reference_resources.py" prepare \
-    --kind "${DB_TYPE}-classifier" --work-dir "$WORK_DIR")
+    --kind "$CLASSIFIER_RESOURCE" --work-dir "$WORK_DIR")
 SEPP_REF=""
 if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
     SEPP_REF=$(python3 "${SCRIPTS}/reference_resources.py" prepare \
         --kind sepp --work-dir "$WORK_DIR")
 fi
-case "$DB_TYPE" in
-    greengenes) DB_LABEL="gg2" ;;
-    silva) DB_LABEL="silva" ;;
-esac
 
 ################################################################################
 #                    DISPLAY CONFIGURATION                                     #
@@ -303,7 +316,7 @@ echo "========================================="
 echo "Method:         $MODE"
 echo "Region mode:    $REGION"
 echo "Database Dir:   $DB_DIR"
-echo "Classifier:     $DB_TYPE ($DB_LABEL)"
+echo "Classifier:     $CLASSIFIER_ID"
 echo "  Orient Ref:   $(basename "$ORIENT_REF")  (GG2, always)"
 echo "  Classifier:   $(basename "$NB_CLASSIFIER")"
 if [[ "$SINGLE_V" == false && "$NOTREE" == false ]]; then
@@ -326,7 +339,8 @@ mkdir -p "$FINAL_DIR"
 python3 "${SCRIPTS}/parameters.py" save "${parameter_args[@]}" --output "${FINAL_DIR}/parameters.json"
 prepare_args=(--collection "$COLLECTION" --final-dir "$FINAL_DIR"
               --orient-ref "$ORIENT_REF" --classifier "$NB_CLASSIFIER"
-              --confidence "$CONFIDENCE" --db-label "$DB_LABEL")
+              --confidence "$CONFIDENCE" --db-label "$DB_LABEL"
+              --classifier-id "$CLASSIFIER_ID")
 if [[ "$NOTREE" == true ]]; then
     prepare_args+=(--notree)
 elif [[ "$SINGLE_V" == true ]]; then
@@ -339,6 +353,7 @@ export MODE
 export FINAL_DIR
 export SCRIPTS
 export DB_LABEL
+export CLASSIFIER_ID
 export NB_CLASSIFIER
 export ORIENT_REF
 export SEPP_REF
