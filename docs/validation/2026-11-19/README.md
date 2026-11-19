@@ -15,7 +15,7 @@ Environment: QIIME 2 2026.7.0 and scikit-learn 1.7.1, installed from the
 
 - runtime-checks.json: actual environment and unit-test results.
 - legacy-gg2-compatibility.json: original GG2 URL, UUID, SHA256, exact command, and exit status.
-- legacy-gg2-classify.log: unedited QIIME exception and traceback.
+- legacy-gg2-classify.txt: unedited QIIME exception and traceback.
 - classifier-probes.json: tiny training roundtrip and official SILVA 144 model identity/output.
 - silva144-taxonomy.tsv and representative-sequences.fasta: the small classification input and output.
 
