@@ -2,10 +2,10 @@
 
 **Status: BOTH MODELS BUILT, AUDITED AND PUBLISHED.** GG2 completed in run04;
 SILVA completed in recovery02. Public download and cache-reuse checks passed
-for both models. Fresh native integration passed; final-SIF validation
-remains pending after the first image build exposed a read-only configuration
-initialization error. See the [release gate record](release-gates.md).
-Training cleanup is complete. The upgrade branch has not been merged.
+for both models. Fresh native integration and final-SIF validation passed.
+The initial image's read-only configuration error was corrected before the
+successful build and publication. See the [release gate record](release-gates.md).
+Training cleanup is complete.
 
 ## Environment and inputs
 
@@ -214,8 +214,8 @@ The audit matched the total and every class count against all prepared
 reference sequences, then checked real classification, output IDs and
 provenance. Its reference artifacts are retained under
 `/workspaces/meta2data-validation/classifier-build/silva-138.1-45ed4331f34efbfe/`.
-These two scoped model audits do not replace the pending native and final-SIF
-release gates.
+These two scoped model audits are separate from the subsequently completed
+[native and final-SIF release gates](release-gates.md).
 
 ## Training cleanup
 
@@ -243,12 +243,11 @@ classifier-memory-run04.jsonl
 The memory logs begin with a `MONITOR_PID` line. Preserve them as raw text when
 archiving; they are not strict JSON Lines files from the first line onward.
 
-## Required remaining checks
+## Completed release checks
 
 The final production-change audit passed with no findings.
 
-1. Synchronize README, help, resource documentation and release status with
-   the verified implementation and completed gates.
-2. Pass the existing native and final-SIF release gates, publish the validated
-   image tag, and only then complete the merge. Earlier workflow results do not
-   substitute for successful execution of these remaining gates.
+README, help, resource documentation and release status describe the verified
+implementation. The fresh native and final-SIF gates passed on the same source
+revision. The validated image is published as `v1.1`; image identity and the
+complete validation scope are recorded in the [release gate record](release-gates.md).

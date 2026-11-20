@@ -1,6 +1,6 @@
 # Meta2Data minimal QIIME 2 2026.7 Linux x86_64 closure; glibc >=2.28.
 # Exact filtered release constraints validated by Micromamba 2.10.0.
-# Candidate lock: clean installation and workflow validation are pending.
+# Validated by fresh native and final SIF workflows; see docs/validation/2026-11-19/release-gates.md.
 # env.yml sha256: 2360159fc398ada7c9a0fe5e2b2cd6600034ed149b060f9a5ea86dae5d8de59f
 # release constraints sha256: 4bcaffcaeeaeb277d04933aeefbc937850d003e61ffe4acf6a47b3fb86ee6011
 # Regenerate after changes to either source file; see docs/qiime2-2026.7-upgrade.md.

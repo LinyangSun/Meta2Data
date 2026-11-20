@@ -61,7 +61,7 @@ m2d AmpliconTAXA --vsearch --notree -t 8
 
 `Build SIF` 工作流在 GitHub Actions 中先验证原生 Conda 环境，再从 Ubuntu 24.04 安装新的 QIIME 2 2026.7 环境、构建 SIF，并测试镜像内的实际程序。全部通过后才发布到 GitHub Container Registry（GHCR）。工作流只由 `workflow_dispatch` 手动触发，不会因普通提交或 PR 自动运行。
 
-兼容的 GG2 2024.09 和 SILVA 138.1 模型已通过核验并发布；当前升级分支仍需完成原生环境和最终 SIF 验证。具体进度和验证范围见 [QIIME 2 2026.7 升级计划](qiime2-2026.7-upgrade.md)。
+兼容的 GG2 2024.09 和 SILVA 138.1 模型已通过核验并发布。原生环境通过全部 317 项单元测试（零失败、错误或跳过）、14 个 PIP 场景和 5 个 TAXA 场景。最终 SIF 通过 2 个 Illumina PE PIP 场景（DADA2、VSEARCH）和 5 个 TAXA 场景。源码版本、范围及证据见 [最终验证记录](validation/2026-11-19/release-gates.md)。
 
 ### 首次配置
 
@@ -71,18 +71,20 @@ m2d AmpliconTAXA --vsearch --notree -t 8
 
 1. 打开仓库的 **Actions → Build SIF → Run workflow**。
 2. 在 **Use workflow from** 中选择包含待发布代码的分支。工作流打包触发时该分支的提交，不会自动合并其他 PR。
-3. 填写 `output_tag`：尚未使用的新标签，例如 `qiime2026.7-rc1`。不能使用 `latest`。工作流检查目标标签是否存在，已存在则停止，不覆盖旧标签。新构建不再需要 `base_tag`。
+3. 填写 `output_tag`：使用尚未占用的新标签，不能使用 `latest`。工作流检查目标标签是否存在，已存在则停止，不覆盖旧标签。新构建不再需要 `base_tag`。
 4. 点击 **Run workflow**。原生环境验证通过后才开始构建；镜像验证通过后才上传。运行日志和 validation artifacts 保存具体检查结果。
 5. 在运行摘要中查看源码提交、新 SIF 的 SHA-256，以及可直接复制的下载命令。
 
-例如，发布标签为 `qiime2026.7-rc1` 后，在服务器下载为新文件：
+正式版本 `v1.1` 已发布到 [GitHub Packages](https://github.com/LinyangSun/Meta2Data/pkgs/container/meta2data)。在服务器下载为独立文件：
 
 ```bash
-apptainer pull Meta2Data-qiime2026.7-rc1.sif \
-  oras://ghcr.io/linyangsun/meta2data:qiime2026.7-rc1
+apptainer pull Meta2Data-v1.1.sif \
+  oras://ghcr.io/linyangsun/meta2data:v1.1
+
+export M2D_SIF="$(pwd)/Meta2Data-v1.1.sif"
 ```
 
-上面的标签仅为命名示例，不表示该镜像已经发布。更新 `M2D_SIF` 指向新文件后，`m2d` 才会使用新版镜像。
+更新 `M2D_SIF` 指向新文件后，`m2d` 会使用该镜像。
 
 ### 构建范围
 

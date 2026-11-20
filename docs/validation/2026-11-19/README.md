@@ -32,6 +32,11 @@ checks.
 The subsequent [full-reference build checkpoint](classifier-build-audit.md)
 records later model builds, resource diagnosis and current release status.
 
+The [final release gates](release-gates.md) record the completed fresh native
+installation, all-classifier checks, corrected final SIF build and packaged
+workflow validation. Those later results supersede the pending release items
+at the historical checkpoints above.
+
 ## Production and test isolation
 
 The [production/test isolation audit](production-test-isolation.md) traces the

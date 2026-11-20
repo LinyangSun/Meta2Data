@@ -111,9 +111,11 @@ Select a processing method explicitly in PIP: `--dada2` supports Illumina, Ion T
 Choose either Conda or SIF.
 
 The compatible Greengenes2 2024.09 and SILVA 138.1 replacements have passed
-their model audits and are published. Native integration and final SIF
-validation remain pending before this revision is released. See the
-[upgrade validation plan](docs/qiime2-2026.7-upgrade.md).
+their model audits and are published. Fresh native validation passed 317 unit
+tests with no failures, errors or skips, 14 PIP cases and five TAXA cases.
+The final SIF passed two Illumina PE PIP cases (DADA2 and VSEARCH) and five
+TAXA cases. See the [final validation record](docs/validation/2026-11-19/release-gates.md)
+for the tested source, exact scope and evidence.
 
 ### Conda
 
@@ -150,12 +152,15 @@ runtime compatibility.
 
 ### SIF / Apptainer
 
-Use a SIF version that provides the interface documented here. Meta2Data and its dependencies run directly from the image. After installing Apptainer, choose a version from [GitHub Packages](https://github.com/LinyangSun/Meta2Data/pkgs/container/meta2data) and replace `TAG` below with its tag:
+The validated `v1.1` image is published in
+[GitHub Packages](https://github.com/LinyangSun/Meta2Data/pkgs/container/meta2data).
+Install Apptainer, download the image and define the `m2d` shortcut below.
+Meta2Data and its dependencies run directly from the image.
 
 ```bash
-apptainer pull Meta2Data.sif oras://ghcr.io/linyangsun/meta2data:TAG
+apptainer pull Meta2Data-v1.1.sif oras://ghcr.io/linyangsun/meta2data:v1.1
 
-export M2D_SIF="$(pwd)/Meta2Data.sif"
+export M2D_SIF="$(pwd)/Meta2Data-v1.1.sif"
 
 m2d() {
     apptainer exec --cleanenv "$M2D_SIF" Meta2Data "$@"

@@ -1,0 +1,12 @@
+{
+  "checked_utc": "2026-11-20T08:15:29Z",
+  "image": "oras://ghcr.io/linyangsun/meta2data:v1.1",
+  "source_tag": "qiime2026.7-silva144-v1",
+  "source_sha": "b9c9b70c7da9c5c8f0b8d2cad189ce7e4edbc208",
+  "validated_build_run": 44640635399,
+  "manifest_sha256": "e07f288ce27d52fb2aa39271856cd8b43f3df0905039d3aa6aa868c65b6b976b",
+  "sif_sha256": "84f0093b37cb976cab8974195a20149d291994b677c8d37da16431c86d62dce1",
+  "sif_bytes": 2147151872,
+  "anonymous_read_verified": true,
+  "identical_manifest": true
+}
