@@ -10,6 +10,7 @@ on:
         type: string
 
 permissions:
+  actions: read
   contents: read
   packages: write
 
@@ -33,6 +34,7 @@ jobs:
           set -euo pipefail
           [[ "$OUTPUT_TAG" == v1.1 ]]
           curl --fail --silent --show-error --retry 3 \
+            --header "Authorization: Bearer $GHCR_TOKEN" \
             https://api.github.com/repos/LinyangSun/Meta2Data/actions/runs/44640635399 \
             --output source-run.json
           jq -e --arg sha "$SOURCE_SHA" \
