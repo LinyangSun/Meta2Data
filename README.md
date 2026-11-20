@@ -88,6 +88,18 @@ The main fastp link follows the current citation for fastp 1.x. For an older env
 
 </details>
 
+## New features
+
+### 20 November 2026: SILVA 144 support
+
+- **SILVA 144:** AmpliconTAXA now supports the official full-length SILVA 144 classifier. Select it with `--classifier silva-144`.
+
+- **Updated environment and SIF v1.1:** The runtime has been upgraded to **QIIME 2 2026.7.0** and **scikit-learn 1.7.1**, available through both Conda installation and the new **SIF v1.1** image.
+
+- **Compatible GG2 and SILVA 138.1 classifiers:** Full-length Greengenes2 2024.09 and SILVA 138.1 classifiers have been retrained for the updated runtime and are downloaded automatically when needed. The existing `greengenes` and `silva` aliases continue to select GG2 2024.09 and SILVA 138.1, respectively.
+
+See [Installation](#installation) for setup instructions and [Built-in classifiers](#built-in-classifiers) for database options.
+
 ## Workflow
 
 ```text
