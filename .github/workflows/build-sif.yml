@@ -89,7 +89,7 @@ jobs:
             echo
             echo 'Download: `apptainer pull Meta2Data-v1.1.sif oras://ghcr.io/linyangsun/meta2data:v1.1`'
             echo
-            echo "SIF SHA-256: `$SIF_SHA`"
+            printf 'SIF SHA-256: `%s`\n' "$SIF_SHA"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Preserve publication evidence
