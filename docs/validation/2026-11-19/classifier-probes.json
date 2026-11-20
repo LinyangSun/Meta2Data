@@ -1,0 +1,88 @@
+{
+  "work": "/workspaces/meta2data-validation/classifier-probe-ummej1zz",
+  "environment": {
+    "qiime2": "2026.7.0",
+    "q2-feature-classifier": "2026.7.0",
+    "rescript": "2026.7.0",
+    "scikit-learn": "1.7.1",
+    "numpy": "2.4.2",
+    "scipy": "1.17.1",
+    "python": "3.12.13"
+  },
+  "status": "classification_passed_schema_needs_review",
+  "tiny_fit_roundtrip": "passed",
+  "silva144": {
+    "path": "/workspaces/meta2data-validation/results/db/silva-144-full-length-sklearn-1.7.1.qza",
+    "uuid": "b7986601-1851-4fa2-ace5-98bacf660fa3",
+    "bytes": 273598878,
+    "sha256": "e6a6ac57b880c4f9e92baf8c4050483a6deed2615a9c001a7251c01dfe32a047",
+    "query_ids": [
+      "KJ398158.24385.25772",
+      "KJ154973.1.1699",
+      "KJ414978.10926.12863"
+    ],
+    "observed_rank_prefixes": [
+      [
+        "d",
+        "k",
+        "p",
+        "c",
+        "o",
+        "f",
+        "g"
+      ],
+      [
+        "d",
+        "k",
+        "p",
+        "c",
+        "o",
+        "f",
+        "g"
+      ],
+      [
+        "d",
+        "k",
+        "p",
+        "c",
+        "o",
+        "f",
+        "g"
+      ]
+    ],
+    "normal_taxonomy": [
+      {
+        "Feature ID": "KJ398158.24385.25772",
+        "Taxon": "d__Bacteria;k__Pseudomonadati;p__Pseudomonadota;c__Alphaproteobacteria;o__Rickettsiales;f__Mitochondria;g__Incertae_Sedis",
+        "Confidence": "0.9890562789542521"
+      },
+      {
+        "Feature ID": "KJ154973.1.1699",
+        "Taxon": "d__Bacteria;k__Pseudomonadati;p__Pseudomonadota;c__Alphaproteobacteria;o__Rickettsiales;f__Mitochondria;g__Incertae_Sedis",
+        "Confidence": "0.9999999999653824"
+      },
+      {
+        "Feature ID": "KJ414978.10926.12863",
+        "Taxon": "d__Bacteria;k__Pseudomonadati;p__Pseudomonadota;c__Alphaproteobacteria;o__Rickettsiales;f__Mitochondria;g__Incertae_Sedis",
+        "Confidence": "0.9999999999993179"
+      }
+    ],
+    "full_taxonomy": [
+      {
+        "Feature ID": "KJ398158.24385.25772",
+        "Taxon": "d__Bacteria;k__Pseudomonadati;p__Pseudomonadota;c__Alphaproteobacteria;o__Rickettsiales;f__Mitochondria;g__Incertae_Sedis",
+        "Confidence": "0.9890562789542521"
+      },
+      {
+        "Feature ID": "KJ154973.1.1699",
+        "Taxon": "d__Bacteria;k__Pseudomonadati;p__Pseudomonadota;c__Alphaproteobacteria;o__Rickettsiales;f__Mitochondria;g__Incertae_Sedis",
+        "Confidence": "0.9999999999653824"
+      },
+      {
+        "Feature ID": "KJ414978.10926.12863",
+        "Taxon": "d__Bacteria;k__Pseudomonadati;p__Pseudomonadota;c__Alphaproteobacteria;o__Rickettsiales;f__Mitochondria;g__Incertae_Sedis",
+        "Confidence": "0.9999999999993179"
+      }
+    ]
+  }
+}

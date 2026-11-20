@@ -1,0 +1,142 @@
+{
+  "classifier_uuid": "b7986601-1851-4fa2-ace5-98bacf660fa3",
+  "default_confidence": 0.7,
+  "expected_rank_prefixes": [
+    "d__",
+    "k__",
+    "p__",
+    "c__",
+    "o__",
+    "f__",
+    "g__"
+  ],
+  "features": 5,
+  "files": {
+    "orientedRepSeqs.qza": {
+      "bytes": 55195,
+      "mtime_ns": 1795087611100754540,
+      "sha256": "f6d77a27fb778e8917b4987310a4c2cf91121accd70f9a69e70ab61d7d962902",
+      "type": "FeatureData[Sequence]",
+      "uuid": "10ce232d-c773-4835-a12f-ee4769842489"
+    },
+    "orientedTable.qza": {
+      "bytes": 93636,
+      "mtime_ns": 1795087617573754264,
+      "sha256": "799822f9850ec466a7c9775d66f7fecffa4a4cfb9ade20a0a58c06fb891d4896",
+      "type": "FeatureTable[Frequency]",
+      "uuid": "193bed54-9f4a-4fb1-8596-3500a7846a75"
+    },
+    "silva144Taxonomy.qza": {
+      "bytes": 227566,
+      "mtime_ns": 1795087680897751560,
+      "sha256": "e12c04fb1683bf1a0564bee2701582c022794f17f04ca41a9e5403af64a5493a",
+      "type": "FeatureData[Taxonomy]",
+      "uuid": "d294fcf4-346e-4d1e-b38a-c4a39515fa7d"
+    },
+    "tmp/mergedRepSeqs.qza": {
+      "bytes": 37188,
+      "mtime_ns": 1795087460138760987,
+      "sha256": "08dd6d2a2da86e6bf9b9d59626a2b479109c20d305681a0b504460c5faa91786",
+      "type": "FeatureData[Sequence]",
+      "uuid": "7d0f03ea-896c-440d-84ac-ce52b3d6b842"
+    },
+    "tmp/mergedTable.qza": {
+      "bytes": 38474,
+      "mtime_ns": 1795087452852761298,
+      "sha256": "7b6f8bf01aa0ec839aef8ea726e5671431f4178b0a4f7672f24fbb2883431097",
+      "type": "FeatureTable[Frequency]",
+      "uuid": "a7efdfb2-452a-437f-9c86-7d93971e3e5c"
+    },
+    "tmp/mergedTableSummary-feature-frequencies.qza": {
+      "bytes": 60557,
+      "mtime_ns": 1795087467877760656,
+      "sha256": "c0b48edc689e93aebe51f10285852f6509101782089cd3b17b456c466174a5bc",
+      "type": "ImmutableMetadata",
+      "uuid": "e1836c94-4551-49a6-ac11-6fce9d8542ff"
+    },
+    "tmp/mergedTableSummary-sample-frequencies.qza": {
+      "bytes": 60450,
+      "mtime_ns": 1795087467887760656,
+      "sha256": "5efbadae3dbf47994ca86e62c2557dd193c8d19f9223b933fb0f40b03a5d778f",
+      "type": "ImmutableMetadata",
+      "uuid": "012c564a-2f58-4a9d-a522-6b364d42e27f"
+    },
+    "tmp/mergedTableSummary.qzv": {
+      "bytes": 455430,
+      "mtime_ns": 1795087467941760654,
+      "sha256": "f7f9fa4ded90861fa15b08f5832e8993a52d66ad7ef17fb577460c615c8dd51b",
+      "type": "Visualization",
+      "uuid": "829c1ccb-e593-4303-8383-d707acaccf3c"
+    },
+    "tmp/orientedTableSummary-feature-frequencies.qza": {
+      "bytes": 115811,
+      "mtime_ns": 1795087690261751160,
+      "sha256": "bcea1bf3bd927c7f52b12d0e255004cec807567a63788dbcbbd4a2e8a5f08080",
+      "type": "ImmutableMetadata",
+      "uuid": "190052c9-f9bd-449e-8c6d-33eaa1c997da"
+    },
+    "tmp/orientedTableSummary-sample-frequencies.qza": {
+      "bytes": 115694,
+      "mtime_ns": 1795087690286751159,
+      "sha256": "08d5a695428b48846080b0321ffe25e86010b5d0803e23f43fed4d14a2b1f7ff",
+      "type": "ImmutableMetadata",
+      "uuid": "999fa797-4afd-4288-be19-aa970f6c6133"
+    },
+    "tmp/orientedTableSummary.qzv": {
+      "bytes": 510700,
+      "mtime_ns": 1795087690368751155,
+      "sha256": "e96ab88638704e245392e97f894087274280ceec474fb5832e8e1f945ef5737b",
+      "type": "Visualization",
+      "uuid": "04e53f43-a8a6-44ff-aead-663d4f8119b8"
+    },
+    "tmp/unmatchedRepSeqs.qza": {
+      "bytes": 54468,
+      "mtime_ns": 1795087611111754540,
+      "sha256": "0422b8700c469fcaffca53c3b0be75c5d3875cbbeeb850aca36a7c002a7982dd",
+      "type": "FeatureData[Sequence]",
+      "uuid": "58b4c81d-62f1-4e35-90e3-5f92bed94d5e"
+    }
+  },
+  "observed_rank_counts": [
+    4,
+    7
+  ],
+  "requested_classifier": "silva-144",
+  "run_revision": "82d41e0b174ac2934e3c614add80629bb159d2a9",
+  "sample_counts": {
+    "explicitPE_A": 8000,
+    "explicitPE_B": 8000
+  },
+  "scope": "SILVA144 real no-tree run; not the full release gate",
+  "state": {
+    "classifier_id": "silva-144",
+    "confidence": 0.7,
+    "db_label": "silva144",
+    "dependencies": {
+      "merge": "d744856cd77293b9abc50d0d2bb7c3e7548417c669d350bf511778d9cc4faad4",
+      "orient": "e2cf1df9961bc1f85f2d8a4ffa378bced829758e256a5b69f62b38712ec97513",
+      "taxonomy": "9e9abb6d3d8de348cc83e239f16cb56b0905a83eef3d36e0d5a156f8e809f7c3",
+      "tree": "1c67636b1e952c449cf30fc79d5ec056188696604d9c4765d6fc6479a54babb7"
+    },
+    "method": "dada2",
+    "notree": true,
+    "singleV": false,
+    "taxonomy_dependencies": {
+      "silva144": {
+        "classifier": {
+          "mtime_ns": 1795085221583856579,
+          "path": "/workspaces/meta2data-validation/results/db/silva-144-full-length-sklearn-1.7.1.qza",
+          "size": 273598878
+        },
+        "classifier_id": "silva-144",
+        "confidence": 0.7,
+        "fingerprint": "9e9abb6d3d8de348cc83e239f16cb56b0905a83eef3d36e0d5a156f8e809f7c3"
+      }
+    },
+    "tree_mode": "none"
+  },
+  "status": "passed",
+  "taxonomy_uuid": "d294fcf4-346e-4d1e-b38a-c4a39515fa7d",
+  "unassigned_features": 0,
+  "validator_revision": "86dea0b3d5ad3b060588bb5466060138df96d6f3"
+}

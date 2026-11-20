@@ -1,0 +1,37 @@
+test_bad_uuid_and_corrupt_payload_are_not_valid_cache (test_reference_resources.ReferenceTests.test_bad_uuid_and_corrupt_payload_are_not_valid_cache) ... ok
+test_builtin_uuid_and_checksum_both_identify_the_model (test_reference_resources.ReferenceTests.test_builtin_uuid_and_checksum_both_identify_the_model) ... ok
+test_compatible_pinned_bundle_is_reused_without_download (test_reference_resources.ReferenceTests.test_compatible_pinned_bundle_is_reused_without_download) ... Preparing bundled reference: /tmp/tmpxi8ch86z/bundle.qza -> /tmp/tmpxi8ch86z/results/db/silva-138.1-full-length-sklearn-1.7.1.qza
+ok
+test_concurrent_prepare_downloads_once (test_reference_resources.ReferenceTests.test_concurrent_prepare_downloads_once) ... Downloading gg2-sequences to /tmp/tmpe9s1vbgt/results/db/2024.09.backbone.full-length.fna.qza
+ok
+test_corrupt_or_empty_download_is_rejected (test_reference_resources.ReferenceTests.test_corrupt_or_empty_download_is_rejected) ... Downloading gg2-sequences to /tmp/tmpegek39am/results/db/2024.09.backbone.full-length.fna.qza
+Downloading gg2-sequences to /tmp/tmpegek39am/results/db/2024.09.backbone.full-length.fna.qza
+ok
+test_download_failure_does_not_publish_partial_resource (test_reference_resources.ReferenceTests.test_download_failure_does_not_publish_partial_resource) ... Downloading gg2-sequences to /tmp/tmpmx7nyxea/results/db/2024.09.backbone.full-length.fna.qza
+ok
+test_missing_or_incompatible_sklearn_metadata_is_rejected (test_reference_resources.ReferenceTests.test_missing_or_incompatible_sklearn_metadata_is_rejected) ... ok
+test_old_model_cache_is_replaced_only_by_selected_pinned_model (test_reference_resources.ReferenceTests.test_old_model_cache_is_replaced_only_by_selected_pinned_model) ... Replacing invalid reference: /tmp/tmp2psgv2ol/results/db/gg2-2024.09-full-length-sklearn-1.7.1.qza
+Downloading greengenes-classifier to /tmp/tmp2psgv2ol/results/db/gg2-2024.09-full-length-sklearn-1.7.1.qza
+Replacing invalid reference: /tmp/tmp2psgv2ol/results/db/gg2-2024.09-full-length-sklearn-1.7.1.qza
+Downloading greengenes-classifier to /tmp/tmp2psgv2ol/results/db/gg2-2024.09-full-length-sklearn-1.7.1.qza
+Replacing invalid reference: /tmp/tmp2psgv2ol/results/db/silva-138.1-full-length-sklearn-1.7.1.qza
+Downloading silva-classifier to /tmp/tmp2psgv2ol/results/db/silva-138.1-full-length-sklearn-1.7.1.qza
+Replacing invalid reference: /tmp/tmp2psgv2ol/results/db/silva-138.1-full-length-sklearn-1.7.1.qza
+Downloading silva-classifier to /tmp/tmp2psgv2ol/results/db/silva-138.1-full-length-sklearn-1.7.1.qza
+ok
+test_sepp_deployment_reference_is_first_builtin_candidate (test_reference_resources.ReferenceTests.test_sepp_deployment_reference_is_first_builtin_candidate) ... ok
+test_silva144_download_is_checked_before_publishing (test_reference_resources.ReferenceTests.test_silva144_download_is_checked_before_publishing) ... Downloading silva144-classifier to /tmp/tmpg5uvy4ow/results/db/silva-144-full-length-sklearn-1.7.1.qza
+Downloading silva144-classifier to /tmp/tmpg5uvy4ow/results/db/silva-144-full-length-sklearn-1.7.1.qza
+ok
+test_valid_bundle_is_copied_into_working_directory (test_reference_resources.ReferenceTests.test_valid_bundle_is_copied_into_working_directory) ... Preparing bundled reference: /tmp/tmpfjndpgjq/bundle.qza -> /tmp/tmpfjndpgjq/results/db/2024.09.backbone.full-length.fna.qza
+ok
+test_valid_cache_precedes_bundle_and_download (test_reference_resources.ReferenceTests.test_valid_cache_precedes_bundle_and_download) ... ok
+test_wrong_type_cache_is_replaced_and_invalid_bundle_skipped (test_reference_resources.ReferenceTests.test_wrong_type_cache_is_replaced_and_invalid_bundle_skipped) ... Replacing invalid reference: /tmp/tmpz19twm65/results/db/2024.09.backbone.full-length.fna.qza
+Ignoring invalid bundled reference: /tmp/tmpz19twm65/wrong.qza
+Downloading gg2-sequences to /tmp/tmpz19twm65/results/db/2024.09.backbone.full-length.fna.qza
+ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.043s
+
+OK

@@ -1,0 +1,118 @@
+Meta2Data reference classifier notices
+=====================================
+
+These notices accompany Meta2Data-maintained classifier builds for
+Greengenes2 2024.09 and SILVA 138.1. They identify the source databases,
+their redistribution terms, and the changes specified by the build recipe.
+
+Applicable resource filenames:
+  gg2-2024.09-full-length-sklearn-1.7.1.qza
+  silva-138.1-full-length-sklearn-1.7.1.qza
+
+The builds are maintained by the Meta2Data project. Database attribution does
+not imply endorsement by Greengenes2, SILVA, or their contributors.
+
+
+1. Greengenes2 2024.09
+---------------------
+
+Database attribution: Greengenes2 and its contributors.
+Official release: https://ftp.microbio.me/greengenes_release/2024.09/
+Official license: https://ftp.microbio.me/greengenes_release/2024.09/00LICENSE
+Official citation request:
+  https://ftp.microbio.me/greengenes_release/2024.09/00README
+
+Source artifacts:
+  https://ftp.microbio.me/greengenes_release/2024.09/2024.09.backbone.full-length.fna.qza
+  https://ftp.microbio.me/greengenes_release/2024.09/2024.09.backbone.tax.qza
+
+Maintainer build: the official full-length backbone sequences and their
+matching taxonomy are used to retrain a naive Bayes classifier in the
+Meta2Data QIIME 2 2026.7 / scikit-learn 1.7.1 environment. The database version
+and source taxonomy are retained. Exact training parameters and source
+identities are specified in scripts/build_reference_classifiers.py and are
+recorded in the model build manifest.
+
+Please cite the Greengenes2 publication requested by its official README:
+  McDonald D, Jiang Y, Balaban M, et al.
+  Greengenes2 unifies microbial data in a single reference tree.
+  Nature Biotechnology. https://doi.org/10.1038/s41587-023-01845-1
+
+The complete official release license follows. It is reproduced without
+editing its copyright notice, conditions, or disclaimer.
+
+----- BEGIN GREENGENES2 2024.09 00LICENSE -----
+Greengenes2 is licensed under the terms of the Modified BSD License
+(also known as New or Revised BSD), as follows:
+
+Copyright (c) 2022-, Greengenes2 <d3mcdonald@eng.ucsd.edu>
+
+All rights reserved.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of Greengenes2 nor the names of its contributors may be
+      used to endorse or promote products derived from this software without
+      specific prior written permission.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE BIOM FORMAT DEVELOPMENT TEAM BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+----- END GREENGENES2 2024.09 00LICENSE -----
+
+
+2. SILVA 138.1
+-------------
+
+Database attribution: SILVA is the original author of the source database
+and taxonomy used for this classifier.
+Official release: https://www.arb-silva.de/archive/release_138.1
+Source exports: https://www.arb-silva.de/archive/release_138.1/Exports
+Official license notice:
+  https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/LICENSE.txt
+Official citation request:
+  https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/CITATION.txt
+
+The source SILVA database, taxonomy, and downloadable files are licensed
+under Creative Commons Attribution 4.0 International (CC BY 4.0). SILVA
+permits academic and commercial use with attribution and a license link.
+Retain the source attribution and license notice, identify modifications,
+and do not impose restrictions that prevent exercise of the licensed rights.
+
+License: https://creativecommons.org/licenses/by/4.0/
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+The license includes a disclaimer of warranties and limitation of liability.
+
+Changes specified by the Meta2Data maintainer build recipe: SILVA 138.1
+SSURef NR99 sequences and taxonomy files are imported into QIIME 2; taxonomy
+is parsed into fixed ranks from domain to genus with rank propagation and
+without species labels; RNA sequences are converted to DNA; sequences are
+filtered for degenerate bases, homopolymers, and taxon-specific minimum
+lengths; sequences and taxonomy are dereplicated; a full-length uniform
+naive Bayes classifier is trained in the Meta2Data QIIME 2 2026.7 /
+scikit-learn 1.7.1 environment. No primer-specific region is extracted.
+Exact sources and parameters are specified in
+scripts/build_reference_classifiers.py and are recorded in the model build
+manifest. This describes the preparation recipe, not a new SILVA release.
+
+Please cite the publications requested by the SILVA 138.1 CITATION.txt:
+  Quast C, et al. (2013).
+  The SILVA ribosomal RNA gene database project: improved data processing
+  and web-based tools.
+  Nucleic Acids Research 41:D590-D596.
+  https://doi.org/10.1093/nar/gks1219
+
+  Yilmaz P, et al. (2014).
+  The SILVA and "All-species Living Tree Project (LTP)" taxonomic frameworks.
+  Nucleic Acids Research 42:D643-D648.
+  https://doi.org/10.1093/nar/gkt1209

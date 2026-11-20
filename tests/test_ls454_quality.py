@@ -204,6 +204,22 @@ class LS454QualityTests(unittest.TestCase):
         self.assertEqual(json.loads(self.report.read_text())['status'], 'failed')
         self.assertFalse(self.output.exists())
 
+    def test_complete_empty_record_is_filtered_before_estimating_median(self):
+        # Primer trimming can leave a complete zero-length record. The current
+        # minimum-length rule removes it without rejecting the other reads.
+        self.write('sample.fastq', ['', 'C' * 20, 'A' * 400])
+        result = self.run_filter()
+        entry = result['files'][0]
+        self.assertEqual(entry['removed_empty'], 1)
+        self.assertEqual(entry['removed_below_min_length'], 2)
+        self.assertEqual(entry['median_length'], 400)
+        self.assertEqual(entry['min_length'], 200)
+        self.assert_counts(result, input=3, removed_short=2, removed_n=0,
+                           removed_both=0, kept=1)
+        self.assertNotIn('@read_0 ', self.text('sample.fastq'))
+        self.assertNotIn('@read_1 ', self.text('sample.fastq'))
+        self.assertIn('@read_2 ', self.text('sample.fastq'))
+
     def test_malformed_inputs_fail_before_publishing_any_fastq(self):
         valid = self.write('a_valid.fastq', ['A' * 100])
         before = valid.read_bytes()
@@ -215,7 +231,6 @@ class LS454QualityTests(unittest.TestCase):
             'separator': b'@read\nACGT\nminus\nIIII\n',
             'unequal_quality': b'@read\nACGT\n+\nIII\n',
             'missing_quality': b'@read\nACGT\n+\n',
-            'empty_read': b'@read\n\n+\n\n',
             'sequence_space': b'@read\nAC T\n+\nIIII\n',
             'quality_space': b'@read\nACGT\n+\nIII \n',
             'non_ascii': b'@read\nACGT\n+\nIII\xff\n',

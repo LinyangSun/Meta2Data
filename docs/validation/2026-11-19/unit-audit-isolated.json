@@ -1,0 +1,151 @@
+{
+  "env_yml_sha256": "2360159fc398ada7c9a0fe5e2b2cd6600034ed149b060f9a5ea86dae5d8de59f",
+  "environment_lock_sha256": "f0780c28ee08a3c5a95927f42b58f6bfeedc7589e56affdb97ac92c6d2f1b5cd",
+  "finished": "2026-11-19T11:47:52.293525+00:00",
+  "mode": "isolated-unit-and-shell-audit",
+  "prior_parallel_attempt": {
+    "cause_observed": "Three subprocess.TimeoutExpired errors at the existing 30-second bound while real workflows were running",
+    "directory": "/workspaces/meta2data-validation/unit-audit-02",
+    "errors": 3,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 317
+  },
+  "products": {},
+  "python_executable": "/workspaces/meta2data-validation/env-release-frozen/bin/python",
+  "schema_version": 1,
+  "source": "/workspaces/meta2data-validation/audit-source-550d440",
+  "source_revision": "550d440e0b127e84b0b412ebd0884fc36b937064",
+  "started": "2026-11-19T11:47:22.163074+00:00",
+  "status": "passed",
+  "steps": [
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/scripts/AmpliconFunction.sh"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-00.log",
+      "name": "shell-syntax-00",
+      "returncode": 0,
+      "seconds": 0.01
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/scripts/read_counts.sh"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-01.log",
+      "name": "shell-syntax-01",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/scripts/resource_profile.sh"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-02.log",
+      "name": "shell-syntax-02",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/scripts/run.sh"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-03.log",
+      "name": "shell-syntax-03",
+      "returncode": 0,
+      "seconds": 0.01
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/scripts/taxonomy.sh"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-04.log",
+      "name": "shell-syntax-04",
+      "returncode": 0,
+      "seconds": 0.01
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/bin/Meta2Data"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-05.log",
+      "name": "shell-syntax-05",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/bin/Meta2Data-AmpliconPIP"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-06.log",
+      "name": "shell-syntax-06",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/bin/Meta2Data-AmpliconTAXA"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-07.log",
+      "name": "shell-syntax-07",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/workspaces/meta2data-validation/audit-source-550d440/bin/Meta2Data-MetaDL"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/shell-syntax-08.log",
+      "name": "shell-syntax-08",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "/workspaces/meta2data-validation/env-release-frozen/bin/python",
+        "-c",
+        "import json,sys,unittest\nsuite=unittest.defaultTestLoader.discover('tests')\nresult=unittest.TextTestRunner(verbosity=2).run(suite)\nsummary=dict(tests=result.testsRun,failures=len(result.failures),errors=len(result.errors),skipped=result.skipped)\nopen(sys.argv[1],'w').write(json.dumps(summary,indent=2)+'\\n')\nsys.exit(0 if result.wasSuccessful() and not result.skipped else 1)\n",
+        "/workspaces/meta2data-validation/unit-audit-03/unit-tests.json"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/unit-tests.log",
+      "name": "unit-tests",
+      "returncode": 0,
+      "seconds": 29.88
+    },
+    {
+      "command": [
+        "/workspaces/meta2data-validation/audit-source-550d440/bin/Meta2Data",
+        "AmpliconTAXA",
+        "--help"
+      ],
+      "log": "/workspaces/meta2data-validation/unit-audit-03/logs/help-AmpliconTAXA.log",
+      "name": "help-AmpliconTAXA",
+      "returncode": 0,
+      "seconds": 0.05
+    }
+  ],
+  "unit_tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": [],
+    "tests": 317
+  }
+}

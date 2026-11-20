@@ -13,6 +13,11 @@ import zipfile
 
 RESULT = re.compile(r"^(.+)-(dada2|vsearch)-final-(table|rep-seqs)\.qza$")
 EXPECTED_TYPES = {"table": "FeatureTable[Frequency]", "rep_seqs": "FeatureData[Sequence]"}
+CLASSIFIER_IDS = {
+    "gg2": "gg2-2024.09",
+    "silva": "silva-138.1",
+    "silva144": "silva-144",
+}
 
 
 def write_json(path, value):
@@ -190,12 +195,18 @@ def database_signature(path):
 
 
 CACHE_OUTPUTS = {
-    "merge": ["tmp/mergedTable.qza", "tmp/mergedRepSeqs.qza", "tmp/mergedTableSummary.qzv"],
+    "merge": ["tmp/mergedTable.qza", "tmp/mergedRepSeqs.qza", "tmp/mergedTableSummary.qzv",
+              "tmp/mergedTableSummary-feature-frequencies.qza",
+              "tmp/mergedTableSummary-sample-frequencies.qza"],
     "orient": ["orientedTable.qza", "orientedRepSeqs.qza", "tmp/orientedTable.qza",
-               "tmp/orientedRepSeqs.qza", "tmp/orientedTableSummary.qzv", "tmp/unmatchedRepSeqs.qza"],
-    "taxonomy": ["gg2Taxonomy.qza", "silvaTaxonomy.qza"],
+               "tmp/orientedRepSeqs.qza", "tmp/orientedTableSummary.qzv", "tmp/unmatchedRepSeqs.qza",
+               "tmp/orientedTableSummary-feature-frequencies.qza",
+               "tmp/orientedTableSummary-sample-frequencies.qza"],
+    "taxonomy": [f"{label}Taxonomy.qza" for label in CLASSIFIER_IDS],
     "tree": ["seppTree.qza", "tmp/seppPlacements.qza", "treeFilteredTable.qza",
              "treeFilteredRepSeqs.qza", "tmp/treeUnplacedTable.qza", "tmp/treeFilteredTableSummary.qzv",
+             "tmp/treeFilteredTableSummary-feature-frequencies.qza",
+             "tmp/treeFilteredTableSummary-sample-frequencies.qza",
              "tmp/denovoAlignment.qza", "tmp/denovoMaskedAlignment.qza", "tmp/denovoUnrootedTree.qza",
              "denovoRootedTree.qza"],
 }
@@ -217,7 +228,8 @@ def previous_state(path):
             raise ValueError("invalid stage dependencies")
         taxonomy = state.get("taxonomy_dependencies", {})
         if not isinstance(taxonomy, dict) or any(
-                label not in {"gg2", "silva"} or not isinstance(entry, dict) or
+                label not in CLASSIFIER_IDS or not isinstance(entry, dict) or
+                entry.get("classifier_id", CLASSIFIER_IDS[label]) != CLASSIFIER_IDS[label] or
                 not isinstance(entry.get("fingerprint"), str) or
                 re.fullmatch(r"[0-9a-f]{64}", entry["fingerprint"]) is None
                 for label, entry in taxonomy.items()):
@@ -229,12 +241,15 @@ def previous_state(path):
 
 
 def prepare(collection, final_dir, orient_ref, classifier, confidence, single_v=False,
-            sepp_ref=None, db_label="gg2", notree=False):
+            sepp_ref=None, db_label="gg2", notree=False, classifier_id=None):
     if single_v and notree:
         raise ValueError("--single-v and --notree are mutually exclusive")
     tree_mode = "none" if notree else "denovo" if single_v else "sepp"
-    if db_label not in {"gg2", "silva"}:
+    if db_label not in CLASSIFIER_IDS:
         raise ValueError(f"Unknown taxonomy database label: {db_label}")
+    classifier_id = CLASSIFIER_IDS[db_label] if classifier_id is None else classifier_id
+    if classifier_id != CLASSIFIER_IDS[db_label]:
+        raise ValueError(f"Classifier {classifier_id!r} does not match taxonomy label {db_label!r}")
     audit = json.loads(Path(collection).read_text())
     if audit["errors"] or not audit["datasets"]:
         raise ValueError("Cannot prepare TAXA from an unsuccessful collection")
@@ -251,7 +266,8 @@ def prepare(collection, final_dir, orient_ref, classifier, confidence, single_v=
     dependencies = {
         "merge": merge,
         "orient": orient,
-        "taxonomy": fingerprint({"orient": orient, "classifier": classifier_info,
+        "taxonomy": fingerprint({"orient": orient, "classifier_id": classifier_id,
+                                  "classifier": classifier_info,
                                   "confidence": confidence}),
         "tree": fingerprint({"orient": orient, "tree_mode": tree_mode,
                               "reference": database_signature(sepp_ref) if tree_mode == "sepp" else None}),
@@ -261,7 +277,7 @@ def prepare(collection, final_dir, orient_ref, classifier, confidence, single_v=
     previous_dependencies = previous.get("dependencies", {})
     taxonomy_dependencies = previous.get("taxonomy_dependencies", {})
     if previous_dependencies.get("orient") != orient:
-        # Both classifiers depend on the same oriented feature sequences.
+        # Every classifier depends on the same oriented feature sequences.
         for relative in CACHE_OUTPUTS["taxonomy"]:
             (final_dir / relative).unlink(missing_ok=True)
         taxonomy_dependencies = {}
@@ -278,10 +294,12 @@ def prepare(collection, final_dir, orient_ref, classifier, confidence, single_v=
             for relative in outputs:
                 (final_dir / relative).unlink(missing_ok=True)
     taxonomy_dependencies[db_label] = {"fingerprint": dependencies["taxonomy"],
+                                       "classifier_id": classifier_id,
                                        "confidence": confidence, "classifier": classifier_info}
     write_json(final_dir / "collection.json", audit)
     write_json(state_path, {"method": audit["method"], "singleV": single_v,
                             "notree": notree, "tree_mode": tree_mode, "confidence": confidence,
+                            "classifier_id": classifier_id, "db_label": db_label,
                             "dependencies": dependencies,
                             "taxonomy_dependencies": taxonomy_dependencies})
     return invalidated
@@ -300,7 +318,8 @@ def main():
     preparer.add_argument("--orient-ref", required=True)
     preparer.add_argument("--classifier", required=True)
     preparer.add_argument("--confidence", type=float, required=True)
-    preparer.add_argument("--db-label", choices=["gg2", "silva"], default="gg2")
+    preparer.add_argument("--db-label", choices=CLASSIFIER_IDS, default="gg2")
+    preparer.add_argument("--classifier-id", choices=CLASSIFIER_IDS.values())
     tree_options = preparer.add_mutually_exclusive_group()
     tree_options.add_argument("--single-v", action="store_true")
     tree_options.add_argument("--notree", "--no-tree", action="store_true")
@@ -325,7 +344,8 @@ def main():
             print(audit["method"])
         elif args.action == "prepare":
             invalidated = prepare(args.collection, args.final_dir, args.orient_ref, args.classifier,
-                                  args.confidence, args.single_v, args.sepp_ref, args.db_label, args.notree)
+                                  args.confidence, args.single_v, args.sepp_ref, args.db_label,
+                                  args.notree, args.classifier_id)
             if invalidated:
                 print("Recompute affected TAXA steps: " + ", ".join(invalidated))
         else:

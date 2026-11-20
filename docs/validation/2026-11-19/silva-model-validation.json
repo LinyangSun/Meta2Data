@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "environment": {
+    "qiime2": "2026.7.0",
+    "q2-feature-classifier": "2026.7.0",
+    "rescript": "2026.7.0",
+    "scikit-learn": "1.7.1",
+    "numpy": "2.4.2",
+    "scipy": "1.17.1",
+    "python": "3.12.13"
+  },
+  "source_revision": "d0b7a38f28afb1c5e4ca77c3a547dfd33f8eb7b9",
+  "reads": "/workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/orientedRepSeqs.qza",
+  "requested_classifiers": [
+    "silva-138.1"
+  ],
+  "models": [
+    {
+      "classifier_id": "silva-138.1",
+      "status": "passed",
+      "taxonomy_uuid": "b6eaea05-c748-4fe0-a8c4-b3827defe2d3",
+      "classifier_uuid": "7bb8da5e-bc83-4d33-8271-97f3c4028973",
+      "reads_uuid": "10ce232d-c773-4835-a12f-ee4769842489",
+      "confidence": 0.7,
+      "sha256": "81aa6ceef0fda3cef4e988423832eaeb8c134b67f300f5ba07ea3ac01e1da1d1",
+      "training_sequences": 435518,
+      "training_classes": 10572,
+      "all_class_counts_match": true,
+      "reference_reads": "/workspaces/meta2data-validation/classifier-build/silva-138.1-45ed4331f34efbfe/reference_reads.qza",
+      "reference_taxonomy": "/workspaces/meta2data-validation/classifier-build/silva-138.1-45ed4331f34efbfe/reference_taxonomy.qza",
+      "features": 5,
+      "command": [
+        "/workspaces/meta2data-validation/env-release-frozen/bin/qiime",
+        "feature-classifier",
+        "classify-sklearn",
+        "--i-classifier",
+        "/workspaces/meta2data-validation/trained-classifiers/silva-138.1-full-length-sklearn-1.7.1.qza",
+        "--i-reads",
+        "/workspaces/meta2data-validation/taxa-audit-01/results/taxa/final-dada2-notree/orientedRepSeqs.qza",
+        "--p-n-jobs",
+        "1",
+        "--p-read-orientation",
+        "same",
+        "--p-confidence",
+        "0.7",
+        "--o-classification",
+        "/workspaces/meta2data-validation/silva-model-audit-02/silva-138.1-taxonomy.qza"
+      ],
+      "seconds": 29.61
+    }
+  ]
+}

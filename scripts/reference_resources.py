@@ -7,6 +7,8 @@ only the prepared artifact path to stdout; progress and errors go to stderr.
 import argparse
 from dataclasses import dataclass
 import fcntl
+import hashlib
+import json
 import os
 from pathlib import Path
 import shutil
@@ -23,31 +25,56 @@ class Resource:
     filename: str
     semantic_type: str
     url: str
+    classifier_id: str | None = None
+    sklearn_version: str | None = None
+    expected_uuid: str | None = None
+    md5: str | None = None
+    sha256: str | None = None
 
 
 GG2_BASE = "https://ftp.microbio.me/greengenes_release/2024.09/"
+CLASSIFIER_SKLEARN_VERSION = "1.7.1"
+CLASSIFIER_BASE = (
+    "https://github.com/LinyangSun/Meta2Data/releases/download/"
+    "classifiers-2026.7-sklearn-1.7.1-v1/")
+SILVA144_BASE = (
+    "https://www.arb-silva.de/fileadmin/silva_databases/release_144/"
+    "QIIME2/2026.7/SSU/full-length/uniform/")
 RESOURCES = {
     "gg2-sequences": Resource(
         "2024.09.backbone.full-length.fna.qza", "FeatureData[Sequence]",
         GG2_BASE + "2024.09.backbone.full-length.fna.qza"),
     "greengenes-classifier": Resource(
-        "2024.09.backbone.full-length.nb.qza", "TaxonomicClassifier",
-        GG2_BASE + "2024.09.backbone.full-length.nb.qza"),
+        "gg2-2024.09-full-length-sklearn-1.7.1.qza", "TaxonomicClassifier",
+        CLASSIFIER_BASE + "gg2-2024.09-full-length-sklearn-1.7.1.qza",
+        classifier_id="gg2-2024.09", sklearn_version=CLASSIFIER_SKLEARN_VERSION,
+        expected_uuid="b1cd95ec-3416-4183-9286-1f426af96c81",
+        sha256="b68e1d5632fc3b6ee3fd815d176e5e2273b3f41343858b007e374e83f7f5f5f6"),
     "silva-classifier": Resource(
-        "silva-138-99-nb-classifier.qza", "TaxonomicClassifier",
-        "https://data.qiime2.org/classifiers/sklearn-1.4.2/silva/silva-138-99-nb-classifier.qza"),
+        "silva-138.1-full-length-sklearn-1.7.1.qza", "TaxonomicClassifier",
+        CLASSIFIER_BASE + "silva-138.1-full-length-sklearn-1.7.1.qza",
+        classifier_id="silva-138.1", sklearn_version=CLASSIFIER_SKLEARN_VERSION,
+        expected_uuid="7bb8da5e-bc83-4d33-8271-97f3c4028973",
+        sha256="81aa6ceef0fda3cef4e988423832eaeb8c134b67f300f5ba07ea3ac01e1da1d1"),
+    "silva144-classifier": Resource(
+        "silva-144-full-length-sklearn-1.7.1.qza", "TaxonomicClassifier",
+        SILVA144_BASE +
+        "SILVA_144_SSURef_NR99_full-length_prokaryotes_rank-propagation_uniq_genus_uniform_classifier.qza",
+        classifier_id="silva-144", sklearn_version=CLASSIFIER_SKLEARN_VERSION,
+        expected_uuid="b7986601-1851-4fa2-ace5-98bacf660fa3",
+        md5="e16b9bc78dafa2f344563e570bbf25ba"),
     "sepp": Resource(
         "sepp-refs-gg-13-8.qza", "SeppReferenceDatabase",
         "https://data.qiime2.org/classifiers/sepp-ref-dbs/sepp-refs-gg-13-8.qza"),
 }
-
 
 def database_directory(work_dir=None):
     """Resolve the shared cache independently of each module's output directory."""
     return Path(work_dir or Path.cwd()).resolve() / "results" / "db"
 
 
-def validate_artifact(path, semantic_type):
+def validate_artifact(path, semantic_type, *, sklearn_version=None, expected_uuid=None,
+                      require_nonempty_data=True, check_crc=True):
     """Check archive integrity, UUID, semantic type, and a nonempty data payload."""
     with zipfile.ZipFile(path) as archive:
         names = archive.namelist()
@@ -63,19 +90,67 @@ def validate_artifact(path, semantic_type):
         artifact_uuid = str(uuid.UUID(metadata.get("uuid", "")))
         if artifact_uuid != metadata_paths[0].split("/")[0]:
             raise ValueError("artifact UUID does not match archive root")
+        if expected_uuid is not None and artifact_uuid != expected_uuid:
+            raise ValueError(f"expected artifact UUID {expected_uuid}, found {artifact_uuid}")
         if metadata.get("type") != semantic_type:
             raise ValueError(f"expected {semantic_type}, found {metadata.get('type')}")
-        if not any(info.filename.startswith(f"{artifact_uuid}/data/")
-                   and not info.is_dir() and info.file_size > 0 for info in archive.infolist()):
+        data_files = [info for info in archive.infolist()
+                      if info.filename.startswith(f"{artifact_uuid}/data/") and not info.is_dir()]
+        if not data_files or (require_nonempty_data and not any(info.file_size for info in data_files)):
             raise ValueError("artifact contains no nonempty data files")
-        bad_member = archive.testzip()
-        if bad_member:
-            raise ValueError(f"archive integrity check failed: {bad_member}")
+        if semantic_type == "TaxonomicClassifier":
+            version_path = f"{artifact_uuid}/data/sklearn_version.json"
+            try:
+                stored_version = json.loads(archive.read(version_path))["sklearn-version"]
+            except (KeyError, TypeError, json.JSONDecodeError) as error:
+                raise ValueError("classifier is missing valid sklearn_version.json metadata") from error
+            if not isinstance(stored_version, str) or not stored_version:
+                raise ValueError("classifier has no recorded scikit-learn version")
+            if sklearn_version is not None and stored_version != sklearn_version:
+                raise ValueError(
+                    f"classifier requires scikit-learn {stored_version}; "
+                    f"this Meta2Data build requires {sklearn_version}")
+            pipeline = f"{artifact_uuid}/data/sklearn_pipeline.tar"
+            if pipeline not in names or archive.getinfo(pipeline).file_size == 0:
+                raise ValueError("classifier contains no trained model payload")
+        if check_crc:
+            bad_member = archive.testzip()
+            if bad_member:
+                raise ValueError(f"archive integrity check failed: {bad_member}")
 
 
-def valid_artifact(path, semantic_type):
+def valid_artifact(path, semantic_type, **kwargs):
     try:
-        validate_artifact(path, semantic_type)
+        validate_artifact(path, semantic_type, **kwargs)
+        return True
+    except (OSError, ValueError, UnicodeError, zipfile.BadZipFile, RuntimeError, EOFError, zlib.error):
+        return False
+
+
+def file_digest(path, algorithm="sha256"):
+    digest = hashlib.new(algorithm)
+    with Path(path).open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def validate_resource(path, resource):
+    """Validate a fixed built-in model without loading or unpickling it."""
+    # Pinned digests below replace the redundant full-payload CRC pass.
+    validate_artifact(path, resource.semantic_type,
+                      sklearn_version=resource.sklearn_version,
+                      expected_uuid=resource.expected_uuid,
+                      check_crc=resource.md5 is None and resource.sha256 is None)
+    for algorithm in ("md5", "sha256"):
+        expected = getattr(resource, algorithm)
+        if expected is not None and file_digest(path, algorithm) != expected:
+            raise ValueError(f"{algorithm.upper()} checksum does not match the built-in resource")
+
+
+def valid_resource(path, resource):
+    try:
+        validate_resource(path, resource)
         return True
     except (OSError, ValueError, UnicodeError, zipfile.BadZipFile, RuntimeError, EOFError, zlib.error):
         return False
@@ -123,7 +198,7 @@ def prepare_resource(kind, work_dir=None, *, builtin_paths=None, downloader=None
     target = directory / resource.filename
     with (directory / f".{resource.filename}.lock").open("a") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
-        if valid_artifact(target, resource.semantic_type):
+        if valid_resource(target, resource):
             return target
         if target.exists():
             print(f"Replacing invalid reference: {target}", file=sys.stderr)
@@ -133,7 +208,7 @@ def prepare_resource(kind, work_dir=None, *, builtin_paths=None, downloader=None
             candidate = Path(candidate)
             if candidate.resolve() == target.resolve():
                 continue
-            if valid_artifact(candidate, resource.semantic_type):
+            if valid_resource(candidate, resource):
                 source = candidate
                 break
             if candidate.is_file():
@@ -148,7 +223,7 @@ def prepare_resource(kind, work_dir=None, *, builtin_paths=None, downloader=None
             else:
                 print(f"Downloading {kind} to {target}", file=sys.stderr)
                 (downloader or download)(resource.url, staging)
-            validate_artifact(staging, resource.semantic_type)
+            validate_resource(staging, resource)
             os.replace(staging, target)
         except (OSError, ValueError, UnicodeError, zipfile.BadZipFile, RuntimeError,
                 EOFError, zlib.error, subprocess.CalledProcessError) as error:

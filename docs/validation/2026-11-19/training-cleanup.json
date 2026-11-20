@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-19T22:43:00.079695+00:00",
+  "removed_temporary_paths": [
+    "/tmp/meta2data-training-swap.hXFB9Y",
+    "/tmp/meta2data-pyspy.eza4Fx",
+    "/tmp/meta2data-silva-fit-snapshot-01.json",
+    "/tmp/meta2data-silva-fit-snapshot-02.json",
+    "/tmp/meta2data-silva-fit-snapshot-03.json"
+  ],
+  "active_swap": "",
+  "models_and_raw_logs_retained": true
+}

@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/q2cli/commands.py", line 573, in __call__
+    results = self._execute_action(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/q2cli/commands.py", line 645, in _execute_action
+    results = action(**arguments)
+              ^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/rachis/sdk/action.py", line 382, in signature_wrapper
+    return wrapper(*bound.args, **bound.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/rachis/sdk/action.py", line 302, in bound_callable
+    self.signature.transform_and_add_callable_args_to_prov(
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/rachis/core/type/signature.py", line 533, in transform_and_add_callable_args_to_prov
+    self._transform_and_add_input_to_prov(
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/rachis/core/type/signature.py", line 579, in _transform_and_add_input_to_prov
+    transformed_input = _input._view(spec.view_type, recorder)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/rachis/sdk/result.py", line 493, in _view
+    result = transformation(self._archiver.data_dir)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/rachis/core/transform.py", line 70, in transformation
+    new_view = transformer(view)
+               ^^^^^^^^^^^^^^^^^
+  File "/workspaces/meta2data-validation/env-release-frozen/lib/python3.12/site-packages/q2_feature_classifier/_taxonomic_classifier.py", line 59, in _1
+    raise ValueError('The scikit-learn version (%s) used to generate this'
+ValueError: The scikit-learn version (1.4.2) used to generate this artifact does not match the current version of scikit-learn installed (1.7.1). Please retrain your classifier for your current deployment to prevent data-corruption errors.
+
+Plugin error from feature-classifier:
+
+  The scikit-learn version (1.4.2) used to generate this artifact does not match the current version of scikit-learn installed (1.7.1). Please retrain your classifier for your current deployment to prevent data-corruption errors.
+
+See above for debug info.

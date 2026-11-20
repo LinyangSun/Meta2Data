@@ -55,7 +55,7 @@ apptainer exec --cleanenv \
   --env "PATH=$M2D_RUN/fixture-bin:$M2D_CONTAINER_PATH" \
   --env "M2D_TEST_ARCHIVE_MANIFEST=$M2D_FIXTURE/public_fixture.json" \
   --env "M2D_TEST_ARCHIVE_TRACE=$M2D_RUN/archive-trace.jsonl" \
-  --env M2D_TEST_REAL_PYTHON=/opt/conda/envs/qiime2-amplicon-2024.10/bin/python3 \
+  --env M2D_TEST_REAL_PYTHON=/opt/conda/envs/meta2data/bin/python3 \
   "$M2D_SIF" Meta2Data AmpliconPIP \
   --public-m "$M2D_FIXTURE/online_metadata.csv" \
   --public-bioproject-colNAME Bioproject --public-sra-colNAME Run \

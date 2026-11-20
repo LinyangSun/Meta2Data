@@ -40,7 +40,7 @@ Use the references for the steps and database versions used in your run. The cor
 | Primer matching or trimming with Cutadapt | [Cutadapt](https://doi.org/10.14806/ej.17.1.200) |
 | Adapter protection using BLAST and the GG2 reference | [BLAST+](https://doi.org/10.1186/1471-2105-10-421) and [Greengenes2](https://doi.org/10.1038/s41587-023-01845-1) |
 | AmpliconTAXA sequence orientation and taxonomic classification, with either denoising method | [RESCRIPt](https://doi.org/10.1371/journal.pcbi.1009581), [VSEARCH](https://doi.org/10.7717/peerj.2584), [q2-feature-classifier](https://doi.org/10.1186/s40168-018-0470-z), and [Greengenes2](https://doi.org/10.1038/s41587-023-01845-1) |
-| SILVA 138 classifier (`--classifier silva`) | [SILVA (Chuvochina et al., 2026)](https://doi.org/10.1093/nar/gkaf1247) |
+| SILVA classifier (`--classifier silva-138.1` or `--classifier silva-144`) | [SILVA (Chuvochina et al., 2026)](https://doi.org/10.1093/nar/gkaf1247) |
 | Default SEPP tree construction | [SEPP](https://doi.org/10.1142/9789814366496_0024), [q2-fragment-insertion](https://doi.org/10.1128/mSystems.00021-18), and the Greengenes 13_8 reference: [DeSantis et al. (2006)](https://doi.org/10.1128/AEM.03006-05) and [McDonald et al. (2012)](https://doi.org/10.1038/ismej.2011.139) |
 | De novo tree construction with `--singleV` | [MAFFT](https://doi.org/10.1093/molbev/mst010) and [FastTree](https://doi.org/10.1371/journal.pone.0009490) |
 | Full-length PacBio CCS processing with DADA2 `denoise-ccs` | [Callahan et al. (2019)](https://doi.org/10.1093/nar/gkz569), in addition to the DADA2 reference above |
@@ -49,7 +49,7 @@ Use the references for the steps and database versions used in your run. The cor
 
 AmpliconTAXA uses RESCRIPt and VSEARCH to orient sequences against Greengenes2 even when the SILVA classifier is selected. The Greengenes 13_8 reference used by SEPP is a separate resource from Greengenes2. With `--notree`, no tree-construction references are needed.
 
-The SILVA reference follows the database's [current citation guidance](https://www.arb-silva.de/contact/citation); the classifier used here remains SILVA 138.
+The SILVA reference follows the database's [current citation guidance](https://www.arb-silva.de/contact/citation). Report the database release selected in your run. The legacy `silva` option refers to SILVA 138.1: the original official file was named `silva-138-99-nb-classifier.qza`, but its embedded training provenance identifies release 138.1.
 
 ### Core software references
 
@@ -110,39 +110,78 @@ Select a processing method explicitly in PIP: `--dada2` supports Illumina, Ion T
 
 Choose either Conda or SIF.
 
+The compatible Greengenes2 2024.09 and SILVA 138.1 replacements have passed
+their model audits and are published. Fresh native validation passed 317 unit
+tests with no failures, errors or skips, 14 PIP cases and five TAXA cases.
+The final SIF passed two Illumina PE PIP cases (DADA2 and VSEARCH) and five
+TAXA cases. See the [final validation record](docs/validation/2026-11-19/release-gates.md)
+for the tested source, exact scope and evidence.
+
 ### Conda
 
 ```bash
 export M2D_ROOT=/absolute/path/to/Meta2Data  # Source directory
-conda env create -n meta2data -f "$M2D_ROOT/env.yml"
-conda activate meta2data
+export M2D_ENV=/absolute/path/to/meta2data-2026.7  # New environment directory
+python3 "$M2D_ROOT/scripts/create_conda_environment.py" --prefix "$M2D_ENV"
+conda activate "$M2D_ENV"
 export PATH="$M2D_ROOT/bin:$PATH"
 Meta2Data --help
 ```
 
-`env.yml` includes QIIME 2 2024.10 and the pipeline dependencies.
+`env.yml` lists the direct requirements for Linux x86_64 with glibc 2.28 or
+newer: QIIME 2 2026.7.0, the eight plugins Meta2Data uses, scikit-learn 1.7.1,
+and the pipeline's Python modules and command-line tools.
+`environment-constraints-linux-64.txt` retains the official release dependency
+versions and their resolved builds; `environment-linux-64.lock`
+records their archives and checksums. Unused plugins such as `q2-fondue` are
+excluded. The same files are used for Conda and the fresh SIF.
+Create a separate environment when upgrading. Classifier models built with
+scikit-learn 1.4.2 cannot be reused in this environment.
+
+The installer requires Conda with the libmamba solver. It checks that the lock
+matches `env.yml` and every release constraint, installs the exact package archives with SHA256 checksums,
+and excludes configured extra channels and default packages. This also avoids the
+[Conda 26.7–26.9 `nodefaults` regression](https://github.com/conda/conda/issues/16816).
+It does not change your Conda configuration or replace an existing environment.
+It then installs the checksum-pinned official NCBI SRA Toolkit 3.4.1 under the
+new environment and exposes `prefetch` and `fasterq-dump` there. A provenance
+record is retained with that component. Use `--conda /path/to/conda` if Conda is
+not on PATH; `--dry-run` checks the lock and Conda command without downloading
+or installing either component. A dry run does not verify file ownership or
+runtime compatibility.
 
 ### SIF / Apptainer
 
-Use a SIF version that provides the interface documented here. Meta2Data and its dependencies run directly from the image. After installing Apptainer, choose a version from [GitHub Packages](https://github.com/LinyangSun/Meta2Data/pkgs/container/meta2data) and replace `TAG` below with its tag:
+The validated `v1.1` image is published in
+[GitHub Packages](https://github.com/LinyangSun/Meta2Data/pkgs/container/meta2data).
+Install Apptainer, download the image and define the `m2d` shortcut below.
+Meta2Data and its dependencies run directly from the image.
 
 ```bash
-apptainer pull Meta2Data.sif oras://ghcr.io/linyangsun/meta2data:<version>
+apptainer pull Meta2Data-v1.1.sif oras://ghcr.io/linyangsun/meta2data:v1.1
 
-apptainer exec --cleanenv Meta2Data.sif Meta2Data --help
+export M2D_SIF="$(pwd)/Meta2Data-v1.1.sif"
+
+m2d() {
+    apptainer exec --cleanenv "$M2D_SIF" Meta2Data "$@"
+}
+
+m2d --help
 ```
 
-apptainer exec --cleanenv Meta2Data.sif \
-    Meta2Data AmpliconPIP \
-    --public-m <metadata.csv> \
+```bash
+m2d AmpliconPIP \
+    --public-m metadata.csv \
     --public-bioproject-colNAME Bioproject \
     --public-sra-colNAME Run \
     --vsearch \
-    --threads <n_threads> \
-    --max-parallel <n_parallel>
+    --threads 8 \
+    --max-parallel 2
 ```
 
 Run commands from your working directory; PIP and TAXA write to its `results/` directory. Set the image path and define the `m2d` function again in each new terminal.
+
+For SIF, replace the leading `Meta2Data` with `m2d` in the examples below.
 
 
 ## Preparing your analysis
@@ -523,7 +562,7 @@ Meta2Data AmpliconTAXA --dada2 --classifier greengenes -t 8
 |---|---|
 | `-i, --input DIR` | Recursively search this directory; defaults to `results/pip` under the launch directory |
 | `--dada2` / `--vsearch` | Mutually exclusive; must match PIP. Detected automatically if only one method is present; select explicitly when both are present |
-| `--classifier greengenes / silva` | Classifier; defaults to `greengenes` and downloads automatically if missing |
+| `--classifier NAME` | Built-in classifier: `gg2-2024.09`, `silva-138.1`, or `silva-144`; legacy aliases `greengenes` and `silva` are retained. Default: GG2 2024.09 |
 | `--singleV` | For data from the same amplified region: align sequences and build a tree de novo |
 | `--notree` / `--no-tree` | Merge, orient, and classify without building a tree |
 | `--confidence FLOAT` | Classification confidence; default `0.7`, range `0–1` |
@@ -533,12 +572,47 @@ Meta2Data AmpliconTAXA --dada2 --classifier greengenes -t 8
 
 All modes orient sequences against the GG2 sequence reference and remove features that cannot be oriented from both the representative sequences and feature table. The default SEPP workflow also removes features that cannot be inserted into the tree. `--singleV` and `--notree` are mutually exclusive, and neither requires the SEPP reference. `--notree` skips tree construction and tree-insertion filtering only. Classifier selection is independent of the tree method; resources are prepared automatically in `results/db/`.
 
+### Built-in classifiers
+
+| Database release | Explicit selection | Legacy alias | Taxonomy output |
+|---|---|---|---|
+| Greengenes2 2024.09 | `--classifier gg2-2024.09` (default) | `--classifier greengenes` | `gg2Taxonomy.qza` |
+| SILVA 138.1 | `--classifier silva-138.1` | `--classifier silva` | `silvaTaxonomy.qza` |
+| SILVA 144 | `--classifier silva-144` | None | `silva144Taxonomy.qza` |
+
+All three choices use full-length reference classifiers built with scikit-learn 1.7.1.
+The selected model is prepared automatically in `results/db/`, reusing a valid
+cache or bundle and downloading from a fixed release URL when needed.
+Conda and SIF builds use the same resource definitions.
+
+Input classifier files are cached in `results/db/`. These model artifacts are
+separate from the taxonomy output artifacts listed above:
+
+| Canonical classifier | Input model filename in `results/db/` |
+|---|---|
+| `gg2-2024.09` | `gg2-2024.09-full-length-sklearn-1.7.1.qza` |
+| `silva-138.1` | `silva-138.1-full-length-sklearn-1.7.1.qza` |
+| `silva-144` | `silva-144-full-length-sklearn-1.7.1.qza` |
+
+The `silva` alias remains tied to 138.1; it does not select the latest SILVA
+release. Classifier choice is a command-line option, not a JSON parameter or a
+path to a user-supplied `.qza` file. The selected database identity is recorded in
+the TAXA state. Classifier builds have separate cache filenames, so older
+scikit-learn 1.4.2 files cannot be mistaken for the replacement models.
+Before reusing a taxonomy result, Meta2Data checks its recorded classifier UUID,
+input-sequence UUID, and confidence. A valid archive with mismatched provenance
+is recomputed even when its filename and saved run state appear correct.
+
+Taxonomy strings are preserved as produced by the selected classifier. Meta2Data
+does not infer ranks from fixed field positions. When using downstream tools,
+check the selected classifier's rank scheme before choosing a numeric level.
+
 If the recorded state identifies results from an input source that has since been replaced, TAXA reports an error and preserves the files. Rerun PIP with that method first. External results without a state record can still be imported.
 
-To classify with SILVA without building a tree:
+To classify with SILVA 144 without building a tree:
 
 ```bash
-Meta2Data AmpliconTAXA --dada2 --classifier silva --notree -t 8
+Meta2Data AmpliconTAXA --dada2 --classifier silva-144 --notree -t 8
 ```
 
 Results are saved in `results/taxa/final-<method>-<multiV|singleV|notree>/`:
@@ -548,7 +622,7 @@ Results are saved in `results/taxa/final-<method>-<multiV|singleV|notree>/`:
 | Default, multiple regions | `treeFilteredTable.qza`, `treeFilteredRepSeqs.qza`, `seppTree.qza` |
 | `--singleV` | `orientedTable.qza`, `orientedRepSeqs.qza`, `denovoRootedTree.qza` |
 | `--notree` | `orientedTable.qza`, `orientedRepSeqs.qza` |
-| All workflows | `gg2Taxonomy.qza` or `silvaTaxonomy.qza`, `taxa_read_counts.csv`, `taxa_read_losses.csv`, configuration and input records |
+| All workflows | Selected `gg2Taxonomy.qza`, `silvaTaxonomy.qza`, or `silva144Taxonomy.qza`; `taxa_read_counts.csv`, `taxa_read_losses.csv`, configuration and input records |
 
 ## Test datasets
 

@@ -1,0 +1,31 @@
+test_bundled_resources_prepare_automatically_without_download_flags (test_taxa_cli.TaxaCliTests.test_bundled_resources_prepare_automatically_without_download_flags) ... ok
+test_default_classifier_and_default_tree_use_shared_cache (test_taxa_cli.TaxaCliTests.test_default_classifier_and_default_tree_use_shared_cache) ... ok
+test_explicit_input_does_not_change_fixed_output (test_taxa_cli.TaxaCliTests.test_explicit_input_does_not_change_fixed_output) ... ok
+test_invalid_input_fails_before_preparing_references (test_taxa_cli.TaxaCliTests.test_invalid_input_fails_before_preparing_references) ... ok
+test_invalid_or_missing_classifier_fails_before_preparation (test_taxa_cli.TaxaCliTests.test_invalid_or_missing_classifier_fails_before_preparation) ... ok
+test_missing_default_input_fails_before_output_or_download (test_taxa_cli.TaxaCliTests.test_missing_default_input_fails_before_output_or_download) ... ok
+test_no_paths_uses_project_input_and_output_defaults (test_taxa_cli.TaxaCliTests.test_no_paths_uses_project_input_and_output_defaults) ... ok
+test_notree_and_single_region_do_not_prepare_sepp (test_taxa_cli.TaxaCliTests.test_notree_and_single_region_do_not_prepare_sepp) ... ok
+test_physical_launch_directory_anchors_output_and_references (test_taxa_cli.TaxaCliTests.test_physical_launch_directory_anchors_output_and_references) ... ok
+test_removed_flags_have_migration_message (test_taxa_cli.TaxaCliTests.test_removed_flags_have_migration_message) ... ok
+test_removed_output_flags_fail_before_any_output_or_reference_writes (test_taxa_cli.TaxaCliTests.test_removed_output_flags_fail_before_any_output_or_reference_writes) ... ok
+test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource (test_taxa_cli.TaxaCliTests.test_versioned_classifiers_and_legacy_aliases_select_the_expected_resource) ... ok
+test_classifier_replacement_invalidates_only_its_taxonomy (test_taxa_cli.TaxaStateRecoveryTests.test_classifier_replacement_invalidates_only_its_taxonomy) ... ok
+test_corrupt_state_recomputes_owned_outputs_and_preserves_other_files (test_taxa_cli.TaxaStateRecoveryTests.test_corrupt_state_recomputes_owned_outputs_and_preserves_other_files) ... Invalid TAXA state /tmp/tmpcy2rp5r5/taxa/taxa-run-state.json: Expecting value: line 1 column 17 (char 16); recomputing managed outputs.
+Invalid TAXA state /tmp/tmpcy2rp5r5/taxa/taxa-run-state.json: state is not an object; recomputing managed outputs.
+Invalid TAXA state /tmp/tmpcy2rp5r5/taxa/taxa-run-state.json: invalid stage dependencies; recomputing managed outputs.
+Invalid TAXA state /tmp/tmpcy2rp5r5/taxa/taxa-run-state.json: invalid classifier dependencies; recomputing managed outputs.
+ok
+test_database_versions_cache_independently_and_keep_shared_stages (test_taxa_cli.TaxaStateRecoveryTests.test_database_versions_cache_independently_and_keep_shared_stages) ... ok
+test_external_artifacts_without_pipeline_state_remain_accepted (test_taxa_cli.TaxaStateRecoveryTests.test_external_artifacts_without_pipeline_state_remain_accepted) ... ok
+test_failed_json_publication_keeps_previous_complete_state (test_taxa_cli.TaxaStateRecoveryTests.test_failed_json_publication_keeps_previous_complete_state) ... ok
+test_legacy_state_without_classifier_id_recomputes_only_taxonomy (test_taxa_cli.TaxaStateRecoveryTests.test_legacy_state_without_classifier_id_recomputes_only_taxonomy) ... ok
+test_mismatched_classifier_identity_and_output_label_are_rejected (test_taxa_cli.TaxaStateRecoveryTests.test_mismatched_classifier_identity_and_output_label_are_rejected) ... ok
+test_orientation_change_invalidates_every_database_taxonomy (test_taxa_cli.TaxaStateRecoveryTests.test_orientation_change_invalidates_every_database_taxonomy) ... ok
+test_source_change_rejects_other_method_without_deleting_artifacts (test_taxa_cli.TaxaStateRecoveryTests.test_source_change_rejects_other_method_without_deleting_artifacts) ... ok
+test_valid_unchanged_state_preserves_cached_outputs (test_taxa_cli.TaxaStateRecoveryTests.test_valid_unchanged_state_preserves_cached_outputs) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 5.525s
+
+OK

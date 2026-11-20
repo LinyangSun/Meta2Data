@@ -129,7 +129,17 @@ PacBio 最短长度不得大于最长长度。`quality_trim_score` 只用于 Ill
 | `taxa.singleV` | `false` | 使用单一区域 MAFFT/FastTree 从头建树；命令行对应 `--singleV` | 布尔值 |
 | `taxa.notree` | `false` | 跳过建树及树相关过滤；命令行对应 `--notree` / `--no-tree` | 布尔值 |
 
-`singleV` 和 `notree` 不能同时为 `true`；两者均为 `false` 时使用 SEPP 插入建树。分类器种类仍通过命令行 `--classifier greengenes` 或 `--classifier silva` 选择。
+`singleV` 和 `notree` 不能同时为 `true`；两者均为 `false` 时使用 SEPP 插入建树。分类器通过命令行选择，不在 JSON 中设置：
+
+| 参数 | 数据库版本 | 旧参数别名 |
+|---|---|---|
+| `--classifier gg2-2024.09`（默认） | Greengenes2 2024.09 | `--classifier greengenes` |
+| `--classifier silva-138.1` | SILVA 138.1 | `--classifier silva` |
+| `--classifier silva-144` | SILVA 144 | 无 |
+
+旧 SILVA 分类器虽然命名为 `silva-138-99-nb-classifier.qza`，其内部训练记录使用的是 SILVA 138.1。`silva` 别名保持这个版本，不随新数据库发布而改变。新环境为 QIIME 2 2026.7.0 / scikit-learn 1.7.1，要求内置分类器与该环境匹配。
+
+三种内置分类器均支持自动准备：所选模型缓存到 `results/db/`，优先复用有效缓存或内置资源，缺失时从固定版本地址下载。Conda 与 SIF 构建使用相同的资源定义。输入模型文件名与分类结果文件名见 [共享参考资源](amplicon_pipeline.md#shared-references)，兼容性检查的范围与结果见 [最终验证记录](validation/2026-11-19/release-gates.md)。
 
 **配置示例**
 

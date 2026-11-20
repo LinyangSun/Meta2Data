@@ -1,0 +1,1007 @@
+{
+  "binaries": {
+    "bash": "/usr/bin/bash",
+    "blastn": "/home/runner/work/_temp/meta2data-env/bin/blastn",
+    "chopper": "/home/runner/work/_temp/meta2data-env/bin/chopper",
+    "curl": "/home/runner/work/_temp/meta2data-env/bin/curl",
+    "cutadapt": "/home/runner/work/_temp/meta2data-env/bin/cutadapt",
+    "fasterq-dump": "/home/runner/work/_temp/meta2data-env/bin/fasterq-dump",
+    "fastp": "/home/runner/work/_temp/meta2data-env/bin/fastp",
+    "gzip": "/usr/bin/gzip",
+    "makeblastdb": "/home/runner/work/_temp/meta2data-env/bin/makeblastdb",
+    "minimap2": "/home/runner/work/_temp/meta2data-env/bin/minimap2",
+    "prefetch": "/home/runner/work/_temp/meta2data-env/bin/prefetch",
+    "python": "/home/runner/work/_temp/meta2data-env/bin/python",
+    "python3": "/home/runner/work/_temp/meta2data-env/bin/python3",
+    "qiime": "/home/runner/work/_temp/meta2data-env/bin/qiime",
+    "racon": "/home/runner/work/_temp/meta2data-env/bin/racon",
+    "samtools": "/home/runner/work/_temp/meta2data-env/bin/samtools",
+    "unzip": "/home/runner/work/_temp/meta2data-env/bin/unzip",
+    "vsearch": "/home/runner/work/_temp/meta2data-env/bin/vsearch",
+    "wget": "/home/runner/work/_temp/meta2data-env/bin/wget"
+  },
+  "env_yml_sha256": "2360159fc398ada7c9a0fe5e2b2cd6600034ed149b060f9a5ea86dae5d8de59f",
+  "environment_lock_sha256": "f0780c28ee08a3c5a95927f42b58f6bfeedc7589e56affdb97ac92c6d2f1b5cd",
+  "finished": "2026-11-19T23:35:27.852543+00:00",
+  "mode": "full",
+  "products": {
+    "pip-dada2/results/pip/ion/ion-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ion_A": 8000,
+        "ion_B": 8000
+      }
+    },
+    "pip-dada2/results/pip/pacbio/pacbio-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ccs_A": 2000,
+        "ccs_B": 2000
+      }
+    },
+    "pip-dada2/results/pip/pe_auto/pe_auto-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "autoPE_A": 8000,
+        "autoPE_B": 8000
+      }
+    },
+    "pip-dada2/results/pip/pe_explicit/pe_explicit-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitPE_A": 8000,
+        "explicitPE_B": 8000
+      }
+    },
+    "pip-dada2/results/pip/se_auto/se_auto-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "autoSE_A": 8000,
+        "autoSE_B": 8000
+      }
+    },
+    "pip-dada2/results/pip/se_explicit/se_explicit-dada2-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitSE_A": 8000,
+        "explicitSE_B": 8000
+      }
+    },
+    "pip-vsearch/results/pip/ion/ion-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ion_A": 8000,
+        "ion_B": 8000
+      }
+    },
+    "pip-vsearch/results/pip/ls454/ls454-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ls454_A": 8000,
+        "ls454_B": 8000
+      }
+    },
+    "pip-vsearch/results/pip/ont/ont-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ont_A": 2000,
+        "ont_B": 2000
+      }
+    },
+    "pip-vsearch/results/pip/pacbio/pacbio-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "ccs_A": 2000,
+        "ccs_B": 2000
+      }
+    },
+    "pip-vsearch/results/pip/pe_auto/pe_auto-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "autoPE_A": 7996,
+        "autoPE_B": 7997
+      }
+    },
+    "pip-vsearch/results/pip/pe_explicit/pe_explicit-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitPE_A": 7994,
+        "explicitPE_B": 7998
+      }
+    },
+    "pip-vsearch/results/pip/se_auto/se_auto-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "autoSE_A": 8000,
+        "autoSE_B": 8000
+      }
+    },
+    "pip-vsearch/results/pip/se_explicit/se_explicit-vsearch-final-table.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitSE_A": 8000,
+        "explicitSE_B": 8000
+      }
+    },
+    "taxa-gg2-2024.09-notree/results/taxa/final-dada2-notree/gg2Taxonomy.qza": {
+      "classifier_uuid": "b1cd95ec-3416-4183-9286-1f426af96c81",
+      "features": 25,
+      "observed_rank_counts": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "requested_classifier": "gg2-2024.09",
+      "taxonomy_uuid": "817f6689-e26d-4272-b5d3-0f6f11641fe6"
+    },
+    "taxa-gg2-2024.09-notree/results/taxa/final-dada2-notree/orientedTable.qza": {
+      "features": 25,
+      "sample_counts": {
+        "autoPE_A": 8000,
+        "autoPE_B": 8000,
+        "autoSE_A": 8000,
+        "autoSE_B": 8000,
+        "ccs_A": 2000,
+        "ccs_B": 2000,
+        "explicitPE_A": 8000,
+        "explicitPE_B": 8000,
+        "explicitSE_A": 8000,
+        "explicitSE_B": 8000,
+        "ion_A": 8000,
+        "ion_B": 8000
+      }
+    },
+    "taxa-gg2-2024.09-sepp/results/taxa/final-vsearch-multiV/gg2Taxonomy.qza": {
+      "classifier_uuid": "b1cd95ec-3416-4183-9286-1f426af96c81",
+      "features": 5,
+      "observed_rank_counts": [
+        3,
+        5,
+        7
+      ],
+      "requested_classifier": "gg2-2024.09",
+      "taxonomy_uuid": "5d3443fe-4c0d-4b7c-9e3a-0cc9d113fa8f"
+    },
+    "taxa-gg2-2024.09-sepp/results/taxa/final-vsearch-multiV/treeFilteredTable.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitPE_A": 7994,
+        "explicitPE_B": 7998
+      }
+    },
+    "taxa-gg2-2024.09-singleV/results/taxa/final-vsearch-singleV/gg2Taxonomy.qza": {
+      "classifier_uuid": "b1cd95ec-3416-4183-9286-1f426af96c81",
+      "features": 5,
+      "observed_rank_counts": [
+        3,
+        5,
+        7
+      ],
+      "requested_classifier": "gg2-2024.09",
+      "taxonomy_uuid": "693d9c1f-e726-47c0-a93f-16f66b2e3210"
+    },
+    "taxa-gg2-2024.09-singleV/results/taxa/final-vsearch-singleV/orientedTable.qza": {
+      "features": 5,
+      "sample_counts": {
+        "explicitPE_A": 7994,
+        "explicitPE_B": 7998
+      }
+    },
+    "taxa-silva-138.1-notree/results/taxa/final-dada2-notree/orientedTable.qza": {
+      "features": 25,
+      "sample_counts": {
+        "autoPE_A": 8000,
+        "autoPE_B": 8000,
+        "autoSE_A": 8000,
+        "autoSE_B": 8000,
+        "ccs_A": 2000,
+        "ccs_B": 2000,
+        "explicitPE_A": 8000,
+        "explicitPE_B": 8000,
+        "explicitSE_A": 8000,
+        "explicitSE_B": 8000,
+        "ion_A": 8000,
+        "ion_B": 8000
+      }
+    },
+    "taxa-silva-138.1-notree/results/taxa/final-dada2-notree/silvaTaxonomy.qza": {
+      "classifier_uuid": "7bb8da5e-bc83-4d33-8271-97f3c4028973",
+      "features": 25,
+      "observed_rank_counts": [
+        1,
+        7
+      ],
+      "requested_classifier": "silva-138.1",
+      "taxonomy_uuid": "d6cd5e81-57cb-4d2c-8a15-cc601bd092d8"
+    },
+    "taxa-silva-144-notree/results/taxa/final-dada2-notree/orientedTable.qza": {
+      "features": 25,
+      "sample_counts": {
+        "autoPE_A": 8000,
+        "autoPE_B": 8000,
+        "autoSE_A": 8000,
+        "autoSE_B": 8000,
+        "ccs_A": 2000,
+        "ccs_B": 2000,
+        "explicitPE_A": 8000,
+        "explicitPE_B": 8000,
+        "explicitSE_A": 8000,
+        "explicitSE_B": 8000,
+        "ion_A": 8000,
+        "ion_B": 8000
+      }
+    },
+    "taxa-silva-144-notree/results/taxa/final-dada2-notree/silva144Taxonomy.qza": {
+      "classifier_uuid": "b7986601-1851-4fa2-ace5-98bacf660fa3",
+      "expected_rank_prefixes": [
+        "d__",
+        "k__",
+        "p__",
+        "c__",
+        "o__",
+        "f__",
+        "g__"
+      ],
+      "features": 25,
+      "observed_rank_counts": [
+        4,
+        5,
+        7
+      ],
+      "requested_classifier": "silva-144",
+      "taxonomy_uuid": "83e3e1db-cab2-433b-946f-bb3264d10fa6",
+      "unassigned_features": 0
+    }
+  },
+  "python_executable": "/home/runner/work/_temp/meta2data-env/bin/python",
+  "references": {
+    "gg2-sequences": "/home/runner/work/_temp/native-validation/references/results/db/2024.09.backbone.full-length.fna.qza",
+    "greengenes-classifier": "/home/runner/work/_temp/native-validation/references/results/db/gg2-2024.09-full-length-sklearn-1.7.1.qza",
+    "sepp": "/home/runner/work/_temp/native-validation/references/results/db/sepp-refs-gg-13-8.qza",
+    "silva-classifier": "/home/runner/work/_temp/native-validation/references/results/db/silva-138.1-full-length-sklearn-1.7.1.qza",
+    "silva144-classifier": "/home/runner/work/_temp/native-validation/references/results/db/silva-144-full-length-sklearn-1.7.1.qza"
+  },
+  "schema_version": 1,
+  "source": "/home/runner/work/Meta2Data/Meta2Data",
+  "sra_toolkit": {
+    "archive": {
+      "bytes": 89143374,
+      "md5": "3758b10c272969852e6fd827739eb93b",
+      "sha256": "f4850a32975596ca0755d928b166ecb0095918284ea992fba10f1acb3fcff64d",
+      "url": "https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.4.1/sratoolkit.3.4.1-alma_linux64.tar.gz"
+    },
+    "installed_utc": "2026-11-19T22:58:23.403565+00:00",
+    "payload_sha256": {
+      "CHANGES": "43a8b57ce39f38739999300494d5d60d070f25c0e8401fb71c8b4f1d5c96ed5f",
+      "README-blastn": "d926ebd1942494b467de0e957d7633f4707ed5d61b03ca077b642bac7b68ee8d",
+      "README-vdb-config": "f9b9ce77a78499f439ee867537df7287d42baed7eb16f00e90cf36376eed13b6",
+      "README.md": "e608d92bc85762a6527b06831e22825a028893baccccad9bf27b1bab7ed2a76a",
+      "bin/abi-dump.3.4.1": "10e988d85b3054ee9170a74b0d8f60cbd5cf6f45aa5818175df7c875a386e91c",
+      "bin/abi-load.3.4.1": "9344680648cebdf615d76fc95090d14776939fea8f97e71f58d835f41515c4ba",
+      "bin/align-info.3.4.1": "a0cebfd13b54ac3723948256ef2a5da0313a21477dac1662cc6ac2fc674658a6",
+      "bin/bam-load.3.4.1": "c8a79f8d7bf5f399e47c17b1829637021951abc0916522f0d687adb6814367d2",
+      "bin/cg-load.3.4.1": "e6ccfffad2216b62efc7f547e31b067d14ebadc9b775bd60ba8ad94d6810a8d0",
+      "bin/fasterq-dump-orig.3.4.1": "b3a4dcd4078c1867bc980fecde4333efadd435e5867d7a834cd3b0a40c419d9f",
+      "bin/fastq-dump-orig.3.4.1": "1c83168426232e4a5dfab69e52c6a650195741d69bdd2de23e95c649d65e754b",
+      "bin/fastq-load.3.4.1": "4b5fe5926f576c8d5eb67186588e89055ea7774ab4ab5f4a1dbc2b510dd94d09",
+      "bin/helicos-load.3.4.1": "7ea383892dc2bca92c6ec3c0ed87c46816cc4f4c65491f4e729f11d0ae29bd41",
+      "bin/illumina-dump.3.4.1": "6f42f87cc162cf9d802157d839d0f2e5d152ccd6efbfa4465845ca737767517a",
+      "bin/illumina-load.3.4.1": "45899c0c0011d088295e60415e5883526303035628b48fdddc8536d532c32ee7",
+      "bin/kar.3.4.1": "6d54ae8b47c5694774d002121ab31872beddeec2ab637f29bcf64b8c56d2c506",
+      "bin/kdbmeta.3.4.1": "6e14da2358e674d32664511500f90be974d9d8b8e87bf2479384d7a8be655cee",
+      "bin/latf-load.3.4.1": "89e171c4c4df4ab322baef537d395c040f8c3e9b23753b48369b005fd77b6120",
+      "bin/ncbi/certs.kfg": "e1e5588cbc3f37dbbb6593cb970f1530a25d245832c422d076a5dee553e23b2e",
+      "bin/ncbi/default.kfg": "cdd345114ddda0a1784db04938dbac2d66346a290ef8c9d383d58892760035c3",
+      "bin/ncbi/vdb-copy.kfg": "2714a4ee9a6a579999a4a55eaadd4809834658accd47c1bef9fc90cb01f8b180",
+      "bin/pacbio-load.3.4.1": "2b88c6a357f22cade1bc8a2ff97653901aa6aa4dddad73e46dc0eaf31558b6ea",
+      "bin/prefetch-orig.3.4.1": "e4d7479c1e912005e82818decbe47181be0a35dce9fdd3284ba6516ee49abebb",
+      "bin/rcexplain.3.4.1": "268babca1b75bdf9b96c02ebc7ce37dce9750589d8fab3ef8dce3cd5d14b17af",
+      "bin/sam-dump-orig.3.4.1": "d7109c8463ceb3e7a79610783ce54819e1cde39557182147cce2edb5cdf82b6a",
+      "bin/sff-dump.3.4.1": "48a8c72159b0863adb863e4a7a37aa18d5b6f12e20cf4b04e3b5babc2e63b4fe",
+      "bin/sff-load.3.4.1": "fab99a45ef82069964d66ab7bd41ade92c011fadd51ad0ecf07ec95d82875173",
+      "bin/sra-pileup-orig.3.4.1": "1f53130cd8d6cdd180941ddd73da35439dc664d89a37cc9b02e971a9703d51b4",
+      "bin/sra-search.3.4.1": "f25c1c7279eb231c479671b2f17b18a5ff091c727f48ab851878a17ee845b368",
+      "bin/sra-sort-cg.3.4.1": "9ce05cbdb10b2eabf71207f53f951bab3829cb70ae8afc98fcd1b97c9ce739ef",
+      "bin/sra-sort.3.4.1": "b2e15d6dfcff25fd76a7736b995fa5f4d0a551b6d826f4039a9bbf39d99c6225",
+      "bin/sra-stat.3.4.1": "039b7d224e3dd386c80929745847bda02ff1214201703a97e0d42422106fee28",
+      "bin/srapath-orig.3.4.1": "a4c96ffeb8f1106ebb6208e0d39a18d5712a1386325b3f3d2169fcdce9827180",
+      "bin/sratools.3.4.1": "4dd8a1e0996aef1d4879632da88908351503528d653d6fc6e1bc98ceabc8bd40",
+      "bin/srf-load.3.4.1": "0f461d7ce1a1fd04cb79b862940f7617fcac1a49bb7eacb391fc340c7581c220",
+      "bin/test-sra.3.4.1": "34b32e4b7eea5f66c18ceda259ccb9d492029ec7ede5e36a6722f92c01c24ef7",
+      "bin/vdb-config.3.4.1": "c13bf6a802f71385a1d21de4d3fe24e78d389c6ed8d78d7d8898759089667958",
+      "bin/vdb-copy.3.4.1": "93fc66d0ca45b2bf54e818f57595841fe863a052b32d10a9281a9fadc8531ed7",
+      "bin/vdb-decrypt.3.4.1": "e5f2f6f7584ff94af2f60d816c95d88f4b9efd6a25d943eb9255ec9778dd42b7",
+      "bin/vdb-dump-orig.3.4.1": "f8220956b67017322591d2d896404fb947f2d1cdcc3386de682e7505e0eb1fff",
+      "bin/vdb-encrypt.3.4.1": "78b86a5e0e74aa2099fc0e73e47a338576909b15c2df1f1ff91ec8282dc35d5f",
+      "bin/vdb-lock.3.4.1": "03e5647bd6bc33b19b6eb3f587d063ae33c585162cc9db0746b3f8a08b7168f8",
+      "bin/vdb-unlock.3.4.1": "1f9449c5c8606066327e947074e75190a5fce04a723bdd0763b558250dec0249",
+      "bin/vdb-validate.3.4.1": "73c84aad7aeb1cd102288a09628ea9f5c8081312a5558dbd1171a4214813ae82",
+      "example/perl/base-stats.pl": "0a309df50fbf006473c55c748f2bfefd5236f39d9f39d2d76319de3a32838a19",
+      "example/perl/dump-reference.pl": "a6d9b213f28030fd45efe8003f8defb767b40393c06c8f7f789e25437f9175ff",
+      "example/perl/gene-lookup.pl": "22fb0c896264309bf8bc0d1742043ab0dc3d62c9c178de9d4f7b54c6011d76eb",
+      "example/perl/mismatch-stats.pl": "8be3a8e8c45eea1e86aee52ee300ce283a38fe8e1afaaab9be3a67605be029ef",
+      "example/perl/quality-stats.pl": "a784e78c54c13f125e963eb53d1da152a404be65b2b7c0ed95a11610f145d384",
+      "example/perl/simplefastq.pl": "9e315b297f4e71d89e8156209d651af6a7bbc65396168243c1c7d3b24ac73a23",
+      "example/perl/splitfastq.pl": "dc4418783e48b7d8c49b7d5e367c91c814cdcd7def98c2c97e2867ff35499523",
+      "schema/align/align.vschema": "e593df9339607a6e8d6da290678a1a5e2d8a65a9463a18f28afd10421a89ddec",
+      "schema/align/mate-cache.vschema": "229971d502563bae88dd6b912bfdce197605d2434e5fcd0bd95f4409aad0a11b",
+      "schema/align/pileup-stats.vschema": "3023d0d7b71bd66f37580743d53d3e9f5b7d1451a47ea2af85a1e53db2b38f6a",
+      "schema/align/qstat.vschema": "dbb2fc438572f2a82a41ab5e6c38818b5b5ec3b47c2095fde1d7c18dd1a806c4",
+      "schema/align/refseq.vschema": "c35f72f700bc1df24db583c1c24fdac742eb2fe7502a6b3917bebcbaf8d169ce",
+      "schema/align/seq.vschema": "5db1bde45914db692d85d8474b620651def76dab9991a9cb90a9780540591d3f",
+      "schema/csra2/csra2.vschema": "e0aa23e686d26a5ed10146cd741821fa9381d455eac0e4a63d8498c515ed4f0e",
+      "schema/csra2/read.vschema": "31446150fe941d96dc2110006276745247253f822205a6bda26b7af611e1682c",
+      "schema/csra2/reference.vschema": "10dfc04c74348f5ae7a07b4ce2f5e10bf46ffd30afa068c715b69e50853cad18",
+      "schema/csra2/stats.vschema": "44d2e97dba8d93e61a7dd1fdfd3b6f51ab49810f307dbe35a1131772c32da6df",
+      "schema/insdc/insdc.vschema": "edd20d7e2b7f955832dbccf17d8428d17055add11291285bc78218abe321baed",
+      "schema/insdc/seq.vschema": "b402bf5359ebcb3650030dd346bbe1e01482d91b902c43527475329bf51d0c7f",
+      "schema/insdc/sra.vschema": "60d20d91d33bed33a52b048bb912b96d9b7b88619a5d0909ebf8d05ffb30a919",
+      "schema/ncbi/clip.vschema": "c47ccc0d8f847f399bdbcf008a44880b492ff0c385fff28e70b27f8ff240e75e",
+      "schema/ncbi/ncbi.vschema": "fe8b28c0b6943e64fe3532e08e51c1118944ed50b95ca3c1df1a8b6f2964041d",
+      "schema/ncbi/pnbrdb.vschema": "73ab5c06ddd60adff58744b6ac60c3454d65ba92dab3c2ed6a4a1fc6cb228695",
+      "schema/ncbi/seq-graph.vschema": "bdf2b9ef06ef238ad4b6ced63a49d99fa9a9a81527abd13ee0be7d5064e6d14e",
+      "schema/ncbi/seq.vschema": "de4e03249fc558375a84374804736ece01b84344653ffaa869cf5ec6614c6290",
+      "schema/ncbi/spotname.vschema": "91fbe441ce917787b3cb18407f3404b2e7a8abbb31ca5aca0db202e14c873612",
+      "schema/ncbi/sra.vschema": "ab2f3e205f1398a02eb660027bbe2a977a3699c4903b7798bf595f65ecf8610a",
+      "schema/ncbi/stats.vschema": "4cbb6e12e4a6b44a2c3b2b87fa73a4d66d04f49130445f03d4905df9505b8689",
+      "schema/ncbi/trace.vschema": "90f817e09d04ac9eaee08d2cf5300be5482208ddbae62bcdd0d113fa29253ed1",
+      "schema/ncbi/varloc.vschema": "c0fdc719de5f4b6591010a9b48b26449cf2c099c37dd46778684d7793995dc8f",
+      "schema/ncbi/wgs-contig.vschema": "2bbb25afeb33abe80db497a655d89da43b311d7d9bd7cfa670d584ca30bfd288",
+      "schema/sra/454.vschema": "9d27f718eb3f2fde96d49bf5bad0e1bce3eaf5f81f97dbec90ac568a6df464dd",
+      "schema/sra/abi.vschema": "22f72695f83bd7701f78ba4e5070b42c927b43bd6d9f833488edd1b328c1a6c5",
+      "schema/sra/generic-fastq.vschema": "bcd4061499ce89c1b269de4ff71c2f8ef1593ede167f88a55a8dfa15abe8df74",
+      "schema/sra/helicos.vschema": "1dabb84e4c3a46138bbdf2a221f520777fe9f87c1d2263712f2a5c652043e877",
+      "schema/sra/illumina.vschema": "81969d5b76a8eb704b1e9925773f4d4b6a769dd3971226594fa44a7bd030a0b6",
+      "schema/sra/ion-torrent.vschema": "dedcbedaf3f25bf625a254f3e114f828d169f236646173a4604b12cc44551852",
+      "schema/sra/nanopore.vschema": "5d8bd1bbc377bb97071b688e19392f2c4da1911fdae2c04e685daa5e0d78c293",
+      "schema/sra/pacbio.vschema": "3d36ad3ab4e58ac64952a5c2bfb65a7ce9188a0bd2c1830c3dc1b5734c47a479",
+      "schema/sra/pevents.vschema": "2820c52e2d4635f350c2ab2846285d08a3f1a8b5a98c6560e77209b8fde1b1de",
+      "schema/vdb/built-in.vschema": "6b7021f308c187a55210bd07ca596841972b8018d29802d16a7e9bee4a207120",
+      "schema/vdb/vdb.vschema": "7bf923dfe8122c177860147ca3efe40d00edb9943d7797641665432aff5fa3c5"
+    },
+    "payload_symlinks": {
+      "bin/abi-dump": "abi-dump.3",
+      "bin/abi-dump.3": "abi-dump.3.4.1",
+      "bin/abi-load": "abi-load.3",
+      "bin/abi-load.3": "abi-load.3.4.1",
+      "bin/align-info": "align-info.3",
+      "bin/align-info.3": "align-info.3.4.1",
+      "bin/bam-load": "bam-load.3",
+      "bin/bam-load.3": "bam-load.3.4.1",
+      "bin/cg-load": "cg-load.3",
+      "bin/cg-load.3": "cg-load.3.4.1",
+      "bin/fasterq-dump": "fasterq-dump.3",
+      "bin/fasterq-dump.3": "fasterq-dump.3.4.1",
+      "bin/fasterq-dump.3.4.1": "sratools.3.4.1",
+      "bin/fastq-dump": "fastq-dump.3",
+      "bin/fastq-dump.3": "fastq-dump.3.4.1",
+      "bin/fastq-dump.3.4.1": "sratools.3.4.1",
+      "bin/fastq-load": "fastq-load.3",
+      "bin/fastq-load.3": "fastq-load.3.4.1",
+      "bin/helicos-load": "helicos-load.3",
+      "bin/helicos-load.3": "helicos-load.3.4.1",
+      "bin/illumina-dump": "illumina-dump.3",
+      "bin/illumina-dump.3": "illumina-dump.3.4.1",
+      "bin/illumina-load": "illumina-load.3",
+      "bin/illumina-load.3": "illumina-load.3.4.1",
+      "bin/kar": "kar.3",
+      "bin/kar.3": "kar.3.4.1",
+      "bin/kdbmeta": "kdbmeta.3",
+      "bin/kdbmeta.3": "kdbmeta.3.4.1",
+      "bin/latf-load": "latf-load.3",
+      "bin/latf-load.3": "latf-load.3.4.1",
+      "bin/pacbio-load": "pacbio-load.3",
+      "bin/pacbio-load.3": "pacbio-load.3.4.1",
+      "bin/prefetch": "prefetch.3",
+      "bin/prefetch.3": "prefetch.3.4.1",
+      "bin/prefetch.3.4.1": "sratools.3.4.1",
+      "bin/rcexplain": "rcexplain.3",
+      "bin/rcexplain.3": "rcexplain.3.4.1",
+      "bin/sam-dump": "sam-dump.3",
+      "bin/sam-dump.3": "sam-dump.3.4.1",
+      "bin/sam-dump.3.4.1": "sratools.3.4.1",
+      "bin/sff-dump": "sff-dump.3",
+      "bin/sff-dump.3": "sff-dump.3.4.1",
+      "bin/sff-load": "sff-load.3",
+      "bin/sff-load.3": "sff-load.3.4.1",
+      "bin/sra-pileup": "sra-pileup.3",
+      "bin/sra-pileup.3": "sra-pileup.3.4.1",
+      "bin/sra-pileup.3.4.1": "sratools.3.4.1",
+      "bin/sra-search": "sra-search.3",
+      "bin/sra-search.3": "sra-search.3.4.1",
+      "bin/sra-sort": "sra-sort.3",
+      "bin/sra-sort-cg": "sra-sort-cg.3",
+      "bin/sra-sort-cg.3": "sra-sort-cg.3.4.1",
+      "bin/sra-sort.3": "sra-sort.3.4.1",
+      "bin/sra-stat": "sra-stat.3",
+      "bin/sra-stat.3": "sra-stat.3.4.1",
+      "bin/srapath": "srapath.3",
+      "bin/srapath.3": "srapath.3.4.1",
+      "bin/srapath.3.4.1": "sratools.3.4.1",
+      "bin/sratools": "sratools.3",
+      "bin/sratools.3": "sratools.3.4.1",
+      "bin/srf-load": "srf-load.3",
+      "bin/srf-load.3": "srf-load.3.4.1",
+      "bin/test-sra": "test-sra.3",
+      "bin/test-sra.3": "test-sra.3.4.1",
+      "bin/vdb-config": "vdb-config.3",
+      "bin/vdb-config.3": "vdb-config.3.4.1",
+      "bin/vdb-copy": "vdb-copy.3",
+      "bin/vdb-copy.3": "vdb-copy.3.4.1",
+      "bin/vdb-decrypt": "vdb-decrypt.3",
+      "bin/vdb-decrypt.3": "vdb-decrypt.3.4.1",
+      "bin/vdb-dump": "vdb-dump.3",
+      "bin/vdb-dump.3": "vdb-dump.3.4.1",
+      "bin/vdb-dump.3.4.1": "sratools.3.4.1",
+      "bin/vdb-encrypt": "vdb-encrypt.3",
+      "bin/vdb-encrypt.3": "vdb-encrypt.3.4.1",
+      "bin/vdb-lock": "vdb-lock.3",
+      "bin/vdb-lock.3": "vdb-lock.3.4.1",
+      "bin/vdb-unlock": "vdb-unlock.3",
+      "bin/vdb-unlock.3": "vdb-unlock.3.4.1",
+      "bin/vdb-validate": "vdb-validate.3",
+      "bin/vdb-validate.3": "vdb-validate.3.4.1"
+    },
+    "platform": "linux-x86_64",
+    "schema_version": 1,
+    "tools": {
+      "fasterq-dump": {
+        "path": "bin/fasterq-dump",
+        "version": "3.4.1"
+      },
+      "prefetch": {
+        "path": "bin/prefetch",
+        "version": "3.4.1"
+      }
+    },
+    "version": "3.4.1"
+  },
+  "started": "2026-11-19T22:58:29.540912+00:00",
+  "status": "passed",
+  "steps": [
+    {
+      "command": [
+        "qiime",
+        "info"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/qiime-info.log",
+      "name": "qiime-info",
+      "returncode": 0,
+      "seconds": 0.88
+    },
+    {
+      "command": [
+        "fastp",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-fastp.log",
+      "name": "version-fastp",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "cutadapt",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-cutadapt.log",
+      "name": "version-cutadapt",
+      "returncode": 0,
+      "seconds": 0.08
+    },
+    {
+      "command": [
+        "vsearch",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-vsearch.log",
+      "name": "version-vsearch",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "blastn",
+        "-version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-blastn.log",
+      "name": "version-blastn",
+      "returncode": 0,
+      "seconds": 0.07
+    },
+    {
+      "command": [
+        "makeblastdb",
+        "-version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-makeblastdb.log",
+      "name": "version-makeblastdb",
+      "returncode": 0,
+      "seconds": 0.04
+    },
+    {
+      "command": [
+        "samtools",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-samtools.log",
+      "name": "version-samtools",
+      "returncode": 0,
+      "seconds": 0.01
+    },
+    {
+      "command": [
+        "chopper",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-chopper.log",
+      "name": "version-chopper",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "minimap2",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-minimap2.log",
+      "name": "version-minimap2",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "racon",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-racon.log",
+      "name": "version-racon",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "prefetch",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-prefetch.log",
+      "name": "version-prefetch",
+      "returncode": 0,
+      "seconds": 0.02
+    },
+    {
+      "command": [
+        "fasterq-dump",
+        "--version"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/version-fasterq-dump.log",
+      "name": "version-fasterq-dump",
+      "returncode": 0,
+      "seconds": 0.02
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "--help"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/help-Meta2Data.log",
+      "name": "help-Meta2Data",
+      "returncode": 0,
+      "seconds": 0.01
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "MetaDL",
+        "--help"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/help-MetaDL.log",
+      "name": "help-MetaDL",
+      "returncode": 0,
+      "seconds": 0.01
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconPIP",
+        "--help"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/help-AmpliconPIP.log",
+      "name": "help-AmpliconPIP",
+      "returncode": 0,
+      "seconds": 0.04
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconTAXA",
+        "--help"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/help-AmpliconTAXA.log",
+      "name": "help-AmpliconTAXA",
+      "returncode": 0,
+      "seconds": 0.04
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/AmpliconFunction.sh"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-00.log",
+      "name": "shell-syntax-00",
+      "returncode": 0,
+      "seconds": 0.01
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/read_counts.sh"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-01.log",
+      "name": "shell-syntax-01",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/resource_profile.sh"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-02.log",
+      "name": "shell-syntax-02",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/run.sh"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-03.log",
+      "name": "shell-syntax-03",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/taxonomy.sh"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-04.log",
+      "name": "shell-syntax-04",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/bin/Meta2Data"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-05.log",
+      "name": "shell-syntax-05",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/bin/Meta2Data-AmpliconPIP"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-06.log",
+      "name": "shell-syntax-06",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/bin/Meta2Data-AmpliconTAXA"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-07.log",
+      "name": "shell-syntax-07",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "/home/runner/work/Meta2Data/Meta2Data/bin/Meta2Data-MetaDL"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/shell-syntax-08.log",
+      "name": "shell-syntax-08",
+      "returncode": 0,
+      "seconds": 0.0
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/meta2data-env/bin/python",
+        "-c",
+        "import json,sys,unittest\nsuite=unittest.defaultTestLoader.discover('tests')\nresult=unittest.TextTestRunner(verbosity=2).run(suite)\nsummary=dict(tests=result.testsRun,failures=len(result.failures),errors=len(result.errors),skipped=result.skipped)\nopen(sys.argv[1],'w').write(json.dumps(summary,indent=2)+'\\n')\nsys.exit(0 if result.wasSuccessful() and not result.skipped else 1)\n",
+        "/home/runner/work/_temp/native-validation/unit-tests.json"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/unit-tests.log",
+      "name": "unit-tests",
+      "returncode": 0,
+      "seconds": 24.94
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/meta2data-env/bin/python",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/reference_resources.py",
+        "prepare",
+        "--kind",
+        "gg2-sequences",
+        "--work-dir",
+        "/home/runner/work/_temp/native-validation/references"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/reference-gg2-sequences.log",
+      "name": "reference-gg2-sequences",
+      "returncode": 0,
+      "seconds": 3.18
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/meta2data-env/bin/python",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/reference_resources.py",
+        "prepare",
+        "--kind",
+        "sepp",
+        "--work-dir",
+        "/home/runner/work/_temp/native-validation/references"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/reference-sepp.log",
+      "name": "reference-sepp",
+      "returncode": 0,
+      "seconds": 2.76
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/meta2data-env/bin/python",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/reference_resources.py",
+        "prepare",
+        "--kind",
+        "greengenes-classifier",
+        "--work-dir",
+        "/home/runner/work/_temp/native-validation/references"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/reference-greengenes-classifier.log",
+      "name": "reference-greengenes-classifier",
+      "returncode": 0,
+      "seconds": 4.68
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/meta2data-env/bin/python",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/reference_resources.py",
+        "prepare",
+        "--kind",
+        "silva-classifier",
+        "--work-dir",
+        "/home/runner/work/_temp/native-validation/references"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/reference-silva-classifier.log",
+      "name": "reference-silva-classifier",
+      "returncode": 0,
+      "seconds": 3.64
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/meta2data-env/bin/python",
+        "/home/runner/work/Meta2Data/Meta2Data/scripts/reference_resources.py",
+        "prepare",
+        "--kind",
+        "silva144-classifier",
+        "--work-dir",
+        "/home/runner/work/_temp/native-validation/references"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/reference-silva144-classifier.log",
+      "name": "reference-silva144-classifier",
+      "returncode": 0,
+      "seconds": 13.58
+    },
+    {
+      "command": [
+        "qiime",
+        "tools",
+        "export",
+        "--input-path",
+        "/home/runner/work/_temp/native-validation/references/results/db/2024.09.backbone.full-length.fna.qza",
+        "--output-path",
+        "/home/runner/work/_temp/native-validation/reference-export"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/export-reference.log",
+      "name": "export-reference",
+      "returncode": 0,
+      "seconds": 6.48
+    },
+    {
+      "command": [
+        "/home/runner/work/_temp/meta2data-env/bin/python",
+        "/home/runner/work/Meta2Data/Meta2Data/tests/integration/generate_fixture.py",
+        "--reference-fasta",
+        "/home/runner/work/_temp/native-validation/reference-export/dna-sequences.fasta",
+        "--output",
+        "/home/runner/work/_temp/native-validation/fixtures",
+        "--reads",
+        "8000",
+        "--pacbio-reads",
+        "2000",
+        "--templates",
+        "5"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/generate-fixtures.log",
+      "name": "generate-fixtures",
+      "returncode": 0,
+      "seconds": 34.57
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconPIP",
+        "--local-m",
+        "/home/runner/work/_temp/native-validation/fixtures/compatibility-dada2.csv",
+        "--local-datasets-colNAME",
+        "datasets",
+        "--local-path-colNAME",
+        "path",
+        "--local-platform-colNAME",
+        "platform",
+        "--local-primer-f-colNAME",
+        "primer_f",
+        "--local-primer-r-colNAME",
+        "primer_r",
+        "--dada2",
+        "-t",
+        "2"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/pip-dada2.log",
+      "name": "pip-dada2",
+      "returncode": 0,
+      "seconds": 173.56
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconPIP",
+        "--local-m",
+        "/home/runner/work/_temp/native-validation/fixtures/compatibility-vsearch.csv",
+        "--local-datasets-colNAME",
+        "datasets",
+        "--local-path-colNAME",
+        "path",
+        "--local-platform-colNAME",
+        "platform",
+        "--local-primer-f-colNAME",
+        "primer_f",
+        "--local-primer-r-colNAME",
+        "primer_r",
+        "--vsearch",
+        "-t",
+        "2"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/pip-vsearch.log",
+      "name": "pip-vsearch",
+      "returncode": 0,
+      "seconds": 668.9
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconTAXA",
+        "-i",
+        "/home/runner/work/_temp/native-validation/pip-dada2/results/pip",
+        "--dada2",
+        "--classifier",
+        "gg2-2024.09",
+        "-t",
+        "2",
+        "--notree"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/taxa-gg2-2024.09-notree.log",
+      "name": "taxa-gg2-2024.09-notree",
+      "returncode": 0,
+      "seconds": 216.09
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconTAXA",
+        "-i",
+        "/home/runner/work/_temp/native-validation/pip-dada2/results/pip",
+        "--dada2",
+        "--classifier",
+        "silva-138.1",
+        "-t",
+        "2",
+        "--notree"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/taxa-silva-138.1-notree.log",
+      "name": "taxa-silva-138.1-notree",
+      "returncode": 0,
+      "seconds": 184.35
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconTAXA",
+        "-i",
+        "/home/runner/work/_temp/native-validation/pip-dada2/results/pip",
+        "--dada2",
+        "--classifier",
+        "silva-144",
+        "-t",
+        "2",
+        "--notree"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/taxa-silva-144-notree.log",
+      "name": "taxa-silva-144-notree",
+      "returncode": 0,
+      "seconds": 181.95
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconTAXA",
+        "-i",
+        "/home/runner/work/_temp/native-validation/pip-vsearch/results/pip/pe_explicit",
+        "--vsearch",
+        "--classifier",
+        "gg2-2024.09",
+        "-t",
+        "2"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/taxa-gg2-2024.09-sepp.log",
+      "name": "taxa-gg2-2024.09-sepp",
+      "returncode": 0,
+      "seconds": 466.75
+    },
+    {
+      "command": [
+        "Meta2Data",
+        "AmpliconTAXA",
+        "-i",
+        "/home/runner/work/_temp/native-validation/pip-vsearch/results/pip/pe_explicit",
+        "--vsearch",
+        "--classifier",
+        "gg2-2024.09",
+        "-t",
+        "2",
+        "--singleV"
+      ],
+      "log": "/home/runner/work/_temp/native-validation/logs/taxa-gg2-2024.09-singleV.log",
+      "name": "taxa-gg2-2024.09-singleV",
+      "returncode": 0,
+      "seconds": 222.57
+    }
+  ],
+  "unit_tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": [],
+    "tests": 317
+  },
+  "versions": {
+    "q2-dada2": "2026.7.0",
+    "q2-demux": "2026.7.0",
+    "q2-feature-classifier": "2026.7.0",
+    "q2-feature-table": "2026.7.0",
+    "q2-fragment-insertion": "2026.7.0",
+    "q2-phylogeny": "2026.7.0",
+    "q2-quality-filter": "2026.7.0",
+    "q2cli": "2026.7.0",
+    "qiime2": "2026.7.0",
+    "rachis": "2026.7.0",
+    "rescript": "2026.7.0",
+    "scikit-learn": "1.7.1"
+  }
+}

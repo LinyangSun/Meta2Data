@@ -1,10 +1,13 @@
 """Offline tests for validated, shared reference preparation."""
 import multiprocessing
+from dataclasses import replace
+import json
 from pathlib import Path
 import shutil
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 import uuid
 import zipfile
 
@@ -12,14 +15,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import reference_resources as refs
 
 
-def make_artifact(path, kind="FeatureData[Sequence]", payload=b">reference\nACGT\n"):
+def make_artifact(path, kind="FeatureData[Sequence]", payload=b">reference\nACGT\n",
+                  *, sklearn_version="1.7.1", artifact_uuid=None):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    root = str(uuid.uuid4())
+    root = str(artifact_uuid or uuid.uuid4())
     with zipfile.ZipFile(path, "w") as archive:
         archive.writestr(f"{root}/metadata.yaml", f"uuid: {root}\ntype: {kind}\nformat: TestFormat\n")
         archive.writestr(f"{root}/VERSION", "QIIME 2\narchive: 5\nframework: 2024.10\n")
-        archive.writestr(f"{root}/data/reference", payload)
+        member = "sklearn_pipeline.tar" if kind == "TaxonomicClassifier" else "reference"
+        archive.writestr(f"{root}/data/{member}", payload)
+        if kind == "TaxonomicClassifier" and sklearn_version is not None:
+            archive.writestr(f"{root}/data/sklearn_version.json",
+                             json.dumps({"sklearn-version": sklearn_version}))
     return path
 
 
@@ -44,6 +52,18 @@ class ReferenceTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.resource = refs.RESOURCES["gg2-sequences"]
         self.target = self.root / "results/db" / self.resource.filename
+
+    def classifier_fixture(self, key, path):
+        identity = refs.RESOURCES[key]
+        artifact_uuid = str(uuid.uuid4())
+        fixture = make_artifact(path, "TaxonomicClassifier", artifact_uuid=artifact_uuid)
+        resource = refs.Resource(
+            identity.filename, "TaxonomicClassifier",
+            "https://example.test/models/" + identity.filename,
+            classifier_id=identity.classifier_id, sklearn_version="1.7.1",
+            expected_uuid=artifact_uuid, md5=refs.file_digest(fixture, "md5"),
+            sha256=refs.file_digest(fixture))
+        return fixture, resource
 
     def test_valid_cache_precedes_bundle_and_download(self):
         make_artifact(self.target)
@@ -147,6 +167,91 @@ class ReferenceTests(unittest.TestCase):
                     process.terminate()
                     process.join()
             replies.close()
+
+    def test_old_model_cache_is_replaced_only_by_selected_pinned_model(self):
+        for key, old_name in (("greengenes-classifier", "2024.09.backbone.full-length.nb.qza"),
+                              ("silva-classifier", "silva-138-99-nb-classifier.qza")):
+            with self.subTest(key=key):
+                fixture, resource = self.classifier_fixture(key, self.root / (key + ".qza"))
+                old = make_artifact(self.root / "results/db" / old_name,
+                                    "TaxonomicClassifier", sklearn_version="1.4.2")
+                wrong_cache = make_artifact(self.root / "results/db" / resource.filename,
+                                            "TaxonomicClassifier", sklearn_version="1.4.2")
+                wrong_model = make_artifact(self.root / "other-model.qza", "TaxonomicClassifier")
+                old_bytes = old.read_bytes()
+                wrong_bytes = wrong_cache.read_bytes()
+                fetched = []
+                source = wrong_model
+                def downloader(url, destination):
+                    fetched.append(url)
+                    shutil.copyfile(source, destination)
+                with patch.dict(refs.RESOURCES, {key: resource}):
+                    with self.assertRaisesRegex(RuntimeError, "expected artifact UUID"):
+                        refs.prepare_resource(key, self.root, builtin_paths=[], downloader=downloader)
+                    self.assertEqual(wrong_cache.read_bytes(), wrong_bytes)
+                    source = fixture
+                    result = refs.prepare_resource(key, self.root,
+                                                   builtin_paths=[], downloader=downloader)
+                self.assertEqual(fetched, [resource.url, resource.url])
+                self.assertEqual(result, wrong_cache)
+                self.assertEqual(result.read_bytes(), fixture.read_bytes())
+                refs.validate_resource(result, resource)
+                self.assertEqual(old.read_bytes(), old_bytes)
+                self.assertFalse(list(result.parent.glob("*.partial")))
+
+    def test_compatible_pinned_bundle_is_reused_without_download(self):
+        bundle, resource = self.classifier_fixture("silva-classifier", self.root / "bundle.qza")
+        def forbidden(*args):
+            self.fail("compatible maintainer bundle must not download")
+        with patch.dict(refs.RESOURCES, {"silva-classifier": resource}):
+            result = refs.prepare_resource("silva-classifier", self.root,
+                                           builtin_paths=[bundle], downloader=forbidden)
+            refs.validate_resource(result, resource)
+            self.assertEqual(result.read_bytes(), bundle.read_bytes())
+            bundle.unlink()
+            self.assertEqual(refs.prepare_resource("silva-classifier", self.root,
+                             builtin_paths=[], downloader=forbidden), result)
+
+    def test_missing_or_incompatible_sklearn_metadata_is_rejected(self):
+        resource = refs.Resource("model.qza", "TaxonomicClassifier",
+                                 "https://example.test/model.qza", sklearn_version="1.7.1")
+        for version in (None, "1.4.2", "1.7.0", ""):
+            with self.subTest(version=version):
+                classifier = make_artifact(self.root / "model.qza", "TaxonomicClassifier",
+                                           sklearn_version=version)
+                self.assertFalse(refs.valid_resource(classifier, resource))
+        classifier = make_artifact(self.root / "model.qza", "TaxonomicClassifier",
+                                   sklearn_version="1.7.1")
+        self.assertTrue(refs.valid_resource(classifier, resource))
+
+    def test_builtin_uuid_and_checksum_both_identify_the_model(self):
+        fixture, resource = self.classifier_fixture("silva144-classifier", self.root / "silva144.qza")
+        refs.validate_resource(fixture, resource)
+        for different in (replace(resource, expected_uuid=str(uuid.uuid4())),
+                          replace(resource, md5="0" * 32),
+                          replace(resource, sha256="0" * 64)):
+            with self.subTest(resource=different):
+                self.assertFalse(refs.valid_resource(fixture, different))
+
+    def test_silva144_download_is_checked_before_publishing(self):
+        fixture, resource = self.classifier_fixture("silva144-classifier", self.root / "model.qza")
+        fetched = []
+        def downloader(url, destination):
+            fetched.append(url)
+            shutil.copyfile(fixture, destination)
+        with patch.dict(refs.RESOURCES, {"silva144-classifier": resource}):
+            result = refs.prepare_resource("silva144-classifier", self.root,
+                                           builtin_paths=[], downloader=downloader)
+        self.assertEqual(fetched, [resource.url])
+        self.assertEqual(result.read_bytes(), fixture.read_bytes())
+        result.unlink()
+        bad = replace(resource, md5="0" * 32)
+        with patch.dict(refs.RESOURCES, {"silva144-classifier": bad}):
+            with self.assertRaisesRegex(RuntimeError, "checksum"):
+                refs.prepare_resource("silva144-classifier", self.root,
+                                      builtin_paths=[], downloader=downloader)
+        self.assertFalse(result.exists())
+        self.assertFalse(list(result.parent.glob("*.partial")))
 
 
 if __name__ == "__main__":

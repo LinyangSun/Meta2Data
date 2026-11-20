@@ -1,0 +1,42 @@
+{
+  "status": "classification_failed",
+  "model_url": "https://ftp.microbio.me/greengenes_release/2024.09/2024.09.backbone.full-length.nb.qza",
+  "source_main_commit": "8d87dc350552c0d708e4c960bcc5bdb4537f7c92",
+  "model": "/workspaces/meta2data-validation/legacy-gg2-compat-01/2024.09.backbone.full-length.nb.qza",
+  "query": "/workspaces/meta2data-validation/classifier-probe-ummej1zz/silva144-query.qza",
+  "versions": {
+    "qiime2": "2026.7.0",
+    "q2-feature-classifier": "2026.7.0",
+    "scikit-learn": "1.7.1"
+  },
+  "model_sha256": "5c5900c10ad601b12cf0d2280d52cc0f7852627e89070595cc3899a6d690ee27",
+  "model_bytes": 180039485,
+  "model_uuid": "49ccfb0a-155d-404b-80b4-818d2aeb53b2",
+  "stored_sklearn": {
+    "sklearn-version": "1.4.2"
+  },
+  "archive_integrity": "passed",
+  "command": [
+    "/workspaces/meta2data-validation/env-release-frozen/bin/qiime",
+    "feature-classifier",
+    "classify-sklearn",
+    "--i-classifier",
+    "/workspaces/meta2data-validation/legacy-gg2-compat-01/2024.09.backbone.full-length.nb.qza",
+    "--i-reads",
+    "/workspaces/meta2data-validation/classifier-probe-ummej1zz/silva144-query.qza",
+    "--p-n-jobs",
+    "1",
+    "--p-reads-per-batch",
+    "1",
+    "--p-read-orientation",
+    "same",
+    "--p-confidence",
+    "0.7",
+    "--o-classification",
+    "/workspaces/meta2data-validation/legacy-gg2-compat-01/taxonomy.qza",
+    "--verbose"
+  ],
+  "returncode": 1,
+  "seconds": 60.03,
+  "output_exists": false
+}

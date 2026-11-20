@@ -1,15 +1,11 @@
 name: Build SIF
-run-name: Build SIF ${{ inputs.output_tag }} from ${{ github.ref_name }}
+run-name: Validate and build SIF ${{ inputs.output_tag }} from ${{ github.ref_name }}
 
 on:
   workflow_dispatch:
     inputs:
-      base_tag:
-        description: Existing Meta2Data SIF tag in GHCR to use as the base environment
-        required: true
-        type: string
       output_tag:
-        description: New GHCR tag to publish (must not exist; latest is not allowed)
+        description: New GHCR tag to publish after Conda and SIF validation (latest is not allowed)
         required: true
         type: string
 
@@ -21,9 +17,83 @@ concurrency:
   group: build-sif-${{ github.repository }}-${{ inputs.output_tag }}
   cancel-in-progress: false
 
+env:
+  CONDA_CHANNEL_PRIORITY: flexible
+  PYTHONNOUSERSITE: '1'
+  PYTHONDONTWRITEBYTECODE: '1'
+  MPLBACKEND: agg
+  UNIFRAC_USE_GPU: 'N'
+  MINIFORGE_VERSION: '26.9.4-2'
+  MINIFORGE_SHA256: bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf
+  OUTPUT_TAG: ${{ inputs.output_tag }}
+
 jobs:
+  validate-conda:
+    runs-on: ${{ vars.SIF_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 180
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Check out the selected source revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Validate the requested release tag
+        run: |
+          tag_pattern='^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$'
+          if [[ ! "$OUTPUT_TAG" =~ $tag_pattern || "${OUTPUT_TAG,,}" == latest ]]; then
+            echo '::error::Use a new valid container tag of at most 128 characters; latest is not allowed.'
+            exit 1
+          fi
+
+      - name: Free space on the standard disposable runner
+        if: ${{ vars.SIF_RUNNER == '' || vars.SIF_RUNNER == 'ubuntu-24.04' }}
+        run: |
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          df -h "$GITHUB_WORKSPACE" "$RUNNER_TEMP"
+
+      - name: Install the pinned Conda runtime
+        run: |
+          set -euo pipefail
+          installer="$RUNNER_TEMP/miniforge.sh"
+          curl --fail --location --show-error --retry 3 \
+            "https://github.com/conda-forge/miniforge/releases/download/${MINIFORGE_VERSION}/Miniforge3-Linux-x86_64.sh" \
+            --output "$installer"
+          echo "$MINIFORGE_SHA256  $installer" | sha256sum --check -
+          bash "$installer" -b -p "$RUNNER_TEMP/miniforge"
+          "$RUNNER_TEMP/miniforge/bin/python" scripts/create_conda_environment.py \
+            --conda "$RUNNER_TEMP/miniforge/bin/conda" \
+            --prefix "$RUNNER_TEMP/meta2data-env"
+          echo "$RUNNER_TEMP/meta2data-env/bin" >> "$GITHUB_PATH"
+          echo "$GITHUB_WORKSPACE/bin" >> "$GITHUB_PATH"
+          echo "CONDA_PREFIX=$RUNNER_TEMP/meta2data-env" >> "$GITHUB_ENV"
+          chmod a+rx bin/*
+          "$RUNNER_TEMP/miniforge/bin/conda" list --prefix "$RUNNER_TEMP/meta2data-env" \
+            --explicit > "$RUNNER_TEMP/native-environment-linux-64.lock"
+          "$RUNNER_TEMP/miniforge/bin/conda" clean --all --yes
+
+      - name: Validate the native environment and real workflow fixtures
+        run: |
+          python tests/integration/validate_runtime.py \
+            --work-dir "$RUNNER_TEMP/native-validation" --threads 2
+
+      - name: Preserve native validation evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: native-runtime-validation
+          path: |
+            ${{ runner.temp }}/native-validation/validation.json
+            ${{ runner.temp }}/native-validation/logs/
+            ${{ runner.temp }}/native-environment-linux-64.lock
+            ${{ runner.temp }}/meta2data-env/opt/sratoolkit.3.4.1-alma_linux64/meta2data-install.json
+          retention-days: 14
+
   build:
-    # SIF_RUNNER can select an available larger Ubuntu x64 GitHub-hosted runner.
+    needs: validate-conda
     runs-on: ${{ vars.SIF_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 180
     defaults:
@@ -31,37 +101,23 @@ jobs:
         shell: bash
     env:
       APPTAINER_VERSION: '1.5.5'
-      BASE_TAG: ${{ inputs.base_tag }}
-      OUTPUT_TAG: ${{ inputs.output_tag }}
-
     steps:
-      - name: Check out the selected source revision
+      - name: Check out the same validated source revision
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           ref: ${{ github.sha }}
           path: source
           persist-credentials: false
 
-      - name: Validate tags and reserve a new publication target
+      - name: Reserve a new publication target
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          export APPTAINER_TMPDIR="$RUNNER_TEMP/sif-build"
-          echo "APPTAINER_TMPDIR=$APPTAINER_TMPDIR" >> "$GITHUB_ENV"
-          tag_pattern='^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$'
-          if [[ ! "$BASE_TAG" =~ $tag_pattern || ! "$OUTPUT_TAG" =~ $tag_pattern ]]; then
-            echo '::error::Use valid container tags of at most 128 characters.'
-            exit 1
-          fi
-          if [[ "$BASE_TAG" == "$OUTPUT_TAG" || "${OUTPUT_TAG,,}" == latest ]]; then
-            echo '::error::Choose a new output tag, different from the base tag and latest.'
-            exit 1
-          fi
           image_name="${GITHUB_REPOSITORY,,}"
           echo "IMAGE_NAME=$image_name" >> "$GITHUB_ENV"
-          mkdir -p "$APPTAINER_TMPDIR"
-
+          echo "APPTAINER_TMPDIR=$RUNNER_TEMP/sif-build" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/sif-build"
           registry_token=$(curl --fail-with-body --silent --show-error --retry 3 \
             --user "${GITHUB_ACTOR}:${GHCR_TOKEN}" --get \
             --data-urlencode 'service=ghcr.io' \
@@ -79,16 +135,27 @@ jobs:
               echo "::error::Tag $OUTPUT_TAG already exists; refusing to overwrite it."
               exit 1 ;;
             *)
-              echo "::error::GHCR tag check failed (HTTP $status). Check the package's Manage Actions access setting for this repository."
+              echo "::error::GHCR tag check failed (HTTP $status). Check the package's Manage Actions access setting."
               exit 1 ;;
           esac
 
       - name: Free space on the standard disposable runner
         if: ${{ vars.SIF_RUNNER == '' || vars.SIF_RUNNER == 'ubuntu-24.04' }}
         run: |
-          # These preinstalled SDKs are not used by this packaging job.
           sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
           df -h "$GITHUB_WORKSPACE" "$RUNNER_TEMP"
+
+      - name: Check build space
+        run: |
+          # Fresh Conda creation, unpacked rootfs, fixtures and final SIF coexist.
+          required_bytes=$((30 * 1024 * 1024 * 1024))
+          for directory in "$GITHUB_WORKSPACE" "$APPTAINER_TMPDIR"; do
+            available_bytes=$(df -B1 --output=avail "$directory" | tail -n 1 | tr -d ' ')
+            if (( available_bytes < required_bytes )); then
+              echo '::error::Fresh runtime builds require at least 30 GiB free. Select an available larger runner through SIF_RUNNER if needed.'
+              exit 1
+            fi
+          done
 
       - name: Install the pinned Apptainer build tool
         run: |
@@ -100,42 +167,35 @@ jobs:
           sudo apt-get install -y "$RUNNER_TEMP/$package"
           apptainer --version
 
-      - name: Download the existing SIF environment
-        env:
-          APPTAINER_DOCKER_USERNAME: ${{ github.actor }}
-          APPTAINER_DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          apptainer pull --disable-cache base.sif "oras://ghcr.io/${IMAGE_NAME}:${BASE_TAG}"
-          sha256sum base.sif
-          ls -lh base.sif
-          df -h "$GITHUB_WORKSPACE" "$APPTAINER_TMPDIR"
-
-      - name: Check build space
-        run: |
-          # A conservative estimate, not an exact prediction of unpacked size.
-          base_bytes=$(stat -c '%s' base.sif)
-          required_bytes=$((base_bytes * 4 + 2 * 1024 * 1024 * 1024))
-          for directory in "$GITHUB_WORKSPACE" "$APPTAINER_TMPDIR"; do
-            available_bytes=$(df -B1 --output=avail "$directory" | tail -n 1 | tr -d ' ')
-            if (( available_bytes < required_bytes )); then
-              echo '::error::Insufficient estimated build space. Set the SIF_RUNNER repository variable to an available larger Ubuntu x64 GitHub-hosted runner, then run again.'
-              echo "Available: $available_bytes bytes; estimate: $required_bytes bytes."
-              exit 1
-            fi
-          done
-
-      - name: Rebuild the SIF with the selected application code
+      - name: Build and check a fresh SIF runtime
         run: |
           chmod a+rx source/bin/*
           sudo env APPTAINER_TMPDIR="$APPTAINER_TMPDIR" \
-            apptainer build --disable-cache --notest \
-              --build-arg BASE_SIF=base.sif \
+            apptainer build --disable-cache \
               --build-arg SOURCE_DIR=source \
               Meta2Data.sif source/container/Meta2Data.def
           sudo chown "$(id -u):$(id -g)" Meta2Data.sif
           sha256sum Meta2Data.sif
 
-      - name: Publish the new SIF tag to GHCR
+      - name: Validate real fixtures inside the final SIF
+        run: |
+          apptainer exec --cleanenv \
+            --bind "$RUNNER_TEMP:$RUNNER_TEMP" \
+            Meta2Data.sif python \
+            /opt/meta2data-current/tests/integration/validate_runtime.py \
+            --smoke --work-dir "$RUNNER_TEMP/sif-validation" --threads 2
+
+      - name: Preserve SIF validation evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: sif-runtime-validation
+          path: |
+            ${{ runner.temp }}/sif-validation/validation.json
+            ${{ runner.temp }}/sif-validation/logs/
+          retention-days: 14
+
+      - name: Publish the validated SIF tag to GHCR
         env:
           APPTAINER_DOCKER_USERNAME: ${{ github.actor }}
           APPTAINER_DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
@@ -145,19 +205,16 @@ jobs:
       - name: Write the publication summary
         run: |
           revision=$(git -C source rev-parse HEAD)
-          base_checksum=$(sha256sum base.sif | cut -d ' ' -f 1)
           checksum=$(sha256sum Meta2Data.sif | cut -d ' ' -f 1)
           {
-            echo '## Published Meta2Data SIF'
+            echo '## Published validated Meta2Data SIF'
             echo
             echo "- Source commit: \`$revision\`"
-            echo "- Base image: \`oras://ghcr.io/${IMAGE_NAME}:${BASE_TAG}\`"
-            echo "- Base SIF SHA-256: \`$base_checksum\`"
-            echo "- New image: \`oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}\`"
-            echo "- New SIF SHA-256: \`$checksum\`"
-            echo '- Tests: not run (`apptainer build --notest`).'
+            echo '- Runtime: QIIME 2 2026.7.0, scikit-learn 1.7.1, fresh build from env.yml.'
+            echo '- Validation: complete native unit/platform tests and packaged SIF tests of PE DADA2/VSEARCH, all classifiers and both tree methods passed.'
+            echo "- Image: \`oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}\`"
+            echo "- SIF SHA-256: \`$checksum\`"
             echo
-            echo '```bash'
-            echo "apptainer pull Meta2Data-${OUTPUT_TAG}.sif oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}"
-            echo '```'
+            echo 'Download with:'
+            echo "\`apptainer pull Meta2Data-${OUTPUT_TAG}.sif oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}\`"
           } >> "$GITHUB_STEP_SUMMARY"

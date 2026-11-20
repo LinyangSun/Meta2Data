@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "classifier_id": "silva-138.1",
+  "built_utc": "2026-11-19T22:36:47.835193+00:00",
+  "recipe_sha256": "45ed4331f34efbfee4e9540c31c99d8c76ba7ce726d2fd8e0a313ea878947bc6",
+  "environment": {
+    "qiime2": "2026.7.0",
+    "q2-feature-classifier": "2026.7.0",
+    "rescript": "2026.7.0",
+    "scikit-learn": "1.7.1",
+    "numpy": "2.4.2",
+    "scipy": "1.17.1",
+    "python": "3.12.13"
+  },
+  "classifier": {
+    "filename": "silva-138.1-full-length-sklearn-1.7.1.qza",
+    "uuid": "7bb8da5e-bc83-4d33-8271-97f3c4028973",
+    "sklearn_version": "1.7.1",
+    "sha256": "81aa6ceef0fda3cef4e988423832eaeb8c134b67f300f5ba07ea3ac01e1da1d1",
+    "md5": "2cfc9c00b994e5a6dd58c251c91db7c0"
+  },
+  "sources": {
+    "rna": {
+      "url": "https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/SILVA_138.1_SSURef_NR99_tax_silva.fasta.gz",
+      "filename": "SILVA_138.1_SSURef_NR99_tax_silva.fasta.gz",
+      "md5": "0b47532bddb5cb2765f38d7420345cbd",
+      "uncompressed_md5": "b1a79c7b5a65b7f3b1a4543a8fb3c4e3",
+      "download_sha256": "7078a4e54ee962ca3108e776b8935795c744869e73e24c4718b8b5ff240410d0",
+      "uncompressed_sha256": "1953c0646148ff068ba74613745187ec1b13ebdf56b2420b90374ceec8b8a7c6"
+    },
+    "taxonomy_tree": {
+      "url": "https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/taxonomy/tax_slv_ssu_138.1.tre.gz",
+      "filename": "tax_slv_ssu_138.1.tre.gz",
+      "md5": "287ce923d6f2b18bb4a0e02767c7cb30",
+      "uncompressed_md5": "2a232dabdf460da4db143444ae02fdb7",
+      "download_sha256": "05478f03c3262b00e6b8772a15e32c91dad477036b70870a0b1c2e149b7efdfb",
+      "uncompressed_sha256": "e2c4eed924261d16db305465e178f9b8f35df0287460a2a0c9b5695334be684b"
+    },
+    "taxonomy_ranks": {
+      "url": "https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/taxonomy/tax_slv_ssu_138.1.txt.gz",
+      "filename": "tax_slv_ssu_138.1.txt.gz",
+      "md5": "bc864c2147e1661395336a3576ac5062",
+      "uncompressed_md5": "65c4258fa6b2fd18feeb7c23a615d104",
+      "download_sha256": "887627935d83cc0ad88fb3cac93b154470304fec6e73cbb2a04ae625427a203d",
+      "uncompressed_sha256": "ac48f05723cac1677ffa16b8124d6d05921bb82dc984fdfdce9949a66e68099f"
+    },
+    "taxonomy_map": {
+      "url": "https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/taxonomy/taxmap_slv_ssu_ref_nr_138.1.txt.gz",
+      "filename": "taxmap_slv_ssu_ref_nr_138.1.txt.gz",
+      "md5": "245d63d9ef80caf46f50f89d4374200d",
+      "uncompressed_md5": "10e46e105a3625d254b1abe90baa8706",
+      "download_sha256": "bf9225e0d127935d24124a61372c3a911b6badde867447fbdee8a3e6c29bec97",
+      "uncompressed_sha256": "387ae48e04798cba948953e431a6cf9c71e5f2c6cb9f4c8428285a85c0258293"
+    }
+  },
+  "recipe": {
+    "schema_version": 1,
+    "classifier_id": "silva-138.1",
+    "original_classifier_uuid": "70b4b5f4-8fce-40bd-b508-afacbc12a5ed",
+    "taxonomy_parse_ranks": [
+      "domain",
+      "phylum",
+      "class",
+      "order",
+      "family",
+      "genus"
+    ],
+    "sklearn_version": "1.7.1",
+    "sources": {
+      "rna": {
+        "url": "https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/SILVA_138.1_SSURef_NR99_tax_silva.fasta.gz",
+        "filename": "SILVA_138.1_SSURef_NR99_tax_silva.fasta.gz",
+        "md5": "0b47532bddb5cb2765f38d7420345cbd",
+        "uncompressed_md5": "b1a79c7b5a65b7f3b1a4543a8fb3c4e3"
+      },
+      "taxonomy_tree": {
+        "url": "https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/taxonomy/tax_slv_ssu_138.1.tre.gz",
+        "filename": "tax_slv_ssu_138.1.tre.gz",
+        "md5": "287ce923d6f2b18bb4a0e02767c7cb30",
+        "uncompressed_md5": "2a232dabdf460da4db143444ae02fdb7"
+      },
+      "taxonomy_ranks": {
+        "url": "https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/taxonomy/tax_slv_ssu_138.1.txt.gz",
+        "filename": "tax_slv_ssu_138.1.txt.gz",
+        "md5": "bc864c2147e1661395336a3576ac5062",
+        "uncompressed_md5": "65c4258fa6b2fd18feeb7c23a615d104"
+      },
+      "taxonomy_map": {
+        "url": "https://www.arb-silva.de/fileadmin/silva_databases/release_138.1/Exports/taxonomy/taxmap_slv_ssu_ref_nr_138.1.txt.gz",
+        "filename": "taxmap_slv_ssu_ref_nr_138.1.txt.gz",
+        "md5": "245d63d9ef80caf46f50f89d4374200d",
+        "uncompressed_md5": "10e46e105a3625d254b1abe90baa8706"
+      }
+    },
+    "steps": [
+      {
+        "action": "import",
+        "source": "rna",
+        "format": "RNAFASTAFormat",
+        "outputs": [
+          {
+            "name": "artifact",
+            "id": "rna",
+            "type": "FeatureData[RNASequence]"
+          }
+        ]
+      },
+      {
+        "action": "import",
+        "source": "taxonomy_tree",
+        "format": "NewickFormat",
+        "outputs": [
+          {
+            "name": "artifact",
+            "id": "taxonomy_tree",
+            "type": "Phylogeny[Rooted]"
+          }
+        ]
+      },
+      {
+        "action": "import",
+        "source": "taxonomy_ranks",
+        "format": "SILVATaxonomyFormat",
+        "outputs": [
+          {
+            "name": "artifact",
+            "id": "taxonomy_ranks",
+            "type": "FeatureData[SILVATaxonomy]"
+          }
+        ]
+      },
+      {
+        "action": "import",
+        "source": "taxonomy_map",
+        "format": "SILVATaxidMapFormat",
+        "outputs": [
+          {
+            "name": "artifact",
+            "id": "taxonomy_map",
+            "type": "FeatureData[SILVATaxidMap]"
+          }
+        ]
+      },
+      {
+        "plugin": "rescript",
+        "action": "parse_silva_taxonomy",
+        "inputs": {
+          "taxonomy_tree": "taxonomy_tree",
+          "taxonomy_map": "taxonomy_map",
+          "taxonomy_ranks": "taxonomy_ranks"
+        },
+        "parameters": {
+          "rank_propagation": true,
+          "ranks": [
+            "domain",
+            "phylum",
+            "class",
+            "order",
+            "family",
+            "genus"
+          ],
+          "include_species_labels": false
+        },
+        "outputs": [
+          {
+            "name": "taxonomy",
+            "id": "taxonomy",
+            "type": "FeatureData[Taxonomy]"
+          }
+        ]
+      },
+      {
+        "plugin": "rescript",
+        "action": "reverse_transcribe",
+        "inputs": {
+          "rna_sequences": "rna"
+        },
+        "parameters": {},
+        "outputs": [
+          {
+            "name": "dna_sequences",
+            "id": "dna",
+            "type": "FeatureData[Sequence]"
+          }
+        ]
+      },
+      {
+        "plugin": "rescript",
+        "action": "cull_seqs",
+        "inputs": {
+          "sequences": "dna"
+        },
+        "parameters": {
+          "num_degenerates": 5,
+          "homopolymer_length": 8,
+          "n_jobs": 1
+        },
+        "outputs": [
+          {
+            "name": "clean_sequences",
+            "id": "clean",
+            "type": "FeatureData[Sequence]"
+          }
+        ]
+      },
+      {
+        "plugin": "rescript",
+        "action": "filter_seqs_length_by_taxon",
+        "inputs": {
+          "sequences": "clean",
+          "taxonomy": "taxonomy"
+        },
+        "parameters": {
+          "labels": [
+            "Archaea",
+            "Bacteria",
+            "Eukaryota"
+          ],
+          "min_lens": [
+            900,
+            1200,
+            1400
+          ],
+          "max_lens": null,
+          "global_min": null,
+          "global_max": null
+        },
+        "outputs": [
+          {
+            "name": "filtered_seqs",
+            "id": "filtered",
+            "type": "FeatureData[Sequence]"
+          },
+          {
+            "name": "discarded_seqs",
+            "id": "discarded",
+            "type": "FeatureData[Sequence]",
+            "allow_empty_data": true
+          }
+        ]
+      },
+      {
+        "plugin": "rescript",
+        "action": "dereplicate",
+        "inputs": {
+          "sequences": "filtered",
+          "taxa": "taxonomy"
+        },
+        "parameters": {
+          "mode": "uniq",
+          "perc_identity": 1.0,
+          "threads": 1,
+          "rank_handles": [
+            "domain",
+            "phylum",
+            "class",
+            "order",
+            "family",
+            "genus",
+            "species"
+          ],
+          "derep_prefix": false
+        },
+        "outputs": [
+          {
+            "name": "dereplicated_sequences",
+            "id": "reference_reads",
+            "type": "FeatureData[Sequence]"
+          },
+          {
+            "name": "dereplicated_taxa",
+            "id": "reference_taxonomy",
+            "type": "FeatureData[Taxonomy]"
+          }
+        ]
+      },
+      {
+        "plugin": "feature_classifier",
+        "action": "fit_classifier_naive_bayes",
+        "inputs": {
+          "reference_reads": "reference_reads",
+          "reference_taxonomy": "reference_taxonomy"
+        },
+        "parameters": {
+          "classify__alpha": 0.001,
+          "classify__chunk_size": 1000,
+          "classify__class_prior": "null",
+          "classify__fit_prior": false,
+          "feat_ext__alternate_sign": false,
+          "feat_ext__analyzer": "char_wb",
+          "feat_ext__binary": false,
+          "feat_ext__decode_error": "strict",
+          "feat_ext__encoding": "utf-8",
+          "feat_ext__input": "content",
+          "feat_ext__lowercase": true,
+          "feat_ext__n_features": 8192,
+          "feat_ext__ngram_range": "[7, 7]",
+          "feat_ext__norm": "l2",
+          "feat_ext__preprocessor": "null",
+          "feat_ext__stop_words": "null",
+          "feat_ext__strip_accents": "null",
+          "feat_ext__token_pattern": "(?u)\\b\\w\\w+\\b",
+          "feat_ext__tokenizer": "null",
+          "verbose": false
+        },
+        "outputs": [
+          {
+            "name": "classifier",
+            "id": "classifier",
+            "type": "TaxonomicClassifier"
+          }
+        ]
+      }
+    ]
+  }
+}
