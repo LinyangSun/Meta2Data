@@ -1,11 +1,11 @@
 name: Build SIF
-run-name: Validate and build SIF ${{ inputs.output_tag }} from ${{ github.ref_name }}
+run-name: Publish validated SIF as ${{ inputs.output_tag }}
 
 on:
   workflow_dispatch:
     inputs:
       output_tag:
-        description: New GHCR tag to publish after Conda and SIF validation (latest is not allowed)
+        description: Version tag for the already validated SIF (v1.1)
         required: true
         type: string
 
@@ -13,208 +13,92 @@ permissions:
   contents: read
   packages: write
 
-concurrency:
-  group: build-sif-${{ github.repository }}-${{ inputs.output_tag }}
-  cancel-in-progress: false
-
-env:
-  CONDA_CHANNEL_PRIORITY: flexible
-  PYTHONNOUSERSITE: '1'
-  PYTHONDONTWRITEBYTECODE: '1'
-  MPLBACKEND: agg
-  UNIFRAC_USE_GPU: 'N'
-  MINIFORGE_VERSION: '26.9.4-2'
-  MINIFORGE_SHA256: bbaf16b3897da24c4be50315934ba74848f617b4495982841d6a0a60e0edbbdf
-  OUTPUT_TAG: ${{ inputs.output_tag }}
-
 jobs:
-  validate-conda:
-    runs-on: ${{ vars.SIF_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 180
-    defaults:
-      run:
-        shell: bash
-    steps:
-      - name: Check out the selected source revision
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: ${{ github.sha }}
-          persist-credentials: false
-
-      - name: Validate the requested release tag
-        run: |
-          tag_pattern='^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$'
-          if [[ ! "$OUTPUT_TAG" =~ $tag_pattern || "${OUTPUT_TAG,,}" == latest ]]; then
-            echo '::error::Use a new valid container tag of at most 128 characters; latest is not allowed.'
-            exit 1
-          fi
-
-      - name: Free space on the standard disposable runner
-        if: ${{ vars.SIF_RUNNER == '' || vars.SIF_RUNNER == 'ubuntu-24.04' }}
-        run: |
-          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
-          df -h "$GITHUB_WORKSPACE" "$RUNNER_TEMP"
-
-      - name: Install the pinned Conda runtime
-        run: |
-          set -euo pipefail
-          installer="$RUNNER_TEMP/miniforge.sh"
-          curl --fail --location --show-error --retry 3 \
-            "https://github.com/conda-forge/miniforge/releases/download/${MINIFORGE_VERSION}/Miniforge3-Linux-x86_64.sh" \
-            --output "$installer"
-          echo "$MINIFORGE_SHA256  $installer" | sha256sum --check -
-          bash "$installer" -b -p "$RUNNER_TEMP/miniforge"
-          "$RUNNER_TEMP/miniforge/bin/python" scripts/create_conda_environment.py \
-            --conda "$RUNNER_TEMP/miniforge/bin/conda" \
-            --prefix "$RUNNER_TEMP/meta2data-env"
-          echo "$RUNNER_TEMP/meta2data-env/bin" >> "$GITHUB_PATH"
-          echo "$GITHUB_WORKSPACE/bin" >> "$GITHUB_PATH"
-          echo "CONDA_PREFIX=$RUNNER_TEMP/meta2data-env" >> "$GITHUB_ENV"
-          chmod a+rx bin/*
-          "$RUNNER_TEMP/miniforge/bin/conda" list --prefix "$RUNNER_TEMP/meta2data-env" \
-            --explicit > "$RUNNER_TEMP/native-environment-linux-64.lock"
-          "$RUNNER_TEMP/miniforge/bin/conda" clean --all --yes
-
-      - name: Validate the native environment and real workflow fixtures
-        run: |
-          python tests/integration/validate_runtime.py \
-            --work-dir "$RUNNER_TEMP/native-validation" --threads 2
-
-      - name: Preserve native validation evidence
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: native-runtime-validation
-          path: |
-            ${{ runner.temp }}/native-validation/validation.json
-            ${{ runner.temp }}/native-validation/logs/
-            ${{ runner.temp }}/native-environment-linux-64.lock
-            ${{ runner.temp }}/meta2data-env/opt/sratoolkit.3.4.1-alma_linux64/meta2data-install.json
-          retention-days: 14
-
-  build:
-    needs: validate-conda
-    runs-on: ${{ vars.SIF_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 180
-    defaults:
-      run:
-        shell: bash
+  publish-tag:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     env:
-      APPTAINER_VERSION: '1.5.5'
+      IMAGE_NAME: linyangsun/meta2data
+      SOURCE_TAG: qiime2026.7-silva144-v1
+      OUTPUT_TAG: ${{ inputs.output_tag }}
+      SOURCE_SHA: b9c9b70c7da9c5c8f0b8d2cad189ce7e4edbc208
+      MANIFEST_SHA: e07f288ce27d52fb2aa39271856cd8b43f3df0905039d3aa6aa868c65b6b976b
+      SIF_SHA: 84f0093b37cb976cab8974195a20149d291994b677c8d37da16431c86d62dce1
     steps:
-      - name: Check out the same validated source revision
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          ref: ${{ github.sha }}
-          path: source
-          persist-credentials: false
-
-      - name: Reserve a new publication target
+      - name: Verify the completed build and publish its unchanged manifest
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
         run: |
           set -euo pipefail
-          image_name="${GITHUB_REPOSITORY,,}"
-          echo "IMAGE_NAME=$image_name" >> "$GITHUB_ENV"
-          echo "APPTAINER_TMPDIR=$RUNNER_TEMP/sif-build" >> "$GITHUB_ENV"
-          mkdir -p "$RUNNER_TEMP/sif-build"
-          registry_token=$(curl --fail-with-body --silent --show-error --retry 3 \
+          [[ "$OUTPUT_TAG" == v1.1 ]]
+          curl --fail --silent --show-error --retry 3 \
+            https://api.github.com/repos/LinyangSun/Meta2Data/actions/runs/44640635399 \
+            --output source-run.json
+          jq -e --arg sha "$SOURCE_SHA" \
+            '.status == "completed" and .conclusion == "success" and .head_sha == $sha' source-run.json
+          registry_token=$(curl --fail --silent --show-error --retry 3 \
             --user "${GITHUB_ACTOR}:${GHCR_TOKEN}" --get \
             --data-urlencode 'service=ghcr.io' \
-            --data-urlencode "scope=repository:${image_name}:pull,push" \
+            --data-urlencode "scope=repository:${IMAGE_NAME}:pull,push" \
             https://ghcr.io/token | jq -er '.token // .access_token')
           echo "::add-mask::$registry_token"
-          status=$(curl --silent --show-error --retry 3 \
-            --output "$RUNNER_TEMP/sif-output-manifest.json" --write-out '%{http_code}' \
+          curl --fail --silent --show-error --retry 3 \
             --header "Authorization: Bearer $registry_token" \
-            --header 'Accept: application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json' \
-            "https://ghcr.io/v2/${image_name}/manifests/${OUTPUT_TAG}")
+            --header 'Accept: application/vnd.oci.image.manifest.v1+json' \
+            "https://ghcr.io/v2/${IMAGE_NAME}/manifests/${SOURCE_TAG}" --output manifest.json
+          echo "$MANIFEST_SHA  manifest.json" | sha256sum --check -
+          jq -e --arg digest "sha256:$SIF_SHA" \
+            '.layers | length == 1 and .[0].digest == $digest and .[0].mediaType == "application/vnd.sylabs.sif.layer.v1.sif"' manifest.json
+          status=$(curl --silent --show-error --retry 3 \
+            --header "Authorization: Bearer $registry_token" \
+            --header 'Accept: application/vnd.oci.image.manifest.v1+json' \
+            --output target-manifest.json --write-out '%{http_code}' \
+            "https://ghcr.io/v2/${IMAGE_NAME}/manifests/${OUTPUT_TAG}")
           case "$status" in
-            404) ;;
-            200)
-              echo "::error::Tag $OUTPUT_TAG already exists; refusing to overwrite it."
-              exit 1 ;;
-            *)
-              echo "::error::GHCR tag check failed (HTTP $status). Check the package's Manage Actions access setting."
-              exit 1 ;;
+            404)
+              curl --fail --silent --show-error --retry 3 --request PUT \
+                --header "Authorization: Bearer $registry_token" \
+                --header 'Content-Type: application/vnd.oci.image.manifest.v1+json' \
+                --data-binary @manifest.json \
+                "https://ghcr.io/v2/${IMAGE_NAME}/manifests/${OUTPUT_TAG}" ;;
+            200) cmp manifest.json target-manifest.json ;;
+            *) echo "::error::Target check failed: HTTP $status"; exit 1 ;;
           esac
+          public_token=$(curl --fail --silent --show-error --retry 3 --get \
+            --data-urlencode 'service=ghcr.io' \
+            --data-urlencode "scope=repository:${IMAGE_NAME}:pull" \
+            https://ghcr.io/token | jq -er '.token // .access_token')
+          echo "::add-mask::$public_token"
+          curl --fail --silent --show-error --retry 3 \
+            --header "Authorization: Bearer $public_token" \
+            --header 'Accept: application/vnd.oci.image.manifest.v1+json' \
+            "https://ghcr.io/v2/${IMAGE_NAME}/manifests/${OUTPUT_TAG}" --output public-manifest.json
+          cmp manifest.json public-manifest.json
+          jq -n --arg checked "$(date -u +%FT%TZ)" \
+            --arg image "oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}" \
+            --arg source_tag "$SOURCE_TAG" --arg source_sha "$SOURCE_SHA" \
+            --arg manifest "$MANIFEST_SHA" --arg sif "$SIF_SHA" \
+            --argjson size "$(jq '.layers[0].size' manifest.json)" \
+            '{checked_utc:$checked,image:$image,source_tag:$source_tag,source_sha:$source_sha,validated_build_run:44640635399,manifest_sha256:$manifest,sif_sha256:$sif,sif_bytes:$size,anonymous_read_verified:true,identical_manifest:true}' > publication.json
+          cat publication.json
+          {
+            echo '## Published Meta2Data SIF v1.1'
+            echo
+            echo 'The manifest and SIF bytes are identical to the image validated by run 44640635399.'
+            echo
+            echo 'Download: `apptainer pull Meta2Data-v1.1.sif oras://ghcr.io/linyangsun/meta2data:v1.1`'
+            echo
+            echo "SIF SHA-256: `$SIF_SHA`"
+          } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Free space on the standard disposable runner
-        if: ${{ vars.SIF_RUNNER == '' || vars.SIF_RUNNER == 'ubuntu-24.04' }}
-        run: |
-          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
-          df -h "$GITHUB_WORKSPACE" "$RUNNER_TEMP"
-
-      - name: Check build space
-        run: |
-          # Fresh Conda creation, unpacked rootfs, fixtures and final SIF coexist.
-          required_bytes=$((30 * 1024 * 1024 * 1024))
-          for directory in "$GITHUB_WORKSPACE" "$APPTAINER_TMPDIR"; do
-            available_bytes=$(df -B1 --output=avail "$directory" | tail -n 1 | tr -d ' ')
-            if (( available_bytes < required_bytes )); then
-              echo '::error::Fresh runtime builds require at least 30 GiB free. Select an available larger runner through SIF_RUNNER if needed.'
-              exit 1
-            fi
-          done
-
-      - name: Install the pinned Apptainer build tool
-        run: |
-          package="apptainer_${APPTAINER_VERSION}_amd64.deb"
-          curl --fail --location --show-error --retry 3 \
-            "https://github.com/apptainer/apptainer/releases/download/v${APPTAINER_VERSION}/${package}" \
-            --output "$RUNNER_TEMP/$package"
-          sudo apt-get update
-          sudo apt-get install -y "$RUNNER_TEMP/$package"
-          apptainer --version
-
-      - name: Build and check a fresh SIF runtime
-        run: |
-          chmod a+rx source/bin/*
-          sudo env APPTAINER_TMPDIR="$APPTAINER_TMPDIR" \
-            apptainer build --disable-cache \
-              --build-arg SOURCE_DIR=source \
-              Meta2Data.sif source/container/Meta2Data.def
-          sudo chown "$(id -u):$(id -g)" Meta2Data.sif
-          sha256sum Meta2Data.sif
-
-      - name: Validate real fixtures inside the final SIF
-        run: |
-          apptainer exec --cleanenv \
-            --bind "$RUNNER_TEMP:$RUNNER_TEMP" \
-            Meta2Data.sif python \
-            /opt/meta2data-current/tests/integration/validate_runtime.py \
-            --smoke --work-dir "$RUNNER_TEMP/sif-validation" --threads 2
-
-      - name: Preserve SIF validation evidence
-        if: always()
+      - name: Preserve publication evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: sif-runtime-validation
+          name: sif-v1.1-publication
           path: |
-            ${{ runner.temp }}/sif-validation/validation.json
-            ${{ runner.temp }}/sif-validation/logs/
+            publication.json
+            manifest.json
+            public-manifest.json
+            source-run.json
           retention-days: 14
-
-      - name: Publish the validated SIF tag to GHCR
-        env:
-          APPTAINER_DOCKER_USERNAME: ${{ github.actor }}
-          APPTAINER_DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          apptainer push Meta2Data.sif "oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}"
-
-      - name: Write the publication summary
-        run: |
-          revision=$(git -C source rev-parse HEAD)
-          checksum=$(sha256sum Meta2Data.sif | cut -d ' ' -f 1)
-          {
-            echo '## Published validated Meta2Data SIF'
-            echo
-            echo "- Source commit: \`$revision\`"
-            echo '- Runtime: QIIME 2 2026.7.0, scikit-learn 1.7.1, fresh build from env.yml.'
-            echo '- Validation: complete native unit/platform tests and packaged SIF tests of PE DADA2/VSEARCH, all classifiers and both tree methods passed.'
-            echo "- Image: \`oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}\`"
-            echo "- SIF SHA-256: \`$checksum\`"
-            echo
-            echo 'Download with:'
-            echo "\`apptainer pull Meta2Data-${OUTPUT_TAG}.sif oras://ghcr.io/${IMAGE_NAME}:${OUTPUT_TAG}\`"
-          } >> "$GITHUB_STEP_SUMMARY"
